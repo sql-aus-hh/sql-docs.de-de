@@ -8,13 +8,13 @@ ms.date: 11/05/2019
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: language-extensions
-monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions'
-ms.openlocfilehash: 40fd6b73bf28b6a201a1c0fedd1624a09d67b9c0
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15'
+ms.openlocfilehash: 344e5f35e35202b6a44a4932db8a27424fdb8753
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935367"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97471801"
 ---
 # <a name="extensibility-architecture-in-sql-server-language-extensions"></a>Erweiterbarkeitsarchitektur in SQL Server-Spracherweiterungen
 
@@ -38,15 +38,15 @@ Jede unterstützte externe Sprache kann durch Aufrufen einer gespeicherten Proze
 
 Die Architektur ist so konzipiert, dass externer Code in einem separaten Prozess von SQL Server ausgeführt wird, jedoch mit Komponenten, die intern die Kette von Anforderungen für Daten und Vorgänge auf SQL Server verwalten. 
   
-  ***Komponentenarchitektur unter Windows:***
+  ***Komponentenarchitektur unter Windows:** _
 
   ![Komponentenarchitektur unter Windows](../media/generic-architecture-windows.png "Komponentenarchitektur unter Windows")
   
-  ***Komponentenarchitektur unter Linux:***
+  _*_Komponentenarchitektur unter Linux:_*_
   
   ![Komponentenarchitektur unter Linux](../media/generic-architecture-linux.png "Komponentenarchitektur unter Linux")
   
-Zu den Komponenten gehört ein **Launchpad**-Dienst, der zum Aufrufen externer Runtimes (z. B. Java) und bibliotheksspezifischer Logik für das Laden von Interpretern und Bibliotheken verwendet wird.
+Zu den Komponenten gehört ein *Launchpad*-Dienst, der zum Aufrufen externer Runtimes (z. B. Java) und bibliotheksspezifischer Logik für das Laden von Interpretern und Bibliotheken verwendet wird.
 
 <a name="launchpad"></a>
 

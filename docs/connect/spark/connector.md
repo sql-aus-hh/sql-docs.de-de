@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rajmera3
 ms.author: raajmera
 ms.reviewer: mikeray
-ms.openlocfilehash: 7450ebddf94a4378313bb1793bcefe34a88407a5
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: b4c7027fd4695e1c1110fb19ae8cefc9be34ac10
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442943"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97438853"
 ---
 # <a name="apache-spark-connector-sql-server--azure-sql"></a>Apache Spark-Connector: SQL Server und Azure SQL
 
@@ -25,7 +25,7 @@ Diese Bibliothek enthält den Quellcode für den Apache Spark-Connector für SQL
 
 [Apache Spark](https://spark.apache.org/) ist eine vereinheitlichte Engine zur Verarbeitung von umfangreichen Daten.
 
-Sie können den Connector mithilfe der Maven-Koordinaten in Ihr Projekt importieren: `com.microsoft.azure:spark-mssql-connector:1.0.0`. Ferner können Sie den Connector unter Verwendung einer Quelle erstellen oder die JAR-Datei aus dem Releaseabschnitt in GitHub herunterladen. Aktuelle Informationen zum Connector finden Sie unter dem [SQL Spark-Connector im GitHub-Repository](https://github.com/microsoft/sql-spark-connector).
+Sie können den Connector von [Maven](https://search.maven.org/search?q=spark-mssql-connector) verwenden. Verwenden Sie die Koordinate `com.microsoft.azure:spark-mssql-connector:<latest version>`, um den Connector zu importieren. Ferner können Sie den Connector unter Verwendung einer Quelle erstellen oder die JAR-Datei aus dem Releaseabschnitt in GitHub herunterladen. Aktuelle Informationen zum Connector finden Sie unter dem [SQL Spark-Connector im GitHub-Repository](https://github.com/microsoft/sql-spark-connector).
 
 ## <a name="supported-features"></a>Unterstützte Funktionen
 

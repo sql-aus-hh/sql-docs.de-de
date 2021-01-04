@@ -13,13 +13,13 @@ helpviewer_keywords:
 ms.assetid: a0665916-7789-4f94-9086-879275802cf3
 author: MashaMSFT
 ms.author: mathoma
-monikerRange: '>=sql-server-2016||=sqlallproducts-allversions'
-ms.openlocfilehash: bd75bde9e125ffc99f1af6f382aa91d2f1e0caf7
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+monikerRange: '>=sql-server-2016'
+ms.openlocfilehash: f927e003673cb4397250fe532d57452ddb4e6445
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91987276"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97474561"
 ---
 # <a name="local-audit-for-sql-server-usage-and-diagnostic-data-collection-ceip"></a>Lokale Überwachung für SQL Server-Nutzungs- und -Diagnosedatensammlung (CEIP)
 
@@ -27,7 +27,7 @@ ms.locfileid: "91987276"
 
 ## <a name="introduction"></a>Einführung
 
-Microsoft SQL Server enthält internetfähige Features, die Daten über Ihren Computer oder Ihr Gerät erfassen und senden können. Die zugehörigen Informationen werden als *Standardcomputerinformationen* bezeichnet. Die Komponente „Lokale Überwachung“ der [SQL Server-Nutzungs- und -Diagnosedatensammlung](usage-and-diagnostic-data-configuration-for-sql-server.md) schreibt die vom Dienst erfassten Daten, die die an Microsoft zu sendenden Daten (Protokolle) darstellen, in einen bestimmten Ordner. Der Zweck der lokalen Überwachung besteht darin, dass Kunden die von Microsoft mit dem Feature erfassten Daten einsehen können, um die Compliance sowie die Einhaltung von behördlichen Bestimmungen oder Datenschutzbestimmungen zu überprüfen.  
+Microsoft SQL Server enthält internetfähige Features, die Daten über Ihren Computer oder Ihr Gerät erfassen und senden können. Die zugehörigen Informationen werden als *Standardcomputerinformationen* bezeichnet. Die Komponente „Lokale Überwachung“ der [SQL Server-Nutzungs- und -Diagnosedatensammlung](usage-and-diagnostic-data-configuration-for-sql-server.md) schreibt die vom Dienst erfassten Daten, die die an Microsoft zu sendenden Daten (Protokolle) darstellen, in einen bestimmten Ordner. Der Zweck der lokalen Überwachung besteht darin, dass Kunden die von Microsoft mit dem Feature erfassten Daten einsehen können, um die Compliance sowie die Einhaltung von behördlichen Bestimmungen oder Datenschutzbestimmungen zu überprüfen.  
 
 Seit SQL Server 2016 CU2 und CU3 kann die lokale Überwachung auf der Instanzebene für SQL Server-Datenbank-Engine und Analysis Services (SSAS) konfiguriert werden. In SQL Server 2016 CU4, SQL Server 2016 SP1 und späteren Releases ist die lokale Überwachung auch für SQL Server Integration Services (SSIS) aktiviert. Andere SQL Server-Komponenten, die beim Setup installiert werden, und SQL Server-Tools, die nach dem Setup heruntergeladen oder installiert werden, bieten keine Funktion zur lokalen Überwachung der Nutzungs- und Diagnosedatensammlung.
 
@@ -44,7 +44,7 @@ Nachfolgend sind die erforderlichen Komponenten zum Aktivieren der lokalen Über
 
 1. Die Instanz wird auf SQL Server 2016 RTM CU2 oder höher gepatcht. Für Integration Services wird die Instanz auf SQL 2016 RTM CU4, SQL 2016 SP1 oder höher gepatcht.
 
-1. Benutzer muss ein Systemadministrator oder eine Rolle mit Zugriff zum Hinzufügen und Ändern von Registrierungsschlüsseln, Erstellen von Ordnern, Verwalten der Ordnersicherheit und Beenden/Starten eines Windows-Diensts sein.  
+1. Benutzer muss ein Systemadministrator oder eine Rolle mit Zugriff zum Hinzufügen und Ändern von Registrierungsschlüsseln, Erstellen von Ordnern, Verwalten der Ordnersicherheit und Beenden/Starten eines Windows-Diensts sein.  
 
 ## <a name="pre-configuration-steps-prior-to-turning-on-local-audit"></a>Vorkonfigurationsschritte vor der Aktivierung der lokalen Überwachung
 
@@ -67,13 +67,13 @@ Führen Sie die folgenden Schritte aus, um das Anmeldekonto für den SQL Server-
 
 2. Navigieren Sie zu dem entsprechenden Dienst. Suchen Sie z. B. für die Datenbank-Engine nach dem **SQL Server-CEIP-Dienst** **(*Name Ihrer Instanz*)** . Suchen Sie für Analysis Services nach **SQL Server Analysis Services-CEIP** **(*Name Ihrer Instanz*)** . Suchen Sie für Integration Services nach **SQL Server Integration Services-CEIP-Dienst**.
 
-3. Klicken Sie mit der rechten Maustaste auf den Dienst, und wählen Sie **Eigenschaften**aus. 
+3. Klicken Sie mit der rechten Maustaste auf den Dienst, und wählen Sie **Eigenschaften** aus. 
 
-4. Wählen Sie die Registerkarte **Anmelden** aus. Das Anmeldekonto wird in **Dieses Konto**aufgelistet. 
+4. Wählen Sie die Registerkarte **Anmelden** aus. Das Anmeldekonto wird in **Dieses Konto** aufgelistet. 
 
 ### <a name="configure-a-new-folder-for-the-local-audit-files"></a>Konfigurieren Sie einen neuen Ordner für die Dateien der lokalen Überwachung.    
 
-Erstellen Sie einen neuen Ordner (Verzeichnis für die lokale Überwachung), in den die Protokolle von der lokalen Überwachung geschrieben werden. Der vollständige Pfad zum Verzeichnis der lokalen Überwachung für eine Standardinstanz der Datenbank-Engine wäre beispielsweise: *C:\\SQLCEIPAudit\\MSSQLSERVER\\DB\\* . 
+Erstellen Sie einen neuen Ordner (Verzeichnis für die lokale Überwachung), in den die Protokolle von der lokalen Überwachung geschrieben werden. Der vollständige Pfad zum Verzeichnis der lokalen Überwachung für eine Standardinstanz der Datenbank-Engine wäre beispielsweise: *C:\\SQLCEIPAudit\\MSSQLSERVER\\DB\\* . 
  
   >[!NOTE] 
   >Konfigurieren Sie den Verzeichnispfad für die lokale Überwachung außerhalb des SQL Server-Installationspfads, um zu vermeiden, dass die Überwachungsfunktionen und das Patchen zu potenziellen Problemen mit SQL Server führen.
@@ -88,9 +88,9 @@ Erstellen Sie einen neuen Ordner (Verzeichnis für die lokale Überwachung), in 
 
 ### <a name="grant-permissions-to-the-sql-server-ceip-service-logon-account"></a>Gewähren von Berechtigungen für das Anmeldekonto des SQL Server-CEIP-Diensts
   
-1. Navigieren Sie in **Datei-Explorer**zum Speicherort, in dem sich der neue Ordner befindet.
+1. Navigieren Sie in **Datei-Explorer** zum Speicherort, in dem sich der neue Ordner befindet.
 
-1. Klicken Sie mit der rechten Maustaste auf den neuen Ordner, und wählen Sie **Eigenschaften**aus. 
+1. Klicken Sie mit der rechten Maustaste auf den neuen Ordner, und wählen Sie **Eigenschaften** aus. 
 
 1. Wählen Sie auf der Registerkarte **Sicherheit** die Option **Bearbeiten** und dann „Berechtigung verwalten“ aus.
 
@@ -108,23 +108,23 @@ Erstellen Sie einen neuen Ordner (Verzeichnis für die lokale Überwachung), in 
 
 1. Navigieren Sie zu dem entsprechenden CPE-Pfad:
 
-   | Version | ***Datenbank-Engine*** – Registrierungsschlüssel |
+   | Version | **_Datenbank-Engine_* – Registrierungsschlüssel |
    | :------ | :----------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**13**.*Name-Ihrer-Instanz*\\CPE |
-   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**14**.*Name-Ihrer-Instanz*\\CPE |
-   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**15**.*Name-Ihrer-Instanz*\\CPE |
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL_ *13**.* Name-Ihrer-Instanz*\\CPE |
+   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL **14**.*Name-Ihrer-Instanz*\\CPE |
+   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL **15**.*Name-Ihrer-Instanz*\\CPE |
    | &nbsp; | &nbsp; |
 
-   | Version | ***Analysis Services*** – Registrierungsschlüssel |
+   | Version | ***Analysis Services** – Registrierungsschlüssel |
    | :------ | :------------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**13**.*Name-Ihrer-Instanz*\\CPE |
-   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**14**.*Name-Ihrer-Instanz*\\CPE |
-   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**15**.*Name-Ihrer-Instanz*\\CPE |  
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS_ *13**.* Name-Ihrer-Instanz*\\CPE |
+   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS **14**.*Name-Ihrer-Instanz*\\CPE |
+   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS **15**.*Name-Ihrer-Instanz*\\CPE |  
    | &nbsp; | &nbsp; |
 
-   | Version | ***Integration Services*** – Registrierungsschlüssel |
+   | Version | ***Integration Services** – Registrierungsschlüssel |
    | :------ | :---------------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**130** |
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\_ *130** |
    | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**140** |
    | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**150** |
    | &nbsp; | &nbsp; |
@@ -137,7 +137,7 @@ Erstellen Sie einen neuen Ordner (Verzeichnis für die lokale Überwachung), in 
 
 Nachdem Sie die Schritte zur Vorkonfiguration abgeschlossen haben, können Sie die lokale Überwachung aktivieren. Verwenden Sie dazu ein Systemadministratorkonto oder eine ähnliche Rolle mit Zugriff auf die Änderungsfunktion für Registrierungsschlüssel, um die lokale Überwachung mithilfe der folgenden Schritte zu aktivieren oder zu deaktivieren. 
 
-1. Starten Sie **regedit**.  
+1. Starten Sie **regedit**.  
 
 1. Navigieren Sie zu dem entsprechenden CPE-[Pfad](#create-a-registry-key-setting-to-configure-local-audit-target-directory). 
 
@@ -173,24 +173,24 @@ Die lokale Überwachung generiert eine Protokolldatei pro Tag. Die Protokolldate
 
 ## <a name="maintenance"></a>Wartung 
 
-1. Um die Nutzung von Speicherplatz beim Schreiben von Dateien durch die lokale Überwachung einzuschränken, richten Sie eine Richtlinie oder einen regulären Auftrag ein. So kann das Verzeichnis für die lokale Überwachung bereinigt werden, um ältere, überflüssige Dateien zu entfernen.  
+1. Um die Nutzung von Speicherplatz beim Schreiben von Dateien durch die lokale Überwachung einzuschränken, richten Sie eine Richtlinie oder einen regulären Auftrag ein. So kann das Verzeichnis für die lokale Überwachung bereinigt werden, um ältere, überflüssige Dateien zu entfernen.  
 
-2. Schützen Sie das Verzeichnis der lokalen Überwachung, sodass nur geeignete Personen darauf zugreifen können. Beachten Sie, dass die Protokolldateien Informationen enthalten, die in [Konfigurieren von SQL Server 2016 zum Senden von Feedback an Microsoft](https://support.microsoft.com/kb/3153756) erläutert werden. Der entsprechende Zugriff auf diese Datei sollte die meisten Personen in Ihrem Unternehmen daran hindern, die Datei zu lesen.  
+2. Schützen Sie das Verzeichnis der lokalen Überwachung, sodass nur geeignete Personen darauf zugreifen können. Beachten Sie, dass die Protokolldateien Informationen enthalten, die in [Konfigurieren von SQL Server 2016 zum Senden von Feedback an Microsoft](https://support.microsoft.com/kb/3153756) erläutert werden. Der entsprechende Zugriff auf diese Datei sollte die meisten Personen in Ihrem Unternehmen daran hindern, die Datei zu lesen.  
 
 ## <a name="data-dictionary-of-local-audit-output-data-structure"></a>Datenwörterbuch für die Ausgabedatenstruktur der lokalen Überwachung 
 
-- Die Protokolldateien der lokalen Überwachung besitzen das JSON-Format und enthalten einen Satz von Objekten (Zeilen), die Datenpunkte darstellen, die zu **emitTime**an Microsoft gesendet werden.
-- Jede Zeile entspricht einem bestimmten Schema, das durch **schemaVersion**identifiziert wird.
-- Jede Zeile stellt eine Ausgabe einer SQLCEIP-Dienstsitzung dar, die als **sessionID**identifiziert wird.
-- Zeilen werden in Folge ausgegeben und durch **sequence**identifiziert.
+- Die Protokolldateien der lokalen Überwachung besitzen das JSON-Format und enthalten einen Satz von Objekten (Zeilen), die Datenpunkte darstellen, die zu **emitTime** an Microsoft gesendet werden.
+- Jede Zeile entspricht einem bestimmten Schema, das durch **schemaVersion** identifiziert wird.
+- Jede Zeile stellt eine Ausgabe einer SQLCEIP-Dienstsitzung dar, die als **sessionID** identifiziert wird.
+- Zeilen werden in Folge ausgegeben und durch **sequence** identifiziert.
 - Jede Datenpunktzeile enthält die Ausgabe für ein **queryIdentifier**, wobei es sich um eine T-SQL-Abfrage, eine XE-Sitzung oder eine handeln kann, die mit einer Art von Ablaufverfolgung verknüpft ist, die als **traceName** identifiziert wird.
-- **queryIdentifiers** werden zusammen mit **querySetVersion**gruppiert und erhalten eine Versionsangabe.
+- **queryIdentifiers** werden zusammen mit **querySetVersion** gruppiert und erhalten eine Versionsangabe.
 - **data** enthält die Ausgabe der entsprechenden Abfrageausführung, die **queryTimeInTicks** benötigt hat.
-- Für**queryIdentifiers** für T-SQL-Abfragen ist die T-SQL-Abfragedefinition in der Abfrage gespeichert.
+- Für **queryIdentifiers** für T-SQL-Abfragen ist die T-SQL-Abfragedefinition in der Abfrage gespeichert.
 
-| Logische Informationshierarchie für die lokale Überwachung | Verbundene Spalten |
+| Logische Informationshierarchie für die lokale Überwachung | Verbundene Spalten |
 | ------ | -------|
-| Header | emitTime, schemaVersion 
+| Header | emitTime, schemaVersion 
 | Machine | operatingSystem 
 | Instanz | instanceUniqueID, correlationID, clientVersion 
 | Sitzung | sessionID, traceName 
@@ -199,12 +199,12 @@ Die lokale Überwachung generiert eine Protokolldatei pro Tag. Die Protokolldate
 
 ### <a name="namevalue-pairs-definition-and-examples"></a>Definition und Beispiele für Name-Wert-Paare 
 
-Die nachfolgend aufgeführten Spalten stellen die Reihenfolge für die Dateiausgabe der lokalen Überwachung dar. Unidirektionaler Hash mit SHA-256 dient zum Anonymisieren von Werten für eine Reihe der nachfolgenden Spalten.  
+Die nachfolgend aufgeführten Spalten stellen die Reihenfolge für die Dateiausgabe der lokalen Überwachung dar. Unidirektionaler Hash mit SHA-256 dient zum Anonymisieren von Werten für eine Reihe der nachfolgenden Spalten.  
 
 | Name | BESCHREIBUNG | Beispielwerte
 |-------|--------| ----------|
 |instanceUniqueID| Anonymisierter Instanzbezeichner | 888770C4D5A8C6729F76F33D472B28883AE518C92E1999888B171A085059FD 
-|schemaVersion| Schemaversion von SQLCEIP |  3 
+|schemaVersion| Schemaversion von SQLCEIP |  3 
 |emitTime |Ausgabezeit für Datenpunkt in UTC | 2016-09-08T17:20:22.1124269Z 
 |sessionID | Sitzungsbezeichner für SQLCEIP-Dienst | 89decf9a-ad11-485c-94a7-fefb3a02ed86 
 |correlationId | Platzhalter für einen zusätzlichen Bezeichner | 0 
@@ -216,7 +216,7 @@ Die nachfolgend aufgeführten Spalten stellen die Reihenfolge für die Dateiausg
 |queryIdentifier | Ein Bezeichner der Abfrage | SQLServerProperties.002 
 |data   | Die Ausgabe der für queryIdentifier erfassten Informationen als Ausgabe einer T-SQL-Abfrage, XE-Sitzung oder der Anwendung |  [{"Collation": "SQL_Latin1_General_CP1_CI_AS","SqlFTinstalled": "0" "SqlIntSec": "1","IsSingleUser": "0","SqlFilestreamMode": "0","SqlPbInstalled": "0","SqlPbNodeRole": "","SqlVersionMajor": "13","SqlVersionMinor": "0","SqlVersionBuild": "2161","ProductBuildType": "","ProductLevel": "RTM","ProductUpdateLevel": "CU2","ProductUpdateReference": "KB3182270","ProductRevision": "3","SQLEditionId": "-1534726760","IsClustered": "0","IsHadrEnabled": "0","SqlAdvAInstalled": "0","PacketReceived": "1210","Version": "Microsoft SQL Server 2016 (RTM-CU2) (KB3182270) - 13.0.2161.3 (X64) \n\tSep  7 2016 14:24:16 \n\tCopyright (c) Microsoft Corporation\n\tStandard Edition (64-Bit) unter Windows Server 2012 R2 Datacenter 6.3 \u003cX64\u003e (Build 9600: ) (Hypervisor)\n"}],
 |Abfrage| Die auf queryIdentifier bezogene T-SQL-Abfragedefinition, die Daten erzeugt, falls zutreffend.        Diese Komponente wird nicht vom SQL Server CEIP-Dienst hochgeladen. Sie ist in der lokalen Überwachung nur als Referenz für Kunden enthalten.| SELECT\n      SERVERPROPERTY(\u0027Collation\u0027) AS [Collation],\n      SERVERPROPERTY(\u0027IsFullTextInstalled\u0027) AS [SqlFTinstalled],\n      SERVERPROPERTY(\u0027IsIntegratedSecurityOnly\u0027) AS [SqlIntSec],\n      SERVERPROPERTY(\u0027IsSingleUser\u0027) AS [IsSingleUser],\n      SERVERPROPERTY (\u0027FileStreamEffectiveLevel\u0027) AS [SqlFilestreamMode],\n      SERVERPROPERTY(\u0027IsPolyBaseInstalled\u0027) AS [SqlPbInstalled],\n      SERVERPROPERTY(\u0027PolyBaseRole\u0027) AS [SqlPbNodeRole],\n      SERVERPROPERTY(\u0027ProductMajorVersion\u0027) AS [SqlVersionMajor],\n      SERVERPROPERTY(\u0027ProductMinorVersion\u0027) AS [SqlVersionMinor],\n      SERVERPROPERTY(\u0027ProductBuild\u0027) AS [SqlVersionBuild],\n      SERVERPROPERTY(\u0027ProductBuildType\u0027) AS ProductBuildType,\n      SERVERPROPERTY(\u0027ProductLevel\u0027) AS ProductLevel,\n      SERVERPROPERTY(\u0027ProductUpdateLevel\u0027) AS ProductUpdateLevel,\n      SERVERPROPERTY(\u0027ProductUpdateReference\u0027) AS ProductUpdateReference,\n      RIGHT(CAST(SERVERPROPERTY(\u0027ProductVersion\u0027) AS NVARCHAR(30)),CHARINDEX(\u0027.\u0027, REVERSE(CAST(SERVERPROPERTY(\u0027ProductVersion\u0027) AS NVARCHAR(30)))) - 1) AS ProductRevision,\n      SERVERPROPERTY(\u0027EditionID\u0027) AS SQLEditionId,\n      SERVERPROPERTY(\u0027IsClustered\u0027) AS IsClustered,\n      SERVERPROPERTY(\u0027IsHadrEnabled\u0027) AS IsHadrEnabled,\n      SERVERPROPERTY(\u0027IsAdvancedAnalyticsInstalled\u0027) AS [SqlAdvAInstalled],\n      @@PACK_RECEIVED AS PacketReceived,\n      @@VERSION AS Version
-|queryTimeInTicks | Die Dauer zum Ausführen der Abfrage mit der folgenden Ablaufverfolgungskategorie: (SQLServerXeQueries, SQLServerPeriodicQueries) |  0 
+|queryTimeInTicks | Die Dauer zum Ausführen der Abfrage mit der folgenden Ablaufverfolgungskategorie: (SQLServerXeQueries, SQLServerPeriodicQueries) |  0 
  
 ### <a name="trace-categories"></a>Ablaufverfolgungskategorien 
 Derzeit werden die folgenden Ablaufverfolgungskategorien erfasst: 

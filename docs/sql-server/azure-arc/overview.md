@@ -5,16 +5,16 @@ description: Verwalten Sie SQL Server-Instanzen mit einer Azure Arc-fähigen SQL
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mikeray
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.custom: references_regions
-ms.openlocfilehash: 59a3dab4136749f85e1f752ee823f8815080fd76
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: c1ba7f7552b5050e3c1fa7bc765acfa431f3df30
+ms.sourcegitcommit: 18e2f0706e03d0b2b6324845244fbafaa077a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91987986"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97103145"
 ---
 # <a name="azure-arc-enabled-sql-server-preview"></a>Azure Arc-fähige SQL-Server-Instanz (Vorschauversion)
 
@@ -43,8 +43,9 @@ Azure Arc-fähige SQL Server-Instanzen unterstützen SQL Server 2012 und höher
 
 ### <a name="required-permissions"></a>Erforderliche Berechtigungen
 
-Für das Herstellen einer Verbindung für die SQL Server-Instanzen und das Hosten mit Azure Arc benötigen Sie ein Konto mit den Berechtigungen zum Ausführen der folgenden Aktionen:
-   * Microsoft.AzureData/*
+Sie benötigen ein Konto mit Berechtigungen zur Ausführung der folgenden Aktionen, um eine Verbindung zwischen den SQL Server-Instanzen, dem Hostcomputer und Azure Arc herzustellen:
+   * Microsoft.AzureArcData/sqlServerInstances/read
+   * Microsoft.AzureArcData/sqlServerInstances/write
    * Microsoft.HybridCompute/machines/read
    * Microsoft.HybridCompute/machines/write
    * Microsoft.GuestConfiguration/guestConfigurationAssignments/read
@@ -58,6 +59,10 @@ Machen Sie sich vor dem Konfigurieren Ihrer SQL Server-Instanzen und Computer mi
 ### <a name="networking-configuration-and-resource-providers"></a>Netzwerkkonfiguration und Ressourcenanbieter
 
 Sehen Sie sich die [Netzwerkkonfiguration, Transport Layer Security und Ressourcenanbieter](/azure/azure-arc/servers/agent-overview#prerequisites) an, die für den Connected Machine-Agent erforderlich sind.
+
+Der Ressourcenanbieter `Microsoft.AzureArcData` ist zum Herstellen einer Verbindung zwischen SQL Server-Instanzen und Azure Arc erforderlich. Weitere Informationen finden Sie in den Anweisungen für die Ressourcenanbieterregistrierung im Abschnitt [Voraussetzungen](connect.md#prerequisites).
+
+Wenn Sie bereits eine Verbindung zwischen den SQL Server-Instanzen und Azure Arc eingerichtet haben, führen Sie die Schritte zum Migrieren der vorhandenen **SQL Server – Azure Arc**-Ressourcen zum neuen Namespace durch.
 
 ### <a name="supported-azure-regions"></a>Unterstützte Azure-Regionen
 

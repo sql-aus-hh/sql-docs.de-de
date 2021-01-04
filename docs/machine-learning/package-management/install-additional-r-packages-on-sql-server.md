@@ -1,38 +1,49 @@
 ---
-title: Installieren neuer R-Pakete
+title: Installieren von R-Paketen mit sqlmlutils
 description: Hier erfahren Sie, wie Sie mit sqlmlutils neue R-Pakete in einer Instanz von SQL Server Machine Learning Services installieren können.
 ms.prod: sql
 ms.technology: machine-learning
-ms.date: 06/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
 author: garyericson
 ms.author: garye
 ms.custom: seo-lt-2019
-monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=azuresqldb-mi-current||=sqlallproducts-allversions'
-ms.openlocfilehash: d3f7c61420dc1b85f7f40854dce9931d25aef895
-ms.sourcegitcommit: 82b92f73ca32fc28e1948aab70f37f0efdb54e39
+monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=azuresqldb-mi-current'
+ms.openlocfilehash: 9db282708c8f2e9bbd4ee44d45bac0b0d25dc5b9
+ms.sourcegitcommit: 8a8c89b0ff6d6dfb8554b92187aca1bf0f8bcc07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94870492"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617559"
 ---
-# <a name="install-new-r-packages-with-sqlmlutils"></a>Installieren von neuen R-Paketen mit sqlmlutils
+# <a name="install-r-packages-with-sqlmlutils"></a>Installieren von R-Paketen mit sqlmlutils
 
 [!INCLUDE [SQL Server 2019 SQL MI](../../includes/applies-to-version/sqlserver2019-asdbmi.md)]
 
-::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions"
-In diesem Artikel wird beschrieben, wie Sie Funktionen im [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils)-Paket verwenden, um neue R-Pakete in einer Instanz von [Machine Learning Services in SQL Server](../sql-server-machine-learning-services.md) oder in [Big Data-Clustern](../../big-data-cluster/machine-learning-services.md) zu installieren. Die von Ihnen installierten Pakete können verwendet werden, um R-Skripts innerhalb einer Datenbank mithilfe der T-SQL-Anweisung [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) auszuführen.
+::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
+In diesem Artikel wird beschrieben, wie Sie Funktionen im [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils)-Paket verwenden, um R-Pakete in einer Instanz von [Machine Learning Services in SQL Server](../sql-server-machine-learning-services.md) oder in [Big Data-Cluster](../../big-data-cluster/machine-learning-services.md) zu installieren. Die von Ihnen installierten Pakete können verwendet werden, um R-Skripts innerhalb einer Datenbank mithilfe der T-SQL-Anweisung [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) auszuführen.
 
 > [!NOTE]
-> Das Paket **sqlmlutils**, das in diesem Artikel beschrieben wird, wird zum Hinzufügen von R-Paketen zu SQL Server 2019 oder höher verwendet. Informationen für SQL Server 2017 und früher finden Sie unter [Installieren von Paketen mit R-Tools](./install-r-packages-standard-tools.md?view=sql-server-2017).
+> Das Paket **sqlmlutils**, das in diesem Artikel beschrieben wird, wird zum Hinzufügen von R-Paketen zu SQL Server 2019 oder höher verwendet. Informationen für SQL Server 2017 und früher finden Sie unter [Installieren von Paketen mit R-Tools](./install-r-packages-standard-tools.md?view=sql-server-2017&preserve-view=true).
 ::: moniker-end
-::: moniker range="=azuresqldb-mi-current||=sqlallproducts-allversions"
-In diesem Artikel wird beschrieben, wie Sie Funktionen im [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils)-Paket verwenden, um neue R-Pakete in einer Instanz von [Microsoft Machine Learning Services in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/machine-learning-services-overview) zu installieren. Die von Ihnen installierten Pakete können verwendet werden, um R-Skripts innerhalb einer Datenbank mithilfe der T-SQL-Anweisung [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) auszuführen.
+
+::: moniker range="=azuresqldb-mi-current"
+In diesem Artikel wird beschrieben, wie Sie Funktionen im [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils)-Paket verwenden, um R-Pakete in einer Instanz von [Machine Learning Services in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/machine-learning-services-overview) zu installieren. Die von Ihnen installierten Pakete können verwendet werden, um R-Skripts innerhalb einer Datenbank mithilfe der T-SQL-Anweisung [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) auszuführen.
 ::: moniker-end
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Installieren Sie [R](https://www.r-project.org) und [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) auf dem Clientcomputer, den Sie mit SQL Server verbinden. Zum Ausführen von Skripts können Sie jede beliebige R-IDE verwenden. In diesem Artikel wird jedoch davon ausgegangen, dass Sie RStudio nutzen.
+
+  Die Version von R auf dem Clientcomputer muss mit der Version von R auf dem Server übereinstimmen, und die Pakete, die Sie installieren, müssen mit Ihrer R-Version kompatibel sein.
+  Informationen zu der in jeder SQL Server-Version enthaltenen R-Version finden Sie unter [Python- und R-Pakete](../sql-server-machine-learning-services.md#versions).
+  
+  Verwenden Sie den folgenden T-SQL-Befehl, um die Version von R auf einer bestimmten SQL Server-Instanz zu überprüfen.
+
+  ```sql
+  EXECUTE sp_execute_external_script @language = N'R'
+   , @script = N'print(R.version)'
+  ```
 
 - Installieren Sie [Azure Data Studio](../../azure-data-studio/what-is.md) auf dem Clientcomputer, den Sie mit SQL Server verbinden. Sie können auch andere Datenbankverwaltungs- oder Abfragetools verwenden. In diesem Artikel wird jedoch davon ausgegangen, dass Sie Azure Data Studio nutzen.
 
@@ -51,7 +62,7 @@ In diesem Artikel wird beschrieben, wie Sie Funktionen im [**sqlmlutils**](https
 
 Zur Verwendung von **sqlmlutils** müssen Sie dies zunächst auf dem Clientcomputer installieren, den Sie mit SQL Server verbinden.
 
-Welches **sqlmlutils**-Paket verwendet wird, hängt vom **RODBCext**-Paket ab. Und welches **RODBCext**-Paket verwendet wird, hängt von einigen anderen Paketen ab. Mithilfe der folgenden Verfahren werden alle Pakete in der richtigen Reihenfolge installiert.
+Das **sqlmlutils**-Paket ist vom **odbc**-Paket abhängig und das **odbc**-Paket wiederum von einigen anderen Paketen. Mithilfe der folgenden Verfahren werden alle Pakete in der richtigen Reihenfolge installiert.
 
 ### <a name="install-sqlmlutils-online"></a>Onlineinstallation von sqlmlutils
 
@@ -59,27 +70,27 @@ Wenn der Clientcomputer Internetzugriff hat, können Sie **sqlmlutils** und die 
 
 1. Laden Sie die aktuelle **sqlmlutils**-Datei (`.zip` für Windows, `.tar.gz` für Linux) über die Seite https://github.com/Microsoft/sqlmlutils/tree/master/R/dist auf den Clientcomputer herunter. Erweitern Sie die Datei nicht.
 
-1. Öffnen Sie eine **Eingabeaufforderung**, und führen Sie die folgenden Befehle aus, um die Pakete **RODBCext** und **sqlmlutils** zu installieren. Ersetzen Sie den Pfad zu der **sqlmlutils**-Datei, die Sie heruntergeladen haben. Das Paket **RODBCext** können Sie online finden und installieren.
+1. Öffnen Sie eine **Eingabeaufforderung**, und führen Sie die folgenden Befehle aus, um die Pakete **odbc** und **sqlmlutils** zu installieren. Ersetzen Sie den Pfad zu der **sqlmlutils**-Datei, die Sie heruntergeladen haben. Das **odbc**-Paket können Sie online finden und installieren.
 
-   ::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-ver15||=azuresqldb-mi-current"
    ```console
-   R -e "install.packages('RODBCext', repos='https://mran.microsoft.com/snapshot/2019-02-01/')"
-   R CMD INSTALL sqlmlutils_0.7.1.zip
+   R.exe -e "install.packages('odbc')"
+   R.exe CMD INSTALL sqlmlutils_1.0.0.zip
    ```
    ::: moniker-end
 
-   ::: moniker range=">=sql-server-linux-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-linux-ver15"
    ```console
-   R -e "install.packages('RODBCext', repos='https://mran.microsoft.com/snapshot/2019-02-01/')"
-   R CMD INSTALL sqlmlutils_0.7.1.tar.gz
+   R.exe -e "install.packages('odbc')"
+   R.exe CMD INSTALL sqlmlutils_1.0.0.tar.gz
    ```
    ::: moniker-end
 
 ### <a name="install-sqlmlutils-offline"></a>Offlineinstallation von sqlmlutils
 
-Wenn der Clientcomputer über keine Internetverbindung verfügt, müssen Sie die Pakete **RODBCext** und **sqlmlutils** vorab über einen Computer mit Internetzugang herunterladen. Anschließend können Sie die Dateien in einen Ordner auf dem Clientcomputer kopieren und die Pakete offline installieren.
+Wenn der Clientcomputer über keine Internetverbindung verfügt, müssen Sie die Pakete **odbc** und **sqlmlutils** vorab auf einem Computer mit Internetzugang herunterladen. Anschließend können Sie die Dateien in einen Ordner auf dem Clientcomputer kopieren und die Pakete offline installieren.
 
-Das **RODBCext**-Paket enthält zahlreiche abhängige Pakete, sodass sich die Identifizierung aller Abhängigkeiten für ein Paket schwierig gestaltet. Daher sollten Sie [**miniCRAN**](https://andrie.github.io/miniCRAN/) verwenden, um einen lokalen Repositoryordner für das Paket zu erstellen, das alle abhängigen Pakete enthält.
+Das **odbc**-Paket verfügt über zahlreiche abhängige Pakete, sodass sich das Identifizieren aller Abhängigkeiten für ein Paket schwierig gestaltet. Daher sollten Sie [**miniCRAN**](https://andrie.github.io/miniCRAN/) verwenden, um einen lokalen Repositoryordner für das Paket zu erstellen, das alle abhängigen Pakete enthält.
 Weitere Informationen finden Sie im Artikel zum Thema [Erstellen eines lokalen R-Paketrepositorys mit miniCRAN](create-a-local-package-repository-using-minicran.md).
 
 Das **sqlmlutils**-Paket besteht aus einer einzelnen Datei, die Sie auf den Clientcomputer kopieren und dort installieren können.
@@ -88,24 +99,26 @@ Auf einem Computer mit Internetzugriff:
 
 1. Installieren Sie **miniCRAN**. Weitere Informationen finden Sie unter [Installieren von miniCRAN](create-a-local-package-repository-using-minicran.md#install-minicran).
 
-1. Führen Sie in RStudio das folgende R-Skript aus, um ein lokales Repository für das Paket **RODBCext** zu erstellen. In diesem Beispiel wird davon ausgegangen, dass das Repository im Ordner `rodbcext` erstellt wird.
+1. Führen Sie in RStudio das folgende R-Skript aus, um ein lokales Repository für das Paket **odbc** zu erstellen. In diesem Beispiel wird davon ausgegangen, dass das Repository im Ordner `odbc` erstellt wird.
 
-   ::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-ver15||=azuresqldb-mi-current"
    ```R
-   CRAN_mirror <- c(CRAN = "https://mran.microsoft.com/snapshot/2019-02-01/")
-   local_repo <- "rodbcext"
-   pkgs_needed <- "RODBCext"
+   library("miniCRAN")
+   CRAN_mirror <- c(CRAN = "https://cran.microsoft.com")
+   local_repo <- "odbc"
+   pkgs_needed <- "odbc"
    pkgs_expanded <- pkgDep(pkgs_needed, repos = CRAN_mirror);
 
    makeRepo(pkgs_expanded, path = local_repo, repos = CRAN_mirror, type = "win.binary", Rversion = "3.5");
    ```
    ::: moniker-end
 
-   ::: moniker range=">=sql-server-linux-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-linux-ver15"
    ```R
-   CRAN_mirror <- c(CRAN = "https://mran.microsoft.com/snapshot/2019-02-01/")
-   local_repo <- "rodbcext"
-   pkgs_needed <- "RODBCext"
+   library("miniCRAN")
+   CRAN_mirror <- c(CRAN = "https://cran.microsoft.com")
+   local_repo <- "odbc"
+   pkgs_needed <- "odbc"
    pkgs_expanded <- pkgDep(pkgs_needed, repos = CRAN_mirror);
 
    makeRepo(pkgs_expanded, path = local_repo, repos = CRAN_mirror, type = "source", Rversion = "3.5");
@@ -121,25 +134,25 @@ Auf einem Computer mit Internetzugriff:
 
 1. Laden Sie die aktuelle **sqlmlutils**-Datei (`.zip` für Windows, `.tar.gz` für Linux) über die Seite [https://github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) herunter. Erweitern Sie die Datei nicht.
 
-1. Kopieren Sie den gesamten **RODBCext**-Repositoryordner und die **sqlmlutils**-Datei auf den Clientcomputer.
+1. Kopieren Sie den gesamten **odbc**-Repositoryordner und die **sqlmlutils**-Datei auf den Clientcomputer.
 
 Führen Sie auf dem Clientcomputer, den Sie für die Verbindung mit SQL Server verwenden, folgende Schritte durch:
 
 1. Öffnen Sie eine Eingabeaufforderung.
 
-1. Führen Sie die folgenden Befehle aus, um **RODBCext** und anschließend **sqlmlutils** zu installieren. Ersetzen Sie die vollständigen Pfade zum **RODBCext**-Repositoryordner und zur **sqlmlutils**-Datei, die Sie auf diesen Computer kopiert haben.
+1. Führen Sie die folgenden Befehle aus, um **odbc** und anschließend **sqlmlutils** zu installieren. Ersetzen Sie die vollständigen Pfade zum **odbc**-Repositoryordner und zur **sqlmlutils**-Datei, die Sie auf diesen Computer kopiert haben.
 
-   ::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-ver15||=azuresqldb-mi-current"
    ```console
-   R -e "install.packages('RODBCext', repos='rodbcext')"
-   R CMD INSTALL sqlmlutils_0.7.1.zip
+   R.exe -e "install.packages('odbc', repos='odbc')"
+   R.exe CMD INSTALL sqlmlutils_1.0.0.zip
    ```
    ::: moniker-end
 
-   ::: moniker range=">=sql-server-linux-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-linux-ver15"
    ```console
-   R -e "install.packages('RODBCext', repos='rodbcext')"
-   R CMD INSTALL sqlmlutils_0.7.1.tar.gz
+   R.exe -e "install.packages('odbc', repos='odbc')"
+   R.exe CMD INSTALL sqlmlutils_1.0.0.tar.gz
    ```
    ::: moniker-end
 
@@ -178,8 +191,9 @@ Auf einem Computer mit Internetzugriff:
 
 1. Führen Sie das folgende R-Skript aus, um ein lokales Repository für **glue** zu erstellen. In diesem Beispiel wird der Repositoryordner im Verzeichnis `c:\downloads\glue` erstellt.
 
-   ::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-ver15||=azuresqldb-mi-current"
    ```R
+   library("miniCRAN")
    CRAN_mirror <- c(CRAN = "https://cran.microsoft.com")
    local_repo <- "c:/downloads/glue"
    pkgs_needed <- "glue"
@@ -189,8 +203,9 @@ Auf einem Computer mit Internetzugriff:
    ```
    ::: moniker-end
 
-   ::: moniker range=">=sql-server-linux-ver15||=sqlallproducts-allversions"
+   ::: moniker range=">=sql-server-linux-ver15"
    ```R
+   library("miniCRAN")
    CRAN_mirror <- c(CRAN = "https://cran.microsoft.com")
    local_repo <- "c:/downloads/glue"
    pkgs_needed <- "glue"
@@ -262,6 +277,17 @@ Wenn Sie das **glue**-Paket entfernen möchten, führen Sie das folgende R-Skrip
 
 ```R
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
+```
+
+## <a name="more-sqlmlutils-functions"></a>Weitere sqlmlutils-Funktionen
+
+Das **sqlmlutils**-Paket enthält zahlreiche Funktionen zum Verwalten von R-Paketen sowie zum Erstellen, Verwalten und Ausführen von gespeicherten Prozeduren und Abfragen in einer SQL Server-Instanz. Weitere Informationen finden Sie in der [README-Datei für das R-Paket sqlmlutils](https://github.com/microsoft/sqlmlutils/tree/master/R).
+
+Weitere Informationen zu **sqlmlutils**-Funktionen erhalten Sie über die R-Funktion **help** oder den **?** -Operator. zusammenfassen. Beispiel:
+
+```R
+library(sqlmlutils)
+help("sql_install.packages")
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

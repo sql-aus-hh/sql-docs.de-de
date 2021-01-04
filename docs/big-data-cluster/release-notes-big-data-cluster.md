@@ -9,12 +9,12 @@ ms.date: 10/19/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: b3265c99e185f4a8fcbe68e400ab1277b1e72671
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: f328e136bc0b07f23083153277ac98588702b373
+ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442889"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97489660"
 ---
 # <a name="sql-server-2019-big-data-clusters-release-notes"></a>Versionshinweise zu Big Data-Clustern für SQL Server 2019
 
@@ -191,6 +191,12 @@ Mit der allgemeinen Vertriebsversion 1 für SQL Server 2019 (GDR1) wird die allg
 [!INCLUDE [sql-server-servicing-updates-version-15](../includes/sql-server-servicing-updates-version-15.md)]
 
 ## <a name="known-issues"></a>Bekannte Probleme
+
+### <a name="msdtc-capabilities-can-not-be-enabled-for-sql-server-master-instance-running-within-bdc"></a>MS DTC-Funktionen können nicht für die SQL Server-Masterinstanz aktiviert werden, die in Big Data-Clustern ausgeführt werden.
+
+- **Betroffene Releases:** Alle Bereitstellungskonfigurationen für Big Data-Cluster, unabhängig vom Release
+
+- **Problem und Kundenbeeinträchtigung:** Bei SQL Server-Bereitstellungen in Big Data-Clustern als SQL Server-Masterinstanz kann das MS DTC-Feature nicht aktiviert werden. Für diesen Fall gibt es keine Problemumgehung.
 
 ### <a name="ha-sql-server-database-encryption-key-encryptor-rotation"></a>Rotation der Verschlüsselungsschlüssel für SQL Server-Datenbanken mit Hochverfügbarkeit
 

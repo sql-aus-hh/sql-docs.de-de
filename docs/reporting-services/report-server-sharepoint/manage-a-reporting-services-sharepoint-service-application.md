@@ -8,13 +8,13 @@ ms.technology: report-server-sharepoint
 ms.topic: conceptual
 author: maggiesMSFT
 ms.author: maggies
-monikerRange: '>=sql-server-2016 <=sql-server-2016||=sqlallproducts-allversions'
-ms.openlocfilehash: 5de7b0a5b155c519a7a7d24331fb9ad2dc571e3e
-ms.sourcegitcommit: 66a0672e47415dbd5cfd8d19075102c8c3973e70
+monikerRange: '>=sql-server-2016 <=sql-server-2016'
+ms.openlocfilehash: cbc258c5da9252a4463caf4b9b096c5a899d9e0a
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83765059"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97409686"
 ---
 # <a name="manage-a-reporting-services-sharepoint-service-application"></a>Verwalten einer Reporting Services-SharePoint-Dienstanwendung
 
@@ -31,7 +31,7 @@ ms.locfileid: "83765059"
 
  Zum Öffnen der Eigenschaftenseite für eine [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Dienstanwendung gehen Sie wie folgt vor:  
   
-1.  Klicken Sie in der Zentraladministration in der Gruppe **Anwendungsverwaltung**auf Dienstanwendungen verwalten.  
+1.  Klicken Sie in der Zentraladministration in der Gruppe **Anwendungsverwaltung** auf Dienstanwendungen verwalten.  
   
 2.  Klicken Sie neben dem Namen der Dienstanwendung oder auf die Spalte **Typ** . Dadurch wird die gesamte Zeile ausgewählt. Klicken Sie anschließend im SharePoint-Menüband auf **Eigenschaften** .  
   
@@ -41,7 +41,7 @@ ms.locfileid: "83765059"
 
  Zum Öffnen der Verwaltungsseiten für eine [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Dienstanwendung gehen Sie wie folgt vor:  
   
-1.  Klicken Sie in der Zentraladministration in der Gruppe **Anwendungsverwaltung**auf Dienstanwendungen verwalten.  
+1.  Klicken Sie in der Zentraladministration in der Gruppe **Anwendungsverwaltung** auf Dienstanwendungen verwalten.  
   
 2.  Klicken Sie auf den Namen der Dienstanwendung. Die Seite **Reporting Services-Anwendung verwalten** wird geöffnet.  
   
@@ -93,7 +93,7 @@ ms.locfileid: "83765059"
 |Einstellung|Kommentare|  
 |-------------|--------------|  
 |Berichts-Generator-Download aktivieren|Der Standardwert ist TRUE.<br /><br /> Gibt an, ob Clients die Schaltfläche zum Herunterladen der Berichts-Generator-Anwendung erkennen.|  
-|Start-URL des Berichts-Generators|Geben Sie eine benutzerdefinierte URL an, wenn der Berichtsserver nicht die Standard-URL des Berichts-Generators verwendet. Diese Einstellung ist optional. Wenn Sie keinen Wert angeben, wird die Standard-URL verwendet, mit der Berichts-Generator gestartet wird. Geben Sie den folgenden Wert ein, um den Berichts-Generator 3.0 als ClickOnce-Anwendung zu starten: https://\<Computername>/ReportServer/ReportBuilder/ReportBuilder_3_0_0_0.application.|  
+|Start-URL des Berichts-Generators|Geben Sie eine benutzerdefinierte URL an, wenn der Berichtsserver nicht die Standard-URL des Berichts-Generators verwendet. Diese Einstellung ist optional. Wenn Sie keinen Wert angeben, wird die Standard-URL verwendet, mit der Berichts-Generator gestartet wird. Geben Sie den folgenden Wert ein, um den Berichts-Generator 3.0 als ClickOnce-Anwendung zu starten: https://\<computername>/ReportServer/ReportBuilder/ReportBuilder_3_0_0_0.application.|  
 |Clientdruck aktivieren|Der Standard lautet TRUE.<br /><br /> Gibt an, ob Benutzer das clientseitige Steuerelement herunterladen können, das Druckoptionen bereitstellt.|  
 |Sitzungstimeout bearbeiten|Der Standardwert ist 7.200 Sekunden.|  
 |Sitzungscachelimit bearbeiten|Der Standardwert ist 5.|  
@@ -147,7 +147,7 @@ Get-SPRSServiceApplication | select typename, name, service, ueaccountname
  Wählen Sie diese Option aus, um ein Konto anzugeben.  
   
  **Konto**  
- Geben Sie ein Windows-Domänenbenutzerkonto an. Verwenden Sie dieses Format: *\<Domäne>\\<Benutzerkonto\>* .  
+ Geben Sie ein Windows-Domänenbenutzerkonto an. Verwenden Sie das folgende Format: *\<domain>\\<Benutzerkonto\>* .  
   
  **Kennwort**  
  Geben Sie das Kennwort ein.  
