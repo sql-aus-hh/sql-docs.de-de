@@ -8,12 +8,12 @@ ms.reviewer: mikeray
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.prod: sql
-ms.openlocfilehash: 2bd589ebacd9ea35e15881eaaeb022d4f2302986
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: e0c68752d21de5945c06433af8c08f6208322f7c
+ms.sourcegitcommit: 18e2f0706e03d0b2b6324845244fbafaa077a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91988026"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97103169"
 ---
 # <a name="configure-advanced-data-security-for-azure-arc-enabled-sql-server-instance"></a>Konfigurieren der erweiterten Datensicherheit für Azure Arc-fähige SQL Server-Instanzen
 
@@ -50,17 +50,17 @@ Der nächste Schritt ist nur erforderlich, wenn Sie den MMA-Agent noch nicht auf
 
 1. Weitere Informationen finden Sie unter [Verwalten von Erweiterungen mit Azure Arc](/azure/azure-arc/servers/manage-vm-extensions).
 
-## <a name="enable-advanced-data-security"></a>Aktivieren der erweiterten Datensicherheit
+## <a name="enable-azure-defender"></a>Aktivieren von Azure Defender
 
-Als Nächstes müssen Sie die erweiterte Datensicherheit für Ihre SQL Server-Instanz aktivieren.
+Als Nächstes müssen Sie Azure Defender für die SQL Server-Instanz aktivieren.
 
 1. Öffnen Sie das Security Center, und öffnen Sie die Seite **Preise und Einstellungen** über die Seitenleiste.
 
 1. Wählen Sie den Arbeitsbereich aus, den Sie im vorherigen Schritt für die MMA-Erweiterung konfiguriert haben.
 
-1. Wählen Sie **Standard** aus. Stellen Sie sicher, dass die Option **SQL Server-Instanzen auf dem Computer (Vorschau)** aktiviert ist.
+1. Klicken Sie auf **Azure Defender ein**. Stellen Sie sicher, dass die Option **SQL Server-Instanzen auf Computern** aktiviert ist.
 
-   ![Upgraden eines Arbeitsbereichs](media/configure-advanced-data-security/upgrade-log-analytics-workspace.png)
+   ![Upgraden eines Arbeitsbereichs](media/configure-advanced-data-security/enable-azure-defender.png)
 
  > [!NOTE]
    > Der erste Scan zum Generieren der Sicherheitsrisikobewertung erfolgt innerhalb von 24 Stunden nach Aktivierung der erweiterten Datensicherheit. Anschließend werden wöchentlich an jedem Sonntag automatische Scans durchgeführt.

@@ -14,13 +14,13 @@ ms.assetid: 11f2182c-5f71-46f8-8d2b-74f0fc48f2d6
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-monikerRange: = azuresqldb-mi-current || >= sql-server-2016 || = sqlallproducts-allversions
-ms.openlocfilehash: 813740790db9a7f9bb15f8e5d2a003b73ba5a88f
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+monikerRange: = azuresqldb-mi-current || >= sql-server-2016
+ms.openlocfilehash: 96a19ea760409d354390c171965f494f59cdff42
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92037946"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97477031"
 ---
 # <a name="job-activity-monitor"></a>Auftragsaktivitätsmonitor
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -37,19 +37,19 @@ Der Name des Auftrags.
 **Enabled**  
 Zeigt an, ob der Auftrag aktiviert (**Ja**) oder nicht aktiviert (**Nein**) ist.  
   
-**Status***  
+**Status**  
 Aktueller Status des Auftrags  
   
-**Ergebnis der letzten Ausführung**  
+*Ergebnis der letzten Ausführung**  
 Auftragsstatus bei der letzten Ausführung  
   
 **Zuletzt ausgeführt**  
 Datum und Uhrzeit, an dem bzw. zu der der Auftrag zuletzt ausgeführt wurde (ausgehend vom lokalen Datum und der lokalen Uhrzeit des Servers).  
   
-**Nächste Ausführung***  
+**Nächste Ausführung**  
 Datum und Uhrzeit des Zeitpunkts, an dem die nächste Ausführung des Auftrags geplant ist (ausgehend vom lokalen Datum und der lokalen Uhrzeit des Servers).  
   
-**Kategorie**  
+*Kategorie**  
 Die dem Auftrag zugewiesene Auftragskategorie.  
   
 **Ausführbar**  
@@ -62,7 +62,7 @@ Die dem Auftrag zugewiesene Auftragskategorie.
   
 #### <a name="to-open-the-job-activity-monitor"></a>So öffnen Sie den Auftragsaktivitätsmonitor  
   
--   Erweitern Sie in **Objekt-Explorer**den verwendeten Server und anschließend **SQL Server-Agent**. Klicken Sie mit der rechten Maustaste auf **Auftragsaktivitätsmonitor**, und klicken Sie dann auf **Auftragsaktivitäten anzeigen**.  
+-   Erweitern Sie in **Objekt-Explorer** den verwendeten Server und anschließend **SQL Server-Agent**. Klicken Sie mit der rechten Maustaste auf **Auftragsaktivitätsmonitor**, und klicken Sie dann auf **Auftragsaktivitäten anzeigen**.  
   
 ## <a name="see-also"></a>Weitere Informationen  
 [Überwachen der Auftragsaktivität](../../ssms/agent/monitor-job-activity.md)  
