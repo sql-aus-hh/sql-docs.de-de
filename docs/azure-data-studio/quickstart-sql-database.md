@@ -9,12 +9,12 @@ author: yualan
 ms.author: alayu
 ms.custom: seodec18; sqlfreshmay19; seo-lt-2019
 ms.date: 05/14/2019
-ms.openlocfilehash: 7eb89be3b94565f7a8642dad893642176a22822b
-ms.sourcegitcommit: fb8724fb99c46ecf3a6d7b02a743af9b590402f0
+ms.openlocfilehash: c168ceb916ac1b65f4e6d45c9ee1054b15b0cb75
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92439294"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637657"
 ---
 # <a name="quickstart-use-azure-data-studio-to-connect-and-query-azure-sql-database"></a>Schnellstart: Verwenden von Azure Data Studio, um eine Verbindung mit einer Azure SQL-Datenbank-Instanz herzustellen und sie abzufragen
 
@@ -24,7 +24,7 @@ In dieser Schnellstartanleitung stellen Sie mit Azure Data Studio eine Verbindun
 
 Um diesen Schnellstart abzuschließen, benötigen Sie Azure Data Studio und eine Azure SQL-Datenbank-Serverinstanz.
 
-- [Azure Data Studio installieren](./download-azure-data-studio.md?view=sql-server-ver15)
+- [Azure Data Studio installieren](./download-azure-data-studio.md)
 
 Wenn Sie noch nicht über eine Azure SQL-Serverinstanz verfügen, führen Sie einen der folgenden Schnellstarts für Azure SQL-Datenbank aus. Merken Sie sich den voll qualifizierten Servernamen und die Anmeldeinformationen für die späteren Schritte:
 
@@ -45,7 +45,7 @@ Verwenden Sie Azure Data Studio, um eine Verbindung mit Ihrem Azure SQL-Datenban
 
    | Einstellung       | Vorgeschlagener Wert | BESCHREIBUNG |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Servername** | Der vollqualifizierte Servername | Etwa: **servername.database.windows.net** . |
+   | **Servername** | Der vollqualifizierte Servername | Etwa: **servername.database.windows.net**. |
    | **Authentifizierung** | SQL-Anmeldung| In diesem Tutorial wird die SQL-Authentifizierung verwendet. |
    | **Benutzername** | Der Benutzername des Serveradministratorkontos | Der Benutzername des Kontos, das zum Erstellen des Servers verwendet wird. |
    | **Kennwort (SQL-Anmeldung)** | Das Kennwort des Serveradministratorkontos | Das Kennwort des Kontos, das zum Erstellen des Servers verwendet wird. |
@@ -55,7 +55,7 @@ Verwenden Sie Azure Data Studio, um eine Verbindung mit Ihrem Azure SQL-Datenban
 
    ![Screenshot: Seite „Verbindung“ in Azure Data Studio](media/quickstart-sql-database/new-connection-screen.png)  
 
-3. Wählen Sie **Verbinden** .
+3. Wählen Sie **Verbinden**.
 
 4. Wenn der Server nicht über eine Firewallregel verfügt, die Azure Data Studio ermöglicht, eine Verbindung herzustellen, wird das Formular **Neue Firewallregel erstellen** geöffnet. Füllen Sie das Formular aus, um eine neue Firewallregel zu erstellen. Weitere Informationen finden Sie unter [Firewallregeln](/azure/sql-database/sql-database-firewall-configure).
 
@@ -67,7 +67,7 @@ Nachdem die Verbindung erfolgreich hergestellt wurde, wird Ihr Server in der Ran
 
 In den nächsten Abschnitten wird die TutorialDB-Datenbank erstellt, die in anderen Azure Data Studio-Tutorials verwendet wird.
 
-1. Klicken Sie in Ihrer Azure SQL-Serverinstanz mit der rechten Maustaste auf die Randleiste **SERVER** , und wählen Sie **Neue Abfrage** aus.
+1. Klicken Sie in Ihrer Azure SQL-Serverinstanz mit der rechten Maustaste auf die Randleiste **SERVER**, und wählen Sie **Neue Abfrage** aus.
 
 1. Fügen Sie diesen SQL-Code in den Abfrage-Editor ein.
 
@@ -90,7 +90,7 @@ In den nächsten Abschnitten wird die TutorialDB-Datenbank erstellt, die in ande
 
 Der Abfrage-Editor ist mit der Datenbank **master** verbunden, aber wir möchten eine Tabelle in der Datenbank **TutorialDB** erstellen. 
 
-1. Stellen Sie eine Verbindung mit der **TutorialDB** -Datenbank her.
+1. Stellen Sie eine Verbindung mit der **TutorialDB**-Datenbank her.
 
    ![Kontext ändern](media/quickstart-sql-database/change-context2.png)
 

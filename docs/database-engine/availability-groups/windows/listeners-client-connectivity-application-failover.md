@@ -1,11 +1,11 @@
 ---
 title: Herstellen einer Verbindung mit einem Verfügbarkeitsgruppenlistener
 description: Dieser Artikel enthält Informationen zum Herstellen einer Verbindung mit einem Always On-Verfügbarkeitsgruppenlistener sowie dem primären Replikat oder einem schreibgeschützten sekundären Replikat. Außerdem wird die Verwendung von TLS/SSL und Kerberos erläutert.
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 02/27/2020
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: how-to
 helpviewer_keywords:
 - Availability Groups [SQL Server], listeners
@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 76fb3eca-6b08-4610-8d79-64019dd56c44
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: b26671e24cb0419f6737d1f41a5eb2a168dcfe7b
-ms.sourcegitcommit: 54cd97a33f417432aa26b948b3fc4b71a5e9162b
+ms.openlocfilehash: c0578d5522ca998e7243fd20b77daf8d3705bd85
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94584230"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878915"
 ---
 # <a name="connect-to-an-always-on-availability-group-listener"></a>Herstellen einer Verbindung mit einem Always On-Verfügbarkeitsgruppenlistener 
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]

@@ -2,7 +2,7 @@
 description: backupset (Transact-SQL)
 title: Backup (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 06/10/2016
+ms.date: 12/24/2020
 ms.prod: sql
 ms.prod_service: database-engine, pdw
 ms.reviewer: ''
@@ -21,12 +21,12 @@ ms.assetid: 6ff79bbf-4acf-4f75-926f-38637ca8a943
 author: markingmyname
 ms.author: maghan
 monikerRange: '>=aps-pdw-2016||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3271963cf5a07e88b6209bd2b7316ab40f43bc05
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7653ad7ed1d69e7de97e66d1003d6f131be45142
+ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461531"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97765203"
 ---
 # <a name="backupset-transact-sql"></a>backupset (Transact-SQL)
 [!INCLUDE [sql-asdbmi-pdw](../../includes/applies-to-version/sql-asdbmi-pdw.md)]
@@ -35,8 +35,7 @@ ms.locfileid: "97461531"
   
  Diese Tabelle wird in der **msdb** -Datenbank gespeichert.  
 
-  
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**backup_set_id**|**int**|Eindeutige Sicherungssatz-ID, die den Sicherungssatz identifiziert. Identität, Primärschlüssel.|  
 |**backup_set_uuid**|**uniqueidentifier**|Eindeutige Sicherungssatz-ID, die den Sicherungssatz identifiziert.|  
@@ -102,10 +101,10 @@ ms.locfileid: "97461531"
 |**encryptor_thumbprint**|**varbinary(20)**|Der Fingerabdruck der Verschlüsselung, der verwendet werden kann, um das Zertifikat oder den asymmetrischen Schlüssel in der Datenbank zu ermitteln. Wenn die Sicherung nicht verschlüsselt wurde, ist dieser Wert NULL.|  
 |**encryptor_type**|**nvarchar(32)**|Verwendeter Verschlüsselungstyp: Zertifikat oder asymmetrischer Schlüssel. . Wenn die Sicherung nicht verschlüsselt wurde, ist dieser Wert NULL.|  
   
-## <a name="remarks"></a>Hinweise  
- RESTORE VERIFYONLY FROM *backup_device* mit LOADHISTORY füllt die Spalte der **Backup Mediaset** -Tabelle mit den entsprechenden Werten aus dem Medien Satz Header auf.  
-  
- Führen Sie die gespeicherte Prozedur [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) aus, um die Anzahl der Zeilen in dieser Tabelle und in anderen Sicherungs-und Verlaufs Tabellen zu verringern.  
+## <a name="remarks"></a>Hinweise
+- RESTORE VERIFYONLY FROM *backup_device* mit LOADHISTORY füllt die Spalte der **Backup Mediaset** -Tabelle mit den entsprechenden Werten aus dem Medien Satz Header auf.  
+- Führen Sie die gespeicherte Prozedur [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) aus, um die Anzahl der Zeilen in dieser Tabelle und in anderen Sicherungs-und Verlaufs Tabellen zu verringern.  
+- Für SQL verwaltete Instanz wird in der Tabelle mit den Sicherungskopien nur der Sicherungs Verlauf für vom Benutzer initiierte [Kopiesicherungen](../../relational-databases/backup-restore/copy-only-backups-sql-server.md)angezeigt. In der Tabelle mit den Sicherungskopien wird der Sicherungs Verlauf für automatische Sicherungen, die vom Dienst ausgeführt werden, nicht angezeigt. 
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Sichern und Wiederherstellen von Tabellen &#40;Transact-SQL-&#41;](../../relational-databases/system-tables/backup-and-restore-tables-transact-sql.md)   

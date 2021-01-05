@@ -10,12 +10,12 @@ ms.topic: reference
 ms.assetid: 04ba51b6-cdc7-409c-8d7e-26ead13e614d
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: fd783c5ff6578f320e4d9d093f33ea5a10762eaf
-ms.sourcegitcommit: f87f2f0f1edc91fe400040d8e3a5810347aa8d70
+ms.openlocfilehash: 21225de8f03fc6fd5cc028ae31df37c4b90dadc3
+ms.sourcegitcommit: 4419e99d77ee2c73f9da1559c7944f7702f2de30
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96857647"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743657"
 ---
 # <a name="database-engine-errors"></a>Fehler der Datenbank-Engine
 
@@ -918,7 +918,7 @@ ORDER BY message_id
 |    1779    |    16    |    Nein    |    Für die '%.*ls'-Tabelle ist bereits ein Primärschlüssel definiert.    |
 |    1781    |    16    |    Nein    |    An die Spalte ist bereits ein DEFAULT-Wert gebunden.    |
 |    1784    |    16    |    Nein    |    Der "%.*ls"-Fremdschlüssel kann nicht erstellt werden, da die referenzierte "%.* ls.%.*ls"-Spalte eine nicht persistierte berechnete Spalte ist.    |
-|    1785    |    16    |    Nein    |    Das Einführen der FOREIGN KEY-Einschränkung "%.*ls" für die "%.* ls"-Tabelle kann Schleifen oder mehrere Kaskadepfade verursachen. Geben Sie ON DELETE NO ACTION oder ON UPDATE NO ACTION an, oder ändern Sie andere FOREIGN KEY-Einschränkungen.    |
+|    [1785](mssqlserver-1785-database-engine-error.md)    |    16    |    Nein    |    Das Einführen der FOREIGN KEY-Einschränkung "%.*ls" für die "%.* ls"-Tabelle kann Schleifen oder mehrere Kaskadepfade verursachen. Geben Sie ON DELETE NO ACTION oder ON UPDATE NO ACTION an, oder ändern Sie andere FOREIGN KEY-Einschränkungen.    |
 |    1786    |    16    |    Nein    |    Die "%.*ls.%.* ls"-Spalte oder die referenzierende "%.*ls.%.* ls"-Spalte im "%.*ls"-Fremdschlüssel ist eine timestamp-Spalte. Dieser Datentyp kann nicht zusammen mit kaskadierenden Einschränkungen für die referenzielle Integrität verwendet werden.    |
 |    1787    |    16    |    Nein    |    Die Fremdschlüsseleinschränkung "%.*ls" kann nicht mit kaskadierenden DELETE- oder UPDATE-Anweisungen für die "%.* ls"-Tabelle definiert werden, da für die Tabelle eine INSTEAD OF DELETE- oder UPDATE TRIGGER-Anweisung definiert ist.    |
 |    1788    |    16    |    Nein    |    Der kaskadierende "%.*ls"-Fremdschlüssel kann nicht erstellt werden, wenn die referenzierende "%.* ls.%.*ls"-Spalte eine Identitätsspalte ist.    |
@@ -1848,8 +1848,8 @@ ORDER BY message_id
 |    3985    |    16    |    Nein    |    Fehler beim Ändern des Transaktionskontexts. Dies ist gewöhnlich auf ungenügend Arbeitsspeicher im System zurückzuführen. Geben Sie Arbeitsspeicher frei.    |
 |    3986    |    19    |    Nein    |    Es sind keine Transaktionzeitstempel mehr vorhanden. Starten Sie den Server neu.    |
 |    3987    |    10    |    Nein    |    SNAPSHOT ISOLATION ist für diese Datenbank immer aktiviert.    |
-|    3988    |    16    |    Nein    |    Eine neue Transaktion ist unzulässig, weil in dieser Sitzung andere Threads ausgeführt werden.    |
-|    3989    |    16    |    Nein    |    Die neue Anforderung kann nicht gestartet werden, weil sie einen gültigen Transaktionsdeskriptor aufweisen sollte.    |
+|    [3988](mssqlserver-3988-database-engine-error.md)    |    16    |    Nein    |    Eine neue Transaktion ist unzulässig, weil in dieser Sitzung andere Threads ausgeführt werden.    |
+|    [3989](mssqlserver-3989-database-engine-error.md)   |    16    |    Nein    |    Die neue Anforderung kann nicht gestartet werden, weil sie einen gültigen Transaktionsdeskriptor aufweisen sollte.    |
 |    3990    |    16    |    Nein    |    Für die Transaktion darf kein Commit innerhalb benutzerdefinierter Routinen, Trigger oder Aggregate ausgeführt werden, weil die Transaktion nicht auf dieser CLR-Stufe gestartet wird. Ändern Sie die Anwendungslogik, um eine strikte Transaktionsschachtelung zu erzwingen.    |
 |    3991    |    16    |    Nein    |    Die Kontexttransaktion, die vor dem Eingeben der benutzerdefinierten Routine, des Triggers oder des Aggregats '%.*ls' aktiv war, wurde intern beendet, was nicht zulässig ist. Ändern Sie die Anwendungslogik, um eine strikte Transaktionsschachtelung zu erzwingen.    |
 |    3992    |    16    |    Nein    |    Die Transaktionsanzahl wurde innerhalb der benutzerdefinierten Routine, des Triggers oder des Aggregats '%.*ls' von %d in %d geändert. Dies ist nicht zulässig und für die Benutzertransaktion wird ein Rollback ausgeführt. Ändern Sie die Anwendungslogik, um eine strikte Transaktionsschachtelung zu erzwingen.    |
@@ -2909,7 +2909,7 @@ ORDER BY message_id
 |    6519    |    16    |    Nein    |    Der '%.*ls'-Typ wird für CLR-Vorgänge noch nicht unterstützt.    |
 |    6520    |    16    |    Nein    |    .NET Framework-Fehler beim Ausführen der Anweisung.    |
 |    6521    |    16    |    Nein    |    .NET Framework-Fehler beim Ausführen der Anweisung: %.*ls.    |
-|    6522    |    16    |    Nein    |    .NET Framework-Fehler beim Ausführen der benutzerdefinierten Routine oder des benutzerdefinierten Aggregats "%.*ls": %ls.    |
+|    [6522](mssqlserver-6522-database-engine-error.md)    |    16    |    Nein    |    .NET Framework-Fehler beim Ausführen der benutzerdefinierten Routine oder des benutzerdefinierten Aggregats "%.*ls": %ls.    |
 |    6523    |    16    |    Nein    |    Die Methode, die Eigenschaft oder das Feld '%ls' der '%ls'-Klasse in der '%.*ls'-Assembly ist statisch.    |
 |    6524    |    16    |    Nein    |    Die berechnete Spalte kann in der Ergebnistabelle einer benutzerdefinierten Streamingfunktion nicht verwendet werden ('%.*ls'-Spalte).    |
 |    6525    |    16    |    Nein    |    Die '%s'-Einschränkung kann in der Ergebnistabelle einer benutzerdefinierten Streamingfunktion nicht verwendet werden.    |
@@ -2989,7 +2989,7 @@ ORDER BY message_id
 |    6599    |    16    |    Nein    |    Die leere systemeigene Serialisierungsklasse "%.*ls" wurde gefunden. Leere systemeigene Serialisierungsklassen sind unzulässig.    |
 |    6600    |    16    |    Nein    |    XML-Fehler: %.*ls    |
 |    6601    |    10    |    Nein    |    XML-Analysefehler 0x%x bei Zeilennummer %d in der Nähe des XML-Texts '%.*ls'.    |
-|    6602    |    16    |    Nein    |    Die Fehlerbeschreibung lautet '%.*ls'.    |
+|    [6602](mssqlserver-6602-database-engine-error.md)    |    16    |    Nein    |    Die Fehlerbeschreibung lautet '%.*ls'.    |
 |    6603    |    16    |    Nein    |    XML-Analysefehler: %.*ls    |
 |    6605    |    16    |    Nein    |    %.*ls: Fehler beim Abrufen einer IPersistStream-Schnittstelle für den XML-Text.    |
 |    6607    |    16    |    Nein    |    %.*ls: Der für die Parameternummer %d bereitgestellte Wert ist ungültig.    |
@@ -6281,7 +6281,7 @@ ORDER BY message_id
 |    15397    |    16    |    Nein    |    Das %S_MSG-Objekt ist nicht mit einem Kennwort geschützt. Ein Entschlüsselungskennwort darf für diesen Vorgang nicht verwendet werden.    |
 |    15398    |    11    |    Nein    |    Nur für Objekte in der master-Datenbank, deren Besitzer 'dbo' ist, kann die Starteinstellung geändert werden.    |
 |    15399    |    11    |    Nein    |    Die Startoption konnte nicht geändert werden, da diese Option auf Objekte ohne Parameter beschränkt ist.    |
-|    15401    |    11    |    Nein    |    Der Windows NT-Benutzer oder die -Gruppe '%s' wurde nicht gefunden. Überprüfen Sie den Namen.    |
+|    [15401](mssqlserver-15401-database-engine-error.md)    |    11    |    Nein    |    Der Windows NT-Benutzer oder die -Gruppe '%s' wurde nicht gefunden. Überprüfen Sie den Namen.    |
 |    15402    |    11    |    Nein    |    '%s' ist keine feste Serverrolle.    |
 |    15403    |    16    |    Nein    |    Der Serverprinzipal '%.*ls' ist nicht vorhanden, hat keinen Serverzugriff, oder Sie haben nicht die entsprechende Berechtigung.    |
 |    [15404](mssqlserver-15404-database-engine-error.md)    |    16    |    Nein    |    Die Informationen über Windows NT-Gruppe oder -Benutzer '%ls' konnten nicht abgerufen werden, Fehlercode %#lx.    |
@@ -6698,7 +6698,7 @@ ORDER BY message_id
 |    [17887](mssqlserver-17887-database-engine-error.md)    |    10    |    Ja    |    E/A-Abschlussüberwachung (0x%lx) Arbeitsthread 0x%p stellt im Knoten %ld kein Ergebnis bereit. Ungefähre CPU-Belegung: Kernel %I64d Millisek., Benutzer %I64d Millisek., Intervall: %I64d.    |
 |    17888    |    10    |    Ja    |    Alle Zeitplanungsmodule im %d-Knoten befinden sich in einer Deadlocksituation, weil sehr viele Arbeitsthreads auf %ls warten. Prozessnutzung %d%%.    |
 |    17889    |    16    |    Ja    |    Eine neue Verbindung wurde abgelehnt, weil die maximale Anzahl der Verbindungen einer Sitzungs-ID '%d' erreicht wurden. Schließen Sie die vorhandene Verbindung dieser Sitzung und versuchen Sie es erneut.%.*ls    |
-|    17890    |    10    |    Ja    |    Ein erheblicher Teil des SQL Server-Prozessarbeitsspeichers wurde ausgelagert. Dies kann die Leistung beeinträchtigen. Dauer: %d Sekunden. Workingset (KB): %I64d; Commit ausgeführt (KB): %I64d; Arbeitsspeichernutzung: %d%%.    |
+|    [17890](mssqlserver-17890-database-engine-error.md)    |    10    |    Ja    |    Ein erheblicher Teil des SQL Server-Prozessarbeitsspeichers wurde ausgelagert. Dies kann die Leistung beeinträchtigen. Dauer: %d Sekunden. Workingset (KB): %I64d; Commit ausgeführt (KB): %I64d; Arbeitsspeichernutzung: %d%%.    |
 |    17891    |    10    |    Ja    |    Der Arbeitsthread 0x%p für den Ressourcenmonitor (0x%lx) stellt auf dem Knoten %ld kein Ergebnis bereit. Freigegebener Arbeitsspeicher: %I64d KB. Ungefähre CPU-Belegung: Kernel %I64d Millisek., Benutzer %I64d Millisek., Intervall: %I64d.    |
 |    [17892](mssqlserver-17892-database-engine-error.md)    |    14    |    Ja    |    Fehler beim Anmelden für den Anmeldenamen "%.*ls" wegen Triggerausführung.%.* ls    |
 |    17894    |    10    |    Ja    |    Der Verteiler (0x%lx) vom Verteilerpool '%.*ls' Arbeitsthread 0x%p stellt im %ld-Knoten kein Ergebnis bereit. Ungefähre CPU-Belegung: Kernel %I64d Millisek., Benutzer %I64d Millisek., Intervall: %I64d.    |
@@ -6823,8 +6823,8 @@ ORDER BY message_id
 |    18469    |    10    |    Nein    |    [CLIENT: %.*hs]    |
 |    18470    |    14    |    Ja    |    Fehler bei der Anmeldung von Benutzer "%.*ls". Ursache: Das Konto ist deaktiviert.%.* ls    |
 |    18471    |    14    |    Nein    |    Fehler bei der Anmeldung von Benutzer "%.*ls". Fehler bei der Kennwortänderung. Der Benutzer ist nicht berechtigt, das Kennwort zu ändern.%.* ls    |
-|    18482    |    16    |    Ja    |    Zum Server "%.*ls" konnte keine Verbindung hergestellt werden, weil "%.* ls" nicht als Remoteserver definiert ist. Überprüfen Sie, ob Sie den richtigen Servernamen angegeben haben. %.*ls.    |
-|    18483    |    16    |    Ja    |    Zum Server "%.*ls" konnte keine Verbindung hergestellt werden, weil "%.* ls" nicht für die Remoteanmeldung auf dem Server definiert ist. Überprüfen Sie, ob Sie den richtigen Anmeldenamen angegeben haben. %.*ls.    |
+|    [18482](mssqlserver-18482-database-engine-error.md)    |    16    |    Ja    |    Zum Server "%.*ls" konnte keine Verbindung hergestellt werden, weil "%.* ls" nicht als Remoteserver definiert ist. Überprüfen Sie, ob Sie den richtigen Servernamen angegeben haben. %.*ls.    |
+|    [18483](mssqlserver-18483-database-engine-error.md)    |    16    |    Ja    |    Zum Server "%.*ls" konnte keine Verbindung hergestellt werden, weil "%.* ls" nicht für die Remoteanmeldung auf dem Server definiert ist. Überprüfen Sie, ob Sie den richtigen Anmeldenamen angegeben haben. %.*ls.    |
 |    18485    |    16    |    Ja    |    Zum Server "%.*ls" konnte keine Verbindung hergestellt werden, weil er nicht zum Annehmen von Remoteanmeldungen konfiguriert ist. Verwenden Sie die Konfigurationsoption für den Remotezugriff, um Remoteanmeldungen zuzulassen.%.* ls    |
 |    18486    |    14    |    Ja    |    Fehler bei der Anmeldung von Benutzer "%.*ls", weil das Konto derzeit gesperrt ist. Der Systemadministrator kann die Sperre aufheben.%.* ls    |
 |    18487    |    14    |    Ja    |    Fehler bei der Anmeldung von Benutzer "%.*ls". Ursache: Das Kennwort für das Konto ist abgelaufen.%.* ls    |

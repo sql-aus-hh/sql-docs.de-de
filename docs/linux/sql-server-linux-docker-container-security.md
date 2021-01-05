@@ -4,18 +4,18 @@ description: Informieren Sie sich über die verschiedenen Möglichkeiten zum Sic
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/07/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 moniker: '>= sql-server-linux-2017 || >= sql-server-2017 '
-ms.openlocfilehash: 6e4aa3285f8f74dc9eaa46c52c64ee281f839edf
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 88c179b1a17dd84dc33c2ae77979507e82b7a55a
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489810"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878754"
 ---
 # <a name="secure-sql-server-docker-containers"></a>Sichern von SQL Server Docker-Containern
 
@@ -193,7 +193,7 @@ Befolgen Sie die Anweisungen in den [hier][1] dokumentierten Abschnitten \"Regis
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-- Der [Schnellstart](quickstart-install-connect-docker.md?view=sql-server-ver15) erleichtert Ihnen den Einstieg in die Verwendung von SQL Server 2019-Containerimages in Docker.
+- Der [Schnellstart](quickstart-install-connect-docker.md) erleichtert Ihnen den Einstieg in die Verwendung von SQL Server 2019-Containerimages in Docker.
 
 ::: moniker-end
 

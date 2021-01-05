@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: c4815d048e5648e2c89c2cc32b8f159cc515f2b5
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 3937c1d4617f3cecb9012d82d590f75634ab1043
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428229"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771492"
 ---
 # <a name="obtaining-a-single-value-from-a-database"></a>Abrufen eines Einzelwerts aus einer Datenbank
 
@@ -37,3 +37,4 @@ Im folgenden Codebeispiel wird mit einem <xref:Microsoft.Data.SqlClient.SqlComma
 
 - [Befehle und Parameter](commands-parameters.md)
 - [Ausführen eines Befehls](execute-command.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

@@ -18,12 +18,12 @@ dev_langs:
 author: kevinvngo
 ms.author: kevin
 monikerRange: =azure-sqldw-latest
-ms.openlocfilehash: 9b480c90337017c77a0d05afe5861e85c89637d3
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 43a5cc755eb07fe80a0d33d6b5b892e2a65ab21e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460783"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97638800"
 ---
 # <a name="copy-transact-sql"></a>COPY (Transact-SQL)
 
@@ -131,7 +131,7 @@ Es können nur mehrere Dateispeicherorte aus demselben Speicherkonto und Contain
 >Der Dateityp „durch Trennzeichen getrennter Text“ in Polybase wird durch das Dateiformat „CSV“ ersetzt, in dem das standardmäßige Kommatrennzeichen über den FIELDTERMINATOR-Parameter konfiguriert werden kann. 
 
 *FILE_FORMAT = Formatname_der_externen_Datei*</br>
-*FILE_FORMAT* gilt nur für Parquet- und ORC-Dateien und gibt den Namen des externen Dateiformatobjekts an, das den Dateityp und die Komprimierungsmethode für die externen Daten enthält. Verwenden Sie zum Erstellen eines externen Dateiformats [CREATE EXTERNAL FILE FORMAT](create-external-file-format-transact-sql.md?view=azure-sqldw-latest).
+*FILE_FORMAT* gilt nur für Parquet- und ORC-Dateien und gibt den Namen des externen Dateiformatobjekts an, das den Dateityp und die Komprimierungsmethode für die externen Daten enthält. Verwenden Sie zum Erstellen eines externen Dateiformats [CREATE EXTERNAL FILE FORMAT](create-external-file-format-transact-sql.md).
 
 *CREDENTIAL (IDENTITY = ‘’, SECRET = ‘’)*</br>
 *CREDENTIAL* gibt den Authentifizierungsmechanismus für den Zugriff auf das externe Speicherkonto an. Authentifizierungsmethoden sind:
@@ -256,7 +256,7 @@ Erweiterte ASCII- und Multibytezeichen und werden bei UTF-8 für ROW TERMINATOR 
 *FIRSTROW* gilt für CSV und gibt die Zeilennummer an, die zuerst in allen Dateien für den COPY-Befehl gelesen wird. Die Werte beginnen mit 1, dem Standardwert. Wenn der Wert auf 2 festgelegt ist, wird die erste Zeile in jeder Datei (Kopfzeile) beim Laden der Daten übersprungen. Zeilen werden basierend auf dem Vorhandensein von Zeilenabschlusszeichen übersprungen.
 
 *DATEFORMAT = {‘mdy’ \| ‘dmy’ \| ‘ymd’ \| ‘ydm’ \| ‘myd’ \| ‘dym’ }*</br>
-DATEFORMAT gilt nur für CSV und gibt das Datumsformat der Datumszuordnung zu SQL Server-Datumsformaten an. Eine Übersicht über alle Datums- und Uhrzeitdatentypen und zugehörigen Funktionen für Transact-SQL finden Sie unter [Datums- und Uhrzeitdatentypen und zugehörige Funktionen (Transact-SQL)](../functions/date-and-time-data-types-and-functions-transact-sql.md?view=sql-server-ver15). DATEFORMAT im COPY-Befehl hat Vorrang vor [auf Sitzungsebene konfiguriertem DATEFORMAT](set-dateformat-transact-sql.md?view=sql-server-ver15).
+DATEFORMAT gilt nur für CSV und gibt das Datumsformat der Datumszuordnung zu SQL Server-Datumsformaten an. Eine Übersicht über alle Datums- und Uhrzeitdatentypen und zugehörigen Funktionen für Transact-SQL finden Sie unter [Datums- und Uhrzeitdatentypen und zugehörige Funktionen (Transact-SQL)](../functions/date-and-time-data-types-and-functions-transact-sql.md). DATEFORMAT im COPY-Befehl hat Vorrang vor [auf Sitzungsebene konfiguriertem DATEFORMAT](set-dateformat-transact-sql.md).
 
 *ENCODING = ‘UTF8’ | ‘UTF16’*</br>
 *ENCODING* gilt nur für CSV. Der Standardwert ist UTF8. Gibt den Datencodierungsstandard für die Dateien an, die vom COPY-Befehl geladen werden. 
@@ -275,8 +275,8 @@ IDENTITY_INSERT gibt an, ob die Identitätswerte oder Werte in der importierten 
 
 Der Benutzer, der den COPY-Befehl ausführt, muss über die folgenden Berechtigungen verfügen: 
 
-- [ADMINISTER DATABASE BULK OPERATIONS](grant-database-permissions-transact-sql.md?view=azure-sqldw-latest#remarks)
-- [INSERT](grant-database-permissions-transact-sql.md?view=azure-sqldw-latest#remarks)
+- [ADMINISTER DATABASE BULK OPERATIONS](grant-database-permissions-transact-sql.md#remarks)
+- [INSERT](grant-database-permissions-transact-sql.md#remarks)
 
 Erfordert die Berechtigungen INSERT und ADMINISTER BULK OPERATIONS. In [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)] sind INSERT- und ADMINISTER DATABASE BULK OPERATIONS-Berechtigungen erforderlich.
 

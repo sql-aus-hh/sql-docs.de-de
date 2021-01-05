@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: f84cc2940e56116b9cef4600b21fe742f4ae2d07
-ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
+ms.openlocfilehash: 09e1a159d0b0ad1cb58c43bd23b1e7be500e7ae3
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051322"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771658"
 ---
 # <a name="common-schema-collections"></a>Allgemeine Schemaauflistungen
 
@@ -112,6 +112,6 @@ Diese Schemasammlung stellt Informationen zu den für die Datenbank, mit der der
 
 ## <a name="see-also"></a>Weitere Informationen:
 
-- [Abrufen von Datenbankschema-Informationen](retrieving-database-schema-information.md)
-- [GetSchema und Schemasammlungen](getschema-and-schema-collections.md)
+- [Abrufen von Datenbankschemainformationen](retrieving-database-schema-information.md)
+- [„GetSchema“ und Schemaauflistungen](getschema-and-schema-collections.md)
 - [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

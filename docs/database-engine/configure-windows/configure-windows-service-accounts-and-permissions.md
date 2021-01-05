@@ -1,7 +1,7 @@
 ---
 title: Konfigurieren von Windows-Dienstkonten und -Berechtigungen | Microsoft-Dokumentation
 description: Hier lernen Sie die Dienstkonten kennen, die zum Starten und Ausführen von Diensten in SQL Server verwendet werden. Sie erfahren, wie Sie die Dienstkonten konfigurieren und ihnen die entsprechenden Berechtigungen zuweisen.
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 03/17/2020
 ms.prod: sql
 ms.prod_service: high-availability
@@ -51,12 +51,12 @@ helpviewer_keywords:
 ms.assetid: 309b9dac-0b3a-4617-85ef-c4519ce9d014
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: b52093904be2bd3ae649e4472dc9b08ffdea89b6
-ms.sourcegitcommit: 7f76975c29d948a9a3b51abce564b9c73d05dcf0
+ms.openlocfilehash: da2fc97ef8e5637dfff48d2070cb652b40ae4d28
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96901027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878916"
 ---
 # <a name="configure-windows-service-accounts-and-permissions"></a>Konfigurieren von Windows-Dienstkonten und -Berechtigungen
 
