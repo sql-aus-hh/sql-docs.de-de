@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - role switching [SQL Server]
@@ -20,16 +20,16 @@ helpviewer_keywords:
 ms.assetid: a782d60d-0373-4386-bd77-9ec192553700
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 3aefc181c1dc42e939579dcdce274a27086dd1ed
-ms.sourcegitcommit: 99f61724de5edf6640efd99916d464172eb23f92
+ms.openlocfilehash: 3b1c872205f92f33b1e2f3c7e831cf841380d79d
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87362232"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637689"
 ---
 # <a name="role-switching-during-a-database-mirroring-session-sql-server"></a>Rollenwechsel während einer Datenbank-Spiegelungssitzung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
-  Im Kontext einer Datenbank-Spiegelungssitzung können die Prinzipal- und Spiegelrollen normalerweise im Rahmen des so genannten *Rollenwechsels*ausgetauscht werden. Beim Rollenwechsel dient der Spiegelserver als *Failoverpartner* für den Prinzipalserver. Er übernimmt die Prinzipalrolle, stellt dessen Kopie der Datenbank wieder her und schaltet sie als neue Prinzipaldatenbank online. Der ehemalige Prinzipalserver übernimmt, soweit verfügbar, die Spiegelrolle, und die zugehörige Datenbank wird zur neuen Spiegeldatenbank. Potenziell können die Rollen hin- und hergewechselt werden, entweder als Antwort auf auftretende Fehler oder zu Verwaltungszwecken.  
+  Im Kontext einer Datenbank-Spiegelungssitzung können die Prinzipal- und Spiegelrollen normalerweise im Rahmen des so genannten *Rollenwechsels* ausgetauscht werden. Beim Rollenwechsel dient der Spiegelserver als *Failoverpartner* für den Prinzipalserver. Er übernimmt die Prinzipalrolle, stellt dessen Kopie der Datenbank wieder her und schaltet sie als neue Prinzipaldatenbank online. Der ehemalige Prinzipalserver übernimmt, soweit verfügbar, die Spiegelrolle, und die zugehörige Datenbank wird zur neuen Spiegeldatenbank. Potenziell können die Rollen hin- und hergewechselt werden, entweder als Antwort auf auftretende Fehler oder zu Verwaltungszwecken.  
   
 > [!NOTE]  
 >  Dieses Thema setzt voraus, dass Sie mit den Betriebsmodi der Datenbankspiegelung vertraut sind. Weitere Informationen finden Sie unter [Database Mirroring Operating Modes](../../database-engine/database-mirroring/database-mirroring-operating-modes.md).  
@@ -244,7 +244,7 @@ ms.locfileid: "87362232"
   
  ![Diensterzwingung mit möglichem Datenverlust](../../database-engine/database-mirroring/media/dbm-forced-service.gif "Diensterzwingung mit möglichem Datenverlust")  
   
- In der Abbildung fällt der ursprüngliche Prinzipalserver ( **Partner_A**) aus und steht dem Spiegelserver ( **Partner_B**) nicht mehr zur Verfügung, wodurch die Spiegeldatenbank getrennt wird. Nachdem sichergestellt wurde, dass **Partner_A** Clients nicht zur Verfügung steht, erzwingt der Datenbankadministrator den Dienst, mit möglichem Datenverlust, auf **Partner_B**. **Partner_B** wird zum Prinzipalserver, und die Datenbank wird *ungeschützt* (d.h. ungespiegelt) ausgeführt. An diesem Punkt können Clients die Verbindung mit **Partner_B**wieder herstellen.  
+ In der Abbildung fällt der ursprüngliche Prinzipalserver ( **Partner_A**) aus und steht dem Spiegelserver ( **Partner_B**) nicht mehr zur Verfügung, wodurch die Spiegeldatenbank getrennt wird. Nachdem sichergestellt wurde, dass **Partner_A** Clients nicht zur Verfügung steht, erzwingt der Datenbankadministrator den Dienst, mit möglichem Datenverlust, auf **Partner_B**. **Partner_B** wird zum Prinzipalserver, und die Datenbank wird *ungeschützt* (d.h. ungespiegelt) ausgeführt. An diesem Punkt können Clients die Verbindung mit **Partner_B** wieder herstellen.  
   
  Wenn **Partner_A** wieder zur Verfügung steht, stellt er die Verbindung mit dem neuen Prinzipalserver her, tritt der Sitzung wieder bei und übernimmt die Rolle des Spiegelservers. Die Spiegelungssitzung wird sofort angehalten, ohne dass die neue Spiegeldatenbank synchronisiert wird. Durch das Anhalten der Sitzung kann der Datenbankadministrator entscheiden, ob die Sitzung fortgesetzt, oder in Extremfällen, die Spiegelung entfernt und der Versuch unternommen werden soll, Daten aus der früheren Prinzipaldatenbank zu retten. In diesem Fall entscheidet sich der Datenbankadministrator für das Fortsetzen der Spiegelung. An dieser Stelle übernimmt **Partner_A** die Rolle des Spiegelservers und führt einen Rollback der früheren Prinzipaldatenbank auf den Zeitpunkt der letzten erfolgreich synchronisierten Transaktion aus. Wenn Transaktionen, für die ein Commit ausgeführt wurde, vor dem Erzwingen des Diensts nicht auf den Datenträger des Spiegelservers geschrieben wurden, gehen sie verloren. **Partner_A** führt dann einen Rollforward der neuen Spiegeldatenbank aus, indem alle Änderungen angewendet werden, die an der neuen Prinzipaldatenbank vorgenommen wurden, seit der vorherige Spiegelserver die Rolle des neuen Prinzipalservers übernommen hat.  
   

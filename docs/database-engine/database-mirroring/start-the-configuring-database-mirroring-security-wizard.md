@@ -6,7 +6,7 @@ ms.date: 03/07/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], security
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 1c846950-0a2d-45df-b0d5-193e455f7cd5
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: dd7bdb74f679f32132361aac5c2b751b9bda9494
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: dc4e8fb6adfbad8fc1c338a717bee625b216740c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85756462"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97640766"
 ---
 # <a name="start-the-configuring-database-mirroring-security-wizard"></a>Starten des Assistenten zum Konfigurieren der Sicherheit für die Datenbankspiegelung
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "85756462"
   
 2.  Erweitern Sie **Datenbanken**, und wählen Sie die zu spiegelnde Datenbank aus.  
   
-3.  Klicken Sie mit der rechten Maustaste auf die Datenbank, wählen Sie **Tasks**aus, und klicken Sie dann auf **Spiegeln**. Dadurch wird die Seite [Spiegelung](../../relational-databases/databases/database-properties-mirroring-page.md) des Dialogfelds **Datenbankeigenschaften** geöffnet.  
+3.  Klicken Sie mit der rechten Maustaste auf die Datenbank, wählen Sie **Tasks** aus, und klicken Sie dann auf **Spiegeln**. Dadurch wird die Seite [Spiegelung](../../relational-databases/databases/database-properties-mirroring-page.md) des Dialogfelds **Datenbankeigenschaften** geöffnet.  
   
 4.  Klicken Sie auf **Sicherheit konfigurieren**.  
   
