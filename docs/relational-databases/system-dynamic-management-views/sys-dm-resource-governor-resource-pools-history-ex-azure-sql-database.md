@@ -2,7 +2,7 @@
 description: sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL)
 title: sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 03/27/2019
+ms.date: 01/05/2021
 ms.prod: sql
 ms.prod_service: sql-database
 ms.reviewer: ''
@@ -21,20 +21,20 @@ ms.assetid: ''
 author: joesackmsft
 ms.author: josack
 monikerRange: =azuresqldb-current
-ms.openlocfilehash: 8aafaca36fb5ef1d96ddbd9f369a3ba4f06a596d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 32082b09a5e583e68f2f06794d80d1d3f21b4e76
+ms.sourcegitcommit: 11ca2305a8d7e420daf772eb97861706c9e08e31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484582"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97928439"
 ---
 # <a name="sysdm_resource_governor_resource_pools_history_ex-transact-sql"></a>sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL)
 
 [!INCLUDE[appliesto-xx-asdb-xxxx-xxx-md](../../includes/appliesto-xx-asdb-xxxx-xxx-md.md)]
 
-Gibt die Momentaufnahme für die letzten 32 Minuten (insgesamt 128 RECS) der Ressourcenpool Statistik für eine Azure SQL-Datenbank zurück.  
-  
-|Spaltenname|Datentyp|Beschreibung|  
+Jede Zeile stellt eine regelmäßige Momentaufnahme der Statistiken für Ressourcenpools in Azure SQL-Datenbank dar. Eine Momentaufnahme wird erstellt, wenn die Datenbank-Engine gestartet wird, und danach alle paar Sekunden. Das Intervall zwischen der aktuellen und der vorherigen Momentaufnahme kann variieren und wird in der- `duration_ms` Spalte bereitgestellt. Die neuesten verfügbaren Momentaufnahmen werden zurückgegeben, bis zu 128 Momentaufnahmen für jeden Ressourcenpool.
+
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**pool_id**|INT|Die ID des Ressourcenpools. Lässt keine NULL-Werte zu.
 |**name**|sysname|Der Name des Ressourcenpools. Lässt keine NULL-Werte zu.|
@@ -104,7 +104,7 @@ Gibt die Momentaufnahme für die letzten 32 Minuten (insgesamt 128 RECS) der Res
 
 Diese Sicht erfordert die View Server State-Berechtigung.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Benutzer können auf diese dynamische Verwaltungs Sicht zugreifen, um den Ressourcenverbrauch nahezu in Echtzeit für den benutzerworkloadpool sowie systeminterne Pools der Azure SQL-Daten Bank Instanz zu überwachen.
 

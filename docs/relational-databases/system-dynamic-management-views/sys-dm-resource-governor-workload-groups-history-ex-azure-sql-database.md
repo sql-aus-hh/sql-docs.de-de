@@ -2,7 +2,7 @@
 description: sys.dm_resource_governor_workload_groups_history_ex (Azure SQL-Datenbank)
 title: sys.dm_resource_governor_workload_groups_history_ex (Azure SQL-Datenbank) | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 05/22/2019
+ms.date: 01/05/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: system-objects
@@ -19,19 +19,19 @@ helpviewer_keywords:
 - sys.dm_resource_governor_workload_groups_history_ex dynamic management view
 author: joesackmsft
 ms.author: josack
-ms.openlocfilehash: d761d1ca80037e26f8757ec681929dd5356b182f
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+ms.openlocfilehash: 69f310b699e59845dbd62a908a6a49bfb6efb42f
+ms.sourcegitcommit: 11ca2305a8d7e420daf772eb97861706c9e08e31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834398"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97928449"
 ---
 # <a name="sysdm_resource_governor_workload_groups_history_ex-azure-sql-database"></a>sys.dm_resource_governor_workload_groups_history_ex (Azure SQL-Datenbank)
 [!INCLUDE[Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/asdb-asdbmi.md)]
 
-Gibt eine Momentaufnahme für die letzten 32 Minuten (insgesamt 128 Sekunden) der Ressourcenpool Statistik für eine Azure SQL-Datenbank zurück.
+Jede Zeile stellt eine regelmäßige Momentaufnahme von Arbeits Auslastungs Gruppen Statistiken in Azure SQL-Datenbank dar. Eine Momentaufnahme wird erstellt, wenn die Datenbank-Engine gestartet wird, und danach alle paar Sekunden. Das Intervall zwischen der aktuellen und der vorherigen Momentaufnahme kann variieren und wird in der- `duration_ms` Spalte bereitgestellt. Die neuesten verfügbaren Momentaufnahmen werden zurückgegeben, bis zu 128 Momentaufnahmen für jede Arbeits Auslastungs Gruppe.
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**pool_id**| INT |ID des Ressourcenpools. Lässt keine NULL-Werte zu.|
 |**group_id**| INT |ID der Arbeitsauslastungsgruppe. Lässt keine NULL-Werte zu.|
@@ -80,7 +80,7 @@ Gibt eine Momentaufnahme für die letzten 32 Minuten (insgesamt 128 Sekunden) de
 
 Diese Sicht erfordert die View Server State-Berechtigung.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Benutzer können auf diese dynamische Verwaltungs Sicht zugreifen, um den Ressourcenverbrauch nahezu in Echtzeit für den benutzerworkloadpool sowie systeminterne Pools der Azure SQL-Daten Bank Instanz zu überwachen.
 
