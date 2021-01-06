@@ -25,18 +25,18 @@ ms.assetid: b81edbf0-856a-498f-ba87-48ff1426d980
 author: markingmyname
 ms.author: maghan
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 8822addbf09d03d3b38cf43666dce33f4277e24e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 05ab2a8c6f9b278fb548eb215653e0434232b2ae
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480451"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643766"
 ---
 # <a name="error_procedure-transact-sql"></a>ERROR_PROCEDURE (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]  
 
 Diese Funktion gibt den Namen der gespeicherten Prozedur oder des Triggers zurück, an der bzw. an dem der Fehler auftritt, wenn durch diesen die Ausführung des CATCH-Blocks eines TRY...CATCH-Konstrukts verursacht wurde. 
-- Von SQL Server 2017 bis zur [aktuellen Version](../../sql-server/what-s-new-in-sql-server-ver15.md?view=sql-server-ver15) wird schema_name.stored_procedure_name zurückgegeben.
+- Von SQL Server 2017 bis zur [aktuellen Version](../../sql-server/what-s-new-in-sql-server-ver15.md) wird schema_name.stored_procedure_name zurückgegeben.
 - SQL Server 2016 gibt stored_procedure_name zurück.
 
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a30a3d3184c411fc0b54c0e26330a8fb138ffdae
-ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
+ms.openlocfilehash: 2a00ef1ec1f2f5d8ee892289021f42cb139b5a12
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051300"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771319"
 ---
 # <a name="transactions-and-concurrency"></a>Transaktionen und Parallelität
 
@@ -35,16 +35,16 @@ Transaktionen, an denen verschiedene Ressourcen-Manager beteiligt sind, z. B. T
 
 ## <a name="in-this-section"></a>In diesem Abschnitt
 
- [Lokale Transaktionen](local-transactions.md)  
- Zeigt, wie Transaktionen für eine Datenbank ausgeführt werden können.  
+[Lokale Transaktionen](local-transactions.md)  
+Zeigt, wie Transaktionen für eine Datenbank ausgeführt werden können.  
   
- [Verteilte Transaktionen](distributed-transactions.md)  
- Beschreibt die Ausführung von verteilten Transaktionen in ADO.NET.  
+[Verteilte Transaktionen](distributed-transactions.md)  
+Beschreibt die Ausführung von verteilten Transaktionen in ADO.NET.  
   
- [System.Transactions-Integration in SQL Server](system-transactions-integration-with-sql-server.md)  
- In diesem Artikel wird die <xref:System.Transactions>-Integration mit SQL Server für die Arbeit mit verteilten Transaktionen beschrieben.  
+[System.Transactions-Integration in SQL Server](system-transactions-integration-with-sql-server.md)  
+In diesem Artikel wird die <xref:System.Transactions>-Integration mit SQL Server für die Arbeit mit verteilten Transaktionen beschrieben.  
   
- Im Artikel [Optimistische Nebenläufigkeit](optimistic-concurrency.md) werden die optimistische und pessimistische Nebenläufigkeit und die Vorgehensweise zum Prüfen auf Verstöße gegen die Parallelität beschrieben.  
+Im Artikel [Optimistische Nebenläufigkeit](optimistic-concurrency.md) werden die optimistische und pessimistische Nebenläufigkeit und die Vorgehensweise zum Prüfen auf Verstöße gegen die Parallelität beschrieben.  
 
 ## <a name="see-also"></a>Weitere Informationen:
 
@@ -52,4 +52,5 @@ Transaktionen, an denen verschiedene Ressourcen-Manager beteiligt sind, z. B. T
 - [Herstellen einer Verbindung mit einer Datenquelle](connecting-to-data-source.md)
 - [Befehle und Parameter](commands-parameters.md)
 - ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
+- [DbProviderFactories](dbproviderfactories.md)
 - [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

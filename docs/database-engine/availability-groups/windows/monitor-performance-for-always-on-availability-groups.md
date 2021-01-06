@@ -5,17 +5,17 @@ ms.custom: ag-guide, seodec18
 ms.date: 06/13/2017
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: conceptual
 ms.assetid: dfd2b639-8fd4-4cb9-b134-768a3898f9e6
 author: rothja
 ms.author: jroth
-ms.openlocfilehash: 15ae1302fcff002816e8e8e7a5e37b6fbe8bd503
-ms.sourcegitcommit: 442fbe1655d629ecef273b02fae1beb2455a762e
+ms.openlocfilehash: fa6d63d665a2a81d0a112a1685b3ead1969479d1
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235451"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643736"
 ---
 # <a name="monitor-performance-for-always-on-availability-groups"></a>Überwachen der Leistung von Always On-Verfügbarkeitsgruppen
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -96,7 +96,7 @@ Um RTO und RPO im Dashboard anzuzeigen, führen Sie folgende Schritte aus:
 Durch die Berechnung der Wiederherstellungszeit wird ermittelt, wie viel Zeit benötigt wird, um die *sekundäre Datenbank* nach einem Failover wiederherzustellen.  Die Failoverzeit ist normalerweise kurz und konstant. Die Erkennungszeit hängt von den Einstellungen auf Clusterebene und nicht von den einzelnen Verfügbarkeitsreplikaten ab. 
 
 
-Bei einer sekundären Datenbank (DB_sec) basieren Berechnung und Darstellung des RTO auf ihren Werte für **redo_queue_size** und **redo_rate** :
+Bei einer sekundären Datenbank (DB_sec) basieren Berechnung und Darstellung des RTO auf ihren Werte für **redo_queue_size** und **redo_rate**:
 
 ![Berechnung des RTO](media/calculate-rto.png)
 
@@ -116,9 +116,9 @@ Für die primäre Datenbank ist **last_commit_time** die Zeit, zu der für die l
 
 ### <a name="performance-counters-used-in-rtorpo-formulas"></a>In RTO-/RPO-Formeln verwendete Leistungsindikatoren
 
-- **redo_queue_size** (KB) [ *für RTO verwendet* ]: Die Größe der Wiederholungswarteschlange ist die Größe der Transaktionsprotokolle zwischen **last_received_lsn** und **last_redone_lsn**. **last_received_lsn** ist die Protokollblock-ID, die den Punkt angibt, bis zu dem alle Protokollblöcke vom sekundären Replikat empfangen wurden, das diese sekundäre Datenbank hostet. **last_redone_lsn** ist die tatsächliche Protokollfolgenummer des letzten Protokolldatensatzes, der zuletzt für die sekundäre Datenbank wiederholt wurde. Basierend auf diesen beiden Werten können wir die IDs des Anfangsprotokollblocks ( **last_received_lsn** ) und des Endprotokollblocks ( **last_redone_lsn** ) bestimmen. Der Abstand zwischen diesen beiden Protokollblöcken kann dann abbilden, wie viele Transaktionsprotokollblöcke noch nicht wiederholt wurden. Die Messung erfolgt in Kilobyte (KB).
--  **redo_rate** (KB/Sek.) [ *für RTO verwendet* ]: Ein kumulierter Wert, der für einen abgelaufenen Zeitraum angibt, wie viel des Transaktionsprotokolls (KB) in der sekundären Datenbank in Kilobytes(KB)/Sekunde wiederholt wurde. 
-- **last_commit_time** (Datetime) [ *für RPO verwendet* ]: Für die primäre Datenbank ist **last_commit_time** der Zeitpunkt, zu der für die letzte Transaktion ein Commit erfolgt ist. Für die sekundäre Datenbank ist **last_commit_time** die letzte Commitzeit für die Transaktion in der primären Datenbank, die auch in der sekundären Datenbank erfolgreich festgeschrieben wurde. Da dieser Wert in der sekundären Datenbank mit dem gleichen Wert für die primäre synchronisiert werden sollte, ist jede Lücke zwischen diesen beiden Werten die Schätzung des Datenverlusts (RPO).  
+- **redo_queue_size** (KB) [*für RTO verwendet*]: Die Größe der Wiederholungswarteschlange ist die Größe der Transaktionsprotokolle zwischen **last_received_lsn** und **last_redone_lsn**. **last_received_lsn** ist die Protokollblock-ID, die den Punkt angibt, bis zu dem alle Protokollblöcke vom sekundären Replikat empfangen wurden, das diese sekundäre Datenbank hostet. **last_redone_lsn** ist die tatsächliche Protokollfolgenummer des letzten Protokolldatensatzes, der zuletzt für die sekundäre Datenbank wiederholt wurde. Basierend auf diesen beiden Werten können wir die IDs des Anfangsprotokollblocks (**last_received_lsn**) und des Endprotokollblocks (**last_redone_lsn**) bestimmen. Der Abstand zwischen diesen beiden Protokollblöcken kann dann abbilden, wie viele Transaktionsprotokollblöcke noch nicht wiederholt wurden. Die Messung erfolgt in Kilobyte (KB).
+-  **redo_rate** (KB/Sek.) [*für RTO verwendet*]: Ein kumulierter Wert, der für einen abgelaufenen Zeitraum angibt, wie viel des Transaktionsprotokolls (KB) in der sekundären Datenbank in Kilobytes(KB)/Sekunde wiederholt wurde. 
+- **last_commit_time** (Datetime) [*für RPO verwendet*]: Für die primäre Datenbank ist **last_commit_time** der Zeitpunkt, zu der für die letzte Transaktion ein Commit erfolgt ist. Für die sekundäre Datenbank ist **last_commit_time** die letzte Commitzeit für die Transaktion in der primären Datenbank, die auch in der sekundären Datenbank erfolgreich festgeschrieben wurde. Da dieser Wert in der sekundären Datenbank mit dem gleichen Wert für die primäre synchronisiert werden sollte, ist jede Lücke zwischen diesen beiden Werten die Schätzung des Datenverlusts (RPO).  
  
 ## <a name="estimate-rto-and-rpo-using-dmvs"></a>Schätzen von RTO und RPO mithilfe dynamischer Verwaltungssichten (DMVs)
 
@@ -206,7 +206,7 @@ Es ist möglich, die DMVs [sys.dm_hadr_database_replica_states](../../../relatio
   ```sql
    exec proc_calculate_RTO @secondary_database_name = N'DB_sec'
   ```
-3. Die Ausgabe zeigt den RTO-Wert der Zieldatenbank des sekundären Replikats. Speichern Sie *group_id* , *replica_id* und *group_database_id* , um diese Angaben mit der gespeicherten Prozedur zur Schätzung des RPO zu verwenden. 
+3. Die Ausgabe zeigt den RTO-Wert der Zieldatenbank des sekundären Replikats. Speichern Sie *group_id*, *replica_id* und *group_database_id*, um diese Angaben mit der gespeicherten Prozedur zur Schätzung des RPO zu verwenden. 
    
    Beispielausgabe:
 <br>RTO von Database DB_sec ist 0
@@ -299,7 +299,7 @@ Es ist möglich, die DMVs [sys.dm_hadr_database_replica_states](../../../relatio
       end
  ```
 
-2. Führen Sie **proc_calculate_RPO** mit *group_id* , *replica_id* und *group_database_id* der sekundären Zieldatenbank aus. 
+2. Führen Sie **proc_calculate_RPO** mit *group_id*, *replica_id* und *group_database_id* der sekundären Zieldatenbank aus. 
 
  ```sql
    exec proc_calculate_RPO @group_id= 'F176DD65-C3EE-4240-BA23-EA615F965C9B',
@@ -338,53 +338,53 @@ Um die Richtlinien zu erstellen, befolgen Sie die nachfolgenden Anweisungen für
   
 4.  Erstellen Sie eine [richtlinienbasierte Verwaltungsbedingung](~/relational-databases/policy-based-management/create-a-new-policy-based-management-condition.md) mit den folgenden Spezifikationen:  
   
-    -   **Name** : `RTO`  
+    -   **Name**: `RTO`  
   
     -   **Facet:** **Database Replica State** (Zustand des Datenbankreplikats)  
   
-    -   **Feld** : `Add(@EstimatedRecoveryTime, 60)`  
+    -   **Feld**: `Add(@EstimatedRecoveryTime, 60)`  
   
-    -   **Operator** : **<=**  
+    -   **Operator**: **<=**  
   
-    -   **Wert** : `600`  
+    -   **Wert**: `600`  
   
      Bei dieser Bedingung tritt ein Fehler auf, wenn die mögliche Failoverzeit 10 Minuten überschreitet, einschließlich eines Mehraufwands von 60 Sekunden für die Fehlererkennung und das Failover.  
   
 5.  Erstellen Sie eine zweite [richtlinienbasierte Verwaltungsbedingung](~/relational-databases/policy-based-management/create-a-new-policy-based-management-condition.md) mit den folgenden Spezifikationen:  
   
-    -   **Name** : `RPO`  
+    -   **Name**: `RPO`  
   
     -   **Facet:** **Database Replica State** (Zustand des Datenbankreplikats)  
   
-    -   **Feld** : `@EstimatedDataLoss`  
+    -   **Feld**: `@EstimatedDataLoss`  
   
-    -   **Operator** : **<=**  
+    -   **Operator**: **<=**  
   
-    -   **Wert** : `3600`  
+    -   **Wert**: `3600`  
   
      Bei dieser Bedingung tritt ein Fehler auf, wenn der Datenverlust 1 Stunde überschreitet.  
   
 6.  Erstellen Sie eine dritte [richtlinienbasierte Verwaltungsbedingung](~/relational-databases/policy-based-management/create-a-new-policy-based-management-condition.md) mit den folgenden Spezifikationen:  
   
-    -   **Name** : `IsPrimaryReplica`  
+    -   **Name**: `IsPrimaryReplica`  
   
     -   **Facet:** **Verfügbarkeitsgruppe**  
   
-    -   **Feld** : `@LocalReplicaRole`  
+    -   **Feld**: `@LocalReplicaRole`  
   
-    -   **Operator** : **=**  
+    -   **Operator**: **=**  
   
-    -   **Wert** : `Primary`  
+    -   **Wert**: `Primary`  
   
      Diese Bedingung überprüft, ob das lokale Verfügbarkeitsreplikat für eine bestimmte Verfügbarkeitsgruppe das primäre Replikat ist.  
   
 7.  Erstellen Sie eine [richtlinienbasierte Verwaltungsrichtlinie](~/relational-databases/policy-based-management/create-a-policy-based-management-policy.md) mit den folgenden Spezifikationen:  
   
-    -   Seite **Allgemein** :  
+    -   Seite **Allgemein**:  
   
-        -   **Name** : `CustomSecondaryDatabaseRTO`  
+        -   **Name**: `CustomSecondaryDatabaseRTO`  
   
-        -   **Bedingung überprüfen** : `RTO`  
+        -   **Bedingung überprüfen**: `RTO`  
   
         -   **Für Ziele:** **Alle DatabaseReplicaState** in **IsPrimaryReplica AvailabilityGroup**  
   
@@ -394,25 +394,25 @@ Um die Richtlinien zu erstellen, befolgen Sie die nachfolgenden Anweisungen für
   
         -   **Zeitplan:** **CollectorSchedule_Every_5min**  
   
-        -   **Aktiviert** : **Ausgewählt**  
+        -   **Aktiviert**: **Ausgewählt**  
   
-    -   Seite **Beschreibung** :  
+    -   Seite **Beschreibung**:  
   
         -   **Kategorie:** **Availability database warnings** (Warnungen zu Verfügbarkeitsdatenbanken)  
   
              Mit dieser Einstellung können die Ergebnisse der Richtlinienauswertung auf dem Always On-Dashboard angezeigt werden.  
   
-        -   **Beschreibung** : **Das aktuelle Replikat ist eine RTO, die 10 Minuten überschreitet. Hierbei wird von einem Mehraufwand von 1 Minute für die Erkennung und das Failover ausgegangen. Sie sollten Leistungsprobleme in der jeweiligen Serverinstanz sofort untersuchen.**  
+        -   **Beschreibung**: **Das aktuelle Replikat ist eine RTO, die 10 Minuten überschreitet. Hierbei wird von einem Mehraufwand von 1 Minute für die Erkennung und das Failover ausgegangen. Sie sollten Leistungsprobleme in der jeweiligen Serverinstanz sofort untersuchen.**  
   
         -   **Anzuzeigender Text:** **RTO wurde überschritten.**  
   
 8.  Erstellen Sie eine zweite [richtlinienbasierte Verwaltungsrichtlinie](~/relational-databases/policy-based-management/create-a-policy-based-management-policy.md) mit den folgenden Spezifikationen:  
   
-    -   Seite **Allgemein** :  
+    -   Seite **Allgemein**:  
   
-        -   **Name** : `CustomAvailabilityDatabaseRPO`  
+        -   **Name**: `CustomAvailabilityDatabaseRPO`  
   
-        -   **Bedingung überprüfen** : `RPO`  
+        -   **Bedingung überprüfen**: `RPO`  
   
         -   **Für Ziele:** **Alle DatabaseReplicaState** in **IsPrimaryReplica AvailabilityGroup**  
   
@@ -420,13 +420,13 @@ Um die Richtlinien zu erstellen, befolgen Sie die nachfolgenden Anweisungen für
   
         -   **Zeitplan:** **CollectorSchedule_Every_30min**  
   
-        -   **Aktiviert** : **Ausgewählt**  
+        -   **Aktiviert**: **Ausgewählt**  
   
-    -   Seite **Beschreibung** :  
+    -   Seite **Beschreibung**:  
   
         -   **Kategorie:** **Availability database warnings** (Warnungen zu Verfügbarkeitsdatenbanken)  
   
-        -   **Beschreibung** : **Die Verfügbarkeitsdatenbank hat Ihre RPO von einer Stunde überschritten. Sie sollten Leistungsprobleme in den Verfügbarkeitsreplikaten sofort untersuchen.**  
+        -   **Beschreibung**: **Die Verfügbarkeitsdatenbank hat Ihre RPO von einer Stunde überschritten. Sie sollten Leistungsprobleme in den Verfügbarkeitsreplikaten sofort untersuchen.**  
   
         -   **Anzuzeigender Text:** **RPO wurde überschritten.**  
   

@@ -1,6 +1,6 @@
 ---
 title: Konfigurationsoptionen für den Serverarbeitsspeicher | Microsoft-Dokumentation
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 08/14/2019
 ms.prod: sql
 ms.prod_service: high-availability
@@ -22,12 +22,12 @@ helpviewer_keywords:
 ms.assetid: 29ce373e-18f8-46ff-aea6-15bbb10fb9c2
 author: pmasl
 ms.author: pelopes
-ms.openlocfilehash: 8620da6349efe012e9e0d75d6ddf5efada437832
-ms.sourcegitcommit: 039fb38c583019b3fd06894160568387a19ba04e
+ms.openlocfilehash: 71cab9c11aaa4f3dc569761fdfef407601162b1c
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87442810"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878907"
 ---
 # <a name="server-memory-configuration-options"></a>Konfigurationsoptionen für den Serverarbeitsspeicher
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -57,7 +57,7 @@ Sie können die Serveroptionen **Min. Serverarbeitsspeicher** und **Max. Servera
 <a name="min_server_memory"></a> Mithilfe der Konfigurationsoption **min_server_memory** wird sichergestellt, dass für den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Speicher-Manager einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eine Mindestmenge an Arbeitsspeicher verfügbar ist. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Allerdings wird die unter **Min. Serverarbeitsspeicher** angegebene Arbeitsspeichermenge von nicht gleich beim Start zugeordnet. Sobald der Wert für die Speicherauslastung aufgrund der Clientauslastung erreicht ist, kann [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nur dann Arbeitsspeicher freigeben, wenn der Wert für **Min. Serverarbeitsspeicher** reduziert wird. Wenn beispielsweise mehrere Instanzen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] gleichzeitig auf dem gleichen Host ausgeführt werden können, legen Sie den Parameter „min_server_memory“ anstelle von „max_server_memory“ fest, um Arbeitsspeicher für eine Instanz zu reservieren. Ferner ist das Festlegen eines Werts für „min_server_memory“ in einer virtualisierten Umgebung entscheidend, um sicherzustellen, dass Arbeitsspeichermangel beim zugrundeliegenden Host nicht zu dem Versuch führt, Arbeitsspeicher aus dem Pufferpool eines virtuellen [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Gastcomputers jenseits dessen abzuzweigen, was für eine vertretbare Leistung erforderlich ist.
 
 >[!NOTE]
->Allerdings kann nicht sichergestellt werden, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die in **min server memory** angegebene Arbeitsspeichermenge zuordnet. Wenn die in **min server memory**angegebene Arbeitsspeichermenge aufgrund der Serverlast zu keinem Zeitpunkt zugeordnet werden muss, wird [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mit weniger Arbeitsspeicher ausgeführt.
+>Allerdings kann nicht sichergestellt werden, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die in **min server memory** angegebene Arbeitsspeichermenge zuordnet. Wenn die in **min server memory** angegebene Arbeitsspeichermenge aufgrund der Serverlast zu keinem Zeitpunkt zugeordnet werden muss, wird [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mit weniger Arbeitsspeicher ausgeführt.
 
 <a name="max_server_memory"></a> Verwenden Sie **max_server_memory**, um sicherzustellen, dass beim Betriebssystem kein nachteiliger Arbeitsspeichermangel eintritt. Um den maximalen Serverarbeitsspeicher zu konfigurieren, überwachen Sie den Gesamtverbrauch des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Prozesses, um die Arbeitsspeicheranforderungen zu bestimmen. Hier folgen genauere Angaben für diese Berechnungen für eine Einzelinstanz:
 - Reservieren Sie vom gesamten Arbeitsspeicher des Betriebssystems 1 GB–4 GB für das Betriebssystem selbst.
@@ -77,7 +77,7 @@ So legen Sie eine feste Arbeitsspeichergröße fest:
   
 2.  Klicken Sie auf den **Speicher** -Knoten.  
   
-3.  Geben Sie unter **Arbeitsspeicheroptionen für den Server**den gewünschten Wert für **Minimaler Serverarbeitsspeicher** und **Maximaler Serverarbeitsspeicher**ein.  
+3.  Geben Sie unter **Arbeitsspeicheroptionen für den Server** den gewünschten Wert für **Minimaler Serverarbeitsspeicher** und **Maximaler Serverarbeitsspeicher** ein.  
   
      Verwenden Sie die Standardeinstellungen, damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Arbeitsspeicheranforderungen auf der Grundlage der verfügbaren Systemressourcen dynamisch ändert. Es wird empfohlen, einen Wert für **Max. Serverarbeitsspeicher** festzulegen, wie [oben ausführlich beschrieben](#max_server_memory). 
 
@@ -100,13 +100,13 @@ Das Festlegen dieser Option wirkt sich nicht auf die [dynamische Arbeitsspeicher
 ### <a name="to-enable-lock-pages-in-memory"></a>Aktivieren des Sperrens von Seiten im Speicher  
 So aktivieren Sie die Option "Sperren von Seiten im Speicher":  
   
-1.  Klicken Sie im Menü **Start** auf **Ausführen**. Geben Sie **gpedit.msc** im Feld **Öffnen**ein.  
+1.  Klicken Sie im Menü **Start** auf **Ausführen**. Geben Sie **gpedit.msc** im Feld **Öffnen** ein.  
   
      Das Dialogfeld **Gruppenrichtlinie** wird geöffnet.  
   
-2.  Erweitern Sie in der Konsole **Gruppenrichtlinie** die Option **Computerkonfiguration**und dann **Windows-Einstellungen**.  
+2.  Erweitern Sie in der Konsole **Gruppenrichtlinie** die Option **Computerkonfiguration** und dann **Windows-Einstellungen**.  
   
-3.  Erweitern Sie **Sicherheitseinstellungen**und dann **Lokale Richtlinien**.  
+3.  Erweitern Sie **Sicherheitseinstellungen** und dann **Lokale Richtlinien**.  
   
 4.  Wählen Sie den Ordner **Zuweisen von Benutzerrechten** aus.  
   

@@ -1,7 +1,7 @@
 ---
 title: Herstellen einer Verbindung mit SQL Server, wenn Systemadministratoren den Zugriff verloren haben | Microsoft-Dokumentation
 description: In diesem Artikel erfahren Sie, wie Sie als Systemadministrator den Zugriff auf SQL Server zurückgewinnen, wenn Sie versehentlich ausgesperrt wurden.
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 05/20/2020
 ms.prod: sql
 ms.prod_service: high-availability
@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: c0c0082e-b867-480f-a54b-79f2a94ceb67
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 801602c78193f9fc3fa9cdab40b98c3dc3dd42e0
-ms.sourcegitcommit: 291ae8f6b72fd355f8f24ce5300339306293ea7e
+ms.openlocfilehash: 3b4cf5946fba4eb3c79150b29ef44bd232f9c155
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512316"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878946"
 ---
 # <a name="connect-to-sql-server-when-system-administrators-are-locked-out"></a>Herstellen einer Verbindung mit SQL Server, wenn Systemadministratoren den Zugriff verloren haben 
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -76,7 +76,7 @@ Führen Sie diese Schritte aus, während Sie in Windows als Mitglied der lokalen
 
 1.  Klicken Sie im Windows-Startmenü mit der rechten Maustaste auf das Symbol für den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Konfigurations-Manager, und wählen Sie **Als Administrator ausführen** aus, um Ihre Administratoranmeldeinformationen an den Konfigurations-Manager zu übergeben.  
   
-2.  Wählen Sie im linken Bereich des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Konfigurations-Managers die Option **SQL Server-Dienste**aus. Suchen Sie im rechten Bereich Ihre [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz. (Bei der Standardinstanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ist **(MSSQLSERVER)** nach dem Computernamen angegeben. Benannte Instanzen werden in Großbuchstaben mit demselben Namen wie unter Registrierte Server angezeigt.) Klicken Sie mit der rechten Maustaste auf die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz, und klicken Sie dann auf **Eigenschaften**.  
+2.  Wählen Sie im linken Bereich des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Konfigurations-Managers die Option **SQL Server-Dienste** aus. Suchen Sie im rechten Bereich Ihre [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz. (Bei der Standardinstanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ist **(MSSQLSERVER)** nach dem Computernamen angegeben. Benannte Instanzen werden in Großbuchstaben mit demselben Namen wie unter Registrierte Server angezeigt.) Klicken Sie mit der rechten Maustaste auf die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz, und klicken Sie dann auf **Eigenschaften**.  
   
 3.  Geben Sie auf der Registerkarte **Startparameter** im Feld **Startparameter angeben** die Zeichenfolge `-m` ein, und klicken Sie dann auf **Hinzufügen**. (Der Parameter entspricht einem Bindestrich und dem Kleinbuchstaben m.)  
   
@@ -94,7 +94,7 @@ Führen Sie diese Schritte aus, während Sie in Windows als Mitglied der lokalen
   
      In einigen Konfigurationen versucht SSMS, mehrere Verbindungen herzustellen. Mehrere Verbindungen verursachen einen Fehler, da [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] im Einzelbenutzermodus ausgeführt wird. Führen Sie Ihrem Szenario entsprechend die passende Aktion aus:  
   
-    1.  Stellen Sie mithilfe der Windows-Authentifizierung, die Ihre Administratoranmeldeinformationen enthält, eine Verbindung zum Objekt-Explorer her. Erweitern Sie **Sicherheit**sowie **Anmeldungen**, und doppelklicken Sie auf Ihre eigene Anmeldung. Wählen Sie auf der Seite **Serverrollen** die Option **sysadmin**aus, und klicken Sie dann auf **OK**.  
+    1.  Stellen Sie mithilfe der Windows-Authentifizierung, die Ihre Administratoranmeldeinformationen enthält, eine Verbindung zum Objekt-Explorer her. Erweitern Sie **Sicherheit** sowie **Anmeldungen**, und doppelklicken Sie auf Ihre eigene Anmeldung. Wählen Sie auf der Seite **Serverrollen** die Option **sysadmin** aus, und klicken Sie dann auf **OK**.  
   
     2.  Anstatt über den Objekt-Explorer stellen Sie in einem Abfragefenster unter Verwendung der Windows-Authentifizierung (die Ihre Administratoranmeldeinformationen enthält) eine Verbindung her. (Diese Art der Verbindung wird nur unterstützt, wenn sie nicht über den Objekt-Explorer hergestellt wurde.) Führen Sie Code (wie im folgenden Beispiel) aus, um eine neue Anmeldung mit Windows-Authentifizierung hinzuzufügen, die Mitglied der festen Serverrolle **sysadmin** ist. Im folgenden Beispiel wird ein Domänenbenutzer mit dem Namen `CONTOSO\PatK` hinzugefügt.  
   
@@ -124,7 +124,7 @@ Führen Sie diese Schritte aus, während Sie in Windows als Mitglied der lokalen
 
 7. Schließen Sie [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)].  
   
-8. In den folgenden Schritten wird SQL Server in den Mehrbenutzermodus zurückversetzt. Wählen Sie im linken Bereich des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Konfigurations-Managers die Option **SQL Server-Dienste**aus.
+8. In den folgenden Schritten wird SQL Server in den Mehrbenutzermodus zurückversetzt. Wählen Sie im linken Bereich des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Konfigurations-Managers die Option **SQL Server-Dienste** aus.
 
 9. Klicken Sie im rechten Bereich mit der rechten Maustaste auf die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], und klicken Sie dann auf **Eigenschaften**.  
   

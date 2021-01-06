@@ -6,19 +6,19 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], sessions
 ms.assetid: 7cb418d6-dce1-4a0d-830e-9c5ccfe3bd72
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 5dc5aae2308f0f2cada44175ebcef691894720f4
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: ece2afa5381b2692c3cb3b99358fc02891e75e97
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85754707"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644310"
 ---
 # <a name="establish-database-mirroring-session---windows-authentication"></a>Datenbankspiegelung: Einrichtung der Sitzung – Windows-Authentifizierung
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -45,14 +45,14 @@ ms.locfileid: "85754707"
   
 2.  Erweitern Sie **Datenbanken**, und wählen Sie die zu spiegelnde Datenbank aus.  
   
-3.  Klicken Sie mit der rechten Maustaste auf die Datenbank, wählen Sie **Tasks**aus, und klicken Sie dann auf **Spiegeln**. Dadurch wird die Seite **Spiegelung** im Dialogfeld **Datenbankeigenschaften** geöffnet.  
+3.  Klicken Sie mit der rechten Maustaste auf die Datenbank, wählen Sie **Tasks** aus, und klicken Sie dann auf **Spiegeln**. Dadurch wird die Seite **Spiegelung** im Dialogfeld **Datenbankeigenschaften** geöffnet.  
   
 4.  Klicken Sie zum Konfigurieren der Spiegelung auf **Sicherheit konfigurieren** , um den Assistenten zum Konfigurieren der Sicherheit für die Datenbankspiegelung zu starten.  
   
     > [!NOTE]  
     >  Während einer Datenbank-Spiegelungssitzung können Sie mithilfe dieses Assistenten nur die Zeugenserverinstanz hinzufügen oder ändern.  
   
-5.  Der Assistent zum Konfigurieren der Sicherheit für die Datenbankspiegelung erstellt automatisch auf jeder Serverinstanz den Endpunkt für die Datenbankspiegelung (sofern keiner vorhanden ist) und gibt die Server-Netzwerkadressen in das der Rolle der jeweiligen Serverinstanz entsprechende Feld ein (**Prinzipal**, **Spiegel**oder **Zeuge**).  
+5.  Der Assistent zum Konfigurieren der Sicherheit für die Datenbankspiegelung erstellt automatisch auf jeder Serverinstanz den Endpunkt für die Datenbankspiegelung (sofern keiner vorhanden ist) und gibt die Server-Netzwerkadressen in das der Rolle der jeweiligen Serverinstanz entsprechende Feld ein (**Prinzipal**, **Spiegel** oder **Zeuge**).  
   
     > [!IMPORTANT]  
     >  Beim Erstellen eines Endpunkts verwendet der Assistent zum Konfigurieren der Sicherheit für die Datenbankspiegelung immer die Windows-Authentifizierung. Bevor Sie den Assistenten mit der zertifikatbasierten Authentifizierung verwenden können, muss der Spiegelungsendpunkt auf jeder der Serverinstanzen bereits für die Verwendung von Zertifikaten konfiguriert worden sein. Außerdem müssen alle Felder im Dialogfeld **Dienstkonten** des Assistenten leer bleiben. Informationen zum Erstellen eines Datenbank-Spiegelungsendpunkts für die Verwendung von Zertifikaten finden Sie unter [CREATE ENDPOINT &#40;Transact-SQL&#41;](../../t-sql/statements/create-endpoint-transact-sql.md).  
@@ -75,7 +75,7 @@ ms.locfileid: "85754707"
   
     -   Wenn der Betriebsmodus auf **Hohe Sicherheit mit automatischem Failover (synchron)** festgelegt ist, ist die vollqualifizierte TCP-Adresse der Zeugenserverinstanz ebenfalls angegeben.  
   
-8.  Nach dem Beginn der Spiegelung können Sie den Betriebsmodus ändern und die Änderung speichern, indem Sie auf **OK**klicken. Beachten Sie, dass Sie nur in den Hochsicherheitsmodus mit automatischem Failover wechseln können, wenn Sie zuerst eine Zeugenserveradresse angegeben haben.  
+8.  Nach dem Beginn der Spiegelung können Sie den Betriebsmodus ändern und die Änderung speichern, indem Sie auf **OK** klicken. Beachten Sie, dass Sie nur in den Hochsicherheitsmodus mit automatischem Failover wechseln können, wenn Sie zuerst eine Zeugenserveradresse angegeben haben.  
   
     > [!NOTE]  
     >  Zum Entfernen des Zeugen löschen Sie seine Servernetzwerkadresse aus dem Feld **Zeuge** . Wenn Sie vom Modus für hohe Sicherheit mit automatischem Failover zum Modus zur hohe Leistung wechseln, wird das Feld **Zeuge** automatisch gelöscht.  

@@ -41,14 +41,14 @@ ms.assetid: 05cfae9b-96d5-4a35-a098-0bc3a548bcfc
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.custom: seo-lt-2019, contperfq1
+ms.custom: seo-lt-2019, contperf-fy21q1
 ms.date: 08/28/2020
-ms.openlocfilehash: 7450a77549d05dab5a024b39be6d2b4aef6c09de
-ms.sourcegitcommit: b3a711a673baebb2ff10d7142b209982b46973ae
+ms.openlocfilehash: 87fd12a17b86a47e6fec1b235ae9e9a21fde6e45
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364839"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878954"
 ---
 # <a name="sql-server-management-studio-ssms-query-editor"></a>SSMS-Abfrage-Editor (SQL Server Management Studio)
 
@@ -158,7 +158,7 @@ Sie können Ergebnisse auch in einem Raster zurückgeben, indem Sie die Tastenko
 
 ### <a name="results-to-file-using-the-editor-toolbar"></a>Zurückgeben von Ergebnissen in einer Datei über die Editor-Symbolleiste
 
-Wenn die Abfrage ausgeführt wird, wird das Dialogfeld **Ergebnisse speichern** geöffnet. Wählen Sie unter **Speichern in** den Ordner aus, in dem Sie die Datei speichern möchten. Geben Sie unter **Dateiname** den Namen der Datei ein, und klicken Sie dann auf **Speichern** , um die Abfrageergebnisse als **Berichtsdatei** mit der Dateierweiterung „.rpt“ zu speichern. Wählen Sie den Pfeil nach unten auf der Schaltfläche **Speichern** und dann die Option **Mit Codierung speichern** aus.
+Wenn die Abfrage ausgeführt wird, wird das Dialogfeld **Ergebnisse speichern** geöffnet. Wählen Sie unter **Speichern in** den Ordner aus, in dem Sie die Datei speichern möchten. Geben Sie unter **Dateiname** den Namen der Datei ein, und klicken Sie dann auf **Speichern**, um die Abfrageergebnisse als **Berichtsdatei** mit der Dateierweiterung „.rpt“ zu speichern. Wählen Sie den Pfeil nach unten auf der Schaltfläche **Speichern** und dann die Option **Mit Codierung speichern** aus.
 
 Sie können Ergebnisse auch im Dateiformat zurückgeben, indem Sie die Tastenkombination STRG+UMSCHALT+F drücken oder das [Kontextmenü](#results-using-the-context-menu) verwenden.
 
@@ -188,7 +188,7 @@ Verschiebt durch das Hinzufügen von Leerzeichen am Zeilenanfang den Text der Ze
 
 ## <a name="context-menu"></a>Kontextmenü
 
-Sie können auf das Kontextmenü zugreifen, indem Sie an einer beliebigen Stelle im Abfrage-Editor *mit der rechten Maustaste klicken*. Die Optionen im Kontextmenü entsprechen denen in der SQL-Editor-Symbolleiste. Über das Kontextmenü erhalten Sie dieselben Optionen wie **Verbinden** und **Ausführen** , es werden aber auch weitere Optionen wie **Codeausschnitt einfügen** oder **Umschließen mit** aufgeführt.
+Sie können auf das Kontextmenü zugreifen, indem Sie an einer beliebigen Stelle im Abfrage-Editor *mit der rechten Maustaste klicken*. Die Optionen im Kontextmenü entsprechen denen in der SQL-Editor-Symbolleiste. Über das Kontextmenü erhalten Sie dieselben Optionen wie **Verbinden** und **Ausführen**, es werden aber auch weitere Optionen wie **Codeausschnitt einfügen** oder **Umschließen mit** aufgeführt.
 
 ![Optionen](media/database-engine-query-editor-sql-server-management-studio/context-menu.png)
 
@@ -206,13 +206,13 @@ Ein Codeausschnitt zum Umschließen ist eine Vorlage, die Sie beim Einschließen
 
 Im Kontextmenü gibt es mehr **Verbindungsoptionen** als bei Symbolleistenoptionen in SSMS.
 
-- **Verbinden** : Öffnet das Dialogfeld „Verbindung mit Server herstellen“. Mithilfe dieses Dialogfelds können Sie eine Verbindung mit einem Server herstellen.
+- **Verbinden**: Öffnet das Dialogfeld „Verbindung mit Server herstellen“. Mithilfe dieses Dialogfelds können Sie eine Verbindung mit einem Server herstellen.
 
-- **Trennen** : Trennt den aktuellen Abfrage-Editor vom Server.
+- **Trennen**: Trennt den aktuellen Abfrage-Editor vom Server.
 
-- **Alle Abfragen trennen** : Trennt die Verbindung sämtlicher Abfragen.
+- **Alle Abfragen trennen**: Trennt die Verbindung sämtlicher Abfragen.
 
-- **Verbindung ändern** : Öffnet das Dialogfeld „Verbindung mit Server herstellen“. Mithilfe dieses Dialogfelds können Sie eine Verbindung mit einem anderen Server herstellen.
+- **Verbindung ändern**: Öffnet das Dialogfeld „Verbindung mit Server herstellen“. Mithilfe dieses Dialogfelds können Sie eine Verbindung mit einem anderen Server herstellen.
 
 ### <a name="open-server-in-object-explorer-using-the-context-menu"></a>Öffnen eines Servers im Objekt-Explorer über das Kontextmenü
 
@@ -260,11 +260,11 @@ Schließt das Fenster **Clientstatistiken** ein, das Statistiken zu der Abfrage,
 
 Sie können die gewünschten Optionen für *Ergebnisse* über das Kontextmenü auswählen.
 
-- **Ergebnisse in Text** : Gibt die Abfrageergebnisse im Fenster **Ergebnisse** als Text zurück.
+- **Ergebnisse in Text**: Gibt die Abfrageergebnisse im Fenster **Ergebnisse** als Text zurück.
 
-- **Ergebnisse in Raster** : Gibt die Abfrageergebnisse im Fenster **Ergebnisse** in Form eines oder mehrerer Raster zurück.
+- **Ergebnisse in Raster**: Gibt die Abfrageergebnisse im Fenster **Ergebnisse** in Form eines oder mehrerer Raster zurück.
 
-- **Ergebnisse in Datei** : Wenn die Abfrage ausgeführt wird, wird das Dialogfeld **Ergebnisse speichern** geöffnet. Wählen Sie unter **Speichern in** den Ordner aus, in dem Sie die Datei speichern möchten. Geben Sie unter **Dateiname** den Namen der Datei ein, und wählen Sie dann **Speichern** aus, um die Abfrageergebnisse als **Berichtsdatei** mit der Dateierweiterung „.rpt“ zu speichern. Wählen Sie den Pfeil nach unten auf der Schaltfläche **Speichern** und dann die Option **Mit Codierung speichern** aus.
+- **Ergebnisse in Datei**: Wenn die Abfrage ausgeführt wird, wird das Dialogfeld **Ergebnisse speichern** geöffnet. Wählen Sie unter **Speichern in** den Ordner aus, in dem Sie die Datei speichern möchten. Geben Sie unter **Dateiname** den Namen der Datei ein, und wählen Sie dann **Speichern** aus, um die Abfrageergebnisse als **Berichtsdatei** mit der Dateierweiterung „.rpt“ zu speichern. Wählen Sie den Pfeil nach unten auf der Schaltfläche **Speichern** und dann die Option **Mit Codierung speichern** aus.
 
 ### <a name="properties-window-using-the-context-menu"></a>Eigenschaftenfenster über das Kontextmenü
 

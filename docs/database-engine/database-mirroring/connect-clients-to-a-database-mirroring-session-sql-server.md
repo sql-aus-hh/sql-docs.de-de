@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - partners [SQL Server], connecting clients to
@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: 0d5d2742-2614-43de-9ab9-864addb6299b
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 8da63d8ff15d03b55586a72a578d6074fa2a5473
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 680273a6bab1283be56d130c84b4c156d8fcd280
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789769"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644333"
 ---
 # <a name="connect-clients-to-a-database-mirroring-session-sql-server"></a>Verbinden von Clients mit einer Datenbank-Spiegelungssitzung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -29,9 +29,9 @@ ms.locfileid: "85789769"
   
   
 ##  <a name="making-the-initial-connection-to-a-database-mirroring-session"></a><a name="InitialConnection"></a> Herstellen der Anfangsverbindung mit einer Datenbank-Spiegelungssitzung  
- Für die Anfangsverbindung mit einer gespiegelten Datenbank muss ein Client eine Verbindungszeichenfolge bereitstellen, die zumindest den Namen einer Serverinstanz nennt. Dieser erforderliche Servername sollte die aktuelle Prinzipalserverinstanz identifizieren und wird auch als *erster Partnername*bezeichnet.  
+ Für die Anfangsverbindung mit einer gespiegelten Datenbank muss ein Client eine Verbindungszeichenfolge bereitstellen, die zumindest den Namen einer Serverinstanz nennt. Dieser erforderliche Servername sollte die aktuelle Prinzipalserverinstanz identifizieren und wird auch als *erster Partnername* bezeichnet.  
   
- Optional kann in der Verbindungszeichenfolge auch der Name einer anderen Serverinstanz bereitgestellt werden, um die aktuelle Spiegelserverinstanz zu identifizieren, die dann verwendet wird, wenn der erste Partner während des ersten Verbindungsversuchs nicht verfügbar ist. Der zweite Name wird auch als *Failoverpartnername*bezeichnet.  
+ Optional kann in der Verbindungszeichenfolge auch der Name einer anderen Serverinstanz bereitgestellt werden, um die aktuelle Spiegelserverinstanz zu identifizieren, die dann verwendet wird, wenn der erste Partner während des ersten Verbindungsversuchs nicht verfügbar ist. Der zweite Name wird auch als *Failoverpartnername* bezeichnet.  
   
  In der Verbindungszeichenfolge muss darüber hinaus ein Datenbankname bereitgestellt werden. Dies ist notwendig, um Failoverversuche des Datenzugriffsanbieters zu ermöglichen.  
   
@@ -46,7 +46,7 @@ ms.locfileid: "85789769"
   
  Wenn dieser Versuch nicht erfolgreich ist, verwendet der Datenzugriffsanbieter beim nächsten Verbindungsversuch den Namen des Failoverpartners (sofern vorhanden). Identifiziert einer der Partnernamen den aktuellen Prinzipalserver richtig, kann der Datenzugriffsanbieter die Anfangsverbindung normalerweise erfolgreich herstellen. Beim Abschließen der Verbindung lädt der Datenzugriffsanbieter den Serverinstanznamen des aktuellen Spiegelservers herunter. Dieser Name wird als Failoverpartnername im Cache gespeichert und überschreibt die vom Client bereitgestellten Failoverpartnernamen (sofern vorhanden). Der Failoverpartnername wird danach vom .NET Framework-Datenanbieter für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nicht mehr aktualisiert. Im Gegensatz hierzu wird der Cache von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client immer aktualisiert, wenn eine nachfolgende Verbindung oder das Zurücksetzen einer Verbindung einen anderen Partnernamen zurückgibt.  
   
- In der folgenden Abbildung wird eine Clientverbindung mit dem ersten Partner, **Partner_A**, für eine gespiegelte Datenbank namens **Db_1**dargestellt. Die Abbildung stellt einen Fall dar, in dem der vom Client bereitgestellte Name des ersten Partners den aktuellen Prinzipalserver, **Partner_A**, korrekt identifiziert. Der Anfangsverbindungsversuch ist erfolgreich, und der Datenzugriffsanbieter speichert den Namen des Spiegelservers (derzeit **Partner_B**) als Failoverpartnername im lokalen Cache. Schließlicht stellt der Client die Verbindung mit der Prinzipalkopie der **Db_1** -Datenbank her.  
+ In der folgenden Abbildung wird eine Clientverbindung mit dem ersten Partner, **Partner_A**, für eine gespiegelte Datenbank namens **Db_1** dargestellt. Die Abbildung stellt einen Fall dar, in dem der vom Client bereitgestellte Name des ersten Partners den aktuellen Prinzipalserver, **Partner_A**, korrekt identifiziert. Der Anfangsverbindungsversuch ist erfolgreich, und der Datenzugriffsanbieter speichert den Namen des Spiegelservers (derzeit **Partner_B**) als Failoverpartnername im lokalen Cache. Schließlicht stellt der Client die Verbindung mit der Prinzipalkopie der **Db_1** -Datenbank her.  
   
  ![Clientverbindung, wenn der Anfangspartner der Prinzipal ist](../../database-engine/database-mirroring/media/dbm-initial-connection.gif "Clientverbindung, wenn der Anfangspartner der Prinzipal ist")  
   
@@ -175,7 +175,7 @@ Server=123.34.45.56,4724;
   
  Bei Verwendung des Standardwerts für den Anmeldungstimeout von 15 Sekunden gilt *LoginTimeout*  *= 15*. In diesem Fall berechnen sich die Wiederholungszeiten in den ersten drei Runden wie folgt:  
   
-|Round|Berechnung der*Wiederholungszeit*|Wiederholungszeit pro Versuch|  
+|Round|Berechnung der *Wiederholungszeit*|Wiederholungszeit pro Versuch|  
 |-----------|-----------------------------|----------------------------|  
 |1|0 **+(** 0,08 **&#42;** 15 **)**|1,2 Sekunden|  
 |2|1.2 **+(** 0,08 **&#42;** 15 **)**|2,4 Sekunden|  
@@ -226,7 +226,7 @@ Server=123.34.45.56,4724;
 ##  <a name="Benefits"></a>   
   
 ##  <a name="the-impact-of-a-stale-failover-partner-name"></a><a name="StalePartnerName"></a> Auswirkungen eines veralteten Failoverpartnernamens  
- Der Failoverpartner kann vom Datenbankadministrator jederzeit geändert werden. Deshalb kann es vorkommen, dass ein vom Client bereitgestellter Failoverpartnername nicht mehr auf dem neuesten Stand ist oder als *veraltet*betrachtet werden kann. Angenommen, ein Failoverpartner namens Partner_B wird durch eine andere Serverinstanz, Partner_C, ersetzt. Stellt nun ein Client Partner_B als Failoverpartnernamen bereit, gilt dieser Name als veraltet. Bei Bereitstellung eines veralteten Failoverpartnernamens durch den Client verhält sich der Datenzugriffsanbieter genau so, als wäre durch den Client überhaupt kein Failoverpartnername bereitgestellt worden.  
+ Der Failoverpartner kann vom Datenbankadministrator jederzeit geändert werden. Deshalb kann es vorkommen, dass ein vom Client bereitgestellter Failoverpartnername nicht mehr auf dem neuesten Stand ist oder als *veraltet* betrachtet werden kann. Angenommen, ein Failoverpartner namens Partner_B wird durch eine andere Serverinstanz, Partner_C, ersetzt. Stellt nun ein Client Partner_B als Failoverpartnernamen bereit, gilt dieser Name als veraltet. Bei Bereitstellung eines veralteten Failoverpartnernamens durch den Client verhält sich der Datenzugriffsanbieter genau so, als wäre durch den Client überhaupt kein Failoverpartnername bereitgestellt worden.  
   
  Im folgenden Beispiel verwendet ein Client eine Verbindungszeichenfolge für vier aufeinander folgende Verbindungsversuche. Dabei wird in der Verbindungszeichenfolge als erster Partnername Partner_A und als Failoverpartnername Partner_B angegeben:  
   

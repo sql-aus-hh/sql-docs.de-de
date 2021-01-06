@@ -11,20 +11,20 @@ helpviewer_keywords:
 ms.assetid: c147c9e1-b81d-49c8-b800-3019f4d86a13
 author: markingmyname
 ms.author: maghan
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 06/12/2020
-ms.openlocfilehash: 004a7b0a50a657632bb2b9970f0558857d416494
-ms.sourcegitcommit: ae474d21db4f724523e419622ce79f611e956a22
+ms.openlocfilehash: d12ea9c15f2a07fa6fdd4bc5dd5538fd1522d267
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92257979"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878833"
 ---
 # <a name="xp_cmdshell-server-configuration-option"></a>xp_cmdshell (Serverkonfigurationsoption)
 
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-In diesem Artikel wird beschrieben, wie Sie die SQL Server-Konfigurationsoption **xp_cmdshell** aktivieren. Mit dieser Option können Systemadministratoren steuern, ob die [erweiterte gespeicherte Prozedur „xp_cmdshell“](../../relational-databases/system-stored-procedures/xp-cmdshell-transact-sql.md) in einem System ausgeführt werden kann. In neuen Installationen ist die **xp_cmdshell** -Option standardmäßig deaktiviert.
+In diesem Artikel wird beschrieben, wie Sie die SQL Server-Konfigurationsoption **xp_cmdshell** aktivieren. Mit dieser Option können Systemadministratoren steuern, ob die [erweiterte gespeicherte Prozedur „xp_cmdshell“](../../relational-databases/system-stored-procedures/xp-cmdshell-transact-sql.md) in einem System ausgeführt werden kann. In neuen Installationen ist die **xp_cmdshell**-Option standardmäßig deaktiviert.
 
 Bevor Sie diese Option aktivieren, berücksichtigen Sie die möglichen Sicherheitsrisiken.
 

@@ -11,12 +11,12 @@ ms.assetid: 13942af8-5a40-4cef-80f5-918386767a47
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: = sql-server-2017
-ms.openlocfilehash: 83829530014c83279bcde7dc8aa4be17496bdf50
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0c70b2a7202ea7bcd14128a544487ec011c9c7b8
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97409536"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643319"
 ---
 # <a name="sql-server-2017-release-notes"></a>Versionsanmerkungen zu SQL Server 2017
 [!INCLUDE[SQL Server 2017](../includes/applies-to-version/sqlserver2017.md)]
@@ -30,7 +30,7 @@ In den folgenden Artikeln werden Einschränkungen und Probleme mit SQL Server 20
 - [![Erstellen eines virtuellen Computers](../includes/media/azure-vm.png)](https://azure.microsoft.com/services/virtual-machines/sql-server/?wt.mc_id=sqL16_vm) [Starten von virtuellen Computern mit SQL Server 2017](https://azure.microsoft.com/services/virtual-machines/sql-server/?wt.mc_id=sqL16_vm)
 
 > [!NOTE]
-> SQL Server 2019 (Vorschau) ist jetzt verfügbar. Weitere Informationen finden Sie unter [Neues in SQL Server 2019](../sql-server/what-s-new-in-sql-server-ver15.md?view=sql-server-ver15).
+> SQL Server 2019 (Vorschau) ist jetzt verfügbar. Weitere Informationen finden Sie unter [Neues in SQL Server 2019](../sql-server/what-s-new-in-sql-server-ver15.md?view=sql-server-ver15&preserve-view=true).
 
 ## <a name="sql-server-2017---general-availability-release-october-2017"></a>SQL Server 2017: allgemein verfügbare Releaseversion (Oktober 2017)
 ### <a name="database-engine"></a>Datenbank-Engine

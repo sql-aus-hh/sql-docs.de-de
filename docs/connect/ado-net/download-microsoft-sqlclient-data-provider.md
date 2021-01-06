@@ -1,7 +1,7 @@
 ---
 title: Herunterladen des Microsoft SqlClient-Datenanbieters für SQL Server
 description: Downloadseite für ADO.NET und den Microsoft SqlClient-Datenanbieter für SQL Server
-ms.date: 11/19/2020
+ms.date: 01/04/2020
 dev_langs:
 - csharp
 - vb
@@ -13,12 +13,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-jizho2
-ms.openlocfilehash: 901fea5f663bd22fe157e57fc2309f35ce7aba61
-ms.sourcegitcommit: 4c3949f620d09529658a2172d00bfe37aeb1a387
+ms.openlocfilehash: 7e6f907b7565b9934231355464fdd91c3222e13e
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95011825"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878801"
 ---
 # <a name="download-microsoft-sqlclient-data-provider-for-sql-server"></a>Herunterladen des Microsoft SqlClient-Datenanbieters für SQL Server
 
@@ -26,6 +26,7 @@ ms.locfileid: "95011825"
 Das Microsoft.Data.SqlClient-Paket ist auf NuGet.org verfügbar. Gehen Sie zum Abschnitt über Abhängigkeiten auf den unten verlinkten Seiten, um die Abhängigkeiten herunterzuladen.
 
 ## <a name="download-stable-versions-of-microsoft-sqlclient-data-provider-for-sql-server"></a>Herunterladen der stabilen Versionen des Microsoft SqlClient-Datenanbieters für SQL Server
+ * [2.1.1](https://www.nuget.org/packages/Microsoft.Data.SqlClient/2.1.1)
  * [2.1.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/2.1.0)
  * [2.0.1](https://www.nuget.org/packages/Microsoft.Data.SqlClient/2.0.1)
  * [2.0.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/2.0.0)

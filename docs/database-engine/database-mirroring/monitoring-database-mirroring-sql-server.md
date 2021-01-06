@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - monitoring [SQL Server], database mirroring
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: a7b1b9b0-7c19-4acc-9de3-3a7c5e70694d
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: f8479b88d100f9687469ad615d0b92c50aedb6ad
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 9b77b54ba48dc2c3820d055227411f61983b1a7c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85771822"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644286"
 ---
 # <a name="monitoring-database-mirroring-sql-server"></a>Überwachen der Datenbankspiegelung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "85771822"
   
  Sie können eine gespiegelte Datenbank während einer Spiegelungssitzung überwachen, um zu überprüfen, ob und auf welche Weise ein Datenfluss stattfindet. Zum Einrichten und Verwalten der Überwachung für eine oder mehrere gespiegelte Datenbanken auf einer Serverinstanz können Sie entweder den Datenbanküberwachungs-Monitor oder die gespeicherten Systemprozeduren **sp_dbmmonitor** verwenden.  
   
- Der als **Auftrag für den Datenbankspiegelungs-Monitor**bezeichnete Auftrag für die Überwachung der Datenbankspiegelung wird unabhängig vom Datenbankspiegelungs-Monitor im Hintergrund ausgeführt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agent ruft den **Auftrag für den Datenbankspiegelungs-Monitor** in regelmäßigen Intervallen auf (Standard ist einmal pro Minute), und der Auftrag ruft eine gespeicherte Prozedur auf, die den Spiegelstatus aktualisiert. Wenn Sie [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] zum Starten einer Spiegelungssitzung verwenden, wird der **Auftrag für den Datenbankspiegelungs-Monitor** automatisch erstellt. Wenn Sie jedoch nur ALTER DATABASE *<Datenbankname>* SET PARTNER zum Starten der Spiegelung verwenden, müssen Sie den Auftrag erstellen, indem Sie eine gespeicherte Prozedur ausführen.  
+ Der als **Auftrag für den Datenbankspiegelungs-Monitor** bezeichnete Auftrag für die Überwachung der Datenbankspiegelung wird unabhängig vom Datenbankspiegelungs-Monitor im Hintergrund ausgeführt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agent ruft den **Auftrag für den Datenbankspiegelungs-Monitor** in regelmäßigen Intervallen auf (Standard ist einmal pro Minute), und der Auftrag ruft eine gespeicherte Prozedur auf, die den Spiegelstatus aktualisiert. Wenn Sie [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] zum Starten einer Spiegelungssitzung verwenden, wird der **Auftrag für den Datenbankspiegelungs-Monitor** automatisch erstellt. Wenn Sie jedoch nur ALTER DATABASE *<Datenbankname>* SET PARTNER zum Starten der Spiegelung verwenden, müssen Sie den Auftrag erstellen, indem Sie eine gespeicherte Prozedur ausführen.  
   
  **In diesem Thema:**  
   
@@ -92,7 +92,7 @@ ms.locfileid: "85771822"
     |[sp_dbmmonitorresults](../../relational-databases/system-stored-procedures/sp-dbmmonitorresults-transact-sql.md)|Gibt Statuszeilen für eine überwachte Datenbank zurück. Außerdem können Sie damit festlegen, ob die Prozedur den neuesten Status vorzeitig abrufen soll.|  
     |[sp_dbmmonitordropmonitoring](../../relational-databases/system-stored-procedures/sp-dbmmonitordropmonitoring-transact-sql.md)|Beendet und löscht den Auftrag für den Datenbankspiegelungs-Monitor für alle Datenbanken auf der Serverinstanz.|  
   
-     Die gespeicherten Systemprozeduren von **dbmmonitor** können als Zusatz zum Datenbankspiegelungs-Monitor verwendet werden So kann z.B. der Status auch dann mit dem Datenbankspiegelungs-Monitor angezeigt werden, wenn die Überwachung mit **sp_dbmmonitoraddmonitoring**konfiguriert wurde.  
+     Die gespeicherten Systemprozeduren von **dbmmonitor** können als Zusatz zum Datenbankspiegelungs-Monitor verwendet werden So kann z.B. der Status auch dann mit dem Datenbankspiegelungs-Monitor angezeigt werden, wenn die Überwachung mit **sp_dbmmonitoraddmonitoring** konfiguriert wurde.  
   
 ### <a name="how-monitoring-works"></a>Funktionsweise der Überwachung  
  Dieser Abschnitt enthält Erläuterungen zur Datenbank-Spiegelungsstatustabelle, zum Auftrag für den Datenbankspiegelungs-Monitor sowie zum Datenbankspiegelungs-Monitor. Sie erfahren außerdem, wie Benutzer den Status der Datenbankspiegelung überwachen können und wie der Überwachungsauftrag gelöscht werden kann.  
@@ -102,15 +102,15 @@ ms.locfileid: "85771822"
   
  Die Statustabelle kann entweder automatisch aktualisiert werden oder manuell von einem Systemadministrator unter Einhaltung eines Mindestupdateintervalls von 15 Sekunden. Durch das Minimum von 15 Sekunden wird verhindert, dass Serverinstanzen mit Statusanforderungen überlastet werden.  
   
- Die Statustabelle wird automatisch sowohl vom Datenbankspiegelungs-Monitor als auch vom Auftrag für den Datenbankspiegelungs-Monitor aktualisiert, sofern dieser ausgeführt wird. Der**Auftrag für den Datenbankspiegelungs-Monitor** aktualisiert die Tabelle standardmäßig einmal pro Minute (ein Systemadministrator kann einen Updatezeitraum zwischen 1 und 120 Minuten angeben). Der Datenbankspiegelungs-Monitor hingegen aktualisiert die Tabelle automatisch alle 30 Sekunden. Für diese Updates rufen der **Auftrag für den Datenbankspiegelungs-Monitor** und der Datenbankspiegelungs-Monitor die Prozedur **sp_dbmmonitorupdate**auf.  
+ Die Statustabelle wird automatisch sowohl vom Datenbankspiegelungs-Monitor als auch vom Auftrag für den Datenbankspiegelungs-Monitor aktualisiert, sofern dieser ausgeführt wird. Der **Auftrag für den Datenbankspiegelungs-Monitor** aktualisiert die Tabelle standardmäßig einmal pro Minute (ein Systemadministrator kann einen Updatezeitraum zwischen 1 und 120 Minuten angeben). Der Datenbankspiegelungs-Monitor hingegen aktualisiert die Tabelle automatisch alle 30 Sekunden. Für diese Updates rufen der **Auftrag für den Datenbankspiegelungs-Monitor** und der Datenbankspiegelungs-Monitor die Prozedur **sp_dbmmonitorupdate** auf.  
   
- Bei der ersten Ausführung von **sp_dbmmonitorupdate** werden die Tabelle des **Datenbankspiegelungsstatus** und die feste Datenbankrolle **dbm_monitor** in der **msdb** -Datenbank erstellt. Mit**sp_dbmmonitorupdate** wird der Spiegelungsstatus in der Regel durch Einfügen einer neuen Zeile in die Statustabelle für jede gespiegelte Datenbank auf der Serverinstanz aktualisiert. Weitere Informationen hierzu finden Sie unter „Datenbank-Spiegelungsstatustabelle“ weiter unten in diesem Thema. Diese Prozedur wertet außerdem die Leistungsmetrik in den neuen Zeilen aus und entfernt Zeilen, die älter sind als die aktuelle Beibehaltungsdauer (die Standardeinstellung ist 7 Tage). Weitere Informationen finden Sie unter [sp_dbmmonitorupdate &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-dbmmonitorupdate-transact-sql.md).  
+ Bei der ersten Ausführung von **sp_dbmmonitorupdate** werden die Tabelle des **Datenbankspiegelungsstatus** und die feste Datenbankrolle **dbm_monitor** in der **msdb** -Datenbank erstellt. Mit **sp_dbmmonitorupdate** wird der Spiegelungsstatus in der Regel durch Einfügen einer neuen Zeile in die Statustabelle für jede gespiegelte Datenbank auf der Serverinstanz aktualisiert. Weitere Informationen hierzu finden Sie unter „Datenbank-Spiegelungsstatustabelle“ weiter unten in diesem Thema. Diese Prozedur wertet außerdem die Leistungsmetrik in den neuen Zeilen aus und entfernt Zeilen, die älter sind als die aktuelle Beibehaltungsdauer (die Standardeinstellung ist 7 Tage). Weitere Informationen finden Sie unter [sp_dbmmonitorupdate &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-dbmmonitorupdate-transact-sql.md).  
   
 > [!NOTE]  
 >  Sofern der Datenbankspiegelungs-Monitor nicht aktuell von einem Mitglied der festen Serverrolle **sysadmin** verwendet wird, erfolgt eine automatische Aktualisierung der Statustabelle nur dann, wenn der **Auftrag für den Datenbankspiegelungs-Monitor** vorhanden ist und der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agent ausgeführt wird.  
   
 #### <a name="database-mirroring-monitor-job"></a>Auftrag für den Datenbankspiegelungs-Monitor  
- Der als **Auftrag für den Datenbankspiegelungs-Monitor**bezeichnete Auftrag für die Überwachung der Datenbankspiegelung arbeitet unabhängig vom Datenbankspiegelungs-Monitor. Der**Auftrag für den Datenbankspiegelungs-Monitor** wird nur dann automatisch erstellt, wenn eine Spiegelungssitzung mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] gestartet wird. Wenn zum Starten der Spiegelung immer die ALTER DATABASE *Datenbankname* SET PARTNER-Befehle verwendet werden, ist der Auftrag nur dann vorhanden, wenn der Systemadministrator die gespeicherte Prozedur **sp_dbmmonitoraddmonitoring** ausführt.  
+ Der als **Auftrag für den Datenbankspiegelungs-Monitor** bezeichnete Auftrag für die Überwachung der Datenbankspiegelung arbeitet unabhängig vom Datenbankspiegelungs-Monitor. Der **Auftrag für den Datenbankspiegelungs-Monitor** wird nur dann automatisch erstellt, wenn eine Spiegelungssitzung mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] gestartet wird. Wenn zum Starten der Spiegelung immer die ALTER DATABASE *Datenbankname* SET PARTNER-Befehle verwendet werden, ist der Auftrag nur dann vorhanden, wenn der Systemadministrator die gespeicherte Prozedur **sp_dbmmonitoraddmonitoring** ausführt.  
   
  Nachdem der **Auftrag für den Datenbankspiegelungs-Monitor** erstellt wurde und vorausgesetzt, dass der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agent ausgeführt wird, wird der Auftrag standardmäßig einmal pro Minute aufgerufen. Der Auftrag ruft dann die gespeicherte Systemprozedur **sp_dbmmonitorupdate** auf.  
   
@@ -137,7 +137,7 @@ ms.locfileid: "85771822"
  Für Mitglieder der festen Datenbankrolle **dbm_monitor** wird die Statustabelle über den **Auftrag für den Datenbankspiegelungs-Monitor** in regelmäßigen Intervallen aktualisiert. Wenn der Auftrag nicht vorhanden ist oder der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agent beendet wird, veraltet der Status zunehmend und gibt möglicherweise nicht mehr die Konfiguration der Spiegelungssitzung wieder. So kann z. B. nach einem Failover fälschlicherweise angezeigt werden, dass die Partner dieselbe Rolle haben (Prinzipal oder Spiegel), oder der aktuelle Prinzipalserver wird als Spiegel angezeigt, während der aktuelle Spiegelserver als Prinzipal angezeigt wird.  
   
 #### <a name="dropping-the-database-mirroring-monitor-job"></a>Löschen des Auftrags für den Datenbankspiegelungs-Monitor  
- Der als **Auftrag für den Datenbankspiegelungs-Monitor**bezeichnete Auftrag für die Überwachung der Datenbankspiegelung bleibt so lange bestehen, bis er gelöscht wird. Der Überwachungsauftrag muss vom Systemadministrator verwaltet werden. Der **Auftrag für den Datenbankspiegelungs-Monitor**kann mit **sp_dbmmonitordropmonitoring**gelöscht werden. Weitere Informationen finden Sie unter [sp_dbmmonitordropmonitoring &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-dbmmonitordropmonitoring-transact-sql.md).  
+ Der als **Auftrag für den Datenbankspiegelungs-Monitor** bezeichnete Auftrag für die Überwachung der Datenbankspiegelung bleibt so lange bestehen, bis er gelöscht wird. Der Überwachungsauftrag muss vom Systemadministrator verwaltet werden. Der **Auftrag für den Datenbankspiegelungs-Monitor** kann mit **sp_dbmmonitordropmonitoring** gelöscht werden. Weitere Informationen finden Sie unter [sp_dbmmonitordropmonitoring &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-dbmmonitordropmonitoring-transact-sql.md).  
   
 ###  <a name="status-displayed-by-the-database-mirroring-monitor"></a><a name="perf_metrics_of_dbm_monitor"></a> Auf dem Datenbankspiegelungs-Monitor angezeigter Status  
  Auf der Seite **Status** des Datenbankspiegelungs-Monitors werden die Partner beschrieben sowie der Status der Spiegelungssitzung. Der Status umfasst Werte der Leistungsmetrik, z. B. den Zustand des Transaktionsprotokolls und weitere Informationen, mit denen gegenwärtig die Zeit zum Abschließen eines Failovers und die Gefahr des Datenverlusts abgeschätzt werden kann, wenn die Sitzung nicht synchronisiert wird. Zusätzlich enthält die Seite **Status** Angaben zum Status der Spiegelungssitzung sowie allgemeine Sitzungsinformationen.  

@@ -4,19 +4,19 @@ description: Untersuchen Sie die verschiedenen Problembehandlungstechniken, die 
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/07/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 moniker: '>= sql-server-linux-2017 || >= sql-server-2017'
 zone_pivot_groups: cs1-command-shell
-ms.openlocfilehash: 051dbe0d44cbd798653632df114beb6727f1c9af
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: d94ae00cb8f3581be51f53d999068e60c4d5b7f1
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489820"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878795"
 ---
 # <a name="troubleshooting-sql-server-docker-containers"></a>Problembehandlung von SQL Server Docker-Containern
 
@@ -252,7 +252,7 @@ Nun können Sie Befehle wie über das Terminal innerhalb des Containers ausführ
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-- Der [Schnellstart](quickstart-install-connect-docker.md?view=sql-server-ver15) erleichtert Ihnen den Einstieg in die Verwendung von SQL Server 2019-Containerimages in Docker.
+- Der [Schnellstart](quickstart-install-connect-docker.md) erleichtert Ihnen den Einstieg in die Verwendung von SQL Server 2019-Containerimages in Docker.
 
 ::: moniker-end
 

@@ -12,12 +12,12 @@ ms.author: pelopes
 ms.reviewer: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f85253912eac3091423972770ac808492c1b65e2
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4a2624566444f5cc3b9531d5b6767937dabb2da6
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479471"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643991"
 ---
 # <a name="revert-word-breakers-used-by-search-to-previous-version-sql-server-search"></a>Wiederherstellen der von der Suche verwendeten Wörtertrennungen auf die vorherige Version (SQL Server-Suche)
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -381,4 +381,4 @@ ms.locfileid: "97479471"
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Ändern der für Englisch (USA) und Englisch (Vereinigtes Königreich) verwendeten Wörtertrennung](../../relational-databases/search/change-the-word-breaker-used-for-us-english-and-uk-english.md)   
- [Verhaltensänderungen der Volltextsuche](./full-text-search.md?view=sql-server-ver15)
+ [Verhaltensänderungen der Volltextsuche](./full-text-search.md)

@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 05/01/2020
-ms.openlocfilehash: 485bb37dee0c118cf313bd7b3740b56c41e20c90
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 3169f8fbbc86fc95a62631c0cc93d77b6a46b0a4
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88713778"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643406"
 ---
 # <a name="sql-server-profiler"></a>SQL Server Profiler
 
@@ -118,7 +118,7 @@ Eine Vorlage definiert die Standardkonfiguration für eine Ablaufverfolgung. Daz
 
 ### <a name="trace"></a>Trace
 
-Eine Ablaufverfolgung zeichnet Daten auf der Grundlage der ausgewählten Ereignisklassen, Datenspalten und Filter auf. Sie können beispielsweise eine Ablaufverfolgung erstellen, um Ausnahmefehler aufzuzeichnen. Wählen Sie dazu die **Exception** -Ereignisklasse und die Datenspalten **Fehler**, **Status**und **Schweregrad** aus. Daten aus diesen drei Spalten müssen gesammelt werden, damit die Ablaufverfolgung sinnvolle Daten als Ergebnis liefert. Sie können dann eine solcherart konfigurierte Ablaufverfolgung ausführen und Daten aufgrund aller **Exception** -Ereignisse sammeln, die auf dem Server auftreten. Ablaufverfolgungsdaten können gespeichert oder sofort für Analysezwecke verwendet werden. Ablaufverfolgungen können zu einem späteren Zeitpunkt wiedergegeben werden, obwohl bestimmte Ereignisse wie **Exception** -Ereignisse nie wiedergegeben werden. Sie können die Ablaufverfolgung als Vorlage speichern, um in Zukunft ähnliche Ablaufverfolgungen zu erstellen.  
+Eine Ablaufverfolgung zeichnet Daten auf der Grundlage der ausgewählten Ereignisklassen, Datenspalten und Filter auf. Sie können beispielsweise eine Ablaufverfolgung erstellen, um Ausnahmefehler aufzuzeichnen. Wählen Sie dazu die **Exception** -Ereignisklasse und die Datenspalten **Fehler**, **Status** und **Schweregrad** aus. Daten aus diesen drei Spalten müssen gesammelt werden, damit die Ablaufverfolgung sinnvolle Daten als Ergebnis liefert. Sie können dann eine solcherart konfigurierte Ablaufverfolgung ausführen und Daten aufgrund aller **Exception** -Ereignisse sammeln, die auf dem Server auftreten. Ablaufverfolgungsdaten können gespeichert oder sofort für Analysezwecke verwendet werden. Ablaufverfolgungen können zu einem späteren Zeitpunkt wiedergegeben werden, obwohl bestimmte Ereignisse wie **Exception** -Ereignisse nie wiedergegeben werden. Sie können die Ablaufverfolgung als Vorlage speichern, um in Zukunft ähnliche Ablaufverfolgungen zu erstellen.  
 
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] bietet zwei Möglichkeiten für die Ablaufverfolgung einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]: [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] und gespeicherte Systemprozeduren.  
 
@@ -164,7 +164,7 @@ Ist kein Filter eingerichtet, werden alle Ereignisse der ausgewählten Ereignisk
 |Beschreibt die Wiedergabe bis zu einer Cursorposition.|[Wiedergeben bis zu einer Cursorposition &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/replay-to-a-cursor-sql-server-profiler.md)|  
 |Beschreibt, wie ein [!INCLUDE[tsql](../../includes/tsql-md.md)]-Skript wiedergegeben wird|[Wiedergeben eines Transact-SQL-Skripts &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/replay-a-transact-sql-script-sql-server-profiler.md)|  
 |Beschreibt, wie eine Ablaufverfolgungsvorlage erstellt wird.|[Erstellen einer Ablaufverfolgungsvorlage &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/create-a-trace-template-sql-server-profiler.md)|  
-|Beschreibt, wie eine Ablaufverfolgungsvorlage geändert wird.|[Ändern einer Ablaufverfolgungsvorlage &#40;SQL Server Profiler&#41;](./modify-trace-templates.md?view=sql-server-ver15)|  
+|Beschreibt, wie eine Ablaufverfolgungsvorlage geändert wird.|[Ändern einer Ablaufverfolgungsvorlage &#40;SQL Server Profiler&#41;](./modify-trace-templates.md)|  
 |Beschreibt, wie globale Ablaufverfolgungsoptionen festgelegt werden.|[Festlegen globaler Ablaufverfolgungsoptionen &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/set-global-trace-options-sql-server-profiler.md)|  
 |Beschreibt, wie ein Wert oder eine Datenspalte während der Ablaufverfolgung gesucht wird.|[Suchen eines Wertes oder einer Datenspalte während der Ablaufverfolgung &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/find-a-value-or-data-column-while-tracing-sql-server-profiler.md)|  
 |Beschreibt, wie eine Vorlage aus einer ausgeführten Ablaufverfolgung abgeleitet wird.|[Ableiten einer Vorlage von einer zurzeit ausgeführten Ablaufverfolgung &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/derive-a-template-from-a-running-trace-sql-server-profiler.md)|  
@@ -173,7 +173,7 @@ Ist kein Filter eingerichtet, werden alle Ereignisse der ausgewählten Ereignisk
 |Beschreibt, wie eine Ablaufverfolgungsvorlage exportiert wird.|[Exportieren einer Ablaufverfolgungsvorlage &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/export-a-trace-template-sql-server-profiler.md)|  
 |Beschreibt, wie eine Ablaufverfolgungsvorlage importiert wird.|[Importieren einer Ablaufverfolgungsvorlage &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/import-a-trace-template-sql-server-profiler.md)|  
 |Beschreibt, wie ein Skript aus einer Ablaufverfolgung extrahiert wird.|[Extrahieren eines Skripts aus einer Ablaufverfolgung &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/extract-a-script-from-a-trace-sql-server-profiler.md)|  
-|Beschreibt, wie eine Ablaufverfolgung mit Windows-Leistungsprotokolldaten korreliert wird.|[Korrelieren einer Ablaufverfolgung mit Windows-Leistungsprotokolldaten &#40;SQL Server Profiler&#41;](./correlate-a-trace-with-windows-performance-log-data.md?view=sql-server-ver15)|  
+|Beschreibt, wie eine Ablaufverfolgung mit Windows-Leistungsprotokolldaten korreliert wird.|[Korrelieren einer Ablaufverfolgung mit Windows-Leistungsprotokolldaten &#40;SQL Server Profiler&#41;](./correlate-a-trace-with-windows-performance-log-data.md)|  
 |Beschreibt, wie in einer Ablaufverfolgung angezeigte Spalten organisiert werden.|[Organisieren von in einer Ablaufverfolgung angezeigten Spalten &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/organize-columns-displayed-in-a-trace-sql-server-profiler.md)|  
 |Beschreibt, wie der [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] gestartet wird|[Starten des SQL Server Profilers](../../tools/sql-server-profiler/start-sql-server-profiler.md)|  
 |Beschreibt, wie Ablaufverfolgungen und Ablaufverfolgungsvorlagen gespeichert werden.|[Speichern von Ablaufverfolgungen und Ablaufverfolgungsvorlagen](../../tools/sql-server-profiler/save-traces-and-trace-templates.md)|  

@@ -6,7 +6,7 @@ ms.date: 05/16/2016
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - partners [SQL Server]
@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: a7f95ddc-5154-4ed5-8117-c9fcf2221f13
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: c1b95d55a979738f787e4814a9f40f929c521868
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 906dc46e076ce49242ecb0aa416d13cbb770147e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85754734"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644432"
 ---
 # <a name="database-mirroring-sql-server"></a>Datenbankspiegelung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "85754734"
 > [!NOTE]  
 >  [!INCLUDE[ssNoteDepFutureAvoid](../../includes/ssnotedepfutureavoid-md.md)] Verwenden Sie stattdessen [!INCLUDE[ssHADR](../../includes/sshadr-md.md)].  
   
- Die*Datenbankspiegelung* ist eine Lösung zum Verbessern der Verfügbarkeit einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbank. Die Datenbankspiegelung wird auf Datenbankbasis implementiert und ist nur für Datenbanken mit dem vollständigen Wiederherstellungsmodell geeignet.  
+ Die *Datenbankspiegelung* ist eine Lösung zum Verbessern der Verfügbarkeit einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbank. Die Datenbankspiegelung wird auf Datenbankbasis implementiert und ist nur für Datenbanken mit dem vollständigen Wiederherstellungsmodell geeignet.  
   
 > [!IMPORTANT]  
 >  Informationen zur Unterstützung der Datenbankspiegelung, zu Einschränkungen, zu Voraussetzungen und zu Empfehlungen für die Konfiguration von Partnerservern sowie für die Bereitstellung der Datenbankspiegelung finden Sie unter [Voraussetzungen, Einschränkungen und Empfehlungen für die Datenbankspiegelung](../../database-engine/database-mirroring/prerequisites-restrictions-and-recommendations-for-database-mirroring.md).  
@@ -58,7 +58,7 @@ ms.locfileid: "85754734"
   
 -   Verbessert die Verfügbarkeit der Produktionsdatenbank bei Upgrades.  
   
-     Um Ausfallzeiten für eine gespiegelte Datenbank zu minimieren, können Sie sequenziell die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Instanzen aktualisieren, die die Failoverpartner hosten. Auf diese Weise kommt es nur bei einem Failover zu einer Ausfallzeit. Diese Art des Upgrades wird als *paralleles Upgrade*bezeichnet. Weitere Informationen finden Sie unter [Upgrading Mirrored Instances](../../database-engine/database-mirroring/upgrading-mirrored-instances.md).  
+     Um Ausfallzeiten für eine gespiegelte Datenbank zu minimieren, können Sie sequenziell die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Instanzen aktualisieren, die die Failoverpartner hosten. Auf diese Weise kommt es nur bei einem Failover zu einer Ausfallzeit. Diese Art des Upgrades wird als *paralleles Upgrade* bezeichnet. Weitere Informationen finden Sie unter [Upgrading Mirrored Instances](../../database-engine/database-mirroring/upgrading-mirrored-instances.md).  
   
   
 ##  <a name="database-mirroring-terms-and-definitions"></a><a name="TermsAndDefinitions"></a> Begriffe und Definitionen zur Datenbankspiegelung  
@@ -117,11 +117,11 @@ ms.locfileid: "85754734"
   
   
 ##  <a name="overview-of-database-mirroring"></a><a name="HowWorks"></a> Übersicht über die Datenbankspiegelung  
- Die Datenbankspiegelung verwaltet zwei Kopien einer Datenbank, die sich auf verschiedenen Serverinstanzen von [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)]befinden müssen. In der Regel befinden sich diese Serverinstanzen auf Computern an verschiedenen Standorten. Durch das Starten einer Datenbankspiegelung auf einer Datenbank wird eine Beziehung zwischen den beiden Serverinstanzen initiiert, die als *Datenbank-Spiegelungssitzung*bekannt ist.  
+ Die Datenbankspiegelung verwaltet zwei Kopien einer Datenbank, die sich auf verschiedenen Serverinstanzen von [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)]befinden müssen. In der Regel befinden sich diese Serverinstanzen auf Computern an verschiedenen Standorten. Durch das Starten einer Datenbankspiegelung auf einer Datenbank wird eine Beziehung zwischen den beiden Serverinstanzen initiiert, die als *Datenbank-Spiegelungssitzung* bekannt ist.  
   
  Eine Serverinstanz liefert die Daten der Datenbank an Clients. Dies ist der *Prinzipalserver*. Die andere Instanz fungiert je nach Konfiguration und Status der Spiegelungssitzung als (unmittelbar) betriebsbereiter Standbyserver ( *Spiegelserver*). Wird eine Datenbankspiegelungssitzung synchronisiert, stellt die Datenbankspiegelung einen unmittelbar betriebsbereiten Standbyserver bereit, der schnelle Failover unterstützt, ohne dass Daten aus Transaktionen, für die ein Commit ausgeführt wurde, verloren gehen. Wird die Sitzung nicht synchronisiert, steht der Spiegelserver in der Regel als betriebsbereiter Standbyserver zur Verfügung (bei möglichem Datenverlust).  
   
- Der Prinzipal- und der Spiegelserver kommunizieren und kooperieren als *Partner* in einer *Datenbank-Spiegelungssitzung*. Die beiden Partner führen sich ergänzende Rollen für die Sitzung aus: die *Prinzipalrolle* und die *Spiegelrolle*. Ein Partner übernimmt jeweils die Prinzipalrolle und ein anderer Partner die Spiegelrolle. Jeder Partner wird als *Besitzer* seiner aktuellen Rolle beschrieben. Der Partner, der Besitzer der Prinzipalrolle ist, wird als *Prinzipalserver*bezeichnet, und die Kopie der Datenbank ist die aktuelle Prinzipaldatenbank. Der Partner, der Besitzer der Spiegelrolle ist, wird als *Spiegelserver*bezeichnet, und die Kopie der Datenbank ist die aktuelle Spiegeldatenbank. Wird die Datenbankspiegelung in einer Produktionsumgebung bereitgestellt, ist die Prinzipaldatenbank die *Produktionsdatenbank*.  
+ Der Prinzipal- und der Spiegelserver kommunizieren und kooperieren als *Partner* in einer *Datenbank-Spiegelungssitzung*. Die beiden Partner führen sich ergänzende Rollen für die Sitzung aus: die *Prinzipalrolle* und die *Spiegelrolle*. Ein Partner übernimmt jeweils die Prinzipalrolle und ein anderer Partner die Spiegelrolle. Jeder Partner wird als *Besitzer* seiner aktuellen Rolle beschrieben. Der Partner, der Besitzer der Prinzipalrolle ist, wird als *Prinzipalserver* bezeichnet, und die Kopie der Datenbank ist die aktuelle Prinzipaldatenbank. Der Partner, der Besitzer der Spiegelrolle ist, wird als *Spiegelserver* bezeichnet, und die Kopie der Datenbank ist die aktuelle Spiegeldatenbank. Wird die Datenbankspiegelung in einer Produktionsumgebung bereitgestellt, ist die Prinzipaldatenbank die *Produktionsdatenbank*.  
   
  Bei der Datenbankspiegelung wird jeder Einfüge-, Update- und Löschvorgang, der für die Prinzipaldatenbank ausgeführt wird, so schnell wie möglich in der Spiegeldatenbank *wiederholt* . Diese Wiederholung erfolgt, indem ein Datenstrom von aktiven Transaktionsprotokoll-Datensätzen an den Spiegelserver gesendet wird, der die Protokolldatensätze der Reihe nach und so schnell wie möglich auf die Spiegeldatenbank anwendet. Im Gegensatz zur Replikation, die auf der logischen Ebene erfolgt, erfolgt die Datenbankspiegelung auf der Ebene des physischen Protokolldatensatzes. Ab [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]komprimiert der Prinzipalserver den Datenstrom von Transaktionsprotokoll-Datensätzen vor dem Senden des Datenstroms an den Spiegelserver. Diese Protokollkomprimierung erfolgt in allen Spiegelungssitzungen.  
   
@@ -154,7 +154,7 @@ ms.locfileid: "85754734"
   
  ![Partner in einer Datenbankspiegelungssitzung](../../database-engine/database-mirroring/media/dbm-2-way-session-intro.gif "Partner in einer Datenbankspiegelungssitzung")  
   
- Der Modus für hohe Sicherheit mit automatischem Failover erfordert eine dritte Serverinstanz, die als *Zeuge*bezeichnet wird. Im Gegensatz zu den beiden Partnern stellt der Zeuge die Datenbank nicht bereit. Der Zeuge unterstützt das automatische Failover dadurch, dass er überprüft, ob der Prinzipalserver aktiv und funktionsfähig ist. Der Spiegelserver initiiert das automatische Failover nur, wenn der Spiegel und der Zeuge miteinander verbunden bleiben, nachdem beide vom Prinzipalserver getrennt wurden.  
+ Der Modus für hohe Sicherheit mit automatischem Failover erfordert eine dritte Serverinstanz, die als *Zeuge* bezeichnet wird. Im Gegensatz zu den beiden Partnern stellt der Zeuge die Datenbank nicht bereit. Der Zeuge unterstützt das automatische Failover dadurch, dass er überprüft, ob der Prinzipalserver aktiv und funktionsfähig ist. Der Spiegelserver initiiert das automatische Failover nur, wenn der Spiegel und der Zeuge miteinander verbunden bleiben, nachdem beide vom Prinzipalserver getrennt wurden.  
   
  Die folgende Abbildung zeigt eine Konfiguration mit einem Zeugen.  
   
@@ -179,7 +179,7 @@ ms.locfileid: "85754734"
   
   
 ###  <a name="role-switching"></a><a name="RoleSwitching"></a> Rollenwechsel  
- Im Kontext einer Datenbank-Spiegelungssitzung können die Prinzipal- und Spiegelrollen normalerweise im Rahmen des so genannten *Rollenwechsels*ausgetauscht werden. Beim Rollenwechsel wird die Prinzipalrolle auf den Spiegelserver übertragen. Der Spiegelserver dient beim Rollenwechsel als *Failoverpartner* für den Prinzipalserver. Wenn ein Rollenwechsel stattfindet, übernimmt der Spiegelserver die Prinzipalrolle und schaltet seine Kopie der Datenbank als neue Prinzipaldatenbank online. Der ehemalige Prinzipalserver übernimmt, falls er verfügbar ist, die Spiegelrolle, und die zugehörige Datenbank wird zur neuen Spiegeldatenbank. Potenziell können die Rollen wiederholt hin- und hergewechselt werden.  
+ Im Kontext einer Datenbank-Spiegelungssitzung können die Prinzipal- und Spiegelrollen normalerweise im Rahmen des so genannten *Rollenwechsels* ausgetauscht werden. Beim Rollenwechsel wird die Prinzipalrolle auf den Spiegelserver übertragen. Der Spiegelserver dient beim Rollenwechsel als *Failoverpartner* für den Prinzipalserver. Wenn ein Rollenwechsel stattfindet, übernimmt der Spiegelserver die Prinzipalrolle und schaltet seine Kopie der Datenbank als neue Prinzipaldatenbank online. Der ehemalige Prinzipalserver übernimmt, falls er verfügbar ist, die Spiegelrolle, und die zugehörige Datenbank wird zur neuen Spiegeldatenbank. Potenziell können die Rollen wiederholt hin- und hergewechselt werden.  
   
  Es stehen die folgenden drei Arten des Rollenwechsels zur Verfügung:  
   
@@ -212,7 +212,7 @@ ms.locfileid: "85754734"
 |`SSInstance_2`|Partner|Zeuge|Partner|Partner|  
 |`SSInstance_3`|Partner|Partner|Zeuge|Zeuge|  
   
- Die folgende Abbildung veranschaulicht zwei Serverinstanzen, die zusammen als Partner an zwei Spiegelungssitzungen teilnehmen. Eine Sitzung wird für eine Datenbank namens **Db_1**und die andere für eine Datenbank namens **Db_2**ausgeführt.  
+ Die folgende Abbildung veranschaulicht zwei Serverinstanzen, die zusammen als Partner an zwei Spiegelungssitzungen teilnehmen. Eine Sitzung wird für eine Datenbank namens **Db_1** und die andere für eine Datenbank namens **Db_2** ausgeführt.  
   
  ![Zwei Serverinstanzen in zwei gleichzeitigen Sitzungen](../../database-engine/database-mirroring/media/dbm-concurrent-sessions.gif "Zwei Serverinstanzen in zwei gleichzeitigen Sitzungen")  
   

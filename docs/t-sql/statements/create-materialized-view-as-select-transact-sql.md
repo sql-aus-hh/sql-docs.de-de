@@ -38,12 +38,12 @@ ms.assetid: aecc2f73-2ab5-4db9-b1e6-2f9e3c601fb9
 author: XiaoyuMSFT
 ms.author: xiaoyul
 monikerRange: =azure-sqldw-latest
-ms.openlocfilehash: 75c60abb9cc9f020458cefbb92df8a175c6f7481
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: dc48dc319a628b389479eacb0c68b702f796a836
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97483882"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644396"
 ---
 # <a name="create-materialized-view-as-select-transact-sql"></a>CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)  
 
@@ -141,13 +141,13 @@ ALTER TABLE SWITCH wird nicht für Tabellen unterstützt, die in materialisierte
 
 Nach ihrer Erstellung werden materialisierte Sichten in SQL Server Management Studio im Ordner „Views“ (Sichten) der [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)]-Instanz angezeigt.
 
-Benutzer können [SP_SPACEUSED](../../relational-databases/system-stored-procedures/sp-spaceused-transact-sql.md?view=azure-sqldw-latest) und [DBCC PDW_SHOWSPACEUSED](../database-console-commands/dbcc-pdw-showspaceused-transact-sql.md?view=azure-sqldw-latest) ausführen, um den von einer materialisierten Sicht verbrauchten Speicherplatz zu ermitteln.  
+Benutzer können [SP_SPACEUSED](../../relational-databases/system-stored-procedures/sp-spaceused-transact-sql.md?view=azure-sqldw-latest&preserve-view=true) und [DBCC PDW_SHOWSPACEUSED](../database-console-commands/dbcc-pdw-showspaceused-transact-sql.md?view=azure-sqldw-latest&preserve-view=true) ausführen, um den von einer materialisierten Sicht verbrauchten Speicherplatz zu ermitteln.  
 
 Eine materialisierte Sicht kann über DROP VIEW gelöscht werden.  Sie können eine materialisierte Sicht mit ALTER MATERIALIZED VIEW deaktivieren oder neu erstellen.   
 
 Der EXPLAIN-Plan und der grafische Plan zur geschätzten Ausführung in SQL Server Management Studio können zeigen, ob eine materialisierte Sicht vom Abfrageoptimierer bei der Abfrageausführung berücksichtigt wird.
 
-Um herauszufinden, ob eine SQL-Anweisung von einer neuen materialisierten Sicht profitieren kann, führen Sie den `EXPLAIN`-Befehl mit `WITH_RECOMMENDATIONS` aus.  Ausführliche Informationen finden Sie unter [EXPLAIN (Transact-SQL)](../queries/explain-transact-sql.md?view=azure-sqldw-latest).
+Um herauszufinden, ob eine SQL-Anweisung von einer neuen materialisierten Sicht profitieren kann, führen Sie den `EXPLAIN`-Befehl mit `WITH_RECOMMENDATIONS` aus.  Ausführliche Informationen finden Sie unter [EXPLAIN (Transact-SQL)](../queries/explain-transact-sql.md?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="permissions"></a>Berechtigungen
 
@@ -200,13 +200,13 @@ select DATEDIFF(ms,@timerstart,@timerend);
 ## <a name="see-also"></a>Weitere Informationen
 
 [Leistungsoptimierung durch materialisierte Sicht](/azure/sql-data-warehouse/performance-tuning-materialized-views)   
-[ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](./alter-materialized-view-transact-sql.md?view=azure-sqldw-latest)      
-[DROP VIEW](./drop-view-transact-sql.md?view=azure-sqldw-latest)  
-[EXPLAIN &#40;Transact-SQL&#41;](../queries/explain-transact-sql.md?view=azure-sqldw-latest)   
-[sys.pdw_materialized_view_column_distribution_properties &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql.md?view=azure-sqldw-latest)   
-[sys.pdw_materialized_view_distribution_properties &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql.md?view=azure-sqldw-latest)   
-[sys.pdw_materialized_view_mappings &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql.md?view=azure-sqldw-latest)   
-[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD &#40;Transact-SQL&#41;](../database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql.md?view=azure-sqldw-latest)   
+[ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](./alter-materialized-view-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)      
+[DROP VIEW](./drop-view-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)  
+[EXPLAIN &#40;Transact-SQL&#41;](../queries/explain-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)   
+[sys.pdw_materialized_view_column_distribution_properties &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)   
+[sys.pdw_materialized_view_distribution_properties &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)   
+[sys.pdw_materialized_view_mappings &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)   
+[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD &#40;Transact-SQL&#41;](../database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)   
 [[!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)]- und [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]-Katalogsichten](../../relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views.md)   
 [Systemansichten werden in Azure [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)] unterstützt](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views)   
 [In Azure [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)] unterstützte T-SQL-Anweisungen](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)

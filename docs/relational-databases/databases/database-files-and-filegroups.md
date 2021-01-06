@@ -1,7 +1,7 @@
 ---
 title: Datenbankdateien und Dateigruppen | Microsoft-Dokumentation
 description: Hier erfahren Sie mehr über Datenbankdateien und zum Erstellen von Dateigruppen in SQL Server für Zuteilungen und zu Verwaltungszwecken. Zeigen Sie Beispiele, Regeln und Empfehlungen an.
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 05/29/2020
 ms.prod: sql
 ms.prod_service: database-engine
@@ -33,12 +33,12 @@ helpviewer_keywords:
 ms.assetid: 9ca11918-480d-4838-9198-cec221ef6ad0
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: b9a4fc2995b0442f46794ad8ad226b48bfa4726b
-ms.sourcegitcommit: d35d0901296580bfceda6e0ab2e14cf2b7e99a0f
+ms.openlocfilehash: f14eaec691218c4f7a9cad82dabb2f31f36b6245
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496999"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878747"
 ---
 # <a name="database-files-and-filegroups"></a>Datenbankdateien und Dateigruppen
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

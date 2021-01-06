@@ -6,7 +6,7 @@ ms.date: 03/01/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - parallel redo [SQL Server]
@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 586a6f25-672b-491b-bc2f-deab2ccda6e2
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 9d83569a79980097a18ebff39b3628401a4387c3
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 4b8f2e5435f6f168a113cf78b1539e97c4935972
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85754674"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643933"
 ---
 # <a name="estimate-the-interruption-of-service-during-role-switching-database-mirroring"></a>Einschätzen der Unterbrechung des Diensts während des Rollenwechsels (Datenbankspiegelung)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "85754674"
   
 -   In [!INCLUDE[ssStandard](../../includes/ssstandard-md.md)]verwendet der Spiegelserver immer einen einzigen Thread für das Rollforward der Datenbank.  
   
--   In [!INCLUDE[ssEnterprise](../../includes/ssenterprise-md.md)]verwenden Spiegelserver auf Computern mit weniger als fünf CPUs ebenfalls nur einen einzigen Thread. Bei mindestens fünf CPUs verteilt ein Spiegelserver während eines Failovers die Rollforwardvorgänge auf mehrere Threads (dies wird als *paralleles Rollforward*bezeichnet). Das parallele Rollforward ist für die Verwendung eines Threads für jeweils vier CPUs optimiert.  
+-   In [!INCLUDE[ssEnterprise](../../includes/ssenterprise-md.md)]verwenden Spiegelserver auf Computern mit weniger als fünf CPUs ebenfalls nur einen einzigen Thread. Bei mindestens fünf CPUs verteilt ein Spiegelserver während eines Failovers die Rollforwardvorgänge auf mehrere Threads (dies wird als *paralleles Rollforward* bezeichnet). Das parallele Rollforward ist für die Verwendung eines Threads für jeweils vier CPUs optimiert.  
   
 #### <a name="estimating-the-single-threaded-redo-rate"></a>Schätzen der Rollforwardrate für Rollforwards mit einem einzelnen Thread  
  Bei einem Rollforward mit einem einzelnen Thread dauert das Rollforward der Spiegeldatenbank während des Failovers etwa genauso lange wie eine Wiederherstellung einer Protokollsicherung benötigt, um ein Rollforward für den gleichen Protokollumfang auszuführen. Um die Failoverzeit zu schätzen, erstellen Sie eine Testdatenbank in der Umgebung, in der Sie die Spiegelung ausführen möchten. Anschließend verwenden Sie eine Protokollsicherung aus der Produktionsdatenbank. Um die Rollforwardrate für diese Protokollsicherung zu schätzen, messen Sie, wie lange Sie benötigen, um die Protokollsicherung mit WITH NORECOVERY in der Testdatenbank wiederherzustellen.  
@@ -72,7 +72,7 @@ ms.locfileid: "85754674"
  In [!INCLUDE[ssEnterprise](../../includes/ssenterprise-md.md)]ist die parallele Wiederholung für die Verwendung eines Threads für jeweils vier CPUs optimiert. Um die Rollforwardzeit für das parallele Rollforward zu schätzen, stellt der Zugriff auf ein laufendes Testsystem genauere Ergebnisse bereit als lediglich eine Testdatenbank. Erhöhen Sie beim Überwachen der Wiederholungswarteschlange auf dem Spiegelserver die Arbeitsauslastung auf dem Prinzipalserver. Im Normalbetrieb liegt der Wert der Wiederholungswarteschlange bei Null. Erhöhen Sie die Arbeitsauslastung auf dem Prinzipalserver, bis die Größe der Wiederholungswarteschlange ständig zunimmt. Das System hat dann seine maximale Rollforwardrate erreicht, und der **Bytes wiederholen/Sekunde** -Leistungsindikator repräsentiert dann die maximale Rollforwardrate. Weitere Informationen finden Sie unter [SQL Server, Database Mirroring Object](../../relational-databases/performance-monitor/sql-server-database-mirroring-object.md).  
   
 ## <a name="estimating-interruption-of-service-during-automatic-failover"></a>Schätzen der Dienstunterbrechung beim automatischen Failover  
- In der folgende Abbildung wird veranschaulicht, wie die Fehlererkennung und die Failoverzeit zur Gesamtzeit beitragen, die zum Abschließen eines automatischen Failovers auf **Partner_B**erforderlich ist. Das Failover benötigt Zeit zum Ausführen des Rollforwards für die Datenbank (die Rollforwardphase) sowie zusätzlich ein wenig Zeit, um die Datenbank online zu schalten. In der Rollbackphase wird ein Rollback für Transaktionen ohne Commit ausgeführt wird. Diese Phase erfolgt, nachdem die Prinzipaldatenbank online geschaltet wurde, und wird nach dem Failover fortgesetzt. Die Datenbank ist während der Rollbackphase verfügbar.  
+ In der folgende Abbildung wird veranschaulicht, wie die Fehlererkennung und die Failoverzeit zur Gesamtzeit beitragen, die zum Abschließen eines automatischen Failovers auf **Partner_B** erforderlich ist. Das Failover benötigt Zeit zum Ausführen des Rollforwards für die Datenbank (die Rollforwardphase) sowie zusätzlich ein wenig Zeit, um die Datenbank online zu schalten. In der Rollbackphase wird ein Rollback für Transaktionen ohne Commit ausgeführt wird. Diese Phase erfolgt, nachdem die Prinzipaldatenbank online geschaltet wurde, und wird nach dem Failover fortgesetzt. Die Datenbank ist während der Rollbackphase verfügbar.  
   
  ![Fehlererkennung und Failoverzeit](../../database-engine/database-mirroring/media/dbm-failovauto-time.gif "Fehlererkennung und Failoverzeit")  
   
