@@ -9,12 +9,12 @@ ms.topic: article
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=sql-server-ver15'
-ms.openlocfilehash: 28b2d4cf892aa21b44d989fb56351a6ab5448bff
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: b04cb475579c73a26ec5977ce52b9521ce69552a
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97482278"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642644"
 ---
 # <a name="whats-new-in-sql-server-2019"></a>Neues in [!INCLUDE[sql-server-2019](../includes/sssqlv15-md.md)]
 
@@ -222,8 +222,8 @@ Die einfachste Möglichkeit, um die Arbeit mit [!INCLUDE[ssNoVersion](../include
 
 |Neue Funktion oder Update | Details |
 |:---|:---| 
-|Neue Optionen für die Arbeitsspeichereinrichtung | Legt die Serverkonfigurationseinstellungen *Min. Serverarbeitsspeicher (MB)* und *Max. Serverarbeitsspeicher (MB)* während der Installation fest. Weitere Informationen finden Sie unter [Konfiguration der Datenbank-Engine – Seite „Arbeitsspeicher“](https://docs.microsoft.com/sql/sql-server/install/instance-configuration?view=sql-server-ver15#memory) und unter den Parametern `USESQLRECOMMENDEDMEMORYLIMITS`, `SQLMINMEMORY` und `SQLMAXMEMORY` im Artikel [Installieren von SQL Server von der Eingabeaufforderung](../database-engine/install-windows/install-sql-server-from-the-command-prompt.md#Install). Der vorgeschlagene Wert entspricht den Richtlinien für die Arbeitsspeicherkonfiguration in [Konfigurationsoptionen für den Serverarbeitsspeicher](../database-engine/configure-windows/server-memory-server-configuration-options.md#manually).| 
-|Neue Optionen für die Nebenläufigkeitseinrichtung | Legt die Serverkonfigurationsoption *Max. Grad an Parallelität* während der Installation fest. Siehe [Konfiguration der Datenbank-Engine – Seite „MaxDOP“](https://docs.microsoft.com/sql/sql-server/install/instance-configuration?view=sql-server-ver15#maxdop) und den Abschnitt zum `SQLMAXDOP`-Parameter in [Installieren von SQL Server von der Eingabeaufforderung](../database-engine/install-windows/install-sql-server-from-the-command-prompt.md#Install). Der Standardwert entspricht den Richtlinien für die maximale Nebenläufigkeit in [Konfigurieren der Serverkonfigurationsoption „Max. Grad an Parallelität“](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md#Guidelines).| 
+|Neue Optionen für die Arbeitsspeichereinrichtung | Legt die Serverkonfigurationseinstellungen *Min. Serverarbeitsspeicher (MB)* und *Max. Serverarbeitsspeicher (MB)* während der Installation fest. Weitere Informationen finden Sie unter [Konfiguration der Datenbank-Engine – Seite „Arbeitsspeicher“](./install/instance-configuration.md#memory) und unter den Parametern `USESQLRECOMMENDEDMEMORYLIMITS`, `SQLMINMEMORY` und `SQLMAXMEMORY` im Artikel [Installieren von SQL Server von der Eingabeaufforderung](../database-engine/install-windows/install-sql-server-from-the-command-prompt.md#Install). Der vorgeschlagene Wert entspricht den Richtlinien für die Arbeitsspeicherkonfiguration in [Konfigurationsoptionen für den Serverarbeitsspeicher](../database-engine/configure-windows/server-memory-server-configuration-options.md#manually).| 
+|Neue Optionen für die Nebenläufigkeitseinrichtung | Legt die Serverkonfigurationsoption *Max. Grad an Parallelität* während der Installation fest. Siehe [Konfiguration der Datenbank-Engine – Seite „MaxDOP“](./install/instance-configuration.md#maxdop) und den Abschnitt zum `SQLMAXDOP`-Parameter in [Installieren von SQL Server von der Eingabeaufforderung](../database-engine/install-windows/install-sql-server-from-the-command-prompt.md#Install). Der Standardwert entspricht den Richtlinien für die maximale Nebenläufigkeit in [Konfigurieren der Serverkonfigurationsoption „Max. Grad an Parallelität“](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md#Guidelines).| 
 |Setupwarnung bei Produktschlüssel für Sever-/CAL-Lizenz|Wenn ein Produktschlüssel für eine Server-/Cal-Lizenz eingegeben wird und die Maschine mehr als 20 physische (oder 40 logische Kerne bei aktiviertem Hyper-Threading) hat, wird während des Setupvorgangs eine Warnung angezeigt. Benutzer haben nun die Wahl. Sie können wie bisher die Beschränkung zur Kenntnis nehmen und mit dem Setupvorgang fortfahren, oder sie geben einen Lizenzschlüssel ein, der die maximal mögliche Prozessorzahl des Systems unterstützt.|
 | &nbsp; | &nbsp; |
 

@@ -15,12 +15,12 @@ f1_keywords:
 ms.assetid: 24bd987e-164a-48fd-b4f2-cbe16a3cd95e
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: dd2fffbce8d2db5bb5bafbcb49b1f37ea48873c7
-ms.sourcegitcommit: c7f40918dc3ecdb0ed2ef5c237a3996cb4cd268d
+ms.openlocfilehash: a8ed14b14198bb95db838e76ca07bffe5875ce69
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91726045"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642591"
 ---
 # <a name="ssis-catalog"></a>SSIS-Katalog
 
@@ -126,12 +126,12 @@ ms.locfileid: "91726045"
   
  Sie können ein [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -Projekt durch das Bereitstellen unter dem gleichen Namen im gleichen Ordner im Katalog aktualisieren oder erneut bereitstellen. Jedes Mal, wenn Sie ein Projekt erneut bereitstellen, behält der **SSISDB** -Katalog standardmäßig die frühere Version des Projekts bei. Um die Größe der Vorgangsdaten zu verwalten, wird der **SSIS-Server-Wartungsauftrag** verwendet, um alte Versionen von Projekten zu entfernen.  
  
-Zum Ausführen des **SSIS-Serverwartungsauftrags**erstellt SSIS die SQL Server-Anmeldung **##MS_SSISServerCleanupJobLogin##** . Diese Anmeldung gilt nur für den internen Gebrauch durch SSIS.
+Zum Ausführen des **SSIS-Serverwartungsauftrags** erstellt SSIS die SQL Server-Anmeldung **##MS_SSISServerCleanupJobLogin##** . Diese Anmeldung gilt nur für den internen Gebrauch durch SSIS.
   
  Die folgenden **SSISDB** -Katalogeigenschaften definieren, wie sich dieser [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agentauftrag verhält. Sie können die Eigenschaften anzeigen oder ändern, indem Sie das Dialogfeld **Katalogeigenschaften** verwenden, oder [catalog.catalog_properties &#40;SSISDB Database&#41;](../../integration-services/system-views/catalog-catalog-properties-ssisdb-database.md) und [catalog.configure_catalog &#40;SSISDB Database&#41;](../../integration-services/system-stored-procedures/catalog-configure-catalog-ssisdb-database.md).  
   
  **Protokolle regelmäßig bereinigen**  
- Der Auftragsschritt für die Vorgangsbereinigung wird ausgeführt, wenn diese Eigenschaft auf **TRUE**festgelegt ist.  
+ Der Auftragsschritt für die Vorgangsbereinigung wird ausgeführt, wenn diese Eigenschaft auf **TRUE** festgelegt ist.  
   
  **Beibehaltungsdauer (Tage)**  
  Definiert das maximale Alter von zulässigen Vorgangsdaten (in Tagen). Ältere Daten werden entfernt.  
@@ -139,7 +139,7 @@ Zum Ausführen des **SSIS-Serverwartungsauftrags**erstellt SSIS die SQL Server-A
  Der Mindestwert ist ein Tag. Der Höchstwert wird nur durch den Höchstwert für Daten vom Typ **int** in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] beschränkt. Informationen zu diesem Datentyp finden Sie unter [int, bigint, smallint und tinyint &#40;Transact-SQL&#41;](../../t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql.md).  
   
  **Alte Versionen regelmäßig entfernen**  
- Der Auftragsschritt für die Projektversionsbereinigung wird ausgeführt, wenn diese Eigenschaft auf **TRUE**festgelegt ist.  
+ Der Auftragsschritt für die Projektversionsbereinigung wird ausgeführt, wenn diese Eigenschaft auf **TRUE** festgelegt ist.  
   
  **Maximale Anzahl der Versionen pro Projekt**  
  Definiert, wie viele Versionen eines Projekts im Katalog gespeichert sind. Frühere Versionen von Projekten werden entfernt.  
@@ -173,7 +173,7 @@ Zum Ausführen des **SSIS-Serverwartungsauftrags**erstellt SSIS die SQL Server-A
   
  In der folgenden Tabelle sind die im Dialogfeld **Katalogeigenschaften** aufgeführten Eigenschaftsnamen und die zugehörigen Eigenschaften in der Datenbanksicht aufgelistet.  
   
-|Eigenschaftsname (Dialogfeld**Katalogeigenschaften** )|Eigenschaftsname (Datenbanksicht)|  
+|Eigenschaftsname (Dialogfeld **Katalogeigenschaften** )|Eigenschaftsname (Datenbanksicht)|  
 |---------------------------------------------------------|-------------------------------------|  
 |Name des Verschlüsselungsalgorithmus|ENCRYPTION_ALGORITHM|  
 |Protokolle regelmäßig bereinigen|OPERATION_CLEANUP_ENABLEDâ€‹|  
@@ -456,7 +456,7 @@ Zum Ausführen des **SSIS-Serverwartungsauftrags**erstellt SSIS die SQL Server-A
            FROM Executable File = 'C:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Binn\Microsoft.SqlServer.IntegrationServices.Server.dll'  
     ```  
 
-    Sie finden den Wert für `YourSQLServerDefaultCompatibilityLevel` in einer [Liste mit SQL Server-Standardkompatibilitätsgraden](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md?view=sql-server-ver15#arguments).
+    Sie finden den Wert für `YourSQLServerDefaultCompatibilityLevel` in einer [Liste mit SQL Server-Standardkompatibilitätsgraden](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#arguments).
   
     [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -CLR-gespeicherte Prozeduren erfordern UNSAFE-Berechtigungen, die der Anmeldung gewährt werden müssen, da die Anmeldung einen zusätzlichen Zugriff auf eingeschränkte Ressourcen (z. B. die Microsoft Win32-API) benötigt. Weitere Informationen zur UNSAFE-Codeberechtigung finden Sie unter [Creating an Assembly](../../relational-databases/clr-integration/assemblies/creating-an-assembly.md).  
 
@@ -612,7 +612,7 @@ Bevor Sie die Always On-Unterstützung für die SSIS-Datenbank aktivieren, müss
   
 4.  Klicken Sie auf **Automatische Ausführung gespeicherter Integration Services-Prozeduren beim Starten von SQL Server aktivieren** , um die gespeicherte [catalog.startup](../system-stored-procedures/catalog-startup.md) -Prozedur jedes Mal ausführen zu lassen, wenn die SSIS-Serverinstanz neu gestartet wird. Durch die gespeicherte Prozedur wird der Status von Vorgängen für den SSISDB-Katalog verwaltet. Dabei wird der Status aller Pakete korrigiert, die während des Ausfalls der SSIS-Serverinstanz (falls zutreffend) ausgeführt wurden.  
   
-5.  Geben Sie ein **Kennwort**ein, und klicken Sie dann auf **OK**. Das Kennwort schützt den Datenbank-Hauptschlüssel, der zum Verschlüsseln der Katalogdaten verwendet wird. Bewahren Sie das Kennwort sicher auf. Es wird empfohlen, auch den Datenbank-Hauptschlüssel zu sichern. Weitere Informationen finden Sie unter [Back Up a Database Master Key](../../relational-databases/security/encryption/back-up-a-database-master-key.md).  
+5.  Geben Sie ein **Kennwort** ein, und klicken Sie dann auf **OK**. Das Kennwort schützt den Datenbank-Hauptschlüssel, der zum Verschlüsseln der Katalogdaten verwendet wird. Bewahren Sie das Kennwort sicher auf. Es wird empfohlen, auch den Datenbank-Hauptschlüssel zu sichern. Weitere Informationen finden Sie unter [Back Up a Database Master Key](../../relational-databases/security/encryption/back-up-a-database-master-key.md).  
   
 ####  <a name="step-2-add-ssisdb-to-an-always-on-availability-group"></a><a name="Step2"></a>Schritt 2: Hinzufügen von SSISDB zu einer Always On-Verfügbarkeitsgruppe  
 Das Hinzufügen der SSISDB-Datenbank zu einer Always On-Verfügbarkeitsgruppe ist fast identisch mit dem Hinzufügen einer anderen Benutzerdatenbank zu einer Verfügbarkeitsgruppe. Weitere Informationen finden Sie unter [Verwenden des Assistenten für Verfügbarkeitsgruppen (SQL Server Management Studio)](../../database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio.md).  
@@ -655,7 +655,7 @@ Wenn im Kontextmenü angezeigt wird, dass die Option **Always On-Unterstützung 
   
 2.  Entfernen Sie die SSISDB-Datenbank von allen **Replikatknoten**.  
   
-3.  Upgraden Sie die SSISDB-Datenbank auf dem **Primärknoten**. Erweitern Sie im**Objekt-Explorer** in SQL Server Management Studio die **Integration Services-Kataloge**, klicken Sie mit der rechten Maustaste auf **SSISDB**, und wählen Sie dann **Datenbankupgrade**aus. Führen Sie die Anweisungen im **SSISDB-Upgrade-Assistenten** aus, um die Datenbank upzugraden. Starten Sie den **SSIDB-Upgrade-Assistenten** lokal auf dem **Primärknoten**.  
+3.  Upgraden Sie die SSISDB-Datenbank auf dem **Primärknoten**. Erweitern Sie im **Objekt-Explorer** in SQL Server Management Studio die **Integration Services-Kataloge**, klicken Sie mit der rechten Maustaste auf **SSISDB**, und wählen Sie dann **Datenbankupgrade** aus. Führen Sie die Anweisungen im **SSISDB-Upgrade-Assistenten** aus, um die Datenbank upzugraden. Starten Sie den **SSIDB-Upgrade-Assistenten** lokal auf dem **Primärknoten**.  
   
 4.  Führen Sie die Anweisungen unter [Schritt 2: Hinzufügen von SSISDB zu einer Always On-Verfügbarkeitsgruppe](#Step2) aus, um die SSISDB wieder zu einer Verfügbarkeitsgruppe hinzuzufügen.  
   

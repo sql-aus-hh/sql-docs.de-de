@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: e8b80e8d-d0c9-4500-a868-0ce08233da08
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 1930add6748d979c0a00455529ca932e8d0b43c8
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 63f185f686d21c5c9a490bee83d2c9afaf449b8f
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714078"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641886"
 ---
 # <a name="sqlagent90-application"></a>sqlagent90 (Anwendung)
 [!INCLUDE[sqlserver](../includes/applies-to-version/sqlserver.md)]
@@ -43,11 +43,11 @@ sqlagent90
  Zeigt an, dass der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Agent im ausführlichen Modus ausgeführt wird und dass Diagnoseinformationen im Eingabeaufforderungsfenster ausgegeben werden sollen. Die Diagnoseinformationen sind mit den Informationen identisch, die in das Fehlerprotokoll des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Agents geschrieben werden.  
   
  **-i** *Instanzname*  
- Zeigt an, dass der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Agent eine Verbindung mit der benannten [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Instanz herstellt, die mit *Instanzname*angegeben wird.  
+ Zeigt an, dass der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Agent eine Verbindung mit der benannten [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Instanz herstellt, die mit *Instanzname* angegeben wird.  
   
 ## <a name="remarks"></a>Bemerkungen  
- Nach dem Anzeigen einer Copyrightmeldung zeigt **sqlagent90** Ausgaben nur dann im Eingabeaufforderungsfenster an, wenn der Schalter **-v** angegeben ist. Zum Beenden von **sqlagent90**drücken Sie STRG+C an der Eingabeaufforderung. Schließen Sie das Eingabeaufforderungsfenster nicht, bevor Sie **sqlagent90**beendet haben.  
+ Nach dem Anzeigen einer Copyrightmeldung zeigt **sqlagent90** Ausgaben nur dann im Eingabeaufforderungsfenster an, wenn der Schalter **-v** angegeben ist. Zum Beenden von **sqlagent90** drücken Sie STRG+C an der Eingabeaufforderung. Schließen Sie das Eingabeaufforderungsfenster nicht, bevor Sie **sqlagent90** beendet haben.  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [Automatisierte Administrationstasks &#40;SQL Server-Agent&#41;](../ssms/agent/automated-administration-tasks-sql-server-agent.md?view=sql-server-ver15)  
+ [Automatisierte Administrationstasks &#40;SQL Server-Agent&#41;](../ssms/agent/automated-administration-tasks-sql-server-agent.md)  
   

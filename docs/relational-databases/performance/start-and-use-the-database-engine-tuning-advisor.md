@@ -19,12 +19,12 @@ helpviewer_keywords:
 ms.assetid: a4e3226a-3917-4ec8-bdf0-472879d231c9
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: c8cd352c5347cbc48979af4e03775c9d7da8f3d1
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 9bf93bf9b59df77efe905a6c0debb722c63c3bbb
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96504963"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643045"
 ---
 # <a name="start-and-use-the-database-engine-tuning-advisor"></a>Starten und Verwenden des Datenbankoptimierungsratgebers
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "96504963"
   
 #### <a name="to-start-the-database-engine-tuning-advisor-from-the-sql-server-management-studio-query-editor"></a>So starten Sie den Datenbankoptimierungsratgeber über den Abfrage-Editor von SQL Server Management Studio  
   
-1.  Öffnen Sie in [!INCLUDE[tsql](../../includes/tsql-md.md)] eine [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]-Skriptdatei. Weitere Informationen finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15).  
+1.  Öffnen Sie in [!INCLUDE[tsql](../../includes/tsql-md.md)] eine [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]-Skriptdatei. Weitere Informationen finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md).  
   
 2.  Wählen Sie im [!INCLUDE[tsql](../../includes/tsql-md.md)] -Skript eine Abfrage aus, oder wählen Sie das gesamte Skript aus, klicken Sie mit der rechten Maustaste auf die Auswahl, und wählen Sie **Abfrage mit dem Datenbankoptimierungsratgeber analysieren**. Die GUI des Datenbankoptimierungsratgebers wird geöffnet und importiert das Skript als Arbeitsauslastung in Form einer XML-Datei. Sie können einen Namen für die Sitzung und Optimierungsoptionen angeben, um die ausgewählten [!INCLUDE[tsql](../../includes/tsql-md.md)] -Abfragen als Arbeitsauslastung zu optimieren.  
   
@@ -88,7 +88,7 @@ ms.locfileid: "96504963"
   
 ###  <a name="to-create-transact-sql-script-workloads"></a><a name="SSMS"></a> So erstellen Sie Transact-SQL-Skriptarbeitsauslastungen  
   
-1.  Starten Sie den Abfrage-Editor in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]. Weitere Informationen finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15).  
+1.  Starten Sie den Abfrage-Editor in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]. Weitere Informationen finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md).  
   
 2.  Geben Sie Ihr [!INCLUDE[tsql](../../includes/tsql-md.md)] -Skript in den Abfrage-Editor ein. Dieses Skript sollte eine Gruppe von [!INCLUDE[tsql](../../includes/tsql-md.md)] -Anweisungen an mindestens eine zu optimierende Datenbank enthalten.  
   

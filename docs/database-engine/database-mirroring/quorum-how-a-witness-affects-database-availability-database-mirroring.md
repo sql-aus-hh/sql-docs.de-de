@@ -6,7 +6,7 @@ ms.date: 03/01/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - quorum [SQL Server], database mirroring
@@ -22,12 +22,12 @@ helpviewer_keywords:
 ms.assetid: a62d9dd7-3667-4751-a294-a61fc9caae7c
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: c28e70d2f66dffc00ff2ac9138f97dc8d0e08991
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: f30f336ade4b3ab911d6ed365ddfa637230ea02e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789656"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641339"
 ---
 # <a name="quorum-how-a-witness-affects-database-availability-database-mirroring"></a>Quorum: Auswirkungen eines Zeugen auf die Datenbankverfügbarkeit (Datenbankspiegelung)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "85789656"
   
 -   Ein *vollständiges Quorum* , das aus beiden Partnern und dem Zeugen besteht.  
   
-     Normalerweise nehmen alle drei Serverinstanzen an einem Dreiwegequorum teil, das als *vollständiges Quorum*bezeichnet wird. Bei einem vollständigen Quorum führen der Prinzipal- und der Spiegelserver weiterhin ihre jeweiligen Rollen aus (es sei denn, ein manuelles Failover tritt auf).  
+     Normalerweise nehmen alle drei Serverinstanzen an einem Dreiwegequorum teil, das als *vollständiges Quorum* bezeichnet wird. Bei einem vollständigen Quorum führen der Prinzipal- und der Spiegelserver weiterhin ihre jeweiligen Rollen aus (es sei denn, ein manuelles Failover tritt auf).  
   
 -   Ein *Quorum zwischen Zeuge und Partner* besteht aus dem Zeugen und einem der beiden Partner.  
   
@@ -99,9 +99,9 @@ ms.locfileid: "85789656"
   
  ![Kooperation zwischen Zeuge und Partnern](../../database-engine/database-mirroring/media/dbm-quorum-scenarios.gif "Kooperation zwischen Zeuge und Partnern")  
   
- In Szenario 1 wird veranschaulicht, wie Zeuge und Spiegel nach einem Fehler am ursprünglichen Prinzipalserver (**Partner_A**) übereinstimmend erkennen, dass **Partner_A**nicht mehr verfügbar ist und ein Quorum bilden. Der Spiegelserver, **Partner_B** , übernimmt daraufhin die Rolle des Prinzipalservers. Ein automatisches Failover erfolgt, und **Partner_B**schaltet seine Kopie der Datenbank online. Anschließend wird **Partner_B** heruntergefahren, und die Datenbank wird offline geschaltet. Später stellt der vorherige Prinzipalserver, **Partner_A**, die Verbindung mit dem Zeugen wieder her und erhält wieder das Quorum. Im Rahmen der Kommunikation mit dem Zeugen erkennt **Partner_A** jedoch, dass die eigene Datenbankkopie nicht online geschaltet werden kann, da jetzt **Partner_B** die Rolle des Prinzipalservers besitzt. Sobald **Partner_B** wieder an der Sitzung teilnimmt, wird auch die Datenbank wieder online geschaltet.  
+ In Szenario 1 wird veranschaulicht, wie Zeuge und Spiegel nach einem Fehler am ursprünglichen Prinzipalserver (**Partner_A**) übereinstimmend erkennen, dass **Partner_A** nicht mehr verfügbar ist und ein Quorum bilden. Der Spiegelserver, **Partner_B** , übernimmt daraufhin die Rolle des Prinzipalservers. Ein automatisches Failover erfolgt, und **Partner_B** schaltet seine Kopie der Datenbank online. Anschließend wird **Partner_B** heruntergefahren, und die Datenbank wird offline geschaltet. Später stellt der vorherige Prinzipalserver, **Partner_A**, die Verbindung mit dem Zeugen wieder her und erhält wieder das Quorum. Im Rahmen der Kommunikation mit dem Zeugen erkennt **Partner_A** jedoch, dass die eigene Datenbankkopie nicht online geschaltet werden kann, da jetzt **Partner_B** die Rolle des Prinzipalservers besitzt. Sobald **Partner_B** wieder an der Sitzung teilnimmt, wird auch die Datenbank wieder online geschaltet.  
   
- In Szenario 2 verliert der Zeuge sein Quorum, während die Partner **Partner_A** und **Partner_B**das Quorum gemeinsam behalten; die Datenbank bleibt online. Dann verlieren auch die Partner ihr Quorum, und die Datenbank wird offline geschaltet. Später stellt der Prinzipalserver ( **Partner_A**) die Verbindung mit dem Zeugen wieder her und erhält dadurch das Quorum. Der Zeuge bestätigt, dass **Partner_A** noch immer im Besitz der Prinzipalrolle ist, und **Partner_A** schaltet die Datenbank wieder online.  
+ In Szenario 2 verliert der Zeuge sein Quorum, während die Partner **Partner_A** und **Partner_B** das Quorum gemeinsam behalten; die Datenbank bleibt online. Dann verlieren auch die Partner ihr Quorum, und die Datenbank wird offline geschaltet. Später stellt der Prinzipalserver ( **Partner_A**) die Verbindung mit dem Zeugen wieder her und erhält dadurch das Quorum. Der Zeuge bestätigt, dass **Partner_A** noch immer im Besitz der Prinzipalrolle ist, und **Partner_A** schaltet die Datenbank wieder online.  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Betriebsmodi der Datenbankspiegelung](../../database-engine/database-mirroring/database-mirroring-operating-modes.md)   

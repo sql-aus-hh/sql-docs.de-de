@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], interoperability
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 53e98134-e274-4dfd-8b72-0cc0fd5c800e
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: fd18ca39f11525f3fd91f759ff34f4ce6ebd0dbb
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 4f15bfe798c4fdec07be55f9dbb871c2980bc777
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789700"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642069"
 ---
 # <a name="database-mirroring-and-log-shipping-sql-server"></a>Datenbankspiegelung und Protokollversand (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -49,16 +49,16 @@ ms.locfileid: "85789700"
 > [!NOTE]  
 >  Die Einstellungen für die Unterscheidung nach Groß-/Kleinschreibung der am Protokollversand beteiligten Server sollten übereinstimmen.  
   
- Während einer Protokollversandsitzung erstellen Sicherungsaufträge in der primären Datenbank Protokollsicherungen in einem Sicherungsordner. Von dort werden die Sicherungen von den Kopieraufträgen der sekundären Server kopiert. Damit die Sicherungs- und Kopieraufträge erfolgreich ausgeführt werden, benötigen sie Zugriff auf den Sicherungsordner des Protokollversands. Zur Optimierung der Verfügbarkeit des primären Servers empfiehlt es sich, den Sicherungsordner in einem freigegebenen Sicherungsspeicherort auf einem separaten Hostcomputer anzulegen. Stellen Sie sicher, dass alle Protokollversandserver, einschließlich des Spiegelservers bzw. des primären Servers, Zugriff auf den freigegebenen Sicherungsspeicherort haben (wird als *Sicherungsfreigabe*bezeichnet).  
+ Während einer Protokollversandsitzung erstellen Sicherungsaufträge in der primären Datenbank Protokollsicherungen in einem Sicherungsordner. Von dort werden die Sicherungen von den Kopieraufträgen der sekundären Server kopiert. Damit die Sicherungs- und Kopieraufträge erfolgreich ausgeführt werden, benötigen sie Zugriff auf den Sicherungsordner des Protokollversands. Zur Optimierung der Verfügbarkeit des primären Servers empfiehlt es sich, den Sicherungsordner in einem freigegebenen Sicherungsspeicherort auf einem separaten Hostcomputer anzulegen. Stellen Sie sicher, dass alle Protokollversandserver, einschließlich des Spiegelservers bzw. des primären Servers, Zugriff auf den freigegebenen Sicherungsspeicherort haben (wird als *Sicherungsfreigabe* bezeichnet).  
   
- Damit der Protokollversand nach einem Failover der Datenbankspiegelung fortgesetzt wird, müssen Sie auch den Spiegelserver als primären Server konfigurieren. Verwenden Sie dabei die gleiche Konfiguration wie für den primären Server in der Prinzipaldatenbank. Die Spiegeldatenbank befindet sich im Wiederherstellungsstatus, wodurch die Sicherungsaufträge am Wiederherstellen des Protokolls in der Spiegeldatenbank gehindert werden. Dadurch wird sichergestellt, dass die Spiegeldatenbank bzw. primäre Datenbank die Prinzipaldatenbank bzw. primäre Datenbank nicht beeinträchtigt, deren Protokollsicherungen aktuell von sekundären Servern kopiert werden. Nach der Ausführung des Sicherungsauftrags für die Spiegeldatenbank bzw. primäre Datenbank protokolliert der Sicherungsauftrag eine Meldung in der**log_shipping_monitor_history_detail** -Tabelle, und der Agentauftrag gibt einen Erfolgsstatus zurück. Dadurch sollen unbegründete Warnungen vermieden werden.  
+ Damit der Protokollversand nach einem Failover der Datenbankspiegelung fortgesetzt wird, müssen Sie auch den Spiegelserver als primären Server konfigurieren. Verwenden Sie dabei die gleiche Konfiguration wie für den primären Server in der Prinzipaldatenbank. Die Spiegeldatenbank befindet sich im Wiederherstellungsstatus, wodurch die Sicherungsaufträge am Wiederherstellen des Protokolls in der Spiegeldatenbank gehindert werden. Dadurch wird sichergestellt, dass die Spiegeldatenbank bzw. primäre Datenbank die Prinzipaldatenbank bzw. primäre Datenbank nicht beeinträchtigt, deren Protokollsicherungen aktuell von sekundären Servern kopiert werden. Nach der Ausführung des Sicherungsauftrags für die Spiegeldatenbank bzw. primäre Datenbank protokolliert der Sicherungsauftrag eine Meldung in der **log_shipping_monitor_history_detail** -Tabelle, und der Agentauftrag gibt einen Erfolgsstatus zurück. Dadurch sollen unbegründete Warnungen vermieden werden.  
   
  Die Spiegeldatenbank bzw. primäre Datenbank ist in der Protokollversandsitzung inaktiv. Bei einem Failover der Spiegelung wird die ehemalige Spiegeldatenbank als Prinzipaldatenbank online geschaltet. Nun wird diese Datenbank auch als primäre Datenbank für den Protokollversand aktiviert. Die Sicherungsaufträge für den Protokollversand, die zuvor keinen Protokollversand für diese Datenbank ausführen konnten, starten den Protokollversand. Dagegen wird durch ein Failover die ehemalige Prinzipaldatenbank bzw. die primäre Datenbank zur neuen Spiegeldatenbank bzw. primären Datenbank und sie erhalten den Wiederherstellungsstatus. Für Sicherungsaufträge in dieser Datenbank wird dann keine Protokollsicherung mehr ausgeführt.  
   
 > [!NOTE]  
 >  Bei einem automatischen Failover erfolgt der Wechsel zur Spiegelrolle, wenn die ehemalige Prinzipaldatenbank bzw. primäre Datenbank wieder an der Spiegelungssitzung teilnimmt.  
   
- Zur Ausführung in einem Modus für hohe Sicherheit mit automatischem Failover wird die Datenbankspiegelungssitzung mit einer zusätzlichen Serverinstanz konfiguriert, die als *Zeuge*bezeichnet wird. Falls die Prinzipaldatenbank aus irgendeinem Grund verloren geht, nachdem die Datenbank synchronisiert wurde, und falls der Spiegelserver und der Zeuge noch miteinander kommunizieren können, wird ein automatisches Failover ausgeführt. Durch ein automatisches Failover übernimmt der Spiegelserver die Prinzipalrolle und die Datenbank wird als Prinzipaldatenbank online geschaltet. Falls der Sicherungsspeicherort für den Protokollversand für den neuen Prinzipalserver bzw. primären Server zugänglich ist, werden von dessen Sicherungsaufträgen Protokollsicherungen an diesen Speicherort gesendet. Mit dem synchronen Modus der Datenbankspiegelung wird sichergestellt, dass die Protokollkette nicht von einem Spiegelungsfailover betroffen ist und dass nur ein gültiges Protokoll wiederhergestellt wird. Die sekundären Server kopieren weiterhin Protokollsicherung, ohne zu wissen, dass eine andere Serverinstanz nun der primäre Server ist.  
+ Zur Ausführung in einem Modus für hohe Sicherheit mit automatischem Failover wird die Datenbankspiegelungssitzung mit einer zusätzlichen Serverinstanz konfiguriert, die als *Zeuge* bezeichnet wird. Falls die Prinzipaldatenbank aus irgendeinem Grund verloren geht, nachdem die Datenbank synchronisiert wurde, und falls der Spiegelserver und der Zeuge noch miteinander kommunizieren können, wird ein automatisches Failover ausgeführt. Durch ein automatisches Failover übernimmt der Spiegelserver die Prinzipalrolle und die Datenbank wird als Prinzipaldatenbank online geschaltet. Falls der Sicherungsspeicherort für den Protokollversand für den neuen Prinzipalserver bzw. primären Server zugänglich ist, werden von dessen Sicherungsaufträgen Protokollsicherungen an diesen Speicherort gesendet. Mit dem synchronen Modus der Datenbankspiegelung wird sichergestellt, dass die Protokollkette nicht von einem Spiegelungsfailover betroffen ist und dass nur ein gültiges Protokoll wiederhergestellt wird. Die sekundären Server kopieren weiterhin Protokollsicherung, ohne zu wissen, dass eine andere Serverinstanz nun der primäre Server ist.  
   
  Wenn Sie eine lokale Protokollversandüberwachung verwenden, müssen für dieses Szenario keine besonderen Aspekte beachtet werden. Informationen zum Verwenden einer Remoteüberwachungsinstanz für dieses Szenario finden Sie weiter unten im Abschnitt "Auswirkungen der Datenbankspiegelung auf eine Remoteüberwachungsinstanz".  
   

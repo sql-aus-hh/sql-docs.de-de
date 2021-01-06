@@ -6,19 +6,19 @@ ms.date: 03/07/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 f1_keywords:
 - sql13.swb.dbmmonitor.warningsandalerts.f1
 ms.assetid: 01936122-961d-436b-ba3c-5f79fefe5469
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 9a2a5b2b940f1ee72e903e47dee3a3c5e76f293e
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 02acad8ee93c311c18c80e325450105ac47ee876
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85680438"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642317"
 ---
 # <a name="database-mirroring-monitor-warnings-page"></a>Datenbankspiegelungs-Monitor (Seite Warnungen)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "85680438"
 |Warnung|Schwellenwert|  
 |-------------|---------------|  
 |**Warnhinweis anzeigen, wenn das nicht gesendete Protokoll den Schwellenwert überschreitet.**|Gibt an, wie viele Kilobyte (KB) nicht gesendeten Protokolls eine Warnung auf der Prinzipalserverinstanz generieren werden. Diese Warnung hilft, das Datenverlustrisiko in KB zu messen, und ist besonders für den Modus für hohe Leistung relevant. Die Warnung ist aber auch für den Modus für hohe Sicherheit relevant, wenn die Spiegelung angehalten oder unterbrochen wird, weil die Verbindung zwischen den Partnern getrennt wurde.|  
-|**Warnhinweis anzeigen, wenn das nicht wiederhergestellte Protokoll den Schwellenwert überschreitet.**|Gibt an, wie viele KB nicht wiederhergestellten Protokolls eine Warnung auf der Spiegelserverinstanz generieren werden. Diese Warnung ist hilfreich beim Messen der Failoverzeit in Kilobyte. Die*Failoverzeit* besteht hauptsächlich aus der Zeit, die der frühere Spiegelserver benötigt, um ein Rollforward für die Protokolldaten auszuführen, die sich noch in seiner Wiederholungswarteschlange befinden, sowie einer zusätzlichen kurzen Zeitspanne.<br /><br /> Hinweis: Bei einem automatischen Failover hängt die Zeitspanne, die es dauert, bis das System den Fehler bemerkt, nicht von der Failoverzeit ab.<br /><br /> Weitere Informationen finden Sie unter [Einschätzen der Unterbrechung des Diensts während des Rollenwechsels &#40;Datenbankspiegelung&#41;](../../database-engine/database-mirroring/estimate-the-interruption-of-service-during-role-switching-database-mirroring.md)ausgetauscht werden.|  
+|**Warnhinweis anzeigen, wenn das nicht wiederhergestellte Protokoll den Schwellenwert überschreitet.**|Gibt an, wie viele KB nicht wiederhergestellten Protokolls eine Warnung auf der Spiegelserverinstanz generieren werden. Diese Warnung ist hilfreich beim Messen der Failoverzeit in Kilobyte. Die *Failoverzeit* besteht hauptsächlich aus der Zeit, die der frühere Spiegelserver benötigt, um ein Rollforward für die Protokolldaten auszuführen, die sich noch in seiner Wiederholungswarteschlange befinden, sowie einer zusätzlichen kurzen Zeitspanne.<br /><br /> Hinweis: Bei einem automatischen Failover hängt die Zeitspanne, die es dauert, bis das System den Fehler bemerkt, nicht von der Failoverzeit ab.<br /><br /> Weitere Informationen finden Sie unter [Einschätzen der Unterbrechung des Diensts während des Rollenwechsels &#40;Datenbankspiegelung&#41;](../../database-engine/database-mirroring/estimate-the-interruption-of-service-during-role-switching-database-mirroring.md)ausgetauscht werden.|  
 |**Warnhinweis anzeigen, wenn das Alter der ältesten, nicht gesendeten Transaktion den Schwellenwert überschreitet.**|Gibt die Menge an Transaktionen (in Anzahl Minuten) an, die sich in der Sendewarteschlange ansammeln dürfen, bevor auf der Prinzipalserverinstanz eine Warnung generiert wird. Diese Warnung hilft, das Datenverlustrisiko in Bezug auf die Zeit zu messen, und ist besonders für den Modus für hohe Leistung relevant. Die Warnung ist aber auch für den Modus für hohe Sicherheit relevant, wenn die Spiegelung angehalten oder unterbrochen wird, weil die Verbindung zwischen den Partnern getrennt wurde.|  
 |**Warnhinweis anzeigen, wenn der Spiegelungscommitaufwand den Schwellenwert überschreitet.**|Gibt an, wie viele Millisekunden durchschnittlicher Verzögerung pro Transaktion toleriert werden, bevor eine Warnung auf dem Prinzipalserver generiert wird. Hierbei handelt es sich um die Verzögerung, die entsteht, während die Prinzipalserverinstanz darauf wartet, dass die Spiegelserverinstanz den Transaktionsprotokolldatensatz in die Wiederholungswarteschlange schreibt. Dieser Wert ist nur im Modus für hohe Sicherheit relevant.|  
   
@@ -52,7 +52,7 @@ ms.locfileid: "85680438"
 ## <a name="remarks"></a>Bemerkungen  
  Falls Informationen zum jetzigen Zeitpunkt für eine Serverinstanz nicht verfügbar sind, zeigen die Zellen der entsprechenden Spalte **Schwellenwert auf** einen grauen Hintergrund und Wasserzeichentext an. Wenn der Monitor nicht mit der Serverinstanz verbunden ist, wird in jeder Zelle des Rasters entweder **Nicht verbunden mit** _„<SYSTEMNAME>“_ oder **Nicht verbunden mit** _„<SYSTEMNAME>_ **\\** _<Instanzname>“_ angezeigt. Ausschlaggebend für die Statusmeldung ist, ob es sich bei der Instanz um die Standardinstanz oder eine benannte Instanz handelt. Wenn der Monitor auf die Rückgabe einer Abfrage wartet, zeigt das Raster in jeder Zelle **Auf Daten wird gewartet...** an.  
   
- Wenn Informationen verfügbar sind, zeigt die Zelle für jede Warnung entweder einen angegebenen Schwellenwert (und eine Maßeinheit) oder **Nicht aktiviert**an.  
+ Wenn Informationen verfügbar sind, zeigt die Zelle für jede Warnung entweder einen angegebenen Schwellenwert (und eine Maßeinheit) oder **Nicht aktiviert** an.  
   
  Wenn ein Schwellenwert zum Zeitpunkt des Updates der Statustabelle überschritten wird, wird ein Ereignis im Windows-Ereignisprotokoll protokolliert, sobald die Statuszeile aufgezeichnet wird. Standardmäßig wird die Statuszeile einmal pro Minute aufgezeichnet, wenn der Monitor nicht ausgeführt wird. Sie können eine Warnung für jeden protokollierten Ereignistyp konfigurieren, indem Sie den SQL Server-Agent oder ein anderes Programm verwenden, wie z. B. Microsoft Management Operations Manager (MOM).  
   

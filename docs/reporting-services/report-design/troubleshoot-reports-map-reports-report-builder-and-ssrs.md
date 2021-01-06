@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: a690aec2-056b-40bc-8cab-c694bd2d6d62
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: a3dc21f30222704622f86732c11bd5f1db7b46d1
-ms.sourcegitcommit: 768f046107642f72693514f51bf2cbd00f58f58a
+ms.openlocfilehash: 6411d6f3810153614de0e60e9b20555e061836e3
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87112022"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641599"
 ---
 # <a name="troubleshoot-reports-map-reports-report-builder-and-ssrs"></a>Problembehandlung bei Berichten: Kartenberichte (Berichts-Generator und SSRS)
   Probleme mit Karten in einem paginierten [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Bericht können auftreten, wenn Sie dem Bericht eine Karte oder eine Kartenebene hinzufügen, wenn Sie im Bericht eine vorhandene Karte oder eine Kartenebene anpassen, wenn Sie eine Karte in einem Bericht in der Vorschau anzeigen oder wenn Sie einen Bericht mit einer Karte veröffentlichen. Dieses Thema soll Ihnen beim Behandeln der folgenden Probleme helfen.  
@@ -44,7 +44,7 @@ ms.locfileid: "87112022"
   
 1.  Laden Sie die SHP-Datei und die DBF-Datei von ESRI auf den Berichtsserver hoch, oder veröffentlichen Sie sie.  
   
-2.  Wählen Sie im Bericht im Bereich Karte in der Entwurfsansicht die Ebene aus, die eingebettete Daten enthält, und öffnen Sie das Eigenschaften für die **Ebenendaten** . Wählen Sie unter **Räumliche Daten verwenden**den Eintrag **Mit ESRI-Shape-Datei (.shp) verknüpfen**aus, und wechseln Sie dann zu dem Ordner auf dem Berichtsserver, der die ESRI-Shape-Dateien enthält, wählen Sie sie aus, und klicken Sie auf OK.  
+2.  Wählen Sie im Bericht im Bereich Karte in der Entwurfsansicht die Ebene aus, die eingebettete Daten enthält, und öffnen Sie das Eigenschaften für die **Ebenendaten** . Wählen Sie unter **Räumliche Daten verwenden** den Eintrag **Mit ESRI-Shape-Datei (.shp) verknüpfen** aus, und wechseln Sie dann zu dem Ordner auf dem Berichtsserver, der die ESRI-Shape-Dateien enthält, wählen Sie sie aus, und klicken Sie auf OK.  
   
 3.  Speichern Sie den Bericht. Die eingebetteten Daten für die Ebene, die Sie geändert haben, wurden aus der Berichtsdefinition entfernt.  
   
@@ -137,7 +137,7 @@ ms.locfileid: "87112022"
   
 -   **Transparenz.** Sie können die Transparenz für jede Kartenebene unabhängig angeben. Die Standardwerte für die Transparenz hängen davon ab, wie Sie eine Ebene hinzufügen. Eine Transparenz von 0 % bedeutet, dass die Ebene nicht transparent ist und keine Daten anderer Ebenen durch sie hindurchscheinen. Damit andere Daten durch eine vorhandene Ebene durchscheinen können, legen Sie den Wert auf einen höheren Prozentsatz fest, der den gewünschten Effekt ergibt.  
   
--   **Sichtbarkeit.** Die Sichtbarkeit für eine Ebene ist entweder **Sichtbar**, **Ausgeblendet**oder **Zoombasiert**, abhängig von der Zoomstufe des Kartenviewports. Der maximale und minimale Bereich für die Zoomstufe kann ebenfalls angegeben werden. Die Sichtbarkeit kann auf einem Ausdruck basieren, der einen dieser Werte ergibt.  
+-   **Sichtbarkeit.** Die Sichtbarkeit für eine Ebene ist entweder **Sichtbar**, **Ausgeblendet** oder **Zoombasiert**, abhängig von der Zoomstufe des Kartenviewports. Der maximale und minimale Bereich für die Zoomstufe kann ebenfalls angegeben werden. Die Sichtbarkeit kann auf einem Ausdruck basieren, der einen dieser Werte ergibt.  
   
     > [!TIP]  
     >  Sie können die Sichtbarkeit für jede Ebene im Bereich Karte umschalten. Während Sie eine Ebene entwerfen, schalten Sie die Sichtbarkeit aller anderen Ebenen aus, um zu bestimmen, ob das Problem eine einzelne Ebene oder die Transparenz zwischen Ebenen betrifft.  
@@ -182,11 +182,11 @@ ms.locfileid: "87112022"
 ## <a name="i-cannot-see-the-bing-maps-tile-background"></a>Der Hintergrund aus Bing Map-Kacheln wird nicht angezeigt.  
  Die folgenden Einstellungen beeinflussen, ob ein Hintergrund aus Bing Map-Kacheln in der lokalen Vorschau oder für einen Bericht, der vom Berichtsserver ausgeführt wird, angezeigt wird:  
   
--   Die Kartenkachelebene muss vorhanden sein. Wählen Sie im Karten-Assistenten oder Ebenen-Assistenten **Bing Maps-Hintergrund für diese Kartenansicht hinzufügen**aus. Dies fügt eine Kachelebene für den aktuellen Kartenviewport-Ansichtmittelpunkt und die aktuelle Zoomstufe hinzu. Sie können auch eine Kachelebene über die Symbolleiste des Bereichs Karte hinzufügen.  
+-   Die Kartenkachelebene muss vorhanden sein. Wählen Sie im Karten-Assistenten oder Ebenen-Assistenten **Bing Maps-Hintergrund für diese Kartenansicht hinzufügen** aus. Dies fügt eine Kachelebene für den aktuellen Kartenviewport-Ansichtmittelpunkt und die aktuelle Zoomstufe hinzu. Sie können auch eine Kachelebene über die Symbolleiste des Bereichs Karte hinzufügen.  
   
--   Das Kartenkoordinatensystem für den Viewport muss **Geografisch**lauten, nicht **Planar**.  
+-   Das Kartenkoordinatensystem für den Viewport muss **Geografisch** lauten, nicht **Planar**.  
   
--   Die Kartenprojektion muss **Mercator**sein.  
+-   Die Kartenprojektion muss **Mercator** sein.  
   
 -   Um die lokale Vorschau anzuzeigen, müssen Sie über Internetzugriff verfügen. Für einen Bericht, der vom Berichtsserver ausgeführt wird, muss der Berichtsserver so konfiguriert sein, dass er den Kachelhintergrund unterstützt. Weitere Informationen finden Sie unter [Planen eines Kartenberichts](plan-a-map-report-report-builder-and-ssrs.md).  
   
@@ -207,6 +207,6 @@ ms.locfileid: "87112022"
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Karten &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/maps-report-builder-and-ssrs.md)   
- [Problembehandlung in Berichts-Generator](/previous-versions/sql/2014/reporting-services/troubleshoot-report-builder?view=sql-server-2014)  
+ [Problembehandlung in Berichts-Generator](/previous-versions/sql/2014/reporting-services/troubleshoot-report-builder?view=sql-server-2014&preserve-view=true)  
   
   

@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 07/07/2017
-ms.openlocfilehash: d3b8bc77f5d4fd2bd549c253b8a64cfa86c6132c
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 09a6d7f612e9a66ad98849ec1c7672b44387d43e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88713768"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641927"
 ---
 # <a name="run-sql-server-profiler"></a>Ausführen von SQL Server Profiler
 
@@ -38,7 +38,7 @@ Wenn Sie [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] zum erste
 -  Klicken Sie im [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]-Menü **Extras** auf **SQL Server Profiler**.  
 
 ### <a name="to-start-sql-server-profiler-from-the-query-editor"></a>So starten Sie SQL Server Profiler über den Abfrage-Editor  
-- Klicken Sie im Abfrage-Editor mit der rechten Maustaste, und wählen Sie dann **Ablaufverfolgungsabfrage in SQL Server Profiler**aus.  
+- Klicken Sie im Abfrage-Editor mit der rechten Maustaste, und wählen Sie dann **Ablaufverfolgungsabfrage in SQL Server Profiler** aus.  
 
   > [!NOTE]  
   >  Der Verbindungskontext ist die Editor-Verbindung, die Ablaufverfolgungsvorlage lautet TSQL_SPs, und der angewendete Filter ist SPID = Abfragefenster-SPID.  
@@ -55,4 +55,4 @@ Wenn Sie [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] zum erste
 
 ## <a name="next-steps"></a>Nächste Schritte  
  [SQL Server Profiler (Übersicht)](../../tools/sql-server-profiler/sql-server-profiler.md)   
- [Verwenden von SQL Server Management Studio](../../ssms/sql-server-management-studio-ssms.md?view=sql-server-ver15)
+ [Verwenden von SQL Server Management Studio](../../ssms/sql-server-management-studio-ssms.md)

@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: 60e8ef0a-0851-41cf-a6d8-cca1e04cbcdb
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 36fde81f6317d45b2169282d99e4eef27b3467b3
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 67f25ef21a7d4897bba7242da796bd41f9fc655e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714268"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642202"
 ---
 # <a name="sqlservr-application"></a>sqlservr (Anwendung)
 
@@ -56,17 +56,17 @@ Mit **-s** *instance_name* wird die Instanz von [!INCLUDE[ssNoVersion](../includ
 > [!NOTE]
 >Wenn Sie diese Option verwenden, ist es nicht möglich, [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] mithilfe des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Dienst-Managers oder des Befehls **net stop** zu beenden. [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] wird beendet, wenn Sie sich vom Computer abmelden.
 
-**-d** *master_path* gibt den vollqualifizierten Pfad für die **master**-Datenbankdatei an. Zwischen **-d** und *master_path*darf sich kein Leerzeichen befinden. Wenn diese Option nicht bereitgestellt wird, werden die vorhandenen Registrierungsparameter verwendet.
+**-d** *master_path* gibt den vollqualifizierten Pfad für die **master**-Datenbankdatei an. Zwischen **-d** und *master_path* darf sich kein Leerzeichen befinden. Wenn diese Option nicht bereitgestellt wird, werden die vorhandenen Registrierungsparameter verwendet.
 
 **-f**: Startet eine Instanz von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] mit Minimalkonfiguration. Dies ist hilfreich, wenn der Server aufgrund der Einstellung eines Konfigurationswerts (z. B. aufgrund von Arbeitsspeichermangel) nicht gestartet werden kann.
 
-**-e** *error_log_path* gibt den vollqualifizierten Pfad der Fehlerprotokolldatei an. Wenn dies nicht angegeben wird, ist `*\<Drive>*:\Program Files\Microsoft SQL Server\MSSQL\Log\Errorlog` der Standardspeicherort für die Standardinstanz und `*\<Drive>*:\Program Files\Microsoft SQL Server\MSSQL$*instance_name*\Log\Errorlog` für eine benannte Instanz. Zwischen **-e** und *error_log_path*darf sich kein Leerzeichen befinden.
+**-e** *error_log_path* gibt den vollqualifizierten Pfad der Fehlerprotokolldatei an. Wenn dies nicht angegeben wird, ist `*\<Drive>*:\Program Files\Microsoft SQL Server\MSSQL\Log\Errorlog` der Standardspeicherort für die Standardinstanz und `*\<Drive>*:\Program Files\Microsoft SQL Server\MSSQL$*instance_name*\Log\Errorlog` für eine benannte Instanz. Zwischen **-e** und *error_log_path* darf sich kein Leerzeichen befinden.
 
-**-l** *master_log_path* gibt den vollqualifizierten Pfad für die Transaktionsprotokolldatei der **master**-Datenbank an. Zwischen **-l** und *master_log_path*darf sich kein Leerzeichen befinden.
+**-l** *master_log_path* gibt den vollqualifizierten Pfad für die Transaktionsprotokolldatei der **master**-Datenbank an. Zwischen **-l** und *master_log_path* darf sich kein Leerzeichen befinden.
 
 **-m**: Gibt an, dass eine Instanz von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] im Einzelbenutzermodus gestartet werden soll. Wenn [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] im Einzelbenutzermodus gestartet wurde, kann nur ein Benutzer eine Verbindung herstellen. Der CHECKPOINT-Mechanismus, der sicherstellt, dass abgeschlossene Transaktionen regelmäßig aus dem Datenträgercache auf die Datenbankmedien geschrieben werden, wird nicht gestartet. (Diese Option wird normalerweise verwendet, wenn Sie Probleme mit Systemdatenbanken erkennen, die eine Reparatur erfordern.) Diese Option aktiviert die Option **sp_configure allow updates** (Updates zulassen). Standardmäßig ist **allow updates** deaktiviert.
 
-**-n**: Ermöglicht es Ihnen, eine benannte Instanz von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] zu starten. Wurde der **-s** -Parameter nicht festgelegt, versucht die Standardinstanz zu starten. Sie müssen an der Eingabeaufforderung in das entsprechende BINN-Verzeichnis für die Instanz wechseln, bevor Sie **sqlservr.exe**starten. Wenn Instance1 beispielsweise das Verzeichnis „\mssql$Instance1“ für die zugehörigen Binärdateien verwendet wird, muss der Benutzer zum Verzeichnis „\mssql$Instance1\binn“ wechseln, um **sqlservr.exe -s instance1**starten zu können. Wenn Sie eine [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Instanz mit der Option **-n** starten, sollten Sie auch die Option **-e** verwenden, da sonst keine [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Ereignisse protokolliert werden.
+**-n**: Ermöglicht es Ihnen, eine benannte Instanz von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] zu starten. Wurde der **-s** -Parameter nicht festgelegt, versucht die Standardinstanz zu starten. Sie müssen an der Eingabeaufforderung in das entsprechende BINN-Verzeichnis für die Instanz wechseln, bevor Sie **sqlservr.exe** starten. Wenn Instance1 beispielsweise das Verzeichnis „\mssql$Instance1“ für die zugehörigen Binärdateien verwendet wird, muss der Benutzer zum Verzeichnis „\mssql$Instance1\binn“ wechseln, um **sqlservr.exe -s instance1** starten zu können. Wenn Sie eine [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Instanz mit der Option **-n** starten, sollten Sie auch die Option **-e** verwenden, da sonst keine [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Ereignisse protokolliert werden.
 
 **-T** *trace#* gibt an, dass eine Instanz von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] so gestartet werden soll, dass ein bestimmtes Ablaufverfolgungsflag (*trace#* ) wirksam wird. Ablaufverfolgungsflags werden verwendet, um den Server mit nicht standardmäßigem Verhalten zu starten. Weitere Informationen finden Sie unter [Ablaufverfolgungsflags &#40;Transact-SQL&#41;](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md).
 
@@ -85,8 +85,8 @@ Die folgenden Parameter sind veraltet und werden in [!INCLUDE[ssCurrent](../incl
 
 |Parameter | Weitere Informationen|
 |:-----|:-----|
-|**-h** | Wurde in früheren Versionen der 32-Bit-Instanzen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] verwendet, um virtuellen Adressraum für Hot-Add-Arbeitsspeichermetadaten zu reservieren, wenn AWE aktiviert ist. Dies wird durch [!INCLUDE[sssql14](../includes/sssql14-md.md)] unterstützt. Weitere Informationen finden Sie unter [Nicht mehr unterstützte SQL Server-Funktionen in SQL Server 2016](../database-engine/discontinued-database-engine-functionality-in-sql-server.md?view=sql-server-ver15).|
-|**-g** | *memory_to_reserve*<br/><br>Dies gilt für frühere Versionen der 32-Bit-Instanzen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]. Dies wird durch [!INCLUDE[sssql14](../includes/sssql14-md.md)] unterstützt. Gibt in Form einer ganzen Zahl an, wie viele Megabytes (MB) des Arbeitsspeichers [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] für Speicherbelegungen innerhalb des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Prozesses, jedoch außerhalb des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Speicherpools übrig lässt. Weitere Informationen finden Sie in der [SQL Server 2014-Dokumentation zu Konfigurationsoptionen für den Serverarbeitsspeicher](/previous-versions/sql/2014/database-engine/configure-windows/server-memory-server-configuration-options?view=sql-server-2014).|
+|**-h** | Wurde in früheren Versionen der 32-Bit-Instanzen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] verwendet, um virtuellen Adressraum für Hot-Add-Arbeitsspeichermetadaten zu reservieren, wenn AWE aktiviert ist. Dies wird durch [!INCLUDE[sssql14](../includes/sssql14-md.md)] unterstützt. Weitere Informationen finden Sie unter [Nicht mehr unterstützte SQL Server-Funktionen in SQL Server 2016](../database-engine/discontinued-database-engine-functionality-in-sql-server.md).|
+|**-g** | *memory_to_reserve*<br/><br>Dies gilt für frühere Versionen der 32-Bit-Instanzen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]. Dies wird durch [!INCLUDE[sssql14](../includes/sssql14-md.md)] unterstützt. Gibt in Form einer ganzen Zahl an, wie viele Megabytes (MB) des Arbeitsspeichers [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] für Speicherbelegungen innerhalb des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Prozesses, jedoch außerhalb des [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Speicherpools übrig lässt. Weitere Informationen finden Sie in der [SQL Server 2014-Dokumentation zu Konfigurationsoptionen für den Serverarbeitsspeicher](/previous-versions/sql/2014/database-engine/configure-windows/server-memory-server-configuration-options?view=sql-server-2014&preserve-view=true).|
 | &nbsp; | &nbsp; |
 
 ## <a name="see-also"></a>Weitere Informationen

@@ -20,12 +20,12 @@ ms.assetid: 816d2bda-ed72-43ec-aa4d-7ee3dc25fd8a
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 226db73ec48cdcd13ef80571b94e21fb283ecaac
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: eb082b29411b136edca7ed14f06effa354a5f0e6
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477911"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643099"
 ---
 # <a name="replication-system-stored-procedures-concepts"></a>Replication System Stored Procedures Concepts
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -131,7 +131,7 @@ GO
  Sobald ein Replikationsskript erstellt wurde, kann es wie folgt ausgeführt werden:  
   
 ### <a name="creating-a-sql-query-file-in-sql-server-management-studio"></a>Erstellen einer SQL-Abfragedatei in SQL Server Management Studio  
- Eine [!INCLUDE[tsql](../../../includes/tsql-md.md)]-Replikationsskriptdatei kann als SQL-Abfragedatei in einem [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)]-Projekt erstellt werden. Nachdem das Skript geschrieben wurde, kann für diese Abfragedatei eine Verbindung mit der Datenbank hergestellt und das Skript ausgeführt werden. Weitere Informationen zum Erstellen von [!INCLUDE[tsql](../../../includes/tsql-md.md)]-Skripts mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15).  
+ Eine [!INCLUDE[tsql](../../../includes/tsql-md.md)]-Replikationsskriptdatei kann als SQL-Abfragedatei in einem [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)]-Projekt erstellt werden. Nachdem das Skript geschrieben wurde, kann für diese Abfragedatei eine Verbindung mit der Datenbank hergestellt und das Skript ausgeführt werden. Weitere Informationen zum Erstellen von [!INCLUDE[tsql](../../../includes/tsql-md.md)]-Skripts mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], finden Sie unter [Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../../../ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md).  
   
  Um ein Skript zu verwenden, das Skriptvariablen enthält, muss [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)] im **sqlcmd**-Modus ausgeführt werden. Im **sqlcmd**-Modus lässt der Abfrage-Editor zusätzliche **sqlcmd**-spezifische Syntax zu, wie `:setvar` zum Festlegen eines Werts für eine Variable. Weitere Informationen zum **sqlcmd**-Modus finden Sie unter [Bearbeiten von SQLCMD-Skripts mit dem Abfrage-Editor](../../../ssms/scripting/edit-sqlcmd-scripts-with-query-editor.md). Im folgenden Skript wird `:setvar` verwendet, um einen Wert für die `$(DistPubServer)`-Variable bereitzustellen.  
   

@@ -11,16 +11,16 @@ author: pmasl
 ms.author: pelopes
 ms.reviewer: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 843773990f5e7e669ed16fcc698a6ae88a56c9ac
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0b836e9a86fe6b323dbcacfb3f408889f87fa6bd
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475621"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641690"
 ---
 # <a name="change-the-word-breaker-used-for-us-english-and-uk-english"></a>Ändern der für Englisch (USA) und Englisch (Großbritannien) verwendeten Wörtertrennung
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
-  [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] installiert eine neue Version (Version 14.0.4999.1038) der Wörtertrennung und der Wortstammerkennung für Englisch, die die frühere Version dieser Komponenten (Version 12.0.6828.0) ersetzt. Informationen zum geänderten Verhalten der neuen Komponenten finden Sie unter [Verhaltensänderungen der Volltextsuche](./full-text-search.md?view=sql-server-ver15). In diesem Thema wird beschrieben, wie von der neuen Version dieser Komponenten zur früheren Version gewechselt bzw. von der früheren Version zu der neuen Version zurückgewechselt wird. Bei Clusterinstallationen sollten diese Änderungen auf allen primären und passiven Knoten vorgenommen werden.  
+  [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] installiert eine neue Version (Version 14.0.4999.1038) der Wörtertrennung und der Wortstammerkennung für Englisch, die die frühere Version dieser Komponenten (Version 12.0.6828.0) ersetzt. Informationen zum geänderten Verhalten der neuen Komponenten finden Sie unter [Verhaltensänderungen der Volltextsuche](./full-text-search.md). In diesem Thema wird beschrieben, wie von der neuen Version dieser Komponenten zur früheren Version gewechselt bzw. von der früheren Version zu der neuen Version zurückgewechselt wird. Bei Clusterinstallationen sollten diese Änderungen auf allen primären und passiven Knoten vorgenommen werden.  
   
  In früheren Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] wurden andere Wörtertrennungen verwendet, die durch andere CLSIDs für Englisch (USA) (LCID 1033) und Englisch (Großbritannien) (LCID 2057) dargestellt wurden. In dieser Version verwenden beide LCIDs die gleichen Komponenten mit den gleichen CLSIDs, wie in der folgenden Tabelle dargestellt:  
   
@@ -127,5 +127,5 @@ ms.locfileid: "97475621"
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Wiederherstellen der von der Suche verwendeten Wörtertrennungen auf die vorherige Version](../../relational-databases/search/revert-the-word-breakers-used-by-search-to-the-previous-version.md)   
- [Verhaltensänderungen der Volltextsuche](./full-text-search.md?view=sql-server-ver15)  
+ [Verhaltensänderungen der Volltextsuche](./full-text-search.md)  
   

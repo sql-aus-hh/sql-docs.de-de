@@ -13,12 +13,12 @@ ms.assetid: 30f27f4d-8852-4b12-ba62-57f63e496f1d
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.openlocfilehash: 53eacd0177862b81d32b44616dc67cc0beb90f79
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 064d7fc2d47cbd4f688d113f60be6080ca90fee1
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489170"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642594"
 ---
 # <a name="lesson-3-using-the-dta-command-prompt-utility"></a>Lektion 3: Verwenden des dta-Befehlszeilenprogramms
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ Auf die Verwendung der XML-Eingabefunktionen des Datenbankoptimierungsratgebers 
   
 In diesem Tutorial wird die Beispieldatenbank „AdventureWorks2017“ verwendet. Aus Sicherheitsgründen werden die Beispieldatenbanken nicht standardmäßig installiert. Informationen zur Installation der Beispieldatenbanken finden Sie unter [Installieren der SQL Server-Beispiele und -Beispieldatenbanken](../../samples/adventureworks-install-configure.md).  
   
-Im Folgenden werden folgende Schritte erläutert: Öffnen einer Eingabeaufforderung, Starten des Befehlszeilen-Hilfsprogramms **dta** , Anzeigen der Syntaxhilfe und Optimieren der einfachen Arbeitsauslastung MyScript.sql, die Sie in [Optimieren einer Arbeitsauslastung](./lesson-2-using-database-engine-tuning-advisor.md?view=sql-server-ver15)angelegt haben.  
+Im Folgenden werden folgende Schritte erläutert: Öffnen einer Eingabeaufforderung, Starten des Befehlszeilen-Hilfsprogramms **dta** , Anzeigen der Syntaxhilfe und Optimieren der einfachen Arbeitsauslastung MyScript.sql, die Sie in [Optimieren einer Arbeitsauslastung](./lesson-2-using-database-engine-tuning-advisor.md)angelegt haben.  
 
 ## <a name="prerequisites"></a>Voraussetzungen 
 
@@ -84,7 +84,7 @@ Anweisungen zum Wiederherstellen von Datenbanken in SSMS finden Sie hier: [Wiede
 
   ![CMD mit DTA verwenden](media/dta-tutorials/dta-cmd.png)
   
-3.  Wenn der Datenbankoptimierungsratgeber mit dem Optimieren der Arbeitsauslastung fertig ist, zeigt er eine Meldung an, die besagt, dass die Optimierungssitzung erfolgreich abgeschlossen wurde. Sie können die Optimierungsergebnisse anzeigen. Verwenden Sie [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] zum Öffnen der Dateien MySession2OutputScript.sql und MySession2Output.xml. Alternativ dazu können Sie auch die Optimierungssitzung MySession2 in der grafischen Benutzeroberfläche des Datenbankoptimierungsratgebers öffnen und die Empfehlungen und Berichte so anzeigen, wie in den Abschnitten [Anzeigen von Empfehlungen für die Optimierung](./lesson-2-using-database-engine-tuning-advisor.md?view=sql-server-ver15) und [Anzeigen von Optimierungsberichten](./lesson-2-using-database-engine-tuning-advisor.md?view=sql-server-ver15)erläutert.  
+3.  Wenn der Datenbankoptimierungsratgeber mit dem Optimieren der Arbeitsauslastung fertig ist, zeigt er eine Meldung an, die besagt, dass die Optimierungssitzung erfolgreich abgeschlossen wurde. Sie können die Optimierungsergebnisse anzeigen. Verwenden Sie [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] zum Öffnen der Dateien MySession2OutputScript.sql und MySession2Output.xml. Alternativ dazu können Sie auch die Optimierungssitzung MySession2 in der grafischen Benutzeroberfläche des Datenbankoptimierungsratgebers öffnen und die Empfehlungen und Berichte so anzeigen, wie in den Abschnitten [Anzeigen von Empfehlungen für die Optimierung](./lesson-2-using-database-engine-tuning-advisor.md) und [Anzeigen von Optimierungsberichten](./lesson-2-using-database-engine-tuning-advisor.md)erläutert.  
   
  
 ## <a name="after-you-finish-this-tutorial"></a>Weiterführende Informationen nach Abschluss dieses Lernprogramms  

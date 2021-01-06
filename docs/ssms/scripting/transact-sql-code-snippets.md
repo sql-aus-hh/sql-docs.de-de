@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 03/16/2017
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: bfa0d24ece55d9251493bf2b084ac303eaa84de4
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e7df0828f34387af4d7fc1343038fba4dbc35467
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97476851"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642344"
 ---
 # <a name="transact-sql-code-snippets"></a>Transact-SQL-Codeausschnitte
 
@@ -35,4 +35,4 @@ Ein [!INCLUDE[tsql](../../includes/tsql-md.md)].code-Ausschnitt ist eine Vorlage
   
 ## <a name="see-also"></a>Weitere Informationen
 
-[Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15)
+[Abfrage- und Text-Editoren &#40;SQL Server Management Studio&#41;](../f1-help/database-engine-query-editor-sql-server-management-studio.md)

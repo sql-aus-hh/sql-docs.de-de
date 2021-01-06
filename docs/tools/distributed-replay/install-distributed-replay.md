@@ -11,12 +11,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: 14f3a13e566fc56332c79fd104ef584be098cda7
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 29c96381f9781df7cb1cbedb351cce1524f440fd
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714188"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642630"
 ---
 # <a name="install-distributed-replay"></a>Installieren von Distributed Replay
 
@@ -89,15 +89,15 @@ Sie können Distributed Replay auf eine von drei Weisen installieren:
   
 5.  Klicken Sie auf der Seite **Setup-Unterstützungsdateien** auf **Installieren** , um die Setup-Unterstützungsdateien für [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]zu installieren oder zu aktualisieren.  
   
-6.  Wählen Sie auf der Seite **Setuprolle** die **[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Funktionsinstallation**aus, und klicken Sie dann auf **Weiter** , um mit der Seite für die **Funktionsauswahl** fortzufahren.  
+6.  Wählen Sie auf der Seite **Setuprolle** die **[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Funktionsinstallation** aus, und klicken Sie dann auf **Weiter** , um mit der Seite für die **Funktionsauswahl** fortzufahren.  
   
 7.  Konfigurieren Sie auf der Seite **Funktionsauswahl** , welche Funktionen Sie installieren möchten.  
   
-    -   Wählen Sie zum Installieren des Verwaltungstools **Verwaltungstools - Einfach**aus.  
+    -   Wählen Sie zum Installieren des Verwaltungstools **Verwaltungstools - Einfach** aus.  
   
-    -   Wählen Sie **Distributed Replay Controller**aus, um den Controllerdienst zu installieren.  
+    -   Wählen Sie **Distributed Replay Controller** aus, um den Controllerdienst zu installieren.  
   
-    -   Wählen Sie **Distributed Replay Client**aus, um den Clientdienst zu installieren.  
+    -   Wählen Sie **Distributed Replay Client** aus, um den Clientdienst zu installieren.  
   
      **Wichtig**: Wenn Sie den Distributed Replay-Controller konfigurieren, können Sie mindestens ein Benutzerkonto angeben, das zum Ausführen der Distributed Replay-Clientdienste verwendet wird. Die folgenden Kontotypen werden unterstützt:  
   
@@ -192,7 +192,7 @@ setup /q /ACTION=Install /FEATURES=DREPLAY_CLT /IAcceptSQLServerLicenseTerms /CL
   
 -   Befehlszeilenwerte überschreiben die Werte in der Konfigurationsdatei  
   
- Weitere Informationen zum Verwenden einer Konfigurationsdatei finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md?view=sql-server-ver15).  
+ Weitere Informationen zum Verwenden einer Konfigurationsdatei finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md).  
   
 > [!IMPORTANT]  
 >  Nachdem Sie Distributed Replay installiert haben, müssen Sie auf dem Controller und den Clientcomputern Firewallregeln erstellen und jedem Clientcomputer Berechtigungen für den Zielserver gewähren. Weitere Informationen finden Sie unter [Ausführen der Schritte nach der Installation](../../tools/distributed-replay/complete-the-post-installation-steps.md).  

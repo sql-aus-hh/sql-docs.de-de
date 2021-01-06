@@ -16,12 +16,12 @@ helpviewer_keywords:
 - SQL Server Management Studio for Analysis Services
 ms.custom: seo-lt-2019
 ms.date: 09/11/2019
-ms.openlocfilehash: 396df64c5c5be5d7ea9c5fc67d7cb1ff0a7d990f
-ms.sourcegitcommit: 80701484b8f404316d934ad2a85fd773e26ca30c
+ms.openlocfilehash: 1b523e86ff04de37bf0177430502c92132872e6b
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243849"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641714"
 ---
 # <a name="what-is-sql-server-management-studio-ssms"></a>Was ist SQL Server Management Studio (SSMS)?
 
@@ -43,7 +43,7 @@ ms.locfileid: "93243849"
 |So wird der **Vorlagen-Explorer** zum Erstellen und Verwalten von Dateien mit Textbausteinen verwendet, die Sie zum Beschleunigen der Entwicklung von Abfragen und Skripts verwenden.|[Template Explorer](../ssms/template/template-explorer.md)|  
 |So wird der veraltete **Projektmappen-Explorer** zum Erstellen von Projekten verwendet, die zum Verwalten von Verwaltungselementen wie Skripts und Abfragen verwendet werden.|[Projektmappen-Explorer](../ssms/solution/solution-explorer.md)|  
 |So werden die in [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)]enthaltenen visuellen Entwurfstools verwendet.|[Visual Database Tools](../ssms/visual-db-tools/visual-database-tools.md)|  
-|So werden die [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)] -Spracheditoren zum interaktiven Erstellen und Debuggen von Abfragen und Skripts verwendet.|[Abfrage- und Text-Editoren](./f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15)
+|So werden die [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)] -Spracheditoren zum interaktiven Erstellen und Debuggen von Abfragen und Skripts verwendet.|[Abfrage- und Text-Editoren](./f1-help/database-engine-query-editor-sql-server-management-studio.md)
 
 ## <a name="sql-server-management-studio-for-business-intelligence"></a>SQL Server Management Studio für Business Intelligence
 
