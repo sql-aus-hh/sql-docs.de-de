@@ -1,8 +1,6 @@
 ---
+title: sys.database_query_store_options (Transact-SQL)
 description: sys.database_query_store_options (Transact-SQL)
-title: sys.database_query_store_options (Transact-SQL) | Microsoft-Dokumentation
-ms.custom: ''
-ms.date: 05/27/2020
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: ''
@@ -18,18 +16,20 @@ dev_langs:
 helpviewer_keywords:
 - database_query_store_options catalog view
 - sys.database_query_store_options catalog view
-ms.assetid: 16b47d55-8019-41ff-ad34-1e0112178067
 author: markingmyname
 ms.author: maghan
+ms.custom: ''
+ms.date: 05/27/2020
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: c6b346496eb08e9121abac463b3e87f6e27362e2
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: f8fce0932d546470206bbc7752429090c0212158
+ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484782"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98005412"
 ---
 # <a name="sysdatabase_query_store_options-transact-sql"></a>sys.database_query_store_options (Transact-SQL)
+
 [!INCLUDE [sqlserver2016-asdb-asdbmi-asa](../../includes/applies-to-version/sqlserver2016-asdb-asdbmi-asa.md)]
 
   Gibt die Abfragespeicher Optionen für diese Datenbank zurück.  
@@ -50,7 +50,7 @@ ms.locfileid: "97484782"
 |**stale_query_threshold_days**|**bigint**|Anzahl der Tage, die die Informationen für eine Abfrage im Abfragespeicher aufbewahrt werden. Standardwert: **30**. Legen Sie auf 0 fest, um die Aufbewahrungs Richtlinie zu deaktivieren.<br />Für die Basic-Edition von [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] ist der Standardwert 7 Tage.<br /><br /> Ändern Sie mithilfe der- `ALTER DATABASE <database> SET QUERY_STORE ( CLEANUP_POLICY = ( STALE_QUERY_THRESHOLD_DAYS = <value> ) )` Anweisung.|  
 |**max_plans_per_query**|**bigint**|Begrenzt die maximale Anzahl gespeicherter Pläne. Der Standardwert ist **200**. Wenn der Höchstwert erreicht ist, beendet Abfragespeicher die Erfassung neuer Pläne für diese Abfrage. Wenn Sie auf 0 festlegen, wird die Einschränkung in Bezug auf die Anzahl der aufgezeichneten Pläne entfernt.<br /><br /> Ändern Sie mithilfe der- `ALTER DATABASE<database> SET QUERY_STORE (MAX_PLANS_PER_QUERY = <n>)` Anweisung.|  
 |**query_capture_mode**|**smallint**|Der derzeit aktive Abfrage Erfassungs Modus:<br /><br /> **1** = alle-alle Abfragen werden erfasst. Dies ist der Standard Konfigurations Wert für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher).<br /><br /> 2 = Automatische Erfassung relevanter Abfragen basierend auf der Ausführungs Anzahl und dem Ressourcenverbrauch. Dies ist der Standardkonfigurationswert für [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].<br /><br /> 3 = keine-beendet die Erfassung neuer Abfragen. Der Abfragedatenspeicher sammelt weiterhin Statistiken zur Kompilierung und Runtime für Abfragen, die bereits erfasst wurden. Verwenden Sie diese Konfiguration vorsichtig, da Sie möglicherweise die Erfassung wichtiger Abfragen übersehen.|  
-|**query_capture_mode_desc**|**nvarchar(60)**|Textbeschreibung des tatsächlichen Aufzeichnungsmodus Abfragespeicher:<br /><br /> Alle (Standardeinstellung für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] )<br /><br /> **Auto** (Standardeinstellung für [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] )<br /><br /> Keine|  
+|**query_capture_mode_desc**|**nvarchar(60)**|Textbeschreibung des tatsächlichen Aufzeichnungsmodus Abfragespeicher:<br /><br /> Alle (Standardeinstellung für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] )<br /><br /> **Auto** (Standardeinstellung für [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] )<br /><br /> NONE|  
 |**size_based_cleanup_mode**|**smallint**|Steuert, ob die Bereinigung automatisch aktiviert wird, wenn sich die Gesamtmenge der Daten der maximalen Größe nähert:<br /><br /> 0 = die nicht auf Größen basierende Bereinigung wird nicht automatisch aktiviert.<br /><br /> **1** = die automatische Größen basierte Bereinigung wird automatisch aktiviert, wenn die Größe auf dem Datenträger **90 Prozent** der *max_storage_size_mb* erreicht. Dies ist der Standardkonfigurationswert.<br /><br />Ein auf der Größe basierendes Cleanup entfernt die am wenigsten aufwendigen und die ältesten Abfragen. Sie wird beendet, wenn ungefähr **80 Prozent** der *max_storage_size_mb* erreicht werden.|  
 |**size_based_cleanup_mode_desc**|**nvarchar(60)**|Textbeschreibung des tatsächlichen Größen basierten Bereinigungs Modus Abfragespeicher:<br /><br /> OFF <br /> **Auto** (Standard)|  
 |**wait_stats_capture_mode**|**smallint**|Steuert, ob Abfragespeicher die Erfassung von warte Statistiken durchführt: <br /><br /> 0 = OFF <br /> **1** = on<br /> **Gilt für**:  [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] und höher.|
