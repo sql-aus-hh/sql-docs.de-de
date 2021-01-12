@@ -18,15 +18,15 @@ helpviewer_keywords:
 - backup media [SQL Server], backupset system table
 - backup sets [SQL Server]
 ms.assetid: 6ff79bbf-4acf-4f75-926f-38637ca8a943
-author: markingmyname
-ms.author: maghan
+author: cawrites
+ms.author: chadam
 monikerRange: '>=aps-pdw-2016||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 7653ad7ed1d69e7de97e66d1003d6f131be45142
-ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
+ms.openlocfilehash: 87d509f0a49668bd354fd1132bb3501c6d2bdbcd
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97765203"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098697"
 ---
 # <a name="backupset-transact-sql"></a>backupset (Transact-SQL)
 [!INCLUDE [sql-asdbmi-pdw](../../includes/applies-to-version/sql-asdbmi-pdw.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "97765203"
 |**encryptor_thumbprint**|**varbinary(20)**|Der Fingerabdruck der Verschlüsselung, der verwendet werden kann, um das Zertifikat oder den asymmetrischen Schlüssel in der Datenbank zu ermitteln. Wenn die Sicherung nicht verschlüsselt wurde, ist dieser Wert NULL.|  
 |**encryptor_type**|**nvarchar(32)**|Verwendeter Verschlüsselungstyp: Zertifikat oder asymmetrischer Schlüssel. . Wenn die Sicherung nicht verschlüsselt wurde, ist dieser Wert NULL.|  
   
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - RESTORE VERIFYONLY FROM *backup_device* mit LOADHISTORY füllt die Spalte der **Backup Mediaset** -Tabelle mit den entsprechenden Werten aus dem Medien Satz Header auf.  
 - Führen Sie die gespeicherte Prozedur [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) aus, um die Anzahl der Zeilen in dieser Tabelle und in anderen Sicherungs-und Verlaufs Tabellen zu verringern.  
 - Für SQL verwaltete Instanz wird in der Tabelle mit den Sicherungskopien nur der Sicherungs Verlauf für vom Benutzer initiierte [Kopiesicherungen](../../relational-databases/backup-restore/copy-only-backups-sql-server.md)angezeigt. In der Tabelle mit den Sicherungskopien wird der Sicherungs Verlauf für automatische Sicherungen, die vom Dienst ausgeführt werden, nicht angezeigt. 

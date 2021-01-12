@@ -19,22 +19,22 @@ helpviewer_keywords:
 - query_store_runtime_stats catalog view
 - sys.query_store_runtime_stats catalog view
 ms.assetid: ccf7a57c-314b-450c-bd34-70749a02784a
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: ebcb684b424bf7ca3de384ad57b82c0c48b538f2
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8a6f0f21100ca68575c8db8dcde8e70f688d0ef5
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97404452"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098012"
 ---
 # <a name="sysquery_store_runtime_stats-transact-sql"></a>sys.query_store_runtime_stats (Transact-SQL)
 [!INCLUDE [sqlserver2016-asdb-asdbmi-asa](../../includes/applies-to-version/sqlserver2016-asdb-asdbmi-asa.md)]
 
   Enthält Informationen zu den Lauf Zeit Ausführungs Statistik-Informationen für die Abfrage.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**runtime_stats_id**|**bigint**|Der Bezeichner der Zeile, die die Lauf Zeit Ausführungs Statistik für die **plan_id** darstellt, **execution_type** und **runtime_stats_interval_id**. Er ist nur für die letzten Lauf Zeit Statistik Intervalle eindeutig. Für das derzeit aktive Intervall kann es mehrere Zeilen geben, die Lauf Zeit Statistiken für den Plan darstellen, auf den von **plan_id** verwiesen wird, wobei der Ausführungstyp **execution_type** ist. In der Regel stellt eine Zeile Lauf Zeit Statistiken dar, die auf den Datenträger geleert werden, während andere (n) den Speicher internen Status darstellen. Wenn Sie den tatsächlichen Status für jedes Intervall erhalten möchten, müssen Sie daher Metriken aggregieren, indem Sie **plan_id** **execution_type** und **runtime_stats_interval_id** gruppieren.<br/>**Hinweis:** [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] gibt immer 0 (null) zurück.|
 |**plan_id**|**bigint**|Fremdschlüssel. Joins mit [sys.query_store_plan &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-query-store-plan-transact-sql.md).|  

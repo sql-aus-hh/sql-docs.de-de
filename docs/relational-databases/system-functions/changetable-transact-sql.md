@@ -17,15 +17,15 @@ helpviewer_keywords:
 - CHANGETABLE
 - change tracking [SQL Server], CHANGETABLE
 ms.assetid: d405fb8d-3b02-4327-8d45-f643df7f501a
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f1c547cee24397cc9cc1c0b139bd728aef92c2b3
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 6ffbd16a2a62b9adcc5ff4e2f31dcee9f133538a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472781"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098730"
 ---
 # <a name="changetable-transact-sql"></a>CHANGETABLE (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -95,7 +95,7 @@ CHANGETABLE (
 ### <a name="changetable-changes"></a>CHANGETABLE CHANGES  
  Wenn CHANGES angegeben wird, werden 0 oder mehr Zeilen, die die folgenden Spalten aufweisen, zurückgegeben.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |SYS_CHANGE_VERSION|**bigint**|Versionswert, der der letzten Änderung an der Zeile zugeordnet ist.|  
 |SYS_CHANGE_CREATION_VERSION|**bigint**|Versionswerte, die dem letzten Einfügevorgang zugeordnet sind.|  
@@ -107,13 +107,13 @@ CHANGETABLE (
 ### <a name="changetable-version"></a>CHANGETABLE VERSION  
  Wenn VERSION angegeben wird, wird eine Zeile, die die folgenden Spalten aufweist, zurückgegeben.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |SYS_CHANGE_VERSION|**bigint**|Wert der aktuellen Änderungsversion, der mit der Zeile verknüpft ist.<br /><br /> Der Wert ist NULL, wenn für einen längeren Zeitraum als der Beibehaltungsdauer für die Änderungsnachverfolgung keine Änderung vorgenommen wurde oder wenn die Zeile seit Aktivierung der Änderungsnachverfolgung nicht geändert wurde.|  
 |SYS_CHANGE_CONTEXT|**varbinary(128)**|Änderungskontextinformationen, die optional angegeben werden können, indem Sie die WITH-Klausel als Teil einer INSERT-, UPDATE- oder DELETE-Anweisung verwenden.|  
 |\<primary key column value>|Identisch mit den Benutzertabellenspalten.|Die Primärschlüsselwerte für die nachverfolgte Tabelle. Diese Werte identifizieren jede Zeile in der Benutzertabelle eindeutig.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Die CHANGETABLE-Funktion wird in der Regel in der FROM-Klausel einer Abfrage verwendet, so als handele es sich um eine Tabelle.  
   
 ## <a name="changetablechanges"></a>CHANGETABLE(CHANGES...)  

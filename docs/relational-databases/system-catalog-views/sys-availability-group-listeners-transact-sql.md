@@ -1,6 +1,6 @@
 ---
 description: sys.availability_group_listeners (Transact-SQL)
-title: sys. availability_group_listeners (Transact-SQL) | Microsoft-Dokumentation
+title: sys.availability_group_listeners (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -20,14 +20,14 @@ helpviewer_keywords:
 - sys.availability_group_listeners catalog view
 - Availability Groups [SQL Server], listeners
 ms.assetid: b5e7d1fb-3ffb-4767-8135-604c575016b1
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 029f407b453dd4667fd888bbd1351a718173d9cf
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: b052479a265bb118ed73a90ea7dea0bc3ec3d7b1
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550520"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098380"
 ---
 # <a name="sysavailability_group_listeners-transact-sql"></a>sys.availability_group_listeners (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "89550520"
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
-|**group_id**|**uniqueidentifier**|Verfügbarkeits Gruppen-ID (**group_id**) aus [sys. availability_groups](../../relational-databases/system-catalog-views/sys-availability-groups-transact-sql.md).|  
+|**group_id**|**uniqueidentifier**|Verfügbarkeits Gruppen-ID (**group_id**) aus [sys.availability_groups](../../relational-databases/system-catalog-views/sys-availability-groups-transact-sql.md).|  
 |**listener_id**|**nvarchar (36)**|Die GUID der Clusterressourcen-ID.|  
 |**dns_name**|**nvarchar (63)**|Der konfigurierte Netzwerkname (Hostname) des Verfügbarkeitsgruppenlisteners.|  
 |**port**|**int**|Die für den Verfügbarkeitsgruppenlistener konfigurierte TCP-Portnummer.<br /><br /> NULL = Der Listener wurde außerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] konfiguriert, und die Portnummer des Listeners wurde der Verfügbarkeitsgruppe nicht hinzugefügt. Zum Hinzufügen des Ports gefällt Ihnen die Option MODIFY Listener der [Alter Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) - [!INCLUDE[tsql](../../includes/tsql-md.md)] Anweisung.|  

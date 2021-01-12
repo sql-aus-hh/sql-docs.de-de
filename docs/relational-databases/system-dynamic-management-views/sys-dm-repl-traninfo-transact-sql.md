@@ -17,21 +17,21 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_repl_traninfo dynamic management view
 ms.assetid: 5abe2605-0506-46ec-82b5-6ec08428ba13
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 6369fc0d1ee2c0b70cb3e6e13fd201fd718236dc
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: f8a0613d83cebfed56ba5202a6c3535ef31c8a84
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834568"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098844"
 ---
 # <a name="sysdm_repl_traninfo-transact-sql"></a>sys.dm_repl_traninfo (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Gibt Informationen über jede replizierte Transaktion bzw. jede Change Data Capture-Transaktion zurück.  
 
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**fp2p_pub_exists**|**tinyint**|Gibt an, ob sich die Transaktion in einer Datenbank befindet, die mithilfe der Peer-zu-Peer-Transaktionsreplikation veröffentlicht wurde. Wenn True, ist der Wert gleich 1; andernfalls ist der Wert 0.|  
 |**db_ver**|**int**|Die Datenbankversion.|  
@@ -40,7 +40,7 @@ ms.locfileid: "91834568"
 |**fsinfo_address**|**varbinary(8)**|Speicherinterne Adresse der zwischengespeicherten FILESTREAM-Informationsstruktur.|  
 |**begin_lsn**|**nvarchar (64)**|Protokollsequenznummer (Log Sequence Number, LSN) des Protokolleintrags für den Beginn der Transaktion.|  
 |**commit_lsn**|**nvarchar (64)**|LSN des Protokolldatensatz für den Commit der Transaktion.|  
-|**DBID**|**smallint**|Datenbank-ID|  
+|**dbid**|**smallint**|Datenbank-ID|  
 |**rows**|**int**|ID des replizierten Befehls in der Transaktion.|  
 |**xdesid für**|**nvarchar (64)**|Transaktions-ID|  
 |**artcache_table_address**|**varbinary(8)**|Speicherinterne Adresse der zwischengespeicherten Artikeltabellenstruktur, die zuletzt für diese Transaktion verwendet wurde.|  
@@ -71,7 +71,7 @@ ms.locfileid: "91834568"
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die VIEW DATABASE STATE-Berechtigung in der Veröffentlichungsdatenbank oder in der für Change Data Capture aktivierten Datenbank.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Informationen werden nur für replizierte Datenbankobjekte oder für für Change Data Capture aktivierte Tabellen zurückgegeben, die zurzeit in den Artikelcache geladen sind.  
   
 ## <a name="see-also"></a>Weitere Informationen  

@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - log_shipping_monitor_error_detail system table
 ms.assetid: 0c38a625-60d2-4ee2-bcf3-2ba367914220
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 0f606f93697308a690451583267a5d77383fa723
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 131ee9bfe37dce356c6e1e4e604e8e8f0c3df2c1
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89547183"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097459"
 ---
 # <a name="log_shipping_monitor_error_detail-transact-sql"></a>log_shipping_monitor_error_detail (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -45,12 +45,12 @@ ms.locfileid: "89547183"
 |**Quelle**|**nvarchar**|Die Quelle der Fehlermeldung oder des Ereignisses.|  
 |**help_url**|**nvarchar**|Die URL (sofern vorhanden), unter der weitere Informationen zum Fehler zur Verfügung stehen.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Diese Tabelle enthält Fehlerdetails für die Protokollversand-Agents. Jeder Fehler wird als eine Sequenz von Ausnahmen protokolliert. Für jede Sitzung eines Agents sind mehrere Fehler (Sequenzen) möglich.  
   
  Die mit dem primären verbundenen Informationen Server werden sowohl auf dem Remoteüberwachungsserver als auch auf dem primären Server in der **log_shipping_monitor_error_detail** -Tabelle gespeichert. Die mit dem sekundären Server verbundenen Informationen werden ebenfalls auf dem sekundären Server in der **log_shipping_monitor_error_detail** -Tabelle gespeichert.  
   
- Zur Identifizierung einer Agentsitzung können Sie die Spalten **agent_id**, **agent_type**und **session_id**verwenden. Sortieren Sie die Spalten nach **log_time** , um die Fehler in der Reihenfolge ihrer Protokollierung anzuzeigen.  
+ Zur Identifizierung einer Agentsitzung können Sie die Spalten **agent_id**, **agent_type** und **session_id** verwenden. Sortieren Sie die Spalten nach **log_time** , um die Fehler in der Reihenfolge ihrer Protokollierung anzuzeigen.  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Informationen zum Protokollversand &#40;SQL Server&#41;](../../database-engine/log-shipping/about-log-shipping-sql-server.md)   

@@ -1,6 +1,6 @@
 ---
 description: sys.dm_exec_cursors (Transact-SQL)
-title: sys. dm_exec_cursors (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_exec_cursors (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_cursors dynamic management function
 ms.assetid: f520b63c-36af-40f1-bf71-6901d6331d3d
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 351f97ed08d1a6a79f8611d19842dc93138277ce
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 8ab1ed9e722f2363c0568932e7eb337bc09dbe41
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543931"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099001"
 ---
 # <a name="sysdm_exec_cursors-transact-sql"></a>sys.dm_exec_cursors (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -53,8 +53,8 @@ dm_exec_cursors (session_id | 0 )
 |**name**|**nvarchar(256)**|Name des Cursors gemäß der Definition durch den Benutzer.|  
 |**properties**|**nvarchar(256)**|Gibt die Eigenschaften des Cursors an. Die Werte der folgenden Eigenschaften werden zu einem Wert dieser Spalte verkettet:<br />Deklarationsschnittstelle<br />Cursortyp <br />Cursorparallelität<br />Cursorbereich<br />Cursorschachtelungsebene<br /><br /> Beispielsweise kann der Wert, der in dieser Spalte zurückgegeben wird, "TSQL &#124; Dynamic &#124;-optimistische &#124; Global (0)" lauten.|  
 |**sql_handle**|**varbinary(64)**|Handle zum Text des Batches, durch den der Cursor deklariert wurde.|  
-|**statement_start_offset**|**int**|Anzahl von Zeichen im derzeit ausgeführten Batch oder in der derzeit ausgeführten gespeicherten Prozedur, an der die derzeit ausgeführte Anweisung beginnt. Kann in Verbindung mit dem **sql_handle**, dem **statement_end_offset**und der dynamischen Verwaltungsfunktion [sys. dm_exec_sql_text](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md) verwendet werden, um die derzeit ausgeführte Anweisung für die Anforderung abzurufen.|  
-|**statement_end_offset**|**int**|Anzahl von Zeichen im derzeit ausgeführten Batch oder in der derzeit ausgeführten gespeicherten Prozedur, an der die derzeit ausgeführte Anweisung endet. Kann zusammen mit **sql_handle**, **statement_start_offset**und der dynamischen Verwaltungsfunktion **sys.dm_exec_sql_text** zum Abrufen der zurzeit ausgeführten Anweisung für die Anforderung verwendet werden.|  
+|**statement_start_offset**|**int**|Anzahl von Zeichen im derzeit ausgeführten Batch oder in der derzeit ausgeführten gespeicherten Prozedur, an der die derzeit ausgeführte Anweisung beginnt. Kann mit dem **sql_handle**, dem **statement_end_offset** und der dynamischen Verwaltungsfunktion [sys.dm_exec_sql_text](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md) zum Abrufen der aktuell ausgeführten Anweisung für die Anforderung verwendet werden.|  
+|**statement_end_offset**|**int**|Anzahl von Zeichen im derzeit ausgeführten Batch oder in der derzeit ausgeführten gespeicherten Prozedur, an der die derzeit ausgeführte Anweisung endet. Kann zusammen mit **sql_handle**, **statement_start_offset** und der dynamischen Verwaltungsfunktion **sys.dm_exec_sql_text** zum Abrufen der zurzeit ausgeführten Anweisung für die Anforderung verwendet werden.|  
 |**plan_generation_num**|**bigint**|Eine Sequenznummer, anhand der nach einer Neukompilierung zwischen einzelnen Instanzen von Plänen unterschieden werden kann.|  
 |**creation_time**|**datetime**|Der Timestamp, wann dieser Cursor erstellt wurde.|  
 |**is_open**|**bit**|Gibt an, ob der Cursor geöffnet ist.|  
@@ -72,7 +72,7 @@ dm_exec_cursors (session_id | 0 )
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die VIEW SERVER STATE-Berechtigung auf dem Server.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Die folgende Tabelle stellt Informationen zur Cursordeklarationsschnittstelle bereit und enthält die möglichen Werte für die Eigenschaftenspalte.  
   
 |Eigenschaft|BESCHREIBUNG|  
@@ -99,7 +99,7 @@ dm_exec_cursors (session_id | 0 )
   
  Die folgende Tabelle stellt Informationen zum Cursorbereich bereit und enthält die möglichen Werte für die Eigenschaftenspalte.  
   
-|Bereich|BESCHREIBUNG|  
+|`Scope`|BESCHREIBUNG|  
 |-----------|-----------------|  
 |Lokal|Gibt an, dass der Gültigkeitsbereich des Cursors lokal zu dem Batch, der gespeicherten Prozedur oder dem Trigger ist, in dem bzw. in der er erstellt wurde.|  
 |Global|Gibt an, dass der Bereich des Cursors global zur Verbindung ist.|  

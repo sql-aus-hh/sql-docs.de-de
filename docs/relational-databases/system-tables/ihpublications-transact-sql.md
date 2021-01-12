@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - IHpublications system table
 ms.assetid: b519a101-fa53-44be-bd55-6ea79245b5d1
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 61a1845ac54b42148b468462835cf041844007bc
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: a97462b4224244633a945f2108370b8c4f549f63
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89540954"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098243"
 ---
 # <a name="ihpublications-transact-sql"></a>IHpublications (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,10 +40,10 @@ ms.locfileid: "89540954"
 |**snapshot_jobid**|**binary**|Die ID des geplanten Tasks.|  
 |**enabled_for_internet**|**bit**|Gibt an, ob die Synchronisierungs Dateien für die Veröffentlichung über FTP und andere Dienste im Internet verfügbar gemacht werden, wobei **1** bedeutet, dass über das Internet auf Sie zugegriffen werden kann.|  
 |**immediate_sync_ready**|**bit**|Gibt an, ob die Synchronisierungs Dateien verfügbar sind, wobei **1** bedeutet, dass Sie verfügbar sind. *Dies wird für Nicht-SQL-Verleger nicht unterstützt.*|  
-|**allow_queued_tran**|**bit**|Gibt an, ob das Einreihen von Änderungen auf dem Abonnenten in Warteschlangen, bis diese Änderungen auf dem Verleger angewendet werden können, aktiviert wurde. Bei **1**werden Änderungen auf dem Abonnenten in die Warteschlange eingereiht. *Dies wird für Nicht-SQL-Verleger nicht unterstützt.*|  
+|**allow_queued_tran**|**bit**|Gibt an, ob das Einreihen von Änderungen auf dem Abonnenten in Warteschlangen, bis diese Änderungen auf dem Verleger angewendet werden können, aktiviert wurde. Bei **1** werden Änderungen auf dem Abonnenten in die Warteschlange eingereiht. *Dies wird für Nicht-SQL-Verleger nicht unterstützt.*|  
 |**allow_sync_tran**|**bit**|Gibt an, ob Abonnements mit sofortiger Aktualisierung für die Veröffentlichung zulässig sind. **1** bedeutet, dass Abonnements mit sofortigem Update zulässig sind. *Dies wird für Nicht-SQL-Verleger nicht unterstützt.*|  
 |**autogen_sync_procs**|**bit**|Gibt an, ob die synchronisierende gespeicherte Prozedur für Abonnements mit sofortiger Aktualisierung beim Verleger generiert wird. der Wert **1** bedeutet, dass er auf dem Verleger generiert wird. *Dies wird für Nicht-SQL-Verleger nicht unterstützt.*|  
-|**snapshot_in_defaultfolder**|**bit**|Gibt an, ob Momentaufnahme Dateien im Standardordner gespeichert werden. Wenn der Wert **0**ist, wurden die Momentaufnahme Dateien am alternativen Speicherort gespeichert, der durch *alternate_snapshot_folder*angegeben wurde. Wenn der Wert **1**ist, befinden sich die Momentaufnahme Dateien im Standardordner.|  
+|**snapshot_in_defaultfolder**|**bit**|Gibt an, ob Momentaufnahme Dateien im Standardordner gespeichert werden. Wenn der Wert **0** ist, wurden die Momentaufnahme Dateien am alternativen Speicherort gespeichert, der durch *alternate_snapshot_folder* angegeben wurde. Wenn der Wert **1** ist, befinden sich die Momentaufnahme Dateien im Standardordner.|  
 |**alt_snapshot_folder**|**nvarchar (510)**|Gibt den Speicherort des anderen Ordners für die Momentaufnahme an.|  
 |**pre_snapshot_script**|**nvarchar (510)**|Gibt einen Zeiger auf einen **SQL** -Datei Speicherort an. Der Verteilungs-Agent führt das vor der Momentaufnahme ausgeführte Skript vor allen Skripts für replizierte Objekte aus, wenn die Momentaufnahme auf einem Abonnenten angewendet wird.|  
 |**post_snapshot_script**|**nvarchar (510)**|Gibt einen Zeiger auf einen **SQL** -Datei Speicherort an. Der Verteilungs-Agent führt das Skript nach der Momentaufnahme aus, nachdem alle anderen Skripts für replizierte Objekte und Daten während der erst Synchronisierung angewendet wurden.|  

@@ -13,14 +13,14 @@ dev_langs:
 helpviewer_keywords:
 - data collector [SQL Server], functions
 ms.assetid: 8efe8bb4-face-4608-83f4-cc7c6e9faf31
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: f4a2dbefedf57dc634a9bd14eab5738ba2b03ccd
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7f9f62a309083694ae4944f190263750c6f64482
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88419584"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098753"
 ---
 # <a name="data-collector-functions--transact-sql"></a>Funktionen des Daten Sammlers (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "88419584"
 ## <a name="see-also"></a>Weitere Informationen  
  [Datensammlung](../../relational-databases/data-collection/data-collection.md)   
  [Gespeicherte Prozeduren für den Datensammler &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/data-collector-stored-procedures-transact-sql.md)   
- [Datensammler Sichten &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/data-collector-views-transact-sql.md)   
+ [Sichten des Datensammlers &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/data-collector-views-transact-sql.md)   
  [Gespeicherte Prozeduren für das Verwaltungs-Data Warehouse &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/management-data-warehouse-stored-procedures-transact-sql.md)  
   
   

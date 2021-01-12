@@ -18,22 +18,22 @@ dev_langs:
 helpviewer_keywords:
 - sys.foreign_keys catalog view
 ms.assetid: e960df1a-13fc-43ee-ba91-34c1b719ac2c
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 4b802b75733116ec468cf82f20ad11ccab960e43
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ba0494d8ca1532f02e5f0cde92eef18d9a7d0639
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97413163"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098030"
 ---
 # <a name="sysforeign_keys-transact-sql"></a>sys.foreign_keys (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Enthält eine Zeile pro Objekt, bei der es sich um eine FOREIGN KEY-Einschränkung handelt, mit **sys. Object. Type** = F.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**\<Columns inherited from sys.objects>**||Eine Liste der Spalten, die diese Sicht erbt, finden Sie unter [sys. Objects &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-objects-transact-sql.md).|  
 |**referenced_object_id**|**int**|ID des Objekts, auf das verwiesen wird.|  

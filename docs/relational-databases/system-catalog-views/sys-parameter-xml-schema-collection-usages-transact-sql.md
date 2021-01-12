@@ -18,22 +18,22 @@ dev_langs:
 helpviewer_keywords:
 - sys.parameter_xml_schema_collection_usages catalog view
 ms.assetid: bffb91a3-492c-4375-bd2a-db8fc1a3ace4
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 0c309fa0c801787c464d294b12f5bc5a8e9cd6af
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: b8beff0d9e2e6a7cd86370128f176447728e0c78
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461621"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096774"
 ---
 # <a name="sysparameter_xml_schema_collection_usages-transact-sql"></a>sys.parameter_xml_schema_collection_usages (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
 
   Gibt eine Zeile für jeden Parameter zurück, der durch ein XML-Schema überprüft wird.  
   
- |Spaltenname|Datentyp|Beschreibung|  
+ |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**object_id**|**int**|Die ID des Objekts, zu dem der Parameter gehört.|  
 |**parameter_id**|**int**|Die ID des Parameters.  Ist eindeutig innerhalb des Objekts.|  

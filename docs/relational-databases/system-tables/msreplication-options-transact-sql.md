@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSreplication_options system table
 ms.assetid: 23cf10d7-8bc1-4368-b5eb-e5576421e776
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 096eb8379363e3a193ecea12593638e033c3b1ec
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 263436f5bd3ff691191d74b29c7bced426ba4599
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89538235"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098142"
 ---
 # <a name="msreplication_options-transact-sql"></a>MSreplication_options (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,12 +32,12 @@ ms.locfileid: "89538235"
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
-|**optname**|**sysname**|Nur interne Verwendung.|  
-|**value**|**bit**|Nur interne Verwendung.|  
-|**major_version**|**int**|Nur interne Verwendung.|  
-|**minor_version**|**int**|Nur interne Verwendung.|  
-|**Novel**|**int**|Nur interne Verwendung.|  
-|**install_failures**|**int**|Nur interne Verwendung.|  
+|**optname**|**sysname**|Nur zur internen Verwendung.|  
+|**value**|**bit**|Nur zur internen Verwendung.|  
+|**major_version**|**int**|Nur zur internen Verwendung.|  
+|**minor_version**|**int**|Nur zur internen Verwendung.|  
+|**revision**|**int**|Nur zur internen Verwendung.|  
+|**install_failures**|**int**|Nur zur internen Verwendung.|  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Replikationstabellen &#40;Transact-SQL&#41;](../../relational-databases/system-tables/replication-tables-transact-sql.md)  

@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sysjobservers system table
 ms.assetid: 9abcc20f-a421-4591-affb-62674d04575e
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: fe4779593ac9197ef399120ffa99ea2af4582ba5
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 7ac1d8facbabb42be31a9d45e091e1106c25e0c9
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89541004"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097419"
 ---
 # <a name="dbosysjobservers-transact-sql"></a>dbo.sysjobservers (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,7 +43,7 @@ Speichert die Zuordnung oder Beziehung eines bestimmten Auftrags zu einem oder m
 |last_run_duration|**int**|Dauer der Ausführung des Auftrags in Stunden, Minuten und Sekunden. Berechnet mithilfe der Formel: (*Stunden* \* 10000) + (*Minuten* \* 100) + *Sekunden*.|  
 
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Ein Wert oberhalb von *4* bedeutet, dass der SQL-Agent den Status dieses Auftrags nicht kennt. Der *last_run_outcome* wird bei der Erstellung eines Auftrags anfänglich auf *5* festgelegt.
 

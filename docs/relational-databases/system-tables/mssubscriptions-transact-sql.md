@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSsubscriptions system table
 ms.assetid: b7e8301d-d115-41f6-8d4f-e0d25f453b25
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 70edbd52e02904a16cd5aa6bef31d1679457e03b
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: cee2d6298c2136a886cba29a89bc540230746092
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89545500"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098117"
 ---
 # <a name="mssubscriptions-transact-sql"></a>MSsubscriptions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "89545500"
 |**subscription_seqno**|**varbinary(16)**|Die Sequenznummer der Momentaufnahmetransaktion.|  
 |**snapshot_seqno_flag**|**bit**|Gibt die Quelle der Sequenznummer der Momentaufnahme Transaktion an, wobei der Wert **1** bedeutet, dass **subscription_seqno** die Momentaufnahme Sequenznummer ist.|  
 |**independent_agent**|**bit**|Zeigt an, ob ein Verteilungs-Agent im Einzelplatzmodus für diese Veröffentlichung vorhanden ist.|  
-|**subscription_time**|**datetime**|Nur interne Verwendung.|  
+|**subscription_time**|**datetime**|Nur zur internen Verwendung.|  
 |**loopback_detection**|**bit**|Gilt für Abonnements, die Teil einer bidirektionalen Transaktionsreplikationstopologie sind. Bestimmt, ob der Verteilungs-Agent Transaktionen des Abonnenten zurück an den Abonnenten sendet:<br /><br /> **1** = sendet nicht zurück.<br /><br /> **0** = sendet zurück.<br /><br />|  
 |**agent_id**|**int**|Die ID der Momentaufnahme.|  
 |**update_mode**|**tinyint**|Der Typ des Updates.|  

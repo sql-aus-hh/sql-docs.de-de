@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysmail_allitems database mail view
 ms.assetid: 21fb8432-7677-4435-902f-64a58bba4cbb
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 9eb8d8b48203b047df830670eb88b0956d04c4dc
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 6bc9b58549bbc20fe66caaf2adc61edd4345acd7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537957"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096656"
 ---
 # <a name="sysmail_allitems-transact-sql"></a>sysmail_allitems (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "89537957"
 |**last_mod_date**|**datetime**|Das Datum und die Uhrzeit der letzten Änderung der Zeile.|  
 |**last_mod_user**|**sysname**|Der Benutzer, der die Zeile zuletzt geändert hat.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Verwenden Sie die Ansicht **sysmail_allitems** , um den Status aller Nachrichten anzuzeigen, die von Datenbank-E-Mail verarbeitet werden. Wenn Sie Probleme mit der Datenbank-E-Mail behandeln, kann diese Sicht Ihnen helfen, die Ursache des Problems zu identifizieren, da sie die Attribute der gesendeten Nachrichten im Vergleich zu den Attributen der ungesendeten Nachrichten anzeigt.  
   
  Die von dieser Sicht verfügbar gemachten Systemtabellen enthalten alle Nachrichten und können dazu führen, dass die **msdb** -Datenbank vergrößert wird. Löschen Sie alte Nachrichten regelmäßig aus der Sicht, um die Größe der Tabellen zu reduzieren. Weitere Informationen finden Sie unter [Erstellen eines SQL Server-Agent Auftrags zum Archivieren Datenbank-E-Mail Nachrichten und Ereignisprotokollen](../../relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs.md).  

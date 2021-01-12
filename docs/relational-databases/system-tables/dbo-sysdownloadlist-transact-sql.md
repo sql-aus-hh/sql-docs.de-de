@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sysdownloadlist system table
 ms.assetid: 71087a4c-e829-488e-aa7d-a9476e2b4779
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 34e0ba69d668cd25b902f9decdf75c0039a74fc9
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: b523812f7923f6ba68a40fe70ab2076950a3463a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89551060"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098733"
 ---
 # <a name="dbosysdownloadlist-transact-sql"></a>dbo.sysdownloadlist (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,6 +46,6 @@ ms.locfileid: "89551060"
 |**status**|**tinyint**|Status des Auftrags:<br /><br /> **0** = Noch nicht heruntergeladen<br /><br /> **1** = Erfolgreich heruntergeladen|  
 |**deleted_object_name**|**sysname**|Name des gelöschten Objekts|  
   
- <sup>1</sup> die **object_id** Spalte kann den Wert **-1**aufweisen, was dem Wert all entspricht, wenn die **operation_code** Spalte den Wert DELETE hat.  
+ <sup>1</sup> die **object_id** Spalte kann den Wert **-1** aufweisen, was dem Wert all entspricht, wenn die **operation_code** Spalte den Wert DELETE hat.  
   
   

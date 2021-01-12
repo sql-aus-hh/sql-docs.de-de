@@ -1,6 +1,6 @@
 ---
 description: sys.dm_hadr_database_replica_cluster_states (Transact-SQL)
-title: sys. dm_hadr_database_replica_cluster_states (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_hadr_database_replica_cluster_states (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -19,19 +19,19 @@ helpviewer_keywords:
 - Availability Groups [SQL Server], WSFC clusters
 - sys.dm_hadr_database_replica_cluster_states dynamic management view
 ms.assetid: 6f719071-ebce-470d-aebd-1f55ee8cd70a
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 11f2e6ddb0a51170ebf9da0ed4f5f9d673359e03
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: f97172a1f417b237a8e1ee4d16fc573cd94f571d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543869"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097668"
 ---
 # <a name="sysdm_hadr_database_replica_cluster_states-transact-sql"></a>sys.dm_hadr_database_replica_cluster_states (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Gibt eine Zeile mit Informationen zurück, die Aufschluss über die Integrität der Verfügbarkeitsdatenbanken in den Always On-Verfügbarkeitsgruppen in jeder Always On-Verfügbarkeitsgruppe im WSFC-Cluster (Windows Server Failover Clustering) geben sollen. Fragen Sie **sys. dm_hadr_database_replica_states** ab, um die folgenden Fragen zu beantworten:  
+  Gibt eine Zeile mit Informationen zurück, die Aufschluss über die Integrität der Verfügbarkeitsdatenbanken in den Always On-Verfügbarkeitsgruppen in jeder Always On-Verfügbarkeitsgruppe im WSFC-Cluster (Windows Server Failover Clustering) geben sollen. Abfrage **sys.dm_hadr_database_replica_states** , um die folgenden Fragen zu beantworten:  
   
 -   Sind alle Datenbanken in einer Verfügbarkeitsgruppe für ein Failover bereit?  
   

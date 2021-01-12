@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: owend
 ms.reviewer: owend
 author: minewiskan
-ms.openlocfilehash: d352a12a4567fc88d2d037862c4cab2f1cd20fe0
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: af9ff1465c23231637cac636bb63702e79cf054c
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92193962"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098333"
 ---
 # <a name="mdx-data-definition---create-measure"></a>MDX-Datendefinition – CREATE MEASURE
 
@@ -43,7 +43,7 @@ CREATE MEASURE Table_Name[Measure_Name] = DAX_Expression
 ## <a name="remarks"></a>Bemerkungen  
  Der *MEASURE_NAME*  muss in eckige Klammern eingeschlossen werden.  
   
- Die CREATE Measure-Anweisung kann nur in einer MDX-Skript Definition verwendet werden. Weitere Informationen finden Sie unter [MdxScript-Element &#40;ASSL&#41;](/analysis-services/assl/objects/mdxscript-element-assl?view=asallproducts-allversions).  
+ Die CREATE Measure-Anweisung kann nur in einer MDX-Skript Definition verwendet werden. Weitere Informationen finden Sie unter [MdxScript-Element &#40;ASSL&#41;](/analysis-services/assl/objects/mdxscript-element-assl).  
   
  Sie können auch ein berechnetes Element definieren, das in einer einzelnen Abfrage verwendet wird. Wenn Sie ein berechnetes Element definieren möchten, das auf eine einzelne Abfrage beschränkt ist, verwenden Sie die WITH-Klausel in der SELECT-Anweisung. Weitere Informationen finden Sie unter [Building Measures in MDX](/analysis-services/multidimensional-models/mdx/mdx-building-measures).  
   

@@ -17,22 +17,22 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_host_info dynamic management view
 ms.assetid: 9bb6ef86-957b-4ca1-ad20-ca2f8460a86d
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=sql-server-2017||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: ee91975b31d16845c56f27e872998809fb252838
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 41462fd558a30639342dc75be5bb68a44fcedf67
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468391"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097560"
 ---
 # <a name="sysdm_os_host_info-transact-sql"></a>sys.dm_os_host_info (Transact-SQL)
 [!INCLUDE[SQL Server 2017](../../includes/applies-to-version/sqlserver2017.md)]
 
 Gibt eine Zeile zurück, in der Informationen zur Betriebssystemversion angezeigt werden.  
   
-|Spaltenname |Datentyp |Beschreibung |  
+|Spaltenname |Datentyp |BESCHREIBUNG |  
 |-----------------|---------------|-----------------|  
 |**host_platform** |**nvarchar(256)** |Der Typ des Betriebssystems: Windows oder Linux |
 |**host_distribution** |**nvarchar(256)** |Die Beschreibung des Betriebssystems. |
@@ -41,7 +41,7 @@ Gibt eine Zeile zurück, in der Informationen zur Betriebssystemversion angezeig
 |**host_sku**|**int**|Windows-SKU-ID (Stock Keeping Unit). Eine Liste mit SKU-IDs und Beschreibungen finden Sie unter [Funktion "GetProductInfo"](/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo). Lässt NULL-Werte zu. <br> Für Linux wird NULL zurückgegeben. |  
 |**os_language_version**|**int**|Windows-Gebietsschemabezeichner (LCID) des Betriebssystems. Eine Liste mit LCID-Werten und Beschreibungen finden Sie unter [Von Microsoft zugewiesene Gebietsschemabezeichner (LCIDs)](/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c). Darf nicht NULL sein.|  
 
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 Diese Ansicht ähnelt [sys.dm_os_windows_info](../../relational-databases/system-dynamic-management-views/sys-dm-os-windows-info-transact-sql.md)und fügt Spalten hinzu, um Windows und Linux zu unterscheiden.
   
 ## <a name="security"></a>Sicherheit  
@@ -66,7 +66,7 @@ Im folgenden finden Sie ein Beispiel für ein Resultset unter Windows:
  
  |host_platform |host_distribution |host_release |host_service_pack_level |host_sku |os_language_version |
  |----- |----- |----- |----- |----- |----- |
- |Windows   |Windows Server 2012 R2 Standard    |6.3    |   |7  |1033 |  
+ |Windows   |Windows Server 2012 R2 Standard    |6.3    |   |7  |1033 |  
 
 Im folgenden finden Sie ein Beispiel für ein Resultset unter Linux:
  

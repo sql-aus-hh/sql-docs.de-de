@@ -20,15 +20,15 @@ helpviewer_keywords:
 - PolyBase management views
 - dm_exec_compute_nodes management view
 ms.assetid: 0de4b7a4-401f-4e2d-9ab0-c54587e05154
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 6a9776a0fa0e1d6c939c41d66f32a6cc4855e360
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 947439df0c2ecf611507039ca203893f92cc13de
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97428025"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098978"
 ---
 # <a name="sysdm_exec_compute_nodes-transact-sql"></a>sys.dm_exec_compute_nodes (Transact-SQL)
 
@@ -41,7 +41,7 @@ ms.locfileid: "97428025"
 |Spaltenname|Datentyp|BESCHREIBUNG|Range|  
 |-----------------|---------------|-----------------|-----------|  
 |compute_node_id|**int**|Eindeutige numerische ID, die dem Knoten zugeordnet ist. Der Schlüssel für diese Ansicht.|Eindeutig in einem Cluster mit horizontaler Skalierung (unabhängig vom Typ).|  
-|Typ|**nvarchar(32)**|Der Typ des Knotens.|"Compute", "Head"|  
+|type|**nvarchar(32)**|Der Typ des Knotens.|"Compute", "Head"|  
 |name|**nvarchar(32)**|Logischer Name des Knotens.|Eine beliebige Zeichenfolge mit entsprechender Länge.|  
 |address|**nvarchar(32)**|Die IP-Adresse dieses Knotens.|IP-Adressbereich|  
   

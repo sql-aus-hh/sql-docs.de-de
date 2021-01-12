@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysreplicationalerts system table
 ms.assetid: 6ed15828-8cca-4cf0-b2ff-1ecd0d8db11a
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: cce33fa91f6ea11cda33e622edd39ec764b2c2ce
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 2f44fb1f1b07b53705b45825955918c3026a2485
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537813"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097320"
 ---
 # <a name="sysreplicationalerts-transact-sql"></a>sysreplicationalerts (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -35,8 +35,8 @@ ms.locfileid: "89537813"
 |**alert_id**|**int**|Die ID der Warnung.|  
 |**status**|**int**|Der benutzerdefinierte Wert:<br /><br /> **0** = nicht gewartet.<br /><br /> **1** = gewartet.|  
 |**agent_type**|**int**|Typ der Momentaufnahme:<br /><br /> **1** = Momentaufnahmen-Agent.<br /><br /> **2** = Protokolllese-Agent.<br /><br /> **3** = Verteilungs-Agent.<br /><br /> **4** = Merge-Agent.|  
-|**agent_id**|**int**|Die Agent-ID aus den Tabellen **MSsnapshot_agents**, **MSlogreader_agents**, **MSdistribution_agents**oder **MSmerge_agents**.|  
-|**error_id**|**int**|Die ID des Fehlers, der in **MSrepl_errors**gespeichert ist.|  
+|**agent_id**|**int**|Die Agent-ID aus den Tabellen **MSsnapshot_agents**, **MSlogreader_agents**, **MSdistribution_agents** oder **MSmerge_agents**.|  
+|**error_id**|**int**|Die ID des Fehlers, der in **MSrepl_errors** gespeichert ist.|  
 |**alert_error_code**|**int**|Die Meldungs-ID der bei der Protokollierung dieses Datensatzes ausgelösten Warnung.|  
 |**time**|**datetime**|Der Zeitpunkt, zu dem der Datensatz eingefügt wurde.|  
 |**publisher**|**sysname**|Der Name des Verlegers, der dem Agent zugeordnet ist, der diese Warnung ausgelöst hat.|  

@@ -17,15 +17,15 @@ helpviewer_keywords:
 - query_store_wait_stats catalog view
 - sys.query_store_wait_stats catalog view
 ms.assetid: ccf7a57c-314b-450c-bd34-70749a02784a
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2017||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 2ab48b6155e26873c22a3b951ef65705d3addd79
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: d3df8f87d73ac8ca25fe2e7e83d7bbc3d0da01f2
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97466921"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097964"
 ---
 # <a name="sysquery_store_wait_stats-transact-sql"></a>sys.query_store_wait_stats (Transact-SQL)
 
@@ -33,7 +33,7 @@ ms.locfileid: "97466921"
 
   Enthält Informationen zu den warte Informationen für die Abfrage.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**wait_stats_id**|**bigint**|Der Bezeichner der Zeile, die die Warte Statistik für die plan_id, runtime_stats_interval_id execution_type und wait_category darstellt. Er ist nur für die letzten Lauf Zeit Statistik Intervalle eindeutig. Für das derzeit aktive Intervall gibt es möglicherweise mehrere Zeilen, die Warte Statistiken für den Plan darstellen, auf den von plan_id verwiesen wird, wobei der Ausführungstyp execution_type und die durch wait_category dargestellte warte Kategorie ist. In der Regel stellt eine Zeile eine warte Statistik dar, die auf den Datenträger geleert wird, während andere (n) den Speicher internen Status darstellen. Um den tatsächlichen Zustand für jedes Intervall zu erhalten, müssen Sie daher Metriken aggregieren, indem Sie plan_id, runtime_stats_interval_id, execution_type und wait_category gruppieren. |  
 |**plan_id**|**bigint**|Fremdschlüssel. Joins mit [sys.query_store_plan &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-query-store-plan-transact-sql.md).|  
@@ -66,7 +66,7 @@ ms.locfileid: "97466921"
 |_ *8**|**SQL CLR**|CLR%, SQLCLR%|
 |**9**|**Spiegelung**|Dbmirror%|
 |**10**|**Transaktion**|xact%, DTC%, TRAN_MARKLATCH_%, MSQL_XACT_%, TRANSACTION_MUTEX|
-|**11**|**Idle**|SLEEP_%, LAZYWRITER_SLEEP, SQLTRACE_BUFFER_FLUSH, SQLTRACE_INCREMENTAL_FLUSH_SLEEP, SQLTRACE_WAIT_ENTRIES, FT_IFTS_SCHEDULER_IDLE_WAIT, XE_DISPATCHER_WAIT, REQUEST_FOR_DEADLOCK_SEARCH, LOGMGR_QUEUE, ONDEMAND_TASK_QUEUE CHECKPOINT_QUEUE, XE_TIMER_EVENT|
+|**11**|**Gesch**|SLEEP_%, LAZYWRITER_SLEEP, SQLTRACE_BUFFER_FLUSH, SQLTRACE_INCREMENTAL_FLUSH_SLEEP, SQLTRACE_WAIT_ENTRIES, FT_IFTS_SCHEDULER_IDLE_WAIT, XE_DISPATCHER_WAIT, REQUEST_FOR_DEADLOCK_SEARCH, LOGMGR_QUEUE, ONDEMAND_TASK_QUEUE CHECKPOINT_QUEUE, XE_TIMER_EVENT|
 |**12**|**PreEmptive**|PREEMPTIVE_%|
 |**13**|**Service Broker**|BROKER_% **(aber nicht BROKER_RECEIVE_WAITFOR)**|
 |**14**|**Tran Log IO**|logmgr, logbuffer, LOGMGR_RESERVE_APPEND, LOGMGR_FLUSH, LOGMGR_PMM_LOG, chkpt, Write telog|
@@ -74,7 +74,7 @@ ms.locfileid: "97466921"
 |**16**|**Parallelität**|cxpacket, Exchange, HT%, BMP%, BP%|
 |**17**|**Arbeitsspeicher**|RESOURCE_SEMAPHORE, cmemthread, cmempartitioniert, EE_PMOLOCK, MEMORY_ALLOCATION_EXT, RESERVED_MEMORY_ALLOCATION_EXT, MEMORY_GRANT_UPDATE|
 |**Jahren**|**Benutzer Wartezeit**|WAITFOR, WAIT_FOR_RESULTS BROKER_RECEIVE_WAITFOR|
-|**19.07.2016**|**Ablaufverfolgung**|tracewrite, SQLTRACE_LOCK, SQLTRACE_FILE_BUFFER, SQLTRACE_FILE_WRITE_IO_COMPLETION, SQLTRACE_FILE_READ_IO_COMPLETION, SQLTRACE_PENDING_BUFFER_WRITERS, SQLTRACE_SHUTDOWN, QUERY_TRACEOUT|
+|**19**|**Ablaufverfolgung**|tracewrite, SQLTRACE_LOCK, SQLTRACE_FILE_BUFFER, SQLTRACE_FILE_WRITE_IO_COMPLETION, SQLTRACE_FILE_READ_IO_COMPLETION, SQLTRACE_PENDING_BUFFER_WRITERS, SQLTRACE_SHUTDOWN, QUERY_TRACEOUT|
 |**20**|**Voll Text Suche**|FT_RESTART_CRAWL, Volltext-Gatherer, MSSearch, FT_METADATA_MUTEX, FT_IFTSHC_MUTEX, FT_IFTSISM_MUTEX, FT_IFTS_RWLOCK, FT_COMPROWSET_RWLOCK, FT_MASTER_MERGE, FT_PROPERTYLIST_CACHE, FT_MASTER_MERGE_COORDINATOR|
 |**21**|**Sonstige e/a**|ASYNC_IO_COMPLETION, IO_COMPLETION, backupio, WRITE_COMPLETION, IO_QUEUE_LIMIT, IO_RETRY|
 |**22**|**Replikation**|SE_REPL_%, REPL_%, HADR_% **(aber nicht HADR_THROTTLE_LOG_RATE_GOVERNOR)**, PWAIT_HADR_%, REPLICA_WRITES, FCB_REPLICA_WRITE, FCB_REPLICA_READ, PWAIT_HADRSIM|

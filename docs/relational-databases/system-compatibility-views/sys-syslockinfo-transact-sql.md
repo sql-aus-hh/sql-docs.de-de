@@ -19,14 +19,14 @@ helpviewer_keywords:
 - syslockinfo system table
 - sys.syslockinfo compatibility view
 ms.assetid: d8cae434-807a-473e-b94f-f7a0e1b2daf0
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 9714fab678f8466daf76d5963e1383b5e7d2dc52
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: d552fdbb75c4aa1cb786025a8d1c866b89135e12
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88490057"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099069"
 ---
 # <a name="syssyslockinfo-transact-sql"></a>sys.syslockinfo (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "88490057"
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**rsc_text**|**NCHAR (32)**|Textbeschreibung einer Sperrressource. Enthält einen Teil des Ressourcennamens.|  
-|**rsc_bin**|**Binary (16)**|Binäre Sperrressource. Enthält die tatsächliche Sperrressource, die im Sperren-Manager enthalten ist. Diese Spalte ist für Tools enthalten, die über das Sperr Ressourcen Format zum Erstellen Ihrer eigenen formatierten Sperr Ressource und für das Ausführen von Self-Joins auf **syslockinfo**informiert sind.|  
+|**rsc_bin**|**Binary (16)**|Binäre Sperrressource. Enthält die tatsächliche Sperrressource, die im Sperren-Manager enthalten ist. Diese Spalte ist für Tools enthalten, die über das Sperr Ressourcen Format zum Erstellen Ihrer eigenen formatierten Sperr Ressource und für das Ausführen von Self-Joins auf **syslockinfo** informiert sind.|  
 |**rsc_valblk**|**Binary (16)**|Sperrwertblock. Einige Ressourcentypen enthalten möglicherweise zusätzliche Daten in der Sperrressource, für die vom Sperren-Manager kein Hashvorgang ausgeführt wurde, um den Besitzer einer bestimmten Sperrressource zu bestimmen. So gehören z. B. Seitensperren nicht einer bestimmten Objekt-ID an. Zur Sperrenausweitung und für andere Zwecke. Die Objekt-ID einer Seitensperre kann jedoch im Sperrenwertblock platziert werden.|  
 |**rsc_dbid**|**smallint**|Zur Ressource zugeordnete Datenbank-ID.|  
 |**rsc_indid**|**smallint**|Zur Ressource zugeordnete Index-ID, falls zutreffend.|  

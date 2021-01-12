@@ -1,6 +1,6 @@
 ---
 description: sys.database_recovery_status (Transact-SQL)
-title: sys. database_recovery_status (Transact-SQL) | Microsoft-Dokumentation
+title: sys.database_recovery_status (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/12/2016
 ms.prod: sql
@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.database_recovery_status catalog view
 ms.assetid: 46fab234-1542-49be-8edf-aa101e728acf
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 9246b77c26e3e926f907266e08dc141e78d195a9
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 5e9c968ff33c47f81eb84b2f5cd73e2483b7af56
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542563"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098040"
 ---
 # <a name="sysdatabase_recovery_status-transact-sql"></a>sys.database_recovery_status (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "89542563"
 |**last_log_backup_lsn**|**numeric(25,0)**|Die Start Protokoll Sequenznummer der nächsten Protokoll Sicherung.<br /><br /> Wenn der Wert NULL ist, kann die Sicherung eines Transaktions Protokolls nicht ausgeführt werden, da entweder die Datenbank eine einfache Wiederherstellung hat oder keine aktuelle Datenbanksicherung vorhanden ist.|  
 |**recovery_fork_guid**|**uniqueidentifier**|Identifiziert den aktuell für die Datenbank aktiven Wiederherstellungs-Verzweigungspunkt.<br /><br /> NULL= Die Datenbank ist offline, oder die Datenbank wird nicht gestartet.|  
 |**first_recovery_fork_guid**|**uniqueidentifier**|Bezeichner für den ersten Wiederherstellungs-Verzweigungspunkt.<br /><br /> NULL= Die Datenbank ist offline, oder die Datenbank wird nicht gestartet.|  
-|**fork_point_lsn**|**numeric(25,0)**|Wenn **first_recovery_fork_guid** ungleich (!=) **recovery_fork_guid**ist, entspricht **fork_point_lsn** der Protokollfolgenummer des aktuellen Wiederherstellungs-Verzweigungspunkts. Andernfalls ist der Wert NULL.|  
+|**fork_point_lsn**|**numeric(25,0)**|Wenn **first_recovery_fork_guid** ungleich (!=) **recovery_fork_guid** ist, entspricht **fork_point_lsn** der Protokollfolgenummer des aktuellen Wiederherstellungs-Verzweigungspunkts. Andernfalls ist der Wert NULL.|  
   
 ## <a name="permissions"></a>Berechtigungen  
  [!INCLUDE[ssCatViewPerm](../../includes/sscatviewperm-md.md)] Weitere Informationen finden Sie unter [Metadata Visibility Configuration](../../relational-databases/security/metadata-visibility-configuration.md).  

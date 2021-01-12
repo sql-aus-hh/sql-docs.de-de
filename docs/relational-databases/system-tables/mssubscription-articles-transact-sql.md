@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSsubscription_articles system table
 ms.assetid: dbc1737f-261e-4017-b9cd-703b9fc4ac78
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: f1f046a44c3dcfbe2a44de93efe2185600633e3c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: c8ae84063723c76745776a4e530f7fb8d63b008a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89523687"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098515"
 ---
 # <a name="mssubscription_articles-transact-sql"></a>MSsubscription_articles (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "89523687"
 |**artid**|**int**|Die Artikel-ID aus der **sysarticles** -Tabelle.|  
 |**Artikel**|**sysname**|Der Name des Artikels in der **sysarticles** -Tabelle.|  
 |**dest_table**|**sysname**|Der Name der Ziel Tabelle aus der **sysarticles** -Tabelle.|  
-|**Eigentor**|**sysname**|Der Besitzer des Abonnements.|  
+|**owner**|**sysname**|Der Besitzer des Abonnements.|  
 |**cft_table**|**sysname**|Der Name der Konflikttabelle dieses Artikels für den Replikationstyp Verzögertes Update über eine Warteschlange.|  
   
 ## <a name="see-also"></a>Weitere Informationen  

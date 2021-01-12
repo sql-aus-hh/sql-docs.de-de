@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - cdc.captured_columns
 ms.assetid: 7bb4d408-d764-4ef6-802c-f271c8d39c2a
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 3337ab3e4b4c2221c018c326762251ff954b329d
-ms.sourcegitcommit: 7eb80038c86acfef1d8e7bfd5f4e30e94aed3a75
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: b41b1412c4ea9a2f43445104ac4262aa29dc2701
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92081489"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098731"
 ---
 # <a name="cdccaptured_columns-transact-sql"></a>cdc.captured_columns (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "92081489"
   
  Es wird empfohlen, **die Systemtabellen nicht direkt abzufragen**. Führen Sie stattdessen die gespeicherte Prozedur [sys.sp_cdc_get_source_columns](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-captured-columns-transact-sql.md) aus.  
    
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**object_id**|**int**|ID der Änderungs Tabelle, zu der die erfasste Spalte gehört.|  
 |**column_name**|**sysname**|Name der aufgezeichneten Spalte.|  

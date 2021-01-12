@@ -7,15 +7,15 @@ ms.service: sql-database
 ms.reviewer: ''
 ms.topic: language-reference
 ms.assetid: 02c2cd71-d35e-4d4c-b844-92b240f768f4
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: = azuresqldb-current
-ms.openlocfilehash: b5307138766f1c05aa084e38deeaf07feff2c635
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 194b8e87700980c6af64985dc2b53b0d916bc01e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97458528"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098366"
 ---
 # <a name="sysdatabase_event_sessions-azure-sql-database"></a>sys.database_event_sessions (Azure SQL-Datenbank)
 [!INCLUDE[Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/asdb-asdbmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "97458528"
 |-|  
 |**Gilt für**: [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] und für beliebige spätere Versionen.|  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |event_session_id|**int**|Die eindeutige ID der Ereignissitzung. Lässt keine NULL-Werte zu.|  
 |name|**sysname**|Der benutzerdefinierte Name zum Identifizieren der Ereignissitzung. der Name ist eindeutig. Lässt keine NULL-Werte zu.|  

@@ -11,15 +11,15 @@ ms.topic: language-reference
 dev_langs:
 - TSQL
 ms.assetid: 31b71c68-50a0-4fd8-a7fe-2d2292be1163
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: aa29c7c3eed19871479e116d8d8969d71c38641d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e8ff8ab3db826d483f8f6df09277e1a5510aaf48
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475021"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097710"
 ---
 # <a name="sysdm_db_column_store_row_group_operational_stats-transact-sql"></a>sys.dm_db_column_store_row_group_operational_stats (Transact-SQL)
 
@@ -30,7 +30,7 @@ ms.locfileid: "97475021"
  In-Memory-columnstore--Indizes werden in dieser DMV nicht angezeigt.  
  
  
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**object_id**|**int**|Die ID der Tabelle mit dem columnstore--Index.|  
 |**index_id**|**int**|ID des columnstore-Indexes.|  

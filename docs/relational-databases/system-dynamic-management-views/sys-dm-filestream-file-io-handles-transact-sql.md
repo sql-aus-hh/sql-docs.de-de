@@ -1,6 +1,6 @@
 ---
 description: sys.dm_filestream_file_io_handles (Transact-SQL)
-title: sys. dm_filestream_file_io_handles (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_filestream_file_io_handles (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/03/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_filestream_file_io_handle catalog view
 ms.assetid: e59632f4-3292-419f-9217-ca375749f1a5
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: d7e8e059ad9d10ccd3b8fd0b51299cc91edb5c6c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 4c92c42554123c96013b8d17721b3d0861154a35
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89533387"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097670"
 ---
 # <a name="sysdm_filestream_file_io_handles-transact-sql"></a>sys.dm_filestream_file_io_handles (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

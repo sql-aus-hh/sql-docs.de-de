@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSmerge_past_partition_mappings system table
 ms.assetid: 06d54ff5-4d29-4eeb-b8be-64d032e53134
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 6f6725fc632ae132cde37191eda73035f23092d5
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: f9136cc284d8a60405e07874f262bb6abed37021
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89545626"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098627"
 ---
 # <a name="msmerge_past_partition_mappings-transact-sql"></a>MSmerge_past_partition_mappings (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "89545626"
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
-|**publication_number**|**smallint**|Die Veröffentlichungsnummer, die in **sysmergepublications**gespeichert wird.|  
+|**publication_number**|**smallint**|Die Veröffentlichungsnummer, die in **sysmergepublications** gespeichert wird.|  
 |**tablenick**|**int**|Der Spitzname der veröffentlichten Tabelle.|  
 |**ROWGUID**|**uniqueidentifier**|Der Zeilenbezeichner für die angegebene Zeile.|  
 |**partition_id**|**int**|Die Partitions-ID, die der Zeile zugeordnet ist. Der Wert ist-1, wenn die Zeilen Änderung für alle Abonnenten relevant ist.|  
