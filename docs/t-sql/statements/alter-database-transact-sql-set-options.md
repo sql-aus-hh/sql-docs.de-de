@@ -28,15 +28,15 @@ helpviewer_keywords:
 - auto_update_statistics
 - Query Store options
 ms.assetid: f76fbd84-df59-4404-806b-8ecb4497c9cc
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azure-sqldw-latest||=azuresqldb-mi-current
-ms.openlocfilehash: 97139ed9331853a5d84d261c69510993fb7231a2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 652a4b13db3fdd98b774a5c884e68848a3b0b847
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642263"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099568"
 ---
 # <a name="alter-database-set-options-transact-sql"></a>ALTER DATABASE SET-Optionen (Transact-SQL)
 
@@ -2004,10 +2004,6 @@ Wenn Sie ALLOW_SNAPSHOT_ISOLATION auf einen neuen Status festlegen (von ON zu OF
 Sie können den Status von ALLOW_SNAPSHOT_ISOLATION nicht ändern, wenn die Datenbank OFFLINE ist.
 
 Wenn Sie ALLOW_SNAPSHOT_ISOLATION in einer READ_ONLY-Datenbank festlegen, wird die Einstellung gespeichert, wenn die Datenbank später auf READ_WRITE festgelegt wird.
-
-Sie können die ALLOW_SNAPSHOT_ISOLATION-Einstellungen für die Datenbanken master, model, msdb und tempdb ändern. Wenn Sie die Einstellung für tempdb ändern, wird die Einstellung jedes Mal beibehalten, wenn die Instanz von [!INCLUDE[ssDE](../../includes/ssde-md.md)] beendet und neu gestartet wird. Wenn Sie die Einstellung für model ändern, wird die Einstellung zur Standardeinstellung für alle neu erstellten Datenbanken, mit Ausnahme von tempdb.
-
-Die Option hat für die Datenbanken master und msdb die Standardeinstellung ON.
 
 Die aktuelle Einstellung dieser Option kann mithilfe der Spalte `snapshot_isolation_state` in der [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md)-Katalogsicht ermittelt werden.
 

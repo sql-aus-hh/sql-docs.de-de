@@ -15,12 +15,12 @@ ms.assetid: e1d03d74-2572-4a55-afd6-7edf0bc28bdb
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 9f462f256c98c4482af67527401cc6d30f3f0776
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 281fe018c5c2d5e0717fb2c35dfcc8c3c9e8c3fc
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97465381"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100233"
 ---
 # <a name="in-memory-oltp-and-memory-optimization"></a>In-Memory-OLTP und Arbeitsspeicheroptimierung
 
@@ -56,7 +56,7 @@ Eine detailliertere Übersicht über In-Memory-OLTP und die Szenarien, in denen 
 |[Codebeispiele für In-Memory OLTP](./sample-database-for-in-memory-oltp.md)|Enthält Codebeispiele, die das Erstellen und Verwenden einer speicheroptimierten Tabelle veranschaulichen.|  
 |[Speicheroptimierte Tabellen](./sample-database-for-in-memory-oltp.md)|Bietet eine Einführung in speicheroptimierte Tabellen.|  
 |[Speicheroptimierte Tabellenvariablen](./faster-temp-table-and-table-variable-by-using-memory-optimization.md)|Ein Codebeispiel, das veranschaulicht, wie eine speicheroptimierte Tabellenvariable anstelle einer herkömmlichen Tabellenvariable verwendet wird, um die Verwendung von tempdb zu reduzieren.|  
-|[Indizes für speicheroptimierte Tabellen](/sql/relational-databases/in-memory-oltp/indexes-for-memory-optimized-tables)|Bietet eine Einführung in speicheroptimierte Indizes.|  
+|[Indizes für speicheroptimierte Tabellen](./indexes-for-memory-optimized-tables.md)|Bietet eine Einführung in speicheroptimierte Indizes.|  
 |[Nativ kompilierte gespeicherte Prozeduren](./a-guide-to-query-processing-for-memory-optimized-tables.md)|Führt systemintern kompilierte gespeicherte Prozeduren ein.|  
 |[Verwalten des Arbeitsspeichers für In-Memory-OLTP](/previous-versions/sql/sql-server-2016/dn465872(v=sql.130))|Erläutert die Funktionsweise und Verwaltung der Speicherverwendung im System.|  
 |[Erstellen und Verwalten von Speicher für speicheroptimierte Objekte](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md)|Erläutert Daten- und Änderungsdateien, die Informationen zu Transaktionen in speicheroptimierten Tabellen speichern.|  
@@ -136,4 +136,3 @@ Die folgenden allgemeinen Schritte sind im Video zu sehen:
 
 ## <a name="see-also"></a>Weitere Informationen  
  [Datenbankfunktionen](../databases/databases.md)  
-  
