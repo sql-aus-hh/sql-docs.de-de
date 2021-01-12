@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.assetid: de676bea-cec7-479d-891a-39ac8b85664f
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 4212c397c712351e951060032f6e7a2ece6a5c3f
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: dc7532aaead7b2257755f2db689c2cbbbd05d3c3
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96129034"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97639156"
 ---
-# <a name="sql-server-backup-to-url-best-practices-and-troubleshooting"></a>SQL Server-Sicherung über URLs – bewährte Methoden und Problembehandlung
+# <a name="sql-server-back-up-to-url-best-practices-and-troubleshooting"></a>Bewährte Methoden und Problembehandlung für die SQL Server-Sicherung über URL
 
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
 
@@ -52,86 +52,118 @@ ms.locfileid: "96129034"
 -   Die Verwendung der im Abschnitt [Verwalten von Sicherungen](#managing-backups-mb1) empfohlenen `WITH COMPRESSION`-Option ist besonders beim Sichern umfangreicher Dateien von Bedeutung.  
   
 ## <a name="troubleshooting-backup-to-or-restore-from-url"></a>Problembehandlung bei Sicherungs- oder Wiederherstellungsvorgängen über URLs  
- Im Folgenden finden Sie einige schnelle Lösungen zur Behandlung von Sicherungs- und Wiederherstellungsfehlern im Azure Blob Storage-Dienst.  
-  
- Zur Vermeidung von Fehlern, die durch nicht unterstützte Optionen oder Einschränkungen verursacht werden, informieren Sie sich anhand der Liste im Artikel [SQL Server-Sicherung und -Wiederherstellung mit dem Microsoft Azure Blob Storage-Dienst](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md) über die Möglichkeiten und Grenzen von BACKUP- und RESTORE-Befehlen.  
-  
- **Authentifizierungsfehler:**  
-  
--   `WITH CREDENTIAL` ist eine neue Option, die für Sicherungs- oder Wiederherstellungsvorgänge im Azure Blob Storage-Dienst erforderlich ist. In Zusammenhang mit Anmeldeinformationen können folgende Fehler auftreten:  
-  
-     Die im **BACKUP** -Befehl oder **RESTORE** -Befehl angegebenen Anmeldeinformationen sind nicht vorhanden. Um dieses Problem zu vermeiden, können Sie T-SQL-Anweisungen zum Erstellen von Anmeldeinformationen einschließen, falls in der BACKUP-Anweisung keine Anmeldeinformationen enthalten sind. Beachten Sie das folgende Anwendungsbeispiel:  
-  
-    ```sql  
-    IF NOT EXISTS  
-    (SELECT * FROM sys.credentials   
-    WHERE credential_identity = 'mycredential')  
-    CREATE CREDENTIAL <credential name> WITH IDENTITY = 'mystorageaccount'  
-    , SECRET = '<storage access key>' ;  
-    ```  
-  
--   Die Anmeldeinformationen sind zwar vorhanden, aber das Anmeldekonto zum Ausführen des Sicherungsbefehls verfügt über keine Berechtigung für den Zugriff auf die Anmeldeinformationen. Verwenden Sie ein Anmeldekonto der Rolle **db_backupoperator** mit Berechtigungen des Typs **_Beliebige Anmeldeinformationen ändern_* _.  
-  
--   Überprüfen Sie den Namen des Speicherkontos und die Schlüsselwerte. Die in den Anmeldeinformationen gespeicherten Informationen müssen den Eigenschaftswerten Azure-Speicherkontos entsprechen, das Sie für Sicherungs- und Wiederherstellungsvorgänge verwenden.  
-  
- _ *Sicherungsfehler/Fehler:* *  
-  
--   Parallele Sicherungen im selben Blob führen dazu, dass bei einer der Sicherungen die Meldung **Fehler beim Initialisieren** ausgegeben wird.  
-  
--   Wenn Sie Seitenblobs verwenden, z.B. `BACKUP... TO URL... WITH CREDENTIAL`, verwenden Sie die folgenden Fehlerprotokolle, die Ihnen die Problembehandlung bei Sicherungsfehlern erleichtern:  
-  
-    -   Legen Sie das Ablaufverfolgungsflag 3051 wie folgt fest, um die Protokollierung in einem bestimmten Fehlerprotokoll zu aktivieren:  
-  
-        `BackupToUrl-\<instname>-\<dbname>-action-\<PID>.log`, wenn `\<action>` einer der folgenden Typen ist:  
-  
-        -   **DB**  
-        -   **FILELISTONLY**  
-        -   **LABELONLY**  
-        -   **HEADERONLY**  
-        -   **VERIFYONLY**  
-  
-    -   Ebenso erhalten Sie Informationen, wenn Sie im Windows-Ereignisprotokoll in den Anwendungsprotokollen nach dem Namen `SQLBackupToUrl` suchen.  
 
-    -   Berücksichtigen Sie beim Sichern großer Datenbanken COMPRESSION, MAXTRANSFERSIZE, BLOCKSIZE und mehrere URL-Argumente.  Weitere Informationen finden Sie unter [Sichern einer VLDB in Azure Blob Storage](/archive/blogs/sqlcat/backing-up-a-vldb-to-azure-blob-storage).
+Im Folgenden finden Sie einige schnelle Lösungen zur Behandlung von Sicherungs- und Wiederherstellungsfehlern im Azure Blob Storage-Dienst.  
   
-        ```console
-        Msg 3202, Level 16, State 1, Line 1
-        Write on "https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak" failed: 1117(The request could not be performed because of an I/O device error.)
-        Msg 3013, Level 16, State 1, Line 1
-        BACKUP DATABASE is terminating abnormally.
-        ```
+Zur Vermeidung von Fehlern, die durch nicht unterstützte Optionen oder Einschränkungen verursacht werden, informieren Sie sich anhand der Liste im Artikel [SQL Server-Sicherung und -Wiederherstellung mit dem Microsoft Azure Blob Storage-Dienst](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md) über die Möglichkeiten und Grenzen von BACKUP- und RESTORE-Befehlen.  
 
-        ```sql  
-        BACKUP DATABASE TestDb
-        TO URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak',
-        URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_1.bak',
-        URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_2.bak'
-        WITH COMPRESSION, MAXTRANSFERSIZE = 4194304, BLOCKSIZE = 65536;  
-        ```  
+**Fehler bei der Initialisierung** 
 
--   Bei der Wiederherstellung von einer komprimierten Sicherung kann eine Fehlermeldung mit etwa folgendem Wortlaut angezeigt werden:  
+Parallele Sicherungen im selben Blob führen dazu, dass bei einer der Sicherungen die Meldung **Fehler beim Initialisieren** ausgegeben wird. 
+
+Wenn Sie Seitenblobs verwenden, z.B. `BACKUP... TO URL... WITH CREDENTIAL`, verwenden Sie die folgenden Fehlerprotokolle, die Ihnen die Problembehandlung bei Sicherungsfehlern erleichtern:  
   
-    -   `SqlException 3284 occurred. Severity: 16 State: 5  
-        Message Filemark on device 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak' is not aligned.           Reissue the Restore statement with the same block size used to create the backupset: '65536' looks like a possible value.`  
+Legen Sie das Ablaufverfolgungsflag 3051 wie folgt fest, um die Protokollierung in einem bestimmten Fehlerprotokoll zu aktivieren:  
   
-        Führen Sie die **RESTORE**-Anweisung erneut aus, und geben Sie dabei **BLOCKSIZE = 65536** an, um diesen Fehler zu beheben.  
+`BackupToUrl-\<instname>-\<dbname>-action-\<PID>.log`, wenn `\<action>` einer der folgenden Typen ist:  
   
--   Fehler während der Sicherung aufgrund von Blobs mit aktiver Lease: Eine fehlerhafte Sicherungsaktivität kann zu Blobs mit aktiven Leases führen.  
+-   **DB**  
+-   **FILELISTONLY**  
+-   **LABELONLY**  
+-   **HEADERONLY**  
+-   **VERIFYONLY**  
   
-     Wenn die BACKUP-Anweisung erneut ausgeführt wird, kann ein Sicherungsvorgang einen Fehler mit etwa folgendem Wortlaut verursachen:  
+Ebenso erhalten Sie Informationen, wenn Sie im Windows-Ereignisprotokoll in den Anwendungsprotokollen nach dem Namen `SQLBackupToUrl` suchen.  
+
+**Die Anforderung konnte aufgrund eines E/A-Gerätefehlers nicht ausgeführt werden.**
+
+Berücksichtigen Sie beim Sichern großer Datenbanken COMPRESSION, MAXTRANSFERSIZE, BLOCKSIZE und mehrere URL-Argumente.  Weitere Informationen finden Sie unter [Sichern einer VLDB in Azure Blob Storage](/archive/blogs/sqlcat/backing-up-a-vldb-to-azure-blob-storage).
+
+Der folgende Fehler: 
+
+```console
+Msg 3202, Level 16, State 1, Line 1
+Write on "https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak" failed: 
+1117(The request could not be performed because of an I/O device error.)
+Msg 3013, Level 16, State 1, Line 1
+BACKUP DATABASE is terminating abnormally.
+```
+
+Eine Beispielauflösung: 
+
+```sql  
+BACKUP DATABASE TestDb
+TO URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak',
+URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_1.bak',
+URL = 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_2.bak'
+WITH COMPRESSION, MAXTRANSFERSIZE = 4194304, BLOCKSIZE = 65536;  
+```  
+
+**Dateimarkierung für Gerät ist nicht ausgerichtet.**
+
+Bei der Wiederherstellung von einer komprimierten Sicherung kann eine Fehlermeldung mit etwa folgendem Wortlaut angezeigt werden:  
   
-     `Backup to URL received an exception from the remote endpoint. Exception Message: The remote server returned an error: (412) There is currently a lease on the blob and no lease ID was specified in the request.`  
+```
+SqlException 3284 occurred. Severity: 16 State: 5  
+Message Filemark on device 'https://mystorage.blob.core.windows.net/mycontainer/TestDbBackupSetNumber2_0.bak' is not aligned.
+Reissue the Restore statement with the same block size used to create the backupset: '65536' looks like a possible value.  
+```
   
-     Wenn versucht wird, eine RESTORE-Anweisung für eine BLOB-Sicherungsdatei mit aktiver Leasedauer auszuführen, wird eine Fehlermeldung mit etwa folgendem Wortlaut angezeigt:  
+Führen Sie die **RESTORE**-Anweisung erneut aus, und geben Sie dabei **BLOCKSIZE = 65536** an, um diesen Fehler zu beheben.  
   
-     `Exception Message: The remote server returned an error: (409) Conflict..`  
+**Eine fehlerhafte Sicherungsaktivität kann zu Blobs mit aktiven Leases führen.**
+
+Fehler während der Sicherung aufgrund von Blobs mit aktiver Lease: `Failed backup activity can result in blobs with active leases.`  
+
+Wenn die BACKUP-Anweisung erneut ausgeführt wird, kann ein Sicherungsvorgang einen Fehler mit etwa folgendem Wortlaut verursachen:  
+
+```
+Backup to URL received an exception from the remote endpoint. Exception Message: 
+The remote server returned an error: (412) There is currently a lease on the blob and no lease ID was specified in the request. 
+```
+
+Wenn versucht wird, eine RESTORE-Anweisung für eine BLOB-Sicherungsdatei mit aktiver Leasedauer auszuführen, wird eine Fehlermeldung mit etwa folgendem Wortlaut angezeigt:  
   
-     Wenn dieser Fehler auftritt, müssen die BLOB-Dateien gelöscht werden. Weitere Informationen zu diesem Szenario und Lösungsvorschläge finden Sie unter [Löschen von Sicherungsblobdateien mit aktiver Lease](../../relational-databases/backup-restore/deleting-backup-blob-files-with-active-leases.md).  
+`Exception Message: The remote server returned an error: (409) Conflict..`  
+  
+Wenn dieser Fehler auftritt, müssen die BLOB-Dateien gelöscht werden. Weitere Informationen zu diesem Szenario und Lösungsvorschläge finden Sie unter [Löschen von Sicherungsblobdateien mit aktiver Lease](../../relational-databases/backup-restore/deleting-backup-blob-files-with-active-leases.md).  
+
+**Betriebssystemfehler 50: Die Anforderung wird nicht unterstützt**
+ 
+Beim Sichern einer Datenbank kann Fehler `Operating system error 50(The request is not supported)` aus den folgenden Gründen auftreten: 
+
+   - Das angegebene Speicherkonto ist kein universelles V1/V2-Konto.
+   - Das SAS-Token enthält mehr als 128 Zeichen.
+   - Das SAS-Token enthielt bei der Erstellung der Anmeldeinformationen ein `?`-Symbol am Anfang des Tokens. Wenn ja, entfernen Sie es.
+   - Die aktuelle Verbindung kann vom aktuellen Computer aus über Storage-Explorer oder SQL Server Management Studio (SSMS) keine Verbindung mit dem Speicherkonto herstellen. 
+   - Die dem SAS-Token zugewiesene Richtlinie ist abgelaufen. Erstellen Sie mithilfe von Azure Storage-Explorer eine neue Richtlinie. Erstellen Sie dann entweder ein neues SAS-Token mit der Richtlinie, oder ändern Sie die Anmeldeinformationen, und versuchen Sie erneut, eine Sicherung durchzuführen. 
+
+**Authentifizierungsfehler**
+  
+`WITH CREDENTIAL` ist eine neue Option, die für Sicherungs- oder Wiederherstellungsvorgänge im Azure Blob Storage-Dienst erforderlich ist.
+
+In Zusammenhang mit Anmeldeinformationen können folgende Fehler auftreten: `The credential specified in the **BACKUP** or **RESTORE** command does not exist. `
+
+Um dieses Problem zu vermeiden, können Sie T-SQL-Anweisungen zum Erstellen von Anmeldeinformationen einschließen, falls in der BACKUP-Anweisung keine Anmeldeinformationen enthalten sind. Beachten Sie das folgende Anwendungsbeispiel:  
+
+  
+```sql  
+IF NOT EXISTS  
+(SELECT * FROM sys.credentials   
+WHERE credential_identity = 'mycredential')  
+CREATE CREDENTIAL <credential name> WITH IDENTITY = 'mystorageaccount'  
+, SECRET = '<storage access key>' ;  
+```  
+  
+Die Anmeldeinformationen sind zwar vorhanden, aber das Anmeldekonto zum Ausführen des Sicherungsbefehls verfügt über keine Berechtigung für den Zugriff auf die Anmeldeinformationen. Verwenden Sie ein Anmeldekonto der Rolle **db_backupoperator** mit Berechtigungen des Typs **_Beliebige Anmeldeinformationen ändern_* _.  
+  
+Überprüfen Sie den Namen des Speicherkontos und die Schlüsselwerte. Die in den Anmeldeinformationen gespeicherten Informationen müssen den Eigenschaftswerten Azure-Speicherkontos entsprechen, das Sie für Sicherungs- und Wiederherstellungsvorgänge verwenden.  
+  
   
 ## <a name="proxy-errors"></a>Proxyfehler  
  Wenn Sie über Proxyserver auf das Internet zugreifen, können folgende Probleme auftreten:  
   
- **Durch Proxyserver gedrosselte Verbindungen:**  
+ _ *Verbindungsdrosselung durch Proxyserver**  
   
  Proxyserver können über Einstellungen verfügen, die die Anzahl der Verbindungen pro Minute begrenzen. Der URL-Sicherungsprozess ist ein Multithreadprozess und kann diese Begrenzung folglich überschreiten. In diesem Fall wird die Verbindung vom Proxyserver abgebrochen. Um das Problem zu beheben, ändern Sie die Proxyeinstellungen, damit der Proxy von SQL Server nicht verwendet wird. Im Folgenden einige Beispiele für Fehlertypen oder -meldungen, die im Fehlerprotokoll angezeigt werden können:  
   
