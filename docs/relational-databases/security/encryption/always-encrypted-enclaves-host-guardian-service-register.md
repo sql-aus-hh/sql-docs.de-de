@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rpsqrd
 ms.author: ryanpu
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 1774e2b2a27b2b1f0c36b298f98c916318fd1543
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5d1b2a7209de25b1ce5c988ec9a46b77369dcf70
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477651"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101827"
 ---
 # <a name="register-computer-with-host-guardian-service"></a>Registrieren des Computers beim Host-Überwachungsdienst
 
@@ -243,7 +243,7 @@ Wiederholen Sie Schritt 4B für jeden [!INCLUDE [ssnoversion-md](../../../includ
 
 Nachdem Sie den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer bei HGS registriert haben ([Schritt 4A](#step-4a-register-a-computer-in-tpm-mode) für den TPM-Modus, [Schritt 4B](#step-4b-register-a-computer-in-host-key-mode) für den Hostschlüsselmodus), sollten Sie überprüfen, ob er erfolgreich beglaubigen kann.
 
-Sie können die Konfiguration des HGS-Nachweisclients überprüfen und jederzeit mithilfe von [Get-HgsClientConfiguration](/powershell/module/hgsclient/get-hgsclientconfiguration?view=win10-ps) einen Beglaubigungsversuch durchführen.
+Sie können die Konfiguration des HGS-Nachweisclients überprüfen und jederzeit mithilfe von [Get-HgsClientConfiguration](/powershell/module/hgsclient/get-hgsclientconfiguration) einen Beglaubigungsversuch durchführen.
 Die Ausgabe des Befehls sieht etwa wie folgt aus:
 
 ```

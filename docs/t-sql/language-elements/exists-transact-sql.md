@@ -23,15 +23,15 @@ helpviewer_keywords:
 - NOT EXISTS keyword
 - row existence testing [SQL Server]
 ms.assetid: b6510a65-ac38-4296-a3d5-640db0c27631
-author: rothja
-ms.author: jroth
+author: cawrites
+ms.author: chadam
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 9f19098bbc6489346510173aa959889161284a0d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e6da0d8fae0f521fde7e101005259037ace2d032
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484032"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100392"
 ---
 # <a name="exists-transact-sql"></a>EXISTS (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -143,7 +143,7 @@ WHERE s.Name = ANY
 GO  
 ```  
   
-### <a name="d-comparing-queries-by-using-exists-and-in"></a>D. Vergleichen von Abfragen mit EXISTS und IN  
+### <a name="d-comparing-queries-by-using-exists-and-in"></a>D: Vergleichen von Abfragen mit EXISTS und IN  
  Das folgende Beispiel zeigt Abfragen zum Ermitteln von Mitarbeitern in Abteilungen, die mit `P` beginnen.  
   
 ```sql  

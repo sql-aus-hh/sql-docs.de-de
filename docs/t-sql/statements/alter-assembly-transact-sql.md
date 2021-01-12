@@ -22,14 +22,14 @@ helpviewer_keywords:
 - adding files
 - ALTER ASSEMBLY statement
 ms.assetid: 87bca678-4e79-40e1-bb8b-bd5ed8f34853
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 781d61c5cde33ae51b7ecb94d56a8c3cadff1595
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: dda1de9a2eb4628765333651c7d074b0c38551db
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300216"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100910"
 ---
 # <a name="alter-assembly-transact-sql"></a>ALTER ASSEMBLY (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -104,7 +104,7 @@ ALTER ASSEMBLY assembly_name
   
 -   CHECK-Einschränkungen, die direkt oder indirekt auf Methoden in der Assembly verweisen.  
   
--   Spalten eines CLR-benutzerdefinierten Typs, die von der Assembly abhängen, wobei der Typ ein Serialisierungsformat vom Typ **UserDefined** (nicht **Native** ) implementiert.  
+-   Spalten eines CLR-benutzerdefinierten Typs, die von der Assembly abhängen, wobei der Typ ein Serialisierungsformat vom Typ **UserDefined** (nicht **Native**) implementiert.  
   
 -   Spalten eines CLR-benutzerdefinierten Typs, die auf mithilfe von WITH SCHEMABINDING erstellte Sichten verweisen.  
   
@@ -112,18 +112,18 @@ ALTER ASSEMBLY assembly_name
   
  Nur Mitglieder der festen Datenbankrolle **db_owner** und **db_ddlowner** können diese Option angeben.  
   
- Erfordert die Berechtigung **ALTER ANY SCHEMA** , um diese Option anzugeben.  
+ Erfordert die Berechtigung **ALTER ANY SCHEMA**, um diese Option anzugeben.  
   
  Weitere Informationen finden Sie unter [Implementieren von Assemblys](../../relational-databases/clr-integration/assemblies-implementing.md).  
   
- [ DROP FILE { *Dateiname* [ **,** _...n_ ] | ALL } ]  
+ [ DROP FILE { *Dateiname*[ **,** _...n_] | ALL } ]  
  Entfernt den dieser Assembly zugeordneten Dateinamen oder alle dieser Assembly zugeordneten Dateien aus der Datenbank. Falls gefolgt von ADD FILE, wird zuerst DROP FILE ausgeführt. Dadurch können Sie eine Datei mit demselben Dateinamen ersetzen.  
   
 > [!NOTE]  
 >  Diese Option ist in einer enthaltenen Datenbank oder in Azure SQL-Datenbank nicht verfügbar.  
   
- [ ADD FILE FROM { *client_file_specifier* [ AS *file_name* ] | *file_bits* AS *file_name* }  
- Lädt eine der Assembly zuzuordnende Datei, z.B. Quellcode, Debugdateien oder andere zugehörige Informationen, auf den Server hoch, wobei diese Datei in der **sys.assembly_files** -Katalogsicht angezeigt wird. *client_file_specifier* gibt den Speicherort an, von dem die Datei hochgeladen werden soll. *file_bits* kann stattdessen verwendet werden, um die Liste der Binärwerte anzugeben, aus denen die Datei besteht. *file_name* gibt den Namen an, unter dem die Datei in der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] gespeichert werden soll. *file_name* muss angegeben werden, wenn *file_bits* angegeben ist. Die Angabe ist optional, wenn *client_file_specifier* angegeben ist. Wenn *file_name* nicht angegeben ist, wird der file_name-Teil von *client_file_specifier* als *file_name* verwendet.  
+ [ ADD FILE FROM { *client_file_specifier* [ AS *file_name*] | *file_bits* AS *file_name*}  
+ Lädt eine der Assembly zuzuordnende Datei, z.B. Quellcode, Debugdateien oder andere zugehörige Informationen, auf den Server hoch, wobei diese Datei in der **sys.assembly_files**-Katalogsicht angezeigt wird. *client_file_specifier* gibt den Speicherort an, von dem die Datei hochgeladen werden soll. *file_bits* kann stattdessen verwendet werden, um die Liste der Binärwerte anzugeben, aus denen die Datei besteht. *file_name* gibt den Namen an, unter dem die Datei in der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] gespeichert werden soll. *file_name* muss angegeben werden, wenn *file_bits* angegeben ist. Die Angabe ist optional, wenn *client_file_specifier* angegeben ist. Wenn *file_name* nicht angegeben ist, wird der file_name-Teil von *client_file_specifier* als *file_name* verwendet.  
   
 > [!NOTE]  
 >  Diese Option ist in einer enthaltenen Datenbank oder in Azure SQL-Datenbank nicht verfügbar.  
@@ -144,13 +144,13 @@ ALTER ASSEMBLY assembly_name
   
 -   Die Signaturen von Methoden in der Assembly, die von anderen Assemblys aufgerufen werden.  
   
--   Die Liste der von der Assembly abhängigen Assemblys, auf die in der **DependentList** -Eigenschaft der Assembly verwiesen wird.  
+-   Die Liste der von der Assembly abhängigen Assemblys, auf die in der **DependentList**-Eigenschaft der Assembly verwiesen wird.  
   
 -   Die Indizierbarkeit einer Methode, es sei denn, es hängen keine Indizes oder persistenten berechneten Spalten direkt oder indirekt von dieser Methode ab.  
   
--   Das **FillRow** -Methodennamenattribut für CLR-Tabellenwertfunktionen.  
+-   Das **FillRow**-Methodennamenattribut für CLR-Tabellenwertfunktionen.  
   
--   Die **Accumulate** - und **Terminate** -Methodensignatur für benutzerdefinierte Aggregate.  
+-   Die **Accumulate**- und **Terminate**-Methodensignatur für benutzerdefinierte Aggregate.  
   
 -   Die Systemassemblys.  
   
@@ -181,7 +181,7 @@ ALTER ASSEMBLY assembly_name
   
 -   Zum Ändern des Berechtigungssatzes einer Assembly in UNSAFE ist die Berechtigung **UNSAFE ASSEMBLY** auf dem Server erforderlich.  
   
--   Das Angeben von WITH UNCHECKED DATA erfordert die Berechtigung **ALTER ANY SCHEMA** .  
+-   Das Angeben von WITH UNCHECKED DATA erfordert die Berechtigung **ALTER ANY SCHEMA**.  
 
 
 ### <a name="permissions-with-clr-strict-security"></a>Berechtigungen mit CLR Strict Security    

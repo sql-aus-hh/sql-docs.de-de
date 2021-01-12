@@ -21,14 +21,14 @@ helpviewer_keywords:
 - CREATE SPATIAL INDEX statement
 - CREATE INDEX statement
 ms.assetid: ee6b9116-a7ff-463a-a9f0-b360804d8678
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 549f9157341c6b9508e63c0fadcdb06bade25d18
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: ce2693109669da084a67849105e859066f818213
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89538106"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102372"
 ---
 # <a name="create-spatial-index-transact-sql"></a>CREATE SPATIAL INDEX (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -170,7 +170,7 @@ CREATE SPATIAL INDEX index_name
 |**geography**|GEOGRAPHY_GRID|  
 |**geography**|GEOGRAPHY_AUTO_GRID|  
   
- Ein räumlicher Index kann nur für eine Spalte des Typs **Geometrie** oder **Geografie**erstellt werden. Andernfalls wird ein Fehler ausgelöst. Wird für einen bestimmten Typ ein ungültiger Parameter übergeben, wird ein Fehler ausgelöst.  
+ Ein räumlicher Index kann nur für eine Spalte des Typs **Geometrie** oder **Geografie** erstellt werden. Andernfalls wird ein Fehler ausgelöst. Wird für einen bestimmten Typ ein ungültiger Parameter übergeben, wird ein Fehler ausgelöst.  
   
  Informationen darüber, wie in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ein Mosaik implementiert wird, finden Sie unter [Übersicht über räumliche Indizes](../../relational-databases/spatial/spatial-indexes-overview.md).  
   
@@ -308,7 +308,7 @@ Gibt die Anzahl von Zellen pro Objekt für das Mosaik an, die vom Mosaikprozess 
 |GEOGRAPHY_GRID|**16**|  
 |GEOGRAPHY_AUTO_GRID|**12**|  
   
-Auf höchster Ebene verwendet die Indizierung die Anzahl von Zellen, die zum Bereitstellen eines vollständigen Mosaiks der höchsten Ebene erforderlich sind, wenn ein Objekt mehr Zellen abdeckt, als durch *n*angegeben sind. In solchen Fällen ist es möglich, dass ein Objekt mehr als die angegebene Anzahl von Zellen erhält. Die maximale Anzahl ist dann die Anzahl von Zellen, die von dem Raster der höchsten Ebene generiert wird, welche von der Dichte abhängt.  
+Auf höchster Ebene verwendet die Indizierung die Anzahl von Zellen, die zum Bereitstellen eines vollständigen Mosaiks der höchsten Ebene erforderlich sind, wenn ein Objekt mehr Zellen abdeckt, als durch *n* angegeben sind. In solchen Fällen ist es möglich, dass ein Objekt mehr als die angegebene Anzahl von Zellen erhält. Die maximale Anzahl ist dann die Anzahl von Zellen, die von dem Raster der höchsten Ebene generiert wird, welche von der Dichte abhängt.  
   
 Der CELLS_PER_OBJECT-Wert wird von der Zellen-pro-Objekt-Mosaikregel verwendet. Informationen zu Mosaikregeln finden Sie unter [Übersicht über räumliche Indizes](../../relational-databases/spatial/spatial-indexes-overview.md).  
   

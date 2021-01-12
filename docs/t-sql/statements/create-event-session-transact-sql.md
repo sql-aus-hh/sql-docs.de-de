@@ -21,14 +21,14 @@ helpviewer_keywords:
 - event sessions [SQL Server]
 - CREATE EVENT SESSION statement
 ms.assetid: 67683027-2b0f-47aa-b223-604731af8b4d
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 793db1e49becc3ea8b16076adae308c2b6c7f237
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 006ef49a390045d5c6d7d8c8c174da90e37f4f91
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300200"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100846"
 ---
 # <a name="create-event-session-transact-sql"></a>CREATE EVENT SESSION (Transact-SQL)
 
@@ -112,7 +112,7 @@ ON { SERVER | DATABASE }
 
 *event_session_name* ist der benutzerdefinierte Name für die Ereignissitzung. *event_session_name* ist alphanumerisch, kann bis zu 128 Zeichen enthalten, muss innerhalb einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eindeutig sein und muss den Regeln für [Bezeichner](../../relational-databases/databases/database-identifiers.md) entsprechen.
 
-ADD EVENT [ *event_module_guid* ]. *event_package_name* . *event_name* ist das Ereignis, das der Ereignissitzung zugeordnet werden soll. Dabei gilt:
+ADD EVENT [ *event_module_guid* ].*event_package_name*.*event_name* ist das Ereignis, das der Ereignissitzung zugeordnet werden soll. Dabei gilt:
 
 - *event_module_guid* ist die GUID für das Modul, das das Ereignis enthält.
 - *event_package_name* ist das Paket, das das Aktionsobjekt enthält.
@@ -120,9 +120,9 @@ ADD EVENT [ *event_module_guid* ]. *event_package_name* . *event_name* ist das E
 
 Ereignisse werden in der sys.dm_xe_objects-Sicht als object_type 'event' angezeigt.
 
-SET { *event_customizable_attribute*= \<value> [ ,... *n* ] } ermöglicht das Festlegen anpassbarer Attribute für das Ereignis. Anpassbare Attribute werden in der sys.dm_xe_object_columns-Sicht mit column_type 'customizable' und object_name = *event_name* angezeigt.
+SET { *event_customizable_attribute*= \<value> [ ,...*n*] } ermöglicht das Festlegen anpassbarer Attribute für das Ereignis. Anpassbare Attribute werden in der sys.dm_xe_object_columns-Sicht mit column_type 'customizable' und object_name = *event_name* angezeigt.
 
-ACTION ( { [ *event_module_guid* ]. *event_package_name* . *action_name* [ **,** ... *n* ] }) ist die Aktion, die der Ereignissitzung zugeordnet werden soll. Dabei gilt:
+ACTION ( { [*event_module_guid*].*event_package_name*.*action_name* [ **,** ...*n*] }) ist die Aktion, die der Ereignissitzung zugeordnet werden soll. Dabei gilt:
 
 - *event_module_guid* ist die GUID für das Modul, das das Ereignis enthält.
 - *event_package_name* ist das Paket, das das Aktionsobjekt enthält.
@@ -134,40 +134,40 @@ WHERE \<predicate_expression> gibt den Prädikatausdruck an, mit dessen Hilfe be
 
 *event_field_name* ist der Name des Ereignisfelds, das die Prädikatquelle identifiziert.
 
-[ *event_module_guid* ]. *event_package_name* . *predicate_source_name* ist der Name der globalen Prädikatquelle. Dabei gilt:
+[*event_module_guid*].*event_package_name*.*predicate_source_name* ist der Name der globalen Prädikatquelle. Dabei gilt:
 
 - *event_module_guid* ist die GUID für das Modul, das das Ereignis enthält.
 - *event_package_name* ist das Paket, das das Prädikatobjekt enthält.
 - *predicate_source_name* ist in der sys.dm_xe_objects-Sicht als object_type 'pred_source' definiert.
 
-[ *event_module_guid* ]. *event_package_name* . *predicate_compare_name* ist der Name des Prädikatobjekts, das dem Ereignis zugeordnet werden soll. Dabei gilt:
+[*event_module_guid*].*event_package_name*.*predicate_compare_name* ist der Name des Prädikatobjekts, das dem Ereignis zugeordnet werden soll. Dabei gilt:
 
 - *event_module_guid* ist die GUID für das Modul, das das Ereignis enthält.
 - *event_package_name* ist das Paket, das das Prädikatobjekt enthält.
 - *predicate_compare_name* ist eine globale Quelle, die in der sys.dm_xe_objects-Sicht als object_type 'pred_compare' definiert ist.
 
-*number* ist ein beliebiger numerischer Typ einschließlich **decimal** . Einschränkungen stellen der verfügbare physische Speicher oder eine Zahl dar, die zu groß ist, um als 64-Bit-Ganzzahl dargestellt werden zu können.
+*number* ist ein beliebiger numerischer Typ einschließlich **decimal**. Einschränkungen stellen der verfügbare physische Speicher oder eine Zahl dar, die zu groß ist, um als 64-Bit-Ganzzahl dargestellt werden zu können.
 
 *string* ist eine ANSI- oder Unicode-Zeichenfolge, die vom Prädikatvergleich verlangt wird. Für die Prädikatvergleichsfunktionen wird keine implizite Zeichenfolgentypkonvertierung ausgeführt. Die Übergabe des falschen Typs führt zu einem Fehler.
 
-ADD TARGET [ *event_module_guid* ]. *event_package_name* . *target_name* ist das Ziel, das der Ereignissitzung zugeordnet werden soll. Dabei gilt:
+ADD TARGET [ *event_module_guid* ].*event_package_name*.*target_name* ist das Ziel, das der Ereignissitzung zugeordnet werden soll. Dabei gilt:
 
 - *event_module_guid* ist die GUID für das Modul, das das Ereignis enthält.
 - *event_package_name* ist das Paket, das das Aktionsobjekt enthält.
 - *target_name* ist das Ziel. Ziele werden in der sys.dm_xe_objects-Sicht als object_type 'target' angezeigt.
 
-SET { *target_parameter_name*= \<value> [, ... *n* ] } legt einen Zielparameter fest. Zielparameter werden in der sys.dm_xe_object_columns-Sicht mit column_type 'customizable' und object_name = *target_name* angezeigt.
+SET { *target_parameter_name*= \<value> [, ...*n*] } legt einen Zielparameter fest. Zielparameter werden in der sys.dm_xe_object_columns-Sicht mit column_type 'customizable' und object_name = *target_name* angezeigt.
 
 > [!IMPORTANT]
 > Wenn Sie ein Ringpufferziel verwenden, sollten Sie den max_memory-Zielparameter auf 2048 Kilobytes (KB) festlegen, um ein mögliches Abschneiden der Daten in der XML-Ausgabe zu vermeiden. Informationen zur Verwendung von unterschiedlichen Zieltypen finden Sie unter [Ziele für erweiterte Ereignisse von SQL Server](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
-WITH ( \<event_session_options> [ ,... *n* ] ) gibt Optionen an, die für die Ereignissitzung verwendet werden sollen.
+WITH ( \<event_session_options> [ ,...*n*] ) gibt Optionen an, die für die Ereignissitzung verwendet werden sollen.
 
-MAX_MEMORY = *size* [ KB | **MB** ] gibt an, wie viel Arbeitsspeicher der Sitzung für die Ereignispufferung maximal zugeordnet werden soll. Die Standardeinstellung ist 4 MB. *size* ist eine ganze Zahl und kann in Kilobyte (KB) oder Megabyte (MB) angegeben werden. Die maximale Größe darf 2 GB (weniger als 2048 MB) nicht überschreiten. Die Verwendung von Speichergrößen im GB-Bereich wird nicht empfohlen.
+MAX_MEMORY =*size* [ KB | **MB** ] gibt an, wie viel Arbeitsspeicher der Sitzung für die Ereignispufferung maximal zugeordnet werden soll. Die Standardeinstellung ist 4 MB. *size* ist eine ganze Zahl und kann in Kilobyte (KB) oder Megabyte (MB) angegeben werden. Die maximale Größe darf 2 GB (weniger als 2048 MB) nicht überschreiten. Die Verwendung von Speichergrößen im GB-Bereich wird nicht empfohlen.
 
 EVENT_RETENTION_MODE = { **ALLOW_SINGLE_EVENT_LOSS** | ALLOW_MULTIPLE_EVENT_LOSS | NO_EVENT_LOSS } gibt den Ereignisbeibehaltungsmodus zum Behandeln von Ereignisverlusten an.
 
-**ALLOW_SINGLE_EVENT_LOSS** : Ein Ereignis der Sitzung darf verloren gehen. Ein einzelnes Ereignis wird nur gelöscht, wenn alle Ereignispuffer gefüllt sind. Wenn bei gefüllten Ereignispuffern nur ein Ereignis verloren geht, sind akzeptable [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Leistungsmerkmale möglich, während Datenverluste im verarbeiteten Ereignisdatenstrom minimiert werden.
+**ALLOW_SINGLE_EVENT_LOSS**: Ein Ereignis der Sitzung darf verloren gehen. Ein einzelnes Ereignis wird nur gelöscht, wenn alle Ereignispuffer gefüllt sind. Wenn bei gefüllten Ereignispuffern nur ein Ereignis verloren geht, sind akzeptable [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Leistungsmerkmale möglich, während Datenverluste im verarbeiteten Ereignisdatenstrom minimiert werden.
 
 ALLOW_MULTIPLE_EVENT_LOSS: Volle Ereignispuffer, die mehrere Ereignisse enthalten, dürfen in der Sitzung verloren gehen. Die Anzahl verloren gegangener Ereignisse hängt von der Größe des Speichers, der der Sitzung zugeordnet ist, der Partitionierung des Speichers und der Größe der Ereignisse im Puffer ab. Die Option minimiert die Leistungseinbußen auf dem Server, wenn Ereignispuffer schnell gefüllt werden, jedoch große Mengen von Ereignissen in der Sitzung verloren gehen können.
 
@@ -177,16 +177,16 @@ MAX_DISPATCH_LATENCY = { *seconds* SECONDS | **INFINITE** } gibt an, wie lange E
 
 *seconds* SECONDS: Die Wartezeit in Sekunden, bevor die Puffer geleert werden und ihr Inhalt an die Ziele gesendet wird. *seconds* ist eine ganze Zahl. Der Latenzzeitwert muss mindestens 1 Sekunde betragen. Mit dem Wert 0 kann jedoch eine INFINITE-Latenzzeit angegeben werden.
 
-**INFINITE** : Die Puffer werden nur dann geleert und ihr Inhalt an die Ziele gesendet, wenn die Puffer voll sind oder die Ereignissitzung geschlossen wird.
+**INFINITE**: Die Puffer werden nur dann geleert und ihr Inhalt an die Ziele gesendet, wenn die Puffer voll sind oder die Ereignissitzung geschlossen wird.
 
 > [!NOTE]
 > MAX_DISPATCH_LATENCY = 0 SECONDS entspricht MAX_DISPATCH_LATENCY = INFINITE.
 
-MAX_EVENT_SIZE = *size* [ KB | **MB** ] gibt die maximal zulässige Größe für Ereignisse an. MAX_EVENT_SIZE sollte so festgelegt werden, dass nur einzelne Ereignisse zugelassen werden, deren Wert den von MAX_MEMORY überschreitet. Ist der festgelegte Wert kleiner als der von MAX_MEMORY, wird ein Fehler ausgelöst. *size* ist eine ganze Zahl und kann in Kilobyte (KB) oder Megabyte (MB) angegeben werden. Wenn *size* in Kilobyte angegeben wird, ist die geringste zulässige Größe 64 KB. Wenn MAX_EVENT_SIZE festgelegt wird, werden zusätzlich zu MAX_MEMORY zwei Puffer von *size* erstellt. Dies bedeutet, dass der gesamte für die Ereignispufferung verwendete Arbeitsspeicher dem Wert von MAX_MEMORY + 2 * MAX_EVENT_SIZE entspricht.
+MAX_EVENT_SIZE =*size* [ KB | **MB** ] gibt die maximal zulässige Größe für Ereignisse an. MAX_EVENT_SIZE sollte so festgelegt werden, dass nur einzelne Ereignisse zugelassen werden, deren Wert den von MAX_MEMORY überschreitet. Ist der festgelegte Wert kleiner als der von MAX_MEMORY, wird ein Fehler ausgelöst. *size* ist eine ganze Zahl und kann in Kilobyte (KB) oder Megabyte (MB) angegeben werden. Wenn *size* in Kilobyte angegeben wird, ist die geringste zulässige Größe 64 KB. Wenn MAX_EVENT_SIZE festgelegt wird, werden zusätzlich zu MAX_MEMORY zwei Puffer von *size* erstellt. Dies bedeutet, dass der gesamte für die Ereignispufferung verwendete Arbeitsspeicher dem Wert von MAX_MEMORY + 2 * MAX_EVENT_SIZE entspricht.
 
 MEMORY_PARTITION_MODE = { **NONE** | PER_NODE | PER_CPU} gibt den Speicherort an, an dem Ereignispuffer erstellt werden.
 
-**NONE** : Innerhalb der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz wird ein einzelner Satz von Puffern erstellt.
+**NONE**: Innerhalb der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz wird ein einzelner Satz von Puffern erstellt.
 
 PER_NODE: Mehrere Puffer werden für jeden NUMA-Knoten erstellt.
 
@@ -201,7 +201,7 @@ STARTUP_STATE = { ON | **OFF** } gibt an, ob diese Ereignissitzung beim Start vo
 
 ON: Die Ereignissitzung wird beim Start gestartet.
 
-**OFF** : Die Ereignissitzung wird nicht beim Start gestartet.
+**OFF**: Die Ereignissitzung wird nicht beim Start gestartet.
 
 ## <a name="remarks"></a>Bemerkungen
 
