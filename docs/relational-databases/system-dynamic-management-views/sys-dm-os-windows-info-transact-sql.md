@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_windows_info dynamic management view
 ms.assetid: adc81283-fdc2-46c0-bb48-abe82bbf2459
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: b04ca0605a7487ba684889f4f0e84b3114d75744
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 111e5b732dae02a5bc2bc8dcffebb3b563206f9c
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834394"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094028"
 ---
 # <a name="sysdm_os_windows_info-transact-sql"></a>sys.dm_os_windows_info (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "91834394"
   
   Gilt nur für SQL Server, die unter Windows ausgeführt wird. Verwenden Sie [sys.dm_os_host_info &#40;Transact-SQL-&#41;](~/relational-databases/system-dynamic-management-views/sys-dm-os-host-info-transact-sql.md), um eine ähnliche Information für SQL Server, die auf einem nicht-Windows-Host ausgeführt wird, wie z. b. Linux, anzuzeigen. 
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**windows_release**|**nvarchar(256)**|Für Windows wird die Releasenummer zurückgegeben. Eine Liste der Werte mit Beschreibungen finden Sie unter [Betriebssystemversion (Windows)](/windows/desktop/SysInfo/operating-system-version). Lässt keine NULL-Werte zu.|  
 |**windows_service_pack_level**|**nvarchar(256)**| Für Windows wird die Service Pack Zahl zurückgegeben. Lässt keine NULL-Werte zu. |  

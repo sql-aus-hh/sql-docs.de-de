@@ -22,14 +22,14 @@ helpviewer_keywords:
 - compatibility [SQL Server], system tables
 - user IDs [SQL Server]
 ms.assetid: 8e4624f5-9d36-4ce7-9c9e-1fe010fa2122
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 3eb92654dfb25a0e66d2e071040e487e6a404366
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7ba0c3b5c023d1d2b6a3d025de7f96f49a4b3c1a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88482037"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095297"
 ---
 # <a name="system-compatibility-views-transact-sql"></a>Systemkompatibilitäts-Sichten (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "88482037"
   
  Wenn in einer Benutzerdatenbank auf Sie verwiesen wird, sind Systemtabellen, die in SQL Server 2000 (z. b. **syslanguages** oder **syscacheobjects**) als veraltet markiert wurden, nun an die Ansicht der Back Kompatibilität im **sys** -Schema gebunden. Da die SQL Server 2000-Systemtabellen für mehrere Versionen als veraltetet markiert wurden, wird diese Änderung nicht als wichtige Änderung eingestuft.  
   
- Beispiel: Wenn ein Benutzer eine Benutzertabelle namens " **syslanguages** " in einer Benutzerdatenbank erstellt, würde die-Anweisung in der-Datenbank in SQL Server 2008 `SELECT * from dbo.syslanguages;` die Werte aus der Benutzertabelle zurückgeben. Ab SQL Server 2012 werden Daten aus der Systemansicht **sys.sysSprachen**zurückgegeben.  
+ Beispiel: Wenn ein Benutzer eine Benutzertabelle namens " **syslanguages** " in einer Benutzerdatenbank erstellt, würde die-Anweisung in der-Datenbank in SQL Server 2008 `SELECT * from dbo.syslanguages;` die Werte aus der Benutzertabelle zurückgeben. Ab SQL Server 2012 werden Daten aus der Systemansicht **sys.sysSprachen** zurückgegeben.  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Katalogsichten &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/catalog-views-transact-sql.md)   

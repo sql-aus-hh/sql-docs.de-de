@@ -1,6 +1,6 @@
 ---
 description: sys.numbered_procedure_parameters (Transact-SQL)
-title: sys. numbered_procedure_parameters (Transact-SQL) | Microsoft-Dokumentation
+title: sys.numbered_procedure_parameters (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.numbered_procedure_parameters catalog view
 ms.assetid: a441d46d-1f30-41c2-8d94-e9442f59786e
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 4bb67e0f0063c9ed7469b0a3d9e29a29b8117e22
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 6d716d8b08d479043bfb592b743d987ddd7bf73f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539596"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095494"
 ---
 # <a name="sysnumbered_procedure_parameters-transact-sql"></a>sys.numbered_procedure_parameters (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -42,8 +42,8 @@ ms.locfileid: "89539596"
 |-----------------|---------------|-----------------|  
 |**object_id**|**int**|Die ID des Objekts, zu dem dieser Parameter gehört.|  
 |**procedure_number**|**smallint**|Die Nummer dieser Prozedur innerhalb des Objekts, d. h. 2 oder größer.|  
-|**name**|**sysname**|Der Name des Parameters. Ist innerhalb von **procedure_number**eindeutig.|  
-|**parameter_id**|**int**|ID des Parameters. Ist innerhalb von **procedure_number**eindeutig.|  
+|**name**|**sysname**|Der Name des Parameters. Ist innerhalb von **procedure_number** eindeutig.|  
+|**parameter_id**|**int**|ID des Parameters. Ist innerhalb von **procedure_number** eindeutig.|  
 |**system_type_id**|**tinyint**|Die Systemtyp-ID des Parameters.|  
 |**user_type_id**|**int**|Die ID des Parametertyps gemäß der Definition seitens des Benutzers.|  
 |**max_length**|**smallint**|Die maximale Länge des Parameters in Byte.<br /><br /> -1 = Spaltendaten sind vom Datentyp varchar(max), nvarchar(max) oder varbinary(max).|  

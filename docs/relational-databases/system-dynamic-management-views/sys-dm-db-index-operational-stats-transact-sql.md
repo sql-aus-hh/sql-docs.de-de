@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_db_index_operational_stats dynamic management function
 ms.assetid: 13adf2e5-2150-40a6-b346-e74a33ce29c6
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: b1f177d09dd741eadc967a2b32a87a905e04dfb6
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a6eb4083361d07fee44557d20dd4be4625cbdb12
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475071"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095175"
 ---
 # <a name="sysdm_db_index_operational_stats-transact-sql"></a>sys.dm_db_index_operational_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -85,7 +85,7 @@ sys.dm_db_index_operational_stats (
     
 ## <a name="table-returned"></a>Zurückgegebene Tabelle    
     
-|Spaltenname|Datentyp|Beschreibung|    
+|Spaltenname|Datentyp|BESCHREIBUNG|    
 |-----------------|---------------|-----------------|    
 |**database_id**|**smallint**|Datenbank-ID|    
 |**object_id**|**int**|ID der Tabelle oder Sicht.|    
@@ -133,7 +133,7 @@ sys.dm_db_index_operational_stats (
 |**page_compression_attempt_count**|**bigint**|Die Anzahl der Seiten, die für Komprimierung auf PAGE-Ebene für bestimmte Partitionen einer Tabelle, eines Index oder einer indizierten Sicht bewertet wurden. Dies schließt Seiten ein, die nicht komprimiert wurden, da beträchtliche Einsparungen nicht erreicht werden konnten. Immer 0 für den columnstore-Index.|    
 |**page_compression_success_count**|**bigint**|Die Anzahl der Datenseiten, die mithilfe von PAGE-Komprimierung für bestimmte Partitionen einer Tabelle, eines Index oder einer indizierten Sicht komprimiert wurden. Immer 0 für den columnstore-Index.|    
     
-## <a name="remarks"></a>Hinweise    
+## <a name="remarks"></a>Bemerkungen    
  Dieses dynamische Verwaltungs Objekt akzeptiert keine korrelierten Parameter von `CROSS APPLY` und `OUTER APPLY` .    
     
  Mithilfe von **sys.dm_db_index_operational_stats** können Sie nachverfolgen, wie lange Benutzer warten müssen, um eine Tabelle, einen Index oder eine Partition zu lesen, in eine Tabelle, einen Index oder eine Partition zu schreiben und die Tabellen oder Indizes mit hohen E/A-Aktivitäten oder Hotspots zu identifizieren.    

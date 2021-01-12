@@ -1,6 +1,6 @@
 ---
 description: sys.fn_translate_permissions (Transact-SQL)
-title: sys. fn_translate_permissions (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_translate_permissions (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/15/2017
 ms.prod: sql
@@ -20,14 +20,14 @@ helpviewer_keywords:
 - sys.fn_translate_permissions function
 - fn_translate_permissions function
 ms.assetid: ac97121f-2bd0-4f71-8e45-42c8584edbc5
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 1069d5b76d6ee404ddd2e671eb6a7b63396424ee
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: e4d00e0b945012cb8a1b583921328009d12a34ad
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88481763"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094938"
 ---
 # <a name="sysfn_translate_permissions-transact-sql"></a>sys.fn_translate_permissions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -50,11 +50,11 @@ sys.fn_translate_permissions ( level , perms )
  *perms*  
  Eine Bitmaske, die in der Berechtigungsspalte zurückgegeben wird. *perms* ist **varbinary (16)**.  
   
-## <a name="returns"></a>Rückgabe  
+## <a name="returns"></a>Gibt zurück  
  **Tabelle**  
   
 ## <a name="remarks"></a>Bemerkungen  
- Der in der Spalte **Berechtigungen** einer SQL-Ablauf Verfolgung zurückgegebene Wert ist eine ganzzahlige Darstellung einer Bitmaske, die von verwendet wird [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , um effektive Berechtigungen zu berechnen. Jede der 25 Arten sicherungsfähiger Elemente verfügt über einen eigenen Satz Berechtigungen mit entsprechenden numerischen Werten. **sys. fn_translate_permissions** übersetzt diese Bitmaske in eine Tabelle von Berechtigungs Namen.  
+ Der in der Spalte **Berechtigungen** einer SQL-Ablauf Verfolgung zurückgegebene Wert ist eine ganzzahlige Darstellung einer Bitmaske, die von verwendet wird [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , um effektive Berechtigungen zu berechnen. Jede der 25 Arten sicherungsfähiger Elemente verfügt über einen eigenen Satz Berechtigungen mit entsprechenden numerischen Werten. **sys.fn_translate_permissions** übersetzt diese Bitmaske in eine Tabelle von Berechtigungs Namen.  
   
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die Mitgliedschaft in der **public** -Rolle.  

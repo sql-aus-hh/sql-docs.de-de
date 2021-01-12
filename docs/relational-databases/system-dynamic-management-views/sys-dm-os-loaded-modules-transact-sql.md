@@ -1,6 +1,6 @@
 ---
 description: sys.dm_os_loaded_modules (Transact-SQL)
-title: sys. dm_os_loaded_modules (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_os_loaded_modules (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/18/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_loaded_modules dynamic management view
 ms.assetid: 56c7743a-b568-4943-bd3b-73c57d9d641c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: af93d167af59eb95b4a1edd83109eebbd12782c7
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 77f4e2e69e73be88bd4cb70dcad7d7069eb8539d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542167"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094029"
 ---
 # <a name="sysdm_os_loaded_modules-transact-sql"></a>sys.dm_os_loaded_modules (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "89542167"
   Gibt für jedes in den Serveradressbereich geladene Modul eine Zeile zurück.  
   
 > [!NOTE]  
->  Um dies in aufzurufen [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , verwenden Sie den Namen **sys. dm_pdw_nodes_os_loaded_modules**.  
+>  Um dies in aufzurufen [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , verwenden Sie den Namen **sys.dm_pdw_nodes_os_loaded_modules**.  
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  

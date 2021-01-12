@@ -1,6 +1,6 @@
 ---
 description: sys.spatial_index_tessellations (Transact-SQL)
-title: sys. spatial_index_tessellations (Transact-SQL) | Microsoft-Dokumentation
+title: sys.spatial_index_tessellations (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.spatial_index_tessellations catalog view
 ms.assetid: 8b17a9a4-b57f-4220-8138-fc73581b1670
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 783c73ba514e348cd515929ae988c4097225ec5b
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: ddf7b9cd75999da6cc48f6e7a83bab7a733f822b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539491"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095417"
 ---
 # <a name="sysspatial_index_tessellations-transact-sql"></a>sys.spatial_index_tessellations (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "89539491"
 
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
-|object_id|**int**|Die ID des Objekts, für das der Index definiert wird. Jedes Paar (object_id index_id) verfügt über einen entsprechenden Eintrag in [sys. spatial_indexes](../../relational-databases/system-catalog-views/sys-spatial-indexes-transact-sql.md).|  
+|object_id|**int**|Die ID des Objekts, für das der Index definiert wird. Jedes Paar (object_id index_id) verfügt über einen entsprechenden Eintrag in [sys.spatial_indexes](../../relational-databases/system-catalog-views/sys-spatial-indexes-transact-sql.md).|  
 |index_id|**int**|Die ID des räumlichen Indexes, in dem die indizierte Spalte definiert wird.|  
 |tessellation_scheme|**sysname**|Der Name des Mosaik Schemas, z. a.: GEOMETRY_GRID GEOGRAPHY_GRID|  
 |bounding_box_xmin|**float(53)**|X-Koordinate der unteren linken Ecke des umgebenden Felds, eines von: NULL = nicht zutreffend für ein bestimmtes Mosaik Schema (z. b. GEOGRAPHY_GRID) *n* =, Wenn tessellation_scheme GEOMETRY_GRID ist, der minimale x-Koordinaten Wert.                     **Hinweis:** Die durch die Parameter des Begrenzungs Rahmens definierten Koordinaten werden für jedes Objekt entsprechend seiner [SRID (Spatial Reference Identifier)](../../relational-databases/spatial/spatial-reference-identifiers-srids.md)interpretiert.|  

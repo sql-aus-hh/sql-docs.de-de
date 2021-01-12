@@ -1,6 +1,6 @@
 ---
 description: sys.fn_cdc_map_time_to_lsn (Transact-SQL)
-title: sys. fn_cdc_map_time_to_lsn (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_cdc_map_time_to_lsn (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/14/2017
 ms.prod: sql
@@ -19,19 +19,19 @@ helpviewer_keywords:
 - fn_cdc_map_time_to_lsn
 - sys.fn_cdc_map_time_to_lsn
 ms.assetid: 6feb051d-77ae-4c93-818a-849fe518d1d4
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 638bf2b99069c718e4e84ab0ccc888300a56bc68
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 38f07d3d3c46a46bc18f84d54b14809c201ee219
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427882"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094961"
 ---
 # <a name="sysfn_cdc_map_time_to_lsn-transact-sql"></a>sys.fn_cdc_map_time_to_lsn (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Gibt den Wert der Protokollfolgenummer (LSN) für die angegebene Zeit in der **start_lsn** -Spalte der [cdc.lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) -Systemtabelle zurück. Sie können diese Funktion verwenden, um DateTime-Bereiche systematisch dem LSN-basierten Bereich zuzuordnen, der von den Change Data Capture-Enumerationsfunktionen [CDC. fn_cdc_get_all_changes_<capture_instance>](../../relational-databases/system-functions/cdc-fn-cdc-get-all-changes-capture-instance-transact-sql.md) und [CDC. fn_cdc_get_net_changes_<](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md) capture_instance>, um Datenänderungen innerhalb dieses Bereichs zurückzugeben.  
+  Gibt den Wert der Protokollfolgenummer (LSN) für die angegebene Zeit in der **start_lsn** -Spalte der [cdc.lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) -Systemtabelle zurück. Sie können diese Funktion verwenden, um DateTime-Bereiche systematisch dem LSN-basierten Bereich zuzuordnen, der von den Change Data Capture-Enumerationsfunktionen [CDC.fn_cdc_get_all_changes_<capture_instance>](../../relational-databases/system-functions/cdc-fn-cdc-get-all-changes-capture-instance-transact-sql.md) und [CDC.fn_cdc_get_net_changes_ ](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)<capture_instance>, um Datenänderungen innerhalb dieses Bereichs zurückzugeben.  
   
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
@@ -95,9 +95,9 @@ END
 ```  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [CDC. lsn_time_mapping &#40;Transact-SQL-&#41;](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md)   
- [sys. fn_cdc_map_lsn_to_time &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-cdc-map-lsn-to-time-transact-sql.md)   
- [CDC. fn_cdc_get_net_changes_&#60;capture_instance&#62; &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)   
+ [CDC.lsn_time_mapping &#40;Transact-SQL-&#41;](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md)   
+ [sys.fn_cdc_map_lsn_to_time &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-cdc-map-lsn-to-time-transact-sql.md)   
+ [CDC.fn_cdc_get_net_changes_&#60;capture_instance&#62; &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)   
  [cdc.fn_cdc_get_all_changes_&#60;capture_instance&#62;  &#40;Transact-SQL&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-all-changes-capture-instance-transact-sql.md)  
   
   

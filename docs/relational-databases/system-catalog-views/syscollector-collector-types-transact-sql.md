@@ -17,14 +17,14 @@ helpviewer_keywords:
 - data collector view
 - syscollector_collector_types view
 ms.assetid: d5cd30bb-89fd-4814-a7e8-9074f043f90f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 694f14e95c0bec4edaf94c7a2c8a3885ad841c24
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 04a9bc5f6336119d08285ae73dfa7a09ae5d3648
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537284"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094254"
 ---
 # <a name="syscollector_collector_types-transact-sql"></a>syscollector_collector_types (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "89537284"
 |**upload_package_id**|**uniqueidentifer**|GUID für das Uploadpaket. Lässt keine NULL-Werte zu.|  
 |**upload_package_path**|**nvarchar(4000)**|Stellt den Pfad für das Uploadpaket bereit. Lässt NULL-Werte zu.|  
 |**upload_package_name**|**sysname**|Der Name des Uploadpakets. Lässt keine NULL-Werte zu.|  
-|**is_system**|**bit**|Aktiviert (1) oder deaktiviert (0), um anzugeben, ob der Sammlertyp im Lieferumfang des Datensammlers enthalten war oder ob er später von **dc_admin**hinzugefügt wurde. Dies könnte ein benutzerdefinierter Typ sein, der intern oder durch einen Drittanbieter entwickelt wurde. Lässt keine NULL-Werte zu.|  
+|**is_system**|**bit**|Aktiviert (1) oder deaktiviert (0), um anzugeben, ob der Sammlertyp im Lieferumfang des Datensammlers enthalten war oder ob er später von **dc_admin** hinzugefügt wurde. Dies könnte ein benutzerdefinierter Typ sein, der intern oder durch einen Drittanbieter entwickelt wurde. Lässt keine NULL-Werte zu.|  
   
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert SELECT für **dc_operator**, **dc_proxy**.  
@@ -52,7 +52,7 @@ ms.locfileid: "89537284"
   
 |Aktualisierter Inhalt|  
 |---------------------|  
-|Der Spaltenname **collection_type_uid** wurde auf **collector_type_uid**aktualisiert.|  
+|Der Spaltenname **collection_type_uid** wurde auf **collector_type_uid** aktualisiert.|  
 |Die Beschreibung für die Spalte **parameter_schema** wurde korrigiert, um anzugeben, dass der Wert NULL sein kann.|  
 |Die Spalte **parameter_formatter** wurde hinzugefügt.|  
 |Der Datentyp für die Spalte **collection_package_path** wurde korrigiert, außerdem wurde die Beschreibung aktualisiert, um anzugeben, dass der Wert NULL sein kann.|  

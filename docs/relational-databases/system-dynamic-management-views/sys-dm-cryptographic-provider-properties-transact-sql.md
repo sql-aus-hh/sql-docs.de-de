@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_cryptographic_provider_properties dynamic management view
 ms.assetid: 024b0095-6766-4189-a39a-d316c5ec2874
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 419793e94cc85a8dba1e29f4b79694820518eaad
-ms.sourcegitcommit: 49ee3d388ddb52ed9cf78d42cff7797ad6d668f2
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: bf565e0ace07c592a5ae345b7e9b2d04c3aff23d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384661"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095221"
 ---
 # <a name="sysdm_cryptographic_provider_properties-transact-sql"></a>sys.dm_cryptographic_provider_properties (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,12 +32,12 @@ ms.locfileid: "94384661"
   Gibt Informationen über registrierte Kryptografieanbieter zurück.  
   
  
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |provider_id|**int**|ID des Kryptografieanbieters.|  
 |guid|**uniqueidentifier**|Eindeutige Anbieter-GUID.|  
-|provider_version|**nvarchar(256)**|Version des Anbieters im Format ' *aa.bb.cccc.dd* '.|  
-|sqlcrypt_version|**nvarchar(256)**|Hauptversionsnummer der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Cryptographic API im Format ' *aa.bb.cccc.dd* '.|  
+|provider_version|**nvarchar(256)**|Version des Anbieters im Format '*aa.bb.cccc.dd*'.|  
+|sqlcrypt_version|**nvarchar(256)**|Hauptversionsnummer der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Cryptographic API im Format '*aa.bb.cccc.dd*'.|  
 |friendly_name|**nvarchar (2048)**|Vom Anbieter bereitgestellter Name.|  
 |authentication_type|**nvarchar(256)**|WINDOWS, BASIC oder OTHER.|  
 |symmetric_key_support|**tinyint**|0 (nicht unterstützt)<br /><br /> 1 (unterstützt)|  

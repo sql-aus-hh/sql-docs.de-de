@@ -17,15 +17,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_db_log_stats dynamic management function
 ms.assetid: ''
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=sql-server-2017||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 5a5ea85a212e33a3e26ef295cc4d38c84967560a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ddfd608b3f2d5bb5c4c259dfb0ec822f245f72b3
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472831"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096562"
 ---
 # <a name="sysdm_db_log_stats-transact-sql"></a>sys.dm_db_log_stats (Transact-SQL)   
 [!INCLUDE[tsql-appliesto-2016sp2-asdb-xxxx-xxx-md](../../includes/tsql-appliesto-2016sp2-asdb-xxxx-xxx-md.md)]
@@ -50,7 +50,7 @@ Die integrierte [DB_ID](../../t-sql/functions/db-id-transact-sql.md)-Funktion ka
   
 ## <a name="tables-returned"></a>Zurückgegebene Tabellen  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |database_id    |**int**    |Datenbank-ID |  
 |recovery_model |**nvarchar(60)**   |   Wiederherstellungs Modell der Datenbank. Mögliche Werte sind: <br /> SIMPLE<br /> BULK_LOGGED <br /> FULL |  
@@ -73,7 +73,7 @@ Die integrierte [DB_ID](../../t-sql/functions/db-id-transact-sql.md)-Funktion ka
 |recovery_vlf_count |**bigint** |   Die Gesamtanzahl der [virtuellen Protokolldateien (VLFs)](../../relational-databases/sql-server-transaction-log-architecture-and-management-guide.md#physical_arch) , die wieder hergestellt werden sollen, wenn ein Failover oder ein Server Neustart aufgetreten ist. |  
 
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 Wenn eine `sys.dm_db_log_stats` Datenbank, die an einer Verfügbarkeits Gruppe teilnimmt, als sekundäres Replikat ausgeführt wird, wird nur eine Teilmenge der oben beschriebenen Felder zurückgegeben.  Derzeit werden nur `database_id` , `recovery_model` und `log_backup_time` zurückgegeben, wenn Sie für eine sekundäre Datenbank ausgeführt werden.   
 
 ## <a name="permissions"></a>Berechtigungen  

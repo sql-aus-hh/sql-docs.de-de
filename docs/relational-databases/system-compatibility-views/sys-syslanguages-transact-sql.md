@@ -19,22 +19,22 @@ helpviewer_keywords:
 - syslanguages system table
 - sys.syslanguages compatibility view
 ms.assetid: f216d1cd-997c-42f0-a737-abbdfcd88383
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 2568e89347bd14ba71e557822d45da5821d53e10
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 2174d08692915c5053486f403462d2c1ac16966d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475141"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094198"
 ---
 # <a name="syssyslanguages-transact-sql"></a>sys.syslanguages (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Enthält eine Zeile für jede Sprache in der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |langid|**smallint**|Eindeutige Sprachen-ID.|  
 |dateformat|**nchar(3)**|Reihenfolge in Datumsangaben, z. B. DMY.|  
@@ -84,7 +84,7 @@ ms.locfileid: "97475141"
 |Koreanisch|1042|1042|  
 |Chinesisch (vereinfacht)|2052|2052|  
 |Arabisch|1025|1025|  
-|Thai|1054|1054|  
+|Thailändisch|1054|1054|  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Kompatibilitäts Sichten &#40;Transact-SQL-&#41;](~/relational-databases/system-compatibility-views/system-compatibility-views-transact-sql.md)   

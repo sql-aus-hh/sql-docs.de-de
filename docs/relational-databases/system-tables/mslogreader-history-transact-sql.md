@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSlogreader_history system table
 ms.assetid: 2e399fa1-3591-4c1c-96b7-7964fe82c7c4
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: ae2abdcaf4014df405ebf6dcefff8e2207530a93
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: e6e3c54c859a542f5992a0e2199099e6b93bb27c
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89545732"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096261"
 ---
 # <a name="mslogreader_history-transact-sql"></a>MSlogreader_history (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "89545732"
 |**delivered_commands**|**int**|Die Gesamtzahl der in der Sitzung übermittelten Befehle.|  
 |**average_commands**|**int**|Die durchschnittliche Anzahl der in der Sitzung übermittelten Befehle.|  
 |**delivery_rate**|**float**|Die durchschnittliche Anzahl der pro Sekunde übermittelten Befehle.|  
-|**delivery_latency**|**int**|Die Latenzzeit zwischen dem Eintritt des Befehls in die veröffentlichte Datenbank und seinem Eintritt in die Verteilungsdatenbank. In Millisekunden|  
+|**delivery_latency**|**int**|Die Latenzzeit zwischen dem Eintritt des Befehls in die veröffentlichte Datenbank und seinem Eintritt in die Verteilungsdatenbank. In Millisekunden.|  
 |**error_id**|**int**|Die ID des Fehlers in der **MSrepl_error** -Systemtabelle.|  
 |**timestamp**|**timestamp**|Die Timestampspalte dieser Tabelle.|  
 |**updateable_row**|**bit**|Auf **1** festgelegt, wenn die Verlaufs Zeile überschrieben werden kann.|  

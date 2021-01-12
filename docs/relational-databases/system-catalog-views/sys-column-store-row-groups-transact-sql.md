@@ -19,14 +19,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.column_store_row_groups catalog view
 ms.assetid: 76e7fef2-d1a4-4272-a2bb-5f5dcd84aedc
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 95d7d35ad00eb1e134f7eec2165c2c59dea933e2
-ms.sourcegitcommit: 9c6130d498f1cfe11cde9f2e65c306af2fa8378d
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: c6e99ae69d27bbaebbd0fa8bd720820f14064d9b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93036076"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095620"
 ---
 # <a name="syscolumn_store_row_groups-transact-sql"></a>sys.column_store_row_groups (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
@@ -53,7 +53,7 @@ ms.locfileid: "93036076"
   
  Wenn die Anzahl der gelöschten Zeilen in einer Zeilengruppe auf einen hohen Prozentsatz der Gesamtzeilen ansteigt, wird die Tabelle weniger effizient. Erstellen Sie den columnstore-Index neu, um die Tabellengröße zu verringern und die Datenträger-E/A zu reduzieren, die zum Lesen der Tabelle erforderlich ist. Verwenden Sie die **Rebuild** -Option der **Alter Index** -Anweisung, um den columnstore--Index neu zu erstellen.  
   
- Der aktualisierbare columnstore-fügt zunächst neue Daten in eine **geöffnete** Zeilen Gruppe ein, die im rowstore-Format vorliegt, und wird manchmal auch als Delta Tabelle bezeichnet.  Wenn eine offene Zeilen Gruppe voll ist, ändert sich der Status in " **geschlossen** ". Eine geschlossene Zeilen Gruppe wird vom tupelverschiebungsvorgang im columnstore--Format komprimiert, und der Status ändert sich in **komprimiert** .  Die Tupelverschiebungsfunktion ist ein Hintergrundprozess, der regelmäßig aktiv wird und überprüft, ob geschlossene Zeilengruppen vorhanden sind, die in eine columnstore-Zeilengruppe komprimiert werden können.  Die Tupelverschiebungsfunktion gibt außerdem alle Zeilengruppen frei, in denen alle Zeilen gelöscht wurden. Die zugeordneten Zeilen Gruppen werden als **Tombstone** gekennzeichnet. Verwenden Sie die Option **reorganisieren** der **Alter Index** -Anweisung, um den tupelverschiebungsvorgang sofort auszuführen.  
+ Der aktualisierbare columnstore-fügt zunächst neue Daten in eine **geöffnete** Zeilen Gruppe ein, die im rowstore-Format vorliegt, und wird manchmal auch als Delta Tabelle bezeichnet.  Wenn eine offene Zeilen Gruppe voll ist, ändert sich der Status in " **geschlossen**". Eine geschlossene Zeilen Gruppe wird vom tupelverschiebungsvorgang im columnstore--Format komprimiert, und der Status ändert sich in **komprimiert**.  Die Tupelverschiebungsfunktion ist ein Hintergrundprozess, der regelmäßig aktiv wird und überprüft, ob geschlossene Zeilengruppen vorhanden sind, die in eine columnstore-Zeilengruppe komprimiert werden können.  Die Tupelverschiebungsfunktion gibt außerdem alle Zeilengruppen frei, in denen alle Zeilen gelöscht wurden. Die zugeordneten Zeilen Gruppen werden als **Tombstone** gekennzeichnet. Verwenden Sie die Option **reorganisieren** der **Alter Index** -Anweisung, um den tupelverschiebungsvorgang sofort auszuführen.  
   
  Wenn eine columnstore-Zeilengruppe aufgefüllt wurde, wird sie komprimiert und akzeptiert keine neuen Zeilen mehr. Wenn aus einer komprimierten Gruppe Zeilen gelöscht werden, verbleiben sie zwar, werden aber als gelöscht gekennzeichnet. Updates einer komprimierten Gruppe werden als Löschvorgang für die komprimierte Gruppe und als Einfügevorgang für eine offene Gruppe implementiert.  
   

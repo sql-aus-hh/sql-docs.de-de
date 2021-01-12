@@ -1,6 +1,6 @@
 ---
-description: sys. fn_db_backup_file_snapshots (Transact-SQL)
-title: sys. fn_db_backup_file_snapshots (Transact-SQL) | Microsoft-Dokumentation
+description: sys.fn_db_backup_file_snapshots (Transact-SQL)
+title: sys.fn_db_backup_file_snapshots (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/03/2015
 ms.prod: sql
@@ -11,19 +11,19 @@ ms.topic: language-reference
 dev_langs:
 - TSQL
 ms.assetid: 45010ff2-219f-4086-9ea4-016a6c17cddd
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 067a1d65b65c1e2cc9bde252e6f56951e87950a8
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 4976e0ae436fe1c9c59742b6580ae083b3e3c5c4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427792"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094937"
 ---
-# <a name="sysfn_db_backup_file_snapshots-transact-sql"></a>sys. fn_db_backup_file_snapshots (Transact-SQL)
+# <a name="sysfn_db_backup_file_snapshots-transact-sql"></a>sys.fn_db_backup_file_snapshots (Transact-SQL)
 [!INCLUDE [sqlserver2016](../../includes/applies-to-version/sqlserver2016.md)]
 
-  Gibt die den Datenbankdateien zugeordneten Azure-Momentaufnahmen zurück. Wenn die angegebene Datenbank nicht gefunden wird oder die Datenbankdateien nicht im Microsoft Azure BLOB Storage-Dienst gespeichert werden, werden keine Zeilen zurückgegeben. Verwenden Sie diese Systemfunktion in Verbindung mit der gespeicherten System Prozedur **sys. sp_delete_backup_file_snapshot** , um verwaiste Sicherungs Momentaufnahmen zu identifizieren und zu löschen. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
+  Gibt die den Datenbankdateien zugeordneten Azure-Momentaufnahmen zurück. Wenn die angegebene Datenbank nicht gefunden wird oder die Datenbankdateien nicht im Microsoft Azure BLOB Storage-Dienst gespeichert werden, werden keine Zeilen zurückgegeben. Verwenden Sie diese Systemfunktion zusammen mit der gespeicherten System Prozedur **sys.sp_delete_backup_file_snapshot** , um verwaiste Sicherungs Momentaufnahmen zu identifizieren und zu löschen. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
   
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   

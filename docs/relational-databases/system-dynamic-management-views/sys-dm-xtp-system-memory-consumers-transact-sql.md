@@ -1,6 +1,6 @@
 ---
 description: sys.dm_xtp_system_memory_consumers (Transact-SQL)
-title: sys. dm_xtp_system_memory_consumers (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_xtp_system_memory_consumers (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_xtp_system_memory_consumers dynamic management view
 ms.assetid: 9eb0dd82-7920-42e0-9e50-7ce6e7ecee8b
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: e998b531c867d78bbf27bff516aaecda6f7f9f88
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 20edce0accbe4549b5c109b8d6958fd742cd4ede
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543786"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096393"
 ---
 # <a name="sysdm_xtp_system_memory_consumers-transact-sql"></a>sys.dm_xtp_system_memory_consumers (Transact-SQL)
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -49,10 +49,10 @@ select * from sys.dm_xtp_system_memory_consumers
 |allocated_bytes|**bigint**|Anzahl der für den Consumer reservierten Bytes.|  
 |used_bytes|**bigint**|Die von diesem Consumer verwendeten Bytes. Gilt nur für varheap-Arbeitsspeicherconsumer.|  
 |allocation_count|**int**|Anzahl der Zuordnungen.|  
-|partition_count|**int**|Nur interne Verwendung.|  
-|sizeclass_count|**int**|Nur interne Verwendung.|  
-|min_sizeclass|**int**|Nur interne Verwendung.|  
-|max_sizeclass|**int**|Nur interne Verwendung.|  
+|partition_count|**int**|Nur zur internen Verwendung.|  
+|sizeclass_count|**int**|Nur zur internen Verwendung.|  
+|min_sizeclass|**int**|Nur zur internen Verwendung.|  
+|max_sizeclass|**int**|Nur zur internen Verwendung.|  
 |memory_consumer_address|**varbinary**|Interne Adresse des Consumers.|  
   
 ## <a name="permissions"></a>Berechtigungen  

@@ -1,6 +1,6 @@
 ---
 description: sys.internal_tables (Transact-SQL)
-title: sys. internal_tables (Transact-SQL) | Microsoft-Dokumentation
+title: sys.internal_tables (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/14/2019
 ms.prod: sql
@@ -19,14 +19,14 @@ helpviewer_keywords:
 - internal tables
 - sys.internal_tables catalog view
 ms.assetid: a5821c70-f150-4676-8476-3a31f7403dca
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: c46f6a7f66ff9dfba0ebf9a7b4dfe4e39eef7033
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: ecc601c3eec509258cdac61a9c9216077f36f712
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89548731"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094513"
 ---
 # <a name="sysinternal_tables-transact-sql"></a>sys.internal_tables (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -41,22 +41,22 @@ ms.locfileid: "89548731"
 |**\<Columns inherited from sys.objects>**||Eine Liste der Spalten, die diese Sicht erbt, finden Sie unter [sys. Objects &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-objects-transact-sql.md).|  
 |**internal_type**|**tinyint**|Der Typ der internen Tabelle:<br /><br /> 3 = **query_disk_store_query_hints**<br /><br /> 4 = **query_disk_store_query_template_parameterization**<br /><br /> 6 = **query_disk_store_wait_stats**<br /><br /> 201 = **queue_messages**<br /><br /> 202 = **xml_index_nodes**<br /><br /> 203 = **fulltext_catalog_freelist**<br /><br /> 205 = **query_notification**<br /><br /> 206 = **service_broker_map**<br /><br /> 207 = **extended_indexes** (z. b. ein räumlicher Index)<br /><br /> 208 = **filestream_tombstone**<br /><br /> 209 = **CHANGE_TRACKING**<br /><br /> 210 = **tracked_committed_transactions**<br /><br /> 220 = **contained_features**<br /><br /> 225 = **filetable_updates**<br /><br /> 236 = **selective_xml_index_node_table**<br /><br /> 240 = **query_disk_store_query_text**<br /><br /> 241 = **query_disk_store_query**<br /><br /> 242 = **query_disk_store_plan**<br /><br /> 243 = **query_disk_store_runtime_stats**<br /><br /> 244 = **query_disk_store_runtime_stats_interval**<br /><br /> 245 = **query_context_settings**|  
 |**internal_type_desc**|**nvarchar(60)**|Die Beschreibung des Typs der internen Tabelle:<br /><br /> QUERY_DISK_STORE_QUERY_HINTS<br /><br /> QUERY_DISK_STORE_QUERY_TEMPLATE_PARAMETERIZATION<br /><br /> QUERY_DISK_STORE_WAIT_STATS<br /><br /> QUEUE_MESSAGES<br /><br /> XML_INDEX_NODES<br /><br /> FULLTEXT_CATALOG_FREELIST<br /><br /> FULLTEXT_CATALOG_MAP<br /><br /> QUERY_NOTIFICATION<br /><br /> SERVICE_BROKER_MAP<br /><br /> EXTENDED_INDEXES<br /><br /> FILESTREAM_TOMBSTONE<br /><br /> CHANGE_TRACKING<br /><br /> TRACKED_COMMITTED_TRANSACTIONS<br /><br /> CONTAINED_FEATURES<br /><br /> FILETABLE_UPDATES<br /><br /> SELECTIVE_XML_INDEX_NODE_TABLE<br /><br /> QUERY_DISK_STORE_QUERY_TEXT<br /><br /> QUERY_DISK_STORE_QUERY<br /><br /> QUERY_DISK_STORE_PLAN<br /><br /> QUERY_DISK_STORE_RUNTIME_STATS<br /><br /> QUERY_DISK_STORE_RUNTIME_STATS_INTERVAL<br /><br /> QUERY_CONTEXT_SETTINGS|  
-|**parent_id**|**int**|ID des übergeordneten Elements, unabhängig davon, ob es über einen Schemabereich verfügt oder nicht. Andernfalls 0, wenn es kein übergeordnetes Element gibt.<br /><br /> **queue_messages**  =  Warteschlangen **object_id**<br /><br /> **xml_index_nodes**  =  **object_id** des XML-Indexes<br /><br /> **fulltext_catalog_freelist**  =  **fulltext_catalog_id** des voll Text Katalogs<br /><br /> **fulltext_index_map**  =  **object_id** des voll Text Indexes<br /><br /> **query_notification**oder **service_broker_map** = 0<br /><br /> **extended_indexes**  =  **object_id** eines erweiterten Indexes, z. b. ein räumlicher Index<br /><br /> **object_id** der Tabelle, für die die Tabellen Verfolgung aktiviert ist = **CHANGE_TRACKING**|  
-|**parent_minor_id**|**int**|Die Neben-ID des übergeordneten Elements.<br /><br /> **xml_index_nodes**  =  **index_id** des XML-Indexes<br /><br /> **extended_indexes**  =  **index_id** eines erweiterten Indexes, z. b. ein räumlicher Index<br /><br /> 0 = **queue_messages**, **fulltext_catalog_freelist**, **fulltext_index_map**, **query_notification**, **service_broker_map**oder **CHANGE_TRACKING**|  
+|**parent_id**|**int**|ID des übergeordneten Elements, unabhängig davon, ob es über einen Schemabereich verfügt oder nicht. Andernfalls 0, wenn es kein übergeordnetes Element gibt.<br /><br /> **queue_messages**  =  Warteschlangen **object_id**<br /><br /> **xml_index_nodes**  =  **object_id** des XML-Indexes<br /><br /> **fulltext_catalog_freelist**  =  **fulltext_catalog_id** des voll Text Katalogs<br /><br /> **fulltext_index_map**  =  **object_id** des voll Text Indexes<br /><br /> **query_notification** oder **service_broker_map** = 0<br /><br /> **extended_indexes**  =  **object_id** eines erweiterten Indexes, z. b. ein räumlicher Index<br /><br /> **object_id** der Tabelle, für die die Tabellen Verfolgung aktiviert ist = **CHANGE_TRACKING**|  
+|**parent_minor_id**|**int**|Die Neben-ID des übergeordneten Elements.<br /><br /> **xml_index_nodes**  =  **index_id** des XML-Indexes<br /><br /> **extended_indexes**  =  **index_id** eines erweiterten Indexes, z. b. ein räumlicher Index<br /><br /> 0 = **queue_messages**, **fulltext_catalog_freelist**, **fulltext_index_map**, **query_notification**, **service_broker_map** oder **CHANGE_TRACKING**|  
 |**lob_data_space_id**|**int**|Ein Wert ungleich Null ist die ID des Datenbereichs (Dateigruppe oder Partitionsschema), der die LOB-Daten (Large Object) für diese Tabelle enthält.|  
 |**filestream_data_space_id**|**int**|Für zukünftige Verwendung reserviert.|  
   
 ## <a name="permissions"></a>Berechtigungen  
  [!INCLUDE[ssCatViewPerm](../../includes/sscatviewperm-md.md)] Weitere Informationen finden Sie unter [Metadata Visibility Configuration](../../relational-databases/security/metadata-visibility-configuration.md).  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Interne Tabellen werden in dieselbe Dateigruppe wie die übergeordnete Entität platziert. Sie können die in Beispiel F unten dargestellte Katalogabfrage zur Rückgabe der Anzahl von Seiten verwenden, die interne Tabellen für Daten innerhalb und außerhalb von Zeilen sowie LOB-Daten (Large Object) benötigen.  
   
  Sie können die [sp_spaceused](../../relational-databases/system-stored-procedures/sp-spaceused-transact-sql.md) System Prozedur verwenden, um Speicherplatz Verwendungs Daten für interne Tabellen zurückzugeben. **sp_spaceused** meldet internen Tabellenbereich auf folgende Weise:  
   
 -   Wird ein Warteschlangenname angegeben, wird auf die zugrunde liegende interne Tabelle, die der Warteschlange zugeordnet ist, verwiesen und ihre Speicherverwendung gemeldet.  
   
--   Seiten, die von den internen Tabellen von XML-Indizes, räumlichen Indizes und Volltextindizes verwendet werden, sind in der **index_size** -Spalte enthalten. Wenn ein Name für eine Tabelle oder eine indizierte Sicht angegeben wird, werden die Seiten für die XML-Indizes, räumliche Indizes und Volltextindizes für dieses Objekt in den **reservierten** und **index_size**Spalten eingeschlossen.  
+-   Seiten, die von den internen Tabellen von XML-Indizes, räumlichen Indizes und Volltextindizes verwendet werden, sind in der **index_size** -Spalte enthalten. Wenn ein Name für eine Tabelle oder eine indizierte Sicht angegeben wird, werden die Seiten für die XML-Indizes, räumliche Indizes und Volltextindizes für dieses Objekt in den **reservierten** und **index_size** Spalten eingeschlossen.  
   
 ## <a name="examples"></a>Beispiele  
  In den folgenden Beispielen wird die Abfrage von Metadaten interner Tabellen mithilfe von Katalogsichten veranschaulicht.  

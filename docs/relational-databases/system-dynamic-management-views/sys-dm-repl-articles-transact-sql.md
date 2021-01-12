@@ -1,6 +1,6 @@
 ---
 description: sys.dm_repl_articles (Transact-SQL)
-title: sys. dm_repl_articles (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_repl_articles (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_repl_articles dynamic management function
 ms.assetid: 794d514e-bacd-432e-a8ec-3a063a97a37b
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: ab0bd4b6ff2f862b292f78d9927536c2f9d2be6b
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 34151e89476ae62cdcce719b676477b9659ae3b4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537008"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096474"
 ---
 # <a name="sysdm_repl_articles-transact-sql"></a>sys.dm_repl_articles (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -66,9 +66,9 @@ ms.locfileid: "89537008"
 |**intPublicationOptions**|**bigint**|Bitmuster, mit dem zusätzliche Veröffentlichungsoptionen angegeben werden, mit den folgenden bitweisen Optionswerten:<br /><br /> **0x1** : für die Peer-zu-Peer-Replikation aktiviert.<br /><br /> **0x2** -nur lokale Änderungen veröffentlichen.<br /><br /> **0x4** -aktiviert für nicht-SQL Server-Abonnenten.|  
   
 ## <a name="permissions"></a>Berechtigungen  
- Erfordert die VIEW DATABASE STATE-Berechtigung für die Veröffentlichungs Datenbank, um **dm_repl_articles**aufzurufen.  
+ Erfordert die VIEW DATABASE STATE-Berechtigung für die Veröffentlichungs Datenbank, um **dm_repl_articles** aufzurufen.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Informationen werden nur für replizierte Datenbankobjekte zurückgegeben, die zurzeit in den Replikationsartikelcache geladen sind.  
   
 ## <a name="see-also"></a>Weitere Informationen  

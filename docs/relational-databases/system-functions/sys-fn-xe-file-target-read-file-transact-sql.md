@@ -20,15 +20,15 @@ helpviewer_keywords:
 - fn_xe_file_target_read_file function
 - sys.fn_xe_file_target_read_file function
 ms.assetid: cc0351ae-4882-4b67-b0d8-bd235d20c901
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: e5a79b5e3f9ded81069364ec144a8e88fede811d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8af7ee0bc6c899026e51110264f2b28c2f579dd7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474721"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096344"
 ---
 # <a name="sysfn_xe_file_target_read_file-transact-sql"></a>sys.fn_xe_file_target_read_file (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -49,16 +49,16 @@ sys.fn_xe_file_target_read_file ( path, mdpath, initial_file_name, initial_offse
   
 ## <a name="arguments"></a>Argumente  
  *path*  
- Der Pfad zu den zu lesenden Dateien. der *Pfad* kann Platzhalter enthalten und den Namen einer Datei enthalten. *Pfad ist vom Datentyp* **nvarchar (260)**. Es ist kein Standardwert vorhanden. Im Kontext von Azure SQL-Datenbank handelt es sich bei diesem Wert um eine HTTP-URL zu einer Datei in Azure Storage.
+ Der Pfad zu den zu lesenden Dateien. der *Pfad* kann Platzhalter enthalten und den Namen einer Datei enthalten. *Pfad ist vom Datentyp* **nvarchar (260)**. Es gibt keinen Standardwert. Im Kontext von Azure SQL-Datenbank handelt es sich bei diesem Wert um eine HTTP-URL zu einer Datei in Azure Storage.
   
  *mdpath*  
- Der Pfad zur Metadatendatei, die der Datei oder den Dateien entspricht, die durch das *path* -Argument angegeben werden. *mdpath ist vom Datentyp* **nvarchar (260)**. Es ist kein Standardwert vorhanden. Ab SQL Server 2016 kann dieser Parameter als NULL angegeben werden.
+ Der Pfad zur Metadatendatei, die der Datei oder den Dateien entspricht, die durch das *path* -Argument angegeben werden. *mdpath ist vom Datentyp* **nvarchar (260)**. Es gibt keinen Standardwert. Ab SQL Server 2016 kann dieser Parameter als NULL angegeben werden.
   
 > [!NOTE]  
 >  [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] der *mdpath* -Parameter ist nicht erforderlich. Er wird jedoch beibehalten, um die Abwärtskompatibilität für in früheren Versionen von SQL Server erstellte Protokolldateien aufrechtzuerhalten.  
   
  *initial_file_name*  
- Die erste Datei, die aus dem *Pfad* gelesen werden soll. *initial_file_name* ist vom Datentyp **nvarchar (260)**. Es ist kein Standardwert vorhanden. Wenn **null** als Argument angegeben wird, werden alle im *Pfad* gefundenen Dateien gelesen.  
+ Die erste Datei, die aus dem *Pfad* gelesen werden soll. *initial_file_name* ist vom Datentyp **nvarchar (260)**. Es gibt keinen Standardwert. Wenn **null** als Argument angegeben wird, werden alle im *Pfad* gefundenen Dateien gelesen.  
   
 > [!NOTE]  
 >  *initial_file_name* und *initial_offset* sind paarweise Verknüpfungs Argumente. Wenn Sie einen Wert für eines der beiden Argumente angeben, müssen Sie auch einen Wert für das andere Argument angeben.  
@@ -68,7 +68,7 @@ sys.fn_xe_file_target_read_file ( path, mdpath, initial_file_name, initial_offse
   
 ## <a name="table-returned"></a>Zurückgegebene Tabelle  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |module_guid|**uniqueidentifier**|Die Ereignismodul-GUID. Lässt keine NULL-Werte zu.|  
 |package_guid|**uniqueidentifier**|Die Ereignispaket-GUID. Lässt keine NULL-Werte zu.|  
@@ -79,7 +79,7 @@ sys.fn_xe_file_target_read_file ( path, mdpath, initial_file_name, initial_offse
 |timestamp_utc|**datetime2**|**Gilt für:** [!INCLUDE[ssSQLv14](../../includes/sssqlv14-md.md)] und höher und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].<br /><br />Das Datum und die Uhrzeit (UTC-Zeitzone) des Ereignisses. Lässt keine NULL-Werte zu.|  
 
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Das Lesen umfangreicher Resultsets durch Ausführen von **sys.fn_xe_file_target_read_file** in [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] kann zu einem Fehler führen. Verwenden Sie das **Ergebnis im Datei** Modus (**STRG + UMSCHALT + F**), um große Resultsets in eine Datei zu exportieren und die Datei stattdessen mit einem anderen Tool zu lesen.  
   
 ## <a name="permissions"></a>Berechtigungen  

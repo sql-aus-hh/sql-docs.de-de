@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sysalerts system table
 ms.assetid: a2c2f50d-61f3-4951-996a-add5ad092cc2
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 9b0c2fec2d053f80cd9baa9d9bd4d0bfc971e2ec
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: ff1e70701882c1740ae91212c8d33ae5e7e3040b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89538401"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094870"
 ---
 # <a name="dbosysalerts-transact-sql"></a>dbo.sysalerts (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -52,15 +52,15 @@ ms.locfileid: "89538401"
 |**database_name**|**nvarchar(512)**|Datenbank, in der die Warnung auftreten muss, damit sie ausgelöst wird.|  
 |**event_description_keyword**|**nvarchar (100)**|Muster, dem der Fehler entsprechen muss, damit die Warnung ausgelöst wird.|  
 |**occurrence_count**|**int**|Anzahl der Warnungsauftritte.|  
-|**count_reset_date**|**int**|Tag (Datum), an dem die Anzahl auf **0**zurückgesetzt wird.|  
-|**count_reset_time**|**int**|Tageszeit, zu der die Anzahl auf **0**zurückgesetzt wird.|  
+|**count_reset_date**|**int**|Tag (Datum), an dem die Anzahl auf **0** zurückgesetzt wird.|  
+|**count_reset_time**|**int**|Tageszeit, zu der die Anzahl auf **0** zurückgesetzt wird.|  
 |**job_id**|**uniqueidentifier**|ID des Tasks, der ausgeführt wird, wenn die Warnung auftritt.|  
 |**has_notification**|**int**|Anzahl der Operatoren, die eine E-Mail-Benachrichtigung erhalten, wenn die Warnung auftritt.|  
 |**flags**|**int**|Reserviert.|  
 |**performance_condition**|**nvarchar(512)**|Reserviert.|  
 |**category_id**|**int**|Reserviert.|  
   
- ## <a name="remarks"></a>Hinweise
+ ## <a name="remarks"></a>Bemerkungen
 
 In der folgenden Tabelle werden die Werte für die include_event_description Bitmaske angezeigt. Der Dezimalwert wird von dbo.sysWarnungen zurückgegeben. 
 

@@ -17,14 +17,14 @@ helpviewer_keywords:
 - file backups [SQL Server], backupfile system table
 - backupfile system table
 ms.assetid: f1a7fc0a-f4b4-47eb-9138-eebf930dc9ac
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: e59789c2d4de9174a43b34881e7b45a914cfd2c3
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 8c9086ca4c3c97b9a10cd9d460eaf69408373551
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89525461"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096307"
 ---
 # <a name="backupfile-transact-sql"></a>backupfile (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "89525461"
 |**first_media_number**|**smallint**|Mediennummer des ersten Mediums, das diese Sicherungsdatei enthält. Kann den Wert NULL haben.|  
 |**filegroup_name**|**nvarchar(128)**|Name der Dateigruppe, die eine gesicherte Datenbankdatei enthält. Kann den Wert NULL haben.|  
 |**page_size**|**int**|Größe der Seite in Bytes.|  
-|**file_number**|**numerisch (10, 0)**|Die innerhalb einer Datenbank eindeutige Datei-ID (entspricht **sys. database_files**.** file_id**).|  
+|**file_number**|**numerisch (10, 0)**|Die innerhalb einer Datenbank eindeutige Datei-ID (entspricht **sys.database_files**.**file_id**).|  
 |**backed_up_page_count**|**numerisch (10, 0)**|Anzahl der gesicherten Seiten. Kann den Wert NULL haben.|  
 |**file_type**|**char(1)**|Die gesicherte Datei. Folgende Werte sind möglich:<br /><br /> D = [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datendatei.<br /><br /> L = [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Protokolldatei.<br /><br /> F = Volltextkatalog.<br /><br /> Kann den Wert NULL haben.|  
 |**source_file_block_size**|**numerisch (10, 0)**|Medium, auf dem sich die ursprüngliche Daten- bzw. Protokolldatei befand, als sie gesichert wurde. Kann den Wert NULL haben.|  
@@ -53,14 +53,14 @@ ms.locfileid: "89525461"
 |**file_guid**|**uniqueidentifier**|Der eindeutige Bezeichner der Datei.|  
 |**read_only_lsn**|**numeric(25,0)**|Protokollfolgenummer, bei der die Dateigruppe mit der Datei von Lesen/Schreiben zu Schreibgeschützt geändert wurde (letzte Änderung). Kann den Wert NULL haben.|  
 |**read_write_lsn**|**numeric(25,0)**|Protokollfolgenummer, bei der die Dateigruppe mit der Datei von Nur Lesen zu Schreibgeschützt geändert wurde (letzte Änderung). Kann den Wert NULL haben.|  
-|**differential_base_lsn**|**numeric(25,0)**|Basis-LSN für differenzielle Sicherungen. Eine differenzielle Sicherung enthält nur Datenblöcke, die eine Protokoll Folge Nummer aufweisen, die größer oder gleich **differential_base_lsn**ist.<br /><br /> Bei anderen Sicherungstypen ist der Wert NULL.|  
+|**differential_base_lsn**|**numeric(25,0)**|Basis-LSN für differenzielle Sicherungen. Eine differenzielle Sicherung enthält nur Datenblöcke, die eine Protokoll Folge Nummer aufweisen, die größer oder gleich **differential_base_lsn** ist.<br /><br /> Bei anderen Sicherungstypen ist der Wert NULL.|  
 |**differential_base_guid**|**uniqueidentifier**|Bei einer differenziellen Sicherung der eindeutige Bezeichner der letzten Datensicherung, die die Basis für die differenzielle Sicherung der Datei bildet. Ist dieser Wert NULL, wurde die Datei in die differenzielle Sicherung eingeschlossen, aber erst nach der Erstellung der Basis hinzugefügt.<br /><br /> Bei anderen Sicherungstypen ist der Wert NULL.|  
 |**backup_size**|**numeric(20,0)**|Größe der Sicherung dieser Datei in Bytes.|  
 |**filegroup_guid**|**uniqueidentifier**|ID der Dateigruppe. Verwenden Sie **filegroup_guid** mit **backup_set_id**, um Dateigruppen Informationen in der Tabelle Backup File Group zu suchen.|  
 |**is_readonly**|**bit**|1 = Die Datei ist schreibgeschützt.|  
 |**is_present**|**bit**|1 = Die Datei ist im Sicherungssatz enthalten.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  RESTORE VERIFYONLY FROM *backup_device* mit LOADHISTORY füllt die Spalten der **Backup Mediaset** -Tabelle mit den entsprechenden Werten aus dem Medien Satz Header auf.  
   
  Führen Sie die gespeicherte Prozedur [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) aus, um die Anzahl der Zeilen in dieser Tabelle und in anderen Sicherungs-und Verlaufs Tabellen zu verringern.  

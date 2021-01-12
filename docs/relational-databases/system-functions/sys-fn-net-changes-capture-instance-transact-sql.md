@@ -1,6 +1,6 @@
 ---
-description: sys. fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL)
-title: sys. fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL) | Microsoft-Dokumentation
+description: sys.fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL)
+title: sys.fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/14/2017
 ms.prod: sql
@@ -19,16 +19,16 @@ helpviewer_keywords:
 - fn_net_changes_<capture_instance>
 - sys.fn_net_changes_<capture_instance>
 ms.assetid: 342fa030-9fd9-4b74-ae4d-49f6038a5073
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 59d8214083046510d9c4d71724d1aab1c96b1e1d
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: eb0c58b3544afd5fa529db0c95af7c2f6ba3e6d3
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427762"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096346"
 ---
-# <a name="sysfn_net_changes_ltcapture_instancegt-transact-sql"></a>sys. fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL)
+# <a name="sysfn_net_changes_ltcapture_instancegt-transact-sql"></a>sys.fn_net_changes_ &lt; capture_instance &gt; (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Wrapper für die Abfragefunktionen der **net-Änderungen** . Die zum Erstellen dieser Funktionen erforderlichen Skripts werden von der gespeicherten Prozedur sys.sp_cdc_generate_wrapper_function generiert.  
@@ -60,7 +60,7 @@ fn_net_changes_<capture_instance> ('start_time', 'end_time', '<row_filter_option
  *end_time*  
  Der **DateTime** -Wert, der den hohen Endpunkt des Bereichs von Änderungs Tabellen Einträgen darstellt, der im Resultset enthalten sein soll.  
   
- Dieser Parameter kann eine der beiden Bedeutungen annehmen, abhängig von dem für ausgewählten Wert, @closed_high_end_point Wenn sys. sp_cdc_generate_wrapper_function aufgerufen wird, um das Skript zum Erstellen der Wrapper Funktion zu generieren:  
+ Dieser Parameter kann eine der beiden Bedeutungen annehmen, abhängig von dem für ausgewählten Wert, @closed_high_end_point Wenn sys.sp_cdc_generate_wrapper_function aufgerufen wird, um das Skript zum Erstellen der Wrapper Funktion zu generieren:  
   
 -   @closed_high_end_point = 1  
   
@@ -94,14 +94,14 @@ fn_net_changes_<capture_instance> ('start_time', 'end_time', '<row_filter_option
   
 ## <a name="table-returned"></a>Zurückgegebene Tabelle  
   
-|Spaltenname|Spaltentyp|Beschreibung|  
+|Spaltenname|Spaltentyp|BESCHREIBUNG|  
 |-----------------|-----------------|-----------------|  
 |\<columns from @column_list>|**variiert**|Die Spalten, die im **column_list** -Argument für die sp_cdc_generate_wrapper_function identifiziert werden, wenn Sie aufgerufen wird, um das Skript zum Erstellen des Wrappers zu generieren. Wenn *column_list* NULL ist, werden alle nach verfolgten Quell Spalten im Resultset angezeigt.|  
 |__CDC_OPERATION|**nvarchar (2)**|Ein Vorgangscode, der angibt, welcher Vorgang auf die Zeile der Zielumgebung angewendet werden muss. Der Vorgang variiert basierend auf dem Wert des Argument *row_filter_option* , das im folgenden-Befehl bereitgestellt wird:<br /><br /> *row_filter_option* = ' all ', ' all with mask '<br /><br /> 'D' - Löschvorgang<br /><br /> 'I' - Einfügevorgang<br /><br /> 'UN' - Aktualisierungsvorgang<br /><br /> *row_filter_option* = ' all with merge '<br /><br /> 'D' - Löschvorgang<br /><br /> 'M' - Einfüge- oder Aktualisierungsvorgang|  
 |\<columns from @update_flag_list>|**bit**|Ein Bitflag, das durch Anhängen von _uflag an den Spaltennamen benannt wird. Das Flag nimmt nur dann einen Wert ungleich NULL an, wenn *row_filter_option* **= ' all with mask '** und \_ _CDC_OPERATION **= ' un '**. Es wird auf 1 eingestellt, wenn die entsprechende Spalte innerhalb des Abfragefensters geändert wurde. Andernfalls ist es 0.|  
   
 ## <a name="remarks"></a>Bemerkungen  
- Die fn_net_changes_<capture_instance> Funktion dient als Wrapper für die Abfragefunktion CDC. fn_cdc_get_net_changes_<capture_instance>. Die gespeicherte Prozedur sys. sp_cdc_generate_wrapper wird zum Erstellen des Skripts für den Wrapper verwendet.  
+ Die fn_net_changes_<capture_instance> Funktion dient als Wrapper für die CDC.fn_cdc_get_net_changes_<capture_instance-Abfragefunktion. Die gespeicherte Prozedur sys.sp_cdc_generate_wrapper dient zum Erstellen des Skripts für den Wrapper.  
   
  Wrapperfunktionen werden nicht automatisch erstellt. Es gibt zwei Dinge, die Sie tun müssen, um Wrapper Funktionen zu erstellen:  
   
@@ -120,7 +120,7 @@ fn_net_changes_<capture_instance> ('start_time', 'end_time', '<row_filter_option
  Die Change Data Capture Konfigurations Vorlage ' Instantiate CDC Wrapper TVFs for Schema ' zeigt, wie die gespeicherte Prozedur sp_cdc_generate_wrapper_function verwendet wird, um CREATE-Skripts für alle Wrapper Funktionen für die definierten Abfragefunktionen eines Schemas abzurufen. Diese Skripts werden dann von der Vorlage erstellt. Weitere Informationen zu Vorlagen finden Sie unter [Vorlagen-Explorer](../../ssms/template/template-explorer.md).  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [sys. sp_cdc_generate_wrapper_function &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-generate-wrapper-function-transact-sql.md)   
+ [sys.sp_cdc_generate_wrapper_function &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-generate-wrapper-function-transact-sql.md)   
  [cdc.fn_cdc_get_net_changes_&#60;capture_instance&#62; &#40;Transact-SQL&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)  
   
   
