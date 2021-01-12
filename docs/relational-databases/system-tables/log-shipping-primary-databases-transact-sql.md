@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - log_shipping_primary_databases system table
 ms.assetid: 56888756-a798-42be-9b5e-0f9aa05a2cc6
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: ae5bde1d9d9abde1d1bbf6ddabc0b29e378414e0
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 8dd97d1baa37b71fec2e1ceb113e4b0a3614a2e4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89540930"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102144"
 ---
 # <a name="log_shipping_primary_databases-transact-sql"></a>log_shipping_primary_databases (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "89540930"
 |**monitor_server_security_mode**|**bit**|Der Sicherheitsmodus, der zum Herstellen einer Verbindung mit dem Überwachungsserver verwendet wird.<br /><br /> 1 = Windows-Authentifizierung<br /><br /> 0 = [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Authentifizierung.|  
 |**last_backup_file**|**nvarchar (500)**|Der absolute Pfad der jüngsten Transaktionsprotokollsicherung.|  
 |**last_backup_date**|**datetime**|Uhrzeit und Datum des letzten Protokollsicherungsvorgangs.|  
-|**user_specified_monitor**|**bit**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]<br /><br /> Diese Spalte wird von**sp_help_log_shipping_primary_database** und **sp_help_log_shipping_secondary_primary** verwendet, um die Anzeige der Überwachungseinstellungen in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]zu steuern.<br /><br /> 0 = der Benutzer hat beim Aufrufen einer dieser beiden gespeicherten Prozeduren keinen expliziten Wert für den ** \@ monitor_server** -Parameter angegeben.<br /><br /> 1= Der Benutzer hat einen expliziten Wert angegeben.|  
+|**user_specified_monitor**|**bit**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]<br /><br /> Diese Spalte wird von **sp_help_log_shipping_primary_database** und **sp_help_log_shipping_secondary_primary** verwendet, um die Anzeige der Überwachungseinstellungen in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]zu steuern.<br /><br /> 0 = der Benutzer hat beim Aufrufen einer dieser beiden gespeicherten Prozeduren keinen expliziten Wert für den **\@ monitor_server** -Parameter angegeben.<br /><br /> 1= Der Benutzer hat einen expliziten Wert angegeben.|  
 |**backup_compression**|**tinyint**|Gibt an, ob die Protokollversandkonfiguration das Verhalten der Sicherungskomprimierung auf Serverebene überschreibt.<br /><br /> 0 = Deaktiviert. Protokollsicherungen werden niemals komprimiert, unabhängig von den für den Server konfigurierten Sicherungskomprimierungseinstellungen.<br /><br /> 1 = Aktiviert. Protokollsicherungen werden immer komprimiert, unabhängig von den für den Server konfigurierten Sicherungskomprimierungseinstellungen.<br /><br /> 2 = Verwendet die Serverkonfiguration für die Serverkonfigurationsoption [View or Configure the backup compression default Server Configuration Option](../../database-engine/configure-windows/view-or-configure-the-backup-compression-default-server-configuration-option.md) . Dies ist der Standardwert.<br /><br /> Die Sicherungskomprimierung wird nur in der Enterprise Edition von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]unterstützt.|  
   
 ## <a name="see-also"></a>Weitere Informationen  

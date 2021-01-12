@@ -1,6 +1,6 @@
 ---
 description: sys.dm_db_uncontained_entities (Transact-SQL)
-title: sys. dm_db_uncontained_entities (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_db_uncontained_entities (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/14/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_db_uncontained_entities dynamic management view
 ms.assetid: f417efd4-8c71-4f81-bc9c-af13bb4b88ad
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 01f3c79cf6097f3e916d7faa5e77e508b75015e8
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 54b087c98071ea550fcdff630a93d8049188ea91
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539425"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099900"
 ---
 # <a name="sysdm_db_uncontained_entities-transact-sql"></a>sys.dm_db_uncontained_entities (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "89539425"
 |**Spaltenname**|**Typ**|**Beschreibung**|  
 |*class*|**int**|1 = Objekt oder Spalte (einschließlich Modulen, XPs, Sichten, Synonymen und Tabellen).<br /><br /> 4 = Daten Bank Prinzipal<br /><br /> 5 = Assembly<br /><br /> 6 = Typ<br /><br /> 7 = Index (Volltextindex)<br /><br /> 12 = DDL-Daten Bank Auslösung<br /><br /> 19 = Route<br /><br /> 30 = Überwachungsspezifikation|  
 |*class_desc*|**nvarchar(120)**|Klassenbeschreibung der Entitätsklasse. Eine der folgenden, um der-Klasse zu entsprechen:<br /><br /> **OBJECT_OR_COLUMN**<br /><br /> **DATABASE_PRINCIPAL**<br /><br /> **Stadtverordneten**<br /><br /> **TYPE**<br /><br /> **INDEX**<br /><br /> **DATABASE_DDL_TRIGGER**<br /><br /> **Seeweg**<br /><br /> **AUDIT_SPECIFICATION**|  
-|*major_id*|**int**|Die ID der Entität.<br /><br /> Wenn *Class* = 1, dann object_id<br /><br /> Wenn *Class* = 4, dann sys. database_principals. principal_id.<br /><br /> Wenn *Class* = 5, dann sys. Assemblys. assembly_id.<br /><br /> Wenn *Class* = 6, dann sys. types. user_type_id.<br /><br /> Wenn *Class* = 7, dann sys. Indexes. index_id.<br /><br /> Wenn *Class* = 12, dann sys. Triggers. object_id.<br /><br /> Wenn *Class* = 19, dann sys. routes. route_id.<br /><br /> Wenn *Class* = 30, dann sys. database_audit_specifications. database_specification_id.|  
+|*major_id*|**int**|Die ID der Entität.<br /><br /> Wenn *Class* = 1, dann object_id<br /><br /> Wenn *Class* = 4, dann sys. database_principals. principal_id.<br /><br /> Wenn *Class* = 5, dann sys.Assemblies.assembly_id.<br /><br /> Wenn *Class* = 6, dann sys.types.user_type_id.<br /><br /> Wenn *Class* = 7, dann sys.Indexes.index_id.<br /><br /> Wenn *Class* = 12, dann sys.Triggers.object_id.<br /><br /> Wenn *Class* = 19, dann sys.routes.route_id.<br /><br /> Wenn *Class* = 30, dann sys. database_audit_specifications database_audit_specifications.database_specification_id.|  
 |*statement_line_number*|**int**|Wenn die Klasse ein Modul ist, wird die Zeilennummer für die nicht enthaltene Verwendung zurückgegeben.  Anderenfalls ist der Wert NULL.|  
 |*statement_ offset_begin*|**int**|Wenn die Klasse ein Modul ist, gibt dies die Startposition der nicht enthaltenen Verwendung in Byte an, beginnend bei 0. Andernfalls ist der Rückgabewert NULL.|  
 |*statement_ offset_end*|**int**|Wenn die Klasse ein Modul ist, gibt dies die Endposition der nicht enthaltenen Verwendung in Byte an, beginnend bei 0. Der Wert -1 gibt das Ende des Moduls an. Andernfalls ist der Rückgabewert NULL.|  
@@ -46,8 +46,8 @@ ms.locfileid: "89539425"
 |*feature_ Name*|**nvarchar(256)**|Gibt den externen Namen des Objekts zurück.|  
 |*feature_type_name*|**nvarchar(256)**|Gibt den Typ der Funktion zurück.|  
   
-## <a name="remarks"></a>Hinweise  
- sys. dm_db_uncontained_entities zeigt die Entitäten an, die die Daten Bank Grenze potenziell überschreiten können. Es werden alle Benutzerentitäten zurückgegeben, von denen Objekte außerhalb der Datenbank verwendet werden können.  
+## <a name="remarks"></a>Bemerkungen  
+ sys.dm_db_uncontained_entities zeigt die Entitäten an, die die Daten Bank Grenze potenziell überschreiten können. Es werden alle Benutzerentitäten zurückgegeben, von denen Objekte außerhalb der Datenbank verwendet werden können.  
   
  Die folgenden Funktionstypen werden gemeldet.  
   

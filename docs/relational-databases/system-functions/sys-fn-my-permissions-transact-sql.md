@@ -1,6 +1,6 @@
 ---
 description: sys.fn_my_permissions (Transact-SQL)
-title: sys. fn_my_permissions (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_my_permissions (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/14/2017
 ms.prod: sql
@@ -19,14 +19,14 @@ helpviewer_keywords:
 - fn_my_permissions function
 - sys.fn_my_permissions function
 ms.assetid: 30f97f00-03d8-443a-9de9-9ec420b7699b
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 75ff0dfb3355158a3dedbc9d5e066dbce0ac441f
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 5e67f2be709f91ee3214f490cfbcc2b932ad7dc5
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427752"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101327"
 ---
 # <a name="sysfn_my_permissions-transact-sql"></a>sys.fn_my_permissions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -52,7 +52,7 @@ fn_my_permissions ( securable , 'securable_class' )
 ## <a name="columns-returned"></a>Zurückgegebene Spalten  
  In der folgenden Tabelle werden die Spalten aufgelistet, die **fn_my_permissions** zurückgibt. Jede zurückgegebene Zeile beschreibt eine Berechtigung, über die der aktuelle Sicherheitskontext für das sicherungsfähige Element verfügt. Gibt NULL zurück, wenn die Abfrage einen Fehler erzeugt.  
   
-|Spaltenname|type|Beschreibung|  
+|Spaltenname|type|BESCHREIBUNG|  
 |-----------------|----------|-----------------|  
 |Entitätsname|**sysname**|Der Name des sicherungsfähigen Elements, für das die aufgelisteten Berechtigungen effektiv gewährt wurden.|  
 |subentity_name|**sysname**|Der Spaltenname, sofern das sicherungsfähige Element über Spalten verfügt; andernfalls NULL.|  
@@ -81,7 +81,7 @@ SELECT DISTINCT class_desc FROM fn_builtin_permissions(default)
 GO  
 ```  
   
- Wenn Default als Wert von *Sicherungs fähigen* oder *securable_class*angegeben wird, wird der Wert als NULL interpretiert.  
+ Wenn Default als Wert von *Sicherungs fähigen* oder *securable_class* angegeben wird, wird der Wert als NULL interpretiert.  
   
 ## <a name="examples"></a>Beispiele  
   

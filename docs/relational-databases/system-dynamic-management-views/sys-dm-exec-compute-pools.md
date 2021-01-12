@@ -17,20 +17,20 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_compute_pools dynamic management view
 ms.assetid: ''
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=sql-server-ver15||>=sql-server-linux-2017'
-ms.openlocfilehash: f6affbcc67e3c4a95929263a3c90bd93e1ec7826
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a55148fe8cc50e2237320ba5646cfbd55fff3365
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97411217"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101590"
 ---
 # <a name="sysdm_exec_compute_pools-transact-sql"></a>sys.dm_exec_compute_pools (Transact-SQL)
 [!INCLUDE[sqlserver2019](../../includes/applies-to-version/sqlserver2019.md)]
 
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |name|`sysname`|Der Name des computepools. Lässt keine NULL-Werte zu. Gibt `default` für den standardcomputepool zurück. |
 |compute_pool_id|`int`|Eindeutiger Bezeichner für den Pool. Der Schlüssel für diese Ansicht.|  

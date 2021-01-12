@@ -1,6 +1,6 @@
 ---
-description: Daten Bank Spiegelung-sys. dm_db_mirroring_auto_page_repair
-title: sys. dm_db_mirroring_auto_page_repair (Transact-SQL) | Microsoft-Dokumentation
+description: Daten Bank Spiegelung-sys.dm_db_mirroring_auto_page_repair
+title: sys.dm_db_mirroring_auto_page_repair (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 03/15/2017
 ms.prod: sql
@@ -19,16 +19,16 @@ helpviewer_keywords:
 - database mirroring [SQL Server], automatic page repair
 - sys.dm_db_mirroring_auto_page_repair dynamic management view
 ms.assetid: 49f0fc2a-e25e-47e1-a135-563adb509af1
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 1d82a2f1a152bacf4458a92727d62da5d93f4c31
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: cef38d675dde0d36ca97f63c16f8d4589760a620
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537262"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101677"
 ---
-# <a name="database-mirroring---sysdm_db_mirroring_auto_page_repair"></a>Daten Bank Spiegelung-sys. dm_db_mirroring_auto_page_repair
+# <a name="database-mirroring---sysdm_db_mirroring_auto_page_repair"></a>Daten Bank Spiegelung-sys.dm_db_mirroring_auto_page_repair
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Gibt eine Zeile für jede automatische Seitenreparatur für jede gespiegelte Datenbank der Serverinstanz zurück. Diese Sicht enthält Zeilen für die letzte automatische Seitenreparatur einer bestimmten gespiegelten Datenbank. Pro Datenbank können maximal 100 Zeilen angezeigt werden. Sobald das Maximum in der Datenbank erreicht ist, ersetzt die Zeile bei der nächsten automatischen Seitenreparatur einen der bereits vorhandenen Einträge. In der folgenden Tabelle wird die Bedeutung der einzelnen Spalten definiert.  

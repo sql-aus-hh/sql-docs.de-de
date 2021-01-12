@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSrepl_version system table
 ms.assetid: c1330f03-940b-4564-ac42-6030c6e21173
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 978cae29c7a2ec1a60c106d4ed29acd45852ff19
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 2705f8bba91c26bebf886064b795f0f27a78ec2b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89544456"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100565"
 ---
 # <a name="msrepl_version-transact-sql"></a>MSrepl_version (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "89544456"
 |-----------------|---------------|-----------------|  
 |**major_version**|**int**|Die Hauptversionsnummer der Verteilungsdatenbank.|  
 |**minor_version**|**int**|Die Nebenversionsnummer der Verteilungsdatenbank.|  
-|**Novel**|**int**|Die Revisionsnummer.|  
+|**revision**|**int**|Die Revisionsnummer.|  
 |**db_existed**|**bit**|Gibt an, ob die Verteilungs Datenbank vorhanden ist, bevor **sp_adddistributiondb** aufgerufen wird.|  
   
 ## <a name="see-also"></a>Weitere Informationen  

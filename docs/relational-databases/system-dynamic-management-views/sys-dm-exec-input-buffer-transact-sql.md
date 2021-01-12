@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_input_buffer dynamic management function
 ms.assetid: fb34a560-bde9-4ad9-aa96-0d4baa4fc104
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 68673cb11ce5a003b2c9317939942b1d602095be
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e6b15da477c8fb5a4eb8cdc7ef302ebd8a41fae6
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477261"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099737"
 ---
 # <a name="sysdm_exec_input_buffer-transact-sql"></a>sys.dm_exec_input_buffer (Transact-SQL)
 
@@ -52,7 +52,7 @@ sys.dm_exec_input_buffer ( session_id , request_id )
 
 ## <a name="table-returned"></a>Zurückgegebene Tabelle
 
-|Spaltenname|Datentyp|Beschreibung|
+|Spaltenname|Datentyp|BESCHREIBUNG|
 |-----------------|---------------|-----------------|
 |**event_type**|**nvarchar(256)**|Der Ereignistyp im Eingabepuffer für die angegebene SPID.|
 |**parameters**|**smallint**|Alle Parameter, die für die Anweisung bereitgestellt werden.|
@@ -70,7 +70,7 @@ sys.dm_exec_input_buffer ( session_id , request_id )
 > [!IMPORTANT]
 > Das Ausführen dieser DMV außerhalb der SQL Server Management Studio für Azure SQL-Datenbank ohne Besitzer Berechtigungen (z. b. in einem-Triggern, einer gespeicherten Prozedur oder Funktion) löst einen Berechtigungs Fehler für die Master-Datenbank aus.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Diese dynamische Verwaltungsfunktion kann in Verbindung mit sys.dm_exec_sessions oder sys.dm_exec_requests mithilfe von **CROSS APPLY** verwendet werden.
 

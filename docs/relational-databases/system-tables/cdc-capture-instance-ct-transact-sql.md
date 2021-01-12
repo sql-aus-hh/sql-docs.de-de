@@ -16,19 +16,19 @@ dev_langs:
 helpviewer_keywords:
 - cdc.<capture_instance>_CT
 ms.assetid: 979c8110-3c54-4e76-953c-777194bc9751
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 5d0a2dae85606a5e1cb0ffd5f86776e7aae25680
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 7fa737644611f24d9d0858fd04066d3ba0571ee3
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91809780"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102726"
 ---
 # <a name="cdcltcapture_instancegt_ct-transact-sql"></a>CDC. &lt; capture_instance &gt; _CT (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Die Änderungstabelle, die erstellt wird, wenn Change Data Capture für eine Quelltabelle aktiviert wird. Für jeden Einfüge- oder Löschvorgang, der in der Quelltabelle ausgeführt wird, gibt die Tabelle eine Zeile zurück, für jeden Updatevorgang in der Quelltabelle gibt sie zwei Zeilen zurück. Wird der Name der Änderungstabelle bei der Aktivierung der Quelltabelle nicht angegeben, wird der Name abgeleitet. Das Format des Namens ist CDC. *capture_instance*_CT, wobei *capture_instance* der Schema Name der Quell Tabelle und der Name der Quell Tabelle im Format *schema_table*ist. Wenn beispielsweise die Tabelle **Person. Address** in der **AdventureWorks** -Beispieldatenbank für Change Data Capture aktiviert ist, ist der Name der abgeleiteten Änderungs Tabelle **CDC. Person_Address_CT**.  
+  Die Änderungstabelle, die erstellt wird, wenn Change Data Capture für eine Quelltabelle aktiviert wird. Für jeden Einfüge- oder Löschvorgang, der in der Quelltabelle ausgeführt wird, gibt die Tabelle eine Zeile zurück, für jeden Updatevorgang in der Quelltabelle gibt sie zwei Zeilen zurück. Wird der Name der Änderungstabelle bei der Aktivierung der Quelltabelle nicht angegeben, wird der Name abgeleitet. Das Format des Namens ist CDC. *capture_instance* _CT, wobei *capture_instance* der Schema Name der Quell Tabelle und der Name der Quell Tabelle im Format *schema_table* ist. Wenn beispielsweise die Tabelle **Person. Address** in der **AdventureWorks** -Beispieldatenbank für Change Data Capture aktiviert ist, wird der Name der abgeleiteten Änderungs Tabelle **CDC.Person_Address_CT**.  
   
  Es wird empfohlen, **die Systemtabellen nicht direkt abzufragen**. Führen Sie stattdessen die [CDC.fn_cdc_get_all_changes_<capture_instance>](../../relational-databases/system-functions/cdc-fn-cdc-get-all-changes-capture-instance-transact-sql.md) und [CDC.fn_cdc_get_net_changes_<capture_instance ](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md) Funktionen aus.  
   
@@ -44,7 +44,7 @@ ms.locfileid: "91809780"
 |*\<captured source table columns>*|Variiert|Bei den verbleibenden Spalten in der Änderungstabelle handelt es sich um die Spalten aus der Quelltabelle, die beim Erstellen der Aufzeichnungsinstanz als aufgezeichnete Tabellen identifiziert wurden. Wenn in der Liste der aufgezeichneten Spalten keine Spalten angegeben wurden, werden alle Spalten in der Quelltabelle in diese Tabelle aufgenommen.|  
 |**__ $ command_id** |**int** |Verfolgt die Reihenfolge der Vorgänge innerhalb einer Transaktion. |  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 
 Die Spalte " `__$command_id` Spalte war" wurde in einem kumulativen Update in den Versionen 2012 bis 2016 eingeführt. Informationen zur Version und zum Herunterladen finden Sie im KB-Artikel 3030352 unter [Korrektur: die Änderungs Tabelle wird nach dem Aktivieren von Change Data Capture für eine Microsoft SQL Server Datenbank falsch für aktualisierte Zeilen angeordnet](https://support.microsoft.com/help/3030352/fix-the-change-table-is-ordered-incorrectly-for-updated-rows-after-you).  Weitere Informationen finden Sie unter unter [Brechung der CDC-Funktion nach dem Upgrade auf das neueste Cu für SQL Server 2012, 2014 und 2016](/archive/blogs/sql_server_team/cdc-functionality-may-break-after-upgrading-to-the-latest-cu-for-sql-server-2012-2014-and-2016).
 
@@ -53,12 +53,12 @@ Die Spalte " `__$command_id` Spalte war" wurde in einem kumulativen Update in de
   
 -   **Timestamp** -Spalten werden als **Binary (8)** definiert.  
   
--   **Identitäts** Spalten werden entweder als **int** oder **bigint**definiert.  
+-   **Identitäts** Spalten werden entweder als **int** oder **bigint** definiert.  
   
  Die Werte in diesen Spalten sind jedoch mit den Quellspaltenwerten identisch.  
   
 ### <a name="large-object-data-types"></a>LOB (Large Object)-Datentypen  
- Spalten des Datentyps **Image**, **Text**und **ntext** wird immer ein **null** -Wert zugewiesen, wenn __ $ operation = 1 oder \_ \_ $Operation = 3. Spalten vom Datentyp **varbinary (max)**, **varchar (max)** oder **nvarchar (max)** wird ein **null** -Wert zugewiesen, wenn \_ \_ $Operation = 3, es sei denn, die Spalte wurde während des Updates geändert. Wenn \_ \_ $Operation = 1, werden diesen Spalten zum Zeitpunkt der Löschung ihre Werte zugewiesen. Berechnete Spalten, die in einer Aufzeichnungs Instanz enthalten sind, haben immer den Wert **null**.  
+ Spalten des Datentyps **Image**, **Text** und **ntext** wird immer ein **null** -Wert zugewiesen, wenn __ $ operation = 1 oder \_ \_ $Operation = 3. Spalten vom Datentyp **varbinary (max)**, **varchar (max)** oder **nvarchar (max)** wird ein **null** -Wert zugewiesen, wenn \_ \_ $Operation = 3, es sei denn, die Spalte wurde während des Updates geändert. Wenn \_ \_ $Operation = 1, werden diesen Spalten zum Zeitpunkt der Löschung ihre Werte zugewiesen. Berechnete Spalten, die in einer Aufzeichnungs Instanz enthalten sind, haben immer den Wert **null**.  
   
  Standardmäßig können einer aufgezeichneten Spalte in einer einzelnen Anweisung vom Typ INSERT, UPDATE, WRITETEXT oder UPDATETEXT maximal 65.536 Bytes oder 64 KB hinzugefügt werden. Verwenden Sie die [Server Konfigurations Option max text repl size konfigurieren](../../database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option.md) , um diese Größe für die Unterstützung größerer LOB-Daten zu erhöhen. Weitere Informationen finden Sie unter [Konfigurieren der Serverkonfigurationsoption max text repl size](../../database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option.md).  
   
@@ -69,7 +69,7 @@ Die Spalte " `__$command_id` Spalte war" wurde in einem kumulativen Update in de
   
  Falls Sie den Datentyp einer aufgezeichneten Spalte in der Quelltabelle so ändern müssen, dass die Größe des Datentyps verringert wird, stellen Sie mithilfe des folgenden Verfahrens sicher, dass die entsprechende Spalte in der Änderungstabelle erfolgreich geändert werden kann.  
   
-1.  Aktualisieren Sie in der Quelltabelle die Werte in der zu ändernden Spalte, sodass ihre Größe für die geplante Datentypgröße geeignet ist. Wenn Sie z. b. den Datentyp von **int** in **smallint**ändern, aktualisieren Sie die Werte auf eine Größe, die im **smallint** -Bereich (-32.768 bis 32.767) entspricht.  
+1.  Aktualisieren Sie in der Quelltabelle die Werte in der zu ändernden Spalte, sodass ihre Größe für die geplante Datentypgröße geeignet ist. Wenn Sie z. b. den Datentyp von **int** in **smallint** ändern, aktualisieren Sie die Werte auf eine Größe, die im **smallint** -Bereich (-32.768 bis 32.767) entspricht.  
   
 2.  Führen Sie denselben Updatevorgang in der Änderungstabelle für die entsprechende Spalte aus.  
   

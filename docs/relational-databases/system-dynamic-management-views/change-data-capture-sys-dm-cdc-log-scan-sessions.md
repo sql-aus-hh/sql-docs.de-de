@@ -1,6 +1,6 @@
 ---
-description: Change Data Capture-sys. dm_cdc_log_scan_sessions
-title: sys. dm_cdc_log_scan_sessions (Transact-SQL) | Microsoft-Dokumentation
+description: Change Data Capture-sys.dm_cdc_log_scan_sessions
+title: sys.dm_cdc_log_scan_sessions (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,16 +18,16 @@ helpviewer_keywords:
 - change data capture [SQL Server], log scan reporting
 - sys.dm_cdc_log_scan_sessions dynamic management view
 ms.assetid: d337e9d0-78b1-4a07-8820-2027d0b9f87c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 7bef7989e6533b56ff1976ccf5fe145954a69afb
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 312a0577d6ac2d092b01b34fcdb2aa034d36995d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89534332"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100069"
 ---
-# <a name="change-data-capture---sysdm_cdc_log_scan_sessions"></a>Change Data Capture-sys. dm_cdc_log_scan_sessions
+# <a name="change-data-capture---sysdm_cdc_log_scan_sessions"></a>Change Data Capture-sys.dm_cdc_log_scan_sessions
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Gibt eine Zeile für jede Protokollscansitzung in der aktuellen Datenbank zurück. Die letzte zurückgegebene Zeile stellt die aktuelle Sitzung dar. Mithilfe dieser Sicht können Sie Statusinformationen zur aktuellen Protokollscansitzung oder aggregierte Informationen zu allen Sitzungen zurückzugeben, seit die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] das letzte Mal gestartet wurde.  
@@ -56,11 +56,11 @@ ms.locfileid: "89534332"
 |**empty_scan_count**|**int**|Anzahl der aufeinander folgenden Sitzungen, die keine Change Data Capture-Transaktionen enthalten haben.|  
 |**failed_sessions_count**|**int**|Anzahl der fehlgeschlagenen Sitzungen.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Die Werte in dieser dynamischen Verwaltungssicht werden immer dann zurückgesetzt, wenn die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] gestartet wird.  
   
 ## <a name="permissions"></a>Berechtigungen  
- Erfordert die VIEW DATABASE STATE-Berechtigung zum Abfragen der dynamischen Verwaltungs Sicht **sys. dm_cdc_log_scan_sessions** . Weitere Informationen zu Berechtigungen für dynamische Verwaltungs Sichten finden Sie unter [dynamische Verwaltungs Sichten und Funktionen &#40;Transact-SQL-&#41;](~/relational-databases/system-dynamic-management-views/system-dynamic-management-views.md).  
+ Erfordert die VIEW DATABASE STATE-Berechtigung, um die **sys.dm_cdc_log_scan_sessions** dynamischen Verwaltungs Sicht abzufragen. Weitere Informationen zu Berechtigungen für dynamische Verwaltungs Sichten finden Sie unter [dynamische Verwaltungs Sichten und Funktionen &#40;Transact-SQL-&#41;](~/relational-databases/system-dynamic-management-views/system-dynamic-management-views.md).  
   
 ## <a name="examples"></a>Beispiele  
  Im folgenden Beispiel werden Informationen zur aktuellen Sitzung zurückgegeben.  
@@ -79,7 +79,7 @@ GO
 ```  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [sys. dm_cdc_errors &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/change-data-capture-sys-dm-cdc-errors.md)  
+ [sys.dm_cdc_errors &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/change-data-capture-sys-dm-cdc-errors.md)  
   
   
 

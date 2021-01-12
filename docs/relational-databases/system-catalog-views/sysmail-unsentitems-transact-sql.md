@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysmail_unsentitems database mail view
 ms.assetid: 993c12da-41e5-4e53-a188-0323feb70c67
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 7ef61a0c08d1ddc2e3a268571521b4da47cee90f
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 0e8ffcc7ae60096de1b0355ed113ffb55e02e286
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543970"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100112"
 ---
 # <a name="sysmail_unsentitems-transact-sql"></a>sysmail_unsentitems (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -72,8 +72,8 @@ ms.locfileid: "89543970"
 |**last_mod_date**|**datetime**|Das Datum und die Uhrzeit der letzten Änderung der Zeile.|  
 |**last_mod_user**|**sysname**|Der Benutzer, der die Zeile zuletzt geändert hat.|  
   
-## <a name="remarks"></a>Hinweise  
- Wenn Sie Probleme mit der Datenbank-E-Mail behandeln, kann diese Sicht Ihnen helfen, die Ursache des Problems zu identifizieren, da sie anzeigt, wie viele Nachrichten darauf warten, gesendet zu werden, und seit wann diese Nachrichten warten. Werden keine Nachrichten gesendet, wird das externe Datenbank-E-Mail-Programm möglicherweise nicht ausgeführt, oder die Datenbank-E-Mail kann aufgrund eines Netzwerkproblems die SMTP-Server nicht erreichen. Wenn viele der nicht gesendeten Nachrichten denselben **profile_id**haben, liegt möglicherweise ein Problem mit dem SMTP-Server vor. Sie sollten eventuell dem Profil zusätzliche Konten hinzufügen. Wenn Nachrichten zwar gesendet werden, sich jedoch zu lange in der Warteschlange befinden, benötigt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] möglicherweise zusätzliche Ressourcen, um das Nachrichtenvolumen zu bewältigen.  
+## <a name="remarks"></a>Bemerkungen  
+ Wenn Sie Probleme mit der Datenbank-E-Mail behandeln, kann diese Sicht Ihnen helfen, die Ursache des Problems zu identifizieren, da sie anzeigt, wie viele Nachrichten darauf warten, gesendet zu werden, und seit wann diese Nachrichten warten. Werden keine Nachrichten gesendet, wird das externe Datenbank-E-Mail-Programm möglicherweise nicht ausgeführt, oder die Datenbank-E-Mail kann aufgrund eines Netzwerkproblems die SMTP-Server nicht erreichen. Wenn viele der nicht gesendeten Nachrichten denselben **profile_id** haben, liegt möglicherweise ein Problem mit dem SMTP-Server vor. Sie sollten eventuell dem Profil zusätzliche Konten hinzufügen. Wenn Nachrichten zwar gesendet werden, sich jedoch zu lange in der Warteschlange befinden, benötigt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] möglicherweise zusätzliche Ressourcen, um das Nachrichtenvolumen zu bewältigen.  
   
 ## <a name="permissions"></a>Berechtigungen  
  Wird der festen Server Rolle **sysadmin** und der Daten Bank Rolle **DatabaseMailUserRole** gewährt. Wenn Sie von einem Mitglied der festen Server Rolle **sysadmin** ausgeführt wird, werden in dieser **Ansicht alle nicht** gesendeten oder **wieder** holten Nachrichten angezeigt. Alle anderen Benutzer sehen nur die gesendeten oder **wieder** holten Nachrichten **, die Sie** übermittelt haben.  

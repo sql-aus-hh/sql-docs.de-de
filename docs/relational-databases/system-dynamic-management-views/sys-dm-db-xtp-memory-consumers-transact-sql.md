@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_db_xtp_memory_consumers dynamic management view
 ms.assetid: f7ab2eaf-e627-464d-91fe-0e170b3f37bc
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: a962925e0a359055286b6598914cd3e79cf8036c
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5b27a5202f20e6ced2ad73734688702cfbb7e7a2
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474971"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099890"
 ---
 # <a name="sysdm_db_xtp_memory_consumers-transact-sql"></a>sys.dm_db_xtp_memory_consumers (Transact-SQL)
 [!INCLUDE[sql-asdb-asdbmi](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "97474971"
   
  Weitere Informationen finden Sie unter [In-Memory OLTP &#40;Arbeitsspeicheroptimierung&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md).  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |memory_consumer_id|**bigint**|ID (intern) des Arbeitsspeicherconsumers.|  
 |memory_consumer_type|**int**|Der Typ des Arbeitsspeicherconsumers:<br /><br /> 0=Aggregation. (Aggregiert die Arbeitsspeichernutzung von mindestens zwei Consumern. Sollte nicht angezeigt werden.)<br /><br /> 2=VARHEAP (Verfolgt die Arbeitsspeichernutzung für einen Heap variabler Länge nach.)<br /><br /> 3=HASH (Verfolgt die Arbeitsspeichernutzung für einen Index nach.)<br /><br /> 5=DB-Seitenpool (Verfolgt die Arbeitsspeichernutzung für einen Datenbank-Seitenpool nach, der für Laufzeitvorgänge verwendet wird, z. B. Tabellenvariablen und einige serialisierbare Scans. Es gibt nur einen Arbeitsspeicherconsumer dieses Typs pro Datenbank.)|  
@@ -54,7 +54,7 @@ ms.locfileid: "97474971"
 |memory_consumer_address|**varbinary**|Interne Adresse des Consumers. Nur zur internen Verwendung.|  
 |xtp_object_id|**bigint**|Die in-Memory-OLTP-Objekt-ID, die der Speicher optimierten Tabelle entspricht.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  In der Ausgabe verweisen die Zuordnungen auf Datenbankebene auf Benutzertabellen, Indizes und Systemtabellen. VARHEAP mit object_id = NULL verweist auf Arbeitsspeicher, der Tabellen mit Spalten variabler Länge zugeordnet ist.  
   
 ## <a name="permissions"></a>Berechtigungen  

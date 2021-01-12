@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_qn_subscriptions dynamic management view
 ms.assetid: a3040ce6-f5af-48fc-8835-c418912f830c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 197d3fd3ab4108c898c9377bbeed2f0e16e83d76
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 62953d7f80a8d0fa327f37eadcc7a8dafd6fa734
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834473"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100043"
 ---
 # <a name="query-notifications---sysdm_qn_subscriptions"></a>Abfrage Benachrichtigungen-sys.dm_qn_subscriptions
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,12 +43,12 @@ ms.locfileid: "91834473"
   
 ## <a name="relationship-cardinalities"></a>Kardinalität der Beziehungen  
   
-|From|An|Ein|type|  
+|Von|Beschreibung|Ein|type|  
 |----------|--------|--------|----------|  
 |**sys.dm_qn_subscriptions**|**sys.databases**|**database_id**|n:1|  
 |**sys.dm_qn_subscriptions**|**sys.internal_tables**|**object_id**|n:1|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Der Statuscode 0 gibt einen nicht definierten Status an.  
   
  Die folgenden Statuscodes geben an, dass ein Abonnement aufgrund einer Änderung ausgelöst wurde:  

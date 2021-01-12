@@ -1,6 +1,6 @@
 ---
 description: sys.fn_trace_gettable (Transact-SQL)
-title: sys. fn_trace_gettable (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_trace_gettable (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ helpviewer_keywords:
 - fn_trace_gettable function
 - sys.fn_trace_gettable function
 ms.assetid: c2590159-6ec5-4510-81ab-e935cc4216cd
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 85ffb20fb0ead23c8027ab9b4ba45f906fe8c097
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 1f1593e1d12621b5dbe858b0f012322f447111e4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88464743"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101300"
 ---
 # <a name="sysfn_trace_gettable-transact-sql"></a>sys.fn_trace_gettable (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -48,12 +48,12 @@ fn_trace_gettable ( 'filename' , number_files )
  Gibt die erste Ablaufverfolgungsdatei an, die gelesen werden soll. *Dateiname ist vom Datentyp* **nvarchar (256)** und hat keinen Standardwert.  
   
  *number_files*  
- Gibt die Anzahl der zu lesenden Rolloverdateien an. Diese Zahl schließt die in *filename*angegebene anfängliche Datei ein. *number_files* ist vom Datentyp **int**.  
+ Gibt die Anzahl der zu lesenden Rolloverdateien an. Diese Zahl schließt die in *filename* angegebene anfängliche Datei ein. *number_files* ist vom Datentyp **int**.  
   
 ## <a name="remarks"></a>Bemerkungen  
- Wenn *number_files* als **Standard**angegeben wird, liest **fn_trace_gettable** Alle Rolloverdateien, bis das Ende der Ablauf Verfolgung erreicht ist. **fn_trace_gettable** gibt eine Tabelle mit allen für die angegebene Ablauf Verfolgung gültigen Spalten zurück. Weitere Informationen finden Sie unter [sp_trace_setevent &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md).  
+ Wenn *number_files* als **Standard** angegeben wird, liest **fn_trace_gettable** Alle Rolloverdateien, bis das Ende der Ablauf Verfolgung erreicht ist. **fn_trace_gettable** gibt eine Tabelle mit allen für die angegebene Ablauf Verfolgung gültigen Spalten zurück. Weitere Informationen finden Sie unter [sp_trace_setevent &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md).  
   
- Beachten Sie, dass die fn_trace_gettable Funktion keine Rolloverdateien lädt (wenn diese Option mithilfe des *number_files* -Arguments angegeben wird), wobei der Name der ursprünglichen Ablauf Verfolgungs Datei mit einem Unterstrich und einem numerischen Wert endet. (Dies gilt nicht für den Unterstrich und die Zahl, die automatisch angefügt werden, wenn für eine Datei ein Rollover ausgeführt wird.) Um dieses Problem zu umgehen, können Sie die Ablauf Verfolgungs Dateien umbenennen, um die Unterstriche im ursprünglichen Dateinamen zu entfernen. Wenn die ursprüngliche Datei z **. b. den Namen Trace_Oct_5. trc** hat und die Rolloverdatei **Trace_Oct_5_1. trc**heißt, können Sie die Dateien in **TraceOct5. trc** und **TraceOct5_1. trc**umbenennen.  
+ Beachten Sie, dass die fn_trace_gettable Funktion keine Rolloverdateien lädt (wenn diese Option mithilfe des *number_files* -Arguments angegeben wird), wobei der Name der ursprünglichen Ablauf Verfolgungs Datei mit einem Unterstrich und einem numerischen Wert endet. (Dies gilt nicht für den Unterstrich und die Zahl, die automatisch angefügt werden, wenn für eine Datei ein Rollover ausgeführt wird.) Um dieses Problem zu umgehen, können Sie die Ablauf Verfolgungs Dateien umbenennen, um die Unterstriche im ursprünglichen Dateinamen zu entfernen. Wenn die ursprüngliche Datei z **. b. den Namen Trace_Oct_5. trc** hat und die Rolloverdatei **Trace_Oct_5_1. trc** heißt, können Sie die Dateien in **TraceOct5. trc** und **TraceOct5_1. trc** umbenennen.  
   
  Diese Funktion kann eine Ablaufverfolgung lesen, die noch auf der Instanz aktiv ist, auf der sie ausgeführt wird.  
   
@@ -87,7 +87,7 @@ GO
 ## <a name="see-also"></a>Weitere Informationen  
  [sp_trace_generateevent &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-generateevent-transact-sql.md)   
  [sp_trace_setevent &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md)   
- [sp_trace_setfilter &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-setfilter-transact-sql.md)   
+ [sp_trace_setfilter &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setfilter-transact-sql.md)   
  [sp_trace_setstatus &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setstatus-transact-sql.md)  
   
   

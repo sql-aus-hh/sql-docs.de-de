@@ -18,22 +18,22 @@ dev_langs:
 helpviewer_keywords:
 - sys.computed_columns catalog view
 ms.assetid: c962c619-e18f-4315-9251-8d9862462299
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: b0f6f74e61ce938afcacffb3304cf40365cd4dc0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a7dbe7e9176605dea875e1846b72e1f00301be55
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97459900"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100701"
 ---
 # <a name="syscomputed_columns-transact-sql"></a>sys.computed_columns (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Enthält eine Zeile für jede Spalte, die in **sys. Columns** gefunden wird, die eine berechnete Spalte ist.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**\<Inherited columns>**||In der **sys.computed_columns** Sicht werden alle Spalten in der **sys. Columns** -Sicht zurückgegeben. Darüber hinaus werden die unten beschriebenen, zusätzlichen Spalten zurückgegeben. Eine Beschreibung der Spalten, die die **sys.computed_columns** Sicht von **sys. Columns** erbt, finden Sie unter [sys. Columns &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-columns-transact-sql.md). Der Wert der Spalte **IS_COMPUTED** wird in der **sys.computed_columns** Sicht immer auf 1 festgelegt.|  
 |**Definition**|**nvarchar(max)**|SQL-Text, der diese berechnete Spalte definiert.|  

@@ -19,15 +19,15 @@ helpviewer_keywords:
 - sys.dm_db_missing_index_columns dynamic management function
 - missing indexes feature [SQL Server], sys.dm_db_missing_index_columns dynamic management function
 ms.assetid: 3b24e5ed-0c79-47e5-805c-a0902d0aeb86
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 7402f7a1104c327b0d0a8fb24c5d5793b0a044a1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 3cbebd83641c3cbffdc273f2b09c4037ff0f0795
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97462791"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099985"
 ---
 # <a name="sysdm_db_missing_index_columns-transact-sql"></a>sys.dm_db_missing_index_columns (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -51,13 +51,13 @@ sys.dm_db_missing_index_columns(index_handle)
   
 ## <a name="table-returned"></a>Zurückgegebene Tabelle  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**column_id**|**int**|ID der Spalte.|  
 |**column_name**|**sysname**|Name der Tabellenspalte.|  
 |**column_usage**|**varchar (20)**|Art der Verwendung der Spalte durch die Abfrage. Die möglichen Werte und deren Beschreibungen lauten:<br /><br /> Gleichheit: die Spalte trägt zu einem Prädikat bei, das die Gleichheit in der Form ausdrückt: <br />                        *Table. Column*  =  *constant_value*<br /><br /> Ungleichheit: die Spalte trägt zu einem Prädikat bei, das Ungleichheit ausdrückt, z. b. ein Prädikat der Form: *Table. Column*  >  *constant_value*. Jeder Vergleichsoperator außer "=" drückt Ungleichheit aus.<br /><br /> INCLUDE: die Spalte wird nicht zur Auswertung eines Prädikats verwendet, sondern wird aus einem anderen Grund verwendet, z. b. zum Abdecken einer Abfrage.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Von **sys.dm_db_missing_index_columns** zurückgegebene Informationen werden aktualisiert, wenn eine Abfrage vom Abfrageoptimierer optimiert wird. Sie werden nicht persistent gespeichert. Informationen zu fehlenden Indizes werden nur bis zum Neustart von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] aufbewahrt. Datenbankadministratoren sollten regelmäßig Sicherungskopien der Informationen zu fehlenden Indizes erstellen, wenn Sie sie nach dem Wiederverwenden des Servers beibehalten möchten.  
   
 ## <a name="transaction-consistency"></a>Transaktionskonsistenz  

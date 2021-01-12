@@ -1,6 +1,6 @@
 ---
 description: sys.availability_groups_cluster (Transact-SQL)
-title: sys. availability_groups_cluster (Transact-SQL) | Microsoft-Dokumentation
+title: sys.availability_groups_cluster (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -20,14 +20,14 @@ helpviewer_keywords:
 - sys.availability_groups_cluster catalog view
 - Availability Groups [SQL Server], WSFC clusters
 ms.assetid: d0f4683f-cdf0-4227-8b68-720ffe58f158
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 26a33fd75d392ea847fd2e27aa8dde6166e10bca
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: e6318cc58ce51cafd380dd1f5eb8a71aa0e0b479
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537503"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101818"
 ---
 # <a name="sysavailability_groups_cluster-transact-sql"></a>sys.availability_groups_cluster (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "89537503"
 |**failure_condition_level**|**int**|Benutzerdefinierte Fehlerbedingungsebene, unter der ein automatisches Failover ausgelöst werden muss, einer der folgenden ganzzahligen Werte:<br /><br /> 1: gibt an, dass ein automatisches Failover initiiert werden soll, wenn eine der folgenden Aktionen auftritt: <br />-Der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Dienst ist herunter.<br />-Die Lease der Verfügbarkeits Gruppe für die Verbindung mit dem wsfc-Failovercluster läuft ab, da keine ACK von der Serverinstanz empfangen wird. Weitere Informationen finden Sie unter [How It Works: SQL Server Always On Lease Timeout (Funktionsweise: SQL Server Always On-Leasetimeout)](https://techcommunity.microsoft.com/t5/sql-server-support/how-it-works-sql-server-alwayson-lease-timeout/ba-p/317268).<br /><br /> 2: gibt an, dass ein automatisches Failover initiiert werden soll, wenn eine der folgenden Aktionen auftritt:  <br />-Die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] stellt keine Verbindung mit dem Cluster her, und der vom Benutzer angegebene **health_check_timeout** Schwellenwert der Verfügbarkeits Gruppe wurde überschritten. <br />-Das Verfügbarkeits Replikat weist einen fehlerhaften Status auf. <br />3: gibt an, dass ein automatisches Failover bei kritischen internen Fehlern initiiert werden soll [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , z. b. verwaisten Spinlocks, ernsthaften Schreibzugriffs Verletzungen oder zu viel Absicherungen. Dies ist der Standardwert. <br />4: gibt an, dass ein automatisches Failover bei mittleren internen Fehlern initiiert werden soll [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , z. b. bei einem permanenten Speichermangel im [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] internen Ressourcenpool.<br />5: gibt an, dass ein automatisches Failover für alle qualifizierten Fehlerbedingungen initiiert werden soll, einschließlich:<br />-Erschöpfung der SQL-Engine-Arbeitsthreads. <br />-Erkennung eines nicht lösbaren Deadlocks.<br /><br /> Die Fehlerbedingungsebenen (1–5) reichen von der Ebene 1 mit den wenigsten Einschränkungen bis zur Ebene 5 mit den meisten Einschränkungen. Jede Bedingungsebene umfasst stets auch sämtliche weniger restriktiven Ebenen. Daher schließt die strengste Bedingungsebene 5 die vier Bedingungsebenen mit weniger Einschränkungen (1-4) ein, Ebene 4 schließt die Ebenen 1-3 ein usw.<br /><br /> Um diesen Wert zu ändern, verwenden Sie die FAILURE_CONDITION_LEVEL-Option der [Alter Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) - [!INCLUDE[tsql](../../includes/tsql-md.md)] Anweisung.|  
 |**health_check_timeout**|**int**|Die Wartezeit (in Millisekunden), mit der die gespeicherte Prozedur des [sp_server_diagnostics](../../relational-databases/system-stored-procedures/sp-server-diagnostics-transact-sql.md) Servers Server Zustandsinformationen zurückgibt, bevor davon ausgegangen wird, dass die Serverinstanz langsam ist oder nicht antwortet. Der Standardwert ist 30000 Millisekunden (oder 30 Sekunden).<br /><br /> Um diesen Wert zu ändern, verwenden Sie die HEALTH_CHECK_TIMEOUT-Option der [Alter Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) - [!INCLUDE[tsql](../../includes/tsql-md.md)] Anweisung.|  
 |**automated_backup_preference**|**tinyint**|Bevorzugter Speicherort zum Durchführen von Sicherungen auf den Verfügbarkeitsdatenbanken in dieser Verfügbarkeitsgruppe. Einer der folgenden Werte:<br /><br /> 0: primär. Sicherungen sollten immer auf dem primären Replikat erfolgen.<br />1: nur sekundär. Die Durchführung von Sicherungen auf einem sekundären Replikat wird bevorzugt.<br />2: Sekundär bevorzugen. Die Durchführung von Sicherungen auf einem sekundären Replikat wird bevorzugt, aber die Durchführung von Sicherungen auf dem primären Replikat wird akzeptiert, wenn kein sekundäres Replikat für Sicherungsvorgänge verfügbar ist. Dies ist das Standardverhalten.<br />3: beliebiges Replikat. Keine Präferenz, ob Sicherungen auf dem primären Replikat oder einem sekundären Replikat durchgeführt werden.<br /><br /> Weitere Informationen finden Sie unter [Aktive sekundäre Replikate: Sicherung auf sekundären Replikaten &#40;Always On-Verfügbarkeitsgruppen&#41;](../../database-engine/availability-groups/windows/active-secondaries-backup-on-secondary-replicas-always-on-availability-groups.md).|  
-|**automated_backup_preference_desc**|**nvarchar(60)**|Beschreibung der **automated_backup_preference**, eine der folgenden:<br /><br /> PRIMARY<br /><br /> SECONDARY_ONLY<br /><br /> SECONDARY<br /><br /> Keine|  
+|**automated_backup_preference_desc**|**nvarchar(60)**|Beschreibung der **automated_backup_preference**, eine der folgenden:<br /><br /> PRIMARY<br /><br /> SECONDARY_ONLY<br /><br /> SECONDARY<br /><br /> NONE|  
   
 ## <a name="security"></a>Sicherheit  
   

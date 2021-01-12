@@ -1,6 +1,6 @@
 ---
 description: sys.dm_clr_loaded_assemblies (Transact-SQL)
-title: sys. dm_clr_loaded_assemblies (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_clr_loaded_assemblies (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_clr_loaded_assemblies dynamic management view
 ms.assetid: 8523d8db-d8a0-4b1f-ae19-6705d633e0a6
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 42abc84bf1b5a78979da4c7443158abc6eddabc8
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: d132a0389ca636dbc24afe016b98389021d8d848
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539454"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099954"
 ---
 # <a name="sysdm_clr_loaded_assemblies-transact-sql"></a>sys.dm_clr_loaded_assemblies (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,13 +37,13 @@ ms.locfileid: "89539454"
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**assembly_id**|**int**|ID der geladenen Assembly. Der **assembly_id** kann verwendet werden, um weitere Informationen zur Assembly in der Katalog Sicht [sys. Assemblys &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) zu suchen. Beachten Sie, dass im [!INCLUDE[tsql](../../includes/tsql-md.md)] [sys.assemblies](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) -Katalog nur Assemblys in der aktuellen Datenbank angezeigt werden. Mit der **sqs.dm_clr_loaded_assemblies** -Sicht werden alle geladenen Assemblys auf dem Server angezeigt.|  
-|**appdomain_address**|**int**|Adresse der Anwendungsdomäne (**AppDomain**), in der die Assembly geladen wird. Alle Assemblys, die sich im Besitz eines einzelnen Benutzers befinden, werden stets in derselben **AppDomain**geladen. **appdomain_address** kann für die Suche nach weiteren Informationen zur **AppDomain** in der [sys.dm_clr_appdomains](../../relational-databases/system-dynamic-management-views/sys-dm-clr-appdomains-transact-sql.md) -Sicht verwendet werden.|  
-|**load_time**|**datetime**|Zeit, zu der die Assembly geladen wurde. Beachten Sie, dass die Assembly geladen bleibt, bis nicht mehr genügend Arbeitsspeicher in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] vorhanden ist und die **AppDomain**entladen wird. Sie können **load_time** überwachen, um zu ermitteln, wie häufig in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nicht genügend Arbeitsspeicher vorhanden ist und die **AppDomain**entladen wird.|  
+|**appdomain_address**|**int**|Adresse der Anwendungsdomäne (**AppDomain**), in der die Assembly geladen wird. Alle Assemblys, die sich im Besitz eines einzelnen Benutzers befinden, werden stets in derselben **AppDomain** geladen. **appdomain_address** kann für die Suche nach weiteren Informationen zur **AppDomain** in der [sys.dm_clr_appdomains](../../relational-databases/system-dynamic-management-views/sys-dm-clr-appdomains-transact-sql.md) -Sicht verwendet werden.|  
+|**load_time**|**datetime**|Zeit, zu der die Assembly geladen wurde. Beachten Sie, dass die Assembly geladen bleibt, bis nicht mehr genügend Arbeitsspeicher in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] vorhanden ist und die **AppDomain** entladen wird. Sie können **load_time** überwachen, um zu ermitteln, wie häufig in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nicht genügend Arbeitsspeicher vorhanden ist und die **AppDomain** entladen wird.|  
   
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die VIEW SERVER STATE-Berechtigung auf dem Server.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Die **dm_clr_loaded_assemblies.appdomain_address** -Sicht besitzt eine n:1-Beziehung mit  **dm_clr_appdomains.appdomain_address**. Die **dm_clr_loaded_assemblies.assembly_id** -Sicht besitzt eine 1:n-Beziehung mit **sys.assemblies.assembly_id**.  
   
 ## <a name="examples"></a>Beispiele  

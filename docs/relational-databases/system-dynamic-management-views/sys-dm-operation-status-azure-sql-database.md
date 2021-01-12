@@ -17,15 +17,15 @@ helpviewer_keywords:
 - dm_operation_status dynamic management view
 - sys.dm_operation_status dynamic management view
 ms.assetid: cc847784-7f61-4c69-8b78-5f971bb24d61
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: = azuresqldb-current || = azure-sqldw-latest
-ms.openlocfilehash: 7146d3455d4d9a36304cc0a1cc69ba3c4c841479
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 21028fd5cdabf435d7672074907b20ebeaaad3c4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477221"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101546"
 ---
 # <a name="sysdm_operation_status"></a>sys.dm_operation_status
 
@@ -33,7 +33,7 @@ ms.locfileid: "97477221"
 
   Gibt Informationen zu den Vorgängen zurück, die für Datenbanken auf einem [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]-Server ausgeführt werden.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |session_activity_id|**uniqueidentifier**|ID des Vorgangs. Nicht NULL.|  
 |resource_type|**int**|Bezeichnet den Typ der Ressource, für die der Vorgang ausgeführt wird. Nicht NULL. In der aktuellen Version verfolgt diese Sicht nur die Vorgänge nach, die für [!INCLUDE[ssSDS](../../includes/sssds-md.md)] ausgeführt werden. Der entsprechende ganzzahlige Wert ist 0.|  
@@ -54,7 +54,7 @@ ms.locfileid: "97477221"
 ## <a name="permissions"></a>Berechtigungen  
  Diese Ansicht ist nur in der **Master** -Datenbank für den Prinzipal Anmelde Namen auf Serverebene verfügbar.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Um diese Ansicht verwenden zu können, müssen Sie mit der **Master** -Datenbank verbunden sein. Verwenden Sie die- `sys.dm_operation_status` Sicht in der **Master** -Datenbank des- [!INCLUDE[ssSDS](../../includes/sssds-md.md)] Servers, um den Status der folgenden Vorgänge zu verfolgen, die auf einem ausgeführt werden [!INCLUDE[ssSDS](../../includes/sssds-md.md)] :  
   
 -   Erstellen einer Datenbank  
