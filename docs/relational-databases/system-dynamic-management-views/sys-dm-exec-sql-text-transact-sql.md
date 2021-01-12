@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_sql_text dynamic management function
 ms.assetid: 61b8ad6a-bf80-490c-92db-58dfdff22a24
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 0f15f149cadf6f1fd98526bd4eb27606fc929561
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ae67ee26b6b44951ae0c798de4461dc846b29352
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97482751"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098920"
 ---
 # <a name="sysdm_exec_sql_text-transact-sql"></a>sys.dm_exec_sql_text (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -75,7 +75,7 @@ Ein Token, das einen Abfrage Ausführungsplan für einen Batch eindeutig identif
   
 ## <a name="table-returned"></a>Zurückgegebene Tabelle  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**DBID**|**smallint**|ID der Datenbank.<br /><br /> Für Ad-hoc-Anweisungen und vorbereitete SQL-Anweisungen, die ID der Datenbank, in der die Anweisungen kompiliert wurden.|  
 |**objectid**|**int**|ID des Objekts.<br /><br /> Dieser Wert ist für Ad-hoc-Anweisungen und vorbereitete SQL-Anweisungen NULL.|  
@@ -86,7 +86,7 @@ Ein Token, das einen Abfrage Ausführungsplan für einen Batch eindeutig identif
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die `VIEW SERVER STATE`-Berechtigung auf dem Server.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 Bei Ad-hoc-Abfragen sind die SQL-Handles Hashwerte auf der Grundlage des SQL-Texts, der an den Server übermittelt wird. Sie können aus jeder Datenbank stammen. 
 
 Für Datenbankobjekte, z. B. gespeicherte Prozeduren, Trigger oder Funktionen, werden die SQL-Handles von der Datenbank-ID, Objekt-ID und Objektnummer abgeleitet. 

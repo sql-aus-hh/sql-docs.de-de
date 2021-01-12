@@ -1,6 +1,6 @@
 ---
 description: sys.fn_get_sql (Transact-SQL)
-title: sys. fn_get_sql (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_get_sql (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -22,14 +22,14 @@ helpviewer_keywords:
 - valid SQL handles [SQL Server]
 - SQL handles
 ms.assetid: d5fe49b5-0813-48f2-9efb-9187716b2fd4
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 6f5e3f4af1cd1bae33f0a340333cb6afd3268158
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 4b3e28e4c66d45f28c6239431e8e6d5440d5d4a0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427802"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093820"
 ---
 # <a name="sysfn_get_sql-transact-sql"></a>sys.fn_get_sql (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "88427802"
   Gibt den Text der SQL-Anweisung für das angegebene SQL-Handle zurück.  
   
 > [!IMPORTANT]  
->  Dieses Feature wird in einer künftigen Version von Microsoft SQL Server entfernt. Nutzen Sie diese Funktionen bei Neuentwicklungen nicht mehr, und planen Sie die Änderung von Anwendungen, die diese Funktion zurzeit verwenden. Verwenden Sie stattdessen sys.dm_exec_sql_text. Weitere Informationen finden Sie unter [sys. dm_exec_sql_text &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md).  
+>  Dieses Feature wird in einer künftigen Version von Microsoft SQL Server entfernt. Nutzen Sie diese Funktionen bei Neuentwicklungen nicht mehr, und planen Sie die Änderung von Anwendungen, die diese Funktion zurzeit verwenden. Verwenden Sie stattdessen sys.dm_exec_sql_text. Weitere Informationen finden Sie unter [sys.dm_exec_sql_text &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md).  
   
  
   
@@ -62,12 +62,12 @@ sys.fn_get_sql ( SqlHandle )
 |objectid|**int**|ID des Datenbankobjekts. Dieser Wert ist für Ad-hoc-SQL-Anweisungen NULL.|  
 |number|**smallint**|Gibt die Nummer der Gruppe an, wenn die Prozeduren gruppiert sind.<br /><br /> 0 = Einträge sind keine Prozeduren.<br /><br /> NULL = Ad-hoc-SQL-Anweisungen.|  
 |encrypted|**bit**|Zeigt an, ob das Objekt verschlüsselt ist.<br /><br /> 0 = Nicht verschlüsselt<br /><br /> 1 = Verschlüsselt.|  
-|text|**text**|Der Text der SQL-Anweisung. Der Wert ist für verschlüsselte Objekte NULL.|  
+|Text|**text**|Der Text der SQL-Anweisung. Der Wert ist für verschlüsselte Objekte NULL.|  
   
 ## <a name="remarks"></a>Bemerkungen  
- Sie können ein gültiges SQL-Handle aus der sql_handle-Spalte der dynamischen Verwaltungs Sicht [sys. dm_exec_requests &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md) abrufen.  
+ Sie können ein gültiges SQL-Handle aus der Spalte sql_handle der [sys.dm_exec_requests &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md) dynamische Verwaltungs Sicht abrufen.  
   
- Wenn Sie ein Handle übergeben, das nicht mehr im Cache vorhanden ist, gibt fn_get_sq**l** ein leeres Resultset zurück. Wenn Sie ein ungültiges Handle übergeben, wird die Ausführung des Batches beendet und eine Fehlermeldung zurückgegeben.  
+ Wenn Sie ein Handle übergeben, das nicht mehr im Cache vorhanden ist, gibt fn_get_sq **l** ein leeres Resultset zurück. Wenn Sie ein ungültiges Handle übergeben, wird die Ausführung des Batches beendet und eine Fehlermeldung zurückgegeben.  
   
  Der [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] kann einige Anweisungen nicht zwischenspeichern [!INCLUDE[tsql](../../includes/tsql-md.md)] , z. b. Massen Kopier Anweisungen und Anweisungen mit Zeichenfolgenliteralen, die größer als 8 KB sind. Handles für diese Anweisungen können nicht mithilfe von fn_get_sql abgerufen werden.  
   

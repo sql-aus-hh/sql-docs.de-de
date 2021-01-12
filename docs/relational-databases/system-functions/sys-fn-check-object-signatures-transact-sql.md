@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.fn_check_object_signatures function
 ms.assetid: 47509566-d3d7-46a9-89c1-91b4895d56b9
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 652f7d896d68097d081d209fd6617a8a3b389eb9
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4efb55bdeb3455c2c98278e8b90021c5cf194146
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472771"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099671"
 ---
 # <a name="sysfn_check_object_signatures-transact-sql"></a>sys.fn_check_object_signatures (Transact-SQL)
 [!INCLUDE [sql-asdbmi-pdw](../../includes/applies-to-version/sql-asdbmi-pdw.md)]
@@ -68,7 +68,7 @@ fn_ check_object_signatures (
 |is_signed|**int**|Gibt 0 zurück, wenn das Objekt nicht durch den bereitgestellten Fingerabdruck signiert wird. Gibt 1 zurück, wenn das Objekt durch den bereitgestellten Fingerabdruck signiert wird.|  
 |is_signature_valid|**int**|Wenn der is_signed-Wert 1 ist, wird 0 zurückgegeben, wenn die Signatur nicht gültig ist. Gibt den Wert 1 zurück, wenn die Signatur gültig ist.<br /><br /> Wenn der is_signed-Wert 0 ist, wird immer 0 zurückgegeben.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Verwenden Sie **fn_check_object_signatures** , um zu bestätigen, dass die Objekte von böswilligen Benutzern nicht manipuliert wurden.  
   
 ## <a name="permissions"></a>Berechtigungen  

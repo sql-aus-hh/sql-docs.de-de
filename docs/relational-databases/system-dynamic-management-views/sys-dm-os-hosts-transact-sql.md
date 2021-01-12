@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_hosts dynamic management view
 ms.assetid: a313ff3b-1fe9-421e-b94b-cea19c43b0e5
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: bc04cbc95d7b08903c596937bdec482311d29f63
-ms.sourcegitcommit: 2991ad5324601c8618739915aec9b184a8a49c74
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: a0220ed88a3852188c5ee2f7952df7f067e410ad
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97321888"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098892"
 ---
 # <a name="sysdm_os_hosts-transact-sql"></a>sys.dm_os_hosts (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "97321888"
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**host_address**|**varbinary(8)**|Die interne Speicheradresse des Hostobjekts.|  
-|**type**|**nvarchar(60)**|Der Typ der gehosteten Komponente. Ein auf ein Objekt angewendeter<br /><br /> SOSHOST_CLIENTID_SERVERSNI= SQL Server Native Interface<br /><br /> SOSHOST_CLIENTID_SQLOLEDB = SQL Server Native Client OLE DB Provider<br /><br /> SOSHOST_CLIENTID_MSDART = Microsoft Data Access Run Time|  
+|**type**|**nvarchar(60)**|Der Typ der gehosteten Komponente. Beispiel:<br /><br /> SOSHOST_CLIENTID_SERVERSNI= SQL Server Native Interface<br /><br /> SOSHOST_CLIENTID_SQLOLEDB = SQL Server Native Client OLE DB Provider<br /><br /> SOSHOST_CLIENTID_MSDART = Microsoft Data Access Run Time|  
 |**name**|**nvarchar(32)**|Der Name des Hosts.|  
 |**enqueued_tasks_count**|**int**|Gesamtanzahl der Tasks, die von diesem Host in Warteschlangen in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] platziert wurden.|  
 |**active_tasks_count**|**int**|Gesamtanzahl der aktuell ausgeführten Tasks, die von diesem Host in Warteschlangen platziert wurden.|  

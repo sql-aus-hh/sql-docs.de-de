@@ -20,15 +20,15 @@ helpviewer_keywords:
 - PolyBase,views
 - PolyBase
 ms.assetid: 7597d97b-1fde-4135-ac35-4af12968f300
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 6d373e5900cfebca38c6305bbe9e8cac3d36cb22
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 32a0949cfbc06d9fb801681c6ecfa56abc9f811e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477291"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098968"
 ---
 # <a name="sysdm_exec_external_work-transact-sql"></a>sys.dm_exec_external_work (Transact-SQL)
 [!INCLUDE [sqlserver2016-asa-pdw](../../includes/applies-to-version/sqlserver2016-asa-pdw.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "97477291"
 |step_index|`int`|Die Anforderung, die dieser Worker ausführt.|Weitere Informationen finden Sie unter *step_index* in  [sys.dm_exec_requests &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md).|  
 |dms_step_index|`int`|Schritt in den DMS-Plan, der von diesem Worker ausgeführt wird.|Weitere Informationen finden Sie unter [sys.dm_exec_dms_workers &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-dms-workers-transact-sql.md).|  
 |compute_node_id|`int`|Der Knoten, auf dem der Worker ausgeführt wird.|Weitere Informationen finden Sie unter [sys.dm_exec_compute_nodes &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-compute-nodes-transact-sql.md).|  
-|Typ|`nvarchar(60)`|Der Typ der externen Arbeit.|' Datei Teilung '|  
+|type|`nvarchar(60)`|Der Typ der externen Arbeit.|' Datei Teilung '|  
 |work_id|`int`|ID der tatsächlichen Teilung.|Größer oder gleich 0 (null).|  
 |input_name|`nvarchar(4000)`|Name der zu lesenden Eingabe|Dateiname bei Verwendung von Hadoop.|  
 |read_location|`bigint`|Offset oder Lese Speicherort.|Der Offset der zu lesenden Datei.|  
