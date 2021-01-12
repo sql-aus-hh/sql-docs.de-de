@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 59cf1ed10d71bf9813f2ce814d88e7f7d64b6b2e
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 905b961e2fbf882f59b050a3acb7ba0f9c2f9046
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418715"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099330"
 ---
 # <a name="mssqlserver_17892"></a>MSSQLSERVER_17892
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "92418715"
 
 ## <a name="explanation"></a>Erklärung
 
-Die Fehlermeldung 17892 wird angezeigt, wenn ein Anmeldetriggercode nicht erfolgreich ausgeführt werden kann. [Anmeldetrigger](/sql/relational-databases/triggers/logon-triggers) lösen gespeicherte Prozeduren als Antwort auf ein LOGON-Ereignis aus. Dieses Ereignis wird ausgelöst, wenn eine Benutzersitzung mit einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]erstellt wird. Dem Benutzer wird eine Fehlermeldung wie die folgende angezeigt:
+Die Fehlermeldung 17892 wird angezeigt, wenn ein Anmeldetriggercode nicht erfolgreich ausgeführt werden kann. [Anmeldetrigger](../triggers/logon-triggers.md) lösen gespeicherte Prozeduren als Antwort auf ein LOGON-Ereignis aus. Dieses Ereignis wird ausgelöst, wenn eine Benutzersitzung mit einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]erstellt wird. Dem Benutzer wird eine Fehlermeldung wie die folgende angezeigt:
 
 > Meldung 17892, Ebene 14, Status 1, Server \<Server Name>, Zeile 1  
 Fehler beim Anmelden für den Anmeldenamen \<Login Name> wegen Triggerausführung.
@@ -52,7 +52,7 @@ Das Problem kann auftreten, wenn beim Ausführen des Triggercodes für das entsp
 
 Abhängig von dem Szenario, in dem Sie sich befinden, können Sie eine der folgenden Lösungen verwenden.
 
-- **Szenario 1** : Sie haben derzeit über ein Administratorkonto Zugriff auf eine geöffnete [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Sitzung.
+- **Szenario 1**: Sie haben derzeit über ein Administratorkonto Zugriff auf eine geöffnete [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Sitzung.
 
   In diesem Fall können Sie die erforderlichen Korrekturmaßnahmen zum Korrigieren des Triggercodes ergreifen.
 
@@ -62,9 +62,9 @@ Abhängig von dem Szenario, in dem Sie sich befinden, können Sie eine der folge
   
   Alternativ können Sie einfach den Anmeldetrigger verwerfen oder deaktivieren, sodass sich Benutzer weiterhin bei [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] anmelden können.  
 
-- **Szenario 2** : Sie haben derzeit keine Sitzung mit Administratorrechten geöffnet, die dedizierte Administratorverbindung (DAC) ist auf der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz jedoch aktiviert.
+- **Szenario 2**: Sie haben derzeit keine Sitzung mit Administratorrechten geöffnet, die dedizierte Administratorverbindung (DAC) ist auf der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz jedoch aktiviert.
 
-    In diesem Fall können Sie die dedizierte Administratorverbindung verwenden, um die gleichen Schritte durchzuführen, die im Fall 1 erläutert werden, da sich Anmeldetrigger nicht auf dedizierte Administratorverbindungen auswirken. Weitere Informationen zur dedizierten Administratorverbindung finden Sie unter folgendem Link: [Diagnoseverbindung für Datenbankadministratoren](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators)
+    In diesem Fall können Sie die dedizierte Administratorverbindung verwenden, um die gleichen Schritte durchzuführen, die im Fall 1 erläutert werden, da sich Anmeldetrigger nicht auf dedizierte Administratorverbindungen auswirken. Weitere Informationen zur dedizierten Administratorverbindung finden Sie unter folgendem Link: [Diagnoseverbindung für Datenbankadministratoren](../../database-engine/configure-windows/diagnostic-connection-for-database-administrators.md)
 
     Sie können das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Fehlerprotokoll auf eine Meldung ähnlich der folgenden überprüfen, um herauszufinden, ob die DAC auf Ihrer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz aktiviert ist:
 
@@ -80,7 +80,7 @@ Abhängig von dem Szenario, in dem Sie sich befinden, können Sie eine der folge
         > [!NOTE]
         > Das oben beschriebene Verfahren erfordert eine *SA* oder ein entsprechendes Administratorkonto.
   
-         Weitere Informationen zu diesen und anderen Startoptionen finden Sie unter dem folgenden Link: [Startoptionen für den Datenbank-Engine-Dienst](/sql/database-engine/configure-windows/database-engine-service-startup-options)
+         Weitere Informationen zu diesen und anderen Startoptionen finden Sie unter dem folgenden Link: [Startoptionen für den Datenbank-Engine-Dienst](../../database-engine/configure-windows/database-engine-service-startup-options.md)
 
 ## <a name="more-information"></a>Weitere Informationen
 

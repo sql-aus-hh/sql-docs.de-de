@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 38ffd9c2-18a5-43d2-b674-e425addec4e4
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 23b04ae0e205a70b195b7da39a666256463bfa1c
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 85d9e42b9c0ac537d6f33bd884b898374119972d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92192850"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099327"
 ---
 # <a name="sql-server-data-files-in-microsoft-azure"></a>SQL Server-Datendateien in Microsoft Azure
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -145,7 +145,7 @@ Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf 
 ### <a name="sql-server-management-studio-support"></a>Unterstützung von SQL Server Management Studio  
  SQL Server Management Studio unterstützt die Verwendung der Funktion in mehreren Dialogfeldern. So stellt `https://teststorageaccnt.blob.core.windows.net/testcontainer/` beispielsweise den URL-Pfad eines Speichercontainers dar.
  
- als **Pfad** in verschiedenen Dialogfeldern ein, z. B. **Neue Datenbank**, **Datenbank anfügen**und **Datenbank wiederherstellen**. Weitere Informationen finden Sie im [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
+ als **Pfad** in verschiedenen Dialogfeldern ein, z. B. **Neue Datenbank**, **Datenbank anfügen** und **Datenbank wiederherstellen**. Weitere Informationen finden Sie im [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
   
 ### <a name="sql-server-management-objects-smo-support"></a>Unterstützung von SQL Server Management Objects (SMO)  
  Bei Verwendung von SQL Server-Datendateien in Azure werden alle SQL Server Management Objects (SMO) unterstützt. Wenn ein SMO-Objekt einen Dateipfad erfordert, verwenden Sie das BLOB-URL-Format anstelle eines lokalen Dateipfads, beispielsweise `https://teststorageaccnt.blob.core.windows.net/testcontainer/`. Weitere Informationen zu SQL Server Management Objects (SMO) finden Sie unter [SQL Server Management Objects &#40;SMO&#41;-Programmierungshandbuch](../../relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide.md) in der SQL Server-Onlinedokumentation.  
@@ -153,7 +153,7 @@ Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf 
 ### <a name="transact-sql-support"></a>Unterstützung von Transact-SQL  
  Durch die neue Funktion wurde folgende Änderung in der -Oberfläche eingeführt:
 
-- Die neue **int** -Spalte **credential_id**in der **sys.master_files** -Systemsicht. Die Spalte **credential_id** ermöglicht die Rückverweisung von Azure Storage-Datendateien auf `sys.credentials`, um die dafür erstellten Anmeldeinformationen abzurufen. Sie können die Spalte zur Problembehandlung verwenden, etwa wenn Anmeldeinformationen nicht gelöscht werden können, weil sie von einer Datenbankdatei verwendet werden.  
+- Die neue **int** -Spalte **credential_id** in der **sys.master_files** -Systemsicht. Die Spalte **credential_id** ermöglicht die Rückverweisung von Azure Storage-Datendateien auf `sys.credentials`, um die dafür erstellten Anmeldeinformationen abzurufen. Sie können die Spalte zur Problembehandlung verwenden, etwa wenn Anmeldeinformationen nicht gelöscht werden können, weil sie von einer Datenbankdatei verwendet werden.  
   
 ##  <a name="troubleshooting-for-sql-server-data-files-in-microsoft-azure"></a><a name="bkmk_Troubleshooting"></a> Problembehandlung für SQL Server-Datendateien in Microsoft Azure  
  Um Fehler aufgrund von nicht unterstützten Funktionen oder Einschränkungen zu vermeiden, sollten Sie sich zunächst unter [Einschränkungen](../../relational-databases/databases/sql-server-data-files-in-microsoft-azure.md#bkmk_Limitations)informieren.  
@@ -177,7 +177,7 @@ Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf 
   
  **Datenbankfehler**  
   
-**Fehler beim Erstellen einer Datenbank.** Lösung: Lesen Sie die Hinweise in Lektion 4 im [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../lesson-4-restore-database-to-virtual-machine-from-url.md).  
+**Fehler beim Erstellen einer Datenbank.** Lösung: Lesen Sie die Hinweise in Lektion 4 im [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md#4----restore-database-to-virtual-machine-from-url).  
   
 **Fehler beim Ausführen der ALTER-Anweisung.** Lösung: Stellen Sie sicher, dass die ALTER DATABASE-Anweisung ausgeführt wird, während die Datenbank online ist. Wenn Sie die Datendateien in den Azure-Speicher kopieren, erstellen Sie immer ein Seitenblob und kein Blockblob. Andernfalls erzeugt ALTER DATABASE einen Fehler. Lesen Sie die Hinweise in Lektion 7 im [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
   

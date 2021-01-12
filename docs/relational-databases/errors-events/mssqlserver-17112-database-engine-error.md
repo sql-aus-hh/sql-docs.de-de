@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 870f9b9f4d3fcc8186ed1d16faee861ed63e4135
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 8b9d79dc7b23339b5b152695daf5efc5c47847a4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418723"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099351"
 ---
 # <a name="mssqlserver_17112"></a>MSSQLSERVER_17112
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "92418723"
 
 ## <a name="explanation"></a>Erklärung
 
-Dieser Fehler weist darauf hin, dass eine ungültige [Startoption für den Datenbank-Engine-Dienst](/sql/database-engine/configure-windows/database-engine-service-startup-options) angegeben wurde. Wenn eine Startoption nicht ordnungsgemäß angegeben ist, kann SQL Server entweder nicht gestartet werden oder wird möglicherweise nicht erwartungsgemäß ausgeführt. Außerdem wird der Fehler 17112 ausgelöst.
+Dieser Fehler weist darauf hin, dass eine ungültige [Startoption für den Datenbank-Engine-Dienst](../../database-engine/configure-windows/database-engine-service-startup-options.md) angegeben wurde. Wenn eine Startoption nicht ordnungsgemäß angegeben ist, kann SQL Server entweder nicht gestartet werden oder wird möglicherweise nicht erwartungsgemäß ausgeführt. Außerdem wird der Fehler 17112 ausgelöst.
 
 In einigen Fällen wird die Instanz möglicherweise gestartet, aber wenn Sie das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Fehlerprotokoll überprüfen, sehen die Startparameter nicht richtig aus:
 
@@ -67,5 +67,5 @@ Verwenden Sie das Tool [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]
 
 Weitere Informationen zu diesem Thema finden Sie in den folgenden Artikeln:
 
-- [Startoptionen für den Datenbank-Engine-Dienst](/sql/database-engine/configure-windows/database-engine-service-startup-options)
-- [SCM-Dienste: Konfigurieren der Serverstartoptionen](/sql/database-engine/configure-windows/scm-services-configure-server-startup-options)
+- [Startoptionen für den Datenbank-Engine-Dienst](../../database-engine/configure-windows/database-engine-service-startup-options.md)
+- [SCM-Dienste: Konfigurieren der Serverstartoptionen](../../database-engine/configure-windows/scm-services-configure-server-startup-options.md)

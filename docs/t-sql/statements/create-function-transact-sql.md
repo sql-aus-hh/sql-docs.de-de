@@ -39,14 +39,14 @@ helpviewer_keywords:
 - TVF
 - functions [SQL Server], invoking
 ms.assetid: 864b393f-225f-4895-8c8d-4db59ea60032
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 37904c7f99fc766913521bf9fd598941ec8407ef
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: cb4c79d1f4c8c7b8103ff9d34b8f32fd497b8c6a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300826"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095801"
 ---
 # <a name="create-function-transact-sql"></a>CREATE FUNCTION (Transact-SQL)
 
@@ -294,7 +294,7 @@ Geben Sie einen Parameternamen an, der mit dem Zeichen (@) beginnt. Der Paramete
 > [!NOTE]
 > ANSI_WARNINGS wird bei der Übergabe von Parametern in einer gespeicherten Prozedur oder in einer benutzerdefinierten Funktion oder beim Deklarieren und Festlegen von Variablen in einer Batchanweisung nicht berücksichtigt. Wird beispielsweise eine Variable als **char(3)** definiert und dann auf einen Wert festgelegt, der länger als drei Zeichen ist, werden die Daten auf die definierte Größe abgeschnitten, und die Anweisung `INSERT` oder `UPDATE` wird erfolgreich ausgeführt.
 
-[ *type_schema_name* . ] *parameter_data_type* entspricht dem Parameterdatentyp und optional dem Schema, zu dem der Datentyp gehört. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen vom **timestamp** -Datentyp alle Datentypen zulässig, einschließlich CLR-benutzerdefinierter Typen und benutzerdefinierte Tabellentypen. Für CLR-Funktionen sind abgesehen von den Datentypen **text** , **ntext** , **image** , und **timestamp** sowie benutzerdefinierten Tabellentypen alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Die nicht skalaren Typen **cursor** und **table** können weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Parameterdatentyp angegeben werden.
+[ *type_schema_name*. ] *parameter_data_type* entspricht dem Parameterdatentyp und optional dem Schema, zu dem der Datentyp gehört. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen vom **timestamp**-Datentyp alle Datentypen zulässig, einschließlich CLR-benutzerdefinierter Typen und benutzerdefinierte Tabellentypen. Für CLR-Funktionen sind abgesehen von den Datentypen **text**, **ntext**, **image**, und **timestamp** sowie benutzerdefinierten Tabellentypen alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Die nicht skalaren Typen **cursor** und **table** können weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Parameterdatentyp angegeben werden.
 
 Wenn *type_schema_name* nicht angegeben ist, sucht die [!INCLUDE[ssDE](../../includes/ssde-md.md)] nach *scalar_parameter_data_type* in der folgenden Reihenfolge:
 
@@ -302,7 +302,7 @@ Wenn *type_schema_name* nicht angegeben ist, sucht die [!INCLUDE[ssDE](../../inc
 - Das Standardschema des aktuellen Benutzers in der aktuellen Datenbank
 - Das **dbo** -Schema in der aktuellen Datenbank
 
-[ = *default* ] ist ein Standardwert für den Parameter. Wenn ein *default* -Wert definiert ist, kann die Funktion ausgeführt werden, ohne dass ein Wert für diesen Parameter angegeben werden muss.
+[ =*default* ] ist ein Standardwert für den Parameter. Wenn ein *default*-Wert definiert ist, kann die Funktion ausgeführt werden, ohne dass ein Wert für diesen Parameter angegeben werden muss.
 
 > [!NOTE]
 > Standardparameterwerte können mit Ausnahme der Datentypen **varchar(max)** und **varbinary(max)** für CLR-Funktionen angegeben werden.
@@ -311,7 +311,7 @@ Wenn ein Parameter der Funktion über einen Standardwert verfügt, muss beim Auf
 
 READONLY gibt an, dass der Parameter nicht aktualisiert oder innerhalb der Definition der Funktion geändert werden kann. READONLY ist bei benutzerdefinierten Tabellentypparametern (TVPs) erforderlich und kann nicht für andere Parametertypen verwendet werden.
 
-*return_data_type* ist der Rückgabewert einer benutzerdefinierten Skalarfunktion. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen vom **timestamp** -Datentyp alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Für CLR-Funktionen sind abgesehen von den Datentypen **text** , **ntext** , **image** und **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Die nicht skalaren Typen **cursor** und **table** können weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Rückgabedatentyp angegeben werden.
+*return_data_type* ist der Rückgabewert einer benutzerdefinierten Skalarfunktion. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen vom **timestamp**-Datentyp alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Für CLR-Funktionen sind abgesehen von den Datentypen **text**, **ntext**, **image** und **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Die nicht skalaren Typen **cursor** und **table** können weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Rückgabedatentyp angegeben werden.
 
 *function_body* gibt an, dass eine Reihe von [!INCLUDE[tsql](../../includes/tsql-md.md)]-Anweisungen, die zusammen keine Nebeneffekte erzeugen, z. B. das Ändern einer Tabelle, den Wert der Funktion definiert. *function_body* wird nur in Skalarfunktionen sowie in Tabellenwertfunktionen mit mehreren Anweisungen verwendet.
 
@@ -321,7 +321,7 @@ In Tabellenwertfunktionen mit mehreren Anweisungen entspricht *function_body* ei
 
 *scalar_expression* gibt den Skalarwert an, der von der Skalarfunktion zurückgegeben wird.
 
-TABLE gibt an, dass der Rückgabewert der Tabellenwertfunktion eine Tabelle ist. Nur Konstanten und @ *local_variables* können an Tabellenwertfunktionen übergeben werden.
+TABLE gibt an, dass der Rückgabewert der Tabellenwertfunktion eine Tabelle ist. Nur Konstanten und @*local_variables* können an Tabellenwertfunktionen übergeben werden.
 
 In Inline-Tabellenwertfunktionen wird der TABLE-Rückgabewert durch eine einzige SELECT-Anweisung definiert. Inlinefunktionen haben keine zugeordneten Rückgabevariablen.
 
@@ -331,8 +331,8 @@ In Inline-Tabellenwertfunktionen wird der TABLE-Rückgabewert durch eine einzige
 
 ORDER (\<order_clause>) gibt die Reihenfolge an, in der Ergebnisse von der Tabellenwertfunktion zurückgegeben werden. Weitere Informationen finden Sie im Abschnitt [Verwenden der Sortierreihenfolge in CLR-Tabellenwertfunktionen](#using-sort-order-in-clr-table-valued-functions) weiter unten in diesem Thema.
 
-EXTERNAL NAME \<method_specifier> *assembly_name* . *class_name* . *method_name*
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher).
+EXTERNAL NAME \<method_specifier> *assembly_name*.*class_name*.*method_name*
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher).
 
 Gibt die Assembly und die Methode an, auf die der erstellte Funktionsname verweisen soll.
 
@@ -355,9 +355,9 @@ In einem typischen Beispiel für MyFood.DLL, bei dem sich alle Typen im MyFood-N
 > - Standardmäßig kann [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] keinen CLR-Code ausführen. Sie können Datenbankobjekte, die auf CLR-Module (Common Language Runtime) verweisen, erstellen, ändern und löschen. Bevor Sie diese Verweise in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ausführen können, müssen Sie jedoch die Option [clr enabled](../../database-engine/configure-windows/clr-enabled-server-configuration-option.md) aktivieren. Verwenden Sie dazu [sp_configure](../../relational-databases/system-stored-procedures/sp-configure-transact-sql.md).
 > - Diese Option ist in einer enthaltenen Datenbank nicht verfügbar.
 
-*\<*table_type_definition*>* ( { \<column_definition> \<column_constraint>| \<computed_column_definition> } [ \<table_constraint> ] [ ,... *n* ] ) definiert den Tabellendatentyp für eine [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktion. Die Tabellendeklaration schließt Spaltendefinitionen und Spalten- oder Tabelleneinschränkungen ein. Die Tabelle wird immer in der primären Dateigruppe abgelegt.
+*\<*table_type_definition*>* ( { \<column_definition> \<column_constraint>| \<computed_column_definition> } [ \<table_constraint> ] [ ,...*n* ] ) definiert den Tabellendatentyp für eine [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktion. Die Tabellendeklaration schließt Spaltendefinitionen und Spalten- oder Tabelleneinschränkungen ein. Die Tabelle wird immer in der primären Dateigruppe abgelegt.
 
-*\< clr_table_type_definition >* ( { *column_name**data_type* } [ ,... *n* ] ) **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] ( [Vorschauversion in einigen Regionen](/azure/azure-sql/database/features-comparison?WT.mc_id=TSQL_GetItTag)).
+*\< clr_table_type_definition >* ( { *column_name**data_type* } [ ,...*n* ] ) **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] ([Vorschauversion in einigen Regionen](/azure/azure-sql/database/features-comparison?WT.mc_id=TSQL_GetItTag)).
 
 Definiert die Tabellendatentypen für eine CLR-Funktion. Die Tabellendeklaration schließt nur Spaltennamen und Datentypen ein. Die Tabelle wird immer in der primären Dateigruppe abgelegt.
 
@@ -396,9 +396,9 @@ Eine Funktion kann nur dann schemagebunden sein, wenn die folgenden Bedingungen 
 - Die Funktion und die Objekte, auf die sie verweist, gehören zu derselben Datenbank.
 - Der Benutzer, der die `CREATE FUNCTION`-Anweisung ausgeführt hat, besitzt `REFERENCES`-Berechtigungen für die Datenbankobjekte, auf die die Funktion verweist.
 
-RETURNS NULL ON NULL INPUT | **CALLED ON NULL INPUT** gibt das **OnNULLCall** -Attribut einer Skalarfunktion an. Wenn das Attribut nicht angegeben ist, wird standardmäßig CALLED ON NULL INPUT verwendet. Dies bedeutet, dass der Hauptteil der Funktion ausgeführt wird, selbst wenn NULL als ein Argument übergeben wird.
+RETURNS NULL ON NULL INPUT | **CALLED ON NULL INPUT** gibt das **OnNULLCall**-Attribut einer Skalarfunktion an. Wenn das Attribut nicht angegeben ist, wird standardmäßig CALLED ON NULL INPUT verwendet. Dies bedeutet, dass der Hauptteil der Funktion ausgeführt wird, selbst wenn NULL als ein Argument übergeben wird.
 
-Wenn RETURNS NULL ON NULL INPUT in einer CLR-Funktion angegeben wird, bedeutet dies, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] NULL zurückgeben kann, wenn eines der ihm zugestellten Argumente NULL ist, ohne den eigentlichen Hauptteil der Funktion aufzurufen. Wenn die Methode einer in \<method_specifier> angegebenen CLR-Funktion bereits über ein benutzerdefiniertes Attribut verfügt, das RETURNS NULL ON NULL INPUT anzeigt, die CREATE FUNCTION-Anweisung jedoch CALLED ON NULL INPUT anzeigt, hat die CREATE FUNCTION-Anweisung Vorrang. Das **OnNULLCall** -Attribut kann nicht für CLR-Tabellenwertfunktionen angegeben werden.
+Wenn RETURNS NULL ON NULL INPUT in einer CLR-Funktion angegeben wird, bedeutet dies, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] NULL zurückgeben kann, wenn eines der ihm zugestellten Argumente NULL ist, ohne den eigentlichen Hauptteil der Funktion aufzurufen. Wenn die Methode einer in \<method_specifier> angegebenen CLR-Funktion bereits über ein benutzerdefiniertes Attribut verfügt, das RETURNS NULL ON NULL INPUT anzeigt, die CREATE FUNCTION-Anweisung jedoch CALLED ON NULL INPUT anzeigt, hat die CREATE FUNCTION-Anweisung Vorrang. Das **OnNULLCall**-Attribut kann nicht für CLR-Tabellenwertfunktionen angegeben werden.
 
 Die EXECUTE AS-Klausel gibt den Sicherheitskontext an, in dem die benutzerdefinierte Funktion ausgeführt wird. Deshalb können Sie steuern, welches Benutzerkonto [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verwendet, um Berechtigungen für eines der Datenbankobjekte, auf die in der Funktion verwiesen wird, zu überprüfen.
 
@@ -417,28 +417,28 @@ Definiert den Tabellendatentyp. Die Tabellendeklaration schließt Spaltendefinit
 
 *column_name* ist der Name einer Spalte in der Tabelle. Spaltennamen müssen den Regeln für Bezeichner entsprechen und in der Tabelle eindeutig sein. *column_name* kann zwischen 1 und 128 Zeichen aufweisen.
 
-*data_type* gibt den Datentyp der Spalte an. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen von **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Für CLR-Funktionen sind abgesehen von **text** , **ntext** , **image** , **char** , **varchar** , **varchar(max)** und **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Der nicht skalare Typ **cursor** kann weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Spaltendatentyp angegeben werden.
+*data_type* gibt den Datentyp der Spalte an. Für [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen sind abgesehen von **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Für CLR-Funktionen sind abgesehen von **text**, **ntext**, **image**, **char**, **varchar**, **varchar(max)** und **timestamp** alle Datentypen zulässig, einschließlich benutzerdefinierter CLR-Typen. Der nicht skalare Typ **cursor** kann weder in [!INCLUDE[tsql](../../includes/tsql-md.md)]- noch in CLR-Funktionen als Spaltendatentyp angegeben werden.
 
 DEFAULT *constant_expression* gibt den Wert an, der für die Spalte bereitgestellt wird, wenn während eines Einfügevorgangs kein expliziter Wert angegeben wurde. *constant_expression* ist ein konstanter Wert, ein NULL-Wert oder ein Systemfunktionswert. DEFAULT-Definitionen können auf alle Spalten angewendet werden, mit Ausnahme von Spalten mit der IDENTITY-Eigenschaft. DEFAULT kann nicht für CLR-Tabellenwertfunktionen angegeben werden.
 
 COLLATE *collation_name* Gibt die Sortierung für die Spalte an. Wenn keine Sortierung angegeben ist, wird der Spalte die Standardsortierung der Datenbank zugewiesen. Als Sortierungsname kann entweder der Name einer Windows-Sortierreihenfolge oder ein SQL-Sortierungsname verwendet werden. Eine Liste und weitere Informationen zu Sortierungen finden Sie unter [Name der Windows-Sortierung &#40;Transact-SQL&#41;](../../t-sql/statements/windows-collation-name-transact-sql.md) und [SQL Server-Sortierungsname &#40;Transact-SQL&#41;](../../t-sql/statements/sql-server-collation-name-transact-sql.md).
 
-Mit der COLLATE-Klausel können Sie nur die Sortierungen von Spalten der Datentypen **char** , **varchar** , **nchar** und **nvarchar** ändern.
+Mit der COLLATE-Klausel können Sie nur die Sortierungen von Spalten der Datentypen **char**, **varchar**, **nchar** und **nvarchar** ändern.
 
 > [!NOTE]
 > `COLLATE` kann nicht für CLR-Tabellenwertfunktionen angegeben werden.
 
-ROWGUIDCOL gibt an, dass die neue Spalte eine Spalte mit für alle Zeilen global eindeutigen Bezeichnern ist. Nur eine **uniqueidentifier** -Spalte pro Tabelle kann als ROWGUIDCOL-Spalte gekennzeichnet werden. Die ROWGUIDCOL-Eigenschaft kann nur einer **uniqueidentifier** -Spalte zugewiesen werden.
+ROWGUIDCOL gibt an, dass die neue Spalte eine Spalte mit für alle Zeilen global eindeutigen Bezeichnern ist. Nur eine **uniqueidentifier**-Spalte pro Tabelle kann als ROWGUIDCOL-Spalte gekennzeichnet werden. Die ROWGUIDCOL-Eigenschaft kann nur einer **uniqueidentifier**-Spalte zugewiesen werden.
 
 Die ROWGUIDCOL-Eigenschaft erzwingt keine Eindeutigkeit der in der Spalte gespeicherten Werte. Sie erzeugt auch nicht automatisch Werte für neue Zeilen, die in die Tabelle eingefügt werden. Um eindeutige Werte für jede Spalte zu erzeugen, verwenden Sie die NEWID-Funktion in INSERT-Anweisungen. Ein Standardwert kann angegeben werden, NEWID wird jedoch nicht als Standardwert unterstützt.
 
-IDENTITY Gibt an, dass es sich bei der neuen Spalte um eine Identitätsspalte handelt. Wenn der Tabelle eine neue Zeile hinzugefügt wird, stellt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen eindeutigen, inkrementellen Wert für die Spalte bereit. Identitätsspalten werden normalerweise zusammen mit PRIMARY KEY-Einschränkungen verwendet, um als eindeutiger Zeilenbezeichner für die Tabelle zu dienen. Die IDENTITY-Eigenschaft kann folgenden Spalten zugewiesen werden: **tinyint** , **smallint** , **int** , **bigint** , **decimal(p,0)** oder **numeric(p,0)** . Es kann nur eine Identitätsspalte pro Tabelle erstellt werden. Gebundene Standardwerte und DEFAULT-Einschränkungen können nicht mit einer Identitätsspalte verwendet werden. Sie müssen entweder *seed* und den *increment* oder keinen von beiden angeben. Wurden Ausgangswert und inkrementeller Wert nicht angegeben, ist der Standardwert (1,1).
+IDENTITY Gibt an, dass es sich bei der neuen Spalte um eine Identitätsspalte handelt. Wenn der Tabelle eine neue Zeile hinzugefügt wird, stellt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen eindeutigen, inkrementellen Wert für die Spalte bereit. Identitätsspalten werden normalerweise zusammen mit PRIMARY KEY-Einschränkungen verwendet, um als eindeutiger Zeilenbezeichner für die Tabelle zu dienen. Die IDENTITY-Eigenschaft kann folgenden Spalten zugewiesen werden: **tinyint**, **smallint**, **int**, **bigint**, **decimal(p,0)** oder **numeric(p,0)** . Es kann nur eine Identitätsspalte pro Tabelle erstellt werden. Gebundene Standardwerte und DEFAULT-Einschränkungen können nicht mit einer Identitätsspalte verwendet werden. Sie müssen entweder *seed* und den *increment* oder keinen von beiden angeben. Wurden Ausgangswert und inkrementeller Wert nicht angegeben, ist der Standardwert (1,1).
 
 IDENTITY kann nicht für CLR-Tabellenwertfunktionen angegeben werden.
 
 *seed* ist der ganzzahlige Wert, der der ersten Zeile in der Tabelle zugewiesen werden soll.
 
-*increment* ist der ganzzahlige Wert, der zum *seed* -Wert für nachfolgende Zeilen in der Tabelle hinzugefügt werden soll.
+*increment* ist der ganzzahlige Wert, der zum *seed*-Wert für nachfolgende Zeilen in der Tabelle hinzugefügt werden soll.
 
  **\< column_constraint >::= und \< table_constraint>::=**
 
@@ -478,7 +478,7 @@ FILLFACTOR = *fillfactor* gibt einen Prozentsatz an, der anzeigt, wie weit die [
 
 IGNORE_DUP_KEY = { ON | **OFF** } Diese Option gibt die Fehlermeldung an, wenn ein Einfügevorgang versucht, doppelte Schlüsselwerte in einen eindeutigen Index einzufügen. Die IGNORE_DUP_KEY-Option gilt nur für Einfügevorgänge nach dem Erstellen oder Neuerstellen des Index. Der Standardwert ist OFF.
 
-STATISTICS_NORECOMPUTE = { ON | **OFF** } gibt an, ob Verteilungsstatistiken neu berechnet werden. Der Standardwert ist OFF.
+STATISTICS_NORECOMPUTE = { ON | **OFF**} gibt an, ob Verteilungsstatistiken neu berechnet werden. Der Standardwert ist OFF.
 
 ALLOW_ROW_LOCKS = { **ON** | OFF } gibt an, ob Zeilensperren zulässig sind. Der Standardwert ist ON.
 
@@ -500,7 +500,7 @@ Wenn Parameter in einer CLR-Funktion angegeben werden, sollte es sich dabei um [
 
 Damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] beim Überladen in einer Klasse auf die richtige Methode verweist, muss die in \<method_specifier> angegebene Methode folgende Merkmale aufweisen:
 
-- Die gleiche Anzahl von Parametern wie in [ ,... *n* ] angegeben.
+- Die gleiche Anzahl von Parametern wie in [ ,...*n* ] angegeben.
 - Alle Parameter nach Wert erhalten, nicht nach Verweis.
 - Parametertypen verwenden, die mit den in der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Funktion angegebenen kompatibel sind.
 
@@ -733,7 +733,7 @@ GO
 
 In diesem Beispiel wird die CLR-Funktion `len_s` erstellt. Bevor die Funktion erstellt wird, wird die Assembly `SurrogateStringFunction.dll` in der lokalen Datenbank registriert.
 
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher).
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] SP1 und höher).
 
 ```sql
 DECLARE @SamplesPath nvarchar(1024);

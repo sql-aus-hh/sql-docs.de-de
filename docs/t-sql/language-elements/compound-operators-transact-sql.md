@@ -14,14 +14,14 @@ helpviewer_keywords:
 - compound operators
 - compound operators, described
 ms.assetid: 5072fe91-02d3-42a7-831f-756eff714a17
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: f2daa8d7b168266ac56d1047eca2aa9408ebfe25
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 2666168b9123d5656c2e9822cb8c5bfc328e9a0f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92196665"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092190"
 ---
 # <a name="compound-operators-transact-sql"></a>Verbundoperatoren (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "92196665"
   
  [!INCLUDE[tsql](../../includes/tsql-md.md)] stellt die folgenden Verbundoperatoren bereit:  
   
-|Operator|Link zu weiteren Informationen|Aktion|  
+|Betreiber|Link zu weiteren Informationen|Aktion|  
 |--------------|------------------------------|------------|  
 |+=|[+= &#40;Add Assignment&#41; &#40;Transact-SQL&#41; (+= (Additionszuweisung) (Transact-SQL))](../../t-sql/language-elements/add-equals-transact-sql.md)|Addiert etwas zum ursprünglichen Wert und legt den ursprünglichen Wert auf das Ergebnis fest.|  
 |-=|[-= &#40;Subtract Assignment&#41; &#40;Transact-SQL&#41; (-= (Subtraktionszuweisung) (Transact-SQL))](../../t-sql/language-elements/subtract-equals-transact-sql.md)|Subtrahiert etwas vom ursprünglichen Wert und legt den ursprünglichen Wert auf das Ergebnis fest.|  

@@ -12,12 +12,12 @@ ms.assetid: df347f9b-b950-4e3a-85f4-b9f21735eae3
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 0d28550dba1a4703bab01324910436b7256597bb
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: b4cf02b18cdaef035cd27b568d5f8d84f0a25619
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643846"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094604"
 ---
 # <a name="sample-database-for-in-memory-oltp"></a>Beispieldatenbank für In-Memory OLTP
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -183,10 +183,10 @@ Ab [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] CTP 1.1 werden in spei
   
  Mit HASH-Indizes kann die Arbeitsauslastung weiter optimiert werden, da sie speziell für Punktsuchen und Zeileneinfügungen optimiert sind. Allerdings unterstützen sie keine Bereichsscans, sortierte Scans oder Suchen in führenden Indexschlüsselspalten. Daher sollten diese Indizes mit Vorsicht verwendet werden. Außerdem muss während der Erstellung der bucket_count-Wert angegeben werden. Die Bucketanzahl sollte normalerweise auf einen Wert zwischen der einfachen und doppelten Anzahl von Indexschlüsselwerten festgelegt werden. Ein zu hoher Wert stellt in der Regel aber auch kein Problem dar.  
   
-Weitere Informationen zu [Indexrichtlinien](/sql/relational-databases/indexes/guidelines-for-online-index-operations) und Richtlinien zum [Auswählen des geeigneten bucket_count-Werts](https://sqlserver-help.com/tag/bucket_count/) finden Sie in der Onlinedokumentation.  
+Weitere Informationen zu [Indexrichtlinien](../indexes/guidelines-for-online-index-operations.md) und Richtlinien zum [Auswählen des geeigneten bucket_count-Werts](https://sqlserver-help.com/tag/bucket_count/) finden Sie in der Onlinedokumentation.  
 
 Die Onlinedokumentation bietet weitere Informationen zu folgenden Themen:
-- [Indexrichtlinien](/sql/relational-databases/in-memory-oltp/indexes-for-memory-optimized-tables) <!-- On MSDN-TechNet was version sql.120 (2014), library/dn133166 -->
+- [Indexrichtlinien](./indexes-for-memory-optimized-tables.md) <!-- On MSDN-TechNet was version sql.120 (2014), library/dn133166 -->
 
  Die Indizes der migrierten Tabellen wurden für die exemplarische Arbeitsauslastung, die zur Abwicklung von Verkaufsaufträgen eingesetzt wird, optimiert. Die Arbeitsauslastung basiert auf Einfügungen und Punktsuchen in den Tabellen Sales.SalesOrderHeader_inmem und Sales.SalesOrderDetail_inmem sowie auf Punktsuchen in den Primärschlüsselspalten der Tabellen Production.Product_inmem und Sales.SpecialOffer_inmem.  
   

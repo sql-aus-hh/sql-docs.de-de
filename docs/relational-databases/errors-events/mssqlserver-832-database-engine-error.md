@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 846ce27ff8e7d9560a6d4cc691d1523fddd913fa
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 5252cae293cd4c700f359b8168e0d5d5d10a70cf
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418742"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099240"
 ---
 # <a name="mssqlserver_832"></a>MSSQLSERVER_832
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -60,4 +60,4 @@ Nur Seiten, die derzeit nicht im Cache geändert werden, werden geprüft. Der Gr
 
 Es ist möglich, dass auch der Befehl `DBCC CHECKDB` für eine Seite in diesem Zustand keinen Fehler meldet, nachdem dieser auf den Datenträger geschrieben wurde. Der Grund hierfür ist, dass sich die falsche Änderung an Stellen auf der Seite befinden kann, die weder Daten noch wichtige Informationen zur Seiten- oder Zeilenstruktur enthalten. Alternativ kann es sich auch um Änderungen an Daten handelt, die CHECKDB nicht erkennen kann.  
 
-Weitere Details und Informationen zur Meldung 832 finden Sie im Whitepaper [E/A-Grundlagen für SQL Server, Kapitel 2](https://docs.microsoft.com/previous-versions/sql/sql-server-2005/administrator/cc917726(v=technet.10)).
+Weitere Details und Informationen zur Meldung 832 finden Sie im Whitepaper [E/A-Grundlagen für SQL Server, Kapitel 2](/previous-versions/sql/sql-server-2005/administrator/cc917726(v=technet.10)).

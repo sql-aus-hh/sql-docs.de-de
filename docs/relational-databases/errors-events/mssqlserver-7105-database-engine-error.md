@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: rgward
 ms.author: ramakoni
-ms.openlocfilehash: bfcd8763c649f83bb9e72881c6facda29917f7b8
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 7aa3b39996f8dc282e11d92706743a7ba42998da
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418895"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099267"
 ---
 # <a name="mssqlserver_7105"></a>MSSQLSERVER_7105
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -55,7 +55,7 @@ Sehen Sie sich den Abschnitt zur Fehlerbehebung sowie den Abschnitt [Weitere Inf
 1. Wie in der Meldung angegeben, sollten Sie in einem ersten Schritt `DBCC CHECKDB` für die Datenbank oder `DBCC CHECKTABLE` für die Tabelle ausführen, in der das Problem aufgetreten ist.
 
     - Die Datenbank-ID ist in der Meldung angegeben.
-    - Wenn Sie die genaue betroffene Tabelle ermitteln möchten, ohne `DBCC CHECKDB` auszuführen, müssen Sie herausfinden, auf welche Tabellen die Abfrage zugegriffen hat, bei der der Fehler aufgetreten ist. Eine mögliche Methode ist eine Ablaufverfolgung für die Abfrage mit SQL Profiler. In [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] und [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] R2 können Sie die Abfrage jedoch möglicherweise mithilfe der system_health-Sitzung für erweiterte Ereignisse finden. Weitere Informationen zur Verwendung der system_health-Sitzung finden Sie unter dem folgenden Link: [Verwenden der system_health-Sitzung](/sql/relational-databases/extended-events/use-the-system-health-session).
+    - Wenn Sie die genaue betroffene Tabelle ermitteln möchten, ohne `DBCC CHECKDB` auszuführen, müssen Sie herausfinden, auf welche Tabellen die Abfrage zugegriffen hat, bei der der Fehler aufgetreten ist. Eine mögliche Methode ist eine Ablaufverfolgung für die Abfrage mit SQL Profiler. In [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] und [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] R2 können Sie die Abfrage jedoch möglicherweise mithilfe der system_health-Sitzung für erweiterte Ereignisse finden. Weitere Informationen zur Verwendung der system_health-Sitzung finden Sie unter dem folgenden Link: [Verwenden der system_health-Sitzung](../extended-events/use-the-system-health-session.md).
 
     - Wie bei jedem Konsistenzproblem bei Datenbanken können Sie diese Fehler beheben, indem Sie eine Wiederherstellung mit einer als fehlerfrei bekannten Sicherung durchführen, die dieses Problem nicht enthält.
 

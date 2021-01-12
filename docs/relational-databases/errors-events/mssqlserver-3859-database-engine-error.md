@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 4a3857e9e98bfbe7fcc86ee07272698f0fcac763
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 3228a21b43fd5b5ed2a23c5e13b47353e55cd028
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418710"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093273"
 ---
 # <a name="mssqlserver_3859"></a>MSSQLSERVER_3859
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,15 +46,15 @@ Dieser Fehler deutet darauf hin, dass ein Benutzer Änderungen an Systemtabellen
     Quelle: MSSQLSERVER, Ereignis-ID: 3859  
     Taskkategorie: Server  
     Ebene: Information  
-    Beschreibung: Warnung: Der Systemkatalog wurde direkt in der Datenbank mit der ID \%d aktualisiert, zuletzt am **date_time** .  
+    Beschreibung: Warnung: Der Systemkatalog wurde direkt in der Datenbank mit der ID \%d aktualisiert, zuletzt am **date_time**.  
 
 - Szenario 2  
 
     Die folgende Warnmeldung wird zurückgegeben, wenn Sie den Befehl `DBCC_CHECKDB` ausführen, nachdem eine Systemtabelle manuell aktualisiert wurde:
 
-    > DBCC-Ergebnisse für **database_name** .  
+    > DBCC-Ergebnisse für **database_name**.  
     Meldung 8992, Ebene 16, Status 1, Zeile 1  
-    Überprüfen Sie die Katalogmeldung 3859, Status 1: Warnung: Der Systemkatalog wurde direkt in der Datenbank mit der ID \%d aktualisiert, zuletzt am **date_time** .  
+    Überprüfen Sie die Katalogmeldung 3859, Status 1: Warnung: Der Systemkatalog wurde direkt in der Datenbank mit der ID \%d aktualisiert, zuletzt am **date_time**.  
     Von CHECKDB wurden 0 Zuordnungsfehler und 0 Konsistenzfehler in der Datenbank **db_name** gefunden.  
     Die DBCC-Ausführung wurde abgeschlossen. Falls DBCC Fehlermeldungen ausgegeben hat, wenden Sie sich an den Systemadministrator.
 
@@ -77,4 +77,4 @@ Sie können dieses Problem mit einer der folgenden Methoden beheben:
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Weitere Informationen finden Sie unter: [Systembasistabellen](/sql/relational-databases/system-tables/system-base-tables).
+Weitere Informationen finden Sie unter: [Systembasistabellen](../system-tables/system-base-tables.md).

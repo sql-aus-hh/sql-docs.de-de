@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: c417631d-be1f-42e0-8844-9f92c77e11f7
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: 409e87d937641386747ccf5210551aadb3f5b761
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 9eec7ad0a11116b1eb9e8bf1c33b57ff3bd2b419
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92195557"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099293"
 ---
 # <a name="mssqlserver_18456"></a>MSSQLSERVER_18456
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -104,7 +104,7 @@ In diesem Beispiel ist der Fehlerzustand des Authentifizierungsfehlers 8. Dies 
 > Wird [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mithilfe des Windows-Authentifizierungsmodus installiert und später in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und den Windows-Authentifizierungsmodus geändert, wird der Anmeldename **sa** zunächst deaktiviert. Dies führt zum Fehler mit dem Status 7: "Fehler bei der Anmeldung für den Benutzer 'sa'." Informationen zum Aktivieren der **sa**-Anmeldung finden Sie unter [Ändern des Serverauthentifizierungsmodus](~/database-engine/configure-windows/change-server-authentication-mode.md).  
   
 ## <a name="user-action"></a>Benutzeraktion  
-Wenn Sie versuchen, eine Verbindung mit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Authentifizierung herzustellen, überprüfen Sie, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] im gemischten Authentifizierungsmodus konfiguriert ist. Weitere Informationen zum Ändern des Authentifizierungsmodus für SQL Server finden Sie unter [Ändern des Serverauthentifizierungsmodus](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)
+Wenn Sie versuchen, eine Verbindung mit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Authentifizierung herzustellen, überprüfen Sie, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] im gemischten Authentifizierungsmodus konfiguriert ist. Weitere Informationen zum Ändern des Authentifizierungsmodus für SQL Server finden Sie unter [Ändern des Serverauthentifizierungsmodus](../../database-engine/configure-windows/change-server-authentication-mode.md)
   
 Wenn Sie versuchen, eine Verbindung mit der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Authentifizierung herzustellen, überprüfen Sie, dass die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen vorhanden sind und dass sie richtig geschrieben sind.  
   
@@ -116,4 +116,4 @@ Wenn Sie mit Ihren Administratoranmeldeinformationen eine Verbindung herstellen 
   
 Wenn das [!INCLUDE[ssDE](../../includes/ssde-md.md)] eigenständige Datenbanken unterstützt, vergewissern Sie sich, dass die Anmeldung nach der Migration zu einem Benutzer einer eigenständigen Datenbank nicht gelöscht wurde.  
   
-Wenn Sie lokal eine Verbindung mit einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz herstellen, müssen Dienste, die unter **NT AUTHORITY\NETWORK SERVICE** ausgeführt werden, mithilfe des vollqualifizierten Domänennamens des Computers authentifiziert werden. Weitere Informationen finden Sie weiter unten in diesem Thema im Abschnitt [Ermitteln, Verwenden des Netzwerkdienstkontos für den Zugriff auf Ressourcen in ASP.NET](/previous-versions/msp-n-p/ff647402(v=pandp.10))  
+Wenn Sie lokal eine Verbindung mit einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanz herstellen, müssen Dienste, die unter **NT AUTHORITY\NETWORK SERVICE** ausgeführt werden, mithilfe des vollqualifizierten Domänennamens des Computers authentifiziert werden. Weitere Informationen finden Sie weiter unten in diesem Thema im Abschnitt [Ermitteln, Verwenden des Netzwerkdienstkontos für den Zugriff auf Ressourcen in ASP.NET](/previous-versions/msp-n-p/ff647402(v=pandp.10))
