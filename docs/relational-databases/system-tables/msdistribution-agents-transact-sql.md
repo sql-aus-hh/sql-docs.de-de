@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSdistribution_agents system table
 ms.assetid: 0e8f0653-1351-41d1-95d2-40f6d5a050ca
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: f2433e5dcc96cc8b60adbc231a4f40e5a726dc62
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 20b2d5f012c33ea12d4b60ed3a8d44ee475f3bf2
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89547153"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091481"
 ---
 # <a name="msdistribution_agents-transact-sql"></a>MSdistribution_agents (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -54,9 +54,9 @@ ms.locfileid: "89547153"
 |**queue_status**|**int**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
 |**offload_enabled**|**bit**|Zeigt an, ob der Agent remote aktiviert werden kann.<br /><br /> der Wert **0** gibt an, dass der Agent nicht remote aktiviert werden kann.<br /><br /> der Wert **1** gibt an, dass der Agent Remote und auf dem Remote Computer aktiviert wird, der in der *offload_server* -Eigenschaft angegeben ist.|  
 |**offload_server**|**sysname**|Der Netzwerkname des Servers, auf dem der Agent remote aktiviert werden soll|  
-|**dts_package_name**|**sysname**|Der Name des DTS-Pakets. Geben Sie z. b. für ein Paket mit dem Namen **DTSPub_Package**an `@dts_package_name = N'DTSPub_Package'` .|  
+|**dts_package_name**|**sysname**|Der Name des DTS-Pakets. Geben Sie z. b. für ein Paket mit dem Namen **DTSPub_Package** an `@dts_package_name = N'DTSPub_Package'` .|  
 |**dts_package_password**|**nvarchar (524)**|Das Kennwort für das Paket|  
-|**dts_package_location**|**int**|Der Speicherort des Pakets. Der Speicherort des Pakets kann **Distributor** oder **Subscriber**sein.|  
+|**dts_package_location**|**int**|Der Speicherort des Pakets. Der Speicherort des Pakets kann **Distributor** oder **Subscriber** sein.|  
 |**sid**|**varbinary(85)**|Die Sicherheits-ID (SID) für den Verteilungs-Agent oder Merge-Agent, während er das erste Mal ausgeführt wird.|  
 |**queue_server**|**sysname**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
 |**subscriber_security_mode**|**smallint**|Der Sicherheitsmodus, der vom Agent beim Herstellen einer Verbindung mit dem Abonnenten verwendet wird, wobei die folgenden Werte möglich sind:<br /><br /> **0**  =  [!INCLUDE[msCoName](../../includes/msconame-md.md)] SQL Server Authentifizierung<br /><br /> **1**  =  [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows-Authentifizierung.|  

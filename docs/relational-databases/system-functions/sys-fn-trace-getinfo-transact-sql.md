@@ -1,6 +1,6 @@
 ---
 description: sys.fn_trace_getinfo (Transact-SQL)
-title: sys. fn_trace_getinfo (Transact-SQL) | Microsoft-Dokumentation
+title: sys.fn_trace_getinfo (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -19,14 +19,14 @@ helpviewer_keywords:
 - sys.fn_trace_getinfo function
 - fn_trace_getinfo function
 ms.assetid: 04b140fe-110a-47b8-98b5-e4c161beb6c9
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 2502fa3fb70811ff73235863eb83fb63b889ad8f
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: c7426552dd52732b6b22f9947862b8607418f482
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88481792"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093810"
 ---
 # <a name="sysfn_trace_getinfo-transact-sql"></a>sys.fn_trace_getinfo (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -59,7 +59,7 @@ sys.fn_trace_getinfo ( { trace_id | NULL | 0 | DEFAULT } )
 ## <a name="remarks"></a>Bemerkungen  
  Wird die ID einer bestimmten Ablaufverfolgung übergeben, gibt fn_trace_getinfo Informationen zu dieser Ablaufverfolgung zurück. Wird eine ungültige ID übergeben, gibt die Funktion ein leeres Rowset zurück.  
   
- fn_trace_getinfo fügt die Erweiterung *.trc an den Namen jeder Ablaufverfolgungsdatei an, die im Resultset enthalten ist. Weitere Informationen zum Definieren einer Ablauf Verfolgung finden Sie unter [sp_trace_create &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-create-transact-sql.md). Ähnliche Informationen zu Ablauf Verfolgungs Filtern finden Sie unter [sys. fn_trace_getfilterinfo &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-trace-getfilterinfo-transact-sql.md).  
+ fn_trace_getinfo fügt die Erweiterung *.trc an den Namen jeder Ablaufverfolgungsdatei an, die im Resultset enthalten ist. Weitere Informationen zum Definieren einer Ablauf Verfolgung finden Sie unter [sp_trace_create &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-create-transact-sql.md). Ähnliche Informationen zu Ablauf Verfolgungs Filtern finden Sie unter [sys.fn_trace_getfilterinfo &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-trace-getfilterinfo-transact-sql.md).  
   
  Ein umfassendes Beispiel für die Verwendung von gespeicherten Prozeduren für die Ablauf Verfolgung finden Sie unter [Erstellen einer Ablauf Verfolgung &#40;Transact-SQL&#41;](../../relational-databases/sql-trace/create-a-trace-transact-sql.md).  
   
@@ -75,14 +75,14 @@ GO
 ```  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [Erstellen einer Ablauf Verfolgung &#40;Transact-SQL-&#41;](../../relational-databases/sql-trace/create-a-trace-transact-sql.md)   
- [sp_trace_create &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-create-transact-sql.md)   
+ [Erstellen einer Ablaufverfolgung &#40;Transact-SQL&#41;](../../relational-databases/sql-trace/create-a-trace-transact-sql.md)   
+ [sp_trace_create &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-create-transact-sql.md)   
  [sp_trace_generateevent &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-generateevent-transact-sql.md)   
  [sp_trace_setevent &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md)   
- [sp_trace_setfilter &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-setfilter-transact-sql.md)   
- [sp_trace_setstatus &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sp-trace-setstatus-transact-sql.md)   
- [sys. fn_trace_getfilterinfo &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-trace-getfilterinfo-transact-sql.md)   
- [sys. fn_trace_geteventinfo &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-trace-geteventinfo-transact-sql.md)   
+ [sp_trace_setfilter &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setfilter-transact-sql.md)   
+ [sp_trace_setstatus &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-trace-setstatus-transact-sql.md)   
+ [sys.fn_trace_getfilterinfo &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-trace-getfilterinfo-transact-sql.md)   
+ [sys.fn_trace_geteventinfo &#40;Transact-SQL-&#41;](../../relational-databases/system-functions/sys-fn-trace-geteventinfo-transact-sql.md)   
  [sys.fn_trace_gettable &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-trace-gettable-transact-sql.md)  
   
   

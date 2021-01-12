@@ -1,9 +1,9 @@
 ---
 title: Backup Mediaset (Transact-SQL) | Microsoft-Dokumentation
+description: Verweis für backupmediaset, das eine Zeile für jeden Sicherungsmedien Satz enthält.
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
-ms.prod_service: database-engine
 ms.reviewer: ''
 ms.technology: system-objects
 ms.topic: language-reference
@@ -15,21 +15,20 @@ dev_langs:
 helpviewer_keywords:
 - backup media [SQL Server], backupmediaset system table
 - backupmediaset system table
-ms.assetid: d9c18a93-cab9-4db8-ae09-c6bd8145ab8f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: fded40f11cfc094e3af89295496787413e3fd4cd
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 10b4d744e7ef4e0d11a9788580ea7f8c5a67bd1f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89540371"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091578"
 ---
 # <a name="backupmediaset-transact-sql"></a>backupmediaset (Transact-SQL)
+
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Enthält eine Zeile für jeden Sicherungsmediensatz. Diese Tabelle wird in der **msdb** -Datenbank gespeichert.  
- 
+Enthält eine Zeile für jeden Sicherungsmediensatz. Diese Tabelle wird in der **msdb** -Datenbank gespeichert.  
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
@@ -44,9 +43,9 @@ ms.locfileid: "89540371"
 |**mirror_count**|**tinyint**|Anzahl der Spiegel im Mediensatz.|  
 |**is_password_protected**|**bit**|Gibt an, ob der Mediensatz kennwortgeschützt ist:<br /><br /> 0 = Nicht geschützt<br /><br /> 1 = Geschützt|  
 |**is_compressed**|**bit**|Gibt an, ob die Sicherung komprimiert ist:<br /><br /> 0 = nicht komprimiert<br /><br /> 1 = komprimiert<br /><br /> Während eines **msdb** -Upgrades wird dieser Wert auf NULL festgelegt. Dies gibt eine nicht komprimierte Sicherung an.|  
-|**is_encrypted**|**bit**|Gibt an, ob die Sicherung verschlüsselt ist:<br /><br /> 0 = Nicht verschlüsselt<br /><br /> 1 = Verschlüsselt.|  
+|**is_encrypted**|**Trate**|Gibt an, ob die Sicherung verschlüsselt ist:<br /><br /> 0 = Nicht verschlüsselt<br /><br /> 1 = Verschlüsselt.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  RESTORE VERIFYONLY FROM *backup_device* mit LOADHISTORY füllt die Spalten der **Backup Mediaset** -Tabelle mit den entsprechenden Werten aus dem Medien Satz Header auf.  
   
  Führen Sie die gespeicherte Prozedur [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) aus, um die Anzahl der Zeilen in dieser Tabelle und in anderen Sicherungs-und Verlaufs Tabellen zu verringern.  

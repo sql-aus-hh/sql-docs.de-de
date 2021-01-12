@@ -19,21 +19,21 @@ helpviewer_keywords:
 - dbo.sysdac_instances
 - sysdac_instances
 ms.assetid: 28285f3d-3889-439f-8b24-3bdef08e46b4
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 1a21fa1559bb09493ae2802254c87235ecc19efc
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: f5178fdb50b8a959471c8be973080d1416ba10f6
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91809456"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092663"
 ---
 # <a name="data-tier-application-views---dbosysdac_instances"></a>Datenebenenanwendungssichten-dbo.sysdac_instances
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Zeigt eine Zeile für jede Instanz der Datenebenenanwendung (DAC) an, die für eine [!INCLUDE[ssDE](../../includes/ssde-md.md)]-Instanz bereitgestellt wird. sysdac_instances gehört zum dbo-Schema in der msdb-Datenbank. In der folgenden Tabelle werden die Spalten in der sysdac_instances Sicht beschrieben.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |instance_id|**uniqueidentifier**|Der Bezeichner der DAC-Instanz.|  
 |instance_name|**sysname**|Der Name der DAC-Instanz, die bei der Bereitstellung der DAC angegeben wurde.|  
@@ -45,7 +45,7 @@ ms.locfileid: "91809456"
 |created_by|**sysname**|Anmelde Name, der die DAC-Instanz erstellt hat.|  
 |database_name|**sysname**|Der Name der Datenbank, die für die DAC-Instanz erstellt wurde.|  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Eine DAC umfasst einen DAC-Typ, der eine Definition der von einer Anwendung verwendeten logischen Datenebenenobjekte, z. B. Tabellen und Sichten, ist. Ein DAC-Paket ist eine Datei, die zur Bereitstellung einer DAC verwendet wird. Das DAC-Paket enthält eine Darstellung aller logischen Objekte, die im DAC-Typ enthalten sind. Das DAC-Paket kann dazu verwendet werden, eine oder mehrere Kopien bzw. Instanzen der DAC auf einer [!INCLUDE[ssDE](../../includes/ssde-md.md)]-Instanz bereitzustellen. Jede DAC-Instanz, die vom selben DAC-Paket bereitgestellt wird, verwendet den gleichen Typ; ihr wird jedoch ein eindeutiger Instanzname und Bezeichner zugewiesen.  
   
 ## <a name="permissions"></a>Berechtigungen  

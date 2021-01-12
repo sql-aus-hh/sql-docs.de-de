@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - MSmerge_contents system table
 ms.assetid: 8d68a61a-683f-4b20-92f9-c0a8d9ba0ad1
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 32041fc09c105509e050aa230ab05d1e8b3de6e6
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 52edaacaa839beeedb60b706803d268528d98492
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89547090"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091431"
 ---
 # <a name="msmerge_contents-transact-sql"></a>MSmerge_contents (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -34,11 +34,11 @@ ms.locfileid: "89547090"
 |-----------------|---------------|-----------------|  
 |**tablenick**|**int**|Der Spitzname der veröffentlichten Tabelle.|  
 |**ROWGUID**|**uniqueidentifier**|Der Zeilenbezeichner für die angegebene Zeile.|  
-|**Stro**|**bigint**|Die Generierung der Zeile, die durch **tablenick** und **ROWGUID**identifiziert wird.|  
+|**Stro**|**bigint**|Die Generierung der Zeile, die durch **tablenick** und **ROWGUID** identifiziert wird.|  
 |**partchangegen**|**bigint**|Die Generierung, die der letzten Datenänderung zugeordnet ist, bei der die Zugehörigkeit der Zeile zu einer gefilterten Veröffentlichung geändert worden sein könnte|  
 |**Leitung**|**varbinary (501)**|Die Paare aus Spitzname des Abonnenten und Versionsnummer, die zur Verwaltung eines Verlaufs der Änderungen an dieser Zeile verwendet werden.|  
 |**colvl**|**varbinary (7489)**|Die Versionsinformationen für die Spalte.|  
-|**Marker**|**uniqueidentifier**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
+|**setzen**|**uniqueidentifier**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
 |**logical_record_parent_rowguid**|**uniqueidentifier**|Identifiziert die übergeordnete Zeile der obersten Ebene in **MSmerge_contents** (von **ROWGUID**) für jede zugehörige untergeordnete Zeile in einem logischen Datensatz.|  
 |**logical_record_lineage**|**varbinary (501)**|Die Paare aus Spitzname des Abonnenten und Versionsnummer, die zur Verwaltung eines Verlaufs der Änderungen an der übergeordneten Zeile der obersten Ebene in einem logischen Datensatz verwendet werden. Für alle untergeordneten Zeilen in einem logischen Datensatz lautet dieser Wert NULL.|  
 |**logical_relation_change_gen**|**bigint**|Der Generierungswert, der mit der letzten Änderung verbunden ist, die zur Neuausrichtung des logischen Datensatzes führte. Die Neuausrichtung wurde erforderlich, da eine vorhandene Zeile in den logischen Datensatz hinein oder aus diesem heraus verschoben wurde.|  

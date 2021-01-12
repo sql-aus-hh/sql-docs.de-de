@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysmergesubscriptions system table
 ms.assetid: 6adc78da-991d-4c08-98c3-ecb4762e0e99
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: aef0f508cc4d3c3034fe49c7e46762f3b9bb2645
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: e3caa66b5e8e938a0e54f7212b37e0442e29ebfe
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537853"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98090767"
 ---
 # <a name="sysmergesubscriptions-transact-sql"></a>sysmergesubscriptions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -60,9 +60,9 @@ ms.locfileid: "89537853"
 |partition_id|**int**|Identifiziert die vorausberechnete Partition, zu der das Abonnement gehört.|  
 |cleanedup_unsent_changes|**bit**|Gibt an, dass Metadaten für nicht gesendete Änderungen auf dem Abonnenten bereinigt wurden.|  
 |replica_version|**int**|Identifiziert die Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] für den Abonnenten, zu dem das Abonnement gehört. Die folgenden Werte sind möglich:<br /><br /> **90** = [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]<br /><br /> **100** = [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]|  
-|supportability_mode|**int**|Nur interne Verwendung.|  
-|application_name|**nvarchar(128)**|Nur interne Verwendung.|  
-|subscriber_number|**int**|Nur interne Verwendung.|  
+|supportability_mode|**int**|Nur zur internen Verwendung.|  
+|application_name|**nvarchar(128)**|Nur zur internen Verwendung.|  
+|subscriber_number|**int**|Nur zur internen Verwendung.|  
 |last_makegeneration_datetime|**datetime**|Der letzte **DateTime** -Wert, den der makegeneration-Prozess für den Verleger ausgeführt hat. Weitere Informationen finden Sie unter dem-MakeGenerationInterval-Parameter in der [Replikations Merge-Agent](../../relational-databases/replication/agents/replication-merge-agent.md).|  
   
 ## <a name="see-also"></a>Weitere Informationen  

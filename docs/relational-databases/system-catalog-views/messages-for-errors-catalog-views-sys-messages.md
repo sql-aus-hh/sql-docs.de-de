@@ -20,26 +20,26 @@ helpviewer_keywords:
 - sys.messages catalog view
 - error numbers [SQL Server]
 ms.assetid: 8c16ecdf-68f4-4a2a-b594-086e3344e58a
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 30cfb208d709f19743216369b23e6b7bef9dfc38
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 590ad007eebcf37765752272ef775e0d3d2443f0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810396"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092553"
 ---
 # <a name="messages-for-errors-catalog-views---sysmessages"></a>Meldungskatalogsichten (für Fehlermeldungen): sys.messages
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Enthält eine Zeile für jede **message_id** oder **language_id** der Fehlermeldungen im System, sowohl für System definierte als auch für benutzerdefinierte Meldungen. Weitere Informationen finden Sie unter [sp_addmessage &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-addmessage-transact-sql.md).  
    
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**message_id**|**int**|ID der Meldung. Ist innerhalb des gesamten Servers eindeutig. Bei Meldungs-IDs unterhalb von 50000 handelt es sich um Systemmeldungen.|  
-|**language_id**|**smallint**|Die Sprach-ID, für die der Text in **Text** verwendet wird, wie in " **syslanguages**" definiert. Dies ist für eine angegebene **message_id**eindeutig.|  
-|**severity**|**tinyint**|Schweregrad des Fehlers, der zwischen 1 und 25 liegen kann. Dies ist für alle Nachrichten Sprachen innerhalb einer **message_id**identisch.|  
-|**is_event_logged**|**bit**|1 = Bei einer Fehlerausgabe wird eine Meldung in das Ereignisprotokoll geschrieben. Dies ist für alle Nachrichten Sprachen innerhalb einer **message_id**identisch.|  
+|**language_id**|**smallint**|Die Sprach-ID, für die der Text in **Text** verwendet wird, wie in " **syslanguages**" definiert. Dies ist für eine angegebene **message_id** eindeutig.|  
+|**severity**|**tinyint**|Schweregrad des Fehlers, der zwischen 1 und 25 liegen kann. Dies ist für alle Nachrichten Sprachen innerhalb einer **message_id** identisch.|  
+|**is_event_logged**|**bit**|1 = Bei einer Fehlerausgabe wird eine Meldung in das Ereignisprotokoll geschrieben. Dies ist für alle Nachrichten Sprachen innerhalb einer **message_id** identisch.|  
 |**text**|**nvarchar (2048)**|Text der Meldung, die verwendet wird, wenn die entsprechende **language_id** aktiv ist.|  
   
 ## <a name="permissions"></a>Berechtigungen  

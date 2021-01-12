@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.databases catalog view
 ms.assetid: 46c288c1-3410-4d68-a027-3bbf33239289
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: fb80841037a9fc9b7fcb0bc48dff0dd436ea0f88
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5794b2720340fac295720ac2a4ab05a7906a9226
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97462861"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093160"
 ---
 # <a name="sysdatabases-transact-sql"></a>group_database_id
 
@@ -36,7 +36,7 @@ Enthält eine Zeile für jede Datenbank in der [!INCLUDE[ssNoVersion](../../incl
   
 Wenn eine Datenbank nicht `ONLINE` oder `AUTO_CLOSE` auf festgelegt ist `ON` und die Datenbank geschlossen ist, können die Werte einiger Spalten lauten `NULL` . Wenn eine Datenbank ist `OFFLINE` , ist die entsprechende Zeile für Benutzer mit niedrigen Berechtigungen nicht sichtbar. Um die entsprechende Zeile anzuzeigen, wenn die Datenbank ist `OFFLINE` , muss ein Benutzer mindestens über die `ALTER ANY DATABASE` Berechtigung auf Serverebene oder die- `CREATE DATABASE` Berechtigung in der `master` Datenbank verfügen.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**name**|**sysname**|Name der Datenbank, eindeutig innerhalb einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder innerhalb eines [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]servers.|  
 |**database_id**|**int**|ID der Datenbank, eindeutig innerhalb einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder innerhalb eines [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]servers.|  
@@ -94,8 +94,8 @@ Wenn eine Datenbank nicht `ONLINE` oder `AUTO_CLOSE` auf festgelegt ist `ON` und
 |**log_reuse_wait_desc**|**nvarchar(60)**|Bei der Beschreibung der Wiederverwendung von Transaktionsprotokollspeicher wird derzeit auf eines der folgenden Ereignisse ab dem letzten Prüfpunkt gewartet.|  
 |**is_date_correlation_on**|**bit**|1 = DATE_CORRELATION_OPTIMIZATION ist ON<br /> 0 = DATE_CORRELATION_OPTIMIZATION ist OFF|  
 |**is_cdc_enabled**|**bit**|1 = Datenbank ist für Change Data Capture aktiviert. Weitere Informationen finden Sie unter [sys.sp_cdc_enable_db &#40;Transact-SQL-&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-enable-db-transact-sql.md).|  
-|**is_encrypted**|**bit**|Gibt an, ob die Datenbank verschlüsselt ist (gibt den zuletzt mit der-Klausel festgelegten Status wieder `ALTER DATABASE SET ENCRYPTION` ). Es kann sich um einen der folgenden Werte handeln:<br /> 1 = Verschlüsselt.<br /> 0 = Nicht verschlüsselt<br /> Weitere Informationen zur Datenbankverschlüsselung finden Sie unter [Transparent Data Encryption &#40;TDE&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).<br /> Wenn die Datenbank gerade entschlüsselt wird, wird der `is_encrypted` Wert 0 angezeigt. Sie können den Status des Verschlüsselungs Prozesses mithilfe der dynamischen Verwaltungs Sicht [sys.dm_database_encryption_keys](../../relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql.md) anzeigen.|  
-|**is_honor_broker_priority_on**|**bit**|Gibt an, ob die Datenbank die Konversations Prioritäten berücksichtigt (gibt den zuletzt mit der-Klausel festgelegten Status wieder `ALTER DATABASE SET HONOR_BROKER_PRIORITY` ). Es kann sich um einen der folgenden Werte handeln:<br /> 1 = HONOR_BROKER_PRIORITY ist ON<br /> 0 = HONOR_BROKER_PRIORITY ist OFF<br /> Standardmäßig verfügen wiederhergestellte oder angefügte Datenbanken über die Broker-Priorität.|  
+|**is_encrypted**|**bit**|Gibt an, ob die Datenbank verschlüsselt ist (gibt den zuletzt mit der-Klausel festgelegten Status wieder `ALTER DATABASE SET ENCRYPTION` ). Folgenden Werte sind möglich:<br /> 1 = Verschlüsselt.<br /> 0 = Nicht verschlüsselt<br /> Weitere Informationen zur Datenbankverschlüsselung finden Sie unter [Transparent Data Encryption &#40;TDE&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).<br /> Wenn die Datenbank gerade entschlüsselt wird, wird der `is_encrypted` Wert 0 angezeigt. Sie können den Status des Verschlüsselungs Prozesses mithilfe der dynamischen Verwaltungs Sicht [sys.dm_database_encryption_keys](../../relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql.md) anzeigen.|  
+|**is_honor_broker_priority_on**|**bit**|Gibt an, ob die Datenbank die Konversations Prioritäten berücksichtigt (gibt den zuletzt mit der-Klausel festgelegten Status wieder `ALTER DATABASE SET HONOR_BROKER_PRIORITY` ). Folgenden Werte sind möglich:<br /> 1 = HONOR_BROKER_PRIORITY ist ON<br /> 0 = HONOR_BROKER_PRIORITY ist OFF<br /> Standardmäßig verfügen wiederhergestellte oder angefügte Datenbanken über die Broker-Priorität.|  
 |**replica_id**|**uniqueidentifier**|Eindeutiger Bezeichner des lokalen [!INCLUDE[ssHADR](../../includes/sshadr-md.md)]-Verfügbarkeitsreplikats der Verfügbarkeitsgruppe, an der die Datenbank ggf. teilnimmt.<br /> NULL = Datenbank ist kein Teil eines Verfügbarkeitsreplikats einer Verfügbarkeitsgruppe<br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] und höher) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]|  
 |**group_database_id**|**uniqueidentifier**|Eindeutiger Bezeichner der Datenbank in einer Always on Verfügbarkeits Gruppe, in der die Datenbank beteiligt ist, falls vorhanden. **group_database_id** ist für diese Datenbank auf dem primären Replikat und jedem sekundären Replikat, auf dem die Datenbank der Verfügbarkeitsgruppe hinzugefügt wurde, identisch.<br /> NULL = Datenbank ist kein Teil eines Verfügbarkeitsreplikats einer beliebigen Verfügbarkeitsgruppe<br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]|  
 |**resource_pool_id**|**int**|Die ID des Ressourcenpools, der dieser Datenbank zugeordnet ist. Dieser Ressourcenpool steuert den insgesamt für speicheroptimierte Tabellen in dieser Datenbank verfügbaren Arbeitsspeicher.<br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] )|  

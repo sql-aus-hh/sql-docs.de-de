@@ -1,5 +1,5 @@
 ---
-title: Neuigkeiten
+title: Neues
 description: Sehen Sie sich die Neuerungen in Microsoft Analytics Platform System an, eine lokale Appliance für horizontales Skalieren, die MPP SQL Server parallel Data Warehouse hostet.
 author: mzaman1
 ms.prod: sql
@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.author: murshedz
 ms.reviewer: martinle
 ms.custom: seo-dt-2019
-ms.openlocfilehash: 590ca4149bc93fd2c22d04f22c3c47b7389245a2
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 004550d95ca69bae45c518b8054886e635e829df
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489607"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091783"
 ---
 # <a name="whats-new-in-analytics-platform-system-a-scale-out-mpp-data-warehouse"></a>Neues in Analytics Platform System, ein Data Warehouse für horizontales Skalieren
 Weitere Informationen finden Sie unter What es New in the latest Appliance Updates for Microsoft Analytics Platform System (APS). APS ist eine lokale Appliance für horizontales Skalieren, die MPP SQL Server parallele Data Warehouse hostet. 
@@ -142,7 +142,7 @@ Der neue APS SSIS-Ziel Adapter, der SQL Server 2017 als Bereitstellungs Ziel unt
 Veröffentlichungsdatum-2018
 
 ### <a name="dbcc-commands-do-not-consume-concurrency-slots-behavior-change"></a>DBCC-Befehle verbrauchen keine Parallelitäts Slots (Behavior Change)
-APS unterstützt eine Teilmenge der T-SQL- [DBCC-Befehle](../t-sql/database-console-commands/dbcc-transact-sql.md) wie z. b. [DBCC DROPCLEANBUFFERS](../t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql.md). Bis jetzt haben diese Befehle einen [Parallelitätsslot](./workload-management.md?view=aps-pdw-2016-au7#concurrency-slots) belegt, wodurch sich die Zahl der ausführbaren Benutzerauslastungen/Abfragen verringert hat. Die `DBCC` Befehle werden nun in einer lokalen Warteschlange ausgeführt, die keinen benutzerparallelitäts Slot verbraucht, um die Gesamtleistung der Abfrage Ausführung zu verbessern.
+APS unterstützt eine Teilmenge der T-SQL- [DBCC-Befehle](../t-sql/database-console-commands/dbcc-transact-sql.md) wie z. b. [DBCC DROPCLEANBUFFERS](../t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql.md). Bis jetzt haben diese Befehle einen [Parallelitätsslot](./workload-management.md?view=aps-pdw-2016-au7&preserve-view=true&#concurrency-slots) belegt, wodurch sich die Zahl der ausführbaren Benutzerauslastungen/Abfragen verringert hat. Die `DBCC` Befehle werden nun in einer lokalen Warteschlange ausgeführt, die keinen benutzerparallelitäts Slot verbraucht, um die Gesamtleistung der Abfrage Ausführung zu verbessern.
 
 ### <a name="replaces-some-metadata-calls-with-catalog-objects"></a>Ersetzt einige Metadatenaufrufe durch Katalog Objekte.
 Durch die Verwendung von Katalog Objekten für Metadatenaufrufe anstelle von SMO wurde in APS eine Leistungsverbesserung angezeigt. Ab Cu 7.1 verwenden einige dieser Metadatenaufrufe jetzt standardmäßig Katalog Objekte. Dieses Verhalten kann durch [Funktions Wechsel](appliance-feature-switch.md) deaktiviert werden, wenn Kunden, die Metadatenabfragen verwenden, Probleme haben.

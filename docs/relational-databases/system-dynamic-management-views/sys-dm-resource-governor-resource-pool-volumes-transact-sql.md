@@ -1,6 +1,6 @@
 ---
-description: sys. dm_resource_governor_resource_pool_volumes (Transact-SQL)
-title: sys. dm_resource_governor_resource_pool_volumes (Transact-SQL) | Microsoft-Dokumentation
+description: sys.dm_resource_governor_resource_pool_volumes (Transact-SQL)
+title: sys.dm_resource_governor_resource_pool_volumes (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -18,19 +18,19 @@ helpviewer_keywords:
 - dm_resource_governor_resource_pool_volumes
 - sys.dm_resource_governor_resource_pool_volumes
 ms.assetid: fa692e56-c561-4533-97c5-bc12c600553f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 7fd7feb957b93590d76ff92aab14fd745b7c43dd
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 9c6707bfd8b1c29073239821cd0fa3c0425ef089
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543846"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093984"
 ---
-# <a name="sysdm_resource_governor_resource_pool_volumes-transact-sql"></a>sys. dm_resource_governor_resource_pool_volumes (Transact-SQL)
+# <a name="sysdm_resource_governor_resource_pool_volumes-transact-sql"></a>sys.dm_resource_governor_resource_pool_volumes (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
 
-  Gibt Informationen zu den aktuellen Ressourcenpool-E/A-Statistiken für jeden Datenträger zurück. Diese Informationen sind auch auf Ressourcenpool Ebene in [sys. dm_resource_governor_resource_pools &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql.md)verfügbar.  
+  Gibt Informationen zu den aktuellen Ressourcenpool-E/A-Statistiken für jeden Datenträger zurück. Diese Informationen sind auch auf Ressourcenpool Ebene in [sys.dm_resource_governor_resource_pools &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql.md)verfügbar.  
   
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
@@ -60,7 +60,7 @@ ms.locfileid: "89543846"
 ## <a name="see-also"></a>Weitere Informationen  
  [Dynamische Verwaltungssichten und -funktionen &#40;Transact-SQL&#41;](~/relational-databases/system-dynamic-management-views/system-dynamic-management-views.md)   
  [sys.dm_resource_governor_workload_groups &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql.md)   
- [sys. resource_governor_resource_pools &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-resource-governor-resource-pools-transact-sql.md)   
+ [sys.resource_governor_resource_pools &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-resource-governor-resource-pools-transact-sql.md)   
  [ALTER RESOURCE GOVERNOR &#40;Transact-SQL&#41;](../../t-sql/statements/alter-resource-governor-transact-sql.md)  
   
   

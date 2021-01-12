@@ -17,14 +17,14 @@ helpviewer_keywords:
 - system catalogs [SQL Server], example queries
 - catalog views [SQL Server], frequently asked questions
 ms.assetid: ca202580-c37e-4ccd-9275-77ce79481f64
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 346ae709b81c1d5f3892a7e7b5acfd98c3ff7d3b
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: a67ede3c053d3b9458e1b880a268e923226f68d1
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539777"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093274"
 ---
 # <a name="querying-the-sql-server-system-catalog-faq"></a>FAQ: Abfragen des SQL Server-Systemkatalogs
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -780,7 +780,7 @@ GO
 ###  <a name="how-do-i-find-the-views-transact-sql-functions-and-transact-sql-stored-procedures-that-depend-on-a-specified-clr-user-defined-type-or-alias-type"></a><a name="_FAQ26"></a> Gewusst wie Suchen Sie die Sichten, Transact-SQL-Funktionen und gespeicherten Transact-SQL-Prozeduren, die von einem angegebenen CLR-benutzerdefinierten Typ oder Alias Datentyp abhängen?  
  Vor dem Ausführen der folgenden Abfrage ersetzen Sie `<database_name>` durch einen gültigen Namen und `<schema_name.data_type_name>` durch einen gültigen CLR-benutzerdefinierten Typ, der im Schema qualifiziert ist oder einen Alias-Typnamen.  
   
- Die Parameter, die in einer Funktion oder Prozedur definiert werden, sind implizit schemagebunden. Daher können Parameter, die von einem CLR-benutzerdefinierten Typ oder Alias Datentyp abhängen, mithilfe der [sys. sql_dependencies](../../relational-databases/system-catalog-views/sys-sql-dependencies-transact-sql.md) -Katalog Sicht angezeigt werden. Prozeduren und Trigger sind nicht schemagebunden. Dies bedeutet, dass Abhängigkeiten zwischen Ausdrücken, die im Text einer Prozedur oder eines Triggers definiert werden, und einem CLR-benutzerdefinierten Typ oder Aliasdatentyp nicht beibehalten werden. Schema gebundene Sichten und Schema gebundene benutzerdefinierte Funktionen, die Ausdrücke aufweisen, die von einem CLR-benutzerdefinierten Typ oder Alias Datentyp abhängen, werden in der **sys. sql_dependencies** -Katalog Sicht verwaltet. Abhängigkeiten zwischen Typen, CLR-Funktionen und CLR-Prozeduren werden nicht beibehalten.  
+ Die Parameter, die in einer Funktion oder Prozedur definiert werden, sind implizit schemagebunden. Daher können Parameter, die von einem CLR-benutzerdefinierten Typ oder Alias Datentyp abhängen, mithilfe der [sys.sql_dependencies](../../relational-databases/system-catalog-views/sys-sql-dependencies-transact-sql.md) -Katalog Sicht angezeigt werden. Prozeduren und Trigger sind nicht schemagebunden. Dies bedeutet, dass Abhängigkeiten zwischen Ausdrücken, die im Text einer Prozedur oder eines Triggers definiert werden, und einem CLR-benutzerdefinierten Typ oder Aliasdatentyp nicht beibehalten werden. Schema gebundene Sichten und Schema gebundene benutzerdefinierte Funktionen, die Ausdrücke aufweisen, die von einem CLR-benutzerdefinierten Typ oder Alias Datentyp abhängen, werden in der **sys.sql_dependencies** -Katalog Sicht verwaltet. Abhängigkeiten zwischen Typen, CLR-Funktionen und CLR-Prozeduren werden nicht beibehalten.  
   
  Mit der folgenden Abfrage werden alle schemagebundenen Abhängigkeiten in Sichten, [!INCLUDE[tsql](../../includes/tsql-md.md)]-Funktionen und gespeicherten Prozeduren von [!INCLUDE[tsql](../../includes/tsql-md.md)] für einen angegebenen CLR-benutzerdefinierten Typ oder Aliastyp zurückgegeben.  
   

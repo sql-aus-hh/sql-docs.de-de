@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - IHpublishers system table
 ms.assetid: 77007246-f10b-4b87-8edf-7afc3c2096af
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 03d8633b8e859df67d60e8b535cb18c01d031a1e
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 037778000e56bf49e99d46d560fd6fda8f4ce484
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89551032"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092437"
 ---
 # <a name="ihpublishers-transact-sql"></a>IHpublishers (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "89551032"
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**publisher_id**|**smallint**|Identifiziert einen Nicht-SQL Server-Verleger.|  
-|**Verkäufern**|**sysname**|Der Name des Herstellers für die Nicht-SQL Server-Datenbank.|  
+|**vendor**|**sysname**|Der Name des Herstellers für die Nicht-SQL Server-Datenbank.|  
 |**publisher_guid**|**uniqueidentifier**|Ein GUID, der einen Nicht-SQL Server-Verleger identifiziert.|  
 |**flush_request_time**|**datetime**|Gibt das Datum und die Uhrzeit der letzten Änderung an Artikelmetadaten an, für die der Protokolllese-Agent den Metadatencache aktualisieren musste.|  
 |**version**|**sysname**|Eine Textzeichenfolge für die Version eines Nicht-SQL Server-Verlegers.|  

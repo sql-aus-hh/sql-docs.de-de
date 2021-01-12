@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - conflict_<schema>_<table>
 ms.assetid: 15ddd536-db03-454e-b9b5-36efe1f756d7
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 126474b4efe2eafb5c235d1ba4a31e433d71500c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: a7e5f2752557f63acffa69908f1c95025df83ae5
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89544662"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093775"
 ---
 # <a name="conflict_ltschemagt_lttablegt-transact-sql"></a>conflict_ &lt; Schema &gt; _- &lt; Tabelle &gt; (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,8 +40,8 @@ ms.locfileid: "89544662"
 |__$conflict_type|**int**|Typ des Konflikts. Die folgenden Werte sind möglich:<br /><br /> 1: Ein Update ist fehlgeschlagen, da die lokale Zeile durch ein anderes Update geändert wurde oder gelöscht und dann erneut eingefügt wurde.<br /><br /> 2: Ein Update ist fehlgeschlagen, da die lokale Zeile bereits gelöscht wurde.<br /><br /> 3: Ein Löschvorgang ist fehlgeschlagen, da die lokale Zeile durch ein anderes Update geändert wurde oder gelöscht und dann erneut eingefügt wurde.<br /><br /> 4: Ein Löschvorgang ist fehlgeschlagen, da die lokale Zeile bereits gelöscht wurde.<br /><br /> 5: Ein Einfügevorgang ist fehlgeschlagen, da die lokale Zeile bereits eingefügt wurde oder eingefügt und anschließend aktualisiert wurde.|  
 |__$is_winner|**bit**|Gibt an, ob die Zeile in dieser Tabelle der Konfliktgewinner war. Das bedeutet, dass sie auf den lokalen Knoten angewendet wurde.|  
 |__$pre_version|**varbinary (32)**|Version der Datenbank, aus der die konfliktverursachende Änderung stammt.|  
-|__$reason_code|**int**|Auflösungscode für den Konflikt. Es kann sich um einen der folgenden Werte handeln:<br /><br /> 0<br /><br /> 1<br /><br /> 2<br /><br /> <br /><br /> Weitere Informationen finden Sie unter **__ $ reason_text**.|  
-|__$reason_text|**nvarchar (720)**|Auflösung für den Konflikt. Es kann sich um einen der folgenden Werte handeln:<br /><br /> Aufgelöst (1)<br /><br /> Nicht aufgelöst (2)<br /><br /> Unbekannt (0)|  
+|__$reason_code|**int**|Auflösungscode für den Konflikt. Folgenden Werte sind möglich:<br /><br /> 0<br /><br /> 1<br /><br /> 2<br /><br /> <br /><br /> Weitere Informationen finden Sie unter **__ $ reason_text**.|  
+|__$reason_text|**nvarchar (720)**|Auflösung für den Konflikt. Folgenden Werte sind möglich:<br /><br /> Aufgelöst (1)<br /><br /> Nicht aufgelöst (2)<br /><br /> Unbekannt (0)|  
 |__$update_bitmap|**varbinary (** *n* **)**. Die Größe variiert je nach Inhalt.|Bitmap, die angibt, welche Spalten im Fall eines UPDATE/UPDATE-Konflikts aktualisiert wurden.|  
 |__$inserted_date|**datetime**|Datum und Uhrzeit, zu der die Konfliktzeile in diese Tabelle eingefügt wurde.|  
 |__$row_id|**timestamp**|Zeilenversion, die mit der Zeile verknüpft ist, die den Konflikt verursacht hat.|  

@@ -19,22 +19,22 @@ helpviewer_keywords:
 - sys.query_store_query_text catalog view
 - query_store_query_text catalog view
 ms.assetid: f7032fa0-7c16-4492-bb82-685806c63a8c
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 49ce800cf2b831501237f4f15169637fa8c52187
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ee84228b126765ac48b128024d41bf6f8318c148
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477391"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093111"
 ---
 # <a name="sysquery_store_query_text-transact-sql"></a>sys.query_store_query_text (Transact-SQL)
 [!INCLUDE [sqlserver2016-asdb-asdbmi-asa](../../includes/applies-to-version/sqlserver2016-asdb-asdbmi-asa.md)]
 
   Enthält den [!INCLUDE[tsql](../../includes/tsql-md.md)] Text und das SQL-Handle der Abfrage.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**query_text_id**|**bigint**|Der Primärschlüssel.|  
 |**query_sql_text**|**nvarchar(max)**|Der SQL-Text der Abfrage, wie er vom Benutzer bereitgestellt wird. Schließt Leerzeichen, Hinweise und Kommentare ein. Kommentare und Leerzeichen vor und nach dem Abfragetext werden ignoriert. Kommentare und Leerzeichen im Text werden nicht ignoriert.|  

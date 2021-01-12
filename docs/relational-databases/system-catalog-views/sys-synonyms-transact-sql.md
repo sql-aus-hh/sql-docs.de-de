@@ -18,22 +18,22 @@ dev_langs:
 helpviewer_keywords:
 - sys.synonyms catalog view
 ms.assetid: d6e88ca6-6e3d-4f56-bd3e-d85e26be5499
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 48d365741eb32b998a9d0b20299e328ba38f9b44
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 54edeeecb94209aa57ea8027ca0918fdef77021e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477361"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093070"
 ---
 # <a name="syssynonyms-transact-sql"></a>sys.synonyms (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Enthält eine Zeile für jedes Synonym Objekt, das **sys. Objects. Type** = SN ist.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |**\<Columns inherited from sys.objects>**||Eine Liste der Spalten, die diese Sicht erbt, finden Sie unter [sys. Objects &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-objects-transact-sql.md).|  
 |**base_object_name**|**nvarchar (1035)**|Vollständiger Name des Objekts, an das der Benutzer dieses Synonyms umgeleitet wird, in Anführungszeichen.|  

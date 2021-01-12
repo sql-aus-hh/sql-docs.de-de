@@ -14,12 +14,12 @@ ms.assetid: ''
 author: rajeshsetlem
 ms.author: rajpo
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 03ea9cc4d6b7842739f4431fea2e9a418e0f3f9e
-ms.sourcegitcommit: 67befbf7435f256e766bbce6c1de57799e1db9ad
+ms.openlocfilehash: 4d1bcf2cdc9997ea33be87184c38447b7cd62973
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523917"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091606"
 ---
 # <a name="assess-an-enterprise-and-consolidate-assessment-reports-with-dma"></a>Bewerten eines Unternehmens und Konsolidieren der Bewertungsberichte mit DMA
 
@@ -34,7 +34,7 @@ Die folgenden Schritt-für-Schritt-Anweisungen helfen Ihnen bei der Verwendung d
   - [.NET Framework](https://www.microsoft.com/download/details.aspx?id=30653) v 4.5 oder höher.
   - [SSMS](../ssms/download-sql-server-management-studio-ssms.md) 17,0 oder höher.
   - [Power BI Desktop](/power-bi/fundamentals/desktop-get-the-desktop).
-  - [Azure PowerShell-Module](/powershell/azure/install-az-ps?view=azps-1.0.0)
+  - [Azure PowerShell-Module](/powershell/azure/install-az-ps)
 - Herunterladen und extrahieren:
   - Der [DMA-Bericht Power BI Vorlage](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/161/4/PowerBI-Reports.zip).
   - Das [loadwarehouse-Skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/161/3/LoadWarehouse1.zip).
@@ -58,7 +58,7 @@ Führen Sie die folgenden Schritte aus, um die Module zu laden:
    > Der Ordner und die psm1-Datei, die er enthält, müssen denselben Namen aufweisen.
 
    > [!IMPORTANT]
-   > Möglicherweise müssen Sie die Blockierung der PowerShell-Dateien entsperren, nachdem Sie Sie im Verzeichnis WindowsPowerShell gespeichert haben, um sicherzustellen, dass die Module ordnungsgemäß geladen werden. Um die Blockierung einer PowerShell-Datei zu entsperren, klicken Sie mit der rechten Maustaste auf die Datei, wählen Sie **Eigenschaften**aus, aktivieren Sie das Textfeld **Sperre entsperren** , und wählen Sie dann **OK**
+   > Möglicherweise müssen Sie die Blockierung der PowerShell-Dateien entsperren, nachdem Sie Sie im Verzeichnis WindowsPowerShell gespeichert haben, um sicherzustellen, dass die Module ordnungsgemäß geladen werden. Um die Blockierung einer PowerShell-Datei zu entsperren, klicken Sie mit der rechten Maustaste auf die Datei, wählen Sie **Eigenschaften** aus, aktivieren Sie das Textfeld **Sperre entsperren** , und wählen Sie dann **OK**
 
    ![psm1-Dateieigenschaften](../dma/media//dma-consolidatereports/dma-psm1-file-properties.png)
 
@@ -80,7 +80,7 @@ Diese Inventur kann in einer von zwei Formen vorliegen:
 >
 > Legen Sie für Standard Instanzen den Instanznamen auf MSSQLSERVER fest.
 
-Wenn Sie eine CSV-Datei verwenden, um die Daten zu importieren, stellen Sie sicher, dass nur zwei Spalten mit dem **dateninstanznamen** und dem Daten **Banknamen**vorhanden sind und dass die Spalten keine Header Zeilen enthalten.
+Wenn Sie eine CSV-Datei verwenden, um die Daten zu importieren, stellen Sie sicher, dass nur zwei Spalten mit dem **dateninstanznamen** und dem Daten **Banknamen** vorhanden sind und dass die Spalten keine Header Zeilen enthalten.
 
  ![Inhalt der CSV-Datei](../dma/media//dma-consolidatereports/dma-csv-file-contents.png)
 
@@ -123,15 +123,15 @@ Nachdem Sie die PowerShell-Module in das Verzeichnis "modules" geladen und eine 
 
 Die der dmadatacollector-Funktion zugeordneten Parameter werden in der folgenden Tabelle beschrieben.
 
-|Parameter  |BESCHREIBUNG |
+|Parameter  |Beschreibung |
 |---------|---------|
 |**getserverlistfrom** | Ihre Inventur. Mögliche Werte sind **SQLServer** und **CSV**.<br/>Weitere Informationen finden Sie unter [Erstellen eines Inventars von SQL-Servern](#create-inventory). |
-|**csvpath** | Der Pfad zu Ihrer CSV-Inventur Datei.  Wird nur verwendet, wenn **getserverlistfrom** auf  **CSV**festgelegt ist. |
+|**csvpath** | Der Pfad zu Ihrer CSV-Inventur Datei.  Wird nur verwendet, wenn **getserverlistfrom** auf  **CSV** festgelegt ist. |
 |**serverName** | Der SQL Server Instanzname des Inventars, wenn **SQLServer** im **getserverlistfrom** -Parameter verwendet wird. |
 |**databaseName** | Die Datenbank, in der die Inventur Tabelle gehostet wird. |
 |**nur ""** | Bitflag zum angeben, ob eine Liste von Instanzen zur Bewertung verwendet werden soll.  Wenn der Wert auf 0 festgelegt ist, wird die Tabelle databaseinventory verwendet, um die Liste der Bewertungs Ziele zu erstellen. |
 |**AssessmentName** | Der Name der DMA-Bewertung. |
-|**TargetPlatform** | Der Zieltyp der Bewertung, den Sie ausführen möchten.  Mögliche Werte sind **azuresqldatabase**, **managedsqlserver**, **SQLServer2012**, **SQLServer2014**, **SQLServer2016**, **SQLServerLinux2017**, **SQLServerWindows2017**,  **SqlServerWindows2019**und **SqlServerLinux2019**.  |
+|**TargetPlatform** | Der Zieltyp der Bewertung, den Sie ausführen möchten.  Mögliche Werte sind **azuresqldatabase**, **managedsqlserver**, **SQLServer2012**, **SQLServer2014**, **SQLServer2016**, **SQLServerLinux2017**, **SQLServerWindows2017**,  **SqlServerWindows2019** und **SqlServerLinux2019**.  |
 |**AuthenticationMethod** | Die Authentifizierungsmethode für das Herstellen einer Verbindung mit den SQL Server Zielen, die Sie bewerten möchten. Mögliche Werte sind **SQLAuth** und **windowsauth**. |
 |**OutputLocation** | Das Verzeichnis, in dem die JSON-Bewertungs Ausgabedatei gespeichert werden soll. Abhängig von der Anzahl der Datenbanken, die bewertet werden, und der Anzahl der Objekte in den Datenbanken kann die Bewertung sehr lange dauern. Nachdem alle Bewertungen abgeschlossen sind, wird die Datei geschrieben. |
 
@@ -147,7 +147,7 @@ Nachdem Ihre Bewertung abgeschlossen ist, können Sie die Daten für die Analyse
 
 Die der dmaprocessor-Funktion zugeordneten Parameter werden in der folgenden Tabelle beschrieben.
 
-|Parameter  |BESCHREIBUNG |
+|Parameter  |Beschreibung |
 |---------|---------|
 |**processto** | Der Speicherort, an dem die JSON-Datei verarbeitet wird. Mögliche Werte sind **SQLServer** und **azuresqldatabase**. |
 |**serverName** | Die SQL Server Instanz, in die die Daten verarbeitet werden.  Wenn Sie für den **processto** -Parameter **azuresqldatabase** angeben, schließen Sie nur den SQL Server Namen ein (nicht include. Database.Windows.net). Sie werden zur Eingabe von zwei Anmeldungen aufgefordert, wenn Sie die Azure SQL-Datenbank als Ziel haben. die erste ist Ihre Azure-Mandanten-Anmelde Informationen, während die zweite die Administrator Anmeldung für den Azure-SQL Server ist. |
@@ -182,7 +182,7 @@ Sie können auch das loadwarehouse-Skript verwenden, um die grundlegenden TSQL-A
 ## <a name="dma-reports"></a>DMA-Berichte
 
 1. Öffnen Sie die Power BI Vorlage DMA-Berichte in der Power BI Desktop.
-2. Geben Sie Server Details an, die auf Ihre **dmawarehouse** -Datenbank verweisen, und wählen Sie dann **Laden**aus.
+2. Geben Sie Server Details an, die auf Ihre **dmawarehouse** -Datenbank verweisen, und wählen Sie dann **Laden** aus.
 
    ![DMA-Berichte Power BI Vorlage geladen](../dma/media//dma-consolidatereports/dma-reports-powerbi-template-loaded.png)
 
