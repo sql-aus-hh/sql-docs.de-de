@@ -13,12 +13,12 @@ f1_keywords:
 - sql14.dts.designer.afpextfiledest.f1
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 253bd5f8accf3e2fd9fc28dcaa535bea6f736316
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: d331004e82b155a1c101a31253a82e029ec4a31b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127165"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091650"
 ---
 # <a name="flexible-file-destination"></a>Flexibles Dateiziel
 
@@ -53,7 +53,7 @@ Die folgenden Eigenschaften stehen im **Erweiterten Editor** zur Verfügung.
 - **escapeChar:** Das Sonderzeichen, mit dem ein Spaltentrennzeichen im Inhalt der Eingabedatei mit Escapezeichen versehen werden kann. Sie können nicht gleichzeitig „escapeChar“ und „quoteChar“ für eine Tabelle angeben. Es ist nur ein Zeichen zulässig. Für dieses Feld gibt es keinen Standardwert.
 - **quoteChar:** Das Zeichen, mit dem ein Zeichenfolgenwert in Anführungszeichen gesetzt wird. Die Spalten- und Zeilentrennzeichen innerhalb der Anführungszeichen werden als Teil des Zeichenfolgenwerts behandelt. Diese Eigenschaft gilt sowohl für Eingabe- als auch Ausgabedatasets. Sie können nicht gleichzeitig „escapeChar“ und „quoteChar“ für eine Tabelle angeben. Es ist nur ein Zeichen zulässig. Für dieses Feld gibt es keinen Standardwert.
 - **nullValue:** Ein oder mehrere Zeichen, mit denen ein NULL-Wert dargestellt wird. Der **Standardwert** ist „\N“.
-- **encodingName:** Geben Sie den Codierungsnamen an. Siehe Eigenschaft [Encoding.EncodingName](/dotnet/api/system.text.encoding?view=netframework-4.8).
+- **encodingName:** Geben Sie den Codierungsnamen an. Siehe Eigenschaft [Encoding.EncodingName](/dotnet/api/system.text.encoding).
 - **skipLineCount:**  Gibt die Anzahl der nicht leeren Zeilen an, die beim Lesen von Daten aus Eingabedateien übersprungen werden sollen. Wenn „skipLineCount“ und „firstRowAsHeader“ gleichzeitig angegeben sind, werden die Zeilen zuerst übersprungen, und anschließend werden die Kopfzeileninformationen aus der Eingabedatei gelesen.
 - **treatEmptyAsNull:** Gibt an, ob Null- oder leere Zeichenfolgen beim Lesen von Daten aus einer Eingabedatei als NULL-Werte behandelt werden sollen. Der Standardwert ist **True**.
 

@@ -19,12 +19,12 @@ ms.assetid: 3c036813-36cf-4415-a0c9-248d0a433856
 author: pmasl
 ms.author: pelopes
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 8f680d2569bd05a5adb922e273378f920830a1ea
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 82d5aee8d0fa37ca66c49cf00b22385a896c653d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481491"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091790"
 ---
 # <a name="compatibility-certification"></a>Kompatibilitätszertifizierung
 
@@ -41,7 +41,7 @@ In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde beispielsweise für d
 
 Dies ist ein grundlegendes Prinzip des Betriebsmodells Continuous Integration in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)]. Die [!INCLUDE[ssde_md](../../includes/ssde_md.md)] wird in Azure kontinuierlich verbessert und um Upgrades ergänzt. Da allerdings vorhandene Datenbanken ihren aktuellen Kompatibilitätsgrad beibehalten, funktionieren sie auch nach dem Upgrade der zugrunde liegenden [!INCLUDE[ssde_md](../../includes/ssde_md.md)] wie vorgesehen. 
 
-SharePoint Server 2016 und SharePoint Server 2019 führen Zertifizierungen für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)] auf dieselbe Weise durch, sodass Sie jede [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] bereitstellen können, die die unterstützten Datenbank-Kompatibilitätsgrade für diese SharePoint Server-Versionen verwenden kann. Weitere Informationen finden Sie unter [Hardware- und Softwareanforderungen für SharePoint Server 2016](https://docs.microsoft.com/sharepoint/install/hardware-and-software-requirements#minimum-requirements-for-a-database-server-in-a-farm) und [Hardware- und Softwareanforderungen für SharePoint Server 2019](https://docs.microsoft.com/sharepoint/install/hardware-and-software-requirements-2019#minimum-requirements-for-a-database-server-in-a-farm).
+SharePoint Server 2016 und SharePoint Server 2019 führen Zertifizierungen für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)] auf dieselbe Weise durch, sodass Sie jede [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] bereitstellen können, die die unterstützten Datenbank-Kompatibilitätsgrade für diese SharePoint Server-Versionen verwenden kann. Weitere Informationen finden Sie unter [Hardware- und Softwareanforderungen für SharePoint Server 2016](/sharepoint/install/hardware-and-software-requirements#minimum-requirements-for-a-database-server-in-a-farm) und [Hardware- und Softwareanforderungen für SharePoint Server 2019](/sharepoint/install/hardware-and-software-requirements-2019#minimum-requirements-for-a-database-server-in-a-farm).
 
 ## <a name="managing-upgrade-risk-with-compatibility-certification"></a>Steuern von Upgraderisiken mithilfe der Kompatibilitätszertifizierung
 Die Kompatibilitätszertifizierung ist eine Methode, die sich gut zur Datenbankmodernisierung eignet. Durch eine Zertifizierung auf Grundlage des Kompatibilitätsgrads legen Entwickler die technischen Anwendungsanforderungen fest. Diese müssen erfüllt sein, damit die Anwendungen in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)] unterstützt werden. Gleichzeitig wird jedoch der Lebenszyklus der Anwendung vom Lebenszyklus der Datenbankplattform getrennt. Unternehmen können auf diese Weise sicherstellen, dass die SQL Server-[!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] entsprechend den Lebenszyklusrichtlinien immer auf dem neuesten Stand ist. Außerdem können neue Skalierbarkeits- und Leistungsoptimierungen genutzt werden, die codeunabhängig sind. Vernetzte Anwendungen **behalten darüber hinaus durch Upgrades ihren Funktionsstatus**.
@@ -115,4 +115,4 @@ Dies ist mit dem Tool [Microsoft Datenmigrations-Assistent](https://www.microsof
 ## <a name="see-also"></a>Weitere Informationen 
 [ALTER DATABASE-Kompatibilitätsgrad](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md)       
 [Anzeigen oder Ändern des Kompatibilitätsgrads einer Datenbank](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md)       
-[Bewährte Methoden zum Aktualisieren des Datenbank-Kompatibilitätsgrads](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#best-practices-for-upgrading-database-compatibility-level)      
+[Bewährte Methoden zum Aktualisieren des Datenbank-Kompatibilitätsgrads](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#best-practices-for-upgrading-database-compatibility-level)

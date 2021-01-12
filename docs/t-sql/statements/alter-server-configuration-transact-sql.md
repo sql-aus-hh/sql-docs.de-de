@@ -19,14 +19,14 @@ helpviewer_keywords:
 - ALTER SERVER CONFIGURATION statement
 - setting process affinity
 ms.assetid: f3059e42-5f6f-4a64-903c-86dca212a4b4
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: d3381300671d2303f8766351e19018d8122c861f
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 5fc18fa93e47267d299c3b568011de5645f943da
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300924"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092032"
 ---
 # <a name="alter-server-configuration-transact-sql"></a>ALTER SERVER CONFIGURATION (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -131,7 +131,7 @@ Gibt an, dass einer CPU kein Thread zugewiesen ist. Das Betriebssystem kann Thre
 Gibt die CPU oder den Bereich von CPUs an, der bzw. denen Threads zugewiesen werden sollen.  
   
 { CPU_ID | CPU_ID TO CPU_ID } [ ,...n ]  
-Eine Liste mit mindestens einer CPU. CPU-IDs beginnen bei 0 und sind **integer** -Werte.  
+Eine Liste mit mindestens einer CPU. CPU-IDs beginnen bei 0 und sind **integer**-Werte.  
   
 NUMANODE = \<NUMA_node_range_spec>  
 Weist allen CPUs, die um angegebenen NUMA-Knoten oder Bereich von Konten gehören, Threads zu.  
@@ -140,11 +140,11 @@ Weist allen CPUs, die um angegebenen NUMA-Knoten oder Bereich von Konten gehöre
 Gibt den NUMA-Knoten oder den Bereich von NUMA-Knoten an.  
   
 { NUMA_node_ID | NUMA_node_ID  TO NUMA_node_ID } [ ,...n ]  
-Eine Liste mit mindestens einem NUMA-Knoten. NUMA-Knoten-IDs beginnen bei 0 und sind **integer** -Werte.  
+Eine Liste mit mindestens einem NUMA-Knoten. NUMA-Knoten-IDs beginnen bei 0 und sind **integer**-Werte.  
   
 **\<diagnostic_log> ::=**  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).  
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).  
 
   
 DIAGNOSTICS LOG  
@@ -167,7 +167,7 @@ Maximale Anzahl von Diagnoseprotokolldateien, die auf dem Computer gespeichert w
   
 **\<failover_cluster_property> ::=**  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).    
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).    
   
 FAILOVER CLUSTER PROPERTY  
 Ändert die privaten Failoverclustereigenschaften der SQL Server-Ressource.  
@@ -200,7 +200,7 @@ Der Timeoutwert, der festlegt, wie lange die Ressourcen-DLL der SQL Server-Daten
   
 **\<hadr_cluster_context> ::=**  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).   
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).   
   
 HADR CLUSTER CONTEXT **=** { **'** _remote\_windows\_cluster_ **'** | LOCAL }  
 Wechselt mit dem HADR-Clusterkontext der Serverinstanz zum angegebenen WSFC (Windows Server Failover Cluster). Der *HADR-Clusterkontext* bestimmt, welcher WSFC die Metadaten für die von der Serverinstanz gehosteten Verfügbarkeitsreplikate verwaltet. Verwenden Sie die SET HADR CLUSTER CONTEXT-Option nur während einer clusterübergreifenden Migration von [!INCLUDE[ssHADR](../../includes/sshadr-md.md)] zu einer Instanz von [!INCLUDE[ssSQL11SP1](../../includes/sssql11sp1-md.md)] oder höher auf einem neuen WSFC.  
@@ -224,7 +224,7 @@ Weitere Informationen finden Sie unter [Ändern des HADR-Clusterkontexts der Ser
   
 **\<buffer_pool_extension>::=**  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]).    
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]).    
   
 EIN  
 Aktiviert die Pufferpoolerweiterungsoption. Diese Option erweitert die Größe des Pufferpools, indem sie permanenten (nicht flüchtigen) Speicher verwendet. Permanenter Speicher wie Solid State Drives (SSD) behält nicht modifizierte Datenseiten im Pool bei. Weitere Informationen zu diesem Feature finden Sie im Artikel zur [Pufferpoolerweiterung](../../database-engine/configure-windows/buffer-pool-extension.md). Die Pufferpoolerweiterung ist nicht in jeder Edition von SQL Server verfügbar. Weitere Informationen finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Features](../../sql-server/editions-and-components-of-sql-server-2016.md).  
@@ -245,7 +245,7 @@ Deaktiviert die Pufferpoolerweiterungsoption. Deaktivieren Sie die Pufferpoolerw
   
 **\<soft_numa>**  
 
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]).  
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]).  
   
 EIN  
 Aktiviert die automatische Partitionierung, um große NUMA-Hardwareknoten in kleine NUMA-Knoten aufzuteilen. Das Ändern des ausgeführten Werts erfordert einen Neustart der Datenbank-Engine.  
@@ -264,7 +264,7 @@ Deaktiviert die automatische Softwarepartitionierung, um große NUMA-Hardwarekno
 
 **\<memory_optimized> ::=**
 
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]).
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]).
 
 EIN <br>
 Aktiviert alle Features auf Instanzebene, die Teil der [In-Memory Database](../../relational-databases/in-memory-database.md)-Featurefamilie sind. Hierzu gehören derzeit [speicheroptimierte tempdb-Metadaten](../../relational-databases/databases/tempdb-database.md#memory-optimized-tempdb-metadata) und der [hybride Pufferpool](../../database-engine/configure-windows/hybrid-buffer-pool.md). Diese Option erfordert einen Neustart, um wirksam zu werden.
@@ -359,7 +359,7 @@ SET PROCESS AFFINITY CPU=AUTO;
   
 ###  <a name="setting-diagnostic-log-options"></a><a name="Diagnostic"></a> Setting diagnostic log options  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).    
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).    
   
 Die Beispiele in diesem Abschnitt veranschaulichen, wie die Werte für die Diagnoseprotokolloption festgelegt werden.  
   
@@ -395,7 +395,7 @@ SET DIAGNOSTICS LOG MAX_SIZE = 10 MB;
   
 ###  <a name="setting-failover-cluster-properties"></a><a name="Failover"></a> Festlegen der Failoverclustereigenschaften  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).   
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]).   
   
 Im folgenden Beispiel wird veranschaulicht, wie die Werte für die Ressourceneigenschaften des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Failoverclusters festgelegt werden.  
   
@@ -418,7 +418,7 @@ ALTER SERVER CONFIGURATION SET HADR CLUSTER CONTEXT = 'clus01.xyz.com';
   
 ####  <a name="a-setting-the-buffer-pool-extension-option"></a><a name="BufferPoolExtension"></a> A. Festlegen der Pufferpoolerweiterungsoption  
   
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]).    
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]).    
   
 Im folgenden Beispiel wird die Pufferpoolerweiterungsoption aktiviert, und es werden Name und Größe der Datei angegeben.  
   
@@ -447,7 +447,7 @@ GO
 
 ### <a name="setting-in-memory-database-options"></a><a name="MemoryOptimized"></a> Festlegen von In-Memory Database-Optionen
 
-**Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]).
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]).
 
 #### <a name="a-enable-all-in-memory-database-features-with-default-options"></a>A. Aktivieren aller In-Memory Database-Features mit Standardoptionen
 

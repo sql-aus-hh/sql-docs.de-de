@@ -11,12 +11,12 @@ ms.assetid: a47c5005-20e3-4880-945c-9f78d311af7a
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 981ce2dcfadf234383382103a33faf4f0ab9302e
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4fd420fd7d07af5a6efa81cdb7e716020c03a89b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643054"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091800"
 ---
 # <a name="how-to-cluster-the-dtc-service-for-an-always-on-availability-group"></a>Gruppieren des DTC-Diensts für eine Always On-Verfügbarkeitsgruppe
 
@@ -48,7 +48,7 @@ Nachdem Sie Ihre Verfügbarkeitsgruppenressource erstellt haben, erstellen Sie e
 |Aufgabe|Verweis|  
 |-----------------|----------|  
 |Aktivieren Sie den sicheren Netzwerkzugriff für die gruppierte DTC-Ressource.|[Sicheres Aktivieren des Netzwerkzugriffs für MS DTC](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753620(v=ws.10))|
-|Beenden und deaktivieren Sie den lokalen DTC-Dienst.|[Konfigurieren des Startvorgangs für einen Dienst](https://technet.microsoft.com/library/cc755249(v=ws.11).aspx)|
+|Beenden und deaktivieren Sie den lokalen DTC-Dienst.|[Konfigurieren des Startvorgangs für einen Dienst](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))|
 |Durchlaufen Sie den SQL Server-Dienst für jede Instanz in der Verfügbarkeitsgruppe.  Führen Sie bei Bedarf einen Failover für die Verfügbarkeitsgruppe aus.|[Ausführen eines geplanten manuellen Failovers einer Verfügbarkeitsgruppe (SQL Server)](../../../database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server.md)<br /><br />[Starten, Beenden, Anhalten, Fortsetzen und Neustarten der Datenbank-Engine, SQL Server-Agent oder des SQL Server-Browsers](../../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md)|
 
 - Wenn es sich bei dem Betriebssystem um Windows Server 2012 R2 handelt, benötigen Sie unbedingt [KB 3030373](https://support.microsoft.com/kb/3090973) .

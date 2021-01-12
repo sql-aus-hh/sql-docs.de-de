@@ -41,12 +41,12 @@ ms.assetid: 32660a02-e5a1-411a-9e57-7066ca459df6
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.openlocfilehash: e971592b20dd2321e4265752cb8b01c38387b639
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: 697cf043c4582796015b061c857145c214d105fb
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670753"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091765"
 ---
 # <a name="start-stop-pause-resume-restart-sql-server-services"></a>Starten, Beenden, Anhalten, Fortsetzen und Neustarten von SQL Server-Diensten
 
@@ -130,7 +130,7 @@ Da der SQL Server-Konfigurations-Manager ein Snap-In für das Microsoft Manageme
 
 3. Klicken Sie im linken Bereich des SQL Server-Konfigurations-Managers auf **SQL Server-Dienste**.
 
-4. Klicken Sie im Ergebnisbereich mit der rechten Maustaste auf **SQL Server (MSSQLServer)** oder auf eine benannte Instanz, und klicken Sie anschließend auf **Starten**, **Beenden**, **Anhalten**, **Fortsetzen**oder **Neu starten**.
+4. Klicken Sie im Ergebnisbereich mit der rechten Maustaste auf **SQL Server (MSSQLServer)** oder auf eine benannte Instanz, und klicken Sie anschließend auf **Starten**, **Beenden**, **Anhalten**, **Fortsetzen** oder **Neu starten**.
 
 5. Klicken Sie auf **OK**, um den SQL Server-Konfigurations-Manager zu schließen.
 
@@ -198,7 +198,7 @@ Die Microsoft SQL Server-Dienste können mithilfe der **Net**-Befehle von Micros
   
 ### <a name="to-start-the-database-engine-with-startup-options"></a><a name="dbStartup"></a> Starten der Datenbank-Engine mit Startoptionen  
 
-- Fügen Sie Startoptionen am Ende der Anweisung **net start "SQL Server (MSSQLSERVER)"** hinzu (durch ein Leerzeichen getrennt). Beim Starten mithilfe von **net start**wird ein Schrägstrich (/) anstelle eines Bindestriches (-) für die Startoptionen verwendet.  
+- Fügen Sie Startoptionen am Ende der Anweisung **net start "SQL Server (MSSQLSERVER)"** hinzu (durch ein Leerzeichen getrennt). Beim Starten mithilfe von **net start** wird ein Schrägstrich (/) anstelle eines Bindestriches (-) für die Startoptionen verwendet.  
   
     **net start "SQL Server (MSSQLSERVER)" /f /m**
   
@@ -342,7 +342,7 @@ Weitere Informationen zur **SHUTDOWN**-Anweisung finden Sie unter [SHUTDOWN &#40
   
 ##  <a name="using-service-controller-class"></a><a name="ServiceController"></a> Verwenden der ServiceController-Klasse
 
-Sie können die ServiceController-Klasse verwenden, um den SQL Server-Dienst oder einen anderen Windows-Dienst zu steuern. Ein Verwendungsbeispiel finden Sie unter [ServiceController-Klasse](/dotnet/api/system.serviceprocess.servicecontroller?view=netframework-4.8).
+Sie können die ServiceController-Klasse verwenden, um den SQL Server-Dienst oder einen anderen Windows-Dienst zu steuern. Ein Verwendungsbeispiel finden Sie unter [ServiceController-Klasse](/dotnet/api/system.serviceprocess.servicecontroller).
 
 ## <a name="manage-the-sql-server-service-on-linux"></a>Verwalten des SQL Server-Diensts unter Linux
 
