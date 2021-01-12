@@ -13,12 +13,12 @@ f1_keywords:
 ms.assetid: a3447987-5507-4630-ac35-58821b72354d
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: bf329c6537df49ace1ae78bba64e146641e1e664
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 87c3b10b95a37c74ea1595dca15341aeffe5c261
+ms.sourcegitcommit: 4a813a0741502c56c0cd5ecaafafad2e857a9d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92195038"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98031100"
 ---
 # <a name="database-properties-options-page"></a>Datenbankeigenschaften (Seite Optionen)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "92195038"
   
  Ist der Wert **False**, warten Abfragen, die ein automatisches Update veralteter Statistiken initiieren, bis die aktualisierten Statistiken im Abfrageoptimierungsplan verwendet werden können.  
   
- Wenn diese Option auf **True** festgelegt wird, hat dies keine Auswirkungen, es sei denn, die Option **Statistiken automatisch aktualisieren** ist ebenfalls auf **True**festgelegt.  
+ Wenn diese Option auf **True** festgelegt wird, hat dies keine Auswirkungen, es sei denn, die Option **Statistiken automatisch aktualisieren** ist ebenfalls auf **True** festgelegt.  
 
 ## <a name="azure"></a>Azure
 Wenn Sie eine Verbindung mit Azure SQL-Datenbank hergestellt haben, finden Sie in diesem Abschnitt Einstellungen, mit denen Sie das Servicelevelziel (Service Level Objective, SLO) bestimmen können. Das Standard-SLO für eine neue Datenbank ist Standard S2.
@@ -98,7 +98,7 @@ Wenn Sie eine Verbindung mit Azure SQL-Datenbank hergestellt haben, finden Sie i
  Gibt an, ob der Cursor geschlossen wird, nachdem für die den Cursor öffnende Transaktion ein Commit durchgeführt wurde. Mögliche Werte sind **True** und **False**. Ist der Wert **True**, werden alle Cursor geschlossen, die geöffnet sind, wenn für eine Transaktion ein Commit oder ein Rollback ausgeführt wird. Ist der Wert **False**, bleiben diese Cursor geöffnet, wenn für eine Transaktion ein Commit ausgeführt wird. Bei **False** werden beim Rollback einer Transaktion alle außer den als INSENSITIVE oder STATIC definierten Cursorn geschlossen. Weitere Informationen finden Sie unter [SET CURSOR_CLOSE_ON_COMMIT &#40;Transact-SQL&#41;](../../t-sql/statements/set-cursor-close-on-commit-transact-sql.md).  
   
  **Standardcursor**  
- Gibt das Verhalten für Standardcursor an. Bei **True**werden Cursordeklarationen standardmäßig auf LOCAL festgelegt. Bei **False**werden [!INCLUDE[tsql](../../includes/tsql-md.md)] -Cursor standardmäßig auf GLOBAL festgelegt.  
+ Gibt das Verhalten für Standardcursor an. Bei **True** werden Cursordeklarationen standardmäßig auf LOCAL festgelegt. Bei **False** werden [!INCLUDE[tsql](../../includes/tsql-md.md)] -Cursor standardmäßig auf GLOBAL festgelegt.  
   
 ## <a name="database-scoped-configurations"></a>Datenbankweit gültige Konfigurationen  
  In SQL Server 2016 und in der Azure SQL-Datenbank gibt es eine Reihe von Konfigurationseigenschaften, die auf Datenbankebene festgelegt werden können. Weitere Informationen zu all diesen Einstellungen finden Sie unter [ALTER DATABASE SCOPED CONFIGURATION &#40;Transact-SQL&#41;](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md).  
@@ -142,54 +142,54 @@ Aktiviert dieses Feature.
  Ermöglicht NULL-Werte für alle benutzerdefinierten Datentypen oder -spalten, die während einer **CREATE TABLE** - oder **ALTER TABLE** -Anweisung nicht explizit als **NOT NULL** festgelegt wurden (der Standardzustand). Weitere Informationen finden Sie unter [SET ANSI_NULL_DFLT_ON &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-null-dflt-on-transact-sql.md) und [SET ANSI_NULL_DFLT_OFF &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-null-dflt-off-transact-sql.md).  
   
  **ANSI NULLS aktiviert**  
- Gibt das Verhalten der Vergleichsoperatoren Gleich (`=`) und Ungleich (`<>`) bei Verwendung mit NULL-Werten an. Mögliche Werte sind **True** (Ein) und **False** (Aus). Bei **True**werden alle Vergleiche mit einem Nullwert als UNKNOWN ausgewertet. Bei **False** werden Vergleiche von Nicht-UNICODE-Werten mit einem Nullwert als **True** ausgewertet, wenn beide Werte NULL sind. Weitere Informationen finden Sie unter [SET ANSI_NULLS &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-nulls-transact-sql.md).  
+ Gibt das Verhalten der Vergleichsoperatoren Gleich (`=`) und Ungleich (`<>`) bei Verwendung mit NULL-Werten an. Mögliche Werte sind **True** (Ein) und **False** (Aus). Bei **True** werden alle Vergleiche mit einem Nullwert als UNKNOWN ausgewertet. Bei **False** werden Vergleiche von Nicht-UNICODE-Werten mit einem Nullwert als **True** ausgewertet, wenn beide Werte NULL sind. Weitere Informationen finden Sie unter [SET ANSI_NULLS &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-nulls-transact-sql.md).  
   
  **ANSI-Auffüllung aktiviert**  
  Gibt an, ob die ANSI-Auffüllung aktiviert ist. Mögliche Werte sind **True** (aktiviert) und **False** (deaktiviert). Weitere Informationen finden Sie unter [SET ANSI_PADDING &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-padding-transact-sql.md).  
   
  **ANSI-Warnungen aktiviert**  
- Gibt das ISO-Standardverhalten für verschiedene Fehlerbedingungen an. Bei **True**wird eine Warnmeldung generiert, wenn NULL-Werte in Aggregatfunktionen (z.B. SUM, AVG, MAX, MIN, STDEV, STDEVP, VAR, VARP oder COUNT) auftreten. Bei **False** wird keine Warnung ausgegeben. Weitere Informationen finden Sie unter [SET ANSI_WARNINGS &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-warnings-transact-sql.md).  
+ Gibt das ISO-Standardverhalten für verschiedene Fehlerbedingungen an. Bei **True** wird eine Warnmeldung generiert, wenn NULL-Werte in Aggregatfunktionen (z.B. SUM, AVG, MAX, MIN, STDEV, STDEVP, VAR, VARP oder COUNT) auftreten. Bei **False** wird keine Warnung ausgegeben. Weitere Informationen finden Sie unter [SET ANSI_WARNINGS &#40;Transact-SQL&#41;](../../t-sql/statements/set-ansi-warnings-transact-sql.md).  
   
  **Abbruch bei arithmetischem Fehler aktiviert**  
- Gibt an, ob die Datenbankoption für den Abbruch bei arithmetischem Fehler aktiviert ist. Mögliche Werte sind **True** und **False**. Wenn der Wert **True**ist, bewirkt ein Überlauffehler oder ein Fehler aufgrund einer Division durch null, dass die Abfrage oder der Batch beendet wird. Tritt der Fehler in einer Transaktion auf, so wird für die Transaktion ein Rollback durchgeführt. Ist der Wert **False**, wird eine Warnmeldung angezeigt, aber die Abfrage, der Batch oder die Transaktion werden fortgesetzt, als wäre kein Fehler aufgetreten. Weitere Informationen finden Sie unter [SET ARITHABORT &#40;Transact-SQL&#41;](../../t-sql/statements/set-arithabort-transact-sql.md).  
+ Gibt an, ob die Datenbankoption für den Abbruch bei arithmetischem Fehler aktiviert ist. Mögliche Werte sind **True** und **False**. Wenn der Wert **True** ist, bewirkt ein Überlauffehler oder ein Fehler aufgrund einer Division durch null, dass die Abfrage oder der Batch beendet wird. Tritt der Fehler in einer Transaktion auf, so wird für die Transaktion ein Rollback durchgeführt. Ist der Wert **False**, wird eine Warnmeldung angezeigt, aber die Abfrage, der Batch oder die Transaktion werden fortgesetzt, als wäre kein Fehler aufgetreten. Weitere Informationen finden Sie unter [SET ARITHABORT &#40;Transact-SQL&#41;](../../t-sql/statements/set-arithabort-transact-sql.md).  
   
  **Verketten von NULL-Werten ergibt NULL**  
- Gibt das Verhalten an, wenn NULL-Werte verkettet werden. Wenn der Eigenschaftswert **True**ist, dann wird durch **string** + NULL der Wert NULL zurückgegeben. Ist der Wert **False**, dann ist das Ergebnis **string**. Weitere Informationen finden Sie unter [SET CONCAT_NULL_YIELDS_NULL &#40;Transact-SQL&#41;](../../t-sql/statements/set-concat-null-yields-null-transact-sql.md).  
+ Gibt das Verhalten an, wenn NULL-Werte verkettet werden. Wenn der Eigenschaftswert **True** ist, dann wird durch **string** + NULL der Wert NULL zurückgegeben. Ist der Wert **False**, dann ist das Ergebnis **string**. Weitere Informationen finden Sie unter [SET CONCAT_NULL_YIELDS_NULL &#40;Transact-SQL&#41;](../../t-sql/statements/set-concat-null-yields-null-transact-sql.md).  
   
  **Datenbankübergreifende Besitzverkettung aktiviert**  
  Dieser schreibgeschützte Wert gibt an, ob die datenbankübergreifende Besitzverkettung aktiviert wurde. Ist der Wert **True**, kann die Datenbank Quelle oder Ziel einer datenbankübergreifenden Besitzverkettung sein. Verwenden Sie die ALTER DATABASE-Anweisung, um diese Eigenschaft festzulegen.  
   
  **Datumskorrelationsoptimierung aktiviert**  
- Bei **True**verwaltet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Korrelationsstatistiken zwischen zwei beliebigen Tabellen in der Datenbank, die durch eine FOREIGN KEY-Einschränkung verknüpft sind und über **datetime** -Spalten verfügen.  
+ Bei **True** verwaltet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Korrelationsstatistiken zwischen zwei beliebigen Tabellen in der Datenbank, die durch eine FOREIGN KEY-Einschränkung verknüpft sind und über **datetime** -Spalten verfügen.  
   
- Bei **False**werden keine Korrelationsstatistiken verwaltet.  
+ Bei **False** werden keine Korrelationsstatistiken verwaltet.  
  
  **Verzögerte Dauerhaftigkeit**  
- Aktiviert dieses Feature.  
+ Aktiviert dieses Feature. Weitere Informationen finden Sie im Thema [Steuern der Transaktionsdauerhaftigkeit](../logs/control-transaction-durability.md).
  
  **Ist aktivierte READ COMMITTED-Momentaufnahme**  
  Aktiviert dieses Feature.  
  
  **Abbruch bei numerischem Runden**  
- Gibt an, wie Rundungsfehler in der Datenbank behandelt werden. Mögliche Werte sind **True** und **False**. Beim Wert **True**wird ein Fehler generiert, wenn ein Genauigkeitsverlust in einem Ausdruck auftritt. Beim Wert **False**werden bei Genauigkeitsverlusten keine Fehlermeldungen generiert, und das Ergebnis wird auf die Genauigkeit der Spalte oder Variablen gerundet, die das Ergebnis speichert. Weitere Informationen finden Sie unter [SET NUMERIC_ROUNDABORT &#40;Transact-SQL&#41;](../../t-sql/statements/set-numeric-roundabort-transact-sql.md).  
+ Gibt an, wie Rundungsfehler in der Datenbank behandelt werden. Mögliche Werte sind **True** und **False**. Beim Wert **True** wird ein Fehler generiert, wenn ein Genauigkeitsverlust in einem Ausdruck auftritt. Beim Wert **False** werden bei Genauigkeitsverlusten keine Fehlermeldungen generiert, und das Ergebnis wird auf die Genauigkeit der Spalte oder Variablen gerundet, die das Ergebnis speichert. Weitere Informationen finden Sie unter [SET NUMERIC_ROUNDABORT &#40;Transact-SQL&#41;](../../t-sql/statements/set-numeric-roundabort-transact-sql.md).  
   
  **Parametrisierung**  
- Bei **SIMPLE**werden Abfragen basierend auf dem Standardverhalten der Datenbank parametrisiert. Bei **FORCED**parametrisiert [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] alle Abfragen in der Datenbank.  
+ Bei **SIMPLE** werden Abfragen basierend auf dem Standardverhalten der Datenbank parametrisiert. Bei **FORCED** parametrisiert [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] alle Abfragen in der Datenbank.  
   
  **Bezeichner in Anführungszeichen aktiviert**  
  Gibt an, ob [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Schlüsselwörter als Bezeichner (Objekt- oder Variablennamen) verwendet werden können, wenn sie in Anführungszeichen eingeschlossen sind. Mögliche Werte sind **True** und **False**. Weitere Informationen finden Sie unter [SET QUOTED_IDENTIFIER &#40;Transact-SQL&#41;](../../t-sql/statements/set-quoted-identifier-transact-sql.md).  
   
  **Rekursive Trigger aktiviert**  
- Gibt an, ob Trigger von anderen Triggern ausgelöst werden können. Mögliche Werte sind **True** und **False**. Wenn der Wert auf **True**festgelegt ist, dann ist das rekursive Auslösen von Triggern möglich. Wenn der Wert auf **False**festgelegt ist, dann wird lediglich die direkte Rekursion verhindert. Um die indirekte Rekursion zu deaktivieren, legen Sie mithilfe von sp_configure auch die Serveroption Geschachtelte Trigger auf 0 fest. Weitere Informationen finden Sie unter [Erstellen von geschachtelten Triggern](../../relational-databases/triggers/create-nested-triggers.md).  
+ Gibt an, ob Trigger von anderen Triggern ausgelöst werden können. Mögliche Werte sind **True** und **False**. Wenn der Wert auf **True** festgelegt ist, dann ist das rekursive Auslösen von Triggern möglich. Wenn der Wert auf **False** festgelegt ist, dann wird lediglich die direkte Rekursion verhindert. Um die indirekte Rekursion zu deaktivieren, legen Sie mithilfe von sp_configure auch die Serveroption Geschachtelte Trigger auf 0 fest. Weitere Informationen finden Sie unter [Erstellen von geschachtelten Triggern](../../relational-databases/triggers/create-nested-triggers.md).  
   
  **Vertrauenswürdig**  
- Wird **True**angezeigt, gibt diese schreibgeschützte Option an, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den Zugriff auf Ressourcen außerhalb der Datenbank in einem innerhalb der Datenbank eingerichteten Identitätswechselkontext zulässt. Identitätswechselkontexte können innerhalb der Datenbank mithilfe der EXECUTE AS USER-Anweisung oder der EXECUTE AS-Klausel für Datenbankmodule eingerichtet werden.  
+ Wird **True** angezeigt, gibt diese schreibgeschützte Option an, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den Zugriff auf Ressourcen außerhalb der Datenbank in einem innerhalb der Datenbank eingerichteten Identitätswechselkontext zulässt. Identitätswechselkontexte können innerhalb der Datenbank mithilfe der EXECUTE AS USER-Anweisung oder der EXECUTE AS-Klausel für Datenbankmodule eingerichtet werden.  
   
  Der Besitzer der Datenbank benötigt außerdem die AUTHENTICATE SERVER-Berechtigung auf Serverebene, um Zugriff zu erhalten.  
   
- Diese Eigenschaft ermöglicht zudem die Erstellung und Ausführung von unsicheren Assemblys und Assemblys mit externem Zugriff innerhalb der Datenbank. Zusätzlich zum Festlegen dieser Eigenschaft auf **True**benötigt der Besitzer der Datenbank die Berechtigungen EXTERNAL ACCESS ASSEMBLY oder UNSAFE ASSEMBLY auf Serverebene.  
+ Diese Eigenschaft ermöglicht zudem die Erstellung und Ausführung von unsicheren Assemblys und Assemblys mit externem Zugriff innerhalb der Datenbank. Zusätzlich zum Festlegen dieser Eigenschaft auf **True** benötigt der Besitzer der Datenbank die Berechtigungen EXTERNAL ACCESS ASSEMBLY oder UNSAFE ASSEMBLY auf Serverebene.  
   
- Standardmäßig ist diese Eigenschaft für alle Benutzerdatenbanken und alle Systemdatenbanken (mit Ausnahme von **MSDB**) auf **False**festgelegt. Der Wert kann für die **model** - und **tempdb** -Datenbanken nicht geändert werden.  
+ Standardmäßig ist diese Eigenschaft für alle Benutzerdatenbanken und alle Systemdatenbanken (mit Ausnahme von **MSDB**) auf **False** festgelegt. Der Wert kann für die **model** - und **tempdb** -Datenbanken nicht geändert werden.  
   
  TRUSTWORTHY wird auf **False** festgelegt, wenn eine Datenbank an den Server angefügt wird.  
   
@@ -198,7 +198,7 @@ Aktiviert dieses Feature.
  Verwenden Sie zum Festlegen dieser Eigenschaft die ALTER DATABASE-Anweisung.  
   
  **VarDecimal-Speicherformat ist aktiviert**  
- Diese Option ist ab [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]schreibgeschützt. Wenn dies auf **True**festgelegt ist, ist für diese Datenbank das vardecimal-Speicherformat aktiviert. Das vardecimal-Speicherformat kann nicht deaktiviert werden, da es für alle Tabellen in der Datenbank verwendet wird. In [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höheren Versionen ist für alle Datenbankbenutzer das vardecimal-Speicherformat aktiviert. Diese Option verwendet [sp_db_vardecimal_storage_format](../../relational-databases/system-stored-procedures/sp-db-vardecimal-storage-format-transact-sql.md).  
+ Diese Option ist ab [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]schreibgeschützt. Wenn dies auf **True** festgelegt ist, ist für diese Datenbank das vardecimal-Speicherformat aktiviert. Das vardecimal-Speicherformat kann nicht deaktiviert werden, da es für alle Tabellen in der Datenbank verwendet wird. In [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höheren Versionen ist für alle Datenbankbenutzer das vardecimal-Speicherformat aktiviert. Diese Option verwendet [sp_db_vardecimal_storage_format](../../relational-databases/system-stored-procedures/sp-db-vardecimal-storage-format-transact-sql.md).  
   
 ## <a name="recovery"></a>Wiederherstellung  
  **Seitenüberprüfung**  
@@ -219,13 +219,13 @@ Schreibgeschützter Bezeichner.
 
 ## <a name="state"></a>State  
  **Datenbank schreibgeschützt**  
- Gibt an, ob die Datenbank schreibgeschützt ist. Mögliche Werte sind **True** und **False**. Bei **True**können die Benutzer die Daten in der Datenbank nur lesen. Die Benutzer können keine Daten oder Datenbankobjekte ändern. Die Datenbank selbst kann jedoch mithilfe der `DROP DATABASE`-Anweisung gelöscht werden. Die Datenbank darf nicht verwendet werden, wenn ein neuer Wert für die Option **Datenbank schreibgeschützt** angegeben wird. Die master-Datenbank stellt eine Ausnahme dar, und nur der Systemadministrator darf die master-Datenbank verwenden, während die Option festgelegt wird.  
+ Gibt an, ob die Datenbank schreibgeschützt ist. Mögliche Werte sind **True** und **False**. Bei **True** können die Benutzer die Daten in der Datenbank nur lesen. Die Benutzer können keine Daten oder Datenbankobjekte ändern. Die Datenbank selbst kann jedoch mithilfe der `DROP DATABASE`-Anweisung gelöscht werden. Die Datenbank darf nicht verwendet werden, wenn ein neuer Wert für die Option **Datenbank schreibgeschützt** angegeben wird. Die master-Datenbank stellt eine Ausnahme dar, und nur der Systemadministrator darf die master-Datenbank verwenden, während die Option festgelegt wird.  
   
  **Datenbankstatus**  
- Zeigt den aktuellen Status der Datenbank an. Sie kann nicht bearbeitet werden. Weitere Informationen zum **Datenbankstatus**finden Sie unter [Datenbankstatus](../../relational-databases/databases/database-states.md).  
+ Zeigt den aktuellen Status der Datenbank an. Sie kann nicht bearbeitet werden. Weitere Informationen zum **Datenbankstatus** finden Sie unter [Datenbankstatus](../../relational-databases/databases/database-states.md).  
 
  **Verschlüsselung aktiviert**  
- Bei **True**ist diese Datenbank für die Datenbankverschlüsselung aktiviert. Für die Verschlüsselung ist ein Verschlüsselungsschlüssel für eine Datenbank erforderlich. Weitere Informationen finden Sie unter [Transparente Datenverschlüsselung &#40;TDE&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).  
+ Bei **True** ist diese Datenbank für die Datenbankverschlüsselung aktiviert. Für die Verschlüsselung ist ein Verschlüsselungsschlüssel für eine Datenbank erforderlich. Weitere Informationen finden Sie unter [Transparente Datenverschlüsselung &#40;TDE&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).  
  
  **Zugriff beschränken**  
  Gibt an, welche Benutzer auf die Datenbank zugreifen können. Mögliche Werte:  
