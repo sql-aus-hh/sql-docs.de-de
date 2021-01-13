@@ -13,12 +13,12 @@ ms.assetid: 5b13b5ac-1e4c-45e7-bda7-ebebe2784551
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: a973fd5ec66f101c162e35baec0269f7b6d3d601
-ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
+ms.openlocfilehash: cccb47e059938745aa6166902402c8b94b674722
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97765209"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099331"
 ---
 # <a name="best-practices-with-query-store"></a>Bewährte Methoden für den Abfragespeicher
 
@@ -34,7 +34,7 @@ Eine kurze Beschreibung zur Verwendung des Abfragespeichers bei Fehlerbehebungen
 
 ## <a name="use-query-performance-insight-in-azure-sql-database"></a><a name="Insight"></a> Verwenden von Query Performance Insight in Azure SQL-Datenbank
 
-Wenn Sie den Abfragespeicher in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] ausführen, können Sie mit [Query Performance Insight](/azure/sql-database/sql-database-query-performance) die Ressourcennutzung im Verlauf der Zeit analysieren. Sie können zwar [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] und [Azure Data Studio](../../azure-data-studio/what-is.md) verwenden, um detaillierte Ressourcennutzungswerte für alle Ihre Abfragen wie CPU, Arbeitsspeicher und E/A abzurufen, Query Performance Insight bietet Ihnen jedoch eine schnelle und effiziente Möglichkeit, um deren Auswirkung auf den DTU-Verbrauch Ihrer Datenbank insgesamt zu ermitteln. Weitere Informationen finden Sie unter [Query Performance Insight für Azure SQL-Datenbank](/azure/azure-sql/database/query-performance-insight-use).
+Wenn Sie den Abfragespeicher in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] ausführen, können Sie mit [Query Performance Insight](/azure/sql-database/sql-database-query-performance) die Ressourcennutzung im Verlauf der Zeit analysieren. Sie können zwar [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] und [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) verwenden, um detaillierte Ressourcennutzungswerte für alle Ihre Abfragen wie CPU, Arbeitsspeicher und E/A abzurufen, Query Performance Insight bietet Ihnen jedoch eine schnelle und effiziente Möglichkeit, um deren Auswirkung auf den DTU-Verbrauch Ihrer Datenbank insgesamt zu ermitteln. Weitere Informationen finden Sie unter [Query Performance Insight für Azure SQL-Datenbank](/azure/azure-sql/database/query-performance-insight-use).
 
 Dieser Abschnitt beschreibt die optimalen Standardeinstellungen der Konfiguration, mit denen der zuverlässige Betrieb des Abfragespeichers und der abhängigen Features sichergestellt wird. Die Standardkonfiguration ist für die fortlaufende Datensammlung optimiert. Dies bedeutet, dass möglichst wenig Zeit im Status OFF bzw. READ_ONLY verbracht wird. Weitere Informationen zu allen verfügbaren Abfragespeicheroptionen finden Sie unter [ALTER DATABASE SET-Optionen (Transact-SQL)](../../t-sql/statements/alter-database-transact-sql-set-options.md#query-store).
 
