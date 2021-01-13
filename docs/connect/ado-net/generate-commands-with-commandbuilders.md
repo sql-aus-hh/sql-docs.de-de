@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 091f7c2736c240951beb0f434fdcd2efb39a9b59
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: d738650db9dbb7b0b2ed3f9411945173f73f748f
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428252"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771305"
 ---
 # <a name="generating-commands-with-commandbuilders"></a>Generieren von Befehlen mit CommandBuilder-Objekten
 
@@ -39,9 +39,9 @@ Der <xref:System.Data.Common.DbCommandBuilder> muss `SelectCommand` ausführen, 
 
 Bei einer Zuordnung zu einem `DataAdapter` generiert der <xref:System.Data.Common.DbCommandBuilder> automatisch die Eigenschaften `InsertCommand`, `UpdateCommand` und `DeleteCommand` des `DataAdapter`, sofern es sich um NULL-Verweise handelt. Wenn für eine Eigenschaft bereits ein `Command` vorhanden ist, wird der vorhandene `Command` verwendet.
 
-Datenbankansichten, die durch das Verknüpfen von zwei oder mehr Datenbanken erstellt wurden, werden nicht als eine einzelne Datenbanktabelle betrachtet. Bei dieser Instanz kann <xref:System.Data.Common.DbCommandBuilder> nicht verwendet werden, um Befehle automatisch zu generieren. Die Befehle müssen explizit angegeben werden.
+Datenbankansichten, die durch das Verknüpfen von zwei oder mehr Datenbanken erstellt wurden, werden nicht als eine einzelne Datenbanktabelle betrachtet. Bei dieser Instanz kann <xref:System.Data.Common.DbCommandBuilder> nicht verwendet werden, um Befehle automatisch zu generieren. Die Befehle müssen explizit angegeben werden. Informationen, wie Sie explizit Befehle zum Aktualisieren der Datenquelle mit `DataSet`-Änderungen festlegen können, finden Sie unter [Aktualisieren von Datenquellen mit DataAdapters](update-data-sources-with-dataadapters.md).
 
-Unter Umständen möchten Sie der aktualisierten Zeile eines `DataSet` erneut Ausgabeparameter zuordnen. Eine allgemeine Aufgabe wäre das Abrufen des Werts eines automatisch generierten Identitätsfelds oder Timestamps aus der Datenquelle. Standardmäßig werden den Spalten in einer aktualisierten Zeile vom <xref:System.Data.Common.DbCommandBuilder> keine Ausgabeparameter zugeordnet. Bei dieser Instanz muss der Befehl explizit angegeben werden.
+Unter Umständen möchten Sie der aktualisierten Zeile eines `DataSet` erneut Ausgabeparameter zuordnen. Eine allgemeine Aufgabe wäre das Abrufen des Werts eines automatisch generierten Identitätsfelds oder Timestamps aus der Datenquelle. Standardmäßig werden den Spalten in einer aktualisierten Zeile vom <xref:System.Data.Common.DbCommandBuilder> keine Ausgabeparameter zugeordnet. Bei dieser Instanz muss der Befehl explizit angegeben werden. Ein Beispiel für das erneute Zuordnen eines automatisch generierten Identitätsfelds zu einer Spalte einer eingefügten Zeile finden Sie unter [Abrufen von Identity- oder Autonumber-Werten](retrieve-identity-or-autonumber-values.md).
 
 ## <a name="rules-for-automatically-generated-commands"></a>Regeln für automatisch generierte Befehle
 
@@ -74,13 +74,13 @@ Die Logik für die automatische Generierung von Befehlen generiert INSERT-, UPDA
 
 Die Logik für die automatische Befehlsgenerierung kann fehlschlagen, wenn Spalten- oder Tabellennamen Sonderzeichen wie Leerzeichen, Punkte, Anführungszeichen oder andere nicht alphanumerische Zeichen enthalten, selbst wenn diese durch Klammern getrennt sind. Leerzeichen können je nach Anbieter von der Generierungslogik durch Festlegen des QuotePrefix-Parameters und QuoteSuffix-Parameters möglicherweise verarbeitet werden, Sonderzeichen können jedoch nicht mit Escapezeichen versehen werden. Vollqualifizierte Tabellennamen der Form *catalog.schema.table* werden unterstützt.
 
-## <a name="using-the-commandbuilder-to-automatically-generate-an-sql-statement"></a>Verwenden der CommandBuilder-Objekte zum automatischen Generieren einer SQL-Anweisung
+## <a name="use-the-commandbuilder-to-automatically-generate-an-sql-statement"></a>Verwenden der CommandBuilder-Objekte zum automatischen Generieren einer SQL-Anweisung
 
 Legen Sie zum automatischen Generieren von SQL-Anweisungen für einen `DataAdapter` zuerst die `SelectCommand`-Eigenschaft des `DataAdapter` fest. Erstellen Sie dann ein `CommandBuilder`-Objekt, und geben Sie als Argument den `DataAdapter` an, für den der `CommandBuilder` automatisch SQL-Anweisungen generieren soll.
 
 [!code-csharp[SqlCommandBuilder_Create#1](~/../sqlclient/doc/samples/SqlCommandBuilder_Create.cs#1)]
 
-## <a name="modifying-the-selectcommand"></a>Ändern von SelectCommand
+## <a name="modify-the-selectcommand"></a>Ändern von SelectCommand
 
 Wenn Sie den `CommandText` von `SelectCommand` ändern, nachdem die Befehle INSERT, UPDATE oder DELETE automatisch generiert wurden, kann eine Ausnahme auftreten. Wenn der geänderte `SelectCommand.CommandText` Schemainformationen enthält, die nicht mit dem `SelectCommand.CommandText` zum Zeitpunkt der automatischen Generierung der Befehle INSERT, UPDATE oder DELETE konsistent sind, wird bei späteren Aufrufen der `DataAdapter.Update`-Methode möglicherweise versucht, auf Spalten zuzugreifen, die nicht mehr in der aktuellen Tabelle vorhanden sind, auf die `SelectCommand` verweist. In diesem Fall wird eine Ausnahme ausgelöst.
 
@@ -100,3 +100,4 @@ Im folgenden Beispiel wird die Tabelle im Dataset neu erstellt. Die **RefreshSch
 
 - [Befehle und Parameter](commands-parameters.md)
 - [Ausführen eines Befehls](execute-command.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

@@ -5,7 +5,7 @@ ms.custom: seodec18
 ms.date: 05/18/2016
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: how-to
 helpviewer_keywords:
 - Availability Groups [SQL Server], interoperability
@@ -13,12 +13,12 @@ helpviewer_keywords:
 ms.assetid: 55b345fe-2eb9-4b04-a900-63d858eec360
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 864fca7c1d2983bec6296f1e82304cff31f658cb
-ms.sourcegitcommit: 54cd97a33f417432aa26b948b3fc4b71a5e9162b
+ms.openlocfilehash: f07f8eaa1dc5657c2dfdb296bc9efffec9b308b2
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94584206"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697133"
 ---
 # <a name="manage-a-replicated-publisher-database-as-part-of-an-always-on-availability-group"></a>Verwalten einer replizierten Verlegerdatenbank als Teil einer Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -99,6 +99,27 @@ ms.locfileid: "94584206"
     ```  
   
      An diesem Punkt kann die Kopie der veröffentlichten Datenbank beibehalten oder gelöscht werden.  
+
+## <a name="remove-original-publisher"></a>Entfernen des ursprünglichen Herausgebers
+
+Es kann Situationen geben (Austausch eines älteren Servers, Upgrade des Betriebssystems usw.), in denen Sie einen ursprünglichen Herausgeber aus einer Always On-Verfügbarkeitsgruppe entfernen möchten. Führen Sie die Schritte in diesem Abschnitt aus, um den Herausgeber aus der Verfügbarkeitsgruppe zu entfernen. 
+
+Angenommen, Sie verfügen über die Server N1, N2 und D1, wobei N1 und N2 das primäre und sekundäre Replikat der Verfügbarkeitsgruppe AG1 sind, N1 der ursprüngliche Herausgeber einer Transaktionsveröffentlichung und D1 der Verteiler ist. Sie möchten den ursprünglichen Herausgeber N1 durch den neuen Herausgeber N3 ersetzen. 
+
+Gehen Sie folgendermaßen vor, um den Herausgeber zu entfernen: 
+
+1. Installieren und konfigurieren Sie SQL Server auf dem Knoten N3. Die Version von SQL Server muss dieselbe sein wie die des ursprünglichen Herausgebers. 
+1. Fügen Sie N3 auf dem Verteilerserver D1 mithilfe von [sp_adddistpublisher](../../../relational-databases/system-stored-procedures/sp-adddistpublisher-transact-sql.md) als Herausgeber hinzu. 
+1. Konfigurieren Sie N3 als Herausgeber mit D1 als seinem Verteiler. 
+1. Fügen Sie N3 als Replikat zur Verfügbarkeitsgruppe AG1 hinzu. 
+1. Überprüfen Sie auf dem N3-Replikat, dass die Pushabonnenten für die Veröffentlichung als verknüpfte Server angezeigt werden. Verwenden Sie entweder [sp_addlinkedserver](../../../relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql.md) oder SQL Server Management Studio. 
+1. Nachdem N3 synchronisiert ist, führen Sie einen Failover der Verfügbarkeitsgruppe zu N3 als primären Knoten durch. 
+1. Entfernen Sie N1 aus der Verfügbarkeitsgruppe AG1. 
+
+Berücksichtigen Sie folgende Punkte:
+- Entfernen Sie weder den Remoteserver des ursprünglichen Herausgebers (in diesem Fall N1) noch damit verbundenen Metadaten aus dem Verteiler, auch wenn auf den Server nicht mehr zugegriffen werden kann. Die Servermetadaten für den ursprünglichen Herausgeber werden beim Verteiler benötigt, um Abfragen von Veröffentlichungsmetadaten beantworten zu können, und ohne sie tritt ein Fehler bei der Replikation auf. 
+- Für SQL Server 2014 können Sie, sobald der ursprüngliche Herausgeber entfernt wurde, den ursprünglichen Herausgebernamen nicht mehr für die Verwaltung der Replikation im Replikationsmonitor verwenden. Wenn Sie versuchen, neue Replikate als Herausgeber im Replikationsmonitor zu registrieren, werden keine Informationen angezeigt, da keine Metadaten damit verbunden sind. Zur Verwaltung der Replikation in diesem Szenario müssen Sie in SQL Server Management Studio (SSMS) mit der rechten Maustaste auf einzelne Veröffentlichungen und Abonnements klicken.
+- Für SQL Server 2016 SP2-CU3, SQL Server 2017 CU6 und höher registrieren Sie den Listener des Verfügbarkeitsgruppenherausgebers im Replikationsmonitor, um die Replikation mithilfe von SQL Server Management Studio Version 17.7 und höher zu verwalten. 
   
 ##  <a name="related-tasks"></a><a name="RelatedTasks"></a> Verwandte Aufgaben  
   

@@ -5,7 +5,7 @@ ms.custom: seodec18
 ms.date: 05/17/2016
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: how-to
 helpviewer_keywords:
 - Transparent Data Encryption, AlwaysOn Availability Groups
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 09eb6ebc-3051-4fff-86a5-93524507b1fc
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 2569f44e4642df714c8108b6540b81d013d30b82
-ms.sourcegitcommit: 54cd97a33f417432aa26b948b3fc4b71a5e9162b
+ms.openlocfilehash: 8001dbf4a5799d275bced4f565ee00a7a70d6c61
+ms.sourcegitcommit: 44eebb659f9b226c08aea6c31a909b22ad4fec60
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94584300"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860596"
 ---
 # <a name="add-an-encrypted-database-to-an-always-on-availability-group"></a>Hinzufügen einer verschlüsselten Datenbank zu einer Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -33,15 +33,13 @@ ms.locfileid: "94584300"
   
      So machen Sie eine entschlüsselte Datenbank verfügbar für das Hinzufügen zu einer Verfügbarkeitsgruppe mithilfe des Assistenten:  
   
-    1.  Erstellen Sie eine Protokollsicherung von der primären Datenbank.  
+    1.  Erstellen Sie eine vollständige Datenbanksicherung der primären Datenbank. 
   
-    2.  Erstellen Sie eine vollständige Datenbanksicherung der primären Datenbank.  
+    2.  Erstellen Sie eine Protokollsicherung von der primären Datenbank.  
   
     3.  Stellen Sie die Datenbanksicherung auf der Serverinstanz wieder her, die das sekundäre Replikat hostet.  
-  
-    4.  Erstellen Sie eine neue Protokollsicherung aus der primären Datenbank.  
-  
-    5.  Stellen Sie diese Protokollsicherung in der sekundären Datenbank wieder her.  
+    
+    4.  Stellen Sie die Protokollsicherung in der sekundären Datenbank wieder her.  
   
 ##  <a name="related-tasks"></a><a name="RelatedTasks"></a> Verwandte Aufgaben  
   

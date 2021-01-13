@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: e37d77304644d1adb50bb195dd32d4c4e1222c09
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 257ed7d43f8ab204c7c7e7575c69251be6f2efdf
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126414"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771626"
 ---
 # <a name="connection-strings-in-adonet"></a>Verbindungszeichenfolgen in ADO.NET
 
@@ -69,7 +69,7 @@ Alle Verbindungszeichenfolgen haben dieselbe grundlegende Syntax, die zuvor besc
 
 Tippfehler können Fehler verursachen. Beispielsweise ist `Integrated Security=true` gültig, aber `IntegratedSecurity=true` verursacht einen Fehler.
 
-Verbindungszeichenfolgen, die zur Laufzeit manuell anhand nicht überprüfter Benutzereingaben erstellt werden, sind anfällig für Zeichenfolgeneinschleusungs-Angriffe und gefährden die Sicherheit der Datenquelle. Um diese Probleme zu beheben, wurde der [Verbindungszeichenfolgen-Generator](connection-string-builders.md) entwickelt. Dieser Verbindungszeichenfolgen-Generator macht Parameter als stark typisierte Eigenschaften verfügbar und ermöglicht es, die Verbindungszeichenfolge zu überprüfen, bevor sie zur Datenquelle gesendet wird.
+Verbindungszeichenfolgen, die zur Laufzeit manuell anhand nicht überprüfter Benutzereingaben erstellt werden, sind anfällig für Zeichenfolgeneinschleusungs-Angriffe und gefährden die Sicherheit der Datenquelle. Um diese Probleme zu lösen, wurde die <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder>-Klasse erstellt. Dieser [Verbindungszeichenfolgen-Generator](connection-string-builders.md)-Klasse macht Parameter als stark typisierte Eigenschaften verfügbar und ermöglicht es, die Verbindungszeichenfolge zu überprüfen, bevor sie zur Datenquelle gesendet wird.
 
 ## <a name="in-this-section"></a>In diesem Abschnitt
 
@@ -84,3 +84,7 @@ Beschreibt, wie anbieterspezifische Verbindungszeichenfolgen für `SqlClient`kon
 
 [Schützen von Verbindungsinformationen](protecting-connection-information.md)\
 Demonstriert Verfahren zum Schützen von Informationen, die beim Herstellen von Verbindungen mit einer Datenquelle verwendet werden.
+
+## <a name="see-also"></a>Weitere Informationen:
+
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

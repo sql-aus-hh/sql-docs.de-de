@@ -35,12 +35,12 @@ ms.assetid: 071cf260-c794-4b45-adc0-0e64097938c0
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a42d01bead1a5d3882dcce0df67cda7785724b5e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 13afe3aa357bfd968874ae1f89bf0720c39fe49c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97466151"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644456"
 ---
 # <a name="kill-transact-sql"></a>KILL (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -56,7 +56,8 @@ KILL beendet eine normale Verbindung, wodurch die der angegebenen Sitzungs-ID zu
 ```syntaxsql  
 -- Syntax for SQL Server  
   
-KILL { session ID | UOW } [ WITH STATUSONLY ]   
+KILL { session ID [ WITH STATUSONLY ] | UOW [ WITH STATUSONLY | COMMIT | ROLLBACK ] }    
+
 ```  
   
 ```syntaxsql  
@@ -69,26 +70,37 @@ KILL 'session_id'
 [!INCLUDE[sql-server-tsql-previous-offline-documentation](../../includes/sql-server-tsql-previous-offline-documentation.md)]
 
 ## <a name="arguments"></a>Argumente
-_Sitzungs-ID_  
-Die Sitzungs-ID des Prozesses, der beendet werden soll. Die _Sitzungs-ID_ ist eine eindeutige ganze Zahl (**int**), die jeder Benutzerverbindung beim Herstellen der Verbindung zugewiesen wird. Der Sitzungs-ID-Wert ist für die Dauer der Verbindung an die Verbindung gebunden. Beim Beenden der Verbindung wird der ganzzahlige Wert freigegeben und kann einer neuen Verbindung zugewiesen werden.  
+
+_session ID_   
+Die Sitzungs-ID des Prozesses, der beendet werden soll. Die `session_id` ist eine eindeutige ganze Zahl (**int**), die jeder Benutzerverbindung beim Herstellen der Verbindung zugewiesen wird. Der Sitzungs-ID-Wert ist für die Dauer der Verbindung an die Verbindung gebunden. Beim Beenden der Verbindung wird der ganzzahlige Wert freigegeben und kann einer neuen Verbindung zugewiesen werden.  
+
 Bei der Suche nach der `session_id`, die Sie beenden möchten, kann folgende Abfrage hilfreich sein:  
+
  ```sql  
  SELECT conn.session_id, host_name, program_name,
      nt_domain, login_name, connect_time, last_request_end_time 
 FROM sys.dm_exec_sessions AS sess
 JOIN sys.dm_exec_connections AS conn
     ON sess.session_id = conn.session_id;
+
 ```  
+
+
+_UOW_   
+Identifiziert die Arbeitseinheits-ID (UOW) verteilter Transaktionen. _UOW_ ist eine GUID, die aus der Spalte „request_owner_guid“ der dynamischen Verwaltungssicht `sys.dm_tran_locks` abgerufen werden kann. _UOW_ kann auch aus dem Fehlerprotokoll oder über den MS DTC-Monitor ermittelt werden. Weitere Informationen zum Überwachen von verteilten Transaktionen finden Sie in der MS DTC-Dokumentation.  
   
-_UOW_  
-**Gilt für**: [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höher
-  
-Identifiziert die Arbeitseinheits-ID (UOW) verteilter Transaktionen. _UOW_ ist eine GUID, die aus der Spalte „request_owner_guid“ der dynamischen Verwaltungssicht „sys.dm_tran_locks“ abgerufen werden kann. _UOW_ kann auch aus dem Fehlerprotokoll oder über den MS DTC-Monitor ermittelt werden. Weitere Informationen zum Überwachen von verteilten Transaktionen finden Sie in der MS DTC-Dokumentation.  
-  
-Verwenden Sie KILL _UOW_ zum Beenden verwaister verteilter Transaktionen. Diese Transaktionen sind keiner echten Sitzungs-ID, sondern künstlich der Sitzungs-ID = '-2' zugeordnet. Diese Sitzungs-ID ermöglicht das Identifizieren verwaister Transaktionen, indem die Sitzungs-ID-Spalte in den dynamischen Verwaltungssichten sys.dm_tran_locks, sys.dm_exec_sessions oder sys.dm_exec_requests abgefragt wird.  
-  
-WITH STATUSONLY  
-Generiert einen Fortschrittsbericht für eine angegebene _Sitzungs-ID_ oder _UOW_, für den aufgrund einer früheren KILL-Anweisung ein Rollback ausgeführt wird. „KILL WITH STATUSONLY“ beendet die _Sitzungs-ID_ oder _UOW_ nicht und führt kein Rollback aus. Der Befehl zeigt nur den aktuellen Fortschritt des Rollbacks an.  
+Verwenden Sie KILL \<UOW> zum Beenden nicht aufgelöster verteilter Transaktionen. Diese Transaktionen sind keiner echten Sitzungs-ID, sondern künstlich der Sitzungs-ID = '-2' zugeordnet. Diese Sitzungs-ID erleichtert es, nicht aufgelöste Transaktionen durch das Abfragen der Sitzungs-ID-Spalte in den dynamischen Verwaltungssichten `sys.dm_tran_locks`,` sys.dm_exec_sessions` oder `sys.dm_exec_requests` zu identifizieren.  
+
+_WITH STATUSONLY_   
+Generiert einen Fortschrittsbericht für eine angegebene _UOW_ oder `session_id`, für die aufgrund einer früheren KILL-Anweisung ein Rollback ausgeführt wird. „KILL WITH STATUSONLY“ beendet weder UOW noch Sitzungs-ID und führt für diese kein Rollback aus. Der Befehl zeigt nur den aktuellen Fortschritt des Rollbacks an.
+
+_WITH COMMIT_   
+Wird verwendet, um eine nicht aufgelöste verteilte Transaktion mit Commit zu beenden. Dies gilt nur für verteilte Transaktionen. Sie müssen eine _UOW_ angeben, um diese Option verwenden zu können.  Weitere Informationen finden Sie unter [Verteilte Transaktionen](../../database-engine/availability-groups/windows/configure-availability-group-for-distributed-transactions.md#manage-unresolved-transactions).
+
+_WITH ROLLBACK_   
+Wird verwendet, um eine nicht aufgelöste verteilte Transaktion mit Rollback zu beenden. Dies gilt nur für verteilte Transaktionen. Sie müssen eine _UOW_ angeben, um diese Option verwenden zu können.  Weitere Informationen finden Sie unter [Verteilte Transaktionen](../../database-engine/availability-groups/windows/configure-availability-group-for-distributed-transactions.md#manage-unresolved-transactions).
+
+
   
 ## <a name="remarks"></a>Bemerkungen  
 KILL wird häufig verwendet, um einen Prozess zu beenden, der andere wichtige Prozesse mit Sperren blockiert. KILL kann auch verwendet werden, um einen Prozess zu beenden, der eine Abfrage ausführt, die die notwendigen Systemressourcen benötigt. Systemprozesse und Prozesse, die eine erweiterte gespeicherte Prozedur ausführen, können nicht beendet werden.  

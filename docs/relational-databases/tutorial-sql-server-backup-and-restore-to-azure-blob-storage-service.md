@@ -2,27 +2,35 @@
 title: 'Schnellstart: Sichern und Wiederherstellen im Azure Blob Storage-Dienst'
 description: 'Schnellstart: Erfahren Sie, wie Sie Sicherungen in den Azure Blob Storage-Dienst schreiben und daraus wiederherstellen. Erstellen Sie einen Azure-Blobcontainer, schreiben Sie eine Sicherung, und stellen Sie diese dann wieder her.'
 ms.custom: seo-dt-2019
-ms.date: 04/09/2018
+ms.date: 12/21/2020
 ms.prod: sql
-ms.prod_service: database-engine
+ms.technology: backup-restore
+ms.prod_service: backup-restore
 ms.reviewer: ''
-ms.technology: performance
 ms.topic: quickstart
-ms.assetid: 9e1d94ce-2c93-45d1-ae2a-2a7d1fa094c4
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.openlocfilehash: faf3ccecd17ece2b66371d81a68589f184fe48a0
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: d27f53f80c8f987106f90816a4566339d777e6f6
+ms.sourcegitcommit: bb54e4c9dd8c97365b7a96dfcd557b8b86d06978
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506406"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97736898"
 ---
 # <a name="quickstart-sql-backup-and-restore-to-azure-blob-storage-service"></a>Schnellstart: Sicherung und Wiederherstellung von SQL Server mit dem Azure Blob Storage-Dienst
-[!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md](../includes/tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md)]
+
+[!INCLUDE [sqlserver2016-asdbmi](../includes/applies-to-version/sqlserver2016-asdbmi.md)]
+
 In diesem Schnellstart erfahren Sie, wie Sie Sicherungen in den Azure Blob Storage-Dienst schreiben und daraus wiederherstellen.  In diesem Artikel wird erläutert, wie Sie einen Azure-Blobcontainer erstellen, eine Sicherung in den Blobdienst schreiben und dann eine Wiederherstellung durchführen.
+
+> [!NOTE]
+> In SQL Server 2012 SP1 CU2 wurde die Unterstützung für die Sicherung in Azure Blob Storage eingeführt. SQL Server 2014 und früher unterstützt nicht die Shared Access Signature (SAS), die in diesem Schnellstartartikel beschrieben wird.
+>
+> Verwenden Sie für SQL Server 2014 und früher [Tutorial: Sicherung und Wiederherstellung von SQL Server 2014 in Microsoft Azure Blob Storage](/previous-versions/sql/2014/relational-databases/backup-restore/sql-server-backup-to-url)
+>
   
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Voraussetzungen
+
 Um diesen Schnellstart abzuschließen, müssen Sie mit den Sicherungs- und Wiederherstellungskonzepten in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] und der T-SQL-Syntax vertraut sein.  Sie benötigen ein Azure-Speicherkonto, SSMS (SQL Server Management Studio) und Zugriff auf einen Server, auf dem entweder SQL Server oder Azure SQL Managed Instance ausgeführt wird. Darüber hinaus sollte das zum Ausgeben von BACKUP- oder RESTORE-Befehlen verwendete Benutzerkonto Mitglied der Datenbankrolle **db_backupoperator** sein und über Berechtigungen zum **Ändern beliebiger Anmeldeinformationen** verfügen. 
 
 - Erstellen Sie ein kostenloses [Azure-Konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
@@ -214,12 +222,12 @@ In diesem Schritt stellen Sie die Datenbank entweder über die grafische Benutze
 
    ![Wiederherstellungsdatei auswählen](media/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service/select-restore-file.png)
 
-1. Klicken Sie auf **OK**, um das Dialogfeld **Sicherungsmedien auswählen** zu schließen. 
-1. Klicken Sie auf **OK**, um die Datenbank wiederherzustellen. 
+1. Klicken Sie auf **OK**, um das Dialogfeld **Sicherungsmedien auswählen** zu schließen.
+1. Klicken Sie auf **OK**, um die Datenbank wiederherzustellen.
 
 # <a name="transact-sql"></a>[Transact-SQL](#tab/tsql)
 
-Um Ihre lokale Datenbank aus Azure Blob Storage wiederherzustellen, ändern Sie den folgenden Transact-SQL-Befehl so, dass Sie Ihr eigenes Speicherkonto verwenden, und führen Sie ihn dann in einem neuen Abfragefenster aus. 
+Um Ihre lokale Datenbank aus Azure Blob Storage wiederherzustellen, ändern Sie den folgenden Transact-SQL-Befehl so, dass Sie Ihr eigenes Speicherkonto verwenden, und führen Sie ihn dann in einem neuen Abfragefenster aus.
 
 ```sql
 USE [master]

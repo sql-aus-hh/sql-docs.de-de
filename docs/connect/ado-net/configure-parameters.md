@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a24241d3ef66739a85422397426278738987bf15
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 14442892bc59fc733c6a67153832b95c3f368b95
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428284"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771456"
 ---
 # <a name="configuring-parameters"></a>Konfigurieren von Parametern
 
@@ -31,7 +31,7 @@ Parametrisierte Befehle können außerdem die Leistung bei der Abfrageausführun
 
 Ein <xref:System.Data.Common.DbParameter> -Objekt kann mithilfe des zugehörigen Konstruktors erstellt werden, oder es wird durch Aufrufen der <xref:System.Data.Common.DbCommand.DbParameterCollection%2A> -Methode der `Add` -Auflistung zur <xref:System.Data.Common.DbParameterCollection> hinzugefügt. Die `Add` -Methode verwendet als Eingabe je nach Datenanbieter Konstruktorargumente oder ein vorhandenes Parameterobjekt.
 
-## <a name="supplying-the-parameterdirection-property"></a>Bereitstellen der ParameterDirection-Eigenschaft
+## <a name="supply-the-parameterdirection-property"></a>Bereitstellen der ParameterDirection-Eigenschaft
 
 Beim Hinzufügen von Parametern müssen Sie für alle Parameter, die keine Eingabeparameter sind, die <xref:System.Data.ParameterDirection> -Eigenschaft bereitstellen. Die folgende Tabelle zeigt die `ParameterDirection` -Werte, die Sie mit der <xref:System.Data.ParameterDirection> -Enumeration verwenden können.
 
@@ -42,11 +42,11 @@ Beim Hinzufügen von Parametern müssen Sie für alle Parameter, die keine Einga
 |<xref:System.Data.ParameterDirection.Output>|Der Parameter ist ein Ausgabeparameter.|
 |<xref:System.Data.ParameterDirection.ReturnValue>|Der Parameter steht für einen Eingabewert aus einem Vorgang, wie z. B. einer gespeicherten Prozedur, einer integrierten Funktion oder einer benutzerdefinierten Funktion.|
 
-## <a name="working-with-parameter-placeholders"></a>Verwenden von Parameterplatzhaltern
+## <a name="work-with-parameter-placeholders"></a>Arbeiten mit Parameterplatzhaltern
 
 Die Syntax für Parameterplatzhalter ist abhängig von der jeweiligen Datenquelle. Beim Microsoft SqlClient-Datenanbieter für SQL Server werden die Benennung und Angabe von Parametern und Parameterplatzhaltern unterschiedlich behandelt. Der SqlClient-Datenanbieter verwendet benannte Parameter im Format `@`*Parametername*.
 
-## <a name="specifying-parameter-data-types"></a>Angeben von Parameterdatentypen
+## <a name="specify-parameter-data-types"></a>Angeben von Parameterdatentypen
 
 Der Microsoft SqlClient-Datenanbieter für SQL Server verwendet für Parameter einen spezifischen Datentyp. Beim Angeben des Typs wird der Wert des `Parameter`-Objekts in den Typ des Microsoft SqlClient-Datenanbieters für SQL Server konvertiert, bevor er an die Datenquelle übergeben wird. Der Typ eines `Parameter` kann auch in generischer Form angegeben werden, indem die `DbType` -Eigenschaft des `Parameter` -Objekts auf einen bestimmten <xref:System.Data.DbType>festgelegt wird.
 
@@ -89,7 +89,7 @@ Der Typ eines `Parameter`-Objekts des Microsoft SqlClient-Datenanbieters für S
 > [!NOTE]
 > Wenn Sie einen NULL-Parameterwert an den Server senden, müssen Sie <xref:System.DBNull> und nicht `null` (in Visual Basic `Nothing`)+++ angeben. Der NULL-Wert im System ist ein leeres Objekt, das über keinen Wert verfügt. <xref:System.DBNull> wird zur Darstellung von NULL-Werten verwendet.
 
-## <a name="deriving-parameter-information"></a>Ableiten von Parameterinformationen
+## <a name="derive-parameter-information"></a>Ableiten von Parameterinformationen
 
 Parameter können auch mit der `DbCommandBuilder` -Klasse aus einer gespeicherten Prozedur abgeleitet werden. Die `SqlCommandBuilder`-Klasse stellt eine statische Methode (`DeriveParameters`) bereit, die die Parameterauflistung eines Befehlsobjekts, das Parameterinformationen aus einer gespeicherten Prozedur verwendet, automatisch füllt. Beachten Sie, dass `DeriveParameters` alle vorhandenen Parameterinformationen für den Befehl überschreibt.
 
@@ -123,4 +123,6 @@ Dieses Beispiel zeigt, wie Sie eine gespeicherte SQL Server-Prozedur in der `Nor
 ## <a name="see-also"></a>Weitere Informationen:
 
 - [Befehle und Parameter](commands-parameters.md)
+- ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
 - [Datentypzuordnungen in ADO.NET](data-type-mappings-ado-net.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

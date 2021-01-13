@@ -1,7 +1,7 @@
 ---
 title: Lebenszyklus der SqlClient-Treiberunterstützung
 description: Seite mit Informationen zum Support-Lebenszyklus des Produkts
-ms.date: 11/19/2020
+ms.date: 01/04/2020
 dev_langs:
 - csharp
 - vb
@@ -13,12 +13,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-jizho2
-ms.openlocfilehash: eef9e81c94c930b9f00689b41339d54a0f0302be
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: 200e600448f1f93cca3d566be10d6065ffd537e7
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442716"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878583"
 ---
 # <a name="sqlclient-driver-support-lifecycle"></a>Lebenszyklus der SqlClient-Treiberunterstützung
 
@@ -36,7 +36,7 @@ Neue stabile Releases mit allgemeiner Verfügbarkeit werden beginnend mit Versio
 
 | Version | Offizielles Veröffentlichungsdatum | Aktuelle Patchversion | Veröffentlichungsdatum für Patch | Supportebene  | Supportende |
 | -- | -- | -- | -- | -- | -- |
-| 2.1 | 19. November 2020 | 2.1.0 | 19. November 2020 | Aktuell | |
+| 2.1 | 19. November 2020 | 2.1.1 | 18. Dezember 2020 | Aktuell | |
 | 2.0 | 16. Juni 2020 | 2.0.1 | 25. August 2020 | Aktuell | 19. Februar 2021 |
 | 1.1 | 20. November 2019 | 1.1.3 | 15. Mai 2020 | LTS | 21. November 2022 |
 

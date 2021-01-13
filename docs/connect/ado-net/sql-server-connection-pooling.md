@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: ef687114ff2ceceabc1ed87d67a4585a5846029d
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: a878d8250a3e402cd1043dc289eb1712af45f385
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563077"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771530"
 ---
 # <a name="sql-server-connection-pooling-adonet"></a>SQL Server-Verbindungspooling (ADO.NET)
 
@@ -41,7 +41,7 @@ Durch Verbindungspooling kann die Leistung und Skalierbarkeit einer Anwendung we
 > [!NOTE]
 > Der Mechanismus für `blocking period` gilt nicht standardmäßig für Azure SQL Server. Dieses Verhalten kann, außer bei *.NET Standard*, durch Ändern der Eigenschaft <xref:Microsoft.Data.SqlClient.PoolBlockingPeriod> in <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString> geändert werden.
 
-## <a name="pool-creation-and-assignment"></a>Erstellen und Zuweisen von Pools
+## <a name="pool-creation-and-assignment"></a>Poolerstellung und -zuweisung
 
 Wenn eine Verbindung erstmals hergestellt wird, wird ein Verbindungspool basierend auf einem exakt übereinstimmenden Algorithmus erstellt. Damit wird der Pool der Verbindungszeichenfolge in der Verbindung zugewiesen. Jedem Verbindungspool wird eine eindeutige Verbindungszeichenfolge zugeordnet. Wenn beim Öffnen einer neuen Verbindung die Verbindungszeichenfolge nicht genau mit einem vorhanden Pool übereinstimmt, wird ein neuer Pool erstellt.
 
@@ -59,7 +59,7 @@ Im folgenden C#-Beispiel werden drei neue <xref:Microsoft.Data.SqlClient.SqlConn
 
 [!code-csharp[SqlConnection_Pooling#1](~/../sqlclient/doc/samples/SqlConnection_Pooling.cs#1)]
 
-## <a name="adding-connections"></a>Hinzufügen von Verbindungen
+## <a name="add-connections"></a>Hinzufügen von Verbindungen
 
 Für jede eindeutige Verbindungszeichenfolge wird ein Verbindungspool erstellt. Wenn ein Pool erstellt wird, werden mehrere Verbindungsobjekte erstellt und dem Pool hinzugefügt wird, sodass die minimalen Anforderungen für die Größe eines Pools erfüllt sind. Verbindungen werden dem Pool nach Bedarf bis zur angegebenen maximalen Poolgröße (**100 ist die Standardeinstellung**) hinzugefügt. Verbindungen werden wieder für den Pool freigegeben, wenn sie geschlossen oder verworfen werden.
 
@@ -75,7 +75,7 @@ Die Verbindungspoolfunktion erfüllt diese Verbindungsanforderungen, indem Verbi
 
 Weitere Informationen zu den Ereignissen im Zusammenhang mit dem Öffnen und Schließen von Verbindungen finden Sie in der SQL Server-Dokumentation unter [Audit Login (Ereignisklasse)](/sql/relational-databases/event-classes/audit-login-event-class) und [Audit Logout (Ereignisklasse)](/sql/relational-databases/event-classes/audit-logout-event-class).
 
-## <a name="removing-connections"></a>Entfernen von Verbindungen
+## <a name="remove-connections"></a>Entfernen von Verbindungen
 
 Die Verbindungspoolfunktion entfernt eine Verbindung aus dem Pool, nachdem sie für ca. **4-8** Minuten nicht verwendet oder festgestellt wurde, dass die Verbindung mit dem Server unterbrochen wurde.
 
@@ -84,7 +84,7 @@ Die Verbindungspoolfunktion entfernt eine Verbindung aus dem Pool, nachdem sie f
 
 Wenn eine Verbindung mit einem nicht mehr vorhandenen Server besteht, kann diese Verbindung aus dem Pool genommen werden, ohne dass die Verbindungspoolfunktion die unterbrochene Verbindung gefunden und als ungültig markiert hat. Dies liegt daran, dass durch den Mehraufwand beim Überprüfen, ob eine Verbindung noch gültig ist, die Vorteile eines Poolers umgangen werden, da eine weitere Schleife zum Server auftritt. In diesem Fall wird bei der ersten Verwendung der Verbindung festgestellt, dass die Verbindung unterbrochen wurde, und es wird eine Ausnahme ausgelöst.
 
-## <a name="clearing-the-pool"></a>Löschen des Pools
+## <a name="clear-the-pool"></a>Leeren des Pools
 
 Der Microsoft SqlClient-Datenanbieter für SQL Server bietet nun zwei neue Methoden zum Leeren des Pools: <xref:Microsoft.Data.SqlClient.SqlConnection.ClearAllPools%2A> und <xref:Microsoft.Data.SqlClient.SqlConnection.ClearPool%2A>. `ClearAllPools` löscht die Verbindungspools für einen angegebenen Anbieter, und `ClearPool` löscht den Verbindungspool, der einer bestimmten Verbindung zugeordnet ist.
 
@@ -97,7 +97,7 @@ Verbindungen werden aus dem Pool entnommen und basierend auf dem Transaktionskon
 
 Wenn eine Verbindung geschlossen wird, wird sie an den Pool und an den entsprechenden Teilbereich auf der Grundlage des Transaktionskontexts zurückgegeben. Sie können die Verbindung daher trennen, ohne einen Fehler zu generieren, auch wenn eine verteilte Transaktion noch aussteht. So haben Sie die Möglichkeit, die verteilte Transaktion zu einem späteren Zeitpunkt durchzuführen oder abzubrechen.
 
-## <a name="controlling-connection-pooling-with-connection-string-keywords"></a>Steuern von Verbindungspooling mit Verbindungszeichenfolgen-Schlüsselwörtern
+## <a name="control-connection-pooling-with-connection-string-keywords"></a>Steuerung des Verbindungspoolings mit Schlüsselwörtern für die Verbindungszeichenfolge
 
 Die `ConnectionString`-Eigenschaft des <xref:Microsoft.Data.SqlClient.SqlConnection>-Objekts unterstützt Schlüssel-Wert-Paare für Verbindungszeichenfolgen, mit denen das Verhalten der Verbindungspoolinglogik angepasst werden kann. Weitere Informationen finden Sie unter <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A>.
 
@@ -105,7 +105,7 @@ Die `ConnectionString`-Eigenschaft des <xref:Microsoft.Data.SqlClient.SqlConnect
 
 Poolfragmentierung ist ein Problem, das häufig bei Webanwendungen auftritt, bei denen die Anwendung eine große Anzahl von Pools erstellen kann, die erst nach der Beendigung des Prozesses freigegeben werden. Dabei bleibt eine große Anzahl von Verbindungen geöffnet. Dies benötigt viel Speicherplatz und verringert die Leistung.
 
-### <a name="pool-fragmentation-due-to-integrated-security"></a>Poolfragmentierung aufgrund der integrierten Sicherheit
+### <a name="pool-fragmentation-due-to-integrated-security"></a>Poolfragmentierung aufgrund integrierter Sicherheit
 
 Verbindungen werden entsprechend der Verbindungszeichenfolge und der Benutzeridentität zu Pools zusammengefasst. Daher erhalten Sie einen Pool pro Benutzer, wenn Sie für die Website die Standardauthentifizierung oder die Windows-Authentifizierung und eine Anmeldung mit integrierter Sicherheit verwenden. Obwohl dadurch die Leistungsfähigkeit nachfolgender Datenbankanforderungen für einen einzelnen Benutzer verbessert wird, kann der Benutzer von anderen Benutzern hergestellte Verbindungen nicht nutzen. Folglich wird pro Benutzer mindestens eine Verbindung mit dem Datenbankserver hergestellt. Dies ist ein Nebeneffekt einer bestimmten Webanwendungsarchitektur, den Entwickler gegen Sicherheits- und Überwachungsanforderungen abwägen müssen.
 
@@ -123,7 +123,7 @@ Im folgenden Codefragment wird das Herstellen einer Anfangsverbindung mit der `m
 
 Nachdem eine Anwendungsrolle von SQL Server durch Aufrufen der im System gespeicherten Prozedur `sp_setapprole` aktiviert wurde, kann der Sicherheitskontext dieser Verbindung nicht zurückgesetzt werden. Wenn jedoch das Verbindungspooling aktiviert ist, wird die Verbindung an den Verbindungspool zurückgegeben. Bei der erneuten Verwendung der an den Pool zurückgegebenen Verbindung wird dann ein Fehler ausgelöst.
 
-### <a name="application-role-alternatives"></a>Alternativen zu Anwendungsrollen
+### <a name="application-role-alternatives"></a>Alternativen zur Anwendungsrolle
 
 Es wird empfohlen, die Sicherheitsmechanismen zu nutzen, die anstelle der Anwendungsrollen verwendet werden können.
 
@@ -131,3 +131,5 @@ Es wird empfohlen, die Sicherheitsmechanismen zu nutzen, die anstelle der Anwend
 
 - [Verbindungspooling](connection-pooling.md)
 - [SQL Server und ADO.NET](./sql/index.md)
+- [Leistungsindikatoren in SqlClient](performance-counters.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

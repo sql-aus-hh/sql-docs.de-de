@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: d72660a55fa047864148c90ae4087782302adc22
-ms.sourcegitcommit: c127c0752e84cccd38a7e23ac74c0362a40f952e
+ms.openlocfilehash: 90985f155392a78da408ffbda3e1d2c0b12d4648
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772222"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771602"
 ---
 # <a name="dataadapter-parameters"></a>DataAdapter-Parameter
 
@@ -75,5 +75,6 @@ Im folgenden Beispiel wird gezeigt, wie Sie einen <xref:Microsoft.Data.SqlClient
 - ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
 - [Befehle und Parameter](commands-parameters.md)
 - [Aktualisieren von Datenquellen mit DataAdapters](update-data-sources-with-dataadapters.md)
+- [Ändern von Daten mit gespeicherten Prozeduren](modify-data-with-stored-procedures.md)
 - [Datentypzuordnungen in ADO.NET](data-type-mappings-ado-net.md)
 - [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

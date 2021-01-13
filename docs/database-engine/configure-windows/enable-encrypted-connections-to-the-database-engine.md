@@ -1,6 +1,6 @@
 ---
 title: Aktivieren von verschlüsselten Verbindungen | Microsoft-Dokumentation
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 08/29/2019
 ms.prod: sql
 ms.prod_service: security
@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: e1e55519-97ec-4404-81ef-881da3b42006
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: d147177be88db5bba50955711a8585ff11d872d9
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: b18a3131329e0485221a0ae2cdaafd0726a4f31c
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878961"
 ---
 # <a name="enable-encrypted-connections-to-the-database-engine"></a>Aktivieren von verschlüsselten Verbindungen zur Datenbank-Engine
 
@@ -64,14 +64,14 @@ Das Aktivieren der TLS-Verschlüsselung erhöht die Sicherheit von Daten, die ne
 
 ## <a name="about-certificates"></a><a name="about"></a> Informationen zu Zertifikaten
 
- Das Zertifikat muss für die **Serverauthentifizierung**ausgegeben sein. Der Name des Zertifikats muss der vollqualifizierte Domänenname (FQDN) des Computers sein.  
+ Das Zertifikat muss für die **Serverauthentifizierung** ausgegeben sein. Der Name des Zertifikats muss der vollqualifizierte Domänenname (FQDN) des Computers sein.  
   
  Zertifikate werden lokal für diesen Benutzer auf dem Computer gespeichert. Sie müssen den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Configuration Manager mit einem Konto mit lokalen Administratorberechtigungen ausführen, um ein Zertifikat zu installieren, das von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verwendet werden soll.
 
  Der Client muss in der Lage sein, den Besitzer des vom Server verwendeten Zertifikats zu überprüfen. Wenn der Client über das Zertifikat für öffentliche Schlüssel der Zertifizierungsstelle verfügt, die das Serverzertifikat signiert hat, sind keine weiteren Konfigurationsschritte erforderlich. [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows enthält die Zertifikate für öffentliche Schlüssel von vielen Zertifizierungsstellen. Wenn das Serverzertifikat von einer öffentlichen oder privaten Zertifizierungsstelle signiert wurde, für die der Client kein öffentliches Schlüsselzertifikat besitzt, müssen Sie das Zertifikat für öffentliche Schlüssel der Zertifizierungsstelle installieren, die das Serverzertifikat signiert hat.  
   
 > [!NOTE]  
-> Wenn Sie die Verschlüsselung bei einem Failovercluster verwenden möchten, müssen Sie das Serverzertifikat mit dem vollqualifizierten DNS-Namen des virtuellen Servers auf allen Knoten im Failovercluster installieren. Wenn Sie beispielsweise über einen Cluster mit zwei Knoten (mit den Namen ***test1.\*\<your company>\*.com*** und ***test2.\*\<your company>\*.com***) und einen virtuellen Server mit dem Namen ***virtsql*** verfügen, müssen Sie auf beiden Knoten ein Zertifikat für ***virtsql.\*\<your company>\*.com*** installieren. Sie können den Wert der Option **ForceEncryption** im Eigenschaftsfeld **Protokolle für virtsql** von **SQL Server-Netzwerkkonfiguration** auf **Ja** setzen.
+> Wenn Sie die Verschlüsselung bei einem Failovercluster verwenden möchten, müssen Sie das Serverzertifikat mit dem vollqualifizierten DNS-Namen des virtuellen Servers auf allen Knoten im Failovercluster installieren. Wenn Sie z. B. über einen Cluster mit zwei Knoten (mit den Namen **_test1.\_\<your company>\*.com*** und **_test2.\_\<your company>\*.com***) und einen virtuellen Server mit dem Namen **_virtsql_*_ verfügen, müssen Sie auf beiden Knoten ein Zertifikat für _ *_virtsql.\_\<your company>\*.com*** installieren. Sie können den Wert der Option **ForceEncryption** im Eigenschaftsfeld **Protokolle für virtsql** von **SQL Server-Netzwerkkonfiguration** auf **Ja** setzen.
 
 > [!NOTE]
 > Wenn Sie eine verschlüsselte Verbindung für einen Azure Search-Indexer zu [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf einer Azure-VM erstellen wollen, finden Sie weitere Informationen unter [Konfigurieren einer Verbindung eines Azure Search-Indexers mit SQL Server auf einer Azure-VM](/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers). 
@@ -138,7 +138,7 @@ Wenn Sie [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] über [!INCLUDE[ssSQL
   
 1. Erweitern Sie im **Zertifikate** -Snap-In den Ordner **Zertifikate** / **Eigene Zertifikate** , klicken Sie mit der rechten Maustaste auf das **Zertifikat**, zeigen Sie auf **Alle Tasks**, und klicken Sie dann auf **Exportieren**.  
   
-2. Führen Sie den **Zertifikatexport-Assistenten**aus, und speichern Sie die Zertifikatsdatei in einem geeigneten Speicherort.  
+2. Führen Sie den **Zertifikatexport-Assistenten** aus, und speichern Sie die Zertifikatsdatei in einem geeigneten Speicherort.  
   
 ## <a name="configure-server"></a>Konfigurieren des Servers
 

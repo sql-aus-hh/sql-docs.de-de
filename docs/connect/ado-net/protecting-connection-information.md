@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 146063d665b89a8541c34d9cc3b0b6da3939d801
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: 1d170d712269bf169d069ef7b93f975de855f8ec
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563096"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771402"
 ---
 # <a name="protecting-connection-information"></a>Schützen von Verbindungsinformationen
 
@@ -41,11 +41,11 @@ Dort, wo die Windows-Authentifizierung nicht verwendet werden kann, müssen Sie 
 
 Das Konto mit der festen Identität sollte nur über die nötigsten Berechtigungen für die Datenbank verfügen. Außerdem sollten Sie die Konfigurationsdatei verschlüsseln, sodass der Benutzername und das Kennwort nicht als Klartext verfügbar gemacht werden.
 
-## <a name="avoid-injection-attacks-with-connection-string-builders"></a>Vermeiden von Einfügeangriffen mit Verbindungszeichenfolgen-Generatoren
+## <a name="avoid-injection-attacks-with-connection-string-builders"></a>Vermeiden von Injection-Angriffen mit Verbindungszeichenfolgen-Generatoren
 
 Zu einem Angriff durch Einschleusen von Verbindungszeichenfolgen kann es kommen, wenn die dynamische Zeichenfolgenverkettung verwendet wird, um auf Benutzereingabe basierende Verbindungszeichenfolgen zu konstruieren. Wenn die Benutzereingabe nicht validiert wird und schädlicher Text (oder schädliche Zeichen) nicht maskiert wird, kann ein Angreifer möglicherweise auf sicherheitsrelevante Daten oder andere Ressourcen auf dem Server zugreifen. Zur Vermeidung dieses Problems enthält der Microsoft SqlClient-Datenanbieter für SQL Server nun eine neue Verbindungszeichenfolgen-Generatorklasse, mit deren Hilfe die Syntax von Verbindungszeichenfolgen validiert und sichergestellt werden kann, dass keine zusätzlichen Parameter eingeschleust werden. Weitere Informationen finden Sie in [Connection String Builders (Verbindungszeichenfolgengeneratoren)](connection-string-builders.md).
 
-## <a name="use-persist-security-infofalse"></a>Verwenden von "Persist Security Info=False"
+## <a name="use-persist-security-infofalse"></a>Verwenden von „Persist Security Info=false“
 
 Die Standardeinstellung für `Persist Security Info` ist false. Wir empfehlen, diesen Standardwert in allen Verbindungszeichenfolgen beizubehalten. Wenn Sie `Persist Security Info` auf `true` oder `yes` festlegen, können sicherheitsrelevante Informationen, wie die Benutzer-ID und das Kennwort, über die Verbindung abgerufen werden, nachdem diese geöffnet wurde. Wenn Sie `Persist Security Info` hingegen auf `false` oder `no` festlegen, werden die sicherheitsrelevanten Informationen verworfen, sobald die Verbindung mit ihrer Hilfe geöffnet wurde. Auf diese Weise wird dafür gesorgt, dass nicht vertrauenswürdige Quellen nicht auf sicherheitsrelevante Informationen zugreifen können.
 
@@ -58,3 +58,4 @@ Sie können die Verbindungszeichenfolgen auch in Konfigurationsdateien speichern
 ## <a name="see-also"></a>Weitere Informationen
 
 - [Verschlüsseln von Konfigurationsinformationen mithilfe der geschützten Konfiguration](/previous-versions/aspnet/53tyfkaw(v=vs.100))
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

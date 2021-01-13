@@ -13,12 +13,12 @@ ms.reviewer: maghan
 ms.custom: seo-lt-2019
 ms.date: 02/20/2020
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||=azuresqldb-mi-current'
-ms.openlocfilehash: b69137a197cab3054eeae2ee180a2624e7d564e7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8913e553460c9fae3d008783d571aca81b5c21a4
+ms.sourcegitcommit: 44eebb659f9b226c08aea6c31a909b22ad4fec60
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474441"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860571"
 ---
 # <a name="download-sql-server-data-tools-ssdt-for-visual-studio"></a>Herunterladen von SQL Server Data Tools (SSDT) für Visual Studio 2015
 
@@ -93,10 +93,10 @@ Der Installer listet verfügbare Visual Studio-Instanzen auf, denen die SSDT-Too
 
 ## <a name="ssdt-for-vs-2017-standalone-installer"></a>SSDT für VS 2017 (eigenständiger Installer)
 
-:::image type="icon" source="media/download.png" border="false"::: **[SSDT für Visual Studio 2017 (15.9.6) herunterladen](https://go.microsoft.com/fwlink/?linkid=2139376)**
+:::image type="icon" source="media/download.png" border="false"::: **[SSDT für Visual Studio 2017 (15.9.7) herunterladen](https://go.microsoft.com/fwlink/?linkid=2151759)**
 
 > [!IMPORTANT]
-> * Deinstallieren Sie vor der Installation von SSDT für Visual Studio 2017 (15.9.6) die Erweiterungen für *Analysis Services-* und *Reporting Services-Projekte*, wenn diese bereits installiert wurden, und schließen Sie alle VS-Instanzen. 
+> * Deinstallieren Sie vor der Installation von SSDT für Visual Studio 2017 (15.9.7) die Erweiterungen für *Analysis Services-* und *Reporting Services-Projekte*, wenn diese bereits installiert wurden, und schließen Sie alle VS-Instanzen. 
 > * Die Power Query-Quelle für SQL Server 2017 wurde in ihrer bisherigen Form als bereits enthaltene Komponente entfernt. Wir haben die Power Query-Quelle für SQL Server 2017 und 2019 nun als separate Komponente angekündigt, die [hier](https://www.microsoft.com/download/details.aspx?id=100619) heruntergeladen werden kann.
 > * Um Pakete mit Oracle- und Teradata-Connectors zu entwerfen, die auf eine frühere Version von SQL Server vor SQL Server 2019 abzielen, müssen Sie zusätzlich zum [Microsoft Oracle-Connector für SQL Server 2019](https://www.microsoft.com/download/details.aspx?id=58228) und [Microsoft Teradata-Connector für SQL Server 2019](https://www.microsoft.com/download/details.aspx?id=100599) auch die entsprechende Version des Microsoft-Connectors für Oracle und Teradata von Attunity installieren.
 >    * [Microsoft Connector-Version 5.0 für Oracle von Attunity für SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=55179)
@@ -116,17 +116,17 @@ SSDT für Visual Studio 2017 hat die gleichen [Systemanforderungen](/visualstudi
 
 Diese Version von **SSDT für Visual Studio 2017** kann in folgenden Sprachen installiert werden:
 
-* [Chinesisch (vereinfacht)](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x804)
-* [Chinesisch (traditionell)](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x404)
-* [Englisch (USA)](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x409)
-* [Französisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x40c)
-* [Deutsch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x407)
-* [Italienisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x410)
-* [Japanisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x411)
-* [Koreanisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x412)
-* [Portugiesisch (Brasilien)](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x416)
-* [Russisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x419)
-* [Spanisch](https://go.microsoft.com/fwlink/?linkid=2139376&clcid=0x40a)
+* [Chinesisch (vereinfacht)](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x804)
+* [Chinesisch (traditionell)](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x404)
+* [Englisch (USA)](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x409)
+* [Französisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x40c)
+* [Deutsch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x407)
+* [Italienisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x410)
+* [Japanisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x411)
+* [Koreanisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x412)
+* [Portugiesisch (Brasilien)](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x416)
+* [Russisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x419)
+* [Spanisch](https://go.microsoft.com/fwlink/?linkid=2151759&clcid=0x40a)
 
 ### <a name="considerations-and-limitations"></a>Überlegungen und Einschränkungen
 

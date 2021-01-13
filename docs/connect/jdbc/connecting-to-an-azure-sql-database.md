@@ -2,7 +2,7 @@
 title: Herstellen einer Verbindung mit einer Azure SQL-Datenbank
 description: In diesem Artikel werden Probleme behandelt, die bei der Verwendung des Microsoft JDBC-Treibers für SQL Server zum Herstellen einer Verbindung mit einer Azure SQL-Datenbankinstanz auftreten.
 ms.custom: ''
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.prod: sql
 ms.prod_service: connectivity
 ms.reviewer: ''
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 49645b1f-39b1-4757-bda1-c51ebc375c34
 author: David-Engel
 ms.author: v-daenge
-ms.openlocfilehash: bda9c33588c8248d0aff62f555ec46451d0e9e78
-ms.sourcegitcommit: c7f40918dc3ecdb0ed2ef5c237a3996cb4cd268d
+ms.openlocfilehash: 03768a309ac10fc16fd1a743660df6fe74b088e7
+ms.sourcegitcommit: bc8474fa200ef0de7498dbb103bc76e3e3a4def4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91725491"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709669"
 ---
 # <a name="connecting-to-an-azure-sql-database"></a>Herstellen einer Verbindung mit einer Azure SQL-Datenbank
 
@@ -43,7 +43,13 @@ Bei der Verbindung mit einer [!INCLUDE[ssAzure](../../includes/ssazure_md.md)] k
 
 - Durch das Azure SQL-Gateway ermittelte, inaktive Verbindungen. Dabei kann TCP **KeepAlive**-Meldungen ausgeben (wodurch sie aus TCP-Sicht nicht inaktiv sind), über die jedoch in den letzten 30 Minuten keine aktive Abfrage ausgeführt wurde. In diesem Szenario wird durch das Gateway ermittelt, ob die TDS-Verbindung 30 Minuten inaktiv war, und die Verbindung wird beendet.  
   
-Um zu vermeiden, dass Verbindungen im Leerlauf durch eineNetzwerkkomponente getrennt werden, sollten die folgenden Registrierungseinstellungen(bzw. deren Nicht-Windows-Äquivalente) für das Betriebssystem festgelegt werden, unter dem der Treiber geladen wurde:  
+Um den zweiten Punkt zu behandeln und zu vermeiden, dass das Gateway Verbindungen im Leerlauf abbricht, können Sie wie folgt vorgehen:
+
+* Verwenden Sie beim Konfigurieren der Azure SQL-Datenquelle die **Redirect**-[Verbindungsrichtlinie](/azure/azure-sql/database/connectivity-architecture#connection-policy) (Umleiten).
+
+* Halten Sie Verbindungen über eine einfache Aktivität aktiv. Diese Methode wird nicht empfohlen und sollte nur verwendet werden, wenn es keine anderen Möglichkeiten gibt.
+
+Um den ersten Punkt zu behandeln und zu vermeiden, dass Verbindungen im Leerlauf durch eine Netzwerkkomponente getrennt werden, sollten die folgenden Registrierungseinstellungen (oder deren Nicht-Windows-Äquivalente) für das Betriebssystem festgelegt werden, unter dem der Treiber geladen wurde:  
   
 |Registrierungseinstellung|Empfohlener Wert|  
 |----------------------|-----------------------|  
@@ -53,7 +59,13 @@ Um zu vermeiden, dass Verbindungen im Leerlauf durch eineNetzwerkkomponente getr
   
 Starten Sie den Computer neu, damit die Registrierungseinstellungen wirksam werden.  
 
-Um diesen Vorgang in Azure auszuführen, erstellen Sie einen Starttask, durch den die Registrierungsschlüssel hinzugefügt werden.  Fügen Sie der Dienstdefinitionsdatei beispielsweise folgenden Starttask hinzu:  
+Die KeepAliveTime- und KeepAliveInterval-Werte sind in Millisekunden angegeben. Diese Einstellungen bewirken, dass eine nicht reagierende Verbindung innerhalb von 10 bis 40 Sekunden getrennt wird. Wenn nach dem Senden eines Keepalive-Pakets keine Antwort empfangen wird, wird es jede Sekunde bis zu 10 Mal erneut versucht. Wenn in dieser Zeit keine Antwort empfangen wird, wird die Verbindung zum clientseitigen Socket getrennt. Abhängig von Ihrer Umgebung möchten Sie möglicherweise das KeepAliveInterval erhöhen, um bekannte Störungen (z. B. Migrationen virtueller Computer) auszugleichen, die dazu führen können, dass ein Server länger als 10 Sekunden nicht mehr antwortet.
+
+> [!NOTE]
+> TcpMaxDataRetransmissions ist unter Windows Vista oder Windows 2008 und höher nicht steuerbar.
+
+Um diese Konfiguration während der Ausführung in Azure durchzuführen, erstellen Sie einen Starttask, durch den die Registrierungsschlüssel hinzugefügt werden.  Fügen Sie der Dienstdefinitionsdatei beispielsweise folgenden Starttask hinzu:  
+
 
 ```xml
 <Startup>  
@@ -62,7 +74,7 @@ Um diesen Vorgang in Azure auszuführen, erstellen Sie einen Starttask, durch de
 </Startup>  
 ```
 
-Fügen Sie dem Projekt anschließend die Datei „AddKeepAlive.cmd“ hinzu. Legen Sie die Einstellung In Ausgabeverzeichnis kopieren auf Immer kopieren fest. Das folgende Beispiel veranschaulicht eine Datei AddKeepAlive.cmd:  
+Fügen Sie dem Projekt anschließend die Datei „AddKeepAlive.cmd“ hinzu. Legen Sie die Einstellung In Ausgabeverzeichnis kopieren auf Immer kopieren fest. Das folgende Skript ist eine AddKeepAlive.cmd-Beispieldatei:  
 
 ```bat
 if exist keepalive.txt goto done  

@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: cb77d01ede16a6fa68aac6dcb49612ad8fd9a191
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: b3d92f49fb4eae6184a673ffc25ff6bbdf521626
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563085"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771592"
 ---
 # <a name="establishing-connection"></a>Herstellen einer Verbindung
 
@@ -57,3 +57,4 @@ Die Sicherheitsidentität für ASP.NET-Anwendungen kann auf eine von mehreren ve
 
 - [Herstellen einer Verbindung mit Datenquellen](connecting-to-data-source.md)
 - [Verbindungszeichenfolgen](connection-strings.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

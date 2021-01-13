@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: e7a618ef92a9f4a4cc969112886a4246ad25adc6
-ms.sourcegitcommit: 866554663ca3191748b6e4eb4d8d82fa58c4e426
+ms.openlocfilehash: dfbe41fe29a3dadc69a2a428f1bf8b606a2a7050
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559202"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771335"
 ---
 # <a name="retrieve-data-by-a-datareader"></a>Abrufen von Daten durch einen DataReader
 
@@ -42,9 +42,9 @@ Im folgenden Beispiel wird ein **DataReader**-Objekt durchlaufen, wobei von jede
 
 [!code-csharp[DataWorks SqlClient.HasRows#1](~/../sqlclient/doc/samples/SqlDataReader_HasRows.cs#1)]
 
-## <a name="closing-the-datareader"></a>Schließen des "DataReader"  
+## <a name="close-the-datareader"></a>Schließen von DataReader  
 
-Wenn das **DataReader**-Objekt nicht mehr benötigt wird, sollten Sie immer die **Close**-Methode aufrufen.
+Wenn das `DataReader`-Objekt nicht mehr benötigt wird, sollten Sie immer die `Close()`-Methode aufrufen.
 
 > [!NOTE]
 > Wenn Ihr **Command**-Objekt Ausgabeparameter oder Rückgabewerte enthält, sind diese Werte erst nach dem Schließen des **DataReader**-Objekts verfügbar.  
@@ -71,4 +71,5 @@ Solange ein **DataReader**-Objekt geöffnet ist, können Sie mit der **GetSchema
 
 - ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
 - [Befehle und Parameter](commands-parameters.md)
+- [Abrufen von Datenbankschemainformationen](retrieving-database-schema-information.md)
 - [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

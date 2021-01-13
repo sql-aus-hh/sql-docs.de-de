@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: f61b867b70825595a012b2167d2c63b13409a8e2
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: 42b1f8704be721c0b52b3c42946c9abbf7efd7db
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442813"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771627"
 ---
 # <a name="connection-string-syntax"></a>Syntax von Verbindungszeichenfolgen
 
@@ -84,17 +84,17 @@ Wenn Sie eine Verbindung mit einer benannten Instanz von SQL Server herstellen m
 
 Sie können beim Erstellen einer Verbindungszeichenfolge auch die <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder.DataSource%2A>-Eigenschaft von `SqlConnectionStringBuilder` auf den Instanznamen festlegen. Die <xref:Microsoft.Data.SqlClient.SqlConnection.DataSource%2A>-Eigenschaft eines <xref:Microsoft.Data.SqlClient.SqlConnection>-Objekts ist schreibgeschützt.
 
-### <a name="type-system-version-changes"></a>Änderungen an der Typsystemversion
+### <a name="type-system-version-changes"></a>Eingeben von Änderungen der Systemversion
 
 Das Schlüsselwort `Type System Version` in <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A?displayProperty=nameWithType> gibt die clientseitige Darstellung von SQL Server-Typen an. Weitere Informationen zum <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A?displayProperty=nameWithType>-Schlüsselwort finden Sie unter `Type System Version`.
 
-## <a name="connecting-and-attaching-to-sql-server-express-user-instances"></a>Herstellen einer Verbindung mit und Anfügen an SQL Server Express-Benutzerinstanzen
+## <a name="connect-and-attach-to-sql-server-express-user-instances"></a>Herstellen einer Verbindung und Anfügen an SQL Server Express-Benutzerinstanzen
 
 Benutzerinstanzen sind eine Funktion in SQL Server Express. Mit ihrer Hilfe können Benutzer, die mit einem lokalen Windows-Konto der untersten Berechtigungsebene (LUA) arbeiten, eine SQL Server-Datenbank anfügen und ausführen, ohne dass dafür Administratorrechte erforderlich sind. Eine Benutzerinstanz wird mit den Windows-Anmeldeinformationen des Benutzers und nicht als Dienst ausgeführt.
 
 Weitere Informationen zum Arbeiten mit Benutzerinstanzen finden Sie unter [SQL Server Express-Benutzerinstanzen](./sql/sql-server-express-user-instances.md).
 
-## <a name="using-trustservercertificate"></a>Verwenden von TrustServerCertificate
+## <a name="use-trustservercertificate"></a>Verwenden von TrustServerCertificate
 
 Das Schlüsselwort `TrustServerCertificate` ist nur gültig, wenn unter Verwendung eines gültigen Zertifikats eine Verbindung mit einer SQL Server-Instanz hergestellt wird. Wenn `TrustServerCertificate` auf `true` festgelegt ist, verwendet die Transportschicht TLS/SSL zur Verschlüsselung des Kanals und umgeht das Durchlaufen der Zertifikatskette zur Überprüfung der Vertrauenswürdigkeit.
 
@@ -105,7 +105,7 @@ Das Schlüsselwort `TrustServerCertificate` ist nur gültig, wenn unter Verwendu
 > [!NOTE]
 > Wenn `TrustServerCertificate` auf `true` gesetzt wird und die Verschlüsselung aktiviert ist, wird die auf dem Server angegebene Verschlüsselungsstufe auch dann verwendet, wenn `Encrypt` in der Verbindungszeichenfolge auf `false` gesetzt ist. Andernfalls schlägt die Verbindung fehl.
 
-### <a name="enabling-encryption"></a>Aktivieren der Verschlüsselung
+### <a name="enable-encryption"></a>Aktivieren der Verschlüsselung
 
 Wenn auf dem Server kein Zertifikat bereitgestellt wurde und Sie die Verschlüsselung aktivieren möchten, müssen Sie im SQL Server-Konfigurations-Manager die Optionen **Protokollverschlüsselung erzwingen** und **Dem Serverzertifikat vertrauen** aktivieren. In diesem Fall wird bei der Verschlüsselung ein selbstsigniertes Serverzertifikat ohne Überprüfung verwendet, wenn kein überprüfbares Zertifikat auf dem Server bereitgestellt wurde.
 
@@ -129,3 +129,4 @@ Weitere Informationen finden Sie unter [Verwenden von Verschlüsselung ohne Übe
 
 - [Verbindungszeichenfolgen](connection-strings.md)
 - [Herstellen einer Verbindung mit Datenquellen](connecting-to-data-source.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

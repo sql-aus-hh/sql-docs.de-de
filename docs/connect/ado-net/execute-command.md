@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: b1427fa78e52c985478996bfb41cb7a20e1ee608
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 772ecef470b69a34e4bd4b0eba2ca60255657eaf
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428237"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771422"
 ---
 # <a name="executing-a-command"></a>Ausführen eines Befehls
 
@@ -34,7 +34,7 @@ Der Microsoft SqlClient-Datenanbieter für SQL Server verfügt über ein <xref:
 |`ExecuteNonQuery`|Führt einen Befehl aus, der keine Zeilen zurückgibt.|  
 |`ExecuteXMLReader`|Gibt einen <xref:System.Xml.XmlReader> zurück. Nur für ein `SqlCommand`-Objekt verfügbar.|
 
- Jedes stark typisierte Befehlsobjekt unterstützt auch eine <xref:System.Data.CommandType>-Enumeration, die angibt, wie eine Befehlszeichenfolge interpretiert wird. Nähere Informationen dazu finden Sie in der folgenden Tabelle.
+Jedes stark typisierte Befehlsobjekt unterstützt auch eine <xref:System.Data.CommandType>-Enumeration, die angibt, wie eine Befehlszeichenfolge interpretiert wird. Nähere Informationen dazu finden Sie in der folgenden Tabelle.
 
 |CommandType|Beschreibung|
 |-----------------|-----------------|  
@@ -51,12 +51,14 @@ Das folgende Codebeispiel zeigt, wie durch Festlegen seiner Eigenschaften ein <x
 
 [!code-csharp[DataWorks SqlClient.StoredProcedure#1](~/../sqlclient/doc/samples/SqlCommand_StoredProcedure.cs#1)]
 
-### <a name="troubleshooting-commands"></a>Befehle für die Problembehandlung
+### <a name="troubleshooting-commands"></a>Problembehandlung bei Befehlen
 
 [!INCLUDE[appliesto-netfx-xxxx-xxxx-md](../../includes/appliesto-netfx-xxxx-xxxx-md.md)]
 
-Mit dem Microsoft SqlClient-Datenanbieter für SQL Server werden **Leistungsindikatoren** hinzugefügt, mit denen Sie zeitweilige Probleme aufgrund von Fehlern bei der Befehlsausführung erkennen können.
+Mit dem Microsoft SqlClient-Datenanbieter für SQL Server werden **Leistungsindikatoren** hinzugefügt, mit denen Sie zeitweilige Probleme aufgrund von Fehlern bei der Befehlsausführung erkennen können. Weitere Informationen finden Sie unter [Leistungsindikatoren in SqlClient](performance-counters.md).
 
 ## <a name="see-also"></a>Weitere Informationen:
 
 - [Befehle und Parameter](commands-parameters.md)
+- ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

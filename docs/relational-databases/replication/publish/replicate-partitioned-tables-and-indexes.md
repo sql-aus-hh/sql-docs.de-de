@@ -18,12 +18,12 @@ ms.assetid: c9fa81b1-6c81-4c11-927b-fab16301a8f5
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 70df27b530fe6afb40f296afdc012ac2c40500a9
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 75c0f38e67fd4d02791c5d2b953f4354a5945dc2
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468941"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697136"
 ---
 # <a name="replicate-partitioned-tables-and-indexes"></a>Replizieren partitionierter Tabellen und Indizes
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "97468941"
 |Partitionsfunktion|CREATE PARTITION FUNCTION|  
 |Partitionsschema|CREATE PARTITION SCHEME|  
   
- Die erste Gruppe von Eigenschaften, die mit der Partitionierung in Zusammenhang stehen, sind Artikelschemaoptionen, die bestimmen, ob Partitionierungsobjekte auf den Abonnenten kopiert werden sollen. Diese Schemaoptionen können folgendermaßen festgelegt werden:  
+ Partitionierungseigenschaften sind die Artikelschemaoptionen, die bestimmen, ob Partitionierungsobjekte auf den Abonnenten kopiert werden sollen. Diese Schemaoptionen können folgendermaßen festgelegt werden:  
   
 -   Auf der Seite **Artikeleigenschaften** des Assistenten für neue Veröffentlichungen oder im Dialogfeld Veröffentlichungseigenschaften. Geben Sie für die Eigenschaften **Tabellenpartitionierungsschemas kopieren** und **Indexpartitionierungsschemas kopieren** den Wert **true** an, um die in der obigen Tabelle aufgeführten Objekte zu kopieren. Informationen zum Zugriff auf die Seite **Artikeleigenschaften** finden Sie unter [Anzeigen und Ändern von Veröffentlichungseigenschaften](../../../relational-databases/replication/publish/view-and-modify-publication-properties.md).  
   
@@ -61,15 +61,40 @@ ms.locfileid: "97468941"
   
 -   Wenn der Abonnent über eine andere Definition für die partitionierte Tabelle verfügt als der Verleger, dann schlägt der Verteilungs-Agent fehl, wenn er Änderungen auf dem Abonnenten anzuwenden versucht.  
   
- Trotz dieser potenziellen Probleme können Partitionswechsel für Transaktionsreplikationen aktiviert werden. Bevor Sie Partitionswechsel aktivieren, müssen Sie sicherstellen, dass alle an einem Partitionswechsel beteiligten Tabellen sowohl auf dem Verleger als auch auf dem Abonnenten vorhanden sind und dass die Tabellen- und Partitionsdefinitionen auf dem Verleger und dem Abonnenten identisch sind.  
+Trotz dieser potenziellen Probleme können Partitionswechsel für Transaktionsreplikationen aktiviert werden. Bevor Sie Partitionswechsel aktivieren, müssen Sie sicherstellen, dass alle an einem Partitionswechsel beteiligten Tabellen sowohl auf dem Verleger als auch auf dem Abonnenten vorhanden sind und dass die Tabellen- und Partitionsdefinitionen auf dem Verleger und dem Abonnenten identisch sind.  
   
- Wenn Partitionen bei den Verlegern und Abonnenten über das gleiche Partitionsschema verfügen, können Sie *allow_partition_switch* zusammen mit *replication_partition_switch* aktivieren, wodurch nur die "partition switch"-Anweisung für den Abonnenten repliziert wird. Sie können auch *allow_partition_switch* aktivieren, ohne die DDL zu replizieren. Dies ist hilfreich, wenn Sie alte Monate aus der Partition auslagern möchten und die replizierte Partition jedoch für ein weiteres Jahr für Sicherungszwecke auf dem Abonnenten aufbewahren möchten.  
+Wenn Partitionen bei den Herausgebern und Abonnenten über das gleiche Partitionsschema verfügen, können Sie *allow_partition_switch* zusammen mit *replication_partition_switch* aktivieren, wodurch nur die „partition switch“-Anweisung für den Abonnenten repliziert wird. Sie können auch *allow_partition_switch* aktivieren, ohne die DDL zu replizieren. Dies ist hilfreich, wenn Sie alte Monate aus der Partition auslagern möchten und die replizierte Partition jedoch für ein weiteres Jahr für Sicherungszwecke auf dem Abonnenten aufbewahren möchten.  
   
- Wenn Sie über die aktuelle Version Partitionswechsel für SQL Server 2008 R2 aktivieren, benötigen Sie möglicherweise schon in naher Zukunft auch Teilungs- und Mergevorgänge. Stellen Sie vor dem Ausführen von Teilungs- oder Mergevorgängen in replizierten Tabellen sicher, dass für die fragliche Partition keine replizierten Befehle ausstehen. Sie sollten außerdem sicherstellen, dass für die Partition während der Teilungs- und Mergevorgänge keine DML-Vorgänge ausgeführt werden. Wenn Transaktionen vorhanden sind, die nicht vom Protokollleser verarbeitet wurden, oder DML-Vorgänge für eine Partition einer replizierten Tabelle ausgeführt werden, während ein Teilungs- oder Mergevorgang stattfindet (an dem die gleiche Partition beteiligt ist), kann das zu einem Verarbeitungsfehler beim Protokolllese-Agent führen. Um den Fehler zu beheben, ist möglicherweise eine erneute Initialisierung des Abonnements erforderlich.  
-  
-> [!WARNING]  
->  Sie sollten keinen Partitionswechsel für Peer-zu-Peer-Veröffentlichungen aktivieren, da die ausgeblendete Spalte dazu verwendet wird, um Konflikte zu erkennen und aufzulösen.  
-  
+Wenn Sie über die aktuelle Version Partitionswechsel für SQL Server 2008 R2 aktivieren, benötigen Sie möglicherweise schon in naher Zukunft auch Teilungs- und Mergevorgänge. Stellen Sie vor dem Ausführen von Teilungs- oder Zusammenführungsvorgängen in replizierten oder CDC-fähigen Tabellen sicher, dass für die fragliche Partition keine replizierten Befehle ausstehen. Sie sollten außerdem sicherstellen, dass für die Partition während der Teilungs- und Mergevorgänge keine DML-Vorgänge ausgeführt werden. Wenn Transaktionen vorhanden sind, die nicht vom Protokollleser oder CDC-Erfassungsauftrag verarbeitet wurden, oder DML-Vorgänge für eine Partition einer replizierten oder CDC-fähigen Tabelle ausgeführt werden, während ein Teilungs- oder Zusammenführungsvorgang stattfindet (an dem die gleiche Partition beteiligt ist), kann das zu einem Verarbeitungsfehler (Fehler 608 – Kein Katalogeintrag für die Partitions-ID gefunden) beim Protokolllese-Agent oder CDC-Erfassungsauftrag führen. Um den Fehler zu beheben, ist möglicherweise eine erneute Initialisierung des Abonnements oder das Deaktivieren von CDC für diese Tabelle oder Datenbank erforderlich. 
+
+### <a name="unsupported-scenarios"></a>Nicht unterstützte Szenarien
+
+Die folgenden Szenarien werden nicht unterstützt, wenn Sie die Replikation mit Partitionswechsel verwenden: 
+
+**Peer-zu-Peer-Replikation**   
+Die Peer-zu-Peer-Replikation wird bei Partitionswechseln nicht unterstützt. 
+
+**Verwenden von Variablen mit Partitionswechsel**   
+
+Das Verwenden von Variablen mit Partitionswechsel auf Tabellen, die mit transaktionaler Replikation oder Change Data Capture (CDC) veröffentlicht werden, wird für die `ALTER TABLE ... SWITCH TO ... PARTITION ...`-Anweisung nicht unterstützt.
+
+Der folgende Partitionswechselcode funktioniert z. B. nicht, wenn CDC in der Datenbank aktiviert ist oder wenn TableA an einer Transaktionsveröffentlichung teilnimmt: 
+
+```sql
+DECLARE @SomeVariable INT = $PARTITION.pf_test(10);
+ALTER TABLE dbo.TableA
+SWITCH TO dbo.TableB 
+PARTITION @SomeVariable;
+```
+
+Wechseln Sie stattdessen Ihre Partition, indem Sie direkt die Partitionsfunktion verwenden, wie im folgenden Beispiel: 
+
+```sql
+ALTER TABLE NonPartitionedTable 
+SWITCH TO PartitionedTable PARTITION $PARTITION.pf_test(10);
+```
+
+
 ### <a name="enabling-partition-switching"></a>Aktivieren des Partitionswechsels  
  Die folgenden Eigenschaften von Transaktionsveröffentlichungen ermöglichen es den Benutzern, das Verhalten von Partitionswechseln in einer replizierten Umgebung zu steuern:  
   

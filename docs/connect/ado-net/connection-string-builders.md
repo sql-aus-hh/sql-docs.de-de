@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: bdb4294fda1f26ec346f786ec29061f8d4f9ee27
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 38c1ad34fb4819460c08f00da4c1dbd31749b7cb
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96419791"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771432"
 ---
 # <a name="connection-string-builders"></a>Verbindungszeichenfolgen-Generatoren
 
@@ -27,7 +27,7 @@ ms.locfileid: "96419791"
 
 In früheren ADO.NET-Versionen erfolgte bei der Kompilierung keine Syntaxprüfung für verkettete Zeichenfolgenwerte, sodass bei einem falschen Schlüsselwort zur Laufzeit eine <xref:System.ArgumentException> generiert wurde. Die Microsoft SqlClient-Datenanbieter für SQL Server enthält die stark typisierte Verbindungszeichenfolgen-Generatorklasse <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder?displayProperty=nameWithType>, die von <xref:System.Data.Common.DbConnectionStringBuilder> erbt.
 
-## <a name="connection-string-injection-attacks"></a>Angriffe durch das Einschleusen von Verbindungszeichenfolgen
+## <a name="connection-string-injection-attacks"></a>Injection-Angriffe mit Verbindungszeichenfolgen
 
 Zu einem Angriff durch Einschleusen von Verbindungszeichenfolgen kann es kommen, wenn die dynamische Zeichenfolgenverkettung verwendet wird, um auf Benutzereingabe basierende Verbindungszeichenfolgen zu konstruieren. Wenn die Zeichenfolge nicht validiert wird und schädlicher Text oder schädliche Zeichen nicht maskiert werden, kann ein Angreifer möglicherweise auf sicherheitsrelevante Daten oder andere Ressourcen auf dem Server zugreifen. So könnte ein Angreifer z. B. einen Angriff starten, indem er ein Semikolon, gefolgt von einem weiteren Wert, einfügt. Die Verbindungszeichenfolge wird mit einem **Last One Wins**-Algorithmus (der Letzte gewinnt) analysiert, wobei die feindliche Eingabe durch den legitimen Wert ersetzt wird.
 
@@ -44,7 +44,7 @@ data source=(local);Integrated Security=True;
 initial catalog="AdventureWorks;NewValue=Bad"
 ```
 
-## <a name="building-connection-strings-from-configuration-files"></a>Erstellen von Verbindungszeichenfolgen aus Konfigurationsdateien
+## <a name="build-connection-strings-from-configuration-files"></a>Erstellen von Verbindungszeichenfolgen aus Konfigurationsdateien
 
 Wenn bestimmte Elemente einer Verbindungszeichenfolge vorab bekannt sind, können sie in einer Konfigurationsdatei gespeichert und zur Laufzeit zum Konstruieren einer vollständigen Verbindungszeichenfolge abgerufen werden. So ist es z. B. denkbar, dass zwar der Name der Datenbank, nicht aber der Name des Servers vorab bekannt ist. Vielleicht möchten Sie auch, dass die Benutzer zur Laufzeit zwar einen Namen und ein Kennwort bereitstellen, aber keine anderen Werte in die Verbindungszeichenfolge einfügen können.
 
@@ -71,6 +71,7 @@ Dieses Beispiel zeigt, wie Sie durch Festlegen der Eigenschaften <xref:Microsoft
 
 [!code-csharp[DataWorks SqlConnectionStringBuilder.UserNamePwd#1](~/../sqlclient/doc/samples/SqlConnectionStringBuilder_UserNamePwd.cs#1)]
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Verbindungszeichenfolgen](connection-strings.md)
+- [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

@@ -15,20 +15,19 @@ helpviewer_keywords:
 ms.assetid: 7d8c4684-9eb1-4791-8c3b-0f0bb15d9634
 author: rothja
 ms.author: jroth
-ms.openlocfilehash: 55bb82e19a97a91dbe00b44b195e74a250ddf1dc
-ms.sourcegitcommit: 7f76975c29d948a9a3b51abce564b9c73d05dcf0
+ms.openlocfilehash: f90e59f3e54b69a98e7ca058da971677faaafd0d
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96900962"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697115"
 ---
 # <a name="about-change-data-capture-sql-server"></a>Über Change Data Capture (SQL Server)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
 
-> [!NOTE]
-> CDC wird jetzt für SQL Server 2017 unter Linux ab CU18 und für SQL Server 2019 unter Linux unterstützt.
 
-  Change Data Capture zeichnet Einfüge-, Aktualisierungs- und Löschaktivitäten auf, die an einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Tabelle vorgenommen werden. Hierdurch werden die Details zu diesen Änderungen in einem leicht verwendbaren relationalen Format bereitgestellt. Für die geänderten Zeilen werden die Spaltendaten sowie die Metadaten, die zur Übernahme der Änderungen in einer Zielumgebung erforderlich sind, aufgezeichnet und in Änderungstabellen gespeichert, die die Spaltenstruktur der nachverfolgten Quelltabellen widerspiegeln. Für den systematischen Zugriff auf die Änderungsdaten durch den Consumer werden Tabellenwertfunktionen bereitgestellt.  
+
+  Change Data Capture zeichnet Einfüge-, Aktualisierungs- und Löschaktivitäten auf, die sich auf eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Tabelle beziehen. Hierdurch werden die Details zu diesen Änderungen in einem leicht verwendbaren relationalen Format bereitgestellt. Für die geänderten Zeilen werden die Spaltendaten sowie die Metadaten, die zur Übernahme der Änderungen in einer Zielumgebung erforderlich sind, aufgezeichnet und in Änderungstabellen gespeichert, die die Spaltenstruktur der nachverfolgten Quelltabellen widerspiegeln. Für den systematischen Zugriff auf die Änderungsdaten durch den Consumer werden Tabellenwertfunktionen bereitgestellt.  
   
  Ein Beispiel für einen Datenconsumer, auf den diese Technologie abzielt, ist eine Anwendung zum Extrahieren, Transformieren und Laden (ETL-Anwendung). Eine ETL-Anwendung lädt Änderungsdaten inkrementell aus [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Quelltabellen in ein Data Warehouse oder Data Mart. Obwohl die Darstellung der Quelltabellen innerhalb des Data Warehouse Änderungen in den Quelltabellen widerspiegeln muss, sind End-to-End-Technologien, die eine Kopie der Quelle aktualisieren, ungeeignet. Benötigt wird stattdessen ein zuverlässiger Datenstrom von Änderungsdaten, der so strukturiert ist, dass er vom Consumer problemlos auf unterschiedliche Darstellungen der Daten in einer Zielumgebung angewendet werden kann. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] stellt diese Technologie bereit.  
   
@@ -72,7 +71,7 @@ ms.locfileid: "96900962"
   
  Um eine Änderungstabelle mit fester Spaltenstruktur zu berücksichtigen, ignoriert der Aufzeichnungsprozess, mit dem Werte in die Änderungstabelle eingefügt werden, alle neuen Spalten, die bei der Aktivierung der Quelltabelle für Change Data Capture nicht zur Aufzeichnung identifiziert wurden. Wenn eine nachverfolgte Spalte gelöscht wird, werden in den nachfolgenden Änderungseinträgen NULL-Werte für die Spalte angegeben. Wenn sich jedoch der Datentyp einer vorhandenen Spalte ändert, wird diese Änderung in die Änderungstabelle übernommen, um sicherzustellen, dass durch den Aufzeichnungsmechanismus keine Datenverluste für nachverfolgte Spalten entstehen. Außerdem sendet der Aufzeichnungsprozess alle erkannten Änderungen an der Spaltenstruktur nachverfolgter Tabellen an die Tabelle cdc.ddl_history. Consumer, die über notwendige Anpassungen von Downstreamanwendungen informiert werden möchten, verwenden die gespeicherte Prozedur [sys.sp_cdc_get_ddl_history](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-ddl-history-transact-sql.md).  
   
- In der Regel wird die Form der aktuellen Aufzeichnungsinstanz beibehalten, wenn DDL-Änderungen an der verbundenen Quelltabelle vorgenommen werden. Es besteht jedoch die Möglichkeit, eine zweite Aufzeichnungsinstanz für die Tabelle zu erstellen, die die neue Spaltenstruktur widerspiegelt. Hierdurch wird die Aufzeichnung von Änderungen an derselben Quelltabelle in zwei unterschiedliche Änderungstabellen mit zwei verschiedenen Spaltenstrukturen ermöglicht. Eine dieser Änderungstabellen kann für aktuelle Betriebsprogramme und die andere für eine Entwicklungsumgebung verwendet werden, in der versucht wird, die neuen Spaltendaten aufzunehmen. Da der Aufzeichnungsmechanismus gleichzeitig Werte in beide Änderungstabellen einfügen kann, ist ein Übergang zwischen den Tabellen ohne Datenverlust möglich. Dies kann immer der Fall sein, wenn die beiden Change Data Capture-Zeitachsen überlappen. Wenn der Übergang erfolgt, kann die überflüssige Aufzeichnungsinstanz entfernt werden.  
+ In der Regel wird die Form der aktuellen Aufzeichnungsinstanz beibehalten, wenn DDL-Änderungen an der verbundenen Quelltabelle vorgenommen werden. Es besteht jedoch die Möglichkeit, eine zweite Aufzeichnungsinstanz für die Tabelle zu erstellen, die die neue Spaltenstruktur widerspiegelt. Hierdurch wird die Aufzeichnung von Änderungen an derselben Quelltabelle in zwei unterschiedliche Änderungstabellen mit zwei verschiedenen Spaltenstrukturen ermöglicht. Eine dieser Änderungstabellen kann für aktuelle Betriebsprogramme und die andere für eine Entwicklungsumgebung verwendet werden, in der versucht wird, die neuen Spaltendaten aufzunehmen. Da der Aufzeichnungsmechanismus gleichzeitig Werte in beide Änderungstabellen einfügen kann, ist ein Übergang zwischen den Tabellen ohne Datenverlust möglich. Dies kann immer der Fall sein, wenn die beiden Change Data Capture-Zeitachsen überlappen. Wenn der Übergang betroffen ist, kann die überflüssige Aufzeichnungsinstanz entfernt werden.  
   
 > [!NOTE]  
 >  Einer Quelltabelle können maximal zwei Aufzeichnungsinstanzen gleichzeitig zugeordnet werden.  
@@ -138,9 +137,20 @@ CREATE TABLE T1(
      C2 NVARCHAR(10) collate Chinese_PRC_CI_AI --Unicode data type, CDC works well with this data type)
 ```
 
-## <a name="columnstore-indexes"></a>Columnstore-Indizes
+## <a name="limitations"></a>Einschränkungen
 
+Für Change Data Capture gelten die folgenden Einschränkungen: 
+
+**Linux**   
+CDC wird jetzt für SQL Server 2017 unter Linux ab CU18 und für SQL Server 2019 unter Linux unterstützt.
+
+**Columnstore-Indizes**   
 Change Data Capture kann nicht für Tabellen mit einem gruppierten Columnstore-Index aktiviert werden. Ab SQL Server 2016 kann das Feature für Tabellen mit einem nicht gruppierten Columnstore-Index aktiviert werden.
+
+**Partitionswechsel mit Variablen**   
+Das Verwenden von Variablen mit Partitionswechsel für Datenbanken oder Tabellen mit Change Data Capture (CDC) wird für die `ALTER TABLE ... SWITCH TO ... PARTITION ...`-Anweisung nicht unterstützt. Weitere Informationen finden Sie unter [Einschränkungen zu Partitionswechseln](../replication/publish/replicate-partitioned-tables-and-indexes.md#replication-support-for-partition-switching). 
+
+
 
 ## <a name="see-also"></a>Weitere Informationen  
  [Nachverfolgen von Datenänderungen &#40;SQL Server&#41;](../../relational-databases/track-changes/track-data-changes-sql-server.md)   

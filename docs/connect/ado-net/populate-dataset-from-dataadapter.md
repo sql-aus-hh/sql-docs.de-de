@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: c632d83b092f5f68ce5bbca32d4315821252603c
-ms.sourcegitcommit: c127c0752e84cccd38a7e23ac74c0362a40f952e
+ms.openlocfilehash: e6c50bf7255dc77edfd0b93e03dedeec83ed4c4d
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772238"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771502"
 ---
 # <a name="populate-a-dataset-from-a-dataadapter"></a>Auffüllen eines Datasets aus einem DataAdapter
 
@@ -52,13 +52,13 @@ Im folgenden Codebeispiel wird eine Instanz eines <xref:Microsoft.Data.SqlClient
 
 Wenn der `DataAdapter` mehrere Resultsets ermittelt, werden mehrere Tabellen im `DataSet`erstellt. Diesen Tabellen werden standardmäßig Namen nach dem Schema Table *N*, beginnend mit "Table" für Table0, zugewiesen, die jeweils um eins erhöht werden. Wenn der Tabellenname als Argument an die `Fill` -Methode übergeben wird, erhalten die Tabellen standardmäßig Namen nach dem Schema TableName *N*, beginnend mit "TableName" für TableName0, die jeweils um eins erhöht werden.  
   
-## <a name="populating-a-dataset-from-multiple-dataadapters"></a>Auffüllen einer DataSet-Klasse aus mehreren DataAdapter-Klassen  
+## <a name="populate-a-dataset-from-multiple-dataadapters"></a>Auffüllen einer DataSet-Klasse aus mehreren DataAdapter-Klassen  
 
- Eine `DataSet`-Klasse kann mit einer beliebigen Anzahl von `DataAdapter`-Objekten verwendet werden. Mit jedem `DataAdapter` -Objekt können ein oder mehrere `DataTable` -Objekte gefüllt und Updates in die zugehörige Datenquelle übernommen werden. Das`DataRelation` -Objekt und das `Constraint` -Objekt können dem `DataSet` lokal hinzugefügt werden. Dadurch haben Sie die Möglichkeit, Daten aus mehreren unähnlichen Datenquellen zu verbinden. Ein `DataSet` kann beispielsweise Daten aus einer Microsoft SQL Server-Datenbank, einer über OLE DB verfügbar gemachten IBM DB2-Datenbank und einer XML-Datenquelle enthalten. Für die Kommunikation mit den einzelnen Datenquellen sind ein oder mehrere `DataAdapter` -Objekte zuständig.  
+Eine `DataSet`-Klasse kann mit einer beliebigen Anzahl von `DataAdapter`-Objekten verwendet werden. Mit jedem `DataAdapter` -Objekt können ein oder mehrere `DataTable` -Objekte gefüllt und Updates in die zugehörige Datenquelle übernommen werden. Das`DataRelation` -Objekt und das `Constraint` -Objekt können dem `DataSet` lokal hinzugefügt werden. Dadurch haben Sie die Möglichkeit, Daten aus mehreren unähnlichen Datenquellen zu verbinden. Ein `DataSet` kann beispielsweise Daten aus einer Microsoft SQL Server-Datenbank, einer über OLE DB verfügbar gemachten IBM DB2-Datenbank und einer XML-Datenquelle enthalten. Für die Kommunikation mit den einzelnen Datenquellen sind ein oder mehrere `DataAdapter` -Objekte zuständig.  
   
 ### <a name="example"></a>Beispiel  
 
- Im folgenden Codebeispiel wird eine Kundenliste aus der `Northwind` -Datenbank unter Microsoft SQL Server sowie eine Auftragsliste aus der in Microsoft Access 2000 gespeicherten `Northwind` -Datenbank aufgefüllt. Die gefüllten Tabellen werden mit einer `DataRelation`verbunden, und die Kundenliste wird anschließend mit Aufträgen für den jeweiligen Kunden angezeigt.
+Im folgenden Codebeispiel wird eine Kundenliste von der `Northwind`-Datenbank unter Microsoft SQL Server sowie eine Auftragsliste von der in Microsoft Access gespeicherten `Northwind`-Datenbank gefüllt. Die gefüllten Tabellen werden mit einer `DataRelation`verbunden, und die Kundenliste wird anschließend mit Aufträgen für den jeweiligen Kunden angezeigt.
 
 [!code-csharp[SqlDataAdapter_FillDataSet#2](~/../sqlclient/doc/samples/SqlDataAdapter_FillDataSet.cs#2)]
 

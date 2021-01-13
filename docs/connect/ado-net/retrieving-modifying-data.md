@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: c3cf3766ffc6c8acf6025b58aa0adbaafafa2188
-ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
+ms.openlocfilehash: 4275b7de0f31d03aa36ef31d8801fcdc0e9ec853
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97038958"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771542"
 ---
 # <a name="retrieving-and-modifying-data-in-adonet"></a>Abrufen und Ändern von Daten in ADO.NET
 
@@ -42,9 +42,35 @@ Enthält Themen, in denen beschrieben wird, wie Befehlen und Befehlsgeneratoren 
 ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)  
 Enthält Themen, in denen DataReader, DataAdapter, Parameter und die Vorgehensweise bei DataAdapter-Ereignissen und beim Ausführen von Batchvorgängen beschrieben werden.
 
-Der Artikel [Transaktionen und Parallelität](transactions-and-concurrency.md) befasst sich mit der Durchführung lokaler Transaktionen, verteilter Transaktionen und der Arbeit mit der optimistischen Nebenläufigkeit.
+[Transaktionen und Parallelität](transactions-and-concurrency.md)  
+Enthält Themen, in denen beschrieben wird, wie lokale Transaktionen und verteilte Transaktionen ausgeführt werden und wie Sie mit vollständiger Parallelität arbeiten.
 
-Im Artikel [Abrufen von Informationen zum Datenbankschema](retrieving-database-schema-information.md) wird das Abrufen verfügbarer Datenbanken oder Kataloge, Tabellen und Ansichten in einer Datenbank, für Tabellen vorliegende Einschränkungen und andere Schemainformationen aus einer Datenquelle beschrieben.
+[Abrufen von Datenbankschemainformationen](retrieving-database-schema-information.md)  
+Beschreibt, wie verfügbare Datenbanken oder Kataloge, Tabellen und Ansichten in einer Datenbank, für Tabellen vorhandene Einschränkungen und andere Schemainformationen aus einer Datenquelle abgerufen werden.
+
+[DbProviderFactories](dbproviderfactories.md)  
+Beschreibt das Anbietermodell für Zuordnungsinstanzen und veranschaulicht, wie die Basisklassen im `System.Data.Common`-Namespace verwendet werden.  
+
+[Abrufen von Identity- oder Autonumber-Werten](retrieve-identity-or-autonumber-values.md)  
+Stellt ein Beispiel für die Zuordnung der für eine **identity**-Spalte in einer SQL Server-Tabelle generierten Werte zu einer Spalte einer eingefügten Zeile in einer Tabelle bereit. Erläutert das Zusammenführen von Identitätswerten in einer `DataTable`.  
+  
+[Abrufen von Binärdaten](retrieve-binary-data.md)  
+Beschreibt, wie Binärdaten oder große Datenstrukturen mithilfe von `CommandBehavior` abgerufen werden. `SequentialAccess` zum Ändern des Standardverhaltens einer `DataReader`-Instanz.  
+  
+[Ändern von Daten mit gespeicherten Prozeduren](modify-data-with-stored-procedures.md)  
+Beschreibt, wie mit Eingabe- und Ausgabeparametern von gespeicherten Prozeduren eine Zeile in eine Datenbank eingefügt wird, wodurch ein neuer Identitätswert zurückgegeben wird.  
+
+[Datenablaufverfolgung in SqlClient](data-tracing.md)  
+Beschreibt, wie der Microsoft SqlClient-Datenanbieter für SQL Server integrierte Funktionen zur Datenablaufverfolgung bereitstellt.  
+  
+[Leistungsindikatoren in SqlClient](performance-counters.md)  
+Beschreibt die verfügbaren Leistungsindikatoren für die Microsoft SqlClient-Datenanbieter für SQL Server.  
+  
+[Asynchrone Programmierung](asynchronous-programming.md)  
+Beschreibt die Unterstützung der Microsoft SqlClient-Datenanbieter für SQL Server für die asynchrone Programmierung.  
+  
+[SqlClient-Streamingunterstützung](sqlclient-streaming-support.md)  
+Erläutert, wie Sie Anwendungen schreiben, die Daten aus SQL Server streamen, ohne sie vollständig in den Arbeitsspeicher zu laden.  
 
 ## <a name="see-also"></a>Weitere Informationen:
 

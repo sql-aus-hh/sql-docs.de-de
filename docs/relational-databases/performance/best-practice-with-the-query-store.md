@@ -2,7 +2,7 @@
 title: Bewährte Methoden für den Abfragespeicher | Microsoft-Dokumentation
 description: Lernen Sie bewährte Methoden für die Verwendung des SQL Server-Abfragespeichers mit Ihrer Workload kennen, wie das Verwenden der neuesten Versionen von SQL Server Management Studio und Query Performance Insight.
 ms.custom: ''
-ms.date: 09/02/2020
+ms.date: 12/23/2020
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.technology: performance
@@ -13,12 +13,12 @@ ms.assetid: 5b13b5ac-1e4c-45e7-bda7-ebebe2784551
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: d71da2a6d0bcc0cb43529331116acdbb4a6d8136
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a973fd5ec66f101c162e35baec0269f7b6d3d601
+ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97418645"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97765209"
 ---
 # <a name="best-practices-with-query-store"></a>Bewährte Methoden für den Abfragespeicher
 
@@ -124,7 +124,7 @@ ALTER DATABASE [QueryStoreDB]
 SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 90));
 ```
 
-**Größenbasierter Bereinigungsmodus**: Gibt an, ob die automatische Bereinigung ausgeführt wird, wenn der Umfang der Abfragespeicherdaten den Grenzwert erreicht. Aktivieren Sie die größenbasierte Bereinigung, um sicherzustellen, dass der Abfragespeicher immer im Lese-/ Schreibmodus ausgeführt wird und die neuesten Daten erfasst.
+**Größenbasierter Bereinigungsmodus**: Gibt an, ob die automatische Bereinigung ausgeführt wird, wenn der Umfang der Abfragespeicherdaten den Grenzwert erreicht. Aktivieren Sie die größenbasierte Bereinigung, um sicherzustellen, dass der Abfragespeicher immer im Lese-/ Schreibmodus ausgeführt wird und die neuesten Daten erfasst.  Beachten Sie, dass es bei hohen Arbeitsauslastungen keine Garantie dafür gibt, dass die Bereinigung des Abfragespeichers die Datengröße stets unter dem Grenzwert hält. Es ist möglich, dass die automatische Datenbereinigung in Rückstand gerät und (vorübergehend) in den schreibgeschützten Modus wechselt.
 
 ```sql
 ALTER DATABASE [QueryStoreDB]

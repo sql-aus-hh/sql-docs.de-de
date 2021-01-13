@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 0be62b3c2a63f7b25889e25f88969aa5aaa9b50e
-ms.sourcegitcommit: c127c0752e84cccd38a7e23ac74c0362a40f952e
+ms.openlocfilehash: 6f2feb876d0f232f4d7951de8ee1cc84587e6486
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772237"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771355"
 ---
 # <a name="update-data-sources-with-dataadapters"></a>Aktualisieren von Datenquellen mit DataAdapters
 
@@ -75,7 +75,7 @@ Die folgenden Beispiele zeigen, wie geänderte Zeilen aktualisiert werden könne
 
 ## <a name="autoincrement-columns"></a>AutoIncrement-Spalten
 
-Wenn die Tabellen aus der Datenquelle automatisch inkrementierende Spalten besitzen, können Sie die Spalten im `DataSet` füllen. Geben Sie dazu die automatisch inkrementierenden Werte als Ausgabeparameter einer gespeicherten Prozedur zurück, und ordnen Sie diesen Parameter einer Spalte in einer Tabelle zu, indem Sie den automatisch inkrementierenden Wert in der ersten Zeile eines von einer gespeicherten Prozedur oder einer SQL-Anweisung zurückgegebenen Resultset zurückgeben oder indem Sie das `RowUpdated`-Ereignis des `DataAdapter` verwenden, um eine weitere SELECT-Anweisung auszuführen.
+Wenn die Tabellen aus der Datenquelle automatisch inkrementierende Spalten besitzen, können Sie die Spalten im `DataSet` füllen. Geben Sie dazu die automatisch inkrementierenden Werte als Ausgabeparameter einer gespeicherten Prozedur zurück, und ordnen Sie diesen Parameter einer Spalte in einer Tabelle zu, indem Sie den automatisch inkrementierenden Wert in der ersten Zeile eines von einer gespeicherten Prozedur oder einer SQL-Anweisung zurückgegebenen Resultset zurückgeben oder indem Sie das `RowUpdated`-Ereignis des `DataAdapter` verwenden, um eine weitere SELECT-Anweisung auszuführen. Weitere Informationen und ein Beispiel finden Sie unter [Abrufen von Identity- oder Autonumber-Werten](retrieve-identity-or-autonumber-values.md).
 
 ## <a name="ordering-of-inserts-updates-and-deletes"></a>Sortieren von Einfügungen, Updates und Löschungen
 
@@ -172,4 +172,5 @@ GO
 ## <a name="see-also"></a>Weitere Informationen
 
 - ["DataAdapters" und "DataReaders"](dataadapters-datareaders.md)
+- [Abrufen von Identity- oder Autonumber-Werten](retrieve-identity-or-autonumber-values.md)
 - [Microsoft ADO.NET für SQL Server](microsoft-ado-net-sql-server.md)

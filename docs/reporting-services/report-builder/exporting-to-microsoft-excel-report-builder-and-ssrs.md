@@ -1,7 +1,7 @@
 ---
 title: Exportieren nach Microsoft Excel (Berichts-Generator) | Microsoft-Dokumentation
 description: Im Berichts-Generator rendert die Excel-Renderingerweiterung einen paginierten Bericht im Office Open XML-Format für die Verwendung mit Microsoft Excel.
-ms.date: 01/09/2017
+ms.date: 12/23/2020
 ms.prod: reporting-services
 ms.prod_service: reporting-services-native
 ms.technology: report-builder
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 74f726fc-2167-47af-9093-1644e03ef01f
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 865caa0938aa89feacbb5e330eb38f292039446c
-ms.sourcegitcommit: ff82f3260ff79ed860a7a58f54ff7f0594851e6b
+ms.openlocfilehash: 4e8b43d3e9e772b06961602bf2d8bd69aa51216e
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80342891"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878853"
 ---
 # <a name="exporting-to-microsoft-excel-report-builder-and-ssrs"></a>Exporting to Microsoft Excel (Report Builder and SSRS)
   Die Excel-Renderingerweiterung von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] rendert einen paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Bericht im [!INCLUDE[ofprexcel](../../includes/ofprexcel-md.md)] -Format (XLSX). Mit der Excel-Renderingerweiterung spiegelt die Breite von Spalten in Excel die Breite von Spalten in Berichten genauer wider.  
@@ -47,7 +47,7 @@ ms.locfileid: "80342891"
   
 -   Falls sich das Berichtselement, das steuert, ob ein anderes Element ein- oder ausgeschaltet wird, nicht in der vorherigen bzw. nächsten Zeile oder Spalte des Elements befindet, das ein- oder ausgeschaltet wird, wird die Gliederung ebenfalls deaktiviert.  
   
- Weitere Informationen zu Excel-Beschränkungen finden Sie unter [Spezifikationen und Beschränkungen in Excel](https://support.office.com/article/Excel-specifications-and-limits-CA36E2DC-1F09-4620-B726-67C00B05040F).  
+ Weitere Informationen zu Excel-Beschränkungen finden Sie unter [Spezifikationen und Beschränkungen in Excel](https://support.microsoft.com/en-us/office/excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3).  
   
 ### <a name="sizes-of-excel-2003-xls-files"></a>Größen von Excel 2003-Dateien (XLS)  
   
@@ -194,11 +194,11 @@ ms.locfileid: "80342891"
  Wenn keine Übereinstimmungen gefunden werden, verwendet Excel die Standardseitengröße für den Drucker. Falls die Papierbreite kleiner als die Papierhöhe ist, wird die Ausrichtung auf "Hochformat" festgelegt, andernfalls auf "Querformat".  
   
 ##  <a name="worksheet-tab-names"></a><a name="WorksheetTabNames"></a> Namen von Registern in Arbeitsblättern  
- Wenn Sie einen Bericht nach Excel exportieren, werden die durch Seitenumbruch erstellten Berichtsseiten in andere Arbeitsblätter exportiert. Wenn Sie einen ursprünglichen Seitennamen für den Bericht bereitgestellt haben, erhält jedes Arbeitsblatt der Excel-Arbeitsmappe standardmäßig diesen Namen. Der Name wird auf der Registerkarte des Arbeitsblattes angezeigt. Da jedoch jedes Arbeitsblatt in einer Arbeitsmappe einen eindeutigen Namen haben muss, wird eine ganze Zahl (beginnend bei 1 und jeweils um 1 erhöht) an den ursprünglichen Seitennamen aller zusätzlichen Arbeitsblätter angefügt. Wenn der ursprüngliche Seitenname z. B. **Verkaufbericht nach Geschäftsjahr**ist, würde das zweite Arbeitsblatt **Verkaufbericht nach Geschäftsjahr1**und das dritte Arbeitsblatt **Verkaufbericht nach Geschäftsjahr2**genannt werden.  
+ Wenn Sie einen Bericht nach Excel exportieren, werden die durch Seitenumbruch erstellten Berichtsseiten in andere Arbeitsblätter exportiert. Wenn Sie einen ursprünglichen Seitennamen für den Bericht bereitgestellt haben, erhält jedes Arbeitsblatt der Excel-Arbeitsmappe standardmäßig diesen Namen. Der Name wird auf der Registerkarte des Arbeitsblattes angezeigt. Da jedoch jedes Arbeitsblatt in einer Arbeitsmappe einen eindeutigen Namen haben muss, wird eine ganze Zahl (beginnend bei 1 und jeweils um 1 erhöht) an den ursprünglichen Seitennamen aller zusätzlichen Arbeitsblätter angefügt. Wenn der ursprüngliche Seitenname z. B. **Verkaufbericht nach Geschäftsjahr** ist, würde das zweite Arbeitsblatt **Verkaufbericht nach Geschäftsjahr1** und das dritte Arbeitsblatt **Verkaufbericht nach Geschäftsjahr2** genannt werden.  
   
- Wenn alle mit Seitenumbrüchen erstellte Berichtsseiten neue Seitennamen angeben, erhält auch jedes Arbeitsblatt den entsprechenden Seitennamen. Diese Seitennamen sind jedoch möglicherweise nicht eindeutig. Wenn Seitennamen nicht eindeutig sind, werden die Arbeitsblätter auf die gleiche Weise wie ursprünglichen Seitennamen benannt. Wenn z. B. der Seitenname von zwei Gruppen **Verkäufe für NW**ist, erhält eine Registerkarte des Arbeitsblattes den Namen **Verkäufe für NW**und die andere den Namen **Verkäufe für NW1**.  
+ Wenn alle mit Seitenumbrüchen erstellte Berichtsseiten neue Seitennamen angeben, erhält auch jedes Arbeitsblatt den entsprechenden Seitennamen. Diese Seitennamen sind jedoch möglicherweise nicht eindeutig. Wenn Seitennamen nicht eindeutig sind, werden die Arbeitsblätter auf die gleiche Weise wie ursprünglichen Seitennamen benannt. Wenn z. B. der Seitenname von zwei Gruppen **Verkäufe für NW** ist, erhält eine Registerkarte des Arbeitsblattes den Namen **Verkäufe für NW** und die andere den Namen **Verkäufe für NW1**.  
   
- Wenn der Bericht weder einen ursprünglichen Seitennamen noch auf Seitenumbrüche bezogene Seitennamen angibt, erhalten die Registerkarten des Arbeitsblattes die Standardnamen **Tabelle1**, **Tabelle2**usw.  
+ Wenn der Bericht weder einen ursprünglichen Seitennamen noch auf Seitenumbrüche bezogene Seitennamen angibt, erhalten die Registerkarten des Arbeitsblattes die Standardnamen **Tabelle1**, **Tabelle2** usw.  
   
  Reporting Services stellt Eigenschaften bereit, die für Berichte, Datenbereiche, Gruppen und Rechtecke festgelegt werden können. So können Sie Berichte erstellen, die mit Ihren bevorzugten Einstellungen nach Excel exportiert werden können. Weitere Informationen finden Sie unter [Paginierung in Reporting Services &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/pagination-in-reporting-services-report-builder-and-ssrs.md).  
   
@@ -220,7 +220,7 @@ ms.locfileid: "80342891"
  Excel-Kopf- und -Fußzeilenabschnitte unterstützen einschließlich Markup ein Maximum von 256 Zeichen. Falls diese Grenze überschritten wird, entfernt der Excel-Renderer vom Ende der Zeichenfolge des Seitenkopfs und/oder Seitenfußes her Markupzeichen, um die Anzahl der Zeichen insgesamt zu verringern. Falls alle Markupzeichen entfernt werden und die Länge noch immer über der maximal zulässigen liegt, wird die Zeichenfolge von rechts her abgeschnitten.  
   
 ### <a name="simplepageheader-settings"></a>SimplePageHeader-Einstellungen  
- Standardmäßig wird die Einstellung der Geräteinformationen SimplePageHeaders auf **false**festgelegt. Daher werden die Seitenköpfe im Bericht auf der Excel-Arbeitsblattoberfläche als Zeilen gerendert. Die Arbeitsblattzeilen, die die Kopfzeilen enthalten, werden gesperrte Zeilen. Sie können den Bereich in Excel fixieren oder die Fixierung des Bereichs aufheben. Bei ausgewählter Option **Drucktitel** wird automatisch festgelegt, dass diese Kopfzeilen auf jeder Arbeitsblattseite ausgedruckt werden.  
+ Standardmäßig wird die Einstellung der Geräteinformationen SimplePageHeaders auf **false** festgelegt. Daher werden die Seitenköpfe im Bericht auf der Excel-Arbeitsblattoberfläche als Zeilen gerendert. Die Arbeitsblattzeilen, die die Kopfzeilen enthalten, werden gesperrte Zeilen. Sie können den Bereich in Excel fixieren oder die Fixierung des Bereichs aufheben. Bei ausgewählter Option **Drucktitel** wird automatisch festgelegt, dass diese Kopfzeilen auf jeder Arbeitsblattseite ausgedruckt werden.  
   
  Wenn in Excel die Option **Titel drucken** auf der Registerkarte Seitenlayout ausgewählt ist, wird der Seitenkopf außer auf dem Dokumentstrukturdeckblatt oben auf jedem Arbeitsblatt in der Arbeitsmappe wiederholt. Wenn im Dialogfeld Berichtskopfeigenschaften bzw. Berichtsfußeigenschaften die Option **Auf erster Seite drucken** bzw. **Auf letzter Seite drucken** nicht ausgewählt ist, wird die Kopfzeile nicht zur ersten bzw. letzten Seite hinzugefügt.  
   
@@ -243,13 +243,13 @@ ms.locfileid: "80342891"
 -   Aufgrund einer Einschränkung in Excel können geschachtelte Gliederungen nur bis zu 7 Ebenen aufweisen.  
   
 ### <a name="document-map"></a>Dokumentstruktur  
- Wenn im Bericht Dokumentstrukturbezeichnungen vorhanden sind, wird eine Dokumentstruktur gerendert. Die Dokumentstruktur wird als Excel-Deckarbeitsblatt gerendert, das an der Position der ersten Registerkarte in die Arbeitsmappe eingefügt wird. Das Arbeitsblatt wird **Dokumentstruktur**genannt.  
+ Wenn im Bericht Dokumentstrukturbezeichnungen vorhanden sind, wird eine Dokumentstruktur gerendert. Die Dokumentstruktur wird als Excel-Deckarbeitsblatt gerendert, das an der Position der ersten Registerkarte in die Arbeitsmappe eingefügt wird. Das Arbeitsblatt wird **Dokumentstruktur** genannt.  
   
  Der in der Dokumentstruktur angezeigte Text wird von der DocumentMapLabel-Eigenschaft des Berichtselements oder der Gruppe bestimmt. Dokumentstrukturbezeichnungen werden in der Reihenfolge aufgeführt, in der sie, angefangen bei der ersten Zeile, in der ersten Spalte im Bericht auftreten. Jede Dokumentstruktur-Bezeichnungszelle wird um die Anzahl der Ebenen eingerückt, an der sie im Bericht auftritt. Jede Einzugsebene wird dargestellt, indem die Bezeichnung in einer nachfolgenden Spalte einfügt wird. Excel unterstützt bis zu 256 Ebenen der Gliederungsschachtelung.  
   
  Die Dokumentstrukturgliederung wird als reduzierbare Excel-Gliederung gerendert. Die Gliederungsstruktur stimmt mit der geschachtelten Struktur der Dokumentstruktur überein. Die Gliederung kann ab der zweiten Ebene erweitert und reduziert werden.  
   
- Der Stammknoten der Struktur entspricht dem Berichtsnamen (\<*Berichtsname*>.rdl), der nicht interaktiv ist. Die Schriftart des Dokumentstrukturlinks ist Arial, 10pt.  
+ Der Stammknoten der Struktur entspricht dem Berichtsnamen (\<*reportname*>.rdl), der nicht interaktiv ist. Die Schriftart des Dokumentstrukturlinks ist Arial, 10pt.  
   
 ### <a name="drillthrough-links"></a>Drillthroughlinks  
  In Textfeldern enthaltene Drillthroughlinks werden in der Zelle als Excel-Hyperlinks gerendert, in die der Text gerendert wird. Drillthroughlinks für Bilder und Diagramme werden beim Rendern als Excel-Hyperlinks auf dem Bild gerendert. Beim Klicken auf den Drillthroughlink wird der Standardbrowser des Clients geöffnet und zur HTML-Ansicht des Ziels navigiert.  
