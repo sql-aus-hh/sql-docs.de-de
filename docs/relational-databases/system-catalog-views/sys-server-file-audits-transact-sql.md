@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 553288a0-be57-4d79-ae53-b7cbd065e127
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: aa516146c4db55cbfcb3b3f3817cdcf9d11216be
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: b72b618559f02fed01e1760168f72ea4a12065ae
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98096714"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151287"
 ---
 # <a name="sysserver_file_audits-transact-sql"></a>sys.server_file_audits (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "98096714"
 |create_date|**datetime**|Das UTC-Datum, an dem die Dateiüberwachung erstellt wurde.|  
 |modify_date|**DataTime**|Das UTC-Datum, an dem die Dateiüberwachung zuletzt geändert wurde.|  
 |principal_id|**int**|Die ID des Besitzers der Überwachung, wie sie auf dem Server registriert wurde.|  
-|type|**char(2)**|Überwachungstyp:<br /><br /> 0 = NT-Sicherheitsereignisprotokoll<br /><br /> 1 = NT-Anwendungsereignisprotokoll<br /><br /> 2 = Datei auf Dateisystem|  
+|type|**char(2)**|Überwachungstyp:<br /><br /> SL = NT-Sicherheits Ereignisprotokoll<br /><br /> Al = NT-Anwendungs Ereignisprotokoll<br /><br /> FL = Datei im Dateisystem|  
 |type_desc|**nvarchar(60)**|Beschreibung des Überwachungstyps.|  
 |on_failure|**tinyint**|Bei Fehlerbedingung:<br /><br /> 0 = Weiter<br /><br /> 1 = Serverinstanz herunterfahren<br /><br /> 2 = Fehler bei Vorgang|  
 |on_failure_desc|**nvarchar(60)**|Bei einem Fehler schreiben Sie folgendermaßen einen Aktionseintrag:<br /><br /> CONTINUE<br /><br /> SHUTDOWN SERVER INSTANCE<br /><br /> FAIL OPERATION|  
