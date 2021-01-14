@@ -1,6 +1,6 @@
 ---
-description: sys. dm_exec_valid_use_hints (Transact-SQL)
-title: sys. dm_exec_valid_use_hints (Transact-SQL) | Microsoft-Dokumentation
+description: sys.dm_exec_valid_use_hints (Transact-SQL)
+title: sys.dm_exec_valid_use_hints (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 11/17/2016
 ms.prod: sql
@@ -19,14 +19,14 @@ helpviewer_keywords:
 ms.assetid: 65d50589-39c2-4046-92b6-0c4587d8c593
 author: pmasl
 ms.author: pelopes
-ms.openlocfilehash: f05b4e01f06c354d461b1455e499c83a13d2d76c
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: de99c9372846525349df3f9f312222e322bfe751
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88489907"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171392"
 ---
-# <a name="sysdm_exec_valid_use_hints-transact-sql"></a>sys. dm_exec_valid_use_hints (Transact-SQL)
+# <a name="sysdm_exec_valid_use_hints-transact-sql"></a>sys.dm_exec_valid_use_hints (Transact-SQL)
 [!INCLUDE [sqlserver2016](../../includes/applies-to-version/sqlserver2016.md)]
 
 Gibt [use Hint](../../t-sql/queries/hints-transact-sql-query.md#use_hint) -unterstützte Hinweis Namen zurück. Sie listet einen Hinweis Namen pro Zeile auf.  
@@ -39,7 +39,7 @@ Verwenden Sie diese DMV, um die Liste aller unterstützten Hinweise unter der us
 
 Beschreibungen der einzelnen Hinweise finden Sie unter [Abfrage Hinweise](../../t-sql/queries/hints-transact-sql-query.md#use_hint) .
 
-Eingeführt in [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1.
+Eingeführt in [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1.
   
 ## <a name="see-also"></a>Weitere Informationen  
     

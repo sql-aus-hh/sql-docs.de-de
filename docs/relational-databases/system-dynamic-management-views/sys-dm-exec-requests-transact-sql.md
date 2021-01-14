@@ -21,12 +21,12 @@ author: pmasl
 ms.author: pelopes
 ms.reviewer: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f1c9ac32f202766e118f7e44d3cf7c0d7fafdb6a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a1ad13d4cdbcf8820a318a87f4ef9f52c488a406
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97482801"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171262"
 ---
 # <a name="sysdm_exec_requests-transact-sql"></a>sys.dm_exec_requests (Transact-SQL)
 
@@ -40,7 +40,7 @@ Gibt Informationen zu jeder Anforderung zurück, die in ausgeführt wird [!INCLU
 |request_id|**int**|ID der Anforderung. Ist im Kontext der Sitzung eindeutig. Lässt keine NULL-Werte zu.|  
 |start_time|**datetime**|Der Zeitstempel, der angibt, wann die Anforderung eingetroffen ist. Lässt keine NULL-Werte zu.|  
 |status|**nvarchar(30)**|Status der Anforderung. Folgende Möglichkeiten stehen zur Auswahl:<br /><br /> Hintergrund<br />Wird ausgeführt<br />Ausführbar<br />Ruhezustand<br />Ausgesetzt<br /><br /> Lässt keine NULL-Werte zu.|  
-|command|**nvarchar(32)**|Identifiziert den aktuellen Typ des Befehls, der gerade verarbeitet wird. Als allgemeine Befehlstypen sind die folgenden möglich:<br /><br /> SELECT<br />INSERT<br />UPDATE<br />Delete<br />BACKUP LOG<br />BACKUP DATABASE<br />DBCC<br />FOR<br /><br /> Der Text der Anforderung kann mithilfe von sys.dm_exec_sql_text und dem entsprechenden sql_handle-Wert für die Anforderung abgerufen werden. Interne Systemprozesse legen den Befehl je nach Typ des ausgeführten Tasks fest. Mögliche Tasks sind z. B. die folgenden:<br /><br /> LOCK MONITOR<br />CHECKPOINTLAZY<br />WRITER<br /><br /> Lässt keine NULL-Werte zu.|  
+|-Befehl.|**nvarchar(32)**|Identifiziert den aktuellen Typ des Befehls, der gerade verarbeitet wird. Als allgemeine Befehlstypen sind die folgenden möglich:<br /><br /> SELECT<br />INSERT<br />UPDATE<br />Delete<br />BACKUP LOG<br />BACKUP DATABASE<br />DBCC<br />FOR<br /><br /> Der Text der Anforderung kann mithilfe von sys.dm_exec_sql_text und dem entsprechenden sql_handle-Wert für die Anforderung abgerufen werden. Interne Systemprozesse legen den Befehl je nach Typ des ausgeführten Tasks fest. Mögliche Tasks sind z. B. die folgenden:<br /><br /> LOCK MONITOR<br />CHECKPOINTLAZY<br />WRITER<br /><br /> Lässt keine NULL-Werte zu.|  
 |sql_handle|**varbinary(64)**|Ein Token, das den Batch oder die gespeicherte Prozedur eindeutig identifiziert, zu der die Abfrage gehört. Lässt NULL-Werte zu.| 
 |statement_start_offset|**int**|Gibt die Anfangsposition der aktuell ausgeführten Anweisung für den aktuell ausgeführten Batch oder das beibehaltene Objekt in Bytes an, beginnend mit 0 (null). Kann in Verbindung mit dem `sql_handle` , der `statement_end_offset` und der `sys.dm_exec_sql_text` dynamischen Verwaltungsfunktion verwendet werden, um die derzeit ausgeführte Anweisung für die Anforderung abzurufen. Lässt NULL-Werte zu.|  
 |statement_end_offset|**int**|Gibt die Endposition der aktuell ausgeführten Anweisung für den aktuell ausgeführten Batch oder das beibehaltene Objekt in Bytes an, beginnend mit 0 (null). Kann in Verbindung mit dem `sql_handle` , der `statement_start_offset` und der `sys.dm_exec_sql_text` dynamischen Verwaltungsfunktion verwendet werden, um die derzeit ausgeführte Anweisung für die Anforderung abzurufen. Lässt NULL-Werte zu.|  
@@ -91,15 +91,15 @@ Gibt Informationen zu jeder Anforderung zurück, die in ausgeführt wird [!INCLU
 |query_plan_hash|**Binär (8)**|Binärer Hashwert, der im Abfrageausführungsplan wird und zum Identifizieren ähnlicher Abfrageausführungspläne verwendet wird. Sie können diesen Abfrageplan-Hashwert verwenden, um die kumulierten Kosten für Abfragen mit ähnlichen Ausführungsplänen zu suchen.|  
 |statement_sql_handle|**varbinary(64)**|**Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.<br /><br /> SQL-Handle der einzelnen Abfrage.<br /><br />Diese Spalte ist NULL, wenn Abfragespeicher nicht für die Datenbank aktiviert ist. |  
 |statement_context_id|**bigint**|**Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.<br /><br /> Der optionale Fremdschlüssel, der sys.query_context_settings werden soll.<br /><br />Diese Spalte ist NULL, wenn Abfragespeicher nicht für die Datenbank aktiviert ist. |  
-|dop |**int** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher.<br /><br /> Der Grad der Parallelität der Abfrage. |  
-|parallel_worker_count |**int** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher.<br /><br /> Die Anzahl der reservierten parallelen worker, wenn dies eine parallele Abfrage ist.  |  
-|external_script_request_id |**uniqueidentifier** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher.<br /><br /> Die externe Skript Anforderungs-ID, die der aktuellen Anforderung zugeordnet ist. |  
+|dop |**int** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher.<br /><br /> Der Grad der Parallelität der Abfrage. |  
+|parallel_worker_count |**int** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher.<br /><br /> Die Anzahl der reservierten parallelen worker, wenn dies eine parallele Abfrage ist.  |  
+|external_script_request_id |**uniqueidentifier** |**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher.<br /><br /> Die externe Skript Anforderungs-ID, die der aktuellen Anforderung zugeordnet ist. |  
 |is_resumable |**bit** |**Gilt für**:  [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] und höher.<br /><br /> Gibt an, ob die Anforderung ein fort Setz barer Index Vorgang ist. |  
 |page_resource |**Binär (8)** |**Gilt für:** [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]<br /><br /> Eine 8-Byte-hexadezimale Darstellung der Seiten Ressource, wenn die `wait_resource` Spalte eine Seite enthält. Weitere Informationen finden Sie unter [sys.fn_PageResCracker](../../relational-databases/system-functions/sys-fn-pagerescracker-transact-sql.md). |  
 |page_server_reads|**bigint**|**Gilt für**: hyperskalierung von Azure SQL-Datenbank<br /><br /> Anzahl von Seiten Server Lesevorgängen, die von dieser Anforderung ausgeführt werden. Lässt keine NULL-Werte zu.|  
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="remarks"></a>Hinweise 
+## <a name="remarks"></a>Bemerkungen 
 Für die Ausführung von Code außerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. erweiterte gespeicherte Prozeduren und verteilte Abfragen) muss ein Thread außerhalb der Steuerung des nicht präemptiven Zeitplanungsmoduls ausgeführt werden. Dazu wechselt ein Arbeitsthread in den präemptiven Modus. Zeitwerte, die von dieser dynamischen Verwaltungssicht zurückgegeben werden, schließen nicht die im präemptiven Modus verbrachte Zeit ein.
 
 Beim Ausführen paralleler Anforderungen im [Zeilen Modus](../../relational-databases/query-processing-architecture-guide.md#row-mode-execution) [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] weist einen Arbeits Thread zu, um die Arbeitsthreads zu koordinieren, die für das Abschließen der zugewiesenen Aufgaben zuständig sind. In dieser DMV ist nur der koordinatorthread für die Anforderung sichtbar. Die Spalten **Lese**-, **Schreib**-, **logical_reads**-und **row_count** werden für den koordinatorthread **nicht aktualisiert** . Die Spalten **wait_type**, **wait_time**, **last_wait_type**, **wait_resource** und **granted_query_memory** werden nur für den koordinatorthread **aktualisiert** . Weitere Informationen finden Sie im [Handbuch zur Thread- und Taskarchitektur](../../relational-databases/thread-and-task-architecture-guide.md).

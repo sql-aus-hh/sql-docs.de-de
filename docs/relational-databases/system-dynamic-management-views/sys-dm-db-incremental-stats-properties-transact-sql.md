@@ -19,19 +19,19 @@ helpviewer_keywords:
 ms.assetid: aa0db893-34d1-419c-b008-224852e71307
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: b11acf31ca9f20aaf70acbe530106e58ca787439
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 27585efd99f537e6b2f6d3082c341533e8bbea3b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094136"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172092"
 ---
 # <a name="sysdm_db_incremental_stats_properties-transact-sql"></a>sys.dm_db_incremental_stats_properties (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
 
   Gibt inkrementelle Statistikeigenschaften für das angegebene Datenbankobjekt (Tabelle) in der aktuellen [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbank zurück. Die Verwendung von `sys.dm_db_incremental_stats_properties` (enthält eine Partitionsnummer) ähnelt der von `sys.dm_db_stats_properties` , das für nicht inkrementelle Statistiken verwendet wird. 
   
-  Diese Funktion wurde in [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)] Service Pack 2 und [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] Service Pack 1 eingeführt.
+  Diese Funktion wurde in [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)] Service Pack 2 und [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] Service Pack 1 eingeführt.
   
 ## <a name="syntax"></a>Syntax  
   
@@ -48,7 +48,7 @@ sys.dm_db_incremental_stats_properties (object_id, stats_id)
   
 ## <a name="table-returned"></a>Zurückgegebene Tabelle  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |object_id|**int**|ID des Objekts (Tabelle), für das die Eigenschaften des Statistikobjekts zurückgegeben werden sollen.|  
 |stats_id|**int**|Die ID des Statistikobjekts. Ist eindeutig innerhalb der Tabelle. Weitere Informationen finden Sie unter [sys.stats &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-stats-transact-sql.md).|

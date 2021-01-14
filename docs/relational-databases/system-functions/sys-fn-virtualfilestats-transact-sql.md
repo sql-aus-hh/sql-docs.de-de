@@ -22,12 +22,12 @@ ms.assetid: 96b28abb-b059-48db-be2b-d60fe127f6aa
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 21ebb356139cf33f87a4e3da84a5004bd7405ae9
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 4c49575ef666cf35c26dd4e924cbb75b17cb9c4e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98096373"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170142"
 ---
 # <a name="sysfn_virtualfilestats-transact-sql"></a>sys.fn_virtualfilestats (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -56,7 +56,7 @@ fn_virtualfilestats ( { database_id | NULL } , { file_id | NULL } )
 |-----------------|---------------|-----------------|  
 |**DbId**|**smallint**|Datenbank-ID|  
 |**FileId**|**smallint**|Die Datei-ID|  
-|**Zeitstempel**|**bigint**|Datenbanktimestamp für den Zeitpunkt, zu dem die Daten erhoben wurden **int** in Versionen vor [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] . |  
+|**Zeitstempel**|**bigint**|Datenbanktimestamp für den Zeitpunkt, zu dem die Daten erhoben wurden **int** in Versionen vor [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] . |  
 |**NumberReads**|**bigint**|Die Anzahl der Lesevorgänge, die für die Datei ausgegeben wurden.|  
 |**BytesRead**|**bigint**|Anzahl der Bytes, die aus der Datei gelesen wurden|  
 |**IoStallReadMS**|**bigint**|Gesamtzeit in Millisekunden, die die Benutzer darauf gewartet haben, dass E/A-Leseoperationen für die Datei abgeschlossen wurden|  

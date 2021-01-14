@@ -21,12 +21,12 @@ ms.assetid: c768b67c-82a4-47f5-850b-0ea282358d50
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: b4cbcefbe3249a06e0f49fff5f0abe43010e9a54
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 4409ba73ba7231f674ac60f3ed63b06b6c454fa7
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101481"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170642"
 ---
 # <a name="sysdm_os_nodes-transact-sql"></a>sys.dm_os_nodes (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -34,14 +34,14 @@ ms.locfileid: "98101481"
 Eine interne Komponente mit der Bezeichnung SQLOS erstellt Knotenstrukturen, die die Lage des Hardwareprozessors imitieren. Diese Strukturen können mithilfe von [Soft-NUMA](../../database-engine/configure-windows/soft-numa-sql-server.md) geändert werden, um benutzerdefinierte Knoten Layouts zu erstellen.  
 
 > [!NOTE]
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] wird von automatisch Soft-NUMA für bestimmte Hardware Konfigurationen verwendet. Weitere Informationen finden Sie unter [Automatische Soft-NUMA](../../database-engine/configure-windows/soft-numa-sql-server.md#automatic-soft-numa).
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] wird von automatisch Soft-NUMA für bestimmte Hardware Konfigurationen verwendet. Weitere Informationen finden Sie unter [Automatische Soft-NUMA](../../database-engine/configure-windows/soft-numa-sql-server.md#automatic-soft-numa).
   
 Die folgende Tabelle enthält Informationen zu diesen Knoten.  
   
 > [!NOTE]
 > Um diese DMV von oder aus aufzurufen [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , verwenden Sie den Namen **sys.dm_pdw_nodes_os_nodes**.  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |node_id|**smallint**|ID des Knotens.|  
 |node_state_desc|**nvarchar(256)**|Beschreibung des Knotenzustands. Die Werte werden zuerst mit den sich gegenseitig ausschließenden Werten angezeigt, gefolgt von den kombinierbaren Werten. Beispiel:<br /> Online, Thread Resources Low, Lazy Preemptive<br /><br />Es gibt vier sich gegenseitig ausschließende node_state_desc-Werte. Sie sind unten mit ihren Beschreibungen aufgeführt.<br /><ul><li>Online: Knoten ist online.<li>Offline: Knoten ist offline.<li>Im Leerlauf: der Knoten verfügt über keine ausstehenden Arbeitsanforderungen und befindet sich in einem Leerlaufzustand.<li>IDLE_READY: der Knoten verfügt über keine ausstehenden Arbeitsanforderungen und kann in den Leerlauf versetzt werden.</li></ul><br />Es gibt drei kombinierbare node_state_desc Werte, die unten mit ihren Beschreibungen aufgeführt sind.<br /><ul><li>DAC: dieser Knoten ist für die [dedizierte administrative Verbindung](../../database-engine/configure-windows/diagnostic-connection-for-database-administrators.md)reserviert.<li>THREAD_RESOURCES_LOW: auf diesem Knoten können keine neuen Threads erstellt werden, weil nicht genügend Arbeitsspeicher verfügbar ist.<li>Hot Added: gibt an, dass die Knoten als Reaktion auf ein Hot Add CPU-Ereignis hinzugefügt wurden.</li></ul>|  

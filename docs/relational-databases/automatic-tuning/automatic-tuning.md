@@ -18,12 +18,12 @@ ms.assetid: ''
 author: jovanpop-msft
 ms.author: jovanpop
 monikerRange: =azuresqldb-current||>=sql-server-2017||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 57a595a2bcb78d86c3a770db6b584974c229a0df
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 9c01a9e02576d666c39df13dc6e7e01f6d622a7d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97483652"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169872"
 ---
 # <a name="automatic-tuning"></a>Automatische Optimierung
 [!INCLUDE[sqlserver2017-asdb](../../includes/applies-to-version/sqlserver2017-asdb.md)]
@@ -99,9 +99,9 @@ Ohne automatische Optimierung müssen Benutzer das System in regelmäßigen Abst
 
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] bietet alle notwendigen Sichten und Prozeduren, die zur Überwachung der Leistung und Behebung von Problemen in Abfragespeicher erforderlich sind.
 
-In [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] können Sie mit Abfragespeicher System Sichten Plan Auswahl Regressionen suchen. Ab [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] [!INCLUDE[ssde_md](../../includes/ssde_md.md)] erkennt und zeigt mögliche Regressionen der Plan Auswahl und die empfohlenen Aktionen an, die im [sys.dm_db_tuning_recommendations &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md) -DMV angewendet werden sollten. Die DMV zeigt Informationen über das Problem, die Wichtigkeit des Problems und Details wie z. b. die identifizierte Abfrage, die ID des zurück gestellten Plans, die ID des Plans, der als Baseline für den Vergleich verwendet wurde, und die Anweisung, die [!INCLUDE[tsql_md](../../includes/tsql-md.md)] ausgeführt werden kann, um das Problem zu beheben.
+In [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] können Sie mit Abfragespeicher System Sichten Plan Auswahl Regressionen suchen. Ab [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] [!INCLUDE[ssde_md](../../includes/ssde_md.md)] erkennt und zeigt mögliche Regressionen der Plan Auswahl und die empfohlenen Aktionen an, die im [sys.dm_db_tuning_recommendations &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md) -DMV angewendet werden sollten. Die DMV zeigt Informationen über das Problem, die Wichtigkeit des Problems und Details wie z. b. die identifizierte Abfrage, die ID des zurück gestellten Plans, die ID des Plans, der als Baseline für den Vergleich verwendet wurde, und die Anweisung, die [!INCLUDE[tsql_md](../../includes/tsql-md.md)] ausgeführt werden kann, um das Problem zu beheben.
 
-| Typ | description | datetime | Ergebnis Ihrer App | Details | ... |
+| Typ | Beschreibung | datetime | Ergebnis Ihrer App | Details | ... |
 | --- | --- | --- | --- | --- | --- |
 | `FORCE_LAST_GOOD_PLAN` | Die CPU-Zeit wurde von 4 ms auf 14 ms geändert. | 3/17/2017 | 83 | `queryId` `recommendedPlanId` `regressedPlanId` `T-SQL` |   |
 | `FORCE_LAST_GOOD_PLAN` | Die CPU-Zeit wurde von 37 MS auf 84 MS geändert. | 16.3.2017 | 26 | `queryId` `recommendedPlanId` `regressedPlanId` `T-SQL` |   |
@@ -138,7 +138,7 @@ CROSS APPLY OPENJSON (Details, '$.planForceDetails')
 
 [!INCLUDE[ssresult-md](../../includes/ssresult-md.md)]     
 
-| reason | Ergebnis Ihrer App | script | Abfrage- \_ ID | ID des aktuellen Plans \_ | Empfohlene Plan- \_ ID | Geschätzter \_ Gewinn | Fehler \_ anfällig
+| reason | Ergebnis Ihrer App | Skript | Abfrage- \_ ID | ID des aktuellen Plans \_ | Empfohlene Plan- \_ ID | Geschätzter \_ Gewinn | Fehler \_ anfällig
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Die CPU-Zeit wurde von 3 MS in 46 MS geändert. | 36 | Exec SP \_ Query \_ Store \_ Force \_ Plan 12, 17; | 12 | 28 | 17 | 11,59 | 0
 

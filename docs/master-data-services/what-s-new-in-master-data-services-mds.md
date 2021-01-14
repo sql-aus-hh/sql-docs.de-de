@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: ad530f60-d480-4457-ba7a-93a10c8a1695
 author: lrtoyou1223
 ms.author: lle
-ms.openlocfilehash: 1aa72c49e5862621da193d4e4a400813c7cd0d91
-ms.sourcegitcommit: 827ad02375793090fa8fee63cc372d130f11393f
+ms.openlocfilehash: 7e731d14967d808aa57f3fa0e001e5e593238ffd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89480579"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170432"
 ---
 # <a name="what39s-new-in-master-data-services-mds"></a>Neues in Master Data Services (MDS)
 
@@ -30,7 +30,7 @@ ms.locfileid: "89480579"
   
  **Download**  
   
--   Navigieren Sie zum Herunterladen von [!INCLUDE[ssSQL15](../includes/sssql15-md.md)]zum  **[Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)** .  
+-   Navigieren Sie zum Herunterladen von [!INCLUDE[ssSQL15](../includes/sssql16-md.md)]zum  **[Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)** .  
   
 -   Sie haben ein Azure-Konto?  Wechseln Sie anschließend **[hierhin](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview)** , um einen virtuellen Computer zu starten, auf dem [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)] bereits installiert ist.  
   
@@ -81,7 +81,7 @@ ms.locfileid: "89480579"
   
  In dieser Version von [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] werden durch die Einführung der folgenden neuen Berechtigungen mehr Berechtigungsstufen bereitgestellt: Lesen, Erstellen, Aktualisieren und Löschen. Beispielsweise kann jetzt ein Benutzer, der nur über die Berechtigung „Aktualisieren“ verfügt, die Masterdaten aktualisieren, ohne Daten zu erstellen oder zu löschen. Wenn Sie einem Benutzer die Berechtigung „Erstellen“, „Aktualisieren“ oder „Löschen“ erteilen, erhält er auch automatisch die Berechtigung „Lesen“. Die Berechtigungen „Lesen“, „Erstellen“, „Aktualisieren“ und „Löschen“ können auch kombiniert werden.  
   
- Wenn Sie ein Upgrade auf [!INCLUDE[ssSQL15](../includes/sssql15-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]durchführen, werden alte Berechtigungen in neue Berechtigungen konvertiert, wie in der folgenden Tabelle veranschaulicht.  
+ Wenn Sie ein Upgrade auf [!INCLUDE[ssSQL15](../includes/sssql16-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]durchführen, werden alte Berechtigungen in neue Berechtigungen konvertiert, wie in der folgenden Tabelle veranschaulicht.  
   
 |Berechtigung in der vorherigen Version|Neue Berechtigung|  
 |------------------------------------|--------------------|  
@@ -113,7 +113,7 @@ ms.locfileid: "89480579"
   
 ## <a name="improved-troubleshooting"></a>Verbesserte Problembehandlung  
   
- In [!INCLUDE[ssSQL15](../includes/sssql15-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]wurden Funktionen hinzugefügt, um das Debugging zu verbessern und die Problembehandlung zu vereinfachen. Weitere Informationen finden Sie unter [Ablaufverfolgung &#40;Master Data Services&#41;](../master-data-services/tracing-master-data-services.md).  
+ In [!INCLUDE[ssSQL15](../includes/sssql16-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]wurden Funktionen hinzugefügt, um das Debugging zu verbessern und die Problembehandlung zu vereinfachen. Weitere Informationen finden Sie unter [Ablaufverfolgung &#40;Master Data Services&#41;](../master-data-services/tracing-master-data-services.md).  
   
 ## <a name="improved-manageability"></a>Verbesserte Verwaltbarkeit  
   

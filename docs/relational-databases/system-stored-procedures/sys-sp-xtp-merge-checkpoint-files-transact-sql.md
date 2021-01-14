@@ -1,6 +1,6 @@
 ---
 description: sys.sp_xtp_merge_checkpoint_files (Transact-SQL)
-title: sys. sp_xtp_merge_checkpoint_files (Transact-SQL) | Microsoft-Dokumentation
+title: sys.sp_xtp_merge_checkpoint_files (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
 ms.date: 11/28/2016
 ms.prod: sql
@@ -18,25 +18,25 @@ helpviewer_keywords:
 ms.assetid: da04df2a-f7a1-41e7-a1ef-2d5d68919892
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 9bd8cf3735ecc240a0d99929fc0ef1c40d931887
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+ms.openlocfilehash: 16cf2326ad9b732d2d01f75a14ccb9026111803f
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89541051"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168035"
 ---
 # <a name="syssp_xtp_merge_checkpoint_files-transact-sql"></a>sys.sp_xtp_merge_checkpoint_files (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
 
-  **sys. sp_xtp_merge_checkpoint_files** führt alle Daten-und Änderungs Dateien im angegebenen Transaktions Bereich zusammen.  
+  **sys.sp_xtp_merge_checkpoint_files** führt alle Daten-und Änderungs Dateien im angegebenen Transaktions Bereich zusammen.  
   
- Weitere Informationen finden Sie unter [Erstellen und Verwalten von Speicher für Speicher optimierte Objekte](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md).  
+ Weitere Informationen finden Sie unter [Erstellen und Verwalten von Speicher für Memory-Optimized Objekte](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md).  
   
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ||  
 |-|  
-|**Hinweis**: Diese gespeicherte Prozedur ist in veraltet [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] . Er wird nicht mehr benötigt und kann nicht verwendet werden, da er gestartet wird [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .|  
+|**Hinweis**: Diese gespeicherte Prozedur ist in veraltet [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] . Er wird nicht mehr benötigt und kann nicht verwendet werden, da er gestartet wird [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .|  
   
 ## <a name="syntax"></a>Syntax  
   
@@ -51,10 +51,10 @@ sys.sp_xtp_merge_checkpoint_files database_name, @transaction_lower_bound, @tran
  Der Name der Datenbank, für die die Zusammenführung aufgerufen werden soll. Wenn die Datenbank keine Tabellen im Arbeitsspeicher aufweist, gibt diese Prozedur einen Benutzerfehler zurück. Falls die Datenbank offline ist, wird ein Fehler zurückgegeben.  
   
  *lower_bound_Tid*  
- Die (BIGINT) untere Grenze von Transaktionen für eine Datendatei, wie in [sys. dm_db_xtp_checkpoint_files &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md) entsprechend der Start Prüf Punkt Datei der Zusammenführung angezeigt. Bei einem ungültigen transactionId-Wert wird ein Fehler generiert.  
+ Die (BIGINT) untere Grenze von Transaktionen für eine Datendatei, wie in [sys.dm_db_xtp_checkpoint_files &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md) entsprechend der Start Prüf Punkt Datei des Merge angezeigt. Bei einem ungültigen transactionId-Wert wird ein Fehler generiert.  
   
  *upper_bound_Tid*  
- Die obere Grenze (BIGINT) von Transaktionen für eine Datendatei, wie in [sys. dm_db_xtp_checkpoint_files &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md)gezeigt. Bei einem ungültigen transactionId-Wert wird ein Fehler generiert.  
+ Die obere Grenze (BIGINT) von Transaktionen für eine Datendatei, wie in [sys.dm_db_xtp_checkpoint_files &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md)gezeigt. Bei einem ungültigen transactionId-Wert wird ein Fehler generiert.  
   
 ## <a name="return-code-values"></a>Rückgabecodewerte  
  Keine  
@@ -65,7 +65,7 @@ sys.sp_xtp_merge_checkpoint_files database_name, @transaction_lower_bound, @tran
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die feste Serverrolle sysadmin und die feste Datenbankrolle db_owner.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
  Führt alle Daten und Änderungsdateien innerhalb des gültigen Bereichs zusammen, um eine einzelne Daten- und Änderungsdatei zu erstellen. Die Mergerichtlinie wird von dieser Prozedur nicht berücksichtigt.  
   
 ## <a name="see-also"></a>Weitere Informationen  

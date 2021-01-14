@@ -21,12 +21,12 @@ ms.assetid: f63c4914-1272-43ef-b135-fe1aabd953e0
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3b38844c891edaf9a7592a2dd573c86cc5fa1fcb
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 2db4a28a9199cc090f18cc1f79d8e755c621c7fd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097546"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172142"
 ---
 # <a name="sysdm_resource_governor_workload_groups-transact-sql"></a>sys.dm_resource_governor_workload_groups (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -36,12 +36,12 @@ ms.locfileid: "98097546"
 > [!NOTE]  
 >  Um dies von oder aus aufzurufen [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , verwenden Sie den Namen **sys.dm_pdw_nodes_resource_governor_workload_groups**.  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |group_id|**int**|ID der Arbeitsauslastungsgruppe. Lässt keine NULL-Werte zu.|  
 |name|**sysname**|Name der Arbeitsauslastungsgruppe. Lässt keine NULL-Werte zu.|  
 |pool_id|**int**|ID des Ressourcenpools. Lässt keine NULL-Werte zu.|  
-|external_pool_id|**int**|**Gilt für**: ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .<br /><br /> ID des externen Ressourcenpools. Lässt keine NULL-Werte zu.|  
+|external_pool_id|**int**|**Gilt für**: ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .<br /><br /> ID des externen Ressourcenpools. Lässt keine NULL-Werte zu.|  
 |statistics_start_time|**datetime**|Uhrzeit, zu der die Statistikauflistung für die Arbeitsauslastungsgruppe zurückgesetzt wurde. Lässt keine NULL-Werte zu.|  
 |total_request_count|**bigint**|Kumulierte Anzahl vervollständigter Anforderungen in der Arbeitsauslastungsgruppe. Lässt keine NULL-Werte zu.|  
 |total_queued_request_count|**bigint**|Kumulierte Anzahl von Anforderungen, die in die Warteschlange gestellt wurden, nachdem die GROUP_MAX_REQUESTS-Grenze erreicht wurde. Lässt keine NULL-Werte zu.|  
@@ -65,7 +65,7 @@ ms.locfileid: "98097546"
 |group_max_requests|**int**|Aktuelle Einstellung für die maximale Anzahl gleichzeitiger Anforderungen. Lässt keine NULL-Werte zu.|  
 |max_dop|**int**|Der maximale Grad an Parallelität für die Arbeits Auslastungs Gruppe wurde konfiguriert. Der Standardwert 0 verwendet globale Einstellungen. Lässt keine NULL-Werte zu.| 
 |effective_max_dop|**int**|**Gilt für**: ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] .<br /><br />Effektiver maximaler Grad an Parallelität für die Arbeits Auslastungs Gruppe. Lässt keine NULL-Werte zu.| 
-|total_cpu_usage_preemptive_ms|**bigint**|**Gilt für**: ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .<br /><br />Gesamte CPU-Zeit, die bei der Planung des präemptiven Modus für die Arbeits Auslastungs Gruppe in MS gemessen wird. Lässt keine NULL-Werte zu.<br /><br />Für die Ausführung von Code außerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. erweiterte gespeicherte Prozeduren und verteilte Abfragen) muss ein Thread außerhalb der Steuerung des nicht präemptiven Zeitplanungsmoduls ausgeführt werden. Dazu wechselt ein Arbeitsthread in den präemptiven Modus.| 
+|total_cpu_usage_preemptive_ms|**bigint**|**Gilt für**: ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .<br /><br />Gesamte CPU-Zeit, die bei der Planung des präemptiven Modus für die Arbeits Auslastungs Gruppe in MS gemessen wird. Lässt keine NULL-Werte zu.<br /><br />Für die Ausführung von Code außerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. erweiterte gespeicherte Prozeduren und verteilte Abfragen) muss ein Thread außerhalb der Steuerung des nicht präemptiven Zeitplanungsmoduls ausgeführt werden. Dazu wechselt ein Arbeitsthread in den präemptiven Modus.| 
 |request_max_memory_grant_percent_numeric|**float**|**Gilt für**: ab [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] .<br /><br />Aktuelle Einstellung der maximalen Arbeitsspeicherzuweisung in Prozent für eine einzelne Anforderung. Lässt keine NULL-Werte zu.| 
 |pdw_node_id|**int**|**Gilt für**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] , [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> Der Bezeichner für den Knoten, auf dem sich diese Distribution befindet.|  
   

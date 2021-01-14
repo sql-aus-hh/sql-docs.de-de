@@ -21,12 +21,12 @@ ms.assetid: 323ac9ea-fc52-4b8c-8a7e-e0e44f8ed86c
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: bf45b9d2c8293b0a7788b8f8690bf24886433681
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: e73ce211ddc5dfd0ee78835e60402b1e166f370a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98091621"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172292"
 ---
 # <a name="syscolumns-transact-sql"></a>sys.columns (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "98091621"
   
 -   Sichten (V)  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |object_id|**int**|Die ID des Objekts, zu dem diese Spalte gehört.|  
 |name|**sysname**|Name der Spalte. Ist eindeutig innerhalb des Objekts.|  
@@ -74,13 +74,13 @@ ms.locfileid: "98091621"
 |rule_object_id|**int**|ID der eigenständigen Regel, die mithilfe von sys.sp_bindrule gebunden wird.<br /><br /> 0 = Keine eigenständige Regel. Informationen zu Check-Einschränkungen auf Spaltenebene finden Sie unter [sys.check_constraints &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-check-constraints-transact-sql.md).|  
 |is_sparse|**bit**|1 = Spalte ist eine Sparsespalte. Weitere Informationen finden Sie unter [Verwenden von Spalten mit geringer Dichte](../../relational-databases/tables/use-sparse-columns.md).|  
 |is_column_set|**bit**|1 = Spalte ist ein Spaltensatz. Weitere Informationen finden Sie unter [Verwenden von Spalten mit geringer Dichte](../../relational-databases/tables/use-sparse-columns.md).|  
-|generated_always_type|**tinyint**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Gibt an, wann der Spaltenwert generiert wird (für Spalten in Systemtabellen immer 0):<br /><br /> 0 = NOT_APPLICABLE<br /><br /> 1 = AS_ROW_START<br /><br /> 2 = AS_ROW_END<br /><br /> Weitere Informationen finden Sie unter [Temporale Tabellen &#40;relationale Datenbanken&#41;](../../relational-databases/tables/temporal-tables.md).|  
-|generated_always_type_desc|**nvarchar(60)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Textbeschreibung des `generated_always_type` Werts (für Spalten in Systemtabellen immer NOT_APPLICABLE) <br /><br /> NOT_APPLICABLE<br /><br /> AS_ROW_START<br /><br /> AS_ROW_END|  
-|encryption_type|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Verschlüsselungstyp:<br /><br /> 1 = deterministische Verschlüsselung<br /><br /> 2 = zufällige Verschlüsselung|  
-|encryption_type_desc|**nvarchar (64)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Beschreibung des Verschlüsselungs Typs:<br /><br /> Zufällige<br /><br /> DETERMINISTIC|  
-|encryption_algorithm_name|**sysname**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Der Name des Verschlüsselungsalgorithmus.<br /><br /> Nur AEAD_AES_256_CBC_HMAC_SHA_512 wird unterstützt.|  
-|column_encryption_key_id|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> ID des Cek.|  
-|column_encryption_key_database_name|**sysname**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[ssSDW_md](../../includes/sssds-md.md)].<br /><br /> Der Name der Datenbank, in der der Spalten Verschlüsselungsschlüssel vorhanden ist, wenn er sich von der Datenbank der Spalte unterscheidet. NULL, wenn der Schlüssel in der Datenbank vorhanden ist, in der sich die Spalte befindet.|  
+|generated_always_type|**tinyint**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Gibt an, wann der Spaltenwert generiert wird (für Spalten in Systemtabellen immer 0):<br /><br /> 0 = NOT_APPLICABLE<br /><br /> 1 = AS_ROW_START<br /><br /> 2 = AS_ROW_END<br /><br /> Weitere Informationen finden Sie unter [Temporale Tabellen &#40;relationale Datenbanken&#41;](../../relational-databases/tables/temporal-tables.md).|  
+|generated_always_type_desc|**nvarchar(60)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Textbeschreibung des `generated_always_type` Werts (für Spalten in Systemtabellen immer NOT_APPLICABLE) <br /><br /> NOT_APPLICABLE<br /><br /> AS_ROW_START<br /><br /> AS_ROW_END|  
+|encryption_type|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Verschlüsselungstyp:<br /><br /> 1 = deterministische Verschlüsselung<br /><br /> 2 = zufällige Verschlüsselung|  
+|encryption_type_desc|**nvarchar (64)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Beschreibung des Verschlüsselungs Typs:<br /><br /> Zufällige<br /><br /> DETERMINISTIC|  
+|encryption_algorithm_name|**sysname**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Der Name des Verschlüsselungsalgorithmus.<br /><br /> Nur AEAD_AES_256_CBC_HMAC_SHA_512 wird unterstützt.|  
+|column_encryption_key_id|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> ID des Cek.|  
+|column_encryption_key_database_name|**sysname**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[ssSDW_md](../../includes/sssds-md.md)].<br /><br /> Der Name der Datenbank, in der der Spalten Verschlüsselungsschlüssel vorhanden ist, wenn er sich von der Datenbank der Spalte unterscheidet. NULL, wenn der Schlüssel in der Datenbank vorhanden ist, in der sich die Spalte befindet.|  
 |is_hidden|**bit**|**Gilt für:** [!INCLUDE[ssCurrentLong](../../includes/sscurrent-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Gibt an, ob die Spalte ausgeblendet ist:<br /><br /> 0 = reguläre, nicht verborgene, sichtbare Spalte<br /><br /> 1 = verborgene Spalte|  
 |is_masked|**bit**|**Gilt für:** [!INCLUDE[ssCurrentLong](../../includes/sscurrent-md.md)] und höher, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Gibt an, ob die Spalte durch eine dynamische Daten Maskierung maskiert wird:<br /><br /> 0 = reguläre, nicht maskierte Spalte<br /><br /> 1 = Spalte ist maskiert|  
 

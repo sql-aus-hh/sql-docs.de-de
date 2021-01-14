@@ -21,19 +21,19 @@ ms.assetid: 8c42eba1-c19f-4045-ac82-b97a5e994090
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c20bbd88f7f65ce16029913a63c4516aa935dbb3
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 0f033d0b414fab40a33a34490a0ef7ff08a2c232
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094464"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171132"
 ---
 # <a name="systables-transact-sql"></a>sys.tables (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Gibt eine Zeile für jede Benutzertabelle in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] zurück.  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |\<inherited columns>||Eine Liste der Spalten, die diese Sicht erbt, finden Sie unter [sys. Objects &#40;Transact-SQL-&#41;](../../relational-databases/system-catalog-views/sys-objects-transact-sql.md).|  
 |lob_data_space_id|**int**|Ein Wert ungleich 0 (null) ist die ID des Datenbereichs (Dateigruppe oder Partitionsschema), der die LOB-Binärdaten (Large Object) für diese Tabelle enthält. Beispiele für LOB-Datentypen sind **varbinary (max)**, **varchar (max)**, **geography** oder **XML**.<br /><br /> 0 = Die Tabelle enthält keine LOB-Daten.|  
@@ -55,11 +55,11 @@ ms.locfileid: "98094464"
 |durability|**tinyint**|**Gilt für:** [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Folgende Werte sind möglich:<br /><br /> 0 = SCHEMA_AND_DATA<br /><br /> 1 = SCHEMA_ONLY<br /><br /> 0 ist der Standardwert.|  
 |durability_desc|**nvarchar(60)**|**Gilt für:** [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Folgende Werte sind möglich:<br /><br /> SCHEMA_ONLY<br /><br /> SCHEMA_AND_DATA<br /><br /> Der Wert von SCHEMA_AND_DATA gibt an, dass die Tabelle eine dauerhafte speicherinterne Tabelle ist. SCHEMA_AND_DATA ist der Standardwert für Speicher optimierte Tabellen. Der Wert von SCHEMA_ONLY gibt an, dass die Tabellendaten nicht nach dem Neustart der Datenbank mit speicheroptimierten Objekten beibehalten werden.|  
 |is_memory_optimized|**bit**|**Gilt für:** [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Folgende Werte sind möglich:<br /><br /> 0 = nicht speicheroptimiert.<br /><br /> 1 = ist speicheroptimiert.<br /><br /> Der Standardwert ist 0 (null).<br /><br /> Speicher optimierte Tabellen sind in-Memory-Benutzer Tabellen, deren Schema auf dem Datenträger gespeichert wird, ähnlich wie andere Benutzer Tabellen. Auf Speicher optimierte Tabellen kann von System intern kompilierten gespeicherten Prozeduren aus zugegriffen werden.|  
-|temporal_type|**tinyint**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Der numerische Wert, der den Typ der Tabelle darstellt:<br /><br /> 0 = NON_TEMPORAL_TABLE<br /><br /> 1 = HISTORY_TABLE<br /><br /> 2 = SYSTEM_VERSIONED_TEMPORAL_TABLE|  
-|temporal_type_desc|**nvarchar(60)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Die Textbeschreibung des Tabellentyps:<br /><br /> NON_TEMPORAL_TABLE<br /><br /> HISTORY_TABLE<br /><br /> SYSTEM_VERSIONED_TEMPORAL_TABLE|  
-|history_table_id|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Wenn temporal_type in (2, 4) object_id der Tabelle zurückgibt, in der Verlaufs Daten verwaltet werden, andernfalls wird NULL zurückgegeben.|  
-|is_remote_data_archive_enabled|**bit**|**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]<br /><br /> Gibt an, ob die Tabelle Stretch-aktiviert ist.<br /><br /> 0 = die Tabelle ist nicht Stretch-aktiviert.<br /><br /> 1 = die Tabelle ist Stretch-aktiviert.<br /><br /> Weitere Informationen finden Sie unter [Stretch Database](../../sql-server/stretch-database/stretch-database.md).|  
-|is_external|**bit**|**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher, [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[sssdwfull](../../includes/sssdwfull-md.md)] .<br /><br /> Gibt an, dass die Tabelle eine externe Tabelle ist.<br /><br /> 0 = die Tabelle ist keine externe Tabelle.<br /><br /> 1 = die Tabelle ist eine externe Tabelle.| 
+|temporal_type|**tinyint**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Der numerische Wert, der den Typ der Tabelle darstellt:<br /><br /> 0 = NON_TEMPORAL_TABLE<br /><br /> 1 = HISTORY_TABLE<br /><br /> 2 = SYSTEM_VERSIONED_TEMPORAL_TABLE|  
+|temporal_type_desc|**nvarchar(60)**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Die Textbeschreibung des Tabellentyps:<br /><br /> NON_TEMPORAL_TABLE<br /><br /> HISTORY_TABLE<br /><br /> SYSTEM_VERSIONED_TEMPORAL_TABLE|  
+|history_table_id|**int**|**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Wenn temporal_type in (2, 4) object_id der Tabelle zurückgibt, in der Verlaufs Daten verwaltet werden, andernfalls wird NULL zurückgegeben.|  
+|is_remote_data_archive_enabled|**bit**|**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]<br /><br /> Gibt an, ob die Tabelle Stretch-aktiviert ist.<br /><br /> 0 = die Tabelle ist nicht Stretch-aktiviert.<br /><br /> 1 = die Tabelle ist Stretch-aktiviert.<br /><br /> Weitere Informationen finden Sie unter [Stretch Database](../../sql-server/stretch-database/stretch-database.md).|  
+|is_external|**bit**|**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher, [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[sssdwfull](../../includes/sssdwfull-md.md)] .<br /><br /> Gibt an, dass die Tabelle eine externe Tabelle ist.<br /><br /> 0 = die Tabelle ist keine externe Tabelle.<br /><br /> 1 = die Tabelle ist eine externe Tabelle.| 
 |history_retention_period|**int**|**Gilt für**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>Der numerische Wert, der die Dauer der Beibehaltungs Dauer für den temporären Verlauf in Einheiten darstellt, die mit history_retention_period_unit angegeben werden |  
 |history_retention_period_unit|**int**|**Gilt für**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>Der numerische Wert, der den Typ der Einheit für die Temporale Verlaufs Beibehaltungs Dauer <br /><br />-1: unendlich <br /><br />3: Tag <br /><br />4: Woche <br /><br />5: Monat <br /><br />6: Jahr |  
 |history_retention_period_unit_desc|**nvarchar (10)**|**Gilt für**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>Die Textbeschreibung des Typs der Einheit für die Beibehaltungs Dauer des temporalen Verlaufs. <br /><br />INFINITE <br /><br />DAY <br /><br />WEEK <br /><br />MONTH <br /><br />YEAR |  
@@ -84,7 +84,7 @@ GO
   
 Das folgende Beispiel zeigt, wie verwandte Temporale Daten verfügbar gemacht werden können.  
    
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].
+**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].
   
 ```  
 SELECT T1.object_id, T1.name as TemporalTableName, SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,  

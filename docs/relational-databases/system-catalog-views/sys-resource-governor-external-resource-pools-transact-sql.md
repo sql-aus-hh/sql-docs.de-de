@@ -19,20 +19,20 @@ helpviewer_keywords:
 ms.assetid: 75063e36-a91b-496f-9936-88f3d57bd447
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 47e09dba80cf7c1b931f8d6949d4667023baf4e6
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 49ea05c98551b8faa06b981d5a5b5b4c37e743fc
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101752"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169300"
 ---
 # <a name="sysresource_governor_external_resource_pools-transact-sql"></a>sys.resource_governor_external_resource_pools (Transact-SQL)
 [!INCLUDE [sqlserver2016](../../includes/applies-to-version/sqlserver2016.md)]
-**Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] [!INCLUDE[rsql-productname-md](../../includes/rsql-productname-md.md)]und [!INCLUDE[sssql17-md](../../includes/sssql17-md.md)][!INCLUDE[rsql-productnamenew-md](../../includes/rsql-productnamenew-md.md)]
+**Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] [!INCLUDE[rsql-productname-md](../../includes/rsql-productname-md.md)]und [!INCLUDE[sssql17-md](../../includes/sssql17-md.md)][!INCLUDE[rsql-productnamenew-md](../../includes/rsql-productnamenew-md.md)]
 
 Gibt die gespeicherte Konfiguration des externen Ressourcenpools in zurück [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Jede Zeile der Sicht bestimmt die Konfiguration eines Pools.
   
-|Spaltenname|Datentyp|BESCHREIBUNG|
+|Spaltenname|Datentyp|Beschreibung|
 |-----------------|---------------|-----------------|
 |external_pool_id|**int**|Eindeutige ID des Ressourcenpools. Lässt keine NULL-Werte zu.|
 |name|**sysname**|Name des Ressourcenpools. Lässt keine NULL-Werte zu.|

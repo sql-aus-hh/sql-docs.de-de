@@ -21,12 +21,12 @@ ms.assetid: 568d89ed-2c96-4795-8a0c-2f3e375081da
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 16226ba2a759e0455078330a7437a99c263ce49a
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 1dccbed2d872b2cd2973e644f9f02149f88b11d4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097625"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172752"
 ---
 # <a name="sysdm_os_wait_stats-transact-sql"></a>sys.dm_os_wait_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -36,7 +36,7 @@ Gibt Informationen zu allen Wartevorgängen in den Threads zurück, die ausgefü
 > [!NOTE] 
 > Um dies von **[!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] oder** aus aufzurufen, verwenden Sie den Namen **sys.dm_pdw_nodes_os_wait_stats**.  
   
-|Spaltenname|Datentyp|BESCHREIBUNG|  
+|Spaltenname|Datentyp|Beschreibung|  
 |-----------------|---------------|-----------------|  
 |wait_type|**nvarchar(60)**|Der Name des Wartetyps. Weitere Informationen finden Sie unter [Wartetypen](#WaitTypes) weiter unten in diesem Thema.|  
 |waiting_tasks_count|**bigint**|Anzahl von Wartevorgängen für diesen Wartetyp. Dieser Leistungsindikator wird beim Starten eines Wartevorgangs inkrementiert.|  
@@ -87,12 +87,12 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
   
  In der folgenden Tabelle werden die Wartetypen für Tasks in einer Liste aufgeführt.  
 
-|type |BESCHREIBUNG| 
+|Typ |Beschreibung| 
 |-------------------------- |--------------------------| 
 |ABR |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| | 
 |AM_INDBUILD_ALLOCATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |AM_SCHEMAMGR_UNSHARED_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|ASSEMBLY_FILTER_HASHTABLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|ASSEMBLY_FILTER_HASHTABLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |ASSEMBLY_LOAD |Tritt während des exklusiven Zugriffs auf das Laden einer Assembly auf.| 
 |ASYNC_DISKPOOL_LOCK |Tritt beim Versuch auf, parallele Threads zu synchronisieren, die Tasks wie das Erstellen oder Initialisieren einer Datei ausführen.| 
 |ASYNC_IO_COMPLETION |Tritt auf, wenn ein Task auf das Ende eines E/A-Vorgangs wartet.| 
@@ -100,7 +100,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |ASYNC_OP_COMPLETION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |ASYNC_OP_CONTEXT_READ |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |ASYNC_OP_CONTEXT_WRITE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|ASYNC_SOCKETDUP_IO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|ASYNC_SOCKETDUP_IO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |AUDIT_GROUPCACHE_LOCK |Tritt bei einem Wartevorgang auf eine Sperre auf, die den Zugriff auf einen speziellen Cache steuert. Der Cache enthält Informationen zu den jeweiligen Überwachungen, mit denen die einzelnen Überwachungsaktionsgruppen überwacht werden sollen.| 
 |AUDIT_LOGINCACHE_LOCK |Tritt bei einem Wartevorgang auf eine Sperre auf, die den Zugriff auf einen speziellen Cache steuert. Der Cache enthält Informationen zu den jeweiligen Überwachungen, die zum Überwachen der Überwachungsaktionsgruppen für die Anmeldung verwendet werden.| 
 |AUDIT_ON_DEMAND_TARGET_LOCK |Tritt bei einem Wartevorgang auf eine Sperre auf, mit der eine einmalige Initialisierung überwachungsbezogener Ziele von erweiterten Ereignissen sichergestellt werden soll.| 
@@ -111,12 +111,12 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |BACKUPIO |Tritt auf, wenn ein Sicherungstask auf Daten oder auf einen Puffer wartet, in dem Daten gespeichert werden sollen. Dies ist nur dann ein Standardwartetyp, wenn ein Task auf die Einlegung eines Bands wartet.| 
 |BACKUPTHREAD |Tritt auf, wenn ein Task auf das Ende eines Sicherungstasks wartet. Die Wartezeiten können lang sein (von einigen Minuten bis zu mehreren Stunden). Wenn der Task, auf den gewartet wird, Teil eines E/A-Prozesses ist, weist dieser Wartetyp nicht auf ein Problem hin.| 
 |BAD_PAGE_PROCESS |Tritt auf, wenn die Hintergrundprotokollierung fehlerverdächtiger Seiten eine häufigere Ausführung als alle fünf Sekunden zu vermeiden versucht. Eine übermäßige Anzahl von fehlerverdächtigen Seiten bewirkt, dass die Protokollierung häufig ausgeführt wird.| 
-|BLOB_METADATA |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|BLOB_METADATA |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |Bmpallocation |Tritt bei parallelen Batches im Batch Modus auf, wenn die Zuordnung eines großen bitmapfilters synchronisiert wird. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern.<br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |Bmpbuild |Tritt beim Synchronisieren der Erstellung eines großen bitmapfilters bei parallelen Batch Modus-Plänen auf. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |Bmprepartition |Tritt beim Synchronisieren der Neupartitionierung eines großen bitmapfilters bei parallelen Batch Modus-Plänen auf. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |Bmpreplikation |Tritt bei parallelen Batches im Batch Modus auf, wenn die Replikation eines großen bitmapfilters über Arbeitsthreads hinweg synchronisiert wird. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|Bpsort |Tritt beim Synchronisieren der Sortierung eines Datasets über mehrere Threads bei parallelen Batch Modus-Plänen auf. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|Bpsort |Tritt beim Synchronisieren der Sortierung eines Datasets über mehrere Threads bei parallelen Batch Modus-Plänen auf. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |BROKER_CONNECTION_RECEIVE_TASK |Tritt auf, wenn auf einen Zugriff für den Empfang einer Nachricht an einem Verbindungsendpunkt gewartet wird. Der Empfangszugriff auf den Endpunkt wird serialisiert.| 
 |BROKER_DISPATCHER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |BROKER_ENDPOINT_STATE_MUTEX |Tritt auf, wenn beim Zugriff auf den Status eines Service Broker Verbindungs Endpunkts ein Konflikt vorliegt. Der Zugriff auf den Status für Änderungen wird serialisiert.| 
@@ -128,7 +128,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |BROKER_REGISTERALLENDPOINTS |Tritt während der Initialisierung eines Service Broker Verbindungs Endpunkts auf. Dieser Wartetyp sollte nur sehr kurz auftreten.| 
 |BROKER_SERVICE |Tritt auf, wenn die mit einem Ziel Dienst verknüpfte Service Broker Zielliste aktualisiert wird oder die Priorität erneut priorisiert wird.| 
 |BROKER_SHUTDOWN |Tritt bei einem geplanten Herunterfahren von Service Broker ein. Dieser Wartetyp sollte, wenn überhaupt, nur sehr kurz auftreten.| 
-|BROKER_START |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|BROKER_START |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |BROKER_TASK_SHUTDOWN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |BROKER_TASK_STOP |Tritt auf, wenn der Task Handler für die Service Broker Warteschlange versucht, den Task zu beenden. Die Statusüberprüfung wird serialisiert und muss vorher ausgeführt werden.| 
 |BROKER_TASK_SUBMIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
@@ -140,10 +140,10 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |BUILTIN_HASHKEY_MUTEX |Kann nach dem Start einer Instanz auftreten, während interne Datenstrukturen initialisiert werden. Tritt nach dem Initialisieren der Datenstrukturen nicht erneut auf.| 
 |CHANGE_TRACKING_WAITFORCHANGES |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |CHECK_PRINT_RECORD |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
-|CHECK_SCANNER_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|CHECK_TABLES_INITIALIZATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|CHECK_TABLES_SINGLE_SCAN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|CHECK_TABLES_THREAD_BARRIER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|CHECK_SCANNER_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|CHECK_TABLES_INITIALIZATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|CHECK_TABLES_SINGLE_SCAN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|CHECK_TABLES_THREAD_BARRIER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |CHECKPOINT_QUEUE |Tritt auf, während der Prüfpunkttask auf die nächste Prüfpunktanforderung wartet.| 
 |CHKPT |Tritt beim Starten des Servers auf, um dem Prüfpunktthread mitzuteilen, dass er beginnen kann.| 
 |CLEAR_DB |Tritt während Vorgängen auf, die den Status einer Datenbank ändern, z. B. beim Öffnen oder Schließen einer Datenbank.| 
@@ -161,13 +161,13 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |Cmempartitioniert |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |CMEMTHREAD |Tritt auf, wenn ein Task auf ein threadsicheres Speicherobjekt wartet. Die Wartezeit kann bei Konflikten zunehmen, die entstehen, wenn mehrere Tasks Speicher vom gleichen Speicherobjekt zuordnen.| 
 |COLUMNSTORE_BUILD_THROTTLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|COLUMNSTORE_COLUMNDATASET_SESSION_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|COLUMNSTORE_COLUMNDATASET_SESSION_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |COMMIT_TABLE |Nur zur internen Verwendung.| 
-|CONNECTION_ENDPOINT_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|CONNECTION_ENDPOINT_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |Countrytrecoverymgr |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |CREATE_DATINISERVICE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|CXCONSUMER <a name="cxconsumer"></a>|Tritt bei parallelen Abfrage Plänen auf, wenn ein Consumerthread (übergeordnetes Element) darauf wartet, dass ein Producer-Thread Zeilen sendet. Cxconsumer-warte Vorgänge werden von einem Exchange-Iterator verursacht, der außerhalb der Zeilen aus dem zugehörigen Producer-Thread läuft. Dies ist ein normaler Bestandteil der parallelen Abfrage Ausführung. <br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2, [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3), [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] , [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)]|
-|CXPACKET <a name="cxpacket"></a>|Tritt bei parallelen Abfrage Plänen auf, wenn darauf gewartet wird, dass der [Exchange-Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md)des Abfrage Prozessors synchronisiert wird und wenn Zeilen erzeugt und genutzt werden. Wenn der Warte Vorgang übermäßig groß ist und nicht durch Optimieren der Abfrage (z. b. Hinzufügen von Indizes) reduziert werden kann, sollten Sie den Kosten Schwellenwert für Parallelität oder den maximalen Grad an Parallelität (MAXDOP) verringern. <br /><br /> **Hinweis:** Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3 bezieht sich cxpacket nur auf die Synchronisierung des Exchange-Iterators und das Generieren von Zeilen. Threads, die Zeilen verarbeiten, werden separat im cxconsumer-Wartetyp nachverfolgt. Wenn die Consumerthreads zu langsam sind, kann der Exchange-iteratorpuffer voll werden und cxpacket-warte Vorgänge verursachen. <br /><br /> **Hinweis:** In [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)] bezieht sich cxpacket nur auf das warten auf Threads, die Zeilen erzeugen. Die Exchange-iteratorsynchronisierung wird in den CXSYNC_PORT-und CXSYNC_CONSUMER-warte Typen separat nachverfolgt. Threads, die Zeilen verarbeiten, werden separat im cxconsumer-Wartetyp nachverfolgt.<br /> | 
+|CXCONSUMER <a name="cxconsumer"></a>|Tritt bei parallelen Abfrage Plänen auf, wenn ein Consumerthread (übergeordnetes Element) darauf wartet, dass ein Producer-Thread Zeilen sendet. Cxconsumer-warte Vorgänge werden von einem Exchange-Iterator verursacht, der außerhalb der Zeilen aus dem zugehörigen Producer-Thread läuft. Dies ist ein normaler Bestandteil der parallelen Abfrage Ausführung. <br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2, [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3), [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] , [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)]|
+|CXPACKET <a name="cxpacket"></a>|Tritt bei parallelen Abfrage Plänen auf, wenn darauf gewartet wird, dass der [Exchange-Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md)des Abfrage Prozessors synchronisiert wird und wenn Zeilen erzeugt und genutzt werden. Wenn der Warte Vorgang übermäßig groß ist und nicht durch Optimieren der Abfrage (z. b. Hinzufügen von Indizes) reduziert werden kann, sollten Sie den Kosten Schwellenwert für Parallelität oder den maximalen Grad an Parallelität (MAXDOP) verringern. <br /><br /> **Hinweis:** Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3 bezieht sich cxpacket nur auf die Synchronisierung des Exchange-Iterators und das Generieren von Zeilen. Threads, die Zeilen verarbeiten, werden separat im cxconsumer-Wartetyp nachverfolgt. Wenn die Consumerthreads zu langsam sind, kann der Exchange-iteratorpuffer voll werden und cxpacket-warte Vorgänge verursachen. <br /><br /> **Hinweis:** In [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)] bezieht sich cxpacket nur auf das warten auf Threads, die Zeilen erzeugen. Die Exchange-iteratorsynchronisierung wird in den CXSYNC_PORT-und CXSYNC_CONSUMER-warte Typen separat nachverfolgt. Threads, die Zeilen verarbeiten, werden separat im cxconsumer-Wartetyp nachverfolgt.<br /> | 
 |CXSYNC_PORT|Tritt bei parallelen Abfrage Plänen auf, wenn auf das Öffnen, schließen und Synchronisieren von [Exchange-iteratorports](../../relational-databases/showplan-logical-and-physical-operators-reference.md) zwischen Producer-und Consumerthreads gewartet wird. Wenn ein Abfrageplan z. b. über einen langen Sortiervorgang verfügt, kann CXSYNC_PORT Wartezeiten höher sein, da die Sortierung vor dem Synchronisieren des Exchange-iteratorports erfolgen muss. <br /><br /> **Gilt für**: [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] , [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)]| 
 |CXSYNC_CONSUMER|Tritt bei parallelen Abfrage Plänen auf, wenn auf das Erreichen eines [Exchange-iteratorsynchronisierungs](../../relational-databases/showplan-logical-and-physical-operators-reference.md) Punkts zwischen allen Consumerthreads gewartet wird. <br /><br /> **Gilt für**: [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] , [!INCLUDE[ssSDSMIfull](../../includes/sssdsmifull-md.md)]| 
 |CXROWSET_SYNC |Tritt während eines parallelen Bereichsscans auf.| 
@@ -184,16 +184,16 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |DEADLOCK_ENUM_MUTEX |Tritt auf, wenn die Deadlocküberwachung und sys.dm_os_waiting_tasks sicherstellen, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nicht mehrere Deadlocksuchvorgänge gleichzeitig ausführt.| 
 |DEADLOCK_TASK_SEARCH |Eine lange Wartezeit für diese Ressource zeigt an, dass der Server Abfragen zusätzlich zu sys.dm_os_waiting_tasks ausführt und diese Abfragen die Ausführung einer Deadlocksuche durch die Deadlocküberwachung blockieren. Dieser Wartetyp wird nur von der Deadlocküberwachung verwendet. Für Abfragen zusätzlich zu sys.dm_os_waiting_tasks wird DEADLOCK_ENUM_MUTEX verwendet.| 
 |DEBUG |Tritt bei Transact-SQL-und CLR-Debuggen für die interne Synchronisierung auf| 
-|DIRECTLOGCONSUMER_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|DIRECTLOGCONSUMER_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |DIRTY_PAGE_POLL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |DIRTY_PAGE_SYNC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|DIRTY_PAGE_TABLE_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|DIRTY_PAGE_TABLE_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |DISABLE_VERSIONING |Tritt auf, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den Versionstransaktions-Manager abruft, um festzustellen, ob der Zeitstempel der ersten aktiven Transaktion nach dem Zeitstempel liegt, an dem der Statuswechsel begonnen hat. Wenn dies der Fall ist, sind alle Momentaufnahmetransaktionen abgeschlossen, die vor dem Ausführen der ALTER DATABASE-Anweisung begonnen wurden. Dieser Wartestatus wird verwendet, wenn von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Versionsverwaltung mithilfe der ALTER DATABASE-Anweisung deaktiviert wird.| 
 |DISKIO_SUSPEND |Tritt auf, wenn ein Task auf den Zugriff auf eine Datei wartet, wenn eine externe Sicherung aktiviert ist. Dieser Wartetyp wird für jeden wartenden Benutzerprozess gemeldet. Ein Wert über fünf pro Benutzerprozess kann darauf hinweisen, dass die externe Sicherung zu lange dauert.| 
 |DISPATCHER_PRIORITY_QUEUE_SEMAPHORE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |DISPATCHER_QUEUE_SEMAPHORE |Tritt auf, wenn ein Thread aus dem Verteilerpool auf weitere Arbeit wartet. Die Wartezeit für diesen Wartetyp steigt voraussichtlich, wenn der Verteiler im Leerlauf ist.| 
 |DLL_LOADING_MUTEX |Tritt einmal auf, während auf das Laden der DLL des XML-Parsers gewartet wird.| 
-|DPT_ENTRY_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|DPT_ENTRY_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |DROP_DATABASE_TIMER_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |DROPTEMP |Tritt zwischen den Versuchen, ein temporäres Objekt zu löschen, auf, wenn beim vorherigen Versuch ein Fehler aufgetreten ist. Die Wartedauer nimmt mit jedem fehlerhaften Löschversuch exponentiell zu.| 
 |DTC |Tritt auf, wenn ein Task auf ein Ereignis wartet, das für die Verwaltung des Statusübergangs verwendet wird. Mit diesem Status wird gesteuert, wann die Wiederherstellung von MS DTC-Transaktionen (Microsoft Distributed Transaction Coordinator) erfolgt, nachdem von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] benachrichtigt wird, dass der MS DTC-Dienst nicht mehr verfügbar ist.| 
@@ -202,11 +202,11 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |DTC_STATE |Tritt auf, wenn ein Task auf ein Ereignis wartet, das Änderungen am internen globalen Statusobjekt für MS DTC schützt. Dieser Status sollte nur sehr kurze Zeit andauern.| 
 |DTC_TMDOWN_REQUEST |Tritt in einer MS DTC-Arbeitsthreadsitzung auf, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] benachrichtigt wird, dass der MS DTC-Dienst nicht zur Verfügung steht. Zunächst wartet der Arbeitsthread auf den Beginn des MS DTC-Wiederherstellungsprozesses. Dann wartet der Arbeitsthread darauf, das Ergebnis der verteilten Transaktion, an der der Arbeitsthread arbeitet, abrufen zu können. Dies kann so lange fortgesetzt werden, bis die Verbindung mit dem MS DTC-Dienst wiederhergestellt ist.| 
 |DTC_WAITFOR_OUTCOME |Tritt auf, wenn Wiederherstellungstasks darauf warten, dass MS DTC aktiviert wird, damit vorbereitete Transaktionen aufgelöst werden können.| 
-|DTCNEW_ENLIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|DTCNEW_PREPARE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|DTCNEW_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|DTCNEW_TM |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|DTCNEW_TRANSACTION_ENLISTMENT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|DTCNEW_ENLIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|DTCNEW_PREPARE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|DTCNEW_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|DTCNEW_TM |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|DTCNEW_TRANSACTION_ENLISTMENT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |Dtcpntsync |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |DUMP_LOG_COORDINATOR |Tritt auf, wenn ein Haupttask darauf wartet, dass ein untergeordneter Task Daten generiert. Normalerweise tritt dieser Status nicht auf. Eine lange Wartezeit weist auf eine unerwartete Blockierung hin. In diesem Fall sollte der untergeordnete Task überprüft werden.| 
 |DUMP_LOG_COORDINATOR_QUEUE |Nur zur internen Verwendung.| 
@@ -220,11 +220,11 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |EXCHANGE |Tritt während der Synchronisierung des Austauschiterators des Abfrageprozessors während paralleler Abfragen auf.| 
 |EXECSYNC |Tritt während paralleler Abfragen bei der Synchronisierung im Abfrageprozessor in Bereichen auf, die nicht mit dem Austauschiterator verbunden sind. Beispiele für solche Bereiche sind Bitmaps, LOBs (Large Objects) und der Spooliterator. Dieser Wartestatus kann von LOBs häufig verwendet werden.| 
 |EXECUTION_PIPE_EVENT_INTERNAL |Tritt während der Synchronisierung zwischen den Producer- und Consumerteilen der Batchausführung auf, die über den Verbindungskontext gesendet werden.| 
-|EXTERNAL_RG_UPDATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|EXTERNAL_RG_UPDATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |EXTERNAL_SCRIPT_NETWORK_IO |Nur zur internen Verwendung. <br /><br /> **Gilt für**: [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] bis aktuelle.| 
-|EXTERNAL_SCRIPT_PREPARE_SERVICE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|EXTERNAL_SCRIPT_SHUTDOWN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|EXTERNAL_WAIT_ON_LAUNCHER, |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|EXTERNAL_SCRIPT_PREPARE_SERVICE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|EXTERNAL_SCRIPT_SHUTDOWN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|EXTERNAL_WAIT_ON_LAUNCHER, |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |FABRIC_HADR_TRANSPORT_CONNECTION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |FABRIC_REPLICA_CONTROLLER_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |FABRIC_REPLICA_CONTROLLER_STATE_AND_CONFIG |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
@@ -252,7 +252,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |FFT_STORE_DB |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FFT_STORE_ROWSET_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FFT_STORE_TABLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|FILE_VALIDATION_THREADS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|FILE_VALIDATION_THREADS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |FILESTREAM_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FILESTREAM_CHUNKER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FILESTREAM_CHUNKER_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -261,7 +261,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |FILESTREAM_WORKITEM_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FILETABLE_SHUTDOWN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |FOREIGN_REDO |Nur zur internen Verwendung. <br /><br /> **Gilt für**: [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] bis aktuelle.| 
-|FORWARDER_TRANSITION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|FORWARDER_TRANSITION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |FS_FC_RWLOCK |Tritt bei einem Wartevorgang auf die Durchführung einer der beiden folgenden Aktionen durch den FILESTREAM-Garbage Collector auf:| 
 |FS_GARBAGE_COLLECTOR_SHUTDOWN |Tritt auf, wenn der FILESTREAM-Garbage Collector auf das Abschließen von Cleanuptasks wartet.| 
 |FS_HEADER_RWLOCK |Tritt bei einem Wartevorgang auf den Erhalt von Zugriff auf den FILESTREAM-Header eines FILESTREAM-Datencontainers auf, um entweder Inhalte in der FILESTREAM-Headerdatei (Filestream.hdr) zu lesen oder zu aktualisieren.| 
@@ -285,11 +285,11 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |GHOSTCLEANUP_UPDATE_STATS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |Ghostcleanupsyncmgr |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |GLOBAL_QUERY_CANCEL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
-|GLOBAL_QUERY_CLOSE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|GLOBAL_QUERY_CLOSE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |GLOBAL_QUERY_CONSUMER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |GLOBAL_QUERY_PRODUCER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
-|GLOBAL_TRAN_CREATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|GLOBAL_TRAN_UCS_SESSION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|GLOBAL_TRAN_CREATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|GLOBAL_TRAN_UCS_SESSION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |GUARDIAN |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |HADR_AG_MUTEX |Tritt auf, wenn eine Always on DDL-Anweisung oder ein Windows Server-Failoverclustering-Befehl auf exklusiven Lese-/Schreibzugriff auf die Konfiguration einer Verfügbarkeits Gruppe wartet. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_AR_CRITICAL_SECTION_ENTRY |Tritt auf, wenn eine Always on DDL-Anweisung oder ein Windows Server-Failoverclustering-Befehl auf exklusiven Lese-/Schreibzugriff auf den Lauf Zeit Status des lokalen Replikats der zugeordneten Verfügbarkeits Gruppe wartet. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -303,7 +303,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_CONNECTIVITY_INFO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_DATABASE_FLOW_CONTROL |Warten, dass Meldungen an den Partner gesendet werden, wenn die maximale Anzahl von Meldungen in der Warteschlange erreicht wurde. Gibt an, dass die Protokollscans schneller ausgeführt werden als Netzwerksendevorgänge. Dies ist nur ein Problem, wenn Netzwerksendevorgänge langsamer als erwartet sind. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_DATABASE_VERSIONING_STATE |Tritt bei der Versions Zustandsänderung einer Always on sekundären Datenbank auf. Diese Wartezeit erfolgt für interne Datenstrukturen und ist in der Regel sehr kurz, ohne direkte Auswirkung auf den Datenzugriff. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_DATABASE_WAIT_FOR_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|HADR_DATABASE_WAIT_FOR_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |HADR_DATABASE_WAIT_FOR_RESTART |Warten auf den Neustart der Datenbank unter Always on Verfügbarkeits Gruppen-Steuerelement. Unter normalen Bedingungen ist dies kein Problem für Kunden, da Wartezeiten hier erwartet werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING |Eine Abfrage von Objekten in einer lesbaren sekundären Datenbank einer Always on Verfügbarkeits Gruppe wird bei der Zeilen Versionsverwaltung blockiert, während auf einen Commit oder ein Rollback aller Transaktionen gewartet wird, die aktiv waren, als das sekundäre Replikat für Lese Arbeits Auslastungen aktiviert war. Dieser Wartetyp garantiert, dass Zeilenversionen vor der Ausführung einer Abfrage unter der Momentaufnahmeisolation verfügbar sind. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_DB_COMMAND |Warten auf Antworten auf konverterende Nachrichten (die eine explizite Antwort von der anderen Seite erfordern, mithilfe der Always on konverational Message Infrastructure). Eine Reihe von unterschiedlichen Nachrichtentypen verwendet diesen Wartetyp. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -321,7 +321,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_FILESTREAM_IOMGR |Der FileStream-Always on Transport-Manager wartet auf die R/W-Sperre, die den FILESTREAM Always on e/a-Manager während des Starts oder herunter Fahrens schützt. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_FILESTREAM_IOMGR_IOCOMPLETION |Der FileStream-Always on e/a-Manager wartet auf den Abschluss des e/a-Vorgangs. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_FILESTREAM_MANAGER |Der FileStream-Always on Transport-Manager wartet auf die R/W-Sperre, die den FILESTREAM Always on Transport-Manager während des Starts oder herunter Fahrens schützt. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_FILESTREAM_PREPROC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|HADR_FILESTREAM_PREPROC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |HADR_GROUP_COMMIT |Die Transaktionscommitverarbeitung wartet auf das Zulassen eines Gruppencommits, damit mehrere Protokolldatensätze für den Commit in einen einzelnen Protokollblock gesetzt werden können. Dieser Wartevorgang ist eine erwartete Bedingung, durch die der Protokoll-E/A, die Aufzeichnung sowie Sendevorgänge optimiert werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_LOGCAPTURE_SYNC |Parallelitätssteuerung um die Protokollaufzeichnung oder Anwendungsobjekt beim Erstellen von Löschen von Scans. Dies ist ein erwarteter Wartevorgang, wenn Partner ihren Status oder Verbindungsstatus ändern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_LOGCAPTURE_WAIT |Warten, bis Protokolldatensätze verfügbar werden. Kann beim Warten auf die Erstellung von neuen Protokolldatensätzen durch Verbindungen oder auf den E/A-Abschluss generiert werden, wenn das Lesen des Protokolls nicht im Cache stattfindet. Dies ist ein erwarteter Wartevorgang, wenn der Protokollscan das Ende des Protokolls auf der primären Datenbank erreicht hat oder vom Datenträger liest. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -335,17 +335,17 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_RECOVERY_WAIT_FOR_CONNECTION |Warten, bis die sekundäre Datenbank vor dem Ausführen der Wiederherstellung eine Verbindung mit der primären Datenbank herstellt. Dies ist ein erwarteter Wartevorgang, der länger dauern kann, wenn die Verbindung zur primären Datenbank nur langsam aufgebaut wird. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_RECOVERY_WAIT_FOR_UNDO |Die Datenbankwiederherstellung wartet, bis die sekundäre Datenbank die Wiederherstellungs- und Initialisierungsphase beendet hat, um diese mit der primären Datenbank auf den allgemeinen Protokollpunkt zurückzubringen. Dies ist ein erwarteter Wartevorgang nach Failovers. Der Undo-Status kann mit dem Windows-Systemmonitor (perfmon.exe) und den dynamischen Verwaltungssichten nachverfolgt werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_REPLICAINFO_SYNC |Warten, bis die Parallelitätssteuerung den aktuellen Replikatstatus aktualisiert. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_SEEDING_CANCELLATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HADR_SEEDING_FILE_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HADR_SEEDING_LIMIT_BACKUPS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HADR_SEEDING_SYNC_COMPLETION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HADR_SEEDING_TIMEOUT_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HADR_SEEDING_WAIT_FOR_COMPLETION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|HADR_SEEDING_CANCELLATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HADR_SEEDING_FILE_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HADR_SEEDING_LIMIT_BACKUPS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HADR_SEEDING_SYNC_COMPLETION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HADR_SEEDING_TIMEOUT_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HADR_SEEDING_WAIT_FOR_COMPLETION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |HADR_SYNC_COMMIT |Warten auf die Transaktionscommitverarbeitung, bis die synchronisierten sekundären Datenbanken das Protokoll härten. Dieser Wartevorgang wird auch durch den Leistungsindikator für die Transaktionsverzögerung wiedergegeben. Dieser Wartetyp wird für synchronisierte Verfügbarkeitsgruppen erwartet und gibt die Zeit zum Senden, Schreiben und Bestätigen des Protokolls an die sekundären Datenbanken an. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_SYNCHRONIZING_THROTTLE |Warten, bis die Transaktionscommitverarbeitung erlaubt, dass eine synchronisierende sekundäre Datenbank das primäre Ende des Protokolls erreicht, um in den synchronisierten Status überzugehen. Dies ist ein erwarteter Wartevorgang, wenn eine sekundäre Datenbank im Rückstand ist. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_TDS_LISTENER_SYNC |Entweder das interne Always on System oder der wsfc-Cluster fordert an, dass Listener gestartet oder beendet werden. Die Verarbeitung dieser Anforderung ist immer asynchron, und es gibt einen Mechanismus zum Entfernen von redundanten Anforderungen. Es gibt auch Momente, in denen dieser Prozess aufgrund von Konfigurationsänderungen angehalten wird. Alle Wartevorgänge, die mit diesem Listener-Synchronisierungsmechanismus verknüpft sind, verwenden diesen Wartetyp. Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_TDS_LISTENER_SYNC_PROCESSING |Wird am Ende einer Always on Transact-SQL-Anweisung verwendet, die einen verfügbarkeitsgruppenlistener starten und/oder beenden muss. Da der Start-/Beendigungsvorgang asynchron erfolgt, wird der Benutzerthread mit diesem Wartetyp blockiert, bis die Situation des Listeners bekannt ist. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_THROTTLE_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|HADR_THROTTLE_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Tritt auf, wenn eine sekundäre georeplikation mit niedrigerer computegröße (niedrigerer SLO) als die primäre Datenbank konfiguriert ist. Eine primäre Datenbank wird aufgrund eines verzögerten Protokoll Verbrauchs durch die sekundäre Datenbank gedrosselt. Dies wird dadurch verursacht, dass die sekundäre Datenbank nicht über genügend computekapazität verfügt, um mit der Änderungs Rate der primären Datenbank Schritt zu halten. <br /><br /> **Gilt für**: Azure SQL-Datenbank| 
 |HADR_THROTTLE_LOG_RATE_LOG_SIZE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |HADR_THROTTLE_LOG_RATE_SEEDING |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
@@ -357,10 +357,10 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_WORK_POOL |Parallelitäts Steuerungs-warte Vorgang auf das Always on Verfügbarkeits Gruppen Hintergrund Arbeitsaufgaben Objekt. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_WORK_QUEUE |Always on Verfügbarkeits Gruppen hintergrundworkerthread, der auf die Zuweisung neuer Aufgaben wartet. Dies ist ein erwarteter Wartevorgang, wenn es Arbeitsthreads gibt, die auf neue Arbeit warten (normaler Status). <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_XRF_STACK_ACCESS |Zugreifen auf (suchen, hinzufügen und löschen) des erweiterten Wiederherstellungs Verzweigungs Stapels für eine Always on Verfügbarkeits Datenbank. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HCCO_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HK_RESTORE_FILEMAP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HKCS_PARALLEL_MIGRATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|HKCS_PARALLEL_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|HCCO_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HK_RESTORE_FILEMAP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HKCS_PARALLEL_MIGRATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|HKCS_PARALLEL_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |Htbuild |Tritt auf, wenn beim Synchronisieren der Erstellung der Hash Tabelle auf der Eingabe Seite eines Hashjoins/einer Aggregation paralleler Batches im Batch Modus ausgeführt werden. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |Htdelete |Tritt auf, wenn beim Synchronisieren am Ende eines Hashjoins/einer-Aggregation parallele Batches im Batch Modus ausgeführt werden. Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |Htmemo |Tritt auf, wenn bei der Synchronisierung paralleler Batches im Batch Modus ausgeführt werden, bevor die Hash Tabelle gescannt wird, um Übereinstimmungen/nicht-Übereinstimmungen in einem HashJoin Wenn die Wartezeit zu lang ist und durch eine Abfrageoptimierung (beispielsweise durch das Hinzufügen von Indizes) nicht verkürzt werden kann, sollten Sie erwägen, den Kostenschwellenwert für Parallelität anzupassen oder den Grad an Parallelität zu verringern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
@@ -370,11 +370,11 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HTTP_START |Tritt auf, wenn eine Verbindung auf den Abschluss der HTTP-Initialisierung wartet.| 
 |HTTP_STORAGE_CONNECTION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |IMPPROV_IOWAIT |Tritt auf, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf das Fertigstellen eines E/A-Massenladevorgang wartet.| 
-|INSTANCE_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|INSTANCE_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |INTERNAL_TESTING |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |IO_AUDIT_MUTEX |Tritt während der Synchronisierung von Ereignispuffern der Ablaufverfolgung auf.| 
 |IO_COMPLETION |Tritt auf, während auf den Abschluss von E/A-Vorgängen gewartet wird. Dieser Wartetyp stellt in der Regel Nicht-Datenseiten-E/A-Vorgänge dar. E/a-Abschluss Wartezeiten für Datenseiten werden als PAGEIOLATCH-warte Vorgänge angezeigt \_ \* .| 
-|IO_QUEUE_LIMIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|IO_QUEUE_LIMIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |IO_RETRY |Tritt auf, wenn ein E/A-Vorgang, z. B. das Lesen von oder Schreiben auf einen Datenträger, aufgrund unzureichender Ressourcen scheitert und dann wiederholt wird.| 
 |IOAFF_RANGE_QUEUE |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |KSOURCE_WAKEUP |Wird vom Dienststeuerungstask verwendet, während auf Anforderungen vom Dienstkontroll-Manager gewartet wird. Lange Wartezeiten werden erwartet und zeigen kein Problem an.| 
@@ -451,14 +451,14 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |LCK_M_X |Tritt auf, wenn ein Task darauf wartet, eine exklusive Sperre abzurufen.| 
 |LCK_M_X_ABORT_BLOCKERS |Tritt auf, wenn ein Task darauf wartet, eine exklusive Sperre mit Abbruchs-Blockern abzurufen. (Im Zusammenhang mit der Wait-Option mit niedriger Priorität von ALTER TABLE und Alter Index.), <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |LCK_M_X_LOW_PRIORITY |Tritt auf, wenn ein Task darauf wartet, eine exklusive Sperre mit niedriger Priorität abzurufen. (Im Zusammenhang mit der Wait-Option mit niedriger Priorität von ALTER TABLE und Alter Index.), <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|LOG_POOL_SCAN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|LOG_POOL_SCAN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |LOGBUFFER |Tritt auf, wenn ein Task auf Speicherplatz im Protokollpuffer zum Speichern eines Protokolldatensatzes wartet. Durchgehend hohe Werte können darauf hinweisen, dass die Protokollgeräte die Menge der vom Server generierten Protokolldaten nicht bewältigen können.| 
 |LOGCAPTURE_LOGPOOLTRUNCPOINT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |LOGGENERATION |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |LOGMGR |Tritt auf, wenn ein Task beim Schließen der Datenbank vor dem Beenden des Protokolls auf das Fertigstellen ausstehender Protokoll-E/A-Vorgänge wartet.| 
 |LOGMGR_FLUSH |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
-|LOGMGR_PMM_LOG |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|LOGMGR_PMM_LOG |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |LOGMGR_QUEUE |Tritt auf, während der Protokollschreibertask auf Arbeitsanforderungen wartet.| 
 |LOGMGR_RESERVE_APPEND |Tritt auf, wenn ein Task darauf wartet, feststellen zu können, ob durch das Abschneiden von Protokollen Speicherplatz freigegeben wird, damit der Task einen neuen Protokolldatensatz schreiben kann. Erwägen Sie, die Größe der Protokolldatei(en) für die betroffene Datenbank zu erhöhen, um diese Wartezeit zu reduzieren.| 
 |LOGPOOL_CACHESIZE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -471,7 +471,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |LOWFAIL_MEMMGR_QUEUE |Tritt auf, während darauf gewartet wird, dass Arbeitsspeicher zur Verwendung verfügbar ist.| 
 |MD_AGENT_YIELD |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |MD_LAZYCACHE_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|MEMORY_ALLOCATION_EXT |Tritt beim belegen von Speicher aus dem internen [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Speicherpool oder dem Betriebssystem auf. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|MEMORY_ALLOCATION_EXT |Tritt beim belegen von Speicher aus dem internen [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Speicherpool oder dem Betriebssystem auf. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |MEMORY_GRANT_UPDATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |METADATA_LAZYCACHE_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
 |Migrationbuffer |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
@@ -483,7 +483,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |MSQL_XP |Tritt auf, wenn ein Task auf das Ende einer erweiterten gespeicherten Prozedur wartet. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verwendet diesen Wartestatus, um mögliche MARS-Anwendungsdeadlocks zu erkennen. Die Wartezeit wird mit dem Ende des Aufrufs der erweiterten gespeicherten Prozedur beendet.| 
 |MSSEARCH |Tritt während Aufrufen der Volltextsuche auf. Diese Wartezeit endet, wenn der Volltextvorgang abgeschlossen ist. Sie zeigt keinen Konflikt an, sondern die Dauer von Volltextvorgängen.| 
 |NET_WAITFOR_PACKET |Tritt auf, wenn eine Verbindung während eines Netzwerklesevorgangs auf ein Netzwerkpaket wartet.| 
-|Networksxmlmgrload |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|Networksxmlmgrload |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |NODE_CACHE_MUTEX |Nur zur internen Verwendung.| 
 |OLEDB |Tritt auf, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den SNAC-OLE DB Anbieter (SQLNCLI) oder den Microsoft OLE DB-Treiber für SQL Server (msoledbsql) aufruft. Dieser Wartetyp wird nicht für die Synchronisierung verwendet. Er zeigt vielmehr die Dauer von Aufrufen des OLE DB-Anbieters an.| 
 |ONDEMAND_TASK_QUEUE |Tritt auf, während ein Hintergrundtask auf Systemtaskanforderungen mit hoher Priorität wartet. Lange Wartezeiten zeigen an, dass keine Anforderungen mit hoher Priorität zu verarbeiten waren, und sollten kein Problem darstellen.| 
@@ -500,16 +500,16 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PAGELATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus.| 
 |PAGELATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus.| 
 |PARALLEL_BACKUP_QUEUE |Tritt beim Serialisieren der Ausgabe auf, die von RESTORE HEADERONLY, RESTORE FILELISTONLY oder RESTORE LABELONLY erstellt wurde.| 
-|PARALLEL_REDO_DRAIN_WORKER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_FLOW_CONTROL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_LOG_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_TRAN_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_TRAN_TURN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_WORKER_SYNC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PARALLEL_REDO_WORKER_WAIT_WORK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PARALLEL_REDO_DRAIN_WORKER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_FLOW_CONTROL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_LOG_CACHE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_TRAN_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_TRAN_TURN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_WORKER_SYNC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PARALLEL_REDO_WORKER_WAIT_WORK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PERFORMANCE_COUNTERS_RWLOCK |Nur zur internen Verwendung.| 
 |PHYSICAL_SEEDING_DMV |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|POOL_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|POOL_LOG_RATE_GOVERNOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PREEMPTIVE_ABR |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |PREEMPTIVE_AUDIT_ACCESS_EVENTLOG |Tritt auf, wenn das Zeitplanungsmodul für das [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] -Betriebssystem (SQLOS) in den präemptiven Modus wechselt, um ein Überwachungsereignis in das Windows-Ereignisprotokoll zu schreiben. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
 |PREEMPTIVE_AUDIT_ACCESS_SECLOG |Tritt auf, wenn das SQLOS-Zeitplanungsmodul in den präemptiven Modus wechselt, um ein Überwachungsereignis in das Windows-Sicherheitsprotokoll zu schreiben. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
@@ -574,8 +574,8 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PREEMPTIVE_FSRECOVER_UNCONDITIONALUNDO |Nur zur internen Verwendung.| 
 |PREEMPTIVE_GETRMINFO |Nur zur internen Verwendung.| 
 |PREEMPTIVE_HADR_LEASE_MECHANISM |Always on Verfügbarkeits Gruppen-Lease-Manager-Planung für die Microsoft-Support Diagnose. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|PREEMPTIVE_HTTP_EVENT_WAIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|PREEMPTIVE_HTTP_REQUEST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PREEMPTIVE_HTTP_EVENT_WAIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|PREEMPTIVE_HTTP_REQUEST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PREEMPTIVE_LOCKMONITOR |Nur zur internen Verwendung.| 
 |PREEMPTIVE_MSS_RELEASE |Nur zur internen Verwendung.| 
 |PREEMPTIVE_ODBCOPS |Nur zur internen Verwendung.| 
@@ -632,7 +632,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PREEMPTIVE_OS_GETDISKFREESPACE |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_GETFILEATTRIBUTES |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_GETFILESIZE |Nur zur internen Verwendung.| 
-|PREEMPTIVE_OS_GETFINALFILEPATHBYHANDLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PREEMPTIVE_OS_GETFINALFILEPATHBYHANDLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PREEMPTIVE_OS_GETLONGPATHNAME |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_GETPROCADDRESS |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_GETVOLUMENAMEFORVOLUMEMOUNTPOINT |Nur zur internen Verwendung.| 
@@ -669,9 +669,9 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PREEMPTIVE_OS_SETFILEVALIDDATA |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_SETNAMEDSECURITYINFO |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_SQLCLROPS |Nur zur internen Verwendung.| 
-|PREEMPTIVE_OS_SQMLAUNCH |Nur zur internen Verwendung. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] bis [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)]. |  
+|PREEMPTIVE_OS_SQMLAUNCH |Nur zur internen Verwendung. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] bis [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)]. |  
 |PREEMPTIVE_OS_VERIFYSIGNATURE |Nur zur internen Verwendung.| 
-|PREEMPTIVE_OS_VERIFYTRUST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PREEMPTIVE_OS_VERIFYTRUST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PREEMPTIVE_OS_VSSOPS |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_WAITFORSINGLEOBJECT |Nur zur internen Verwendung.| 
 |PREEMPTIVE_OS_WINSOCKOPS |Nur zur internen Verwendung.| 
@@ -714,9 +714,9 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PRU_ROLLBACK_DEFERRED |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_ALL_COMPONENTS_INITIALIZED |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_COOP_SCAN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|PWAIT_DIRECTLOGCONSUMER_GETNEXT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PWAIT_DIRECTLOGCONSUMER_GETNEXT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PWAIT_EVENT_SESSION_INIT_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|PWAIT_FABRIC_REPLICA_CONTROLLER_DATA_LOSS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PWAIT_FABRIC_REPLICA_CONTROLLER_DATA_LOSS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PWAIT_HADR_ACTION_COMPLETED |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_HADR_CHANGE_NOTIFIER_TERMINATION_SYNC |Tritt auf, wenn ein Hintergrundtask auf die Beendigung des Hintergrundtasks wartet, der (über Abruf) Windows Server-Failoverclusteringbenachrichtigungen empfängt. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_HADR_CLUSTER_INTEGRATION |Ein Anfüge-, Ersetzungs-und/oder Entfernungs Vorgang wartet darauf, eine Schreibsperre für eine Always on interne Liste (z. b. eine Liste von Netzwerken, Netzwerkadressen oder verfügbarkeitsgruppenlistener) zu erfassen. Nur interner Gebrauch, <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -727,7 +727,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PWAIT_HADR_POST_ONLINE_COMPLETED |Eine Always on Drop Availability Group-Vorgang wartet auf die Beendigung eines Hintergrund Tasks, der als Teil eines vorherigen Befehls geplant wurde. Es darf z. B. einen Hintergrundtask geben, der Verfügbarkeitsdatenbanken an die primäre Rolle übergibt. Die DROP AVAILABILITY GROUP-DDL muss auf den Abschluss dieses Hintergrundtasks warten, um Racebedingungen zu verhindern. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_HADR_SERVER_READY_CONNECTIONS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |PWAIT_HADR_WORKITEM_COMPLETED |Interner Wartevorgang von einem Thread, der auf den Abschluss eines asynchronen Arbeitstasks wartet. Dies ist ein erwarteter Wartevorgang und wird in CSS verwendet. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|PWAIT_HADRSIM |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|PWAIT_HADRSIM |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PWAIT_LOG_CONSOLIDATION_IO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |PWAIT_LOG_CONSOLIDATION_POLL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |PWAIT_MD_LOGIN_STATS |Tritt während der internen Synchronisierung in Metadaten zu Anmeldestatistiken auf. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -745,18 +745,18 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |QDS_ASYNC_CHECK_CONSISTENCY_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_ASYNC_PERSIST_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_ASYNC_PERSIST_TASK_START |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|QDS_ASYNC_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|QDS_ASYNC_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |QDS_BCKG_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|QDS_BLOOM_FILTER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|QDS_BLOOM_FILTER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_CTXS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_DB_DISK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_DYN_VECTOR |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|QDS_EXCLUSIVE_ACCESS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|QDS_EXCLUSIVE_ACCESS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |QDS_HOST_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |QDS_LOADDB |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_PERSIST_TASK_MAIN_LOOP_SLEEP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|QDS_QDS_CAPTURE_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|QDS_QDS_CAPTURE_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |QDS_SHUTDOWN_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_STMT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |QDS_STMT_DISK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
@@ -767,7 +767,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |QPJOB_WAITFOR_ABORT |Weist darauf hin, dass das asynchrone automatische Update der Statistik durch den Aufruf von KILL während des Updates abgebrochen wurde. Das Update wurde jetzt beendet und wird so lange angehalten, bis die Nachrichtenkoordination des Abschlussthreads abgeschlossen ist. Dies ist ein gewöhnlicher, jedoch selten vorkommender Status, der sehr kurz sein sollte. Ein guter Wert liegt unter einer Sekunde.| 
 |QRY_MEM_GRANT_INFO_MUTEX |Tritt auf, wenn die Arbeitsspeicherverwaltung für die Abfrageausführung den Zugriff auf statische Listen mit Informationen zu zugewiesenen Arbeitsspeichern steuert. Dieser Status listet Informationen zu den aktuellen zugewiesenen und wartenden Speicheranforderungen auf. Dieser Status ist ein einfacher Zugriffssteuerungsstatus. In diesem Status sollte es nie zu langen Wartezeiten kommen. Wird dieser Mutex nicht freigegeben, antworten alle neuen speicherbeanspruchenden Abfragen nicht mehr.| 
 |QRY_PARALLEL_THREAD_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|QRY_PROFILE_LIST_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|QRY_PROFILE_LIST_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |QUERY_ERRHDL_SERVICE_DONE |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
 |QUERY_WAIT_ERRHDL_SERVICE |Nur für Informationszwecke identifiziert.  Wird nicht unterstützt. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur.  |  
 |QUERY_EXECUTION_INDEX_SORT_EVENT_OPEN |Tritt in bestimmten Fällen auf, wenn eine Offlineindexerstellung parallel ausgeführt wird und die unterschiedlichen Arbeitsthreads, die die Sortierung ausführen, den Zugriff auf die Sortierungsdateien synchronisieren.| 
@@ -784,13 +784,13 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |RBIO_RG_REPLICA |Tritt auf, wenn ein hyperskalierungsdatenbankcomputeknoten aufgrund von verzögertem Protokoll Verbrauch durch die lesbaren sekundären Replikat Knoten gedrosselt wird. <br /><br /> **Gilt für**: hyperskalierung von Azure SQL-Datenbank.|
 |RBIO_RG_LOCALDESTAGE |Tritt auf, wenn ein hyperskalierungsdatenbankcomputeknoten aufgrund eines verzögerten Protokoll Verbrauchs durch den Protokolldienst gedrosselt wird. <br /><br /> **Gilt für**: hyperskalierung von Azure SQL-Datenbank.|
 |RECOVER_CHANGEDB |Tritt während der Synchronisierung des Datenbankstatus in einer Datenbank im betriebsbereiten Standbymodus auf.| 
-|RECOVERY_MGR_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|RECOVERY_MGR_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |REDO_THREAD_PENDING_WORK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |REDO_THREAD_SYNC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |REMOTE_BLOCK_IO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
-|REMOTE_DATA_ARCHIVE_MIGRATION_DMV |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|REMOTE_DATA_ARCHIVE_SCHEMA_DMV |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|REMOTE_DATA_ARCHIVE_SCHEMA_TASK_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|REMOTE_DATA_ARCHIVE_MIGRATION_DMV |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|REMOTE_DATA_ARCHIVE_SCHEMA_DMV |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|REMOTE_DATA_ARCHIVE_SCHEMA_TASK_QUEUE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |REPL_CACHE_ACCESS |Tritt während der Synchronisierung für einen Replikationsartikelcache auf. Während dieser Wartezeiten wird der Replikationsprotokollleser angehalten, und Anweisungen der Datendefinitionssprache (Data Definition Language, DDL) für eine veröffentlichte Tabelle werden blockiert.| 
 |REPL_HISTORYCACHE_ACCESS |Nur zur internen Verwendung.| 
 |REPL_SCHEMA_ACCESS |Tritt während der Synchronisierung von Versionsinformationen des Replikationsschemas auf. Dieser Status ist vorhanden, wenn DDL-Anweisungen für das replizierte Objekt ausgeführt werden und wenn der Protokollleser ein versionsspezifisches Schema auf der Basis des Auftretens von DDL erstellt oder verwendet. Konflikte können für diesen Wartetyp erkannt werden, wenn Sie über viele veröffentlichte Datenbanken auf einem einzelnen Verleger mit Transaktions Replikation verfügen und die veröffentlichten Datenbanken sehr aktiv sind.| 
@@ -800,7 +800,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |REPLICA_WRITES |Tritt auf, während ein Task auf den Abschluss von Seitenschreibvorgängen in Datenbankmomentaufnahmen oder DBCC-Replikaten wartet.| 
 |REQUEST_DISPENSER_PAUSE |Tritt auf, wenn ein Task auf den Abschluss aller ausstehenden E/A-Vorgänge wartet, damit E/A-Vorgänge in eine Datei für eine Momentaufnahmesicherung eingefroren werden können.| 
 |REQUEST_FOR_DEADLOCK_SEARCH |Tritt auf, während die Deadlocküberwachung darauf wartet, die nächste Deadlocksuche zu starten. Dieser Wartetyp wird zwischen Deadlockerkennungen erwartet, und eine lange Gesamtwartezeit für diese Ressource zeigt kein Problem an.| 
-|RESERVED_MEMORY_ALLOCATION_EXT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|RESERVED_MEMORY_ALLOCATION_EXT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |RESMGR_THROTTLED |Tritt auf, wenn eine neue Anforderung eingeht und auf der Basis der Einstellung GROUP_MAX_REQUESTS eingeschränkt wird.| 
 |RESOURCE_GOVERNOR_IDLE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |RESOURCE_QUEUE |Tritt während der Synchronisierung verschiedener interner Ressourcenwarteschlangen auf.| 
@@ -808,15 +808,15 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |RESOURCE_SEMAPHORE_MUTEX |Tritt auf, während eine Abfrage darauf wartet, dass ihre Anforderung einer Threadreservierung erfüllt wird. Der Wartetyp tritt außerdem beim Synchronisieren von Abfragekompilierungs- und Arbeitsspeicherzuweisungsanforderungen auf.| 
 |RESOURCE_SEMAPHORE_QUERY_COMPILE |Tritt auf, wenn die Anzahl gleichzeitiger Abfragekompilierungen einen Drosselungsgrenzwert erreicht. Hohe Wartezeiten und Wartezeiten können auf übermäßige Kompilierungen, Neukompilierungen oder nicht zwischen speicherbare Pläne hindeuten.| 
 |RESOURCE_SEMAPHORE_SMALL_QUERY |Tritt auf, wenn einer Arbeitsspeicheranforderung einer kleinen Abfrage aufgrund von anderen gleichzeitigen Abfragen nicht sofort entsprochen werden kann. Die Wartezeit sollte wenige Sekunden nicht überschreiten, da der Server die Anforderung an den Hauptspeicherpool für Abfragen überträgt, wenn er den angeforderten Arbeitsspeicher nicht innerhalb weniger Sekunden erteilen kann. Lange Wartezeiten zeigen möglicherweise eine übermäßige Anzahl gleichzeitiger kleiner Abfragen bei gleichzeitiger Blockierung des Hauptspeicherpools durch wartende Abfragen an. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
-|RESTORE_FILEHANDLECACHE_ENTRYLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|RESTORE_FILEHANDLECACHE_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|RESTORE_FILEHANDLECACHE_ENTRYLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|RESTORE_FILEHANDLECACHE_LOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |RG_RECONFIG |Nur zur internen Verwendung.| 
-|ROWGROUP_OP_STATS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|ROWGROUP_VERSION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|ROWGROUP_OP_STATS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|ROWGROUP_VERSION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |RTDATA_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|SATELLITE_CARGO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|SATELLITE_SERVICE_SETUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|SATELLITE_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SATELLITE_CARGO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|SATELLITE_SERVICE_SETUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|SATELLITE_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SBS_DISPATCH |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |SBS_RECEIVE_TRANSPORT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |SBS_TRANSPORT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
@@ -824,7 +824,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |SEC_DROP_TEMP_KEY |Tritt nach einem fehlerhaftem Versuch, einen temporären Sicherheitsschlüssel zu löschen, vor einem Wiederholungsversuch auf.| 
 |SECURITY_CNG_PROVIDER_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |SECURITY_CRYPTO_CONTEXT_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|SECURITY_DBE_STATE_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SECURITY_DBE_STATE_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SECURITY_KEYRING_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |SECURITY_MUTEX |Tritt bei einem Wartevorgang auf Mutexe auf, die den Zugriff auf die globale Liste von EKM (Extensible Key Management)-Kryptografieanbietern und die Sitzungsbereichsliste der EKM-Sitzungen steuern.| 
 |SECURITY_RULETABLE_MUTEX |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -833,25 +833,25 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |SEQUENTIAL_GUID |Tritt auf, während eine neue sequenzielle GUID empfangen wird.| 
 |SERVER_IDLE_CHECK |Tritt während der Synchronisierung des Leerlaufstatus einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Instanz auf, wenn ein Ressourcenmonitor versucht, eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Instanz als im Leerlauf oder in einem Reaktivierungsversuch befindlich zu deklarieren.| 
 |SERVER_RECONFIGURE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|SESSION_WAIT_STATS_CHILDREN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|SHARED_DELTASTORE_CREATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SESSION_WAIT_STATS_CHILDREN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|SHARED_DELTASTORE_CREATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SHUTDOWN |Tritt auf, während eine Anweisung zum Herunterfahren darauf wartet, dass aktive Verbindungen beendet werden.| 
 |SLEEP_BPOOL_FLUSH |Tritt auf, wenn ein Prüfpunkt die Ausgabe neuer E/A-Vorgänge drosselt, um eine Überflutung des Datenträgersubsystems zu vermeiden.| 
-|SLEEP_BUFFERPOOL_HELPLW |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SLEEP_BUFFERPOOL_HELPLW |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SLEEP_DBSTARTUP |Tritt beim Datenbankstart auf, während darauf gewartet wird, dass alle Datenbanken wiederhergestellt werden.| 
 |SLEEP_DCOMSTARTUP |Tritt höchstens einmal beim Start einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Instanz auf, während auf den Abschluss der DCOM-Initialisierung gewartet wird.| 
 |SLEEP_MASTERDBREADY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |SLEEP_MASTERMDREADY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |SLEEP_MASTERUPGRADED |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|SLEEP_MEMORYPOOL_ALLOCATEPAGES |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SLEEP_MEMORYPOOL_ALLOCATEPAGES |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SLEEP_MSDBSTARTUP |Tritt auf, wenn die SQL-Ablaufverfolgung auf den Abschluss des Startvorgangs der msdb-Datenbank wartet.| 
-|SLEEP_RETRY_VIRTUALALLOC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SLEEP_RETRY_VIRTUALALLOC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SLEEP_SYSTEMTASK |Tritt beim Start eines Hintergrundtasks auf, während auf den Abschluss des Startvorgangs von tempdb gewartet wird.| 
 |SLEEP_TASK |Tritt auf, wenn ein Task ruht, während auf das Auftreten eines generischen Ereignisses gewartet wird.| 
 |SLEEP_TEMPDBSTARTUP |Tritt auf, während ein Task auf den Abschluss des Startvorgangs von tempdb wartet.| 
-|SLEEP_WORKSPACE_ALLOCATEPAGE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SLEEP_WORKSPACE_ALLOCATEPAGE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SLO_UPDATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|Smsync |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|Smsync |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SNI_CONN_DUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |SNI_CRITICAL_SECTION |Tritt während der internen Synchronisierung innerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Netzwerkkomponenten auf.| 
 |SNI_HTTP_WAITFOR_0_DISCON |Tritt während des Herunterfahrens von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf, während darauf gewartet wird, dass ausstehende HTTP-Verbindungen beendet werden.| 
@@ -860,7 +860,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |SNI_WRITE_ASYNC |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |SOAP_READ |Tritt während eines Wartevorgangs auf den Abschluss eines HTTP-Netzwerklesevorgangs auf.| 
 |SOAP_WRITE |Tritt auf, während auf den Abschluss eines HTTP-Netzwerkschreibvorgangs gewartet wird.| 
-|SOCKETDUPLICATEQUEUE_CLEANUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|SOCKETDUPLICATEQUEUE_CLEANUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |SOS_CALLBACK_REMOVAL |Tritt beim Ausführen einer Synchronisierung für eine Rückrufliste auf, um einen Rückruf zu entfernen. Es wird nicht erwartet, dass dieser Leistungsindikator nach dem Abschluss der Serverinitialisierung geändert wird.| 
 |SOS_DISPATCHER_MUTEX |Tritt während der internen Synchronisierung des Verteilerpools auf. Dies schließt Anpassungsvorgänge des Pools mit ein.| 
 |SOS_LOCALALLOCATORLIST |Tritt während der internen Synchronisierung im Speicher-Manager von [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] auf. <br /><br /> **Gilt für**: [!INCLUDE[ssKilimanjaro_md](../../includes/sskilimanjaro-md.md)] nur. |  
@@ -904,9 +904,9 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |SQLTRACE_WAIT_ENTRIES |Tritt auf, während eine Ereigniswarteschlange der SQL-Ablaufverfolgung auf das Eintreffen von Paketen in der Warteschlange wartet.| 
 |SRVPROC_SHUTDOWN |Tritt auf, während der Prozess des Herunterfahrens auf die Freigabe interner Ressourcen wartet, damit ein ordnungsgemäßes Herunterfahren erfolgen kann.| 
 |STARTUP_DEPENDENCY_MANAGER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|TDS_BANDWIDTH_STATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|TDS_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|TDS_PROXY_CONTAINER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|TDS_BANDWIDTH_STATE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|TDS_INIT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|TDS_PROXY_CONTAINER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |TEMPOBJ |Tritt auf, wenn Löschvorgänge temporärer Objekte synchronisiert werden. Dieser Wartetyp ist selten und tritt nur auf, wenn ein Task einen exklusiven Zugriff für temp-Tabellenlöschvorgänge angefordert hat.| 
 |TEMPORAL_BACKGROUND_PROCEED_CLEANUP |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |TERMINATE_LISTENER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -954,7 +954,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |WAIT_XTP_PROCEDURE_ENTRY |Tritt ein, wenn eine Löschprozedur auf den Abschluss aller aktuellen Ausführungen dieser Prozedur wartet. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |WAIT_XTP_RECOVERY |Tritt auf, wenn die Daten Bank Wiederherstellung darauf wartet, dass Speicher optimierte Objekte wieder hergestellt werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |WAIT_XTP_SERIAL_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
-|WAIT_XTP_SWITCH_TO_INACTIVE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|WAIT_XTP_SWITCH_TO_INACTIVE |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |WAIT_XTP_TASK_SHUTDOWN |Tritt ein, wenn auf den Abschluss eines In-Memory OLTP-Threads gewartet wird. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |WAIT_XTP_TRAN_DEPENDENCY |Tritt ein, wenn auf Transaktionsabhängigkeiten gewartet wird. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |WAITFOR |Tritt als Ergebnis einer WAITFOR Transact-SQL-Anweisung auf. Die Dauer des Wartevorgangs wird durch die Parameter der Anweisung bestimmt. Hierbei handelt es sich um einen vom Benutzer initiierten Wartevorgang.| 
@@ -962,10 +962,10 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |WAITFOR_TASKSHUTDOWN |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |WAITSTAT_MUTEX |Tritt während der Synchronisierung des Zugriffs auf die Statistikauflistung auf, die zum Auffüllen von sys.dm_os_wait_stats verwendet wird.| 
 |WCC |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
-|WINDOW_AGGREGATES_MULTIPASS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|WINDOW_AGGREGATES_MULTIPASS |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |WINFAB_API_CALL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |WINFAB_REPLICA_BUILD_OPERATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|WINFAB_REPORT_FAULT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|WINFAB_REPORT_FAULT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |WORKTBL_DROP |Tritt während des Anhaltens vor einem erneuten Versuch nach einem fehlerhaften Löschvorgang einer Arbeitstabelle auf.| 
 |WRITE_COMPLETION |Tritt während der Ausführung eines Schreibvorgangs auf.| 
 |WRITELOG |Tritt auf, während auf den Abschluss einer Protokollleerung gewartet wird. Häufig verwendete Vorgänge, die Protokollleerungen verursachen, sind Prüfpunkte und Transaktionscommits.| 
@@ -973,7 +973,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |XACT_RECLAIM_SESSION |Tritt auf, während darauf gewartet wird, dass der aktuelle Besitzer einer Sitzung den Besitz der Sitzung freigibt.| 
 |XACTLOCKINFO |Tritt während der Synchronisierung des Zugriffs auf die Liste von Sperren für eine Transaktion auf. Zusätzlich zur Transaktion selbst erfolgt der Zugriff auf die Liste von Sperren durch Vorgänge, wie z. B. Deadlockerkennung und Sperrenmigration, während Seitenteilungen.| 
 |XACTWORKSPACE_MUTEX |Tritt während der Synchronisierung von Austritten aus einer Transaktion sowie der Anzahl von Datenbanksperren zwischen eingetragenen Mitgliedern einer Transaktion auf.| 
-|XDB_CONN_DUP_HASH |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|XDB_CONN_DUP_HASH |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |XDES_HISTORY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |XDES_OUT_OF_ORDER_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |XDES_SNAPSHOT |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -985,7 +985,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |XE_DISPATCHER_CONFIG_SESSION_LIST |Tritt auf, wenn eine Sitzung für erweiterte Ereignisse, die asynchrone Ziele verwendet, begonnen oder beendet wird. Dieser Wartetyp weist auf eines der folgenden Ereignisse hin:| 
 |XE_DISPATCHER_JOIN |Tritt auf, wenn ein für Sitzungen für erweiterte Ereignisse verwendeter Hintergrundthread beendet wird.| 
 |XE_DISPATCHER_WAIT |Tritt auf, wenn ein für Sitzungen für erweiterte Ereignisse verwendeter Hintergrundthread auf die Verarbeitung von Ereignispuffern wartet.| 
-|XE_FILE_TARGET_TVF |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|XE_FILE_TARGET_TVF |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |XE_LIVE_TARGET_TVF |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |XE_MODULEMGR_SYNC |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |XE_OLS_LOCK |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
@@ -1000,18 +1000,18 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |XE_TIMER_EVENT |Nur zur internen Verwendung.| 
 |XE_TIMER_MUTEX |Nur zur internen Verwendung.| 
 |XE_TIMER_TASK_DONE |Nur zur internen Verwendung.| 
-|XIO_CREDENTIAL_MGR_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|XIO_CREDENTIAL_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|XIO_CREDENTIAL_MGR_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|XIO_CREDENTIAL_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |XIO_EDS_MGR_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |XIO_EDS_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |XIO_IOSTATS_BLOBLIST_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
 |XIO_IOSTATS_FCBLIST_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] und höher.| 
-|XIO_LEASE_RENEW_MGR_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|XIO_LEASE_RENEW_MGR_RWLOCK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |XTP_HOST_DB_COLLECTION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |XTP_HOST_LOG_ACTIVITY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
-|XTP_HOST_PARALLEL_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|XTP_PREEMPTIVE_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
-|XTP_TRUNCATION_LSN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] und höher.| 
+|XTP_HOST_PARALLEL_RECOVERY |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|XTP_PREEMPTIVE_TASK |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
+|XTP_TRUNCATION_LSN |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |XTPPROC_CACHE_ACCESS |Tritt beim Zugriff auf alle Cacheobjekte der systemintern kompilierten gespeicherten Prozedur auf. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und höher.| 
 |XTPPROC_PARTITIONED_STACK_CREATE |Tritt ein, wenn Cachestrukturen der systemintern kompilierten gespeicherten Prozedur pro NUMA-Knoten für eine angegebene Prozedur zugewiesen werden (muss als Singlethread erfolgen). <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.|
 
