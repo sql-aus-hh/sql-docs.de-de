@@ -2,7 +2,7 @@
 description: Partitioned Tables and Indexes
 title: Partitionierte Tabellen und Indizes | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 01/20/2016
+ms.date: 1/5/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: ''
@@ -17,12 +17,12 @@ ms.assetid: cc5bf181-18a0-44d5-8bd7-8060d227c927
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 4cb894ef393f767d85af5c43b50bffce87f3a6fc
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: dcc5d8e3602261c975f5517ea859e19fc7902936
+ms.sourcegitcommit: 629229a7c33a3ed99db63b89127bb016449f7d3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480041"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97952054"
 ---
 # <a name="partitioned-tables-and-indexes"></a>Partitioned Tables and Indexes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -55,6 +55,9 @@ Hierbei handelt es sich um ein Datenbankobjekt, das definiert, wie die Zeilen ei
   
 ### <a name="partition-scheme"></a>Partitionsschema 
 Ein Datenbankobjekt, das die Partitionen einer Partitionsfunktion Dateigruppen zuordnet. Der wichtigste Grund dafür, dass Partitionen in separaten Dateigruppen platziert werden, besteht darin, sicherzustellen, dass Sie Sicherungsvorgänge unabhängig für Partitionen ausführen können. Dies liegt daran, dass Sie Sicherungen für einzelne Dateigruppen ausführen können.  
+
+> [!NOTE]
+> In Azure SQL-Datenbank werden nur primäre Dateigruppen unterstützt.  
   
 ### <a name="partitioning-column"></a>Partitionierungsspalte  
 Die Spalte einer Tabelle oder eines Indexes, die von einer Partitionsfunktion zum Partitionieren der Tabelle oder des Indexes verwendet wird. Berechnete Spalten, die in eine Partitionsfunktion einbezogen werden, müssen explizit als PERSISTED gekennzeichnet sein. Alle Datentypen, die zum Verwenden als Indexspalten zulässig sind, können als Partitionsspalte verwenden werden, mit Ausnahme des Datentyps **timestamp**. Die Datentypen **ntext**-, **text**-, **image**-, **xml**-, **varchar(max)** -, **nvarchar(max)** oder **varbinary(max)** können nicht angegeben werden. Zudem können der benutzerdefinierte CLR-Typ (Common Language Runtime) von Microsoft .NET Framework und die Spalten mit dem Aliasdatentyp nicht angegeben werden.  

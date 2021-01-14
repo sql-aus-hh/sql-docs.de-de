@@ -2,7 +2,7 @@
 description: Erstellen partitionierter Tabellen und Indizes
 title: Erstellen partitionierter Tabellen und Indizes | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 03/14/2017
+ms.date: 1/5/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: ''
@@ -30,12 +30,12 @@ ms.assetid: 7641df10-1921-42a7-ba6e-4cb03b3ba9c8
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 791c2fa9d0ea4aad3c59f0edbafb2a28a2585d25
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 387a2f88afd22004f7146384ce29ddc2ba2f2da7
+ms.sourcegitcommit: 629229a7c33a3ed99db63b89127bb016449f7d3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97464851"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97952050"
 ---
 # <a name="create-partitioned-tables-and-indexes"></a>Erstellen partitionierter Tabellen und Indizes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -50,6 +50,9 @@ ms.locfileid: "97464851"
 3.  Erstellen Sie ein Partitionsschema, das die Partitionen einer partitionierten Tabelle oder eines partitionierten Indexes den neuen Dateigruppen zuordnet.  
   
 4.  Erstellen oder ändern Sie eine Tabelle oder einen Index, und geben Sie das Partitionsschema als Speicherort an.  
+ 
+> [!NOTE]
+> In Azure SQL-Datenbank werden nur primäre Dateigruppen unterstützt.  
   
  **In diesem Thema**  
   
@@ -96,7 +99,7 @@ ms.locfileid: "97464851"
 3.  Klicken Sie unter **Zeilen** auf **Hinzufügen**. Geben Sie in der neuen Zeile den Dateigruppennamen ein.  
   
     > [!WARNING]  
-    >  Zusätzlich zu der Anzahl der für die Begrenzungswerte angegebenen Dateigruppen müssen Sie beim Erstellen von Partitionen stets über eine weitere Dateigruppe verfügen.  
+    >  Wenn Sie mehrere Dateigruppen angeben, müssen Sie zusätzlich zu der Anzahl der für die Begrenzungswerte angegebenen Dateigruppen beim Erstellen von Partitionen stets über eine weitere Dateigruppe verfügen.  
   
 4.  Fügen Sie weiterhin Zeilen hinzu, bis Sie alle Dateigruppen für die partitionierte Tabelle erstellt haben.  
   
@@ -345,6 +348,34 @@ ms.locfileid: "97464851"
         ON myRangePS1 (col1) ;  
     GO  
     ```  
+
+
+#### <a name="to-create-a-partitioned-table-in-azure-sqldbesa"></a>So erstellen Sie eine partitionierte Tabelle in Azure SQL-Datenbank
+
+In Azure SQL-Datenbank wird das Hinzufügen von Dateien und Dateigruppen nicht unterstützt, aber die Tabellenpartitionierung wird nur durch Partitionierung in der PRIMÄREN Dateigruppe unterstützt.
+  
+1.  Stellen Sie im **Objekt-Explorer** eine Verbindung mit einer [!INCLUDE[ssDE](../../includes/ssde-md.md)]-Instanz her.  
+  
+1.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
+  
+1.  Kopieren Sie das folgende Beispiel, fügen Sie es in das Abfragefenster ein, und klicken Sie auf **Ausführen**. In diesem Beispiel werden eine Partitionsfunktion und ein Partitionsschema erstellt. Eine neue Tabelle wird mit dem Partitionsschema erstellt, das als Speicherort angegeben wurde. 
+
+    ```
+    -- Creates a partition function called myRangePF1 that will partition a table into four partitions  
+    CREATE PARTITION FUNCTION myRangePF1 (int)  
+        AS RANGE LEFT FOR VALUES (1, 100, 1000) ;  
+    GO  
+    -- Creates a partition scheme called myRangePS1 that applies myRangePF1 to the PRIMARY filegroup 
+    CREATE PARTITION SCHEME myRangePS1  
+        AS PARTITION myRangePF1  
+        ALL TO ('PRIMARY') ;  
+    GO  
+    -- Creates a partitioned table called PartitionTable that uses myRangePS1 to partition col1  
+    CREATE TABLE PartitionTable (col1 int PRIMARY KEY, col2 char(10))  
+        ON myRangePS1 (col1) ;  
+    GO
+    ```  
+
   
 #### <a name="to-determine-if-a-table-is-partitioned"></a>So bestimmen Sie, ob eine Tabelle partitioniert ist  
   
