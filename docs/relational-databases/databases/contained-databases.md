@@ -17,12 +17,12 @@ ms.assetid: 36af59d7-ce96-4a02-8598-ffdd78cdc948
 author: stevestein
 ms.author: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: cc6e5734edbf7203f98d1b7fc7a685e699aaa635
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bbad843d482945a29cb03fde9545b1c19fb354f9
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481431"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098393"
 ---
 # <a name="contained-databases"></a>Eigenständige Datenbanken
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -128,15 +128,13 @@ ms.locfileid: "97481431"
 ##  <a name="limitations"></a><a name="Limitations"></a> Einschränkungen  
  Für teilweise eigenständige Datenbanken sind die folgenden Funktionen nicht zulässig.  
   
--   Teilweise Enthaltene Datenbanken unterstützen weder die Replikation, noch das Aufzeichnen oder das Nachverfolgen von Änderungsdaten.  
+-   Replikation, Change Data Capture oder Änderungsnachverfolgung  
   
 -   Nummerierte Prozeduren  
   
 -   Schemagebundene Objekte, die von integrierten Funktionen mit Sortierungsänderungen abhängen.  
   
--   Bindungsänderungen, die sich aus Sortierungsänderungen ergeben, einschließlich von Verweisen auf Objekte, Spalten, Symbole oder Typen.  
-  
--   Replikation, Change Data Capture und Änderungsnachverfolgung  
+-   Bindungsänderungen, die sich aus Sortierungsänderungen ergeben, einschließlich von Verweisen auf Objekte, Spalten, Symbole oder Typen.
   
 > [!WARNING]  
 >  Temporär gespeicherte Prozeduren sind derzeit zulässig. Da temporär gespeicherte Prozeduren die Kapselung verletzen, ist nicht davon auszugehen, dass sie in künftigen Versionen der eigenständigen Datenbank unterstützt werden.  

@@ -11,12 +11,12 @@ ms.assetid: 11f4ed8a-aaa9-417b-bdd5-204f551c6bb6
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 6005a98eb443a496db7c5ba96682535cc03bcd51
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bcf581a18af1f8f3024cd94d712359396f64bbfd
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97463681"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975438"
 ---
 # <a name="install-sql-server-with-sysprep"></a>Installieren von SQL Server mit SysPrep
 
@@ -106,7 +106,7 @@ Weitere Informationen zu [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md
     |-|-|  
     |[!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] SysPrep|[!INCLUDE[ssDE](../../includes/ssde-md.md)]<br /><br /> [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Replikation<br /><br /> Volltextfunktionen<br /><br /> Data Quality Services<br /><br /> [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] im einheitlichen Modus<br /><br /> [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]<br /><br /> Weitervertreibbare Funktionen<br /><br /> Freigegebene Funktionen|  
   
-     Wenn Sie einen Funktionsnamen hervorheben, wird im rechten Bereich eine Beschreibung für die jeweilige Komponentengruppe angezeigt. Sie können jede beliebige Kombination von Kontrollkästchen aktivieren. Weitere Informationen finden Sie unter [Editionen und unterstützte Funktionen von SQL Server](../../sql-server/editions-and-components-of-sql-server-2017.md). 
+     Wenn Sie einen Funktionsnamen hervorheben, wird im rechten Bereich eine Beschreibung für die jeweilige Komponentengruppe angezeigt. Sie können jede beliebige Kombination von Kontrollkästchen aktivieren. Weitere Informationen finden Sie unter [Von den SQL Server 2017-Editionen unterstützte Features](../../sql-server/editions-and-components-of-sql-server-2017.md) und [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).
   
      Die erforderlichen Komponenten für die ausgewählten Funktionen werden im rechten Bereich angezeigt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Setup installiert die erforderlichen Komponenten, die nicht bereits während des Installationsschritts installiert werden, der im weiteren Verlauf dieser Prozedur beschrieben wird. 
   

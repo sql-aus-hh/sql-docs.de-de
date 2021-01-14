@@ -1,8 +1,6 @@
 ---
+title: FROM-Klausel mit JOIN, APPLY, PIVOT (T-SQL)
 description: FROM-Klausel mit JOIN, APPLY, PIVOT (Transact-SQL)
-title: 'FROM: JOIN, APPLY, PIVOT (T-SQL) | Microsoft-Dokumentation'
-ms.custom: ''
-ms.date: 06/01/2019
 ms.prod: sql
 ms.prod_service: database-engine, sql-database, sql-data-warehouse, pdw
 ms.reviewer: ''
@@ -13,6 +11,8 @@ f1_keywords:
 - FROM_TSQL
 - FROM
 - JOIN_TSQL
+- OUTER_JOIN_TSQL
+- INNER_JOIN_TSQL
 - CROSS_TSQL
 - CROSS_APPLY_TSQL
 - APPLY_TSQL
@@ -34,13 +34,15 @@ helpviewer_keywords:
 ms.assetid: 36b19e68-94f6-4539-aeb1-79f5312e4263
 author: VanMSFT
 ms.author: vanto
+ms.custom: ''
+ms.date: 06/01/2019
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 188610b1f6eef0835bf20f7b86e99647df699539
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 70cda7e45f17bb1dbeeaa69178e0538296572ae7
+ms.sourcegitcommit: b652ff2f0f7edbb5bd2f8fdeac56348e4d84f8fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97464221"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98112672"
 ---
 # <a name="from-clause-plus-join-apply-pivot-transact-sql"></a>FROM-Klausel mit JOIN, APPLY, PIVOT (Transact-SQL)
 
@@ -56,9 +58,9 @@ Die FROM-Klausel ist normalerweise in der SELECT-Anweisung erforderlich. Die Aus
 
 Dieser Artikel behandelt auch die folgenden Schlüsselwörter, die in der FROM-Klausel verwendet werden können:
 
-- JOIN
+- [JOIN](../../relational-databases/performance/joins.md)
 - APPLY
-- PIVOT
+- [PIVOT](from-using-pivot-and-unpivot.md)
 
 ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
@@ -199,20 +201,14 @@ FROM { <table_source> [ ,...n ] }
  WITH (\<table_hint>)  
  Gibt an, dass der Abfrageoptimierer eine Optimierungs- oder Sperrstrategie bei dieser Tabelle und für diese Anweisung verwendet. Weitere Informationen finden Sie unter [Tabellenhinweise &#40;Transact-SQL&#41;](../../t-sql/queries/hints-transact-sql-table.md).  
   
- *rowset_function*  
-
+*rowset_function*  
 **Gilt für:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
-  
- Gibt eine der Rowsetfunktionen (z. B. OPENROWSET) an, die ein Objekt zurückgeben, das statt eines Tabellenverweises verwendet werden kann. Weitere Informationen zur Liste mit Rowsetfunktionen finden Sie unter [Rowsetfunktionen &#40;Transact-SQL&#41;](../functions/opendatasource-transact-sql.md).  
+Gibt eine der Rowsetfunktionen (z. B. OPENROWSET) an, die ein Objekt zurückgeben, das statt eines Tabellenverweises verwendet werden kann. Weitere Informationen zur Liste mit Rowsetfunktionen finden Sie unter [Rowsetfunktionen &#40;Transact-SQL&#41;](../functions/opendatasource-transact-sql.md).  
   
  Die Verwendung der OPENROWSET- und OPENQUERY-Funktionen zum Angeben eines Remoteobjekts hängt von den Fähigkeiten des OLE DB-Anbieters ab, der auf das Objekt zugreift.  
   
  *bulk_column_alias*  
-
 **Gilt für:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
-  
  Ein optionaler Alias, der einen Spaltennamen im Resultset ersetzt. Spaltenaliase sind nur in SELECT-Anweisungen zulässig, die die OPENROWSET-Funktion mit der BULK-Option verwenden. Wenn Sie *bulk_column_alias* verwenden, geben Sie einen Alias für jede Tabellenspalte in derselben Reihenfolge wie die Spalten in der Datei an.  
   
 > [!NOTE]  
@@ -221,12 +217,9 @@ FROM { <table_source> [ ,...n ] }
  *user_defined_function*  
  Gibt eine Tabellenwertfunktion an.  
   
- OPENXML \<openxml_clause>  
-
+OPENXML \<openxml_clause>  
 **Gilt für:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
-  
- Stellt eine Rowsetsicht eines XML-Dokuments bereit. Weitere Informationen finden Sie unter [OPENXML &#40;Transact-SQL&#41;](../../t-sql/functions/openxml-transact-sql.md).  
+Stellt eine Rowsetsicht eines XML-Dokuments bereit. Weitere Informationen finden Sie unter [OPENXML &#40;Transact-SQL&#41;](../../t-sql/functions/openxml-transact-sql.md).  
   
  *derived_table*  
  Entspricht einer Unterabfrage, die Zeilen von der Datenbank abruft. *derived_table* wird für die äußere Abfrage als Eingabe verwendet.  
@@ -236,17 +229,12 @@ FROM { <table_source> [ ,...n ] }
  *column_alias*  
  Ein optionaler Alias, der einen Spaltennamen im Resultset der abgeleiteten Tabelle ersetzen soll. Geben Sie für jede Spalte in der Auswahlliste einen Spaltenalias an, und schließen Sie die gesamte Liste der Spaltenaliasnamen in Klammern ein.  
   
- *table_or_view_name* FOR SYSTEM_TIME \<system_time>  
-
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
-  
- Gibt an, dass eine bestimmte Version von Daten aus der angegebenen temporalen Tabelle und die verknüpfte Verlaufstabelle mit Systemversionsverwaltung zurückgegeben werden.  
+ *table_or_view_name* FOR SYSTEM_TIME \<system_time>
+**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und später sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+Gibt an, dass eine bestimmte Version von Daten aus der angegebenen temporalen Tabelle und die verknüpfte Verlaufstabelle mit Systemversionsverwaltung zurückgegeben werden.  
   
 ### <a name="tablesample-clause"></a>TABLESAMPLE-Klausel
-**Anwendungsbereich:** SQL Server, SQL-Datenbank 
- 
- Gibt an, dass Beispieldaten aus der Tabelle zurückgegeben werden. Die Beispieldaten können ungefähr sein. Diese Klausel kann für eine primäre oder verknüpfte Tabelle in einer SELECT- oder UPDATE-Anweisung verwendet werden. TABLESAMPLE kann nicht für Sichten angegeben werden.  
+**Anwendungsbereich:** SQL Server und SQL-Datenbank; Gibt an, dass Beispieldaten aus der Tabelle zurückgegeben werden. Die Beispieldaten können ungefähr sein. Diese Klausel kann für eine primäre oder verknüpfte Tabelle in einer SELECT- oder UPDATE-Anweisung verwendet werden. TABLESAMPLE kann nicht für Sichten angegeben werden.  
   
 > [!NOTE]  
 >  Wenn Sie TABLESAMPLE für Datenbanken verwenden, die auf [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] aktualisiert wurden, wird der Kompatibilitätsgrad der Datenbank auf mindestens 110 festgelegt, und PIVOT ist in einer rekursiven allgemeinen Tabellenausdrucksabfrage (CTE, Common Table Expression) nicht zugelassen. Weitere Informationen finden Sie unter [ALTER DATABASE-Kompatibilitätsgrad &#40;Transact-SQL&#41;](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md).  
@@ -381,35 +369,24 @@ ON (p.ProductID = v.ProductID);
  UNPIVOT \<unpivot_clause>  
  Gibt an, dass die Eingabetabelle aus mehreren Spalten in *column_list* zu einer einzelnen Spalte namens *pivot_column* eingeschränkt wird. Weitere Informationen zu PIVOT und UNPIVOT finden Sie unter [Verwenden von PIVOT und UNPIVOT](../../t-sql/queries/from-using-pivot-and-unpivot.md).  
   
- AS OF \<date_time>  
-
+AS OF \<date_time>  
 **Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
+Gibt eine Tabelle mit einem einzelnen Datensatz für jede Zeile zurück, die die Werte enthält, die zum angegebenen Zeitpunkt in der Vergangenheit real (aktuell) waren. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte in der Zeile zurückgegeben werden, die zu dem durch den Parameter *\<date_time>* angegebenen Zeitpunkt gültig waren. Der Wert für eine Zeile ist gültig, wenn der Wert *system_start_time_column_name* kleiner als oder gleich dem Parameterwert *\<date_time>* und der Wert *system_end_time_column_name* größer als der Parameterwert *\<date_time>* ist.   
   
- Gibt eine Tabelle mit einem einzelnen Datensatz für jede Zeile zurück, die die Werte enthält, die zum angegebenen Zeitpunkt in der Vergangenheit real (aktuell) waren. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte in der Zeile zurückgegeben werden, die zu dem durch den Parameter *\<date_time>* angegebenen Zeitpunkt gültig waren. Der Wert für eine Zeile ist gültig, wenn der Wert *system_start_time_column_name* kleiner als oder gleich dem Parameterwert *\<date_time>* und der Wert *system_end_time_column_name* größer als der Parameterwert *\<date_time>* ist.   
+FROM \<start_date_time> TO \<end_date_time>
+**Gilt für:** : [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)]
+Dieses Argument gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des angegebenen Zeitbereichs aktiv waren, unabhängig davon, ob ihre Aktivität vor dem Parameterwert *\<start_date_time>* für das FROM-Argument begonnen hat oder ihre Aktivität nach dem Parameterwert *\<end_date_time>* für das TO-Argument geendet hat. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte für alle Zeilenversionen zurückgegeben werden, die zu irgendeinem Zeitpunkt innerhalb des angegebenen Zeitbereichs aktiv waren. Zeilen, die genau an dem durch den FROM-Endpunkt definierten unteren Grenzwert aktiv wurden, sind enthalten, und Datensätze, die genau an dem durch den TO-Endpunkt definierten oberen Grenzwert aktiv wurden, sind nicht enthalten.  
   
- FROM \<start_date_time> TO \<end_date_time>
-
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].
-
-  
- Dieses Argument gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des angegebenen Zeitbereichs aktiv waren, unabhängig davon, ob ihre Aktivität vor dem Parameterwert *\<start_date_time>* für das FROM-Argument begonnen hat oder ihre Aktivität nach dem Parameterwert *\<end_date_time>* für das TO-Argument geendet hat. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte für alle Zeilenversionen zurückgegeben werden, die zu irgendeinem Zeitpunkt innerhalb des angegebenen Zeitbereichs aktiv waren. Zeilen, die genau an dem durch den FROM-Endpunkt definierten unteren Grenzwert aktiv wurden, sind enthalten, und Datensätze, die genau an dem durch den TO-Endpunkt definierten oberen Grenzwert aktiv wurden, sind nicht enthalten.  
-  
- BETWEEN \<start_date_time> AND \<end_date_time>  
-
+BETWEEN \<start_date_time> AND \<end_date_time>  
 **Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+Dieses Argument ist identisch mit dem oben beschriebenen Argument **FROM \<start_date_time> TO \<end_date_time>** , mit dem Unterschied, dass es Zeilen enthält, die an dem durch den \<end_date_time>-Endpunkt definierten oberen Grenzwert aktiv wurden.  
   
- Dieses Argument ist identisch mit dem oben beschriebenen Argument **FROM \<start_date_time> TO \<end_date_time>** , mit dem Unterschied, dass es Zeilen enthält, die an dem durch den \<end_date_time>-Endpunkt definierten oberen Grenzwert aktiv wurden.  
-  
- CONTAINED IN (\<start_date_time>, \<end_date_time>)  
-
+CONTAINED IN (\<start_date_time>, \<end_date_time>)  
 **Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-
+Gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des von den zwei Datums-/Uhrzeitwerten für das Argument CONTAINED IN definierten Zeitbereichs geöffnet und geschlossen wurden. Zeilen, die genau beim unteren Grenzwert aktiv wurden, oder deren Aktivität genau beim oberen Grenzwert endete, sind enthalten.  
   
- Gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des von den zwei Datums-/Uhrzeitwerten für das Argument CONTAINED IN definierten Zeitbereichs geöffnet und geschlossen wurden. Zeilen, die genau beim unteren Grenzwert aktiv wurden, oder deren Aktivität genau beim oberen Grenzwert endete, sind enthalten.  
-  
- ALL  
- Gibt eine Tabelle mit den Werten aus allen Zeilen aus der aktuellen Tabelle und aus der Verlaufstabelle zurück.  
+ALL  
+Gibt eine Tabelle mit den Werten aus allen Zeilen aus der aktuellen Tabelle und aus der Verlaufstabelle zurück.  
   
 ## <a name="remarks"></a>Bemerkungen  
  Die FROM-Klausel unterstützt die SQL-Syntax von SQL-92 für verknüpfte und abgeleitete Tabellen. Die SQL-92-Syntax stellt die Joinoperatoren INNER, LEFT OUTER, RIGHT OUTER, FULL OUTER und CROSS zur Verfügung.  
@@ -635,8 +612,7 @@ GO
 ### <a name="m-using-for-system_time"></a>M. Verwenden von FOR SYSTEM_TIME  
   
 **Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
-  
- Im folgenden Beispiel wird das Argument FOR SYSTEM_TIME AS OF date_time_literal_or_variable verwendet, um Tabellenzeilen zurückzugeben, die am 1. Januar 2014 aktuell waren.  
+Im folgenden Beispiel wird das Argument FOR SYSTEM_TIME AS OF date_time_literal_or_variable verwendet, um Tabellenzeilen zurückzugeben, die am 1. Januar 2014 aktuell waren.  
   
 ```sql
 SELECT DepartmentNumber,   
@@ -648,7 +624,7 @@ FOR SYSTEM_TIME AS OF '2014-01-01'
 WHERE ManagerID = 5;
 ```  
   
- Im folgenden Beispiel wird das Argument „FOR SYSTEM_TIME FROM date_time_literal_or_variable TO date_time_literal_or_variable“ verwendet, um alle Zeilen zurückzugeben, die in dem Zeitraum aktiv waren, für dessen Beginn der 1. Januar 2013 und für dessen Ende der 1. Januar 2014 ohne oberen Grenzwert definiert wurde.  
+Im folgenden Beispiel wird das Argument „FOR SYSTEM_TIME FROM date_time_literal_or_variable TO date_time_literal_or_variable“ verwendet, um alle Zeilen zurückzugeben, die in dem Zeitraum aktiv waren, für dessen Beginn der 1. Januar 2013 und für dessen Ende der 1. Januar 2014 ohne oberen Grenzwert definiert wurde.  
   
 ```sql
 SELECT DepartmentNumber,   

@@ -15,18 +15,18 @@ ms.reviewer: ''
 ms.custom: ''
 ms.date: 09/07/2019
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 3481a3d5252752e1cf952375d1c35c1c4b9939f1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a8a0e3db546f4a74e1ec9bcc3c6312d8ca848777
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438833"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975491"
 ---
 # <a name="add-features-to-an-instance-of-sql-server-setup"></a>Hinzufügen von Funktionen zu einer Instanz von SQL Server (Setup)
 
 [!INCLUDE [ SQL Server - Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
 
-Dieser Artikel bietet eine Schrittanleitung zum Hinzufügen von Funktionen zu einer Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Einige Komponenten oder Dienste von SQL Server sind spezifisch für eine SQL Server-Instanz. Sie werden auch als instanzabhängig bezeichnet. Sie nutzen die gleiche Version wie ihre Hostinstanz und werden ausschließlich für diese Instanz verwendet. Sie können einer SQL Server-Instanz die instanzabhängigen Komponenten zusammen mit den gemeinsam genutzten Komponenten hinzufügen, wenn sie nicht bereits installiert sind. Eine Liste der Funktionen, die von den verschiedenen SQL Server-Editionen unterstützt werden, finden Sie unter [Editionen und unterstütze Funktionen für SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md).
+Dieser Artikel bietet eine Schrittanleitung zum Hinzufügen von Funktionen zu einer Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Einige Komponenten oder Dienste von SQL Server sind spezifisch für eine SQL Server-Instanz. Sie werden auch als instanzabhängig bezeichnet. Sie nutzen die gleiche Version wie ihre Hostinstanz und werden ausschließlich für diese Instanz verwendet. Sie können einer SQL Server-Instanz die instanzabhängigen Komponenten zusammen mit den gemeinsam genutzten Komponenten hinzufügen, wenn sie nicht bereits installiert sind. Eine Liste der Features, die von den verschiedenen SQL Server-Editionen unterstützt werden, finden Sie unter [Editionen und unterstütze Features für SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md) oder [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).
 
 Informationen zum Hinzufügen von Funktionen zu einer Instanz von SQL Server über die Eingabeaufforderung finden Sie unter [Installieren von SQL Server über die Eingabeaufforderung](./install-sql-server-from-the-command-prompt.md).
 
@@ -58,7 +58,7 @@ Bevor Sie den Vorgang fortsetzen, lesen Sie die Artikel unter [Planen einer SQL 
 
 7. Wählen Sie auf der Seite „Installationstyp“ die Option **Funktionen zu einer vorhandenen [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]-Instanz hinzufügen**, und wählen Sie dann die Instanz aus, die Sie aktualisieren möchten.
 
-8. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können jede beliebige Kombination von Kontrollkästchen aktivieren. Weitere Informationen finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md). Jede Komponente kann in einer bestimmten Instanz von SQL Server nur einmal installiert werden. Wenn Sie mehrere Komponenten installieren möchten, müssen Sie eine zusätzliche Instanz von SQL Server installieren.
+8. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können jede beliebige Kombination von Kontrollkästchen aktivieren. Weitere Informationen finden Sie unter [Editionen und unterstützte Features von SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md) und [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md). Jede Komponente kann in einer bestimmten Instanz von SQL Server nur einmal installiert werden. Wenn Sie mehrere Komponenten installieren möchten, müssen Sie eine zusätzliche Instanz von SQL Server installieren.
 
     Die erforderlichen Komponenten für die ausgewählten Funktionen werden im rechten Bereich angezeigt. SQL Server-Setup installiert die erforderlichen Komponenten, die nicht bereits während des im weiteren Verlauf dieser Prozedur beschriebenen Installationsschritts installiert werden.
 

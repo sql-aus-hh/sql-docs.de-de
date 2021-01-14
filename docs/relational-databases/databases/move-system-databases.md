@@ -28,12 +28,12 @@ helpviewer_keywords:
 ms.assetid: 72bb62ee-9602-4f71-be51-c466c1670878
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: a72ccacd9401a8b7955eae10751c5ac67ca211ac
-ms.sourcegitcommit: eeb30d9ac19d3ede8d07bfdb5d47f33c6c80a28f
+ms.openlocfilehash: c24a98684e87eb94a3cd9e100f203509789b7a0f
+ms.sourcegitcommit: 4a813a0741502c56c0cd5ecaafafad2e857a9d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523059"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98031107"
 ---
 # <a name="move-system-databases"></a>Verschieben von Systemdatenbanken
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "96523059"
   
 2.  Beenden Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , oder fahren Sie das System für die Wartungsarbeiten herunter. Weitere Informationen finden Sie unter [Starten, Beenden, Anhalten, Fortsetzen und Neustarten von SQL Server-Diensten](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md).  
   
-3.  Verschieben Sie die Datei(en) an den neuen Speicherort.  
+3.  Verschieben Sie die Datei(en) an den neuen Speicherort, und überprüfen Sie, dass das [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)]-Dienstkonto weiterhin über Zugriffsberechtigungen verfügt.
 
 4.  Starten Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder den Server neu. Weitere Informationen finden Sie unter [Starten, Beenden, Anhalten, Fortsetzen und Neustarten von SQL Server-Diensten](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md).  
   
@@ -151,14 +151,10 @@ ms.locfileid: "96523059"
   
 3.  Klicken Sie im Dialogfeld **Eigenschaften von SQL Server (** _Instanzname_ **)** auf die Registerkarte **Startparameter** .  
   
-4.  Wählen Sie im Feld **Vorhandene Parameter** den Parameter „-d“aus, um die Masterdatendatei zu verschieben. Klicken Sie auf **Aktualisieren** , um die Änderung zu speichern.  
+4.  Wählen Sie im Feld **Vorhandene Parameter** den Parameter „-d“ aus. Ändern Sie im Feld **Startparameter angeben** den Parameter in den neuen Pfad der *Masterdatendatei*. Klicken Sie auf **Aktualisieren** , um die Änderung zu speichern.
   
-     Ändern Sie im Feld **Startparameter angeben** den Parameter in den neuen Pfad der Masterdatenbank.  
-  
-5.  Wählen Sie im Feld **Vorhandene Parameter** den Parameter „-l“aus, um die Masterprotokolldatei zu verschieben. Klicken Sie auf **Aktualisieren** , um die Änderung zu speichern.  
-  
-     Ändern Sie im Feld **Startparameter angeben** den Parameter in den neuen Pfad der Masterdatenbank.  
-  
+5.  Wählen Sie im Feld **Vorhandene Parameter** den Parameter „-l“ aus. Ändern Sie im Feld **Startparameter angeben** den Parameter in den neuen Pfad der *Masterprotokolldatei*. Klicken Sie auf **Aktualisieren** , um die Änderung zu speichern.
+
      Der Parameterwert der Datendatei muss dem `-d` -Parameter und der Wert der Protokolldatei muss dem `-l` -Parameter entsprechen. Im folgenden Beispiel werden die Parameterwerte für den Standardspeicherort der Masterdatendatei dargestellt.  
   
      `-dC:\Program Files\Microsoft SQL Server\MSSQL<version>.MSSQLSERVER\MSSQL\DATA\master.mdf`  
@@ -170,14 +166,16 @@ ms.locfileid: "96523059"
      `-dE:\SQLData\master.mdf`  
   
      `-lE:\SQLData\mastlog.ldf`  
+
+6.  Klicken Sie auf **OK**, um die Änderungen dauerhaft zu speichern, und schließen Sie das Dialogfeld **SQL Server (** _Instanzname_ **)-Eigenschaften**.
+
+7.  Beenden Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , indem Sie mit der rechten Maustaste auf den Instanznamen klicken und **Beenden** auswählen.  
   
-6.  Beenden Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , indem Sie mit der rechten Maustaste auf den Instanznamen klicken und **Beenden** auswählen.  
+8.  Verschieben Sie die Dateien master.mdf und mastlog.ldf an den neuen Speicherort.  
   
-7.  Verschieben Sie die Dateien master.mdf und mastlog.ldf an den neuen Speicherort.  
+9.  Starten Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]neu.  
   
-8.  Starten Sie die Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]neu.  
-  
-9. Überprüfen Sie die Dateiänderung für die master-Datenbank, indem Sie die folgende Abfrage ausführen.  
+10. Überprüfen Sie die Dateiänderung für die master-Datenbank, indem Sie die folgende Abfrage ausführen.  
   
     ```  
     SELECT name, physical_name AS CurrentLocation, state_desc  
@@ -186,7 +184,7 @@ ms.locfileid: "96523059"
     GO  
     ```  
 
-10. An diesem Punkt sollte SQL Server normal ausgeführt werden. Microsoft empfiehlt jedoch, auch den Registrierungseintrag unter `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\instance_ID\Setup`anzupassen, wobei *instance_ID*`MSSQL13.MSSQLSERVER`entspricht. Ändern Sie in dieser Struktur den Wert von `SQLDataRoot` in den neuen Pfad. Wenn Sie es versäumen, die Registrierung zu aktualisieren, können Fehler bei Patches und Upgrades auftreten.
+11. An diesem Punkt sollte SQL Server normal ausgeführt werden. Microsoft empfiehlt jedoch, auch den Registrierungseintrag unter `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\instance_ID\Setup`anzupassen, wobei *instance_ID*`MSSQL13.MSSQLSERVER`entspricht. Ändern Sie in dieser Struktur den Wert von `SQLDataRoot` in den neuen Pfad. Wenn Sie es versäumen, die Registrierung zu aktualisieren, können Fehler bei Patches und Upgrades auftreten.
 
   
 ##  <a name="moving-the-resource-database"></a><a name="Resource"></a> Verschieben der Ressourcendatenbank  

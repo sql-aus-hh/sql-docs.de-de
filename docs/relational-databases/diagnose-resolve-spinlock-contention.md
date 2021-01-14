@@ -9,12 +9,12 @@ ms.topic: how-to
 author: bluefooted
 ms.author: pamela
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a25835dd5fbac5f95434d46ac152d44ea6974496
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 00b4856ab0c057b7f63aae44834884bc775d8e92
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97440131"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102168"
 ---
 # <a name="diagnose-and-resolve-spinlock-contention-on-sql-server"></a>Diagnostizieren und Lösen von Spinlockkonflikten in SQL Server
 
@@ -137,7 +137,7 @@ Der allgemeine technische Prozess für die Diagnose von Spinlockkonflikten in SQ
 
 2. **Schritt 2:** Erfassen Sie Statistiken von *sys.dm\_os_spinlock_stats*, um den Spinlocktyp mit den meisten Konflikten zu ermitteln.
 
-3. **Schritt 3:** Rufen Sie die Debugsymbole für sqlservr.exe (sqlservr.pdb) ab, und speichern Sie sie im selben Verzeichnis wie die SQL Server-Dienst-EXE-Datei (sqlservr.exe) für die SQL Server-Instanz. Sie müssen über die Symbole für die jeweils ausgeführte SQL Server-Version verfügen, um die Aufruflisten für die Backoff-Ereignisse anzeigen zu können. Symbole für SQL Server werden auf dem Microsoft-Symbolserver bereitgestellt. Weitere Informationen zum Herunterladen von Symbolen über den Microsoft-Symbolserver finden Sie unter [Debuggen mit Symbolen](https://docs.microsoft.com/windows/win32/dxtecharts/debugging-with-symbols).
+3. **Schritt 3:** Rufen Sie die Debugsymbole für sqlservr.exe (sqlservr.pdb) ab, und speichern Sie sie im selben Verzeichnis wie die SQL Server-Dienst-EXE-Datei (sqlservr.exe) für die SQL Server-Instanz. Sie müssen über die Symbole für die jeweils ausgeführte SQL Server-Version verfügen, um die Aufruflisten für die Backoff-Ereignisse anzeigen zu können. Symbole für SQL Server werden auf dem Microsoft-Symbolserver bereitgestellt. Weitere Informationen zum Herunterladen von Symbolen über den Microsoft-Symbolserver finden Sie unter [Debuggen mit Symbolen](/windows/win32/dxtecharts/debugging-with-symbols).
 
 4. **Schritt 4:** Verwenden Sie erweiterte Ereignisse von SQL Server, um die Backoff-Ereignisse für die gewünschten Spinlocktypen nachzuverfolgen.
 
@@ -237,7 +237,7 @@ drop event session spin_lock_backoff on server
 Wenn Sie die Ausgabe analysieren, sehen Sie die Aufruflisten für die häufigsten Codepfade für die SOS_CACHESTORE-Drehungen. Während die CPU-Auslastung hoch war, wurde das Skript mehrmals ausgeführt, um die Konsistenz der zurückgegeben Aufruflisten zu überprüfen. Beachten Sie, dass die Aufruflisten mit der höchsten Slotbucketanzahl in den beiden Ausgaben gleich sind (35.668 und 8.506). Diese Aufruflisten verfügen über eine „Slotanzahl“, die zwei Größenordnungen größer als der Eintrag mit der nächstniedrigeren Anzahl ist. Dies ist ein Hinweis auf einen relevanten Codepfad.
 
 > [!NOTE]
-> Es ist nicht ungewöhnlich, dass vom obigen Skript Aufruflisten zurückgegeben werden. Beim Ausführen des Skripts für eine Minute wurde festgestellt, dass Listen mit einer Slotanzahl \> 1.000 und \> 10.000 wahrscheinlich problematisch sind.
+> Es ist nicht ungewöhnlich, dass vom obigen Skript Aufruflisten zurückgegeben werden. Wenn das Skript für eine Minute ausgeführt wurde, haben wir beobachtet, dass eine Aufrufliste mit einer Slotanzahl von > 1000 problematisch war, jedoch die Slotanzahl von > 10.000 noch problematischer war, da diese höher war.
 
 > [!NOTE]
 > Die Formatierung der folgenden Ausgabe wurde zur besseren Lesbarkeit bereinigt.

@@ -2,11 +2,13 @@
 title: Statistik
 description: Der Abfrageoptimierer verwendet Statistiken zum Erstellen von Abfrageplänen, die die Abfrageleistung verbessern. Informationen zu Konzepten und Richtlinien für die Abfrageoptimierung.
 ms.custom: ''
-ms.date: 11/23/2020
+ms.date: 1/7/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: performance
 ms.topic: conceptual
+dev_langs:
+- TSQL
 helpviewer_keywords:
 - statistical information [SQL Server], query optimization
 - query performance [SQL Server], statistics
@@ -20,21 +22,20 @@ helpviewer_keywords:
 - index statistics [SQL Server]
 - query optimizer [SQL Server], statistics
 - statistics [SQL Server]
-ms.assetid: b86a88ba-4f7c-4e19-9fbd-2f8bcd3be14a
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: d88b24a6602ece47194997a829c4f2824d4a6c71
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 77bd2f1cb2cd3e028bccbc5185f2336812f3f891
+ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475351"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98005425"
 ---
 # <a name="statistics"></a>Statistik
 
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
-  Der Abfrageoptimierer verwendet Statistiken zum Erstellen von Abfrageplänen, die die Abfrageleistung verbessern. Bei den meisten Abfragen generiert der Abfrageoptimierer automatisch die notwendigen Statistiken für einen hochwertigen Abfrageplan. In einigen Fällen müssen Sie weitere Statistiken erstellen oder den Abfrageentwurf ändern, um optimale Ergebnisse zu erzielen. Dieses Thema enthält eine Erläuterung von Statistikkonzepten sowie Richtlinien zur effektiven Verwendung von Abfrageoptimierungsstatistiken.  
+  Der Abfrageoptimierer verwendet Statistiken zum Erstellen von Abfrageplänen, die die Abfrageleistung verbessern. Bei den meisten Abfragen generiert der Abfrageoptimierer automatisch die notwendigen Statistiken für einen hochwertigen Abfrageplan. In einigen Fällen müssen Sie weitere Statistiken erstellen oder den Abfrageentwurf ändern, um optimale Ergebnisse zu erzielen. Dieser Artikel enthält eine Erläuterung von Statistikkonzepten sowie Richtlinien zur effektiven Verwendung von Abfrageoptimierungsstatistiken.  
   
 ##  <a name="components-and-concepts"></a><a name="DefinitionQOStatistics"></a> Komponenten und Konzepte  
 ### <a name="statistics"></a>Statistik  
@@ -85,10 +86,10 @@ Der Dichtevektor enthält eine Dichte für jedes Präfix von Spalten im Statisti
 |(CustomerId, ItemId, Price)|Zeilen mit übereinstimmenden Werten für CustomerId, ItemId und Price| 
 
 ### <a name="filtered-statistics"></a>Gefilterte Statistiken  
- Gefilterte Statistiken können die Abfrageleistung für Abfragen verbessern, bei denen aus klar definierten Teilmengen von Daten ausgewählt wird. Gefilterte Statistiken verwenden ein Filterprädikat, um die Teilmenge von Daten auszuwählen, die in der Statistik enthalten ist. Sorgfältig entworfene gefilterte Statistiken können den Abfrageausführungsplan im Vergleich zu Tabellenstatistiken verbessern. Weitere Informationen zum Filterprädikat finden Sie unter [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Weitere Informationen zum Zeitpunkt der Erstellung von gefilterten Statistiken finden Sie im Abschnitt [Zeitpunkt der Erstellung von Statistiken](#CreateStatistics) in diesem Thema.  
+ Gefilterte Statistiken können die Abfrageleistung für Abfragen verbessern, bei denen aus klar definierten Teilmengen von Daten ausgewählt wird. Gefilterte Statistiken verwenden ein Filterprädikat, um die Teilmenge von Daten auszuwählen, die in der Statistik enthalten ist. Sorgfältig entworfene gefilterte Statistiken können den Abfrageausführungsplan im Vergleich zu Tabellenstatistiken verbessern. Weitere Informationen zum Filterprädikat finden Sie unter [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Weitere Informationen zum Zeitpunkt der Erstellung von gefilterten Statistiken finden Sie im Abschnitt [Zeitpunkt der Erstellung von Statistiken](#CreateStatistics) in diesem Artikel.  
  
 ### <a name="statistics-options"></a>Statistikoptionen  
- Anhand von drei Optionen können Sie festlegen, wann und wie Statistiken erstellt und aktualisiert werden. Diese Optionen werden nur auf Datenbankebene festgelegt.  
+ Es gibt drei Optionen, die beeinflussen, wann und wie Statistiken erstellt und aktualisiert werden. Diese Optionen können nur auf Datenbankebene konfiguriert werden.  
   
 #### <a name="auto_create_statistics-option"></a><a name="AutoUpdateStats"></a>AUTO_CREATE_STATISTICS (Option)  
  Ist die [AUTO_CREATE_STATISTICS](../../t-sql/statements/alter-database-transact-sql-set-options.md#auto_create_statistics)-Option zum automatischen Erstellen von Statistiken aktiviert, erstellt der Abfrageoptimierer nach Bedarf Statistiken für einzelne Spalten im Abfrageprädikat, um Kardinalitätsschätzungen für den Abfrageplan zu verbessern. Diese Statistiken für einzelne Spalten werden für Spalten erstellt, die noch nicht über ein [Histogramm](#histogram) in einem vorhandenen Statistikobjekt verfügen. Durch die AUTO_CREATE_STATISTICS-Option wird nicht festgelegt, ob Statistiken für Indizes erstellt werden. Durch diese Option werden auch keine gefilterten Statistiken generiert. Sie gilt ausschließlich für Statistiken für einzelne Spalten der gesamten Tabelle.  
@@ -113,7 +114,7 @@ ORDER BY s.name;
     * Wenn die Tabellenkardinalität zum Zeitpunkt der Statistikauswertung 500 oder weniger beträgt, wird nach jeweils 500 Änderungen eine Aktualisierung durchgeführt.
     * Wenn die Tabellenkardinalität zum Zeitpunkt der Statistikauswertung über 500 liegt, wird nach jeweils 500 Änderungen + 20 Prozent eine Aktualisierung durchgeführt.
 
-* Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und bei einem [Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) von unter 130 verwendet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen abnehmenden dynamischen Schwellenwert für das Statistikupdate, der gemäß der Anzahl von Zeilen in der Tabelle angepasst wird. Dieser berechnet sich als Quadratwurzel des Produkts von 1000 und der aktuellen Tabellenkardinalität. Wenn Ihre Tabelle beispielsweise 2 Millionen Zeilen enthält, lautet die Berechnung folgendermaßen: sqrt(1000 * 2000000) = 44721.359. Durch diese Änderung werden Statistiken für große Tabellen häufiger aktualisiert. Weist eine Datenbank jedoch einen Kompatibilitätsgrad unter 130 auf, dann gilt der Schwellenwert [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. ?
+* Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und bei einem [Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) von unter 130 verwendet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen abnehmenden dynamischen Schwellenwert für das Statistikupdate, der gemäß der Anzahl von Zeilen in der Tabelle angepasst wird. Dieser berechnet sich als Quadratwurzel des Produkts von 1000 und der aktuellen Tabellenkardinalität. Wenn Ihre Tabelle beispielsweise 2 Millionen Zeilen enthält, lautet die Berechnung folgendermaßen: sqrt(1000 * 2000000) = 44721.359. Durch diese Änderung werden Statistiken für große Tabellen häufiger aktualisiert. Weist eine Datenbank jedoch einen Kompatibilitätsgrad unter 130 auf, dann gilt der Schwellenwert [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
 
 > [!IMPORTANT]
 > In [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] bis [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bzw. in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher mit [Datenbank-Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 und niedriger müssen Sie das [Ablaufverfolgungsflag 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) aktivieren, damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen sinkenden Schwellenwert für das dynamische Statistikupdate verwendet.
@@ -139,9 +140,13 @@ Mit der [AUTO_UPDATE_STATISTICS_ASYNC](../../t-sql/statements/alter-database-tra
 > [!NOTE]
 > Um die Option für die asynchrone Statistikaktualisierung in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] auf der Seite *Optionen* des Fensters *Datenbankeigenschaften* festzulegen, müssen die beiden Optionen *Statistik automatisch aktualisierenn* und *Statistik automatisch asynchron aktualisieren* auf **True** festgelegt werden.
   
-Statistikaktualisierungen können entweder synchron (Standard) oder asynchron sein. Bei synchronen Statistikaktualisierungen werden Abfragen immer anhand aktueller Statistiken kompiliert und ausgeführt. Wenn Statistiken veraltet sind, wartet der Abfrageoptimierer auf aktualisierte Statistiken, bevor er die Abfrage kompiliert und ausführt. Bei asynchronen Statistikaktualisierungen werden Abfragen anhand vorhandener Statistiken kompiliert, auch wenn diese veraltet sind. Der Abfrageoptimierer könnte einen suboptimalen Abfrageplan auswählen, wenn die Statistiken beim Kompilieren der Abfrage veraltet sind. Wenn Abfragen nach dem Ausführen asynchroner Updates kompiliert werden, hat dies den Vorteil, dass für die Abfragen aktualisierte Statistiken verwendet werden.  
-  
-Verwenden Sie ggf. synchrone Statistiken, wenn Sie Vorgänge ausführen, die die Verteilung der Daten ändern, beispielsweise das Kürzen einer Tabelle oder das Ausführen eines Massenupdates für einen großen Zeilenprozentsatz. Wenn Sie nach dem Abschließen des Vorgangs die Statistiken nicht aktualisieren, wird mithilfe von synchronen Statistiken sichergestellt, dass Statistiken vor dem Ausführen von Abfragen über die geänderten Daten aktuell sind.  
+Statistikaktualisierungen können entweder synchron (Standard) oder asynchron sein. 
+
+* Bei synchronen Statistikupdates werden Abfragen immer mit aktuellen Statistiken kompiliert und ausgeführt. Wenn Statistiken veraltet sind, wartet der Abfrageoptimierer auf aktualisierte Statistiken, bevor er die Abfrage kompiliert und ausführt. 
+
+* Bei asynchronen Statistikupdates werden Abfragen mit vorhandenen Statistiken kompiliert, auch wenn die vorhandenen Statistiken veraltet sind. Der Abfrageoptimierer könnte einen suboptimalen Abfrageplan auswählen, wenn Statistiken beim Kompilieren der Abfrage veraltet sind. Statistiken werden in der Regel kurz darauf aktualisiert. Abfragen, die nach dem Abschluss der Statistikupdates kompiliert werden, profitieren von der Verwendung der aktualisierten Statistiken.   
+
+Verwenden Sie ggf. synchrone Statistiken, wenn Sie Vorgänge ausführen, die die Verteilung der Daten ändern, beispielsweise das Kürzen einer Tabelle oder das Ausführen eines Massenupdates für einen großen Zeilenprozentsatz. Wenn Sie nach dem Abschließen des Vorgangs die Statistiken nicht manuell aktualisieren, wird mithilfe von synchronen Statistiken sichergestellt, dass Statistiken vor dem Ausführen von Abfragen über die geänderten Daten aktuell sind.  
   
 In den folgenden Szenarien empfiehlt sich die Verwendung asynchroner Statistiken, um besser vorhersagbare Antwortzeiten für Abfragen zu erzielen:  
   
@@ -154,10 +159,13 @@ In den folgenden Szenarien empfiehlt sich die Verwendung asynchroner Statistiken
 
 Asynchrone Statistikupdates werden von einer Hintergrundanforderung ausgeführt. Wenn die Anforderung bereit ist, aktualisierte Statistiken in die Datenbank zu schreiben, versucht sie, eine Schemaänderungssperre für das Statistikmetadatenobjekt zu erhalten. Wenn eine andere Sitzung bereits eine Sperre für dasselbe Objekt verwendet, wird das asynchrone Statistikupdate blockiert, bis die Schemaänderungssperre abgerufen werden kann. Ebenso werden Sitzungen, die zum Kompilieren einer Abfrage eine Schemastabilitätssperre für das Statistikmetadatenobjekt abrufen müssen, möglicherweise durch die Hintergrundsitzung für das asynchrone Statistikupdate blockiert, die bereits die Schemaänderungssperre verwendet oder darauf wartet, diese abzurufen. Daher erhöht sich durch die Verwendung von asynchronen Statistiken für Arbeitsauslastungen mit sehr häufigen Abfragekompilierungen und häufigen Statistikupdates möglicherweise die Wahrscheinlichkeit, dass aufgrund von Blockierung durch Sperren Parallelitätsprobleme auftreten.
 
-In Azure SQL-Datenbank können Sie mögliche Parallelitätsprobleme bei der Verwendung von asynchronen Statistikupdates vermeiden, wenn Sie die [datenbankweit gültige Konfiguration](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY aktivieren. Wenn diese Konfiguration aktiviert ist, wartet die Hintergrundanforderung in einer separaten Warteschlange mit niedriger Priorität auf das Abrufen der Schemaänderungssperre, sodass andere Anforderungen mit der Kompilierung von Abfragen mit vorhandenen Statistiken fortfahren können. Sobald keine andere Sitzung mehr eine Sperre für das Statistikmetadatenobjekt verwendet, ruft die Hintergrundanforderung die Schemaänderungssperre ab und aktualisiert die Statistiken. Im unwahrscheinlichen Fall, dass die Hintergrundanforderung die Sperre innerhalb eines Timeoutzeitraums von einigen Minuten nicht abrufen kann, wird das asynchrone Statistikupdate abgebrochen, und die Statistiken werden erst aktualisiert, wenn ein anderes automatisches Statistikupdate ausgelöst wird oder Statistiken [manuell aktualisiert](update-statistics.md) werden.
+In Azure SQL-Datenbank und Azure SQL Managed Instance können Sie mögliche Parallelitätsprobleme bei der Verwendung von asynchronen Statistikupdates vermeiden, wenn Sie die [datenbankweit gültige Konfiguration](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY aktivieren. Wenn diese Konfiguration aktiviert ist, wartet die Hintergrundanforderung in einer separaten Warteschlange mit niedriger Priorität auf das Abrufen der Schemaänderungssperre, sodass andere Anforderungen mit der Kompilierung von Abfragen mit vorhandenen Statistiken fortfahren können. Sobald keine andere Sitzung mehr eine Sperre für das Statistikmetadatenobjekt verwendet, ruft die Hintergrundanforderung die Schemaänderungssperre ab und aktualisiert die Statistiken. Im unwahrscheinlichen Fall, dass die Hintergrundanforderung die Sperre innerhalb eines Timeoutzeitraums von einigen Minuten nicht abrufen kann, wird das asynchrone Statistikupdate abgebrochen, und die Statistiken werden erst aktualisiert, wenn ein anderes automatisches Statistikupdate ausgelöst wird oder Statistiken [manuell aktualisiert](update-statistics.md) werden.
+
+> [!Note]
+> Die datenbankweit gültige Konfigurationsoption ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY ist nun in Azure SQL-Datenbank und Azure SQL Managed Instance verfügbar und soll demnächst in SQL Server VNext eingebunden werden. 
 
 #### <a name="incremental"></a>INCREMENTAL  
- Wenn die Option INCREMENTAL von CREATE STATISTICS auf ON festgelegt ist, werden die Statistiken pro Partition erstellt. Bei OFF wird die Statistikstruktur gelöscht und die Statistik von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] neu berechnet. Der Standardwert ist OFF. Diese Einstellung überschreibt die INCREMENTAL-Eigenschaft auf Datenbankebene. Weitere Informationen zum Erstellen von inkrementellen Statistiken finden Sie unter [CREATE STATISTICS (Transact-SQL)](../../t-sql/statements/create-statistics-transact-sql.md). Weitere Informationen zum automatischen Erstellen von Statistiken pro Partition finden Sie unter [Datenbankeigenschaften (Seite „Optionen“)](../../relational-databases/databases/database-properties-options-page.md#automatic) und [ALTER DATABASE SET Options (Transact-SQL) (Optionen für ALTER DATABASE SET (Transact-SQL))](../../t-sql/statements/alter-database-transact-sql-set-options.md). 
+ Wenn die Option INCREMENTAL von CREATE STATISTICS auf ON festgelegt ist, werden die Statistiken pro Partition erstellt. Bei OFF wird die Statistikstruktur gelöscht und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] berechnet die Statistiken erneut. Der Standardwert ist OFF. Diese Einstellung überschreibt die INCREMENTAL-Eigenschaft auf Datenbankebene. Weitere Informationen zum Erstellen von inkrementellen Statistiken finden Sie unter [CREATE STATISTICS (Transact-SQL)](../../t-sql/statements/create-statistics-transact-sql.md). Weitere Informationen zum automatischen Erstellen von Statistiken pro Partition finden Sie unter [Datenbankeigenschaften (Seite „Optionen“)](../../relational-databases/databases/database-properties-options-page.md#automatic) und [ALTER DATABASE SET Options (Transact-SQL) (Optionen für ALTER DATABASE SET (Transact-SQL))](../../t-sql/statements/alter-database-transact-sql-set-options.md). 
   
  Wenn einer umfangreichen Tabelle neue Partitionen hinzugefügt werden, sollte die Statistik aktualisiert werden, um die neuen Partitionen zu berücksichtigen. Das Scannen der gesamten Tabelle (FULLSCAN- oder SAMPLE-Option) könnte jedoch ziemlich lange dauern. Außerdem ist das Scannen der gesamten Tabelle nicht erforderlich, da ggf. nur die Statistik der neuen Partitionen benötigt wird. Durch die INCREMENTAL-Option werden nur Statistikdaten pro Partition erstellt und gespeichert. Beim Update werden nur die Statistiken der Partitionen aktualisiert, die eine neue Statistik erfordern.  
   
@@ -201,7 +209,7 @@ Wenn sich die Spalten bereits im gleichen Index befinden, ist das Statistikobjek
   
 Wenn Statistiken für mehrere Spalten erstellt werden, wirkt sich die Reihenfolge der Spalten in der Statistikobjektdefinition darauf aus, wie effektiv die Dichten beim Erstellen von Kardinalitätsschätzungen sind. Im Statistikobjekt werden Dichten für jedes Präfix von Schlüsselspalten in der Statistikobjektdefinition gespeichert. Weitere Informationen zu Dichten finden Sie im Abschnitt [Dichte](#density) auf dieser Seite.  
   
-Zum Erstellen von Dichten, die für Kardinalitätsschätzungen hilfreich sind, müssen die Spalten im Abfrageprädikat einem der Spaltenpräfixe in der Statistikobjektdefinition entsprechen. Im Folgenden wird beispielsweise aus den Spalten `LastName`, `MiddleName`und `FirstName`ein Objekt für eine Statistik für mehrere Spalten erstellt.  
+Zum Erstellen von Dichten, die für Kardinalitätsschätzungen hilfreich sind, müssen die Spalten im Abfrageprädikat einem der Spaltenpräfixe in der Statistikobjektdefinition entsprechen. Im folgenden Beispiel wird beispielsweise aus den Spalten `LastName`, `MiddleName`und `FirstName` ein Objekt für eine Statistik für mehrere Spalten erstellt.  
   
 ```sql  
 USE AdventureWorks2012;  
