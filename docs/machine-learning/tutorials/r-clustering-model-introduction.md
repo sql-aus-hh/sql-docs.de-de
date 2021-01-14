@@ -11,12 +11,12 @@ ms.reviewer: garye, davidph
 ms.date: 05/26/2020
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: 68f59975e621b5302700967e1dd90c685f66381e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 1fccd0dfff453b4fa1529d3cc03d5d8fd635ae19
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470191"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101890"
 ---
 # <a name="tutorial-develop-a-clustering-model-in-r-with-sql-machine-learning"></a>Tutorial: Erstellen eines Clusteringmodells in R mit SQL Machine Learning
 [!INCLUDE [SQL Server 2016 SQL MI](../../includes/applies-to-version/sqlserver2016-asdbmi.md)]
@@ -63,7 +63,7 @@ In [Teil 4](r-clustering-model-deploy.md) erfahren Sie, wie Sie eine gespeicher
 * [SQL Server Management Studio](../../ssms/download-sql-server-management-studio-ssms.md), um die Beispieldatenbank in Azure SQL Managed Instance wiederherzustellen
 ::: moniker-end
 
-* [Azure Data Studio](../../azure-data-studio/what-is.md) Für SQL verwenden Sie ein Notebook in Azure Data Studio. Weitere Informationen zu Notebooks finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
+* [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) Für SQL verwenden Sie ein Notebook in Azure Data Studio. Weitere Informationen zu Notebooks finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
 
 * R-IDE: In diesem Tutorial wird [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) verwendet.
 

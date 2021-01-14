@@ -9,12 +9,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15'
-ms.openlocfilehash: 85ee78e0d7558cf2ad683321a13a842ff5d8daf5
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 3e71b33eb08fd386232e992e9b47da7b5057aa32
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471331"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170722"
 ---
 # <a name="manage-python-and-r-workloads-with-resource-governor-in-sql-server-machine-learning-services"></a>Verwalten von Python- und R-Arbeitsauslastungen mit dem Resource Governor in SQL Server Machine Learning Services
 [!INCLUDE [SQL Server 2016 and later](../../includes/applies-to-version/sqlserver2016.md)]
@@ -36,7 +36,7 @@ Die externen Skriptruntimes für maschinelles Lernen sind standardmäßig auf we
  
 Externe Prozesse nutzen standardmäßig bis zu 20 % des gesamten Hostarbeitsspeichers auf dem lokalen Server. Sie können Änderungen am Standardressourcenpool vornehmen, um serverweite Änderungen zu bewirken, damit R- und Python-Prozesse die Kapazitäten nutzen, die Sie für externe Prozesse zur Verfügung stellen.
 
-Optional können Sie benutzerdefinierte **externe Ressourcenpools** mit zugehörigen Arbeitsauslastungsgruppen und Klassifizierern erstellen, um die Ressourcenzuordnung für Anforderungen von spezifischen Programmen, Hosts oder nach anderen von Ihnen angegebenen Kriterien zu bestimmen. Ein externer Ressourcenpool ist eine Art Ressourcenpool, die in [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] eingeführt wurde, um die Verwaltung von externen R- und Python-Prozessen für die Datenbank-Engine zu unterstützen.
+Optional können Sie benutzerdefinierte **externe Ressourcenpools** mit zugehörigen Arbeitsauslastungsgruppen und Klassifizierern erstellen, um die Ressourcenzuordnung für Anforderungen von spezifischen Programmen, Hosts oder nach anderen von Ihnen angegebenen Kriterien zu bestimmen. Ein externer Ressourcenpool ist eine Art Ressourcenpool, die in [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] eingeführt wurde, um die Verwaltung von externen R- und Python-Prozessen für die Datenbank-Engine zu unterstützen.
 
 1. [Aktivieren Sie den Resource Governor](../../relational-databases/resource-governor/enable-resource-governor.md) (er ist standardmäßig deaktiviert).
 

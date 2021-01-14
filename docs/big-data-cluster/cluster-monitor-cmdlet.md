@@ -10,22 +10,22 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 80535a9baefe60301927723511a5bf1afeb805a8
-ms.sourcegitcommit: 29a2be59c56f8a4b630af47760ef38d2bf56a3eb
+ms.openlocfilehash: be07fa7f00f38f4f7ff3782593b19a584627e2f7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378419"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091698"
 ---
 # <a name="monitor-cluster-with-azdata-and-kubectl"></a>Überwachen von Clustern mit azdata und kubectl
 
 ## <a name="use-azdata"></a>Verwenden von azdata
 
-Sie können auch [azdata](deploy-install-azdata.md)-Befehle zum Anzeigen beider Endpunkte sowie des Clusterstatus verwenden.
+Sie können auch [azdata](../azdata/install/deploy-install-azdata.md)-Befehle zum Anzeigen beider Endpunkte sowie des Clusterstatus verwenden.
 
 ### <a name="service-endpoints"></a>Dienstendpunkte
 
-1. Melden Sie sich beim Big-Data-Cluster mit [azdata login](reference-azdata.md) an. Legen Sie den Parameter **--controller-endpoint** auf die externe IP-Adresse des Controllerendpunkts fest.
+1. Melden Sie sich beim Big-Data-Cluster mit [azdata login](../azdata/reference/reference-azdata.md) an. Legen Sie den Parameter **--controller-endpoint** auf die externe IP-Adresse des Controllerendpunkts fest.
 
    ```bash
    azdata login --endpoint https://<ip-address-of-controller-svc-external>:30080 --username <user-name>
@@ -39,7 +39,7 @@ Sie können auch [azdata](deploy-install-azdata.md)-Befehle zum Anzeigen beider 
    azdata login --endpoint https://<control_domain_name>:30080 --auth ad
    ```
 
-1. Führen Sie [`azdata bdc endpoint list`](reference-azdata-bdc-endpoint.md) aus, um eine Liste mit Beschreibungen jedes Endpunkts sowie deren entsprechende IP-Adressen und Portwerte abzurufen. 
+1. Führen Sie [`azdata bdc endpoint list`](../azdata/reference/reference-azdata-bdc-endpoint.md) aus, um eine Liste mit Beschreibungen jedes Endpunkts sowie deren entsprechende IP-Adressen und Portwerte abzurufen. 
 
    ```bash
    azdata bdc endpoint list -o table
@@ -65,7 +65,7 @@ Sie können auch [azdata](deploy-install-azdata.md)-Befehle zum Anzeigen beider 
 
 ### <a name="view-cluster-status"></a>Clusterstatus anzeigen
 
-Sie können den Status des Clusters mit dem Befehl [`azdata bdc status show`](reference-azdata-bdc-status.md) anzeigen.
+Sie können den Status des Clusters mit dem Befehl [`azdata bdc status show`](../azdata/reference/reference-azdata-bdc-status.md) anzeigen.
 
 ```bash
 azdata bdc status show
@@ -150,7 +150,7 @@ Im Folgenden wird eine Beispielausgabe dieses Befehls angezeigt:
 
 ### <a name="view-specific-resource-status"></a>Anzeigen des Status einer bestimmten Ressource
 
-Sie können den Status einer bestimmten Ressource im Cluster mit dem Befehl [azdata bdc status show](reference-azdata-bdc-status.md) anzeigen. Wenn Sie diesen Befehl verwenden, können Sie mit dem `--resource`-Parameter filtern. Beispiele für `--resource`-Parametereingaben
+Sie können den Status einer bestimmten Ressource im Cluster mit dem Befehl [azdata bdc status show](../azdata/reference/reference-azdata-bdc-status.md) anzeigen. Wenn Sie diesen Befehl verwenden, können Sie mit dem `--resource`-Parameter filtern. Beispiele für `--resource`-Parametereingaben
 
 - master
 - Steuerung
@@ -242,7 +242,7 @@ Hier ist eine Beispielausgabe:
 
 ### <a name="view-controller-status"></a>Anzeigen des Controllerstatus
 
-Sie können den Controllerstatus mit dem Befehl [`azdata bdc control status show`](reference-azdata-bdc-control-status.md) anzeigen. Dieser stellt ähnliche Links zu den Dashboards für die Überwachung bereit, die im Zusammenhang mit den Controllerkomponenten des Big Data-Clusters stehen.
+Sie können den Controllerstatus mit dem Befehl [`azdata bdc control status show`](../azdata/reference/reference-azdata-bdc-control-status.md) anzeigen. Dieser stellt ähnliche Links zu den Dashboards für die Überwachung bereit, die im Zusammenhang mit den Controllerkomponenten des Big Data-Clusters stehen.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

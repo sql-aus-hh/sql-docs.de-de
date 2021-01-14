@@ -37,12 +37,12 @@ helpviewer_keywords:
 ms.assetid: e5186f02-dd91-47d0-8fa4-de3f41c76903
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 8e1544a46e84b77ce290dded936f86b75a251f13
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 80b93a4a55b6d12ee5177230b78447c21fc0cae8
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642923"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172532"
 ---
 # <a name="editions-and-supported-features-of-sql-server-2016"></a>Editionen und unterstützte Funktionen von SQL Server 2016
 [!INCLUDE [SQL Server 2016](../includes/applies-to-version/sqlserver2016.md)]  
@@ -67,7 +67,7 @@ Die neuesten Versionsanmerkungen und Informationen zu Neuerungen finden Sie übe
 
 ### <a name="try-sql-server"></a>Testen Sie SQL Server!    
     
-> [![Download aus dem Evaluation Center](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016) **[Laden Sie SQL Server 2016 aus dem Evaluation Center herunter.](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)**    
+> [![Download aus dem Evaluation Center](/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016) **[Laden Sie SQL Server 2016 aus dem Evaluation Center herunter.](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)**    
 > 
 > ![Virtueller Azure-Computer (klein)](/analysis-services/analysis-services/media/azure-virtual-machine-small.png) **[Starten eines virtuellen Computers, auf dem SQL Server 2016 bereits installiert ist](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2019?tab=Overview)**   
   
@@ -107,7 +107,7 @@ Die neuesten Versionsanmerkungen und Informationen zu Neuerungen finden Sie übe
 |[!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]|[!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] (MDS) ist die [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Lösung für die Masterdatenverwaltung. MDS kann konfiguriert werden, um jede Domäne (Produkte, Kunden, Konten) zu verwalten und umfasst Hierarchien, präzise Sicherheit, Transaktionen, Datenversionsverwaltung und Geschäftsregeln sowie einen [!INCLUDE[ssMDSXLS](../includes/ssmdsxls-md.md)] , der verwendet werden kann, um Daten zu verwalten.|  
 |[!INCLUDE[rsql_productname](../includes/rsql-productname-md.md)]|[!INCLUDE[rsql_productname](../includes/rsql-productname-md.md)] unterstützt verteilte, skalierbare R-Lösungen auf mehreren Plattformen und verwendet mehrere Enterprise-Datenquellen einschließlich Linux, Hadoop und Teradata.|  
   
-|Verwaltungstools|Beschreibung|  
+|Verwaltungstools|BESCHREIBUNG|  
 |----------------------|-----------------|  
 |[!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)]|[!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)] bietet eine integrierte Umgebung, in der Sie auf [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Komponenten zugreifen sowie diese konfigurieren, verwalten und entwickeln können. [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)] ermöglicht Entwicklern und Administratoren mit unterschiedlichen Fähigkeiten die Verwendung von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)].<br /><br /> Herunterladen und Installieren <br />                [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)] hier:  [Herunterladen von SQL Server Management Studio (SSMS)](../ssms/download-sql-server-management-studio-ssms.md)|  
 |[!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Konfigurations-Manager|[!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Konfigurations-Manager stellt eine einfache Konfigurationsverwaltung für [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] -Dienste, Server- und Clientprotokolle sowie Clientaliase bereit.|  
@@ -136,13 +136,13 @@ Die Developer Edition unterstützt weiterhin nur einen Client für [SQL Server D
 |Maximaler Arbeitsspeicher für den Pufferpool pro Instanz von [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)]|Maximum des Betriebssystems|128 GB|64 GB|1410 MB|1410 MB|
 |Maximaler Arbeitsspeicher für Columnstore-Segmentcache pro Instanz von [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)]|Unbegrenzter Arbeitsspeicher| 32 GB<sup>2</sup>| 16 GB<sup>2</sup>| 352 MB<sup>2</sup>| 352 MB<sup>2</sup>|  
 |Maximale speicheroptimierte Datengröße pro Datenbank in [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)]|Unbegrenzter Arbeitsspeicher| 32 GB<sup>2</sup>| 16 GB<sup>2</sup>| 352 MB<sup>2</sup>| 352 MB<sup>2</sup>|  
-|Maximaler genutzter Arbeitsspeicher pro Instanz von [!INCLUDE[ssASnoversion](../includes/ssasnoversion-md.md)]|Maximum des Betriebssystems|Tabellarisch: 16 GB<br /><br /> MOLAP: 64 GB|N/V|–|N/V|  
+|Maximaler genutzter Arbeitsspeicher pro Instanz von [!INCLUDE[ssASnoversion](../includes/ssasnoversion-md.md)]|Maximum des Betriebssystems|Tabellarisch: 16 GB<br /><br /> MOLAP: 64 GB|N/V|Nicht zutreffend|N/V|  
 |Maximaler genutzter Arbeitsspeicher pro Instanz von [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)]|Maximum des Betriebssystems|64 GB|64 GB|4 GB|N/V|
 |Maximale relationale Datenbankgröße|524 PB|524 PB|524 PB|10 GB|10 GB|  
   
 <sup>1</sup> Die Enterprise Edition mit einer Lizenzierung auf der Grundlage von Serverlizenz + Clientzugriffslizenz (CAL) (für neue Verträge nicht verfügbar) ist auf maximal 20 Kerne pro SQL Server-Instanz beschränkt. Für das auf Prozessorkernen basierende Serverlizenzierungsmodell gelten keine Beschränkungen. Weitere Informationen finden Sie unter [Compute Capacity Limits by Edition of SQL Server](../sql-server/compute-capacity-limits-by-edition-of-sql-server.md).  
   
-<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen. 
+<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen. 
 
 ##  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
@@ -195,7 +195,7 @@ Die Developer Edition unterstützt weiterhin nur einen Client für [SQL Server D
 
 <sup>1</sup> Die Größe der In-Memory OLTP-Daten und des Columnstore-Segmentcaches sind auf die Größe des Arbeitsspeichers beschränkt, die von der Edition im Bereich Kapazitätsgrenzen festgelegt wird. Den maximale Grad an Parallelität ist beschränkt. Der Grad an Prozessparallelität (Degree of Parallelism, DOP) für eine Indexerstellung ist auf 2 DOP für die Standard Edition und auf 1 DOP für die Web und die Express Edition beschränkt. Dies gilt für Columnstore-Indizes, die über datenträgerbasierte Tabellen und speicheroptimierte Tabellen erstellt wurden.
 
-<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (Common Programmability Surface Area, CPSA) für alle Editionen. Aggregatweitergabe, Zeichenfolgenprädikatweitergabe und SIMD-Optimierungen sind Erweiterungen der Skalierbarkeit von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Enterprise Edition. Weitere Einzelheiten finden Sie unter [Columnstore-Indizes – Neuigkeiten](../relational-databases/indexes/columnstore-indexes-what-s-new.md). 
+<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (Common Programmability Surface Area, CPSA) für alle Editionen. Aggregatweitergabe, Zeichenfolgenprädikatweitergabe und SIMD-Optimierungen sind Erweiterungen der Skalierbarkeit von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Enterprise Edition. Weitere Einzelheiten finden Sie unter [Columnstore-Indizes – Neuigkeiten](../relational-databases/indexes/columnstore-indexes-what-s-new.md). 
 
 <sup>3</sup> Dieses Feature ist in der LocalDB-Installationsoption nicht enthalten.
 
@@ -215,7 +215,7 @@ Die Developer Edition unterstützt weiterhin nur einen Client für [SQL Server D
 |Eigenständige Datenbanken|Ja|Ja|Ja|Ja|Ja| 
 |Verschlüsselung von Sicherungen|Ja|Ja|Nein|Nein|Nein|  
 
-<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.      
+<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.      
 
 ##  <a name="replication"></a><a name="Replication"></a> Replikation  
   
@@ -276,7 +276,7 @@ Die Developer Edition unterstützt weiterhin nur einen Client für [SQL Server D
   
  <sup>1</sup> Weitere Informationen finden Sie unter [Überlegungen zur Installation von SQL Server mit SysPrep](../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md).  
  
-<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.      
+<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.      
   
 ##  <a name="development-tools"></a><a name="DevTools"></a> Development Tools  
   
@@ -314,7 +314,7 @@ Die Developer Edition unterstützt weiterhin nur einen Client für [SQL Server D
 
 <sup>1</sup> Die Aufskalierung mit mehreren Computeknoten erfordert einen Hauptknoten.
 
-<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.     
+<sup>2</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.     
   
 ## <a name="integration-services"></a><a name="IS"></a> Integration Services
 
@@ -336,7 +336,7 @@ Informationen über die Features von Integration Services (SSIS), die von den ei
 |Parallele Abfrageverarbeitung bei partitionierten Tabellen und Indizes|Ja|Nein|Nein|Nein|Nein|   
 |Globale Batchaggregation|Ja|Nein|Nein|Nein|Nein| 
 
-<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.     
+<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 im Rahmen der Erstellung einer allgemeinen Programmierbarkeitsoberfläche (CPSA) für alle Editionen.     
 
 ##  <a name="analysis-services"></a><a name="SSAS"></a> Analysis Services  
   
@@ -389,9 +389,8 @@ Informationen über die Business Intelligence-Clientfeatures, die von den einzel
 |StreamInsight|StreamInsight Premium-Edition|StreamInsight Standard-Edition|StreamInsight Standard-Edition|Nein|Nein| 
 |StreamInsight HA|StreamInsight Premium-Edition|Nein|Nein|Nein|Nein|   
   
-> [![SSMS herunterladen](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Laden Sie die neueste Version von SQL Server Management Studio herunter.](../ssms/download-sql-server-management-studio-ssms.md)**      
+> [![SSMS herunterladen](/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Laden Sie die neueste Version von SQL Server Management Studio herunter.](../ssms/download-sql-server-management-studio-ssms.md)**      
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Installieren von SQL Server](../database-engine/install-windows/install-sql-server.md)  
  
-  

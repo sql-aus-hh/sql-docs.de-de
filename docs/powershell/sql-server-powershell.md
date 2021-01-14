@@ -10,12 +10,12 @@ ms.author: maghan
 ms.reviewer: matteot
 ms.custom: ''
 ms.date: 06/11/2020
-ms.openlocfilehash: 968bcd1560fd4fd24dddfaf45cfe606518235b60
-ms.sourcegitcommit: 7eb80038c86acfef1d8e7bfd5f4e30e94aed3a75
+ms.openlocfilehash: fad1ac64dcc1024d5dad091670300b8d39fa0632
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92081889"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092689"
 ---
 # <a name="sql-server-powershell"></a>SQL Server PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "92081889"
 
 **[Installieren von SQL Server PowerShell](download-sql-server-ps-module.md)**
 
-Es gibt zwei SQL Server PowerShell-Module, **[SqlServer](https://docs.microsoft.com/powershell/module/sqlserver)** und **[SQLPS](https://docs.microsoft.com/powershell/module/sqlps)** .
+Es gibt zwei SQL Server PowerShell-Module, **[SqlServer](/powershell/module/sqlserver)** und **[SQLPS](/powershell/module/sqlps)** .
 
 Das **SqlServer**-Modul ist das zu verwendende aktuelle PowerShell-Modul.
 

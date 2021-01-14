@@ -9,12 +9,12 @@ ms.date: 08/20/2020
 ms.topic: how-to
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: e23d45f9083e8acf1f8e889cda845b36eef087ee
-ms.sourcegitcommit: b3a711a673baebb2ff10d7142b209982b46973ae
+ms.openlocfilehash: ded5030adeff1b9ccccf3f6683d5dfb04e7b8a07
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364502"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091673"
 ---
 # <a name="ad-mode-deployment-hangs---unhealthy-sparkhead-pods"></a>Hängende Bereitstellung im AD-Modus: fehlerhafte `sparkhead`-Pods
 
@@ -221,4 +221,4 @@ Fügen Sie den fehlenden Reverse-DNS-Eintrag (PTR-Eintrag) für die in den Proto
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Überprüfen der Reverse-DNS-Einträge (PTR-Eintrag) für den Domänencontroller](deploy-active-directory.md#verify-reverse-dns-entry-for-domain-controller)
+[Überprüfen der Reverse-DNS-Einträge (PTR-Eintrag) für den Domänencontroller](active-directory-deploy.md#verify-reverse-dns-entry-for-domain-controller)

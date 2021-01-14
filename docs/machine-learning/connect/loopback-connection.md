@@ -10,12 +10,12 @@ ms.author: anmunde
 ms.reviewer: dphansen
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15'
-ms.openlocfilehash: 4cce378546ef8c6fa9405f24fb9157dc6a249969
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 49d62ab967f972d777a02659b5a87b9e11740604
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471251"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094567"
 ---
 # <a name="loopback-connection-to-sql-server-from-a-python-or-r-script"></a>Loopbackverbindung zu SQL Server über ein Python- oder R-Skript
 [!INCLUDE [SQL Server 2019 and later](../../includes/applies-to-version/sqlserver2019.md)]
@@ -48,7 +48,7 @@ Im Folgenden finden Sie ein Beispiel für die Zeichenfolge einer Loopbackverbind
 
 Serveradresse, Speicherort der Clientzertifikatdatei und Speicherort der Clientschlüsseldatei sind für jedes `sp_execute_external_script` spezifisch und können mithilfe der API **rx_get_sql_loopback_connection_string()** für Python bzw. **rxGetSqlLoopbackConnectionString()** für R abgerufen werden.
 
-Weitere Informationen zu den Verbindungszeichenfolgenattributen finden Sie unter [Schlüsselwörter und Attribute von DNS- und Verbindungszeichenfolgen](../../connect/odbc/dsn-connection-string-attribute.md?view=sql-server-linux-ver15#new-connection-string-keywords-and-connection-attributes) für Microsoft ODBC Driver for SQL Server.
+Weitere Informationen zu den Verbindungszeichenfolgenattributen finden Sie unter [Schlüsselwörter und Attribute von DNS- und Verbindungszeichenfolgen](../../connect/odbc/dsn-connection-string-attribute.md#new-connection-string-keywords-and-connection-attributes) für Microsoft ODBC Driver for SQL Server.
 
 ## <a name="generate-connection-string-with-revoscalepy-for-python"></a>Generieren einer Verbindungszeichenfolge mit revoscalepy für Python
 

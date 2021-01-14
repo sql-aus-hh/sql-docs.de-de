@@ -9,12 +9,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2017'
-ms.openlocfilehash: 9df3f0d56e3d210389110cdf155bd79a32c7c978
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 592a365024edbbe4ee2743a156ee480b76849ba9
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471191"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096845"
 ---
 # <a name="install-sql-server-machine-learning-services-python-and-r-on-windows"></a>Installieren von SQL Server Machine Learning Services (Python und R) unter Windows
 
@@ -191,7 +191,7 @@ Für diesen Schritt ist ein Neustart des Servers erforderlich. Wenn Sie im Begri
     > [!TIP]
     > Sie können die entsprechende Version von folgender Seite herunterladen und installieren: [Herunterladen von SQL Server Management Studio (SSMS)](../../ssms/download-sql-server-management-studio-ssms.md)
     > 
-    > Sie können auch [Azure Data Studio](../../azure-data-studio/what-is.md) verwenden, das administrative Aufgaben und Abfragen für SQL Server unterstützt.
+    > Sie können auch [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) verwenden, das administrative Aufgaben und Abfragen für SQL Server unterstützt.
   
 2. Stellen Sie eine Verbindung mit der Instanz her, auf der Sie Machine Learning Services installiert haben. Klicken Sie auf **Neue Abfrage**, um ein Abfragefenster zu öffnen, und führen Sie den folgenden Befehl aus:
 

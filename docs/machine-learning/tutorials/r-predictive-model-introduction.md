@@ -11,12 +11,12 @@ ms.reviewer: garye, davidph
 ms.date: 05/26/2020
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: 35dd145772aa7c2184f814d28b46d59b5955de33
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 12441de331661e5edbf40ca678963b80a70764a2
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470151"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101851"
 ---
 # <a name="tutorial-develop-a-predictive-model-in-r-with-sql-machine-learning"></a>Tutorial: Entwickeln eines Vorhersagemodells in R mit SQL Machine Learning
 [!INCLUDE [SQL Server 2016 SQL MI](../../includes/applies-to-version/sqlserver2016-asdbmi.md)]
@@ -70,7 +70,7 @@ In [Teil 4](r-predictive-model-deploy.md) haben Sie gelernt, wie Sie das Modell
 
 * RODBC: Dieser Treiber wird in den R-Skripts verwendet, die Sie in diesem Tutorial entwickeln. Installieren Sie ihn mithilfe des R-Befehls `install.packages("RODBC")`, sofern er noch nicht installiert ist. Weitere Informationen zu RODBC finden Sie unter [CRAN – RODBC-Paket](https://CRAN.R-project.org/package=RODBC).
 
-* SQL-Abfragetool: In diesem Tutorial wird davon ausgegangen, dass Sie [Azure Data Studio](../../azure-data-studio/what-is.md) verwenden. Weitere Informationen finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
+* SQL-Abfragetool: In diesem Tutorial wird davon ausgegangen, dass Sie [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) verwenden. Weitere Informationen finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
 
 ## <a name="restore-the-sample-database"></a>Wiederherstellen der Beispieldatenbank
 

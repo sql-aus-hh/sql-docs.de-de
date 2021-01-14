@@ -11,12 +11,12 @@ ms.author: drskwier
 ms.reviewer: maghan
 ms.custom: seo-lt-2019
 ms.date: 12/17/2020
-ms.openlocfilehash: 346e964b30f76bf79c20d6f348636a626a8beee2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 98211695d60592c8178c4b60e45f2105c3b86db4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642377"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102675"
 ---
 # <a name="release-notes-for-sql-server-management-studio-ssms"></a>Versionshinweise zu SQL Server Management Studio (SSMS)
 
@@ -188,7 +188,7 @@ SSMS 18.7 ist das neueste Release von SSMS mit allgemeiner Verfügbarkeit (GA).
 | SSMS allgemein | Ein Problem wurde behoben, bei dem das Herstellen einer Verbindung mit einer Azure SQL-Datenbank mehrere Sekunden dauern konnte (SQL-Anmeldung bei einer Benutzerdatenbank). |
 | SSMS allgemein | Ein Problem wurde behoben, bei dem SSMS die erfasste Deadlocks (XDL-Dateien) nicht verarbeitete/anzeigte. |
 | SSMS allgemein | Ein Problem wurde behoben, bei dem das Öffnen von Fehlerprotokolleinstellungen für SQL Server 2008 R2 und niedriger fehlschlug, weil die „ErrorLogSizeKb“Eigenschaft nicht gefunden wurde. |
-| SSMS allgemein | Allgemeine Korrekturen und Verbesserungen im Zusammenhang mit der Unterstützung von [serverlosen SQL-Pools in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview). |
+| SSMS allgemein | Allgemeine Korrekturen und Verbesserungen im Zusammenhang mit der Unterstützung von [serverlosen SQL-Pools in Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview). |
 | Importieren einer Flatfile | Ein Problem wurde behoben, bei dem der Assistent nicht erkannte, dass die Datei von einer anderen Anwendung verwendet wurde, und stattdessen einen Fehler auslöste. Weitere Informationen finden Sie unter [SQL Server-Benutzerfeedback](https://feedback.azure.com/forums/908035/suggestions/40761574). |
 | Importieren/Exportieren einer Datenschichtanwendung | Die Standarddienstebene wurde korrigiert, sodass sie beim Importieren einer BACPAC-Datei (identisch mit dem Verhalten des Azure-Portals und von „Sqlpackage.exe“) „Standard S0“ ist. |
 | Importieren einer Flatfile | Ein Problem wurde behoben, bei dem der Assistent nicht erkannte, dass die Datei von einer anderen Anwendung verwendet wurde, und stattdessen einen Fehler auslöste. Weitere Informationen finden Sie unter [SQL Server-Benutzerfeedback](https://feedback.azure.com/forums/908035/suggestions/40761574). |
@@ -220,7 +220,7 @@ SSMS 18.7 ist das neueste Release von SSMS mit allgemeiner Verfügbarkeit (GA).
 | Assistent zum Generieren von Skripts | Der Assistent löst einen Fehler aus, wenn Sie versuchen, Datenbankobjekte in SQL Server 2014 und höher aufzulisten. Weitere Informationen finden Sie im [SQL Server-Benutzerfeedback](https://feedback.azure.com/forums/908035-sql-server/suggestions/41885587). | Verwenden Sie SSMS 18.6, um Objekte im Assistenten zum Generieren von Skripts für SQL 2014 und höher auszuwählen. |
 | Integration Services | Beim Im- oder Export von Paketen in Integration Services oder beim Export von Paketen in Azure-SSIS Integration Runtime gehen Skripts für Pakete verloren, die Skriptaufgaben/-komponenten enthalten. Problemumgehung: Entfernen Sie den Ordner „C:\Programme (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\MSBuild“. | – |
 | Integration Services | Bei Remoteverbindungen mit den Integrationsdiensten tritt möglicherweise ein Fehler „The specified service does not exist as an installed service“ (Der angegebene Dienst ist nicht als installierter Dienst vorhanden) in neueren Betriebssystemen auf. Problemumgehung: Identifizieren Sie den Registrierungsspeicherort für die Integrationsdienste unter „Computer\HKEY_CLASSES_ROOT\AppID & Computer\HKEY_CLASSES_ROOT\WOW6432Node\AppID“, und benennen Sie innerhalb dieser Strukturen für die bestimmte Version der Integrationsdienste, mit denen wir eine Verbindung herstellen möchten, den Registrierungsschlüssel „LocalService“ in „LocalService_A“ um. | N/V |
-| Objekt-Explorer | SSMS-Releases vor 18.7 weisen aufgrund von Änderungen der Engine im Zusammenhang mit [serverlosen SQL-Pools bei Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) einen Breaking Change im Objekt-Explorer auf. | Um den Objekt-Explorer in SSMS weiterhin mit serverlosen SQL-Pools in Azure Synapse Analytics verwenden zu können, müssen Sie SSMS 18.7 oder höher verwenden. |
+| Objekt-Explorer | SSMS-Releases vor 18.7 weisen aufgrund von Änderungen der Engine im Zusammenhang mit [serverlosen SQL-Pools bei Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview) einen Breaking Change im Objekt-Explorer auf. | Um den Objekt-Explorer in SSMS weiterhin mit serverlosen SQL-Pools in Azure Synapse Analytics verwenden zu können, müssen Sie SSMS 18.7 oder höher verwenden. |
 | Abfragespeicher | Nach einem Rechtsklick auf den Objekt-Explorer-Knoten für Abfragespeicher wird ein Fehler ausgelöst. | Greifen Sie direkt auf Elemente zu, indem Sie den Knoten erweitern und mit der rechten Maustaste auf einzelne untergeordnete Optionen klicken. |
 
 ### <a name="186"></a>18.6

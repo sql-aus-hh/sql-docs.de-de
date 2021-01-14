@@ -9,12 +9,12 @@ ms.date: 01/07/2020
 ms.topic: overview
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: bd3a092906bf2a7d46c7f343b7edf913bdd4d9cf
-ms.sourcegitcommit: ab9ddcc16fdfc245cf9a49d1e90bb1ffe3958c38
+ms.openlocfilehash: ced001726b7a8306f2064c1436ddb41cf65a6eb0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92914340"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091808"
 ---
 # <a name="what-are-big-data-clusters-2019"></a>Was sind [!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ss-nover.md)]?
 
@@ -49,13 +49,13 @@ Mit [PolyBase](../relational-databases/polybase/polybase-guide.md) können [!INC
 
 ### <a name="data-lake"></a>Data Lake
 
-Ein Big-Data-Cluster für SQL Server enthält einen skalierbaren HDFS- *Speicherpool*. Dieser kann verwendet werden, um Big Data zu speichern, die möglicherweise aus mehreren externen Quellen erfasst wird. Sobald die Big Data im HDFS im Big-Data-Cluster gespeichert wurden, können Sie die Daten analysieren und abfragen und mit ihren relationalen Daten kombinieren.
+Ein Big-Data-Cluster für SQL Server enthält einen skalierbaren HDFS-*Speicherpool*. Dieser kann verwendet werden, um Big Data zu speichern, die möglicherweise aus mehreren externen Quellen erfasst wird. Sobald die Big Data im HDFS im Big-Data-Cluster gespeichert wurden, können Sie die Daten analysieren und abfragen und mit ihren relationalen Daten kombinieren.
 
 ![Data Lake](media/big-data-cluster-overview/data-lake.png)
 
 ### <a name="scale-out-data-mart"></a>Data Mart mit horizontaler Skalierung
 
-[!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ss-nover.md)] bieten Rechen- und Speicherkapazitäten für die horizontale Skalierung, um die Leistung bei der Analyse beliebiger Daten zu verbessern. Daten aus einer Vielzahl von Quellen können erfasst und auf *Datenpool* -Knoten als Cache zur weiteren Analyse verteilt werden.
+[!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ss-nover.md)] bieten Rechen- und Speicherkapazitäten für die horizontale Skalierung, um die Leistung bei der Analyse beliebiger Daten zu verbessern. Daten aus einer Vielzahl von Quellen können erfasst und auf *Datenpool*-Knoten als Cache zur weiteren Analyse verteilt werden.
 
 ![Data Mart](media/big-data-cluster-overview/data-mart.png)
 
@@ -69,11 +69,11 @@ Ein Big-Data-Cluster für SQL Server enthält einen skalierbaren HDFS- *Speicher
 
 Verwaltung und Überwachung werden durch eine Kombination von Befehlszeilentools, APIs, Portalen und dynamischen Verwaltungssichten bereitgestellt.
 
-Sie können [Azure Data Studio](../azure-data-studio/what-is.md) dazu verwenden, eine Vielzahl von Aufgaben im Big-Data-Cluster auszuführen:
+Sie können [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md) dazu verwenden, eine Vielzahl von Aufgaben im Big-Data-Cluster auszuführen:
 - Integrierte Codeausschnitte für allgemeine Verwaltungsaufgaben.
 - Möglichkeit zum Durchsuchen von HDFS, zum Hochladen von Dateien, zur Vorschau von Dateien und zum Erstellen von Verzeichnissen.
 - Möglichkeit zum Erstellen, Öffnen und Ausführen von Jupyter-kompatiblen Notebooks.
-- Datenvirtualisierungsassistent für eine vereinfachte Erstellung externer Datenquellen (aktiviert durch die **Datenvirtualisierungserweiterung** )
+- Datenvirtualisierungsassistent für eine vereinfachte Erstellung externer Datenquellen (aktiviert durch die **Datenvirtualisierungserweiterung**)
 
 ## <a name="architecture"></a><a id="architecture"></a> Architektur
 

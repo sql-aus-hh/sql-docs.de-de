@@ -11,19 +11,19 @@ f1_keywords:
 ms.assetid: fefa7bdb-b5f2-4db7-b91c-b58869279f3c
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 05441d59b725a172fddfb83ae116cda2d3ca5596
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 90e585e887e9415a8cf1f9d0104595547f2d1c87
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935553"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171982"
 ---
 # <a name="subscription-settings-and-a-file-share-account-report-server-configuration-manager"></a>Abonnementeinstellungen und ein Dateifreigabekonto (Berichtsserver-Konfigurations-Manager)
   Verwenden Sie die Seite **Abonnementeinstellungen** im Konfigurations-Manager für [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] , um ein Dateifreigabekonto für Berichtsserver im einheitlichen Modus und Dateifreigabeabonnements zu konfigurieren. Mit dem Dateifreigabekonto können Sie einen einzelnen Anmeldeinformationssatz in mehreren Abonnements verwenden, die Berichte an eine Dateifreigabe übermitteln. Wenn die Anmeldeinformationen geändert werden müssen, konfigurieren Sie die Änderung für das Dateifreigabekonto. So müssen Sie nicht jedes einzelne Abonnement aktualisieren.  
   
  Es gibt zwei Workflows für Dateifreigabeabonnements in [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] :  
   
--   Im [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] -Release kann Ihr [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Administrator neuerdings eine einzelne Dateifreigabe konfigurieren, die für ein oder mehrere Abonnements verwendet wird. Konfigurieren Sie dazu **Ein Dateifreigabekonto angeben**, und wählen Sie auf den Seiten für die Abonnementkonfiguration **Dateifreigabekonto verwenden**aus.  
+-   Im [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] -Release kann Ihr [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Administrator neuerdings eine einzelne Dateifreigabe konfigurieren, die für ein oder mehrere Abonnements verwendet wird. Konfigurieren Sie dazu **Ein Dateifreigabekonto angeben**, und wählen Sie auf den Seiten für die Abonnementkonfiguration **Dateifreigabekonto verwenden** aus.  
   
 -   Sie können einzelne Abonnements mit spezifischen Anmeldeinformationen für die Zieldateifreigabe konfigurieren.  
   
@@ -48,7 +48,7 @@ ms.locfileid: "91935553"
 >  `"Failure writing file {file} : An impersonation error occurred using the security context of the current user."`  
   
 ## <a name="powershell-sample-to-audit-use-of-the-file-share-account"></a>PowerShell-Beispiel zum Überwachen der Verwendung des Dateifreigabekontos  
- Führen Sie das folgende Windows PowerShell-Skript aus, um alle [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Abonnements aufzulisten, die für die Verwendung des **Dateifreigabekontos**konfiguriert sind. Aktualisieren Sie `SERVERNAME` auf einen für den Berichtsserver geeigneten Wert.  
+ Führen Sie das folgende Windows PowerShell-Skript aus, um alle [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Abonnements aufzulisten, die für die Verwendung des **Dateifreigabekontos** konfiguriert sind. Aktualisieren Sie `SERVERNAME` auf einen für den Berichtsserver geeigneten Wert.  
   
 ```  
 # get all file share subscriptions using the default file share account  

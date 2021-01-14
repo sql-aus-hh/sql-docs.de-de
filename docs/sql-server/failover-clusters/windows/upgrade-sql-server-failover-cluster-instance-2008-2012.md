@@ -12,12 +12,12 @@ helpviewer_keywords:
 - failover clustering [SQL Server], upgrading
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 90ab761cdc9a84008803ebb4bc5493eb87778f20
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4d9e3116902ae96eaa97e9624ea33ba3fa8952d3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642676"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171582"
 ---
 # <a name="upgrade-sql-server-instances-running-on-windows-server-20082008-r22012-clusters"></a>Aktualisieren von SQL Server-Instanzen auf Windows Server 2008/2008 R2/2012-Clustern
 
@@ -30,7 +30,7 @@ ms.locfileid: "97642676"
 
 -   [!INCLUDE[sshadrc-md](../../../includes/sshadrc-md.md)] darf vor der Migration nicht auf dem parallelen Cluster installiert sein.
 
--   Die Downtime beim Migrieren eines Clusters, der nur Verfügbarkeitsgruppen verwendet (mit oder ohne SQL FCIs) kann durch verteilte Verfügbarkeitsgruppen deutlich gesenkt werden. Dafür ist allerdings erforderlich, dass auf allen Instanzen [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] RTM-Versionen (oder höher) ausgeführt wird.
+-   Die Downtime beim Migrieren eines Clusters, der nur Verfügbarkeitsgruppen verwendet (mit oder ohne SQL FCIs) kann durch verteilte Verfügbarkeitsgruppen deutlich gesenkt werden. Dafür ist allerdings erforderlich, dass auf allen Instanzen [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] RTM-Versionen (oder höher) ausgeführt wird.
 
 -   Für alle Migrationsstrategien ist die [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Systemadministratorrolle erforderlich. Alle Windows-Benutzer, die von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Diensten (z.B. Windows-Konten, auf denen Replikations-Agents ausgeführt werden) verwendet werden, benötigen Berechtigungen auf Betriebssystemebene auf jedem Computer in der neuen Umgebung.
 
@@ -54,11 +54,11 @@ Die angemessene Migrationsstrategie hängt von einigen Parametern der ursprüngl
 \* Dies schließt nicht den Listenernamen der Verfügbarkeitsgruppe ein.
 
 ## <a name="scenario-1-windows-cluster-with-sql-server-availability-groups-and-no-failover-cluster-instances-fcis"></a>Szenario 1: Windows-Cluster mit SQL Server-Verfügbarkeitsgruppen und ohne Failoverclusterinstanzen (FCIs)
-Wenn Sie [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] eingerichtet haben, das Verfügbarkeitsgruppen und keine FCIs verwendet, können Sie zu einem neuen Cluster migrieren, indem Sie eine parallele [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Bereitstellung auf einem anderen Cluster mit Windows Server 2016/2012 R2 durchführen. Anschließend können Sie eine verteilte Verfügbarkeitsgruppe erstellen, wo der Zielcluster der sekundäre Cluster des Produktionsclusters ist. Dafür ist es erforderlich, dass der Benutzer ein Upgrade auf [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] oder höher durchführt.
+Wenn Sie [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] eingerichtet haben, das Verfügbarkeitsgruppen und keine FCIs verwendet, können Sie zu einem neuen Cluster migrieren, indem Sie eine parallele [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Bereitstellung auf einem anderen Cluster mit Windows Server 2016/2012 R2 durchführen. Anschließend können Sie eine verteilte Verfügbarkeitsgruppe erstellen, wo der Zielcluster der sekundäre Cluster des Produktionsclusters ist. Dafür ist es erforderlich, dass der Benutzer ein Upgrade auf [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] oder höher durchführt.
 
 ###  <a name="to-perform-the-upgrade"></a>So führen Sie ein Upgrade durch
 
-1.  Aktualisieren Sie bei Bedarf alle Instanzen auf [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] oder höher. Auf parallelen Instanzen müssen die gleichen Versionen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] ausgeführt werden.
+1.  Aktualisieren Sie bei Bedarf alle Instanzen auf [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] oder höher. Auf parallelen Instanzen müssen die gleichen Versionen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] ausgeführt werden.
 
 2.  Erstellen Sie eine Verfügbarkeitsgruppe für den Zielcluster. Wenn der primäre Knoten des Zielclusters keine FCI ist, erstellen Sie einen Listener.
 

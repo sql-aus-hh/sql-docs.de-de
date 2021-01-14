@@ -9,12 +9,12 @@ ms.topic: overview
 author: dphansen
 ms.author: davidph
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: b73b8521593b81e38d5b0b3931da793f943c45a0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 98e9dd928f2639bfd1df3e6782bcc9aaed60f31e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470691"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102864"
 ---
 # <a name="what-is-sql-server-machine-learning-services-with-python-and-r"></a>Wie funktioniert SQL Server Machine Learning Services mit Python und R?
 [!INCLUDE [SQL Server 2017 SQL MI](../includes/applies-to-version/sqlserver2017-asdbmi.md)]
@@ -47,7 +47,7 @@ Zum Ausführen von Python- und R-Skripts in SQL Server wird von Machine Learning
 ::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
 1. [Installieren Sie SQL Server Machine Learning Services unter Windows](install/sql-machine-learning-services-windows-install.md) oder [unter Linux](../linux/sql-server-linux-setup-machine-learning.md?toc=/sql/machine-learning/toc.json). Sie können ferner [Machine Learning Services für Big Data-Cluster](../big-data-cluster/machine-learning-services.md) und die [Machine Learning Services in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/machine-learning-services-overview) verwenden.
 
-1. Konfigurieren Sie Ihre Entwicklungstools. Sie können [Ausführen von Python- und R-Skripts in Azure Data Studio-Notebooks](install/sql-machine-learning-azure-data-studio.md) verwenden. Sie können auch T-SQL in [Azure Data Studio](../azure-data-studio/what-is.md) ausführen.
+1. Konfigurieren Sie Ihre Entwicklungstools. Sie können [Ausführen von Python- und R-Skripts in Azure Data Studio-Notebooks](install/sql-machine-learning-azure-data-studio.md) verwenden. Sie können auch T-SQL in [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md) ausführen.
 
 1. Schreiben Sie Ihr erstes Python- oder R-Skript.
 
@@ -65,7 +65,7 @@ Zum Ausführen von Python- und R-Skripts in SQL Server wird von Machine Learning
 ::: moniker range="=sql-server-2017"
 1. [Installieren von SQL Server Machine Learning Services (Python und R) unter Windows](install/sql-machine-learning-services-windows-install.md)
 
-1. Konfigurieren Sie Ihre Entwicklungstools. Sie können [Ausführen von Python- und R-Skripts in Azure Data Studio-Notebooks](install/sql-machine-learning-azure-data-studio.md) verwenden. Sie können T-SQL auch in [Azure Data Studio](../azure-data-studio/what-is.md) verwenden.
+1. Konfigurieren Sie Ihre Entwicklungstools. Sie können [Ausführen von Python- und R-Skripts in Azure Data Studio-Notebooks](install/sql-machine-learning-azure-data-studio.md) verwenden. Sie können T-SQL auch in [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md) verwenden.
 
 1. Schreiben Sie Ihr erstes Python- oder R-Skript.
 

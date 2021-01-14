@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: be2b0e6a54ccdd0205719b7b1d466542313d1888
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: dc119f4afe15606dc0d97e69abf0e3f055235bd7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470391"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101956"
 ---
 # <a name="python-tutorial-categorizing-customers-using-k-means-clustering-with-sql-machine-learning"></a>Python-Tutorial: Kategorisieren von Kunden mithilfe von K-Means-Clustering mit SQL Machine Learning
 [!INCLUDE [SQL Server 2017 SQL MI](../../includes/applies-to-version/sqlserver2017-asdbmi.md)]
@@ -62,7 +62,7 @@ In [Teil 4](python-clustering-model-deploy.md) erfahren Sie, wie Sie eine gespe
 * [SQL Server Management Studio](../../ssms/download-sql-server-management-studio-ssms.md), um die Beispieldatenbank in Azure SQL Managed Instance wiederherzustellen
 ::: moniker-end
 
-* [Azure Data Studio](../../azure-data-studio/what-is.md) Für Python und SQL verwenden Sie ein Notebook in Azure Data Studio. Weitere Informationen zu Notebooks finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
+* [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) Für Python und SQL verwenden Sie ein Notebook in Azure Data Studio. Weitere Informationen zu Notebooks finden Sie unter [Verwenden von Notebooks in Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
 
 * Weitere Python-Pakete: In den Beispielen dieser Tutorialreihe werden möglicherweise Python-Pakete verwendet, die Sie nicht installiert haben.
 

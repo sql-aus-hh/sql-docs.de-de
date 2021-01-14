@@ -12,12 +12,12 @@ ms.assetid: 069ac476-6336-44a9-a0e7-db1c4888948f
 author: maggiesMSFT
 ms.author: maggies
 monikerRange: '>=sql-server-2016 <=sql-server-2016'
-ms.openlocfilehash: b7516d42e7b4ce804061f977ed530ecb03eba572
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c088a6cf0779c5c37c92d7ecd2ff93b2cda4ae46
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472421"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172152"
 ---
 # <a name="where-to-find-the-reporting-services-add-in-for-sharepoint-products"></a>Verfügbarkeit des Reporting Services-Add-Ins für SharePoint-Produkte
 
@@ -26,12 +26,12 @@ Das SSRS-Add-In ([!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[s
 > [!IMPORTANT]  
 >  Eine Liste der unterstützten Kombinationen des [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]-Add-Ins, des Berichtsservers und SharePoint finden Sie unter [Unterstützte Kombinationen von SharePoint und Reporting Services-Server und -Add-In &#40;SQL Server 2016&#41;](../../reporting-services/install-windows/supported-combinations-of-sharepoint-and-reporting-services-server.md).  
   
-##  <a name="sssql15-reporting-services-add-in-for-sharepoint-products"></a><a name="bkmk_sql16"></a> [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]Reporting Services-Add-In für SharePoint-Produkte  
+##  <a name="sssql15-reporting-services-add-in-for-sharepoint-products"></a><a name="bkmk_sql16"></a> [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]Reporting Services-Add-In für SharePoint-Produkte  
  Anweisungen zum Herunterladen und Installieren des Add-Ins finden Sie im [!INCLUDE[msCoName](../../includes/msconame-md.md)] Download Center:  
   
 -   [Microsoft® SQL Server 2016 Reporting Services-Add-In für Microsoft SharePoint](https://www.microsoft.com/download/details.aspx?id=52682)  
   
- Die [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] -Version des Add-Ins ist auch im Installations-Assistenten für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] verfügbar:  
+ Die [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] -Version des Add-Ins ist auch im Installations-Assistenten für [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] verfügbar:  
   
 -   Wählen Sie im Setup-Assistenten auf der Seite **Funktionsauswahl** die Option **Reporting Services-Add-In für SharePoint-Produkte** aus.  
   

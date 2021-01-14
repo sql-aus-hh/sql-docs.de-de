@@ -10,12 +10,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15||>=azuresqldb-mi-current'
-ms.openlocfilehash: 0b32d12a694062e56611abaff18dc4f1e2f23061
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 026090f3eb61e2bd2ffe2b96eb09751cc3543dbf
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470111"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101863"
 ---
 # <a name="r-tutorial-run-predictions-in-sql-stored-procedures"></a>R-Tutorial: Ausführen von Vorhersagen in gespeicherten SQL-Prozeduren
 [!INCLUDE [SQL Server 2016 SQL MI](../../includes/applies-to-version/sqlserver2016-asdbmi.md)]
@@ -70,7 +70,7 @@ GO
 
 + Die SELECT-Anweisung ruft das serialisierte Modell aus der Datenbank ab und speichert das Modell in der R-Variable `mod` zur weiteren Verarbeitung mit R.
 
-+ Die neuen Fälle für die Bewertung werden aus der [!INCLUDE[tsql](../../includes/tsql-md.md)]-Abfrage abgerufen, die in `@inquery` festgelegt ist, dem ersten Parameter für die gespeicherte Prozedur. Wenn die Abfragedaten gelesen werden, werden die Zeilen im Standard-Datenrahmen, `InputDataSet`, gespeichert. Dieser Datenrahmen wird an die [PREDICT](/sql/t-sql/queries/predict-transact-sql)-Funktion übergeben, die die Bewertungen generiert.
++ Die neuen Fälle für die Bewertung werden aus der [!INCLUDE[tsql](../../includes/tsql-md.md)]-Abfrage abgerufen, die in `@inquery` festgelegt ist, dem ersten Parameter für die gespeicherte Prozedur. Wenn die Abfragedaten gelesen werden, werden die Zeilen im Standard-Datenrahmen, `InputDataSet`, gespeichert. Dieser Datenrahmen wird an die [PREDICT](../../t-sql/queries/predict-transact-sql.md)-Funktion übergeben, die die Bewertungen generiert.
   
   `OutputDataSet <- data.frame(predict(mod, InputDataSet, type = "response"));`
   
