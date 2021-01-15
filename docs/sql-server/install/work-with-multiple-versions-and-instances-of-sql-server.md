@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 93acefa8-bb41-4ccc-b763-7801f51134e0
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 3177050a3d7eaae65099e441792801292df11ec6
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: eea074af5270046bae6bb153cfb6fe79053335a4
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96127471"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975498"
 ---
 # <a name="work-with-multiple-versions-and-instances-of-sql-server"></a>Arbeiten mit mehreren Versionen und Instanzen von SQL Server
 
@@ -124,6 +124,7 @@ Wenn eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Failoverclus
 * [Installieren von SQL Server über den Installations-Assistenten &#40;Setup&#41;](../../database-engine/install-windows/install-sql-server-from-the-installation-wizard-setup.md)
 * [Unterstützte Versions- und Editionsupgrades](../../database-engine/install-windows/supported-version-and-edition-upgrades.md)
 * [Aktualisieren von SQL Server](../../database-engine/install-windows/upgrade-sql-server.md)
+* [Editionen und unterstützte Features von SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md) 
 * [Editionen und unterstützten Funktionen von SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md)
 * [Editionen und unterstützten Funktionen von SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md)
 * [Abwärtskompatibilität](/previous-versions/sql/sql-server-2016/cc280407(v=sql.130))

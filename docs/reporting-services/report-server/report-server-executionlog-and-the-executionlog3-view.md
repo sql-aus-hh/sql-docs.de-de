@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: a7ead67d-1404-4e67-97e7-4c7b0d942070
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 15e8b648603952226af45d485d5678f5d0d3bbd6
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 28d083e053e31c1fcce26e233ba22211e211a993
+ms.sourcegitcommit: 1f826eb3f73bd4d94bc9638b9cdd60991a2e2fa0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84548012"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98125586"
 ---
 # <a name="report-server-executionlog-and-the-executionlog3-view"></a>Berichtsserver-Sichten ExecutionLog und ExecutionLog3
   Das Berichtsserver-Ausführungsprotokoll von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]enthält Informationen zu den Berichten, die auf dem Server bzw. auf mehreren Servern in einer Bereitstellung für horizontales Skalieren im einheitlichen Modus oder in einer SharePoint-Farm ausgeführt werden. Anhand des Ausführungsprotokolls des Berichtsservers können Sie feststellen, wie oft ein Bericht angefordert wird, welche Ausgabeformate am meisten verwendet werden und wie viele Millisekunden Verarbeitungszeit für die einzelnen Verarbeitungsphasen aufgewendet werden. Das Protokoll enthält Informationen über die Zeit, die für die Ausführung der Datasetabfrage eines Berichts aufgewendet wurde, und die Zeit, die für die Verarbeitung der Daten aufgewendet wurde. Wenn Sie Berichtsserveradministrator sind, können Sie die Protokollinformationen überprüfen und Aufgaben mit langer Laufzeit identifizieren sowie den Berichtsautoren zu den Bereichen des Berichts (Dataset oder Verarbeitung) Vorschläge zur Verbesserung machen.  
@@ -27,7 +27,7 @@ ms.locfileid: "84548012"
 ##  <a name="viewing-log-information"></a><a name="bkmk_top"></a> Anzeigen von Protokollinformationen  
  Die Berichtsserverausführung protokolliert Daten zur Berichtsausführung in einer internen Datenbanktabelle. Die Informationen aus der Tabelle sind in SQL Server-Sichten verfügbar.  
   
- Das Berichtsausführungsprotokoll wird in der Berichtsserver-Datenbank gespeichert, die standardmäßig **ReportServer**genannt wird. Die SQL-Ansichten enthalten die Ausführungsprotokollinformationen. Die Ansichten „2“ und „3“ wurden in aktuelleren Versionen hinzugefügt und enthalten neue Felder, oder sie enthalten Felder mit benutzerfreundlicheren Namen als die vorherigen Versionen. Die älteren Ansichten bleiben im Produkt, sodass es keinerlei Auswirkungen auf benutzerdefinierte Anwendungen, die von ihnen abhängen, gibt. Wenn keine Abhängigkeit von einer älteren Sicht vorliegt, z.B. ExecutionLog, wird empfohlen, die neueste Sicht, ExecutionLog**3**, zu verwenden.  
+ Das Berichtsausführungsprotokoll wird in der Berichtsserver-Datenbank gespeichert, die standardmäßig **ReportServer** genannt wird. Die SQL-Ansichten enthalten die Ausführungsprotokollinformationen. Die Ansichten „2“ und „3“ wurden in aktuelleren Versionen hinzugefügt und enthalten neue Felder, oder sie enthalten Felder mit benutzerfreundlicheren Namen als die vorherigen Versionen. Die älteren Ansichten bleiben im Produkt, sodass es keinerlei Auswirkungen auf benutzerdefinierte Anwendungen, die von ihnen abhängen, gibt. Wenn keine Abhängigkeit von einer älteren Sicht vorliegt, z.B. ExecutionLog, wird empfohlen, die neueste Sicht, ExecutionLog **3**, zu verwenden.  
   
  Inhalte dieses Themas:  
   
@@ -87,7 +87,7 @@ ms.locfileid: "84548012"
   
 4.  Klicken Sie auf die Seite **Protokollierung** .  
   
-5.  Wählen Sie **Protokollierung der Berichtsausführung aktivieren**aus.  
+5.  Wählen Sie **Protokollierung der Berichtsausführung aktivieren** aus.  
   
  **So aktivieren Sie die ausführliche Protokollierung:**  
   
@@ -98,7 +98,7 @@ ms.locfileid: "84548012"
 2.  Ändern Sie im Abschnitt **Benutzerdefiniert** den Wert für **ExecutionLogLevel** in **Ausführlich**. Dieses Feld ist ein Texteingabefeld, und die zwei möglichen Werte sind **Ausführlich** und **Normal**.  
   
 ##  <a name="log-fields-executionlog3"></a><a name="bkmk_executionlog3"></a> Protokollierungsfelder (ExecutionLog3)  
- Dieser Sicht wurde ein zusätzlicher Leitungsdiagnoseknoten in der XML-basierten Spalte **AdditionalInfo** hinzugefügt. Die Spalte AdditionalInfo enthält eine XML-Struktur von 1:n zusätzlichen Informationsfeldern. Folgendes ist eine Beispiel-Transact-SQL-Anweisung, um Zeilen aus der Ansicht ExecutionLog3 abzurufen. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer**lautet:  
+ Dieser Sicht wurde ein zusätzlicher Leitungsdiagnoseknoten in der XML-basierten Spalte **AdditionalInfo** hinzugefügt. Die Spalte AdditionalInfo enthält eine XML-Struktur von 1:n zusätzlichen Informationsfeldern. Folgendes ist eine Beispiel-Transact-SQL-Anweisung, um Zeilen aus der Ansicht ExecutionLog3 abzurufen. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer** lautet:  
   
 ```  
 Use ReportServer  
@@ -309,7 +309,7 @@ select * from ExecutionLog3 order by TimeStart DESC
     ```  
   
 ##  <a name="log-fields-executionlog2"></a><a name="bkmk_executionlog2"></a> Protokollierungsfelder (ExecutionLog2)  
- Diese Ansicht hat einige neue Felder hinzugefügt und einige andere umbenannt. Folgendes ist eine Beispiel-Transact-SQL-Anweisung, mit der Sie Zeilen aus der Ansicht ExecutionLog2 abrufen können. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer**lautet:  
+ Diese Ansicht hat einige neue Felder hinzugefügt und einige andere umbenannt. Folgendes ist eine Beispiel-Transact-SQL-Anweisung, mit der Sie Zeilen aus der Ansicht ExecutionLog2 abrufen können. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer** lautet:  
   
 ```  
 Use ReportServer  
@@ -328,11 +328,11 @@ select * from ExecutionLog2 order by TimeStart DESC
 |Format|Renderingformat.|  
 |Parameter|Parameterwerte, die für die Berichtsausführung verwendet werden.|  
 |ReportAction|Mögliche Werte: SessionRender, Sort, BookMarkNavigation, DocumentNavigation, GetDocumentMap, Findstring|  
-|TimeStart|Anfangs- und Beendigungszeit für die Verarbeitung eines Berichts.|  
-|TimeEnd||  
-|TimeDataRetrieval|Zeitaufwand (in Millisekunden) für das Abfragen der Daten, das Verarbeiten des Berichts und das Rendern des Berichts.|  
-|TimeProcessing||  
-|TimeRendering||  
+|TimeStart|Anfangszeit für die Verarbeitung eines Berichts.|
+|TimeEnd|Endzeit für die Verarbeitung eines Berichts.|
+|TimeDataRetrieval|Anzahl von Millisekunden, die zum Abrufen der Daten benötigt werden.|
+|TimeProcessing|Anzahl von Millisekunden, die zum Verarbeiten des Berichts benötigt werden.|
+|TimeRendering|Anzahl von Millisekunden, die zum Rendern des Berichts benötigt werden.|
 |`Source`|Quelle der Berichtsausführung (1=Live, 2=Cache, 3=Snapshot 4=History).|  
 |Status|Status (entweder rsSuccess oder ein Fehlercode; beim Auftreten mehrerer Fehler wird nur der erste Fehler aufgezeichnet).|  
 |ByteCount|Größe von gerenderten Berichten in Bytes.|  
@@ -340,7 +340,7 @@ select * from ExecutionLog2 order by TimeStart DESC
 |AdditionalInfo|Ein XML-Eigenschaftenbehälter, der weitere Informationen zur Ausführung enthält.|  
   
 ##  <a name="log-fields-executionlog"></a><a name="bkmk_executionlog"></a> Protokollierungsfelder (ExecutionLog)  
- Folgendes ist eine Beispiel-Transact-SQL-Anweisung, mit der Sie Zeilen aus der Ansicht ExecutionLog abrufen können. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer**lautet:  
+ Folgendes ist eine Beispiel-Transact-SQL-Anweisung, mit der Sie Zeilen aus der Ansicht ExecutionLog abrufen können. Im Beispiel wird davon ausgegangen, dass der Name der Berichtsserver-Datenbank **ReportServer** lautet:  
   
 ```  
 Use ReportServer  

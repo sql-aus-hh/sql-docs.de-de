@@ -8681,9 +8681,6 @@
                       href: ssms/scripting/generate-and-publish-scripts-wizard.md
                     - name: Vom Assistenten zum Generieren von Skripts unterstützte Objekte
                       href: ssms/scripting/objects-supported-by-the-generate-scripts-wizard.md
-                - name: Abfragen und Text-Editoren
-                  href: ./ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15
-                  items:
                     - name: XML-Editor
                       href: ssms/scripting/xml-editor-sql-server-management-studio.md
                     - name: Farbcodierung im Abfrage-Editor
@@ -9103,8 +9100,6 @@
               items:
                 - name: Abfragen und Text-Editoren
                   href: /previous-versions/sql/sql-server-2012/ms173477(v=sql.110)?redirectedfrom=MSDN
-                - name: Abfrage-Editor der Datenbank-Engine
-                  href: ./ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md
                 - name: XML-Editor
                   href: ssms/scripting/xml-editor-sql-server-management-studio.md
                 - name: Konfigurieren von Editoren
@@ -9223,6 +9218,8 @@
                   href: ssms/menu-help/options-environment-fonts-and-colors-page.md
                 - name: Optionen (Umgebung – Hilfe – Seite „Allgemein“)
                   href: ssms/menu-help/options-environment-help-general-page.md
+                - name: Optionen (Abfrageausführungsoptionen – Hilfe – Seite „Allgemein“)
+                  href: ssms/menu-help/options-query-execution.md
                 - name: Externe Tools
                   href: ssms/menu-help/external-tools.md
                 - name: Anpassen (Seite Befehle)
