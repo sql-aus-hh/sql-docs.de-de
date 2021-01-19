@@ -10,12 +10,12 @@ ms.technology: ssma
 ms.topic: conceptual
 ms.assetid: a98a5e07-eb5e-47b9-a6f2-e2cb3a18309c
 ms.author: alexiva
-ms.openlocfilehash: 5c99ab8dec72a621ddb3f312e581907b0e4ba6d4
-ms.sourcegitcommit: a16b98d3bf3eeb58f5d2aeece2464f8a96e2b4a8
+ms.openlocfilehash: a999bcde42029b50772f18925a1f24432d558a3f
+ms.sourcegitcommit: 8fcee1bc2503bea81a0c9d02827193ab71d8ca32
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97665861"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98564229"
 ---
 # <a name="project-settings-conversion-oracletosql"></a>Projekteinstellungen (Konvertierung) (OracleToSQL)
 
@@ -58,7 +58,7 @@ Der Bereich **Konvertierung** ist in den Dialogfeldern **Projekteinstellungen** 
 |**Erweiterte Eigenschaften weglassen**|Wenn diese Option aktiviert ist, werden den in der Zieldatenbank erstellten Objekten von SSMA keine erweiterten Eigenschaften hinzugefügt.<br /><br />Wenn Sie im Feld **Modus** einen Konvertierungsmodus auswählen, wendet SSMA die folgende Einstellung an:<br /><br />**Standardmodus/optimistischer/Vollmodus:** Nein|
 |**Übersetzen von Fehlercodes**|Wenn diese Option aktiviert ist, wird die Fehlernummer auf dem Ziel SQL Server Seite in den Oracle-Fehlercode übersetzt, wenn die Zuordnung gefunden wurde.<br /><br />Wenn Sie im Feld **Modus** einen Konvertierungsmodus auswählen, wendet SSMA die folgende Einstellung an:<br /><br />**Standard-/Vollmodus:** Zwar<br />**Optimistischer Modus:** Nein|
 |**Vollständige Typspezifikation für Typverweise verwenden**|Wenn diese Option aktiviert ist, berücksichtigt SSMA die vollständige Typspezifikation (einschließlich Skalierung und Genauigkeit) für Routineparameter und Rückgabewerte. Oracle lässt keine Datentyp Argumente für Routineparameter zu, aber es gibt Fälle, in denen Sie implizit abgeleitet werden können, z `%TYPE` . b. wenn-und- `%ROWTYPE` Attribute verwendet werden. In solchen Fällen kann SSMA bei der Umstellung in SQL Server die vollständige Typspezifikation (einschließlich Genauigkeit und Dezimalstelle) verwenden.<br /><br />Wenn Sie im Feld **Modus** einen Konvertierungsmodus auswählen, wendet SSMA die folgende Einstellung an:<br /><br />**Standardmodus/optimistischer Modus:** Zwar<br />**Vollständiger Modus:** Nein|
-|**Verwenden von IsNull bei der Zeichen folgen Verkettung**|Oracle und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] geben andere Ergebnisse zurück, wenn Zeichen folgen Verkettungen `NULL` Werte enthalten. Oracle behandelt den `NULL` Wert wie einen leeren Zeichensatz. `NULL` gibt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] zurück.<br /><br />Wenn Sie **Ja** auswählen, ersetzt SSMA das Oracle-Verkettungs Zeichen (&#124;&#124;) durch das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Verkettungs Zeichen (+). SSMA überprüft auch die Ausdrücke auf beiden Seiten der Verkettung für- `NULL` Werte.<br /><br />Wenn Sie **Nein** auswählen, ersetzt SSMA die Verkettungs Zeichen, jedoch nicht auf `NULL` Werte.<br /><br />Wenn Sie im Feld **Modus** einen Konvertierungsmodus auswählen, wendet SSMA die folgende Einstellung an:<br /><br />**Standardmodus/optimistischer/Vollmodus:** Zwar|
+|**Verwenden von IsNull bei der Zeichen folgen Verkettung**|Oracle und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] geben andere Ergebnisse zurück, wenn Zeichen folgen Verkettungen `NULL` Werte enthalten. Oracle behandelt den `NULL` Wert wie einen leeren Zeichensatz. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] gibt `NULL` zurück.<br /><br />Wenn Sie **Ja** auswählen, ersetzt SSMA das Oracle-Verkettungs Zeichen (&#124;&#124;) durch das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Verkettungs Zeichen (+). SSMA überprüft auch die Ausdrücke auf beiden Seiten der Verkettung für- `NULL` Werte.<br /><br />Wenn Sie **Nein** auswählen, ersetzt SSMA die Verkettungs Zeichen, jedoch nicht auf `NULL` Werte.<br /><br />Wenn Sie im Feld **Modus** einen Konvertierungsmodus auswählen, wendet SSMA die folgende Einstellung an:<br /><br />**Standardmodus/optimistischer/Vollmodus:** Zwar|
 
 ## <a name="objects-conversion"></a>Konvertieren von Objekten
 
