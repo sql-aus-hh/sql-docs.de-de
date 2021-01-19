@@ -37,12 +37,12 @@ helpviewer_keywords:
 ms.assetid: 8bf1316f-c0ef-49d0-90a7-3946bc8e7a89
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 830b03042589ac1e9f03e94b134a48d510a37c31
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: 2043bf4c60a1154b719d81b583d055b60b85c6ec
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92035834"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172332"
 ---
 # <a name="hints-transact-sql---table"></a>Hinweise (Transact-SQL): Tabelle
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -398,7 +398,7 @@ GO
 Der Abfrageoptimierer berücksichtigt einen Indexhinweis nur dann, wenn die SET-Optionen die erforderlichen Werte für die gefilterten Indizes enthalten. Weitere Informationen finden Sie unter [CREATE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-index-transact-sql.md).  
   
 ## <a name="using-noexpand"></a>Verwenden von NOEXPAND  
-NOEXPAND gilt nur für *indizierte Sichten*. Eine indizierte Sicht ist eine Sicht, auf der ein eindeutiger gruppierter Index erstellt wurde. Wenn eine Abfrage Verweise auf Spalten enthält, die in einer indizierten Sicht und in Basistabellen vorhanden sind, und der Abfrageoptimierer festlegt, dass die Verwendung der indizierten Sicht die beste Methode zum Ausführen der Abfrage darstellt, verwendet der Optimierer den Index der Sicht. Diese Funktionalität wird als *Abgleich der indizierten Sicht* bezeichnet. Vor [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1 wurde die automatische Verwendung einer indizierten Sicht durch den Abfrageoptimierer nur in bestimmten Editionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützt. Eine Liste der von den Editionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützten Features finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md), [Editionen und unterstützte Funktionen von SQL Server 2017](../../SQL-server/editions-and-components-of-SQL-server-2017.md) und [Editionen und unterstützte Funktionen von SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).  
+NOEXPAND gilt nur für *indizierte Sichten*. Eine indizierte Sicht ist eine Sicht, auf der ein eindeutiger gruppierter Index erstellt wurde. Wenn eine Abfrage Verweise auf Spalten enthält, die in einer indizierten Sicht und in Basistabellen vorhanden sind, und der Abfrageoptimierer festlegt, dass die Verwendung der indizierten Sicht die beste Methode zum Ausführen der Abfrage darstellt, verwendet der Optimierer den Index der Sicht. Diese Funktionalität wird als *Abgleich der indizierten Sicht* bezeichnet. Vor [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1 wurde die automatische Verwendung einer indizierten Sicht durch den Abfrageoptimierer nur in bestimmten Editionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützt. Eine Liste der von den Editionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützten Features finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md), [Editionen und unterstützte Funktionen von SQL Server 2017](../../SQL-server/editions-and-components-of-SQL-server-2017.md) und [Editionen und unterstützte Funktionen von SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).  
   
 Damit der Abfrageoptimierer indizierte Sichten für den Abgleich berücksichtigt oder eine indizierte Sicht verwendet, auf die mit dem NOEXPAND-Hinweis verwiesen wird, müssen die folgenden SET-Optionen auf ON festgelegt sein.  
 

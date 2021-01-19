@@ -11,12 +11,12 @@ ms.assetid: 5e57a427-2e88-4ef6-b142-4ccad97bcecc
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: c36d6718455f85314f98219b860a801984804d9d
-ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
+ms.openlocfilehash: 4acdd7f1d8b6a39af4054f30381665d1504bcb71
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97975457"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171832"
 ---
 # <a name="choose-a-database-engine-upgrade-method"></a>Wählen einer Upgrademethode für die Datenbank-Engine
 [!INCLUDE [SQL Server -Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
@@ -86,10 +86,10 @@ Es gibt verschiedene zu prüfende Ansätze beim Planen des Upgrades von [!INCLUD
  Beispielsweise können Sie diesen Ansatz befolgen, um Folgendes zu aktualisieren:  
   
 -   Eine Installation von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unter einem nicht unterstützten Betriebssystem.    
--   Eine x86-Installation von SQL Server, da [!INCLUDE[ss2016](../../includes/sssql15-md.md)] und höher keine x86-Installationen unterstützen.   
+-   Eine x86-Installation von SQL Server, da [!INCLUDE[ss2016](../../includes/sssql16-md.md)] und höher keine x86-Installationen unterstützen.   
 -   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf neue Hardware und/oder eine neue Version des Betriebssystems.    
 -   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] in Verbindung mit einer Serverkonsolidierung.   
--   SQL Server 2005, da [!INCLUDE[ss2016](../../includes/sssql15-md.md)] und kein direktes Upgrade von SQL Server 2005 unterstützen. Weitere Informationen finden Sie unter [Führen Sie ein Upgrade von SQL Server 2005 aus?](../../sql-server/end-of-support/sql-server-end-of-life-overview.md).
+-   SQL Server 2005, da [!INCLUDE[ss2016](../../includes/sssql16-md.md)] und kein direktes Upgrade von SQL Server 2005 unterstützen. Weitere Informationen finden Sie unter [Führen Sie ein Upgrade von SQL Server 2005 aus?](../../sql-server/end-of-support/sql-server-end-of-life-overview.md).
 
   
 Die erforderlichen Schritte für ein Upgrade auf eine neue Installation hängen zum Teil davon ab, ob Sie zugeordneten oder SAN-Speicher verwenden.  

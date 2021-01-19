@@ -30,12 +30,12 @@ ms.assetid: b48d69e8-5a00-48bf-b2f3-19278a72dd88
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 1e1d8f3d96adfd912ae1e4707d8aaaf17ffec20b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7afde8d9db8beedc46ea597dc47e31877d170942
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97476691"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172722"
 ---
 # <a name="select---into-clause-transact-sql"></a>SELECT - INTO-Klausel (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -66,7 +66,7 @@ Mit SELECT…INTO wird eine neue Tabelle in der Standarddateigruppe erstellt, un
  *filegroup*    
  Gibt den Namen der Dateigruppe an, in der die neue Tabelle erstellt wird. Die angegebene Dateigruppe muss in der Datenbank vorhanden sein, andernfalls löst die SQL Server-Engine einen Fehler aus.   
  
- **Anwendungsbereich:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 und höher.
+ **Anwendungsbereich:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 und höher.
   
 ## <a name="data-types"></a>Datentypen  
  Beim FILESTREAM-Attribut werden keine Daten in die neue Tabelle übertragen. FILESTREAM-BLOBs werden kopiert und in der neuen Tabelle als **varbinary(max)** -BLOBs gespeichert. Ohne das FILESTREAM-Attribut verfügt der **varbinary(max)** -Datentyp über eine Einschränkung von 2 GB. Wenn ein FILESTREAM-BLOB diesen Wert überschreitet, wird Fehler 7119 ausgelöst, und die Anweisung wird beendet.  
@@ -236,7 +236,7 @@ ORDER BY YearlyIncome;
 ### <a name="f-copying-the-data-from-one-table-to-another-and-create-the-new-table-on-a-specified-filegroup"></a>F. Kopieren der Daten aus einer der Tabellen in eine andere und Erstellen der neuen Tabelle in einer angegebenen Dateigruppe
 Das folgende Beispiel zeigt, wie eine neue Tabelle als Kopie einer anderen Tabelle erstellt und in eine angegebene Dateigruppe geladen wird, bei der es sich nicht um die Standarddateigruppe des Benutzers handelt.
 
- **Anwendungsbereich:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 und höher.
+ **Anwendungsbereich:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 und höher.
 
 ```sql
 ALTER DATABASE [AdventureWorksDW2016] ADD FILEGROUP FG2;

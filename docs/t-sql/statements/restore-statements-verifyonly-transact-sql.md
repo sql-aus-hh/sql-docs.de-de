@@ -24,12 +24,12 @@ ms.assetid: cba3b6a0-b48e-4c94-812b-5b3cbb408bd6
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017
-ms.openlocfilehash: 00926a8ee1244112d1fb5a01273e90d22a5753a7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: eeae562c4cfbf093d3b7237a044c51084331e8a9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97463970"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172242"
 ---
 # <a name="restore-statements---verifyonly-transact-sql"></a>RESTORE-Anweisungen - VERIFYONLY (Transact-SQL)
 [!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md](../../includes/tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md )]
@@ -110,7 +110,7 @@ FROM <backup_device> [ ,...n ]
 >  Die Verwendung von RESTORE VERIFYONLY für eine Datenbankmomentaufnahme ist nicht möglich. Sie können eine Datenbank-Momentaufnahme vor einem Wiederherstellungsvorgang überprüfen, indem Sie DBCC CHECKDB ausführen.  
   
 > [!NOTE]  
->  Mit Momentaufnahmesicherungen bestätigt RESTORE VERIFYONLY das Vorhandensein der Momentaufnahmen an den in der Sicherungsdatei angegebenen Speicherorten. Momentaufnahmesicherungen sind ein neues Feature in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Weitere Informationen zu Momentaufnahmesicherungen finden Sie unter [ Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
+>  Mit Momentaufnahmesicherungen bestätigt RESTORE VERIFYONLY das Vorhandensein der Momentaufnahmen an den in der Sicherungsdatei angegebenen Speicherorten. Momentaufnahmesicherungen sind ein neues Feature in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Weitere Informationen zu Momentaufnahmesicherungen finden Sie unter [ Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
   
 ## <a name="security"></a>Sicherheit  
  Bei einem Sicherungsvorgang können optional Kennwörter für einen Mediensatz, einen Sicherungssatz oder für beides angegeben werden. Wurde ein Kennwort für einen Mediensatz oder Sicherungssatz definiert, müssen die richtigen Kennwörter in der RESTORE-Anweisung angegeben werden. Über diese Kennwörter werden nicht autorisierte Wiederherstellungsoptionen und unbefugtes Anfügen von Sicherungssätzen an Medien mithilfe der Tools von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verhindert. Mit einem Kennwort kann jedoch das Überschreiben eines Mediums mithilfe der Option FORMAT der BACKUP-Anweisung nicht verhindert werden.  

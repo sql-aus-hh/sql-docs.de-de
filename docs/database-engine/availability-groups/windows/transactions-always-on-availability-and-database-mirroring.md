@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 9f7ed895-ad65-43e3-ba08-00d7bff1456d
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 79e04e64a4fc89bb3e745d67b1cdbe929850b6ec
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: f2295f8694a9573b0e9c541ea817e9e03e70f83e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642983"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171082"
 ---
 # <a name="transactions---availability-groups-and-database-mirroring"></a>Transaktionen: Always On-Verfügbarkeitsgruppen und Datenbankspiegelung
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -34,9 +34,9 @@ In diesem Artikel wird die Unterstützung für datenbankübergreifende und verte
 SQL Server 2017 unterstützt verteilte Transaktionen für Datenbanken in Verfügbarkeitsgruppen. Diese Unterstützung schließt Datenbanken, die sich auf derselben Instanz von SQL Server befinden, genauso ein wie Datenbanken, die sich auf verschiedenen Instanzen von SQL Server befinden. Verteilte Transaktionen werden für Datenbanken unterstützt, die für die Datenbankspiegelung konfiguriert sind.
 
 > [!NOTE]
-> [!INCLUDE[SQL Server 2016](../../../includes/sssql15-md.md)] Service Pack 2 und höher stellt die vollständige Unterstützung für verteilte Transaktionen in Verfügbarkeitsgruppen bereit. 
+> [!INCLUDE[SQL Server 2016](../../../includes/sssql16-md.md)] Service Pack 2 und höher stellt die vollständige Unterstützung für verteilte Transaktionen in Verfügbarkeitsgruppen bereit. 
 > 
-> In früheren [!INCLUDE[SQL Server 2016](../../../includes/sssql15-md.md)]-Versionen vor Service Pack 2 werden datenbankübergreifende verteilte Transaktionen nicht unterstützt, wenn sie eine Datenbank in einer Verfügbarkeitsgruppe enthalten. Bei diesen Transaktionen werden nur Datenbanken auf der gleichen SQL Server-Instanz verwendet.
+> In früheren [!INCLUDE[SQL Server 2016](../../../includes/sssql16-md.md)]-Versionen vor Service Pack 2 werden datenbankübergreifende verteilte Transaktionen nicht unterstützt, wenn sie eine Datenbank in einer Verfügbarkeitsgruppe enthalten. Bei diesen Transaktionen werden nur Datenbanken auf der gleichen SQL Server-Instanz verwendet.
 
 Weitere Informationen zum Konfigurieren einer Verfügbarkeitsgruppe für verteilte Transaktionen finden Sie unter [Configure Availability Group for Distributed Transactions (Konfigurieren einer Verfügbarkeitsgruppe für verteilte Transaktionen)](configure-availability-group-for-distributed-transactions.md).
 

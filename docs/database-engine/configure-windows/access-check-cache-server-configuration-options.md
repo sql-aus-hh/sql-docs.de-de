@@ -15,23 +15,23 @@ helpviewer_keywords:
 ms.assetid: 0a992ea8-3ec6-4a4d-97b5-460ae7326247
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: f5790d5eb416f789bbe67f10d28f18a375b4c572
-ms.sourcegitcommit: 21c14308b1531e19b95c811ed11b37b9cf696d19
+ms.openlocfilehash: 893400411c6f3d2faf6313923aa0f6127a3f2cf0
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86158928"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171072"
 ---
 # <a name="access-check-cache-server-configuration-options"></a>Serverkonfigurationsoptionen für den Zugriffsüberprüfungscache
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-Beim Zugriff auf Datenbankobjekte durch [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird die Zugriffsprüfung in einer internen Struktur zwischengespeichert, die als **access check result cache**bezeichnet wird. 
+Beim Zugriff auf Datenbankobjekte durch [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird die Zugriffsprüfung in einer internen Struktur zwischengespeichert, die als **access check result cache** bezeichnet wird. 
   
 Die Option **access check cache bucket count** steuert die Anzahl der Hashbuckets, die für den Ergebniscache der Zugriffsüberprüfung verwendet werden. 
 
 Die Option **access check cache quota** steuert die Anzahl der Einträge, die im Ergebniscache der Zugriffsüberprüfung gespeichert werden. Wenn die maximale Anzahl von Einträgen erreicht ist, werden die ältesten Einträge aus dem Ergebniscache der Zugriffsüberprüfung entfernt.
   
-Die Standardwerte 0 geben an, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] diese Optionen verwaltet. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] werden die Standardwerte in die folgenden internen Konfigurationen übersetzt:
+Die Standardwerte 0 geben an, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] diese Optionen verwaltet. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] werden die Standardwerte in die folgenden internen Konfigurationen übersetzt:
 -   Bei der Bucketanzahl für den Cache der Zugriffsüberprüfung wird durch den Wert 0 ein Standardwert von 256 Buckets festgelegt.
 -   Beim Cachekontingent der Zugriffsüberprüfung wird durch den Wert 0 ein Standardwert von 1.024 Einträgen festgelegt.
 

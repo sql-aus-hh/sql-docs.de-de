@@ -41,12 +41,12 @@ helpviewer_keywords:
 ms.assetid: 864b393f-225f-4895-8c8d-4db59ea60032
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: cb4c79d1f4c8c7b8103ff9d34b8f32fd497b8c6a
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 717ffe936bef35c9794e160e56c7ea7b0658058f
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095801"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170702"
 ---
 # <a name="create-function-transact-sql"></a>CREATE FUNCTION (Transact-SQL)
 
@@ -271,12 +271,12 @@ RETURNS return_data_type
 ## <a name="arguments"></a>Argumente
 
 *OR ALTER*
-**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 und höher) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
+**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 und höher) und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
 
 Ändert die Funktion bedingt, sofern diese bereits vorhanden ist.
 
 > [!NOTE]
-> Eine optionale [OR ALTER]-Syntax für die CLR-ist ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 CU1 verfügbar.
+> Eine optionale [OR ALTER]-Syntax für die CLR-ist ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 CU1 verfügbar.
 
 *schema_name* entspricht dem Namen des Schemas, zu dem die benutzerdefinierte Funktion gehört.
 

@@ -47,12 +47,12 @@ ms.assetid: afe3d86d-c9ab-44e4-b74d-4e3dbd9cc58c
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: d8ebd5ecac550537f13d20e25a19222477ccebb6
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: a23a11bf4968179baad9d3cc88e5a64acae68b76
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98092103"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170162"
 ---
 # <a name="create-procedure-transact-sql"></a>CREATE PROCEDURE (Transact-SQL)
 
@@ -148,7 +148,7 @@ AS { [ BEGIN ] sql_statement [;][ ,...n ] [ END ] }
 
 OR ALTER
 
-**Gilt für**: Azure [!INCLUDE[ssSDS](../../includes/sssds-md.md)], [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1).
+**Gilt für**: Azure [!INCLUDE[ssSDS](../../includes/sssds-md.md)], [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1).
 
 Ändert die Prozedur, wenn sie bereits vorhanden ist.
 
@@ -220,7 +220,7 @@ Prozeduren, die mit dieser Option erstellt wurden, können nicht als Teil der [!
 
 EXECUTE AS *Klausel* Gibt den Sicherheitskontext an, unter dem die Prozedur ausgeführt wird.
 
-Für nativ kompilierte gespeicherte Prozeduren, die mit [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] beginnen, bestehen keine Einschränkungen für die EXECUTE AS-Klausel. In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] werden die SELF-, OWNER- und *'user_name'* -Klauseln bei nativ kompilierten gespeicherten Prozeduren unterstützt.
+Für nativ kompilierte gespeicherte Prozeduren, die mit [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] beginnen, bestehen keine Einschränkungen für die EXECUTE AS-Klausel. In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] werden die SELF-, OWNER- und *'user_name'* -Klauseln bei nativ kompilierten gespeicherten Prozeduren unterstützt.
 
 Weitere Informationen finden Sie unter [EXECUTE AS-Klausel &#40;Transact-SQL&#41;](../../t-sql/statements/execute-as-clause-transact-sql.md).
 

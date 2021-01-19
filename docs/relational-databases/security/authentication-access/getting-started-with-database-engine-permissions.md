@@ -14,12 +14,12 @@ ms.assetid: 051af34e-bb5b-403e-bd33-007dc02eef7b
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 81bb8dd3acae7fda65af0ada009b065c909506b3
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 41b69dfc9cc5564025fd7b28d14094389ff52450
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460065"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171692"
 ---
 # <a name="getting-started-with-database-engine-permissions"></a>Erste Schritte mit Berechtigungen für die Datenbank-Engine
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -100,7 +100,7 @@ AUTHORIZATION  PERMISSION  ON  SECURABLE::NAME  TO  PRINCIPAL;
   
 -   `AUTHORIZATION` muss `GRANT`, `REVOKE` , `DENY`oder sein.  
   
--   `PERMISSION` legt fest, welche Aktion zulässig oder unzulässig ist. [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] In können 230 Berechtigungen angegeben werden. [!INCLUDE[ssSDS](../../../includes/sssds-md.md)] bietet weniger Berechtigungen, da einige Aktionen in Azure nicht relevant sind. Die Berechtigungen sind im Thema [Berechtigungen &#40;Datenbank-Engine&#41;](../../../relational-databases/security/permissions-database-engine.md) und im nachstehenden Diagramm aufgeführt.  
+-   `PERMISSION` legt fest, welche Aktion zulässig oder unzulässig ist. [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] In können 230 Berechtigungen angegeben werden. [!INCLUDE[ssSDS](../../../includes/sssds-md.md)] bietet weniger Berechtigungen, da einige Aktionen in Azure nicht relevant sind. Die Berechtigungen sind im Thema [Berechtigungen &#40;Datenbank-Engine&#41;](../../../relational-databases/security/permissions-database-engine.md) und im nachstehenden Diagramm aufgeführt.  
   
 -   `ON SECURABLE::NAME` ist der Typ des sicherungsfähigen Objektes (Server, Serverobjekt, Datenbank oder Datenbankobjekt) und sein Name. Einige Berechtigungen erfordern `ON SECURABLE::NAME` nicht, da diese Angabe unmissverständlich oder im Kontext nicht zulässig ist. Die Berechtigung `CREATE TABLE` erfordert z.B. nicht die `ON SECURABLE::NAME`-Klausel. (Beispiel: `GRANT CREATE TABLE TO Mary;` erlaubt Mary das Erstellen von Tabellen.)  
   
@@ -157,7 +157,7 @@ GRANT CONTROL ON DATABASE::SalesDB TO Ted;
  Die erste oben aufgeführte Berechtigung (`GRANT SELECT ON OBJECT::Region TO Ted;`) ist die präziseste, d.h., diese Anweisung ist die geringstmögliche Berechtigung, die die Berechtigung `SELECT`erteilt. Zu ihr gehören keine Berechtigungen für untergeordnete Objekte. Es ist ein gutes Prinzip, stets die geringstmögliche Berechtigung zu erteilen. Führen Sie die Erteilung jedoch auf höheren Ebenen aus (eigentlich ein Widerspruch), um das Erteilungssystem zu vereinfachen. Wenn also Ted Berechtigungen für das gesamte Schema braucht, erteilen Sie die Berechtigung `SELECT` einmal auf Schemaebene, anstatt `SELECT` mehrfach auf Tabellen- oder Sichtebene zu erteilen. Der Entwurf der Datenbank hat viel Einfluss den möglichen Erfolg dieser Strategie. Diese Strategie funktioniert am besten, wenn Ihre Datenbank so konzipiert ist, dass Objekte, die identische Berechtigungen benötigen, in einem einzigen Schema enthalten sind.  
   
 ## <a name="list-of-permissions"></a>Liste der Berechtigungen  
- [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] hat 230 Berechtigungen. [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)] hat 219 Berechtigungen. [!INCLUDE[ssSQL11](../../../includes/sssql11-md.md)] hat 214 Berechtigungen. [!INCLUDE[ssKilimanjaro](../../../includes/sskilimanjaro-md.md)] hat 195 Berechtigungen. [!INCLUDE[ssSDS](../../../includes/sssds-md.md)]Obwohl , [!INCLUDE[ssDW](../../../includes/ssdw-md.md)], und [!INCLUDE[ssAPS](../../../includes/ssaps-md.md)] einige Berechtigungen bereitstellen, die nicht für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]gelten, haben sie insgesamt weniger Berechtigungen, da sie nur einen Teil der Datenbank-Engine verfügbar machen. 
+ [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] hat 230 Berechtigungen. [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)] hat 219 Berechtigungen. [!INCLUDE[ssSQL11](../../../includes/sssql11-md.md)] hat 214 Berechtigungen. [!INCLUDE[ssKilimanjaro](../../../includes/sskilimanjaro-md.md)] hat 195 Berechtigungen. [!INCLUDE[ssSDS](../../../includes/sssds-md.md)]Obwohl , [!INCLUDE[ssDW](../../../includes/ssdw-md.md)], und [!INCLUDE[ssAPS](../../../includes/ssaps-md.md)] einige Berechtigungen bereitstellen, die nicht für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]gelten, haben sie insgesamt weniger Berechtigungen, da sie nur einen Teil der Datenbank-Engine verfügbar machen. 
  
  [!INCLUDE[database-engine-permissions](../../../includes/paragraph-content/database-engine-permissions.md)]
  

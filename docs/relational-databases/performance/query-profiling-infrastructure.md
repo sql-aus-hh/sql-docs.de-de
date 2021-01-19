@@ -18,12 +18,12 @@ ms.assetid: 07f8f594-75b4-4591-8c29-d63811d7753e
 author: pmasl
 ms.author: pelopes
 manager: amitban
-ms.openlocfilehash: 125a95f14f7082a3ed806d6dfa7fcb05b6d11c81
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 57372929f190ff2fe32e7688d16acc75fafc9700
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505070"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171552"
 ---
 # <a name="query-profiling-infrastructure"></a>Profilerstellungsinfrastruktur für Abfragen
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -53,16 +53,16 @@ Wenn Sie eine erweiterte Ereignissitzung ausführen, die das Ereignis *query_pos
 
 ## <a name="the-lightweight-query-execution-statistics-profiling-infrastructure"></a><a name="lwp"></a> Die einfache Profilerstellungsinfrastruktur für die Abfrageausführungsstatistik
 
-Beginnend mit [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde eine neue *einfache Profilerstellungsinfrastruktur für die Abfrageausführungsstatistik* (oder **einfache Profilerstellung**) eingeführt. 
+Beginnend mit [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wurde eine neue *einfache Profilerstellungsinfrastruktur für die Abfrageausführungsstatistik* (oder **einfache Profilerstellung**) eingeführt. 
 
 > [!NOTE]
 > Nativ kompilierte gespeicherte Prozeduren werden bei der einfachen Profilerstellung nicht unterstützt.  
 
 ### <a name="lightweight-query-execution-statistics-profiling-infrastructure-v1"></a>Einfache Profilerstellungsinfrastruktur für die Abfrageausführungsstatistik v1
 
-**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 bis [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) 
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 bis [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) 
   
-Beginnend mit [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde der Leistungsmehraufwand für die Erfassung von Informationen zu Ausführungsplänen durch die Einführung von einfacher Profilerstellung verringert. Im Gegensatz zur Standardprofilerstellung erfasst die einfache Profilerstellung keine CPU-Laufzeitinformationen. Allerdings erfasst die einfache Profilerstellung weiterhin die Zeilenanzahl und Informationen zur E/A-Verwendung.
+Beginnend mit [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wurde der Leistungsmehraufwand für die Erfassung von Informationen zu Ausführungsplänen durch die Einführung von einfacher Profilerstellung verringert. Im Gegensatz zur Standardprofilerstellung erfasst die einfache Profilerstellung keine CPU-Laufzeitinformationen. Allerdings erfasst die einfache Profilerstellung weiterhin die Zeilenanzahl und Informationen zur E/A-Verwendung.
 
 Ein neues erweitertes Ereignis **_query_thread_profile_* _, das einfache Profilerstellung nutzt, wurde ebenfalls eingeführt. Dieses erweiterte Ereignis stellt Statistiken zur Abfrageausführung pro Operator bereit und ermöglicht einen besseren Einblick in die Leistung der einzelnen Knoten und Threads. Eine Beispielsitzung mit diesem erweiterten Ereignis kann wie im folgenden Beispiel konfiguriert werden:
 
@@ -90,11 +90,11 @@ Wenn Sie eine erweiterte Ereignissitzung ausführen, die das Ereignis _query_thr
 
 ### <a name="lightweight-query-execution-statistics-profiling-infrastructure-v2"></a>Einfache Profilerstellungsinfrastruktur für die Abfrageausführungsstatistik v2
 
-**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 bis [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]) 
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 bis [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]) 
 
-[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 enthält eine überarbeitete Version der einfachen Profilerstellung mit minimalem Mehraufwand. Einfache Profilerstellung kann auch global über das [Ablaufverfolgungsflag 7412](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) für die Versionen aktiviert werden, die oben unter *Gilt für* angegeben werden. Eine neue DMF [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) wurde eingeführt, um den Abfrageausführungsplan für In-Flight-Anforderungen zurückzugeben.
+[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 enthält eine überarbeitete Version der einfachen Profilerstellung mit minimalem Mehraufwand. Einfache Profilerstellung kann auch global über das [Ablaufverfolgungsflag 7412](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) für die Versionen aktiviert werden, die oben unter *Gilt für* angegeben werden. Eine neue DMF [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) wurde eingeführt, um den Abfrageausführungsplan für In-Flight-Anforderungen zurückzugeben.
 
-Beginnend mit [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 CU3 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11 gilt Folgendes: Wenn einfache Profilerstellung nicht global aktiviert ist, kann das Argument **QUERY_PLAN_PROFILE** des neuen [USE HINT-Abfragehinweises](../../t-sql/queries/hints-transact-sql-query.md#use_hint) verwendet werden, um einfache Profilerstellung auf Abfrageebene für jede beliebige Sitzung zu aktivieren. Wenn eine Abfrage abgeschlossen wird, die diesen neuen Hinweis enthält, wird auch ein neues erweitertes Ereignis **_query_plan_profile_* _ ausgegeben, das XML für einen tatsächlichen Ausführungsplan ähnlich dem erweiterten Ereignis _query_post_execution_showplan* bereitstellt. 
+Beginnend mit [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 CU3 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11 gilt Folgendes: Wenn einfache Profilerstellung nicht global aktiviert ist, kann das Argument **QUERY_PLAN_PROFILE** des neuen [USE HINT-Abfragehinweises](../../t-sql/queries/hints-transact-sql-query.md#use_hint) verwendet werden, um einfache Profilerstellung auf Abfrageebene für jede beliebige Sitzung zu aktivieren. Wenn eine Abfrage abgeschlossen wird, die diesen neuen Hinweis enthält, wird auch ein neues erweitertes Ereignis **_query_plan_profile_* _ ausgegeben, das XML für einen tatsächlichen Ausführungsplan ähnlich dem erweiterten Ereignis _query_post_execution_showplan* bereitstellt. 
 
 > [!NOTE]
 > Das erweiterte Ereignis *query_plan_profile* nutzt zudem die einfache Profilerstellung, auch wenn der Abfragehinweis nicht verwendet wird. 
@@ -178,17 +178,17 @@ In der folgenden Tabelle werden die Aktionen zum Aktivieren der Standard- oder L
 
 |`Scope`|Standardprofilerstellung|Lightweight-Profilerstellung|
 |---------------|---------------|---------------|
-|Global|xEvent-Sitzung mit `query_post_execution_showplan` XE, ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|Ablaufverfolgungsflag 7412, ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1|
+|Global|xEvent-Sitzung mit `query_post_execution_showplan` XE, ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|Ablaufverfolgungsflag 7412, ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1|
 |Global|SQL-Ablaufverfolgung und SQL Server Profiler mit Ablaufverfolgungsereignis `Showplan XML`, ab SQL Server 2000|xEvent-Sitzung mit `query_thread_profile` XE, ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2|
 |Global|-|xEvent-Sitzung mit `query_post_execution_plan_profile` XE, ab [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU14 und [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]|
-|Sitzung|Verwendung von `SET STATISTICS XML ON`, ab SQL Server 2000|Verwendung des `QUERY_PLAN_PROFILE`-Abfragehinweises zusammen mit einer xEvent-Sitzung mit `query_plan_profile` XE, ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 CU3 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11|
+|Sitzung|Verwendung von `SET STATISTICS XML ON`, ab SQL Server 2000|Verwendung des `QUERY_PLAN_PROFILE`-Abfragehinweises zusammen mit einer xEvent-Sitzung mit `query_plan_profile` XE, ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 CU3 und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11|
 |Sitzung|Verwendung von `SET STATISTICS PROFILE ON`, ab SQL Server 2000|-|
 |Sitzung|Klick auf die Schaltfläche [Live-Abfragestatistik](../../relational-databases/performance/live-query-statistics.md) in SSMS, ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2|-|
 
 ## <a name="remarks"></a>Bemerkungen
 
 > [!IMPORTANT]
-> Aufgrund einer möglichen zufälligen AV bei der Ausführung einer gespeicherten Überwachungsprozedur, die auf [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) verweist, müssen Sie sicherstellen, dass [KB 4078596](https://support.microsoft.com/help/4078596) in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] installiert ist.
+> Aufgrund einer möglichen zufälligen AV bei der Ausführung einer gespeicherten Überwachungsprozedur, die auf [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) verweist, müssen Sie sicherstellen, dass [KB 4078596](https://support.microsoft.com/help/4078596) in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] installiert ist.
 
 Beginnend mit der einfachen Profilerstellung v2 und ihrem geringen Mehraufwand kann jeder Server, der nicht bereits CPU-gebunden ist, einfache Profilerstellung **kontinuierlich** ausführen und es Datenbankexperten ermöglichen, jederzeit auf jede aktuell ausgeführte Ausführung zuzugreifen (z.B. mit dem Aktivitätsmonitor oder durch direktes Abfragen von `sys.dm_exec_query_profiles`) und den Abfrageplan mit Laufzeitstatistiken abzurufen.
 

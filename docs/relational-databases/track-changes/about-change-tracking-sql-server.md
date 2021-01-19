@@ -18,12 +18,12 @@ ms.assetid: 5e0ef05a-8317-4c98-be20-b19d4cd78f12
 author: rothja
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 345601ea43048fca18fabb93b52d5d5f4eb153d0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0271ca850648af434d225429976b4e111e49d498
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472601"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171382"
 ---
 # <a name="about-change-tracking-sql-server"></a>Informationen zur Änderungsnachverfolgung (SQL Server)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -76,7 +76,7 @@ Informationen der Änderungsnachverfolgung für alle Tabellen (für die Änderun
 
 Jede Tabelle, für die Änderungsnachverfolgung aktiviert ist, verfügt über eine interne Tabelle auf dem Datenträger, die von Änderungsnachverfolgungsfunktionen verwendet wird, um die Version und die Zeilen zu bestimmen, die seit einer bestimmten Version geändert wurden. Jedes Mal, wenn der Thread **Auto Cleanup** aufgerufen wird, scannt er alle Benutzerdatenbanken auf der SQL Server-Instanz, um die Datenbanken zu identifizieren, für die Änderungsnachverfolgung aktiviert ist. Entsprechend der eingestellten Beibehaltungsdauer der Datenbank werden die abgelaufenen Datensätze jeder internen Tabelle auf dem Datenträger gelöscht.
 
-In den Service Packs für [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde eine gespeicherte Prozedur für das Ausführen einer manuellen Bereinigung für die interne Änderungsnachverfolgung interner Tabellen hinzugefügt. Weitere Informationen zur gespeicherten Prozedur finden Sie unter [KB173157](https://support.microsoft.com/help/3173157/adds-a-stored-procedure-for-the-manual-cleanup-of-the-change-tracking-side-table-in-sql-server-2014-sp2-or-2016-sp1). 
+In den Service Packs für [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] und [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wurde eine gespeicherte Prozedur für das Ausführen einer manuellen Bereinigung für die interne Änderungsnachverfolgung interner Tabellen hinzugefügt. Weitere Informationen zur gespeicherten Prozedur finden Sie unter [KB173157](https://support.microsoft.com/help/3173157/adds-a-stored-procedure-for-the-manual-cleanup-of-the-change-tracking-side-table-in-sql-server-2014-sp2-or-2016-sp1). 
   
 ## <a name="see-also"></a>Siehe auch  
  [Aktivieren und Deaktivieren der Änderungsnachverfolgung &#40;SQL Server&#41;](../../relational-databases/track-changes/enable-and-disable-change-tracking-sql-server.md)   

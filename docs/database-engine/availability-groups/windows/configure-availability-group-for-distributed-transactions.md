@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 93876b488d5e265bca363d213c04cb0611c185f4
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 5587622f0f61b7b7063b246d0599d46cc8c16f0c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642176"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170782"
 ---
 # <a name="configure-distributed-transactions-for-an-always-on-availability-group"></a>Konfigurieren von verteilten Transaktionen für Always On-Verfügbarkeitsgruppen
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -31,9 +31,9 @@ ms.locfileid: "97642176"
 Um verteilte Transaktionen gewährleisten zu können, muss die Verfügbarkeitsgruppe so konfiguriert sein, dass Datenbanken als Ressourcenmanager verteilter Transaktionen registriert werden.  
 
 >[!NOTE]
->[!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] Service Pack 2 und höher stellt die vollständige Unterstützung für verteilte Transaktionen in Verfügbarkeitsgruppen bereit. In früheren [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)]-Versionen vor Service Pack 2 werden datenbankübergreifende verteilte Transaktionen nicht unterstützt, wenn sie eine Datenbank in einer Verfügbarkeitsgruppe enthalten. Bei diesen Transaktionen werden nur Datenbanken auf der gleichen SQL Server-Instanz verwendet. Diese Einschränkung besteht in [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)] nicht. 
+>[!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] Service Pack 2 und höher stellt die vollständige Unterstützung für verteilte Transaktionen in Verfügbarkeitsgruppen bereit. In früheren [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)]-Versionen vor Service Pack 2 werden datenbankübergreifende verteilte Transaktionen nicht unterstützt, wenn sie eine Datenbank in einer Verfügbarkeitsgruppe enthalten. Bei diesen Transaktionen werden nur Datenbanken auf der gleichen SQL Server-Instanz verwendet. Diese Einschränkung besteht in [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)] nicht. 
 >
->Die Einrichtungsschritte für [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] sind identisch mit denen für [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)].
+>Die Einrichtungsschritte für [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] sind identisch mit denen für [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)].
 
 Bei einer verteilten Transaktion arbeiten Clientanwendungen mit dem Microsoft Distributed Transaction Coordinator (MS DTC oder auch DTC) zusammen, um Transaktionskonsistenz über mehrere Datenquellen hinweg zu gewährleisten. Der DTC ist ein Dienst für Betriebssysteme, die auf Windows Server basieren. Bei einer verteilten Transaktion agiert der DTC als *Transaktionskoordinator*. Normalerweise agiert eine SQL Server-Instanz als *Ressourcenmanager*. Wenn sich eine Datenbank in einer Verfügbarkeitsgruppe befindet, benötigt sie ihren eigenen Ressourcenmanager. 
 
@@ -45,7 +45,7 @@ DTC ist nicht an der Verarbeitung von Verfügbarkeitsgruppen beteiligt, es sei d
 
 Bevor Sie eine Verfügbarkeitsgruppe so konfigurieren, dass verteilte Transaktionen unterstützt werden, müssen die folgenden Voraussetzungen erfüllt sein:
 
-* Alle Instanzen von [!INCLUDE[SQLServer](../../../includes/ssnoversion-md.md)], die an verteilten Transaktionen teilnehmen, müssen unter [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] oder höher laufen.
+* Alle Instanzen von [!INCLUDE[SQLServer](../../../includes/ssnoversion-md.md)], die an verteilten Transaktionen teilnehmen, müssen unter [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] oder höher laufen.
 
 * Verfügbarkeitsgruppen müssen auf Windows Server 2016 oder Windows Server 2012 R2 ausgeführt werden. Für Windows Server 2012 R2 müssen Sie das Update in KB3090973 installieren, das unter [https://support.microsoft.com/kb/3090973](https://support.microsoft.com/kb/3090973) verfügbar ist.  
 
@@ -55,7 +55,7 @@ Konfigurieren Sie eine Verfügbarkeitsgruppe so, dass sie verteilte Transaktione
 
 
 
-Die Erstellung von Verfügbarkeitsgruppen für verteilte Transaktionen ist ab [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] möglich. Um eine Verfügbarkeitsgruppe für verteilte Transaktionen zu erstellen, müssen Sie `DTC_SUPPORT = PER_DB` in die Definition einer Verfügbarkeitsgruppe einschließen. Das folgende Skript erstellt eine Verfügbarkeitsgruppe für verteilte Transaktionen. 
+Die Erstellung von Verfügbarkeitsgruppen für verteilte Transaktionen ist ab [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] möglich. Um eine Verfügbarkeitsgruppe für verteilte Transaktionen zu erstellen, müssen Sie `DTC_SUPPORT = PER_DB` in die Definition einer Verfügbarkeitsgruppe einschließen. Das folgende Skript erstellt eine Verfügbarkeitsgruppe für verteilte Transaktionen. 
 
 ```sql
 CREATE AVAILABILITY GROUP MyAG
@@ -91,7 +91,7 @@ ALTER AVAILABILITY GROUP MyaAG
 ```
 
 >[!NOTE]
->Ab [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] Service Pack 2 können Sie Verfügbarkeitsgruppen für verteilte Transaktionen ändern. Für [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)]-Versionen vor Service Pack 2 müssen Sie die Verfügbarkeitsgruppe löschen und dann mit der Einstellung `DTC_SUPPORT = PER_DB` erneut erstellen. 
+>Ab [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] Service Pack 2 können Sie Verfügbarkeitsgruppen für verteilte Transaktionen ändern. Für [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)]-Versionen vor Service Pack 2 müssen Sie die Verfügbarkeitsgruppe löschen und dann mit der Einstellung `DTC_SUPPORT = PER_DB` erneut erstellen. 
 
 Um verteilte Transaktionen zu deaktivieren, verwenden Sie den folgenden Transact-SQL-Befehl:
 

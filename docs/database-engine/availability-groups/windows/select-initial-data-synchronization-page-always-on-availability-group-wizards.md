@@ -14,12 +14,12 @@ f1_keywords:
 ms.assetid: 457b1140-4819-4def-8f7c-54a406e6db12
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: fd729c01993f06c9017a898e1e804dde844e10f2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 73ee631c0dc853a60e07f09aa2ade5ce58487a0e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642159"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171092"
 ---
 # <a name="select-initial-data-synchronization-page-always-on-availability-group-wizards"></a>Seite „Anfängliche Datensynchronisierung auswählen“ (AlwaysOn-Verfügbarkeitsgruppen-Assistenten)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "97642159"
   
 ## <a name="automatic-seeding"></a><a name="Auto"></a> Automatisches Seeding
  
- SQL Server erstellt die sekundären Replikate für jede Datenbank in der Gruppe automatisch. Automatisches Seeding erfordert, dass die Pfade für Daten- und Protokolldateien für jede SQL Server-Instanz der Gruppe identisch sind. Verfügbar auf [!INCLUDE[sssql15-md.md](../../../includes/sssql15-md.md)] und höher. Siehe [Automatically initialize Always On Availability group (Automatisches Initialisieren der Always On-Verfügbarkeitsgruppe)](automatically-initialize-always-on-availability-group.md).
+ SQL Server erstellt die sekundären Replikate für jede Datenbank in der Gruppe automatisch. Automatisches Seeding erfordert, dass die Pfade für Daten- und Protokolldateien für jede SQL Server-Instanz der Gruppe identisch sind. Verfügbar auf [!INCLUDE[sssql16-md.md](../../../includes/sssql16-md.md)] und höher. Siehe [Automatically initialize Always On Availability group (Automatisches Initialisieren der Always On-Verfügbarkeitsgruppe)](automatically-initialize-always-on-availability-group.md).
 
 ##  <a name="full-database-and-log-backup"></a><a name="Full"></a> Vollständige Datenbank- und Protokollsicherung 
  Für jede primäre Datenbank werden mit der Option **Vollständige Datenbank- und Protokollsicherung** mehrere Vorgänge in einem Workflow ausgeführt: Erstellen einer vollständigen und Protokollsicherung der primären Datenbank, Erstellen der entsprechenden sekundären Datenbanken durch Wiederherstellen dieser Sicherungen auf jeder Serverinstanz, die ein sekundäres Replikat hostet, und Verknüpfen jeder sekundären Datenbank mit der Verfügbarkeitsgruppe.  

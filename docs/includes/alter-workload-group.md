@@ -72,7 +72,7 @@ ALTER WORKLOAD GROUP { group_name | "default" }
 > Resource Governor verhindert nicht, dass eine Anforderung bei Erreichung des maximalen Zeitlimits fortgesetzt wird. Es wird jedoch ein Ereignis generiert. Weitere Informationen finden Sie unter [CPU Threshold Exceeded (Ereignisklasse)](../relational-databases/event-classes/cpu-threshold-exceeded-event-class.md). 
 
 > [!IMPORTANT]
-> Ab [!INCLUDE[ssSQL15](sssql15-md.md)] SP2 und [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 bricht Resource Governor mit [Ablaufverfolgungsflag 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) eine Anforderung ab, wenn die maximale Zeit überschritten wird.
+> Ab [!INCLUDE[ssSQL15](sssql16-md.md)] SP2 und [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 bricht Resource Governor mit [Ablaufverfolgungsflag 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) eine Anforderung ab, wenn die maximale Zeit überschritten wird.
   
  REQUEST_MEMORY_GRANT_TIMEOUT_SEC =*value*  
  Gibt die maximale Zeit in Sekunden an, die eine Abfrage auf das Freiwerden einer Arbeitspeicherzuweisung (Arbeitsspeicherpuffer) wartet.  

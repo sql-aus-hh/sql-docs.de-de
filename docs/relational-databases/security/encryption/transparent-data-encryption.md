@@ -19,12 +19,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 2dfa929e7a669ef20eb178353fb7055f5f244f8a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 06288dc0bc6e16ab8928322005254f5fac1ddc61
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475571"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171482"
 ---
 # <a name="transparent-data-encryption-tde"></a>TDE (Transparent Data Encryption)
 
@@ -314,7 +314,7 @@ Wenn Sie eine Datenbank mit TDE verschlüsseln, werden Dateien, die mit der Puff
 
 ## <a name="tde-and-in-memory-oltp"></a>TDE und In-Memory-OLTP
 
-Sie können TDE für eine Datenbank aktivieren, die über In-Memory OLTP-Objekte verfügt. In-Memory-OLTP-Protokolldatensätze in [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] und [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] werden verschlüsselt, wenn Sie TDE aktivieren. In-Memory-OLTP-Protokolldatensätze in [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)] werden verschlüsselt, wenn Sie TDE aktivieren, Dateien in der MEMORY_OPTIMIZED_DATA-Dateigruppe werden jedoch nicht verschlüsselt.
+Sie können TDE für eine Datenbank aktivieren, die über In-Memory OLTP-Objekte verfügt. In-Memory-OLTP-Protokolldatensätze in [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] und [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] werden verschlüsselt, wenn Sie TDE aktivieren. In-Memory-OLTP-Protokolldatensätze in [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)] werden verschlüsselt, wenn Sie TDE aktivieren, Dateien in der MEMORY_OPTIMIZED_DATA-Dateigruppe werden jedoch nicht verschlüsselt.
 
 ## <a name="related-tasks"></a>Zugehörige Aufgaben
 

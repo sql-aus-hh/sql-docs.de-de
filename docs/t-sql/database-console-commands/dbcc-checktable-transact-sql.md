@@ -27,12 +27,12 @@ helpviewer_keywords:
 ms.assetid: 0d6cb620-eb58-4745-8587-4133a1b16994
 author: pmasl
 ms.author: umajay
-ms.openlocfilehash: 1c4563a10433d4cbead089da026d086f9c021ccb
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 78a84099b202ca55588e1365b27d80004d2cdaa5
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126288"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172612"
 ---
 # <a name="dbcc-checktable-transact-sql"></a>DBCC CHECKTABLE (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -156,7 +156,7 @@ Die logische Konsistenzprüfung an Indizes variiert wie folgt je nach dem Kompat
          Diese logischen Konsistenzprüfungen überprüfen die interne Indextabelle des Indexobjekts anhand der Benutzertabelle, auf die verwiesen wird. Zum Auffinden externer Zeilen wird eine interne Abfrage konstruiert, um eine vollständige Schnittmenge der internen Tabellen und der Benutzertabellen zu bilden. Die Ausführung dieser Abfrage kann sich sehr stark auf die Leistung auswirken, und ihr Status kann nicht verfolgt werden. Daher empfiehlt es sich, WITH EXTENDED_LOGICAL_CHECKS nur dann anzugeben, wenn Sie Indexprobleme vermuten, die nicht mit einer physischen Beschädigung in Zusammenhang stehen, oder wenn die Prüfsummen auf Seitenebene deaktiviert wurden und Sie eine Beschädigung der Hardware auf Spaltenebene vermuten.    
     -   Bei einem gefilterten Index prüft DBCC CHECKDB anhand von Konsistenzprüfungen, ob die Indexeinträge dem Filterprädikat entsprechen.   
       
-- Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] werden zusätzliche Überprüfungen von persistierten berechneten Spalten, UDT-Spalten und gefilterten Indizes nicht standardmäßig ausgeführt, um die teuren Auswertungen von Ausdrücken zu vermeiden. Durch diese Änderung wird die Dauer der Ausführung von CHECKDB für Datenbanken, die diese Objekte enthalten, stark reduziert. Jedoch werden die physischen Konsistenzprüfungen dieser Objekte stets abgeschlossen. Nur wenn die Option EXTENDED_LOGICAL_CHECKS angegeben wird, werden die Auswertungen von Ausdrücken zusätzlich zu bereits vorhandenen logischen Überprüfungen (indizierte Sicht, XML-Indizes und Räumlichkeitsindizes) als Teil der Option EXTENDED_LOGICAL_CHECKS durchgeführt.
+- Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] werden zusätzliche Überprüfungen von persistierten berechneten Spalten, UDT-Spalten und gefilterten Indizes nicht standardmäßig ausgeführt, um die teuren Auswertungen von Ausdrücken zu vermeiden. Durch diese Änderung wird die Dauer der Ausführung von CHECKDB für Datenbanken, die diese Objekte enthalten, stark reduziert. Jedoch werden die physischen Konsistenzprüfungen dieser Objekte stets abgeschlossen. Nur wenn die Option EXTENDED_LOGICAL_CHECKS angegeben wird, werden die Auswertungen von Ausdrücken zusätzlich zu bereits vorhandenen logischen Überprüfungen (indizierte Sicht, XML-Indizes und Räumlichkeitsindizes) als Teil der Option EXTENDED_LOGICAL_CHECKS durchgeführt.
 -  Wenn der Kompatibilitätsgrad 90 ([!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]) oder weniger beträgt, führt DBCC CHECKTABLE sowohl physische als auch logische Konsistenzprüfungen für eine einzelne Tabelle oder indizierte Sicht und für alle nicht gruppierten Indizes und XML-Indizes aus, sofern nicht NOINDEX angegeben wird. Räumliche Indizes werden nicht unterstützt.
     
  **So erfahren Sie den Kompatibilitätsgrad einer Datenbank**    

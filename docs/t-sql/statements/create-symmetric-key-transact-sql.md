@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: b5d23572-b79d-4cf1-9eef-d648fa3b1358
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 48e25e4a2bc22d56503b3f0cc1819bb10b856e9d
-ms.sourcegitcommit: ac9feb0b10847b369b77f3c03f8200c86ee4f4e0
+ms.openlocfilehash: 581f49677f56c0d0c1360d5282c07205f18ee35a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90688722"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170822"
 ---
 # <a name="create-symmetric-key-transact-sql"></a>CREATE SYMMETRIC KEY (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -117,7 +117,7 @@ CREATE SYMMETRIC KEY key_name
  \<algorithm>  
 Geben Sie den Verschlüsselungsalgorithmus an.   
 > [!WARNING]  
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]gelten alle anderen Algorithmen als AES_128, AES_192 und AES_256 als veraltet. Sie müssen den Kompatibilitätsgrad zwischen Datenbanken auf maximal 120 festlegen, um ältere Algorithmen zu verwenden (nicht empfohlen).  
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]gelten alle anderen Algorithmen als AES_128, AES_192 und AES_256 als veraltet. Sie müssen den Kompatibilitätsgrad zwischen Datenbanken auf maximal 120 festlegen, um ältere Algorithmen zu verwenden (nicht empfohlen).  
   
 ## <a name="remarks"></a>Bemerkungen  
  Beim Erstellen eines symmetrischen Schlüssels muss der symmetrische Schlüssel mithilfe mindestens eines der folgenden Elemente verschlüsselt werden: Zertifikat, Kennwort, symmetrischer Schlüssel, asymmetrischer Schlüssel oder PROVIDER. Der Schlüssel kann mehrere Verschlüsselungen jedes Typs aufweisen. Ein einzelner symmetrischer Schlüssel kann demnach mit mehreren Zertifikaten, Kennwörtern, symmetrischen Schlüsseln und asymmetrischen Schlüsseln gleichzeitig verschlüsselt sein.  

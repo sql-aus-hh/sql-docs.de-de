@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: d304c94d-3ab4-47b0-905d-3c8c2aba9db6
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 3a268de26245955dd6be838e822f1cb84b693324
-ms.sourcegitcommit: d35d0901296580bfceda6e0ab2e14cf2b7e99a0f
+ms.openlocfilehash: f612518baa1d933cfe174af58426db99e01f61d7
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92497022"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171212"
 ---
 # <a name="durability-for-memory-optimized-tables"></a>Dauerhaftigkeit für speicheroptimierte Tabellen
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "92497022"
   
  Wenn eine Zeile gelöscht oder aktualisiert wird, wird die Zeile in der Datendatei nicht entfernt oder direkt geändert. Stattdessen werden die gelöschten Zeilen in einem anderen Typ von Datei, der Änderungsdatei, nachverfolgt. Updatevorgänge werden für jede einzelne Zeile als Tupel von Lösch- und Einfügevorgängen verarbeitet. Dadurch werden zufällige E/A-Vorgänge für die Datendatei verhindert.  
  
-   Größe: Auf Computern mit einer Arbeitsspeicherkapazität über 16 GB beträgt die Größe jeder Datendatei ungefähr 128 MB, und auf Computern mit einer Arbeitsspeicherkapazität bis 16 GB beträgt die Größe 16 MB. In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] kann der Modus für große Prüfpunkte verwendet werden, wenn SQL Server das Speichersubsystem für ausreichend schnell hält. Im Modus für große Prüfpunkte haben die Datendateien eine Größe von 1 GB. So wird für Arbeitsauslastungen mit hohem Durchsatz eine höhere Effizienz im Speichersubsystem möglich.  
+   Größe: Auf Computern mit einer Arbeitsspeicherkapazität über 16 GB beträgt die Größe jeder Datendatei ungefähr 128 MB, und auf Computern mit einer Arbeitsspeicherkapazität bis 16 GB beträgt die Größe 16 MB. In [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] kann der Modus für große Prüfpunkte verwendet werden, wenn SQL Server das Speichersubsystem für ausreichend schnell hält. Im Modus für große Prüfpunkte haben die Datendateien eine Größe von 1 GB. So wird für Arbeitsauslastungen mit hohem Durchsatz eine höhere Effizienz im Speichersubsystem möglich.  
    
 ### <a name="the-delta-file"></a>Die Änderungsdatei  
  Jeder Datendatei ist eine entsprechende Änderungsdatei zugeordnet, die den gleichen Transaktionsbereich besitzt und die gelöschten Zeilen nachverfolgt, die von Transaktionen im Transaktionsbereich eingefügt wurden. Die Daten- und Änderungsdatei wird als Prüfpunktdateipaar (CFP, Checkpoint File Pair) bezeichnet. Sie stellt die Zuordnungs- und die Zuordnungsaufhebungseinheit sowie die Einheit für Zusammenführungsvorgänge dar. Beispielsweise werden in einer Änderungsdatei, die dem Transaktionsbereich (100, 200) entspricht, gelöschte Zeilen gespeichert, die von Transaktionen im Bereich (100, 200) eingefügt wurden. Genau wie bei Datendateien wird auf Änderungsdateien sequenziell zugegriffen.  
@@ -50,7 +50,7 @@ ms.locfileid: "92497022"
  Wenn eine Zeile gelöscht wird, wird die Zeile nicht aus der Datendatei entfernt, sondern es wird ein Verweis auf die Zeile an die Änderungsdatei angefügt, die dem Transaktionsbereich zugeordnet ist, in dem diese Zeile eingefügt wurde. Da die zu löschende Zeile bereits in der Datendatei vorhanden ist, werden in der Änderungsdatei nur die Verweisinformationen `{inserting_tx_id, row_id, deleting_tx_id }` gespeichert, und sie folgt dabei der Reihenfolge der ursprünglichen DELETE- oder UPDATE-Vorgänge im Transaktionsprotokoll.  
   
 
- Größe: Auf Computern mit einer Arbeitsspeicherkapazität über 16 GB beträgt die Größe jeder Änderungsdatei ungefähr 16 MB, und auf Computern mit einer Arbeitsspeicherkapazität bis 16 GB beträgt die Größe 1 MB. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] kann der Modus für große Prüfpunkte verwendet werden, wenn SQL Server das Speichersubsystem für ausreichend schnell hält. Im Modus für große Prüfpunkte haben die Änderungsdateien eine Größe von 128 MB.  
+ Größe: Auf Computern mit einer Arbeitsspeicherkapazität über 16 GB beträgt die Größe jeder Änderungsdatei ungefähr 16 MB, und auf Computern mit einer Arbeitsspeicherkapazität bis 16 GB beträgt die Größe 1 MB. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] kann der Modus für große Prüfpunkte verwendet werden, wenn SQL Server das Speichersubsystem für ausreichend schnell hält. Im Modus für große Prüfpunkte haben die Änderungsdateien eine Größe von 128 MB.  
  
 ## <a name="populating-data-and-delta-files"></a>Auffüllen von Daten- und Änderungsdateien  
  Die Daten- und Änderungsdateien werden anhand der Datensätze des Transaktionsprotokolls aufgefüllt, die beim Commit von Transaktionen für speicheroptimierte Tabellen generiert wurden. Die Informationen über die eingefügten und gelöschten Zeilen werden an die entsprechenden Daten- und Änderungsdateien angehängt. Im Gegensatz zu datenträgerbasierte Tabellen, bei denen Daten-/Indexseiten in zufälligen E/A-Vorgängen nach einem Prüfpunkt geleert werden, wird die Persistenz von speicheroptimierten Tabellen in einem kontinuierlichen Hintergrundvorgang erreicht. Es wird auf mehrere Änderungsdateien zugegriffen, da alle Zeilen, die durch beliebige vorherige Transaktionen eingefügt wurden, durch eine Transaktion gelöscht oder aktualisiert werden können. Löschinformationen werden immer am Ende der Änderungsdatei angefügt. Eine Transaktion mit einem Commitzeitstempel von 600 fügt eine neue Zeile ein und löscht Zeilen, die durch Transaktionen mit einem Commitzeitstempel von 150, 250 und 450 eingefügt wurden, wie in der Abbildung unten dargestellt. Alle vier Datei-E/A-Vorgänge (drei für gelöschte Zeilen und einer für neu eingefügte Zeilen) sind reine Anfügungen an die entsprechenden Änderungs- und Datendateien.  
@@ -61,7 +61,7 @@ ms.locfileid: "92497022"
  Auf Daten-/Änderungsdateipaare wird in den folgenden Fällen zugegriffen:  
   
  Offline-Prüfpunkt-Arbeitsthread(s)  
- Durch diesen Thread werden Einfügungen und Löschungen in speicheroptimierte Datenzeilen an die entsprechenden Daten-/Änderungsdateipaare angefügt. In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] gibt es einen Offline-Prüfpunkt-Arbeitsthread; ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] gibt es mehrere Prüfpunkt-Arbeitsthreads.  
+ Durch diesen Thread werden Einfügungen und Löschungen in speicheroptimierte Datenzeilen an die entsprechenden Daten-/Änderungsdateipaare angefügt. In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] gibt es einen Offline-Prüfpunkt-Arbeitsthread; ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] gibt es mehrere Prüfpunkt-Arbeitsthreads.  
   
  Zusammenführungsvorgang  
  Der Vorgang führt eines oder mehrere Daten-/Änderungsdateipaare zusammen und erstellt ein neues Daten-/Änderungsdateipaar.  

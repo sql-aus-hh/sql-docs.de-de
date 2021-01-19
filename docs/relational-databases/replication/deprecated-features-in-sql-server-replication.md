@@ -14,23 +14,23 @@ ms.assetid: 46bd3edd-d6de-40a6-a015-21cce8321feb
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 3a81ec710ed3d0927d7839309de371066ff81445
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 347400c7cf0064015ad5a593edec478f2114906c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461871"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170262"
 ---
 # <a name="deprecated-features-in-sql-server-replication"></a>Als veraltet markierte Funktionen der SQL Server-Replikation
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
   In diesem Thema werden die als veraltet markierten Replikationsfunktionen beschrieben, die in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]noch verfügbar sind. Diese Funktionen werden voraussichtlich in einer zukünftigen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]entfernt. Als veraltet markierte Funktionen sollten in neuen Anwendungen nicht verwendet werden.  
   
-## <a name="items-deprecated-in-sssql15"></a>Veraltete Elemente in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]  
+## <a name="items-deprecated-in-sssql15"></a>Veraltete Elemente in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]  
   
 |Funktion|BESCHREIBUNG|  
 |-------------|-----------------|  
-|[!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]|Die Replikation wird unterstützt, wenn jeder Endpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] innerhalb zweier Hauptversionen der aktuellen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]liegt. Daher wird die Replikation zwischen [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] oder [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)]nicht unterstützt.|  
-|[!INCLUDE[ssEW](../../includes/ssew-md.md)]|Die Replikation wird unterstützt, wenn jeder Endpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] innerhalb zweier Hauptversionen der aktuellen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]liegt. Daher wird die Replikation zwischen [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und [!INCLUDE[ssEW](../../includes/ssew-md.md)]nicht unterstützt.|  
+|[!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]|Die Replikation wird unterstützt, wenn jeder Endpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] innerhalb zweier Hauptversionen der aktuellen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]liegt. Daher wird die Replikation zwischen [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] oder [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)]nicht unterstützt.|  
+|[!INCLUDE[ssEW](../../includes/ssew-md.md)]|Die Replikation wird unterstützt, wenn jeder Endpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] innerhalb zweier Hauptversionen der aktuellen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]liegt. Daher wird die Replikation zwischen [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und [!INCLUDE[ssEW](../../includes/ssew-md.md)]nicht unterstützt.|  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Abwärtskompatibilität von Replikationen](../../relational-databases/replication/replication-backward-compatibility.md)  

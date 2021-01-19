@@ -17,12 +17,12 @@ ms.assetid: 54757c91-615b-468f-814b-87e5376a960f
 author: jaszymas
 ms.author: jaszymas
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 1f097d500c1d1b0a035f2bb0e737214d65803414
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 534d7238316fe2037ea0ce43e2b4aeeb11e6eea2
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477721"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171332"
 ---
 # <a name="always-encrypted"></a>Always Encrypted
 [!INCLUDE [SQL Server Azure SQL Database](../../../includes/applies-to-version/sql-asdb.md)]
@@ -31,14 +31,14 @@ ms.locfileid: "97477721"
   
  Always Encrypted ist eine Funktion zum Schutz sensibler Daten, wie Kreditkartennummern oder Personalausweisnummern (z.B. US-Sozialversicherungsnummern), die in [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)]- oder [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Datenbanken gespeichert sind. Always Encrypted ermöglicht es Clients, sensible Daten in Clientanwendungen zu verschlüsseln und die Verschlüsselungsschlüssel niemals an [!INCLUDE[ssDE](../../../includes/ssde-md.md)] ([!INCLUDE[ssSDS](../../../includes/sssds-md.md)] oder [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]) weiterzugeben. Daher bietet Always Encrypted eine Trennung zwischen denjenigen, die die Daten besitzen und sie ansehen können, und denjenigen, die die Daten verwalten, aber keinen Zugriff haben sollten. Always Encrypted stellt sicher, dass Administratoren lokaler Datenbanken, Clouddatenbank-Operatoren oder andere nicht autorisierte Benutzer mit umfangreichen Rechten nicht auf die verschlüsselten Daten zugreifen können. So können Kunden ihre vertraulichen Daten ruhigen Gewissens außerhalb ihres direkten Kontrollbereichs speichern. Dies ermöglicht Organisationen, Daten in Azure zu speichern. Daraufhin können die lokale Datenbankverwaltung an Drittanbieter delegiert oder die Anforderungen an die Sicherheitsfreigaben der eigenen Datenbankadministrationsmitarbeiter reduziert werden.
 
- Always Encrypted bietet Funktionen für vertrauliches Computing, indem es dem [!INCLUDE[ssDE](../../../includes/ssde-md.md)] ermöglicht, einige Abfragen zu verschlüsselten Daten zu verarbeiten, während die Vertraulichkeit der Daten gewährleistet ist und die oben genannten Sicherheitsmaßnahmen umgesetzt werden. In [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)], [!INCLUDE[sssSQLv14](../../../includes/sssqlv14-md.md)] und [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)] unterstützt Always Encrypted einen Gleichstellungsabgleich durch deterministische Verschlüsselung. Weitere Informationen finden Sie unter [Auswählen der deterministischen oder zufälligen Verschlüsselung](#selecting--deterministic-or-randomized-encryption). 
+ Always Encrypted bietet Funktionen für vertrauliches Computing, indem es dem [!INCLUDE[ssDE](../../../includes/ssde-md.md)] ermöglicht, einige Abfragen zu verschlüsselten Daten zu verarbeiten, während die Vertraulichkeit der Daten gewährleistet ist und die oben genannten Sicherheitsmaßnahmen umgesetzt werden. In [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)], [!INCLUDE[sssSQLv14](../../../includes/sssqlv14-md.md)] und [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)] unterstützt Always Encrypted einen Gleichstellungsabgleich durch deterministische Verschlüsselung. Weitere Informationen finden Sie unter [Auswählen der deterministischen oder zufälligen Verschlüsselung](#selecting--deterministic-or-randomized-encryption). 
 
   > [!NOTE] 
   > In [!INCLUDE[sql-server-2019](../../../includes/sssqlv15-md.md)] ermöglicht Secure Enclaves eine erhebliche Erweiterung des vertraulichen Computings von Always Encrypted mit Musterabgleich, anderen Vergleichsoperatoren und direkter Verschlüsselung. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md).
 
  Always Encrypted macht die Verschlüsselung den Anwendungen gegenüber transparent. Ein auf dem Clientcomputer installierter Treiber, bei dem Always Encrypted aktiviert ist, erreicht dies durch die automatische Ver- und Entschlüsselung von sensiblen Daten in der Clientanwendung. Der Treiber verschlüsselt die Daten in vertraulichen Spalten, bevor er sie an [!INCLUDE[ssDE](../../../includes/ssde-md.md)]weitergibt, und schreibt Abfragen automatisch neu, sodass die Semantik der Anwendung beibehalten wird. Analog dazu werden in verschlüsselten Datenbankspalten gespeicherte Daten aus Abfrageergebnissen durch den Treiber transparent entschlüsselt.  
   
- Always Encrypted ist in allen Editionen von [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)] verfügbar, beginnend mit [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] und allen Dienstebenen von [!INCLUDE[ssSDS](../../../includes/sssds-md.md)]. (Vor [!INCLUDE[ssSQL15_md](../../../includes/sssql15-md.md)] SP1 war Always Encrypted auf die Enterprise Edition beschränkt.) Eine Channel 9-Präsentation zu Always Encrypted finden Sie unter [Keeping Sensitive Data Secure with Always Encrypted](https://channel9.msdn.com/events/DataDriven/SQLServer2016/AlwaysEncrypted).  
+ Always Encrypted ist in allen Editionen von [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)] verfügbar, beginnend mit [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] und allen Dienstebenen von [!INCLUDE[ssSDS](../../../includes/sssds-md.md)]. (Vor [!INCLUDE[ssSQL15_md](../../../includes/sssql16-md.md)] SP1 war Always Encrypted auf die Enterprise Edition beschränkt.) Eine Channel 9-Präsentation zu Always Encrypted finden Sie unter [Keeping Sensitive Data Secure with Always Encrypted](https://channel9.msdn.com/events/DataDriven/SQLServer2016/AlwaysEncrypted).  
 
   
 ## <a name="typical-scenarios"></a>Typische Szenarien  

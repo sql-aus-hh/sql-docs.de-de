@@ -19,12 +19,12 @@ ms.assetid: 3c036813-36cf-4415-a0c9-248d0a433856
 author: pmasl
 ms.author: pelopes
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 82d5aee8d0fa37ca66c49cf00b22385a896c653d
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 14b78d968fcb3350c488c9353df6017c4616f632
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98091790"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170902"
 ---
 # <a name="compatibility-certification"></a>Kompatibilitätszertifizierung
 
@@ -37,7 +37,7 @@ Die Kompatibilitätszertifizierung ermöglicht es Unternehmen, für eine lokale,
 Bei einem neuen Release von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] wird der Standardkompatibilitätsgrad auf die Version der [!INCLUDE[ssDE](../../includes/ssde-md.md)] festgelegt. Der Kompatibilitätsgrad vorheriger Versionen wird jedoch beibehalten, um die Kompatibilität mit vorhandenen Anwendungen sicherzustellen. Diese Kompatibilitätsmatrix finden Sie unter [Argumente](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#supported-dbcompats).
 Eine Anwendung, die für eine bestimmte [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Version zertifiziert wurde, **wurde daher für den Standardkompatibilitätsgrad dieser Version zertifiziert**.
 
-In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde beispielsweise für den Datenbank-Kompatibilitätsgrad der Standardwert 130 verwendet. Da Kompatibilitätsgrade bestimmte [!INCLUDE[tsql](../../includes/tsql-md.md)]-Verhalten in Bezug auf Funktionen und auf die Abfrageoptimierung erzwingen, war **eine Datenbank, die für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] zertifiziert war, implizit auch für den Datenbank-Kompatibilitätsgrad 130 zertifiziert**. Eine solche Datenbank kann unverändert in einer neueren Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]) und [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)] verwendet werden, solange der Datenbank-Kompatibilitätsgrad 130 beibehalten wird. 
+In [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wurde beispielsweise für den Datenbank-Kompatibilitätsgrad der Standardwert 130 verwendet. Da Kompatibilitätsgrade bestimmte [!INCLUDE[tsql](../../includes/tsql-md.md)]-Verhalten in Bezug auf Funktionen und auf die Abfrageoptimierung erzwingen, war **eine Datenbank, die für [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] zertifiziert war, implizit auch für den Datenbank-Kompatibilitätsgrad 130 zertifiziert**. Eine solche Datenbank kann unverändert in einer neueren Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]) und [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)] verwendet werden, solange der Datenbank-Kompatibilitätsgrad 130 beibehalten wird. 
 
 Dies ist ein grundlegendes Prinzip des Betriebsmodells Continuous Integration in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)]. Die [!INCLUDE[ssde_md](../../includes/ssde_md.md)] wird in Azure kontinuierlich verbessert und um Upgrades ergänzt. Da allerdings vorhandene Datenbanken ihren aktuellen Kompatibilitätsgrad beibehalten, funktionieren sie auch nach dem Upgrade der zugrunde liegenden [!INCLUDE[ssde_md](../../includes/ssde_md.md)] wie vorgesehen. 
 
@@ -95,7 +95,7 @@ Wenn Sie für die [!INCLUDE[ssde_md](../../includes/ssde_md.md)] ein Upgrade auf
 Dies ist mit dem Tool [Microsoft Datenmigrations-Assistent](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) problemlos möglich. Gibt es in der Ausgabe von DMA keine Fehler hinsichtlich fehlender oder inkompatibler Funktionalität, ist zu erwarten, dass es keine funktionalen Rückschritte für die Anwendung in der neuen Zielversion gibt. Wenn Änderungen erforderlich sind, um sicherzustellen, dass Ihre Datenbank in der neuen Version funktioniert, können Sie mit dem DMA ermitteln, wo Änderungen erforderlich sind und welche Problemumgehungsmöglichkeiten es gibt. Weitere Informationen finden Sie unter [Übersicht über den Datenmigrations-Assistenten](../../dma/dma-overview.md).   
 
 > [!TIP]
-> Diese Funktionsüberprüfung ist besonders wichtig, wenn eine Datenbank von einer Legacyversion (z. B. [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] oder [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]) zu einer neuen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)] migriert wird, da Ihr Anwendungscode möglicherweise eine nicht mehr unterstützte Version von [!INCLUDE[tsql](../../includes/tsql-md.md)] verwendet, die vom Datenbank-Kompatibilitätsgrad nicht umfasst ist. Wenn Sie jedoch von einer neueren Version (z. B. [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) zu [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] oder [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] wechseln, müssen Sie sich keine Gedanken über eine nicht mehr unterstützte Version von [!INCLUDE[tsql](../../includes/tsql-md.md)] machen. Weitere Informationen zu nicht mehr unterstützten Versionen von [!INCLUDE[tsql](../../includes/tsql-md.md)] finden Sie unter [Verwenden des Kompatibilitätsgrads für Abwärtskompatibilität](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#backwardCompat).
+> Diese Funktionsüberprüfung ist besonders wichtig, wenn eine Datenbank von einer Legacyversion (z. B. [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] oder [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]) zu einer neuen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)] migriert wird, da Ihr Anwendungscode möglicherweise eine nicht mehr unterstützte Version von [!INCLUDE[tsql](../../includes/tsql-md.md)] verwendet, die vom Datenbank-Kompatibilitätsgrad nicht umfasst ist. Wenn Sie jedoch von einer neueren Version (z. B. [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) zu [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] oder [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] wechseln, müssen Sie sich keine Gedanken über eine nicht mehr unterstützte Version von [!INCLUDE[tsql](../../includes/tsql-md.md)] machen. Weitere Informationen zu nicht mehr unterstützten Versionen von [!INCLUDE[tsql](../../includes/tsql-md.md)] finden Sie unter [Verwenden des Kompatibilitätsgrads für Abwärtskompatibilität](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#backwardCompat).
 
 > [!NOTE]
 > DMA unterstützt Datenbank-Kompatibilitätsgrad 100 und höher. [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] ist als Quellversion ausgeschlossen.   

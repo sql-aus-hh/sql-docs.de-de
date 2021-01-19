@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 306b6278-e54f-42e6-b746-95a9315e0cbe
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: d7de8dcd6291330e2e18136e2c16e16b36f3ef71
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 4028f19dc9d7ac319b083b5e6077021da59e7a9b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506564"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172312"
 ---
 # <a name="resource-governor-resource-pool"></a>Ressourcenpool für die Ressourcenkontrolle
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -105,7 +105,7 @@ Der interne Pool entspricht den von [!INCLUDE[ssNoVersion](../../includes/ssnove
   
 **Standardpool**  
   
-Der Standardpool ist der erste vordefinierte Benutzerpool. Bevor eine anderweitige Konfiguration vorgenommen wird, enthält der Standardpool nur die Standardgruppe. Der Standardpool kann nicht erstellt oder gelöscht, jedoch geändert werden. Er kann neben der Standardgruppe noch benutzerdefinierte Gruppen enthalten. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] gibt es einen Standardressourcenpool für Routineoperationen in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und einen externen Standardressourcenpool für externe Prozesse wie das Ausführen von R-Skripten.  
+Der Standardpool ist der erste vordefinierte Benutzerpool. Bevor eine anderweitige Konfiguration vorgenommen wird, enthält der Standardpool nur die Standardgruppe. Der Standardpool kann nicht erstellt oder gelöscht, jedoch geändert werden. Er kann neben der Standardgruppe noch benutzerdefinierte Gruppen enthalten. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] gibt es einen Standardressourcenpool für Routineoperationen in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und einen externen Standardressourcenpool für externe Prozesse wie das Ausführen von R-Skripten.  
   
 > [!NOTE]  
 >  Die Standardgruppe kann zwar geändert, aber nicht aus dem Standardpool entfernt werden.  

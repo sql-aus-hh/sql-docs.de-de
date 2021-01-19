@@ -12,25 +12,25 @@ ms.assetid: a4891c57-56bb-49f4-9bb5-f11b745279e5
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 251af732e6c55ee2b5567bb181859b1fdec1360a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 3e72e67bf033ecef94b318d69b31f33604572cf8
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97485222"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172062"
 ---
 # <a name="scalability"></a>Skalierbarkeit
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
-[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wurde die Skalierbarkeit der Speicherung auf Datenträgern für speicheroptimierte Tabellen verbessert. 
+[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wurde die Skalierbarkeit der Speicherung auf Datenträgern für speicheroptimierte Tabellen verbessert. 
 
 ## <a name="multiple-threads-to-persist-memory-optimized-tables"></a>Mehrere Threads zur dauerhaften Speicherung speicheroptimierter Tabellen  
   
 In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] gab es einen einzigen Offline-Prüfpunktthread, der das Transaktionsprotokoll auf Änderungen an speicheroptimierten Tabellen überprüft und diese dauerhaft in Prüfpunktdateien gespeichert hat (z.B. Daten- und Änderungsdateien). Auf Computern mit einer größeren Anzahl von Kernen kann der einzelne Offline-Prüfpunktthread hinterherhinken.  
   
-Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] sind mehrere gleichzeitig ausgeführte Threads dafür zuständig, Änderungen an speicheroptimierten Tabellen dauerhaft zu speichern.  
+Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] sind mehrere gleichzeitig ausgeführte Threads dafür zuständig, Änderungen an speicheroptimierten Tabellen dauerhaft zu speichern.  
   
 ## <a name="multi-threaded-recovery"></a>Multithread-Wiederherstellung
-In der vorherigen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]erfolgte die Protokollanwendung im Rahmen eines Wiederherstellungsvorgangs mit einem einzigen Thread. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] werden mehrere Threads für die Protokollanwendung verwendet.  
+In der vorherigen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]erfolgte die Protokollanwendung im Rahmen eines Wiederherstellungsvorgangs mit einem einzigen Thread. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] werden mehrere Threads für die Protokollanwendung verwendet.  
   
 ## <a name="merge-operation"></a>Zusammenführungsvorgang  
 Der Zusammenführungsvorgang wird jetzt mit mehreren Threads durchgeführt.  

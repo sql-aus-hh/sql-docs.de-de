@@ -30,12 +30,12 @@ ms.assetid: 7e1793b3-5383-4e3d-8cef-027c0c8cb5b1
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: b650e0fa1d1d6c02e657d3d5860908164ed5cd91
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 57665811cd12b4c31effb82a91a722780a774874
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099560"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170452"
 ---
 # <a name="create-columnstore-index-transact-sql"></a>CREATE COLUMNSTORE INDEX (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "98099560"
 Konvertiert eine Rowstore-Tabelle in einen gruppierten Columnstore-Index oder erstellt einen nicht gruppierten Columnstore-Index. Verwendet einen Columnstore-Index, um eine operative Echtzeitanalyse für eine OLTP-Arbeitslast effizient auszuführen oder um die Datenkomprimierung und Abfrageleistung für Data Warehouse-Arbeitslasten zu verbessern.  
   
 > [!NOTE]
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie die Tabelle als gruppierten Columnstore-Index erstellen.   Es ist nun nicht mehr erforderlich, zuerst eine Rowstore-Tabelle zu erstellen und diese dann in einen gruppierten Columnstore-Index zu konvertieren.  
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie die Tabelle als gruppierten Columnstore-Index erstellen.   Es ist nun nicht mehr erforderlich, zuerst eine Rowstore-Tabelle zu erstellen und diese dann in einen gruppierten Columnstore-Index zu konvertieren.  
 
 > [!TIP]
 > Weitere Informationen zu den Richtlinien für das Entwerfen von Indizes finden Sie im [Handbuch zum SQL Server-Indexentwurf](../../relational-databases/sql-server-index-design-guide.md).
@@ -120,10 +120,10 @@ Einige Optionen sind nicht in allen Datenbank-Engine-Versionen verfügbar. Die f
 
 |Option| CLUSTERED | NONCLUSTERED |
 |---|---|---|
-| COMPRESSION_DELAY | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] |
-| DATA_COMPRESSION | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | 
+| COMPRESSION_DELAY | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] |
+| DATA_COMPRESSION | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | 
 | ONLINE | [!INCLUDE[ssSQLv15_md](../../includes/sssqlv15-md.md)] | [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] |
-| WHERE-Klausel | – | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] |
+| WHERE-Klausel | – | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] |
 
 Alle Optionen sind in Azure SQL-Datenbank verfügbar.
 
@@ -369,7 +369,7 @@ Wenn die zugrunde liegende Tabelle eine Spalte enthält, die einen Datentyp aufw
   
 **Spalten, die einen der folgenden Datentypen verwenden, können nicht in einem Columnstore-Index enthalten sein:**
 -   ntext, text und image  
--   nvarchar(max), varchar(max) und varbinary(max) (Gilt für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und frühere Versionen und nicht gruppierte Columnstore-Indizes) 
+-   nvarchar(max), varchar(max) und varbinary(max) (Gilt für [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und frühere Versionen und nicht gruppierte Columnstore-Indizes) 
 -   rowversion (und timestamp)  
 -   sql_variant  
 -   CLR-Typen (hierarchyid- und räumliche Typen)  
@@ -387,7 +387,7 @@ Wenn die zugrunde liegende Tabelle eine Spalte enthält, die einen Datentyp aufw
 
 
 > [!NOTE]  
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie einen nicht gruppierten Columnstore-Index für eine indizierte Sicht erstellen.  
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie einen nicht gruppierten Columnstore-Index für eine indizierte Sicht erstellen.  
 
 
  **Columnstore-Indizes können mit den folgenden Features nicht kombiniert werden:**  
@@ -453,7 +453,7 @@ GO
 ```  
   
 ### <a name="c-handle-nonclustered-indexes-when-converting-a-rowstore-table-to-a-columnstore-index"></a>C. Verarbeitung von nicht gruppierten Indizes beim Konvertieren einer Rowstore-Tabelle in einen Columnstore-Index.  
- In diesem Beispiel wird gezeigt, wie nicht gruppierte Indizes beim Konvertieren einer Rowstore-Tabelle in einen Columnstore-Index verarbeitet werden. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] ist keine spezielle Aktion erforderlich. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] definiert die nicht gruppierten Indizes automatisch und erstellt sie neu im neuen gruppierten Columnstore-Index.  
+ In diesem Beispiel wird gezeigt, wie nicht gruppierte Indizes beim Konvertieren einer Rowstore-Tabelle in einen Columnstore-Index verarbeitet werden. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ist keine spezielle Aktion erforderlich. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] definiert die nicht gruppierten Indizes automatisch und erstellt sie neu im neuen gruppierten Columnstore-Index.  
   
  Wenn Sie die nicht gruppierten Indizes löschen möchten, verwenden Sie vor dem Erstellen des Columnstore-Indexes die DROP INDEX-Anweisung. Mit der DROP EXISTING-Option wird nur der konvertierte gruppierte Index gelöscht. Die nicht gruppierten Indizes werden nicht gelöscht.  
   
@@ -582,7 +582,7 @@ ON MyFactTable;
  Es gibt zwei Möglichkeiten, den gesamten gruppierten Columnstore-Index neu zu erstellen. Sie können CREATE CLUSTERED COLUMNSTORE INDEX oder [ALTER INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/alter-index-transact-sql.md) und die REBUILD-Option verwenden. Mit beiden Methoden werden die gleichen Ergebnisse erzielt.  
   
 > [!NOTE]  
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie `ALTER INDEX...REORGANIZE` verwenden, anstatt den gesamten Index mit diesen beispielhaften Methoden neu zu erstellen.  
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie `ALTER INDEX...REORGANIZE` verwenden, anstatt den gesamten Index mit diesen beispielhaften Methoden neu zu erstellen.  
   
 ```sql  
 --Determine the Clustered Columnstore Index name of MyDimTable.  

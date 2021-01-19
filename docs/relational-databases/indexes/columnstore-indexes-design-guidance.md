@@ -12,12 +12,12 @@ ms.assetid: fc3e22c2-3165-4ac9-87e3-bf27219c820f
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 68783d1da202771f39ec232cd9ba5cf1586ef48e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 72ab05dfce314119c30e08428fdcaa2b94ba25ed
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481221"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171772"
 ---
 # <a name="columnstore-indexes---design-guidance"></a>Leitfaden zum Entwerfen von Columnstore-Indizes
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -72,7 +72,7 @@ Weitere Informationen finden Sie unter [Columnstore-Indizes - Data Warehousing](
 
 ## <a name="add-b-tree-nonclustered-indexes-for-efficient-table-seeks"></a>Hinzufügen eines nicht gruppierten B-Strukturindexes für effiziente Suchvorgänge in Tabellen
 
-Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie nicht gruppierte B-Strukturindizes als sekundäre Indizes für einen gruppierten Columnstore-Index erstellen. Der nicht gruppierte B-Strukturindex wird bei Änderungen am Columnstore-Index aktualisiert. Diese leistungsstarke Funktion können Sie sich zunutze machen. 
+Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie nicht gruppierte B-Strukturindizes als sekundäre Indizes für einen gruppierten Columnstore-Index erstellen. Der nicht gruppierte B-Strukturindex wird bei Änderungen am Columnstore-Index aktualisiert. Diese leistungsstarke Funktion können Sie sich zunutze machen. 
 
 Mithilfe des sekundären B-Strukturindexes können Sie effizient nach bestimmten Zeilen suchen, ohne alle Zeilen scannen zu müssen.  Auch weitere Optionen werden dadurch verfügbar. Beispielsweise können Sie eine Primär- oder Fremdschlüsseleinschränkung erzwingen, indem Sie eine UNIQUE-Bedingung auf den B-Strukturindex anwenden. Da ein nicht eindeutiger Wert nicht in den B-Strukturindex eingefügt werden kann, kann [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den Wert nicht in den Columnstore einfügen. 
 
@@ -84,7 +84,7 @@ Einen B-Strukturindex sollten Sie in folgenden Fällen in einem Columnstore-Inde
 
 ## <a name="use-a-nonclustered-columnstore-index-for-real-time-analytics"></a>Verwendung eines nicht gruppierten Columnstore-Indexes für die Echtzeitanalyse
 
-Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie einen nicht gruppierten Columnstore-Index in einer datenträgerbasierten Rowstore-Tabelle oder in einer In-Memory-Tabelle verwenden. Dadurch ist es möglich, die Analyse für eine Transaktionstabelle in Echtzeit auszuführen. Transaktionen werden in der zugrunde liegenden Tabelle ausgeführt. Eine Analyse können Sie dagegen für den Columnstore-Index ausführen. Da beide Indizes von einer Tabelle verwaltet werden, sind Änderungen sowohl für Rowstore- als auch für Columnstore-Indizes in Echtzeit verfügbar.
+Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie einen nicht gruppierten Columnstore-Index in einer datenträgerbasierten Rowstore-Tabelle oder in einer In-Memory-Tabelle verwenden. Dadurch ist es möglich, die Analyse für eine Transaktionstabelle in Echtzeit auszuführen. Transaktionen werden in der zugrunde liegenden Tabelle ausgeführt. Eine Analyse können Sie dagegen für den Columnstore-Index ausführen. Da beide Indizes von einer Tabelle verwaltet werden, sind Änderungen sowohl für Rowstore- als auch für Columnstore-Indizes in Echtzeit verfügbar.
 
 Da mit einem Columnstore-Index im Vergleich zu einem Rowstore-Index eine zehnfach höhere Datenkomprimierung erzielt werden kann, ist nur wenig zusätzlicher Speicherplatz erforderlich. Während die komprimierte Rowstore-Tabelle beispielsweise 20 GB belegt, benötigt der Columnstore-Index nur 2 GB zusätzlich. Wie viel zusätzlicher Speicher erforderlich ist, hängt auch von der Anzahl der Spalten im nicht gruppierten Columnstore-Index ab. 
 
@@ -94,7 +94,7 @@ Da mit einem Columnstore-Index im Vergleich zu einem Rowstore-Index eine zehnfac
   
 *   Ein separates Data Warehouse ist nicht erforderlich. Bisher haben Unternehmen Transaktionen für eine Rowstore-Tabelle ausgeführt und die Daten zur Analyse in ein separates Data Warehouse geladen. Bei vielen Arbeitsauslastungen sind der Ladevorgang und das separate Data Warehouse nicht mehr erforderlich, wenn ein nicht gruppierter Columnstore-Index für Transaktionstabellen erstellt wird.
 
-  [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] bietet verschiedene Strategien, um dieses Szenario leistungsfähig umzusetzen. Es lässt sich sehr einfach ausprobieren, da Sie einen nicht gruppierten Columnstore-Index ohne Änderungen an der OLTP-Anwendung aktivieren können. 
+  [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] bietet verschiedene Strategien, um dieses Szenario leistungsfähig umzusetzen. Es lässt sich sehr einfach ausprobieren, da Sie einen nicht gruppierten Columnstore-Index ohne Änderungen an der OLTP-Anwendung aktivieren können. 
 
 Sie können die Analyse für eine lesbare sekundäre Datenbank ausführen, um zusätzliche Verarbeitungsressourcen hinzuzufügen. Bei Verwendung einer lesbaren sekundären Datenbank werden die Verarbeitung der Transaktionsarbeitsauslastung und die der Analysearbeitsauslastung voneinander getrennt. 
 
@@ -171,11 +171,11 @@ Hierbei handelt es sich um Aufgaben zum Erstellen und Verwalten von Columnstore-
   
 |Aufgabe|Referenzthemen|Notizen|  
 |----------|----------------------|-----------|  
-|Erstellen einer Tabelle als Columnstore.|[CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md)|Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]können Sie die Tabelle als gruppierten Columnstore-Index erstellen. Sie brauchen nicht zuerst eine Rowstore-Tabelle zu erstellen, die Sie anschließend in Columnstore konvertieren.|  
-|Erstellen Sie eine In-Memory-Tabelle mit einem Columnstore-Index.|[CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md)|Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]können Sie eine speicheroptimierte Tabelle mit einem Columnstore-Index erstellen. Der Columnstore-Index kann auch nach dem Erstellen der Tabelle mit der ALTER TABLE ADD INDEX-Syntax hinzugefügt werden.|  
+|Erstellen einer Tabelle als Columnstore.|[CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md)|Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]können Sie die Tabelle als gruppierten Columnstore-Index erstellen. Sie brauchen nicht zuerst eine Rowstore-Tabelle zu erstellen, die Sie anschließend in Columnstore konvertieren.|  
+|Erstellen Sie eine In-Memory-Tabelle mit einem Columnstore-Index.|[CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md)|Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]können Sie eine speicheroptimierte Tabelle mit einem Columnstore-Index erstellen. Der Columnstore-Index kann auch nach dem Erstellen der Tabelle mit der ALTER TABLE ADD INDEX-Syntax hinzugefügt werden.|  
 |Konvertieren einer Rowstore-Tabelle in eine Columnstore-Tabelle.|[CREATE COLUMNSTORE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-columnstore-index-transact-sql.md)|Konvertieren Sie einen vorhandenen Heap oder eine binäre Struktur in einen Columnstore. Aus den Beispielen können Sie ersehen, wie vorhandene Indizes und der Name des Index beim Durchführen der Konvertierung behandelt werden.|  
 |Konvertieren einer Columnstore-Tabelle in einen Rowstore.|[CREATE CLUSTERED INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-columnstore-index-transact-sql.md#d-convert-a-columnstore-table-to-a-rowstore-table-with-a-clustered-index) oder [Konvertieren einer Columnstore-Tabelle in einen Rowstore-Heap](../../t-sql/statements/create-columnstore-index-transact-sql.md#e-convert-a-columnstore-table-back-to-a-rowstore-heap) |In der Regel müssen Sie nicht konvertieren, allerdings kann es vorkommen, dass Sie diese Aktion durchführen müssen. Aus den Beispielen ist zu ersehen, wie ein Columnstore in einen Heap oder einen gruppierten Index konvertiert werden kann.|   
-|Erstellen eines Columnstore-Index für eine Rowstore-Tabelle.|[CREATE COLUMNSTORE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-columnstore-index-transact-sql.md)|Eine Rowstore-Tabelle kann über einen Columnstore-Index verfügen.  Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]kann der Columnstore-Index eine Filterbedingung aufweisen. In den Beispielen wird die grundlegende Syntax verwendet.|  
+|Erstellen eines Columnstore-Index für eine Rowstore-Tabelle.|[CREATE COLUMNSTORE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-columnstore-index-transact-sql.md)|Eine Rowstore-Tabelle kann über einen Columnstore-Index verfügen.  Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]kann der Columnstore-Index eine Filterbedingung aufweisen. In den Beispielen wird die grundlegende Syntax verwendet.|  
 |Erstellen leistungsfähiger Indizes für Betriebsanalysen.|[Erste Schritte mit Columnstore für operative Echtzeitanalyse](../../relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics.md)|Beschreibt, wie sich ergänzende Columnstore-Indizes und B-Strukturindizes erstellt werden, sodass OLTP-Abfragen B-Strukturindizes und Analyseabfragen Columnstore-Indizes verwenden.|  
 |Erstellen leistungsfähiger Columnstore-Indizes für Data Warehousing|[Columnstore-Indizes - Data Warehousing](../../relational-databases/indexes/columnstore-indexes-data-warehouse.md)|Beschreibt, wie B-Strukturindizes für Columnstore-Tabellen verwendet werden können, um leistungsstarke Data Warehousing-Abfragen zu erstellen.|  
 |Verwenden Sie einen B-Strukturindex, um eine Primärschlüsseleinschränkung für einen Columnstore-Index zu erzwingen.|[Columnstore-Indizes - Data Warehousing](../../relational-databases/indexes/columnstore-indexes-data-warehouse.md)|Zeigt, wie B-Struktur- und Columnstore-Indizes kombiniert werden können, um Primärschlüsseleinschränkungen für den Columnstore-Index zu erzwingen.|  

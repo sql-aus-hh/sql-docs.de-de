@@ -14,12 +14,12 @@ ms.assetid: 867a54b8-5be4-46e6-9702-49ae6dabf67c
 author: stevestein
 ms.author: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: fdd110fd51d42ae13054a5d189c1180a9af623ee
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 933532a516f18aab01e1a32584590d65940c75b6
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484512"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170202"
 ---
 # <a name="create-foreign-key-relationships"></a>Erstellen von Fremdschlüssel-Beziehungen
 
@@ -42,7 +42,7 @@ Zum Erstellen eines Fremdschlüssels für eine vorhandene Tabelle ist die [ALTER
 - FOREIGN KEY-Einschränkungen können auf eine andere Spalte in derselben Tabelle verweisen. Dies wird als Eigenverweis bezeichnet.
 - Eine auf Spaltenebene angegebene FOREIGN KEY-Einschränkung kann nur eine Verweisspalte auflisten. Diese Spalte muss denselben Datentyp aufweisen wie die Spalte, für die die Einschränkung definiert wurde.
 - Eine auf Tabellenebene angegebene FOREIGN KEY-Einschränkung muss ebenso viele Verweisspalten haben, wie sich Spalten in der Einschränkungsspaltenliste befinden. Der Datentyp jeder Verweisspalte muss ebenfalls mit dem der entsprechenden Spalte in der Spaltenliste übereinstimmen.
-- Die [!INCLUDE[ssDE](../../includes/ssde-md.md)] weist keine vordefinierte Begrenzung für die Anzahl von FOREIGN KEY-Einschränkungen auf, die eine Tabelle enthalten kann, die auf andere Tabellen verweist. Die [!INCLUDE[ssDE](../../includes/ssde-md.md)] begrenzt außerdem auch nicht die Anzahl von FOREIGN KEY-Einschränkungen im Besitz anderer Tabellen, die auf eine bestimmte Tabelle verweisen. Die tatsächlich verwendete Anzahl von FOREIGN KEY-Einschränkungen wird jedoch durch die Hardwarekonfiguration und den Entwurf der Datenbank und der Anwendung begrenzt. Eine Tabelle kann auf maximal 253 andere Tabellen und Spalten als Fremdschlüssel (ausgehende Referenzen) verweisen. In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher wird der Grenzwert für die Anzahl der anderen Tabellen und Spalten, die auf Spalten in einer einzelnen Tabelle verweisen können (eingehende Verweise), von 253 auf 10.000 erhöht. (Kompatibilitätsgrad 130 oder höher erforderlich.) Für die Erhöhung gelten folgende Einschränkungen:
+- Die [!INCLUDE[ssDE](../../includes/ssde-md.md)] weist keine vordefinierte Begrenzung für die Anzahl von FOREIGN KEY-Einschränkungen auf, die eine Tabelle enthalten kann, die auf andere Tabellen verweist. Die [!INCLUDE[ssDE](../../includes/ssde-md.md)] begrenzt außerdem auch nicht die Anzahl von FOREIGN KEY-Einschränkungen im Besitz anderer Tabellen, die auf eine bestimmte Tabelle verweisen. Die tatsächlich verwendete Anzahl von FOREIGN KEY-Einschränkungen wird jedoch durch die Hardwarekonfiguration und den Entwurf der Datenbank und der Anwendung begrenzt. Eine Tabelle kann auf maximal 253 andere Tabellen und Spalten als Fremdschlüssel (ausgehende Referenzen) verweisen. In [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher wird der Grenzwert für die Anzahl der anderen Tabellen und Spalten, die auf Spalten in einer einzelnen Tabelle verweisen können (eingehende Verweise), von 253 auf 10.000 erhöht. (Kompatibilitätsgrad 130 oder höher erforderlich.) Für die Erhöhung gelten folgende Einschränkungen:
 
   - Mehr als 253 Fremdschlüsselverweise werden nur für DELETE- und UPDATE- DML-Vorgänge unterstützt. MERGE-Vorgänge werden nicht unterstützt.
   - Auch eine Tabelle mit einem Fremdschlüsselverweis auf sich selbst ist auf 253 Fremdschlüsselverweise beschränkt.

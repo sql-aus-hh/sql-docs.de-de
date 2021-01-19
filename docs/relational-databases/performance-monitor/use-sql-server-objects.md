@@ -31,12 +31,12 @@ helpviewer_keywords:
 ms.assetid: bcd731b1-3c4e-4086-b58a-af7a3af904ad
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 6595db2d6d9f0c2f4e3cbd50dcadbc16e379d05f
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: e293b33b0b20ab7545744c7d4e3f47351f8e0c29
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505420"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172192"
 ---
 # <a name="use-sql-server-objects"></a>Verwenden von SQL Server-Objekten
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -100,14 +100,14 @@ Werte von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Leistungsind
 |[SQLServer: Buffer Node](../../relational-databases/performance-monitor/sql-server-buffer-node.md)|Stellt Informationen dazu bereit, wie oft [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] freie Seiten anfordert und auf diese zugreift.|  
 |[SQLServer: Katalogmetadaten](../../relational-databases/performance-monitor/sql-server-catalog-metadata-object.md)|Definiert einen Objektmanager für Katalogmetadaten für SQL Server.| 
 |[SQLServer:CLR](../../relational-databases/performance-monitor/sql-server-clr-object.md)|Stellt Informationen über die Common Language Runtime (CLR) bereit.|  
-|[SQLServer:Columnstore](../../relational-databases/performance-monitor/sql-server-columnstore-object.md)|**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher).<br /><br /> Stellt Informationen zu Zeilengruppen und Segmenten für Columnstore-Indizes bereit.|  
+|[SQLServer:Columnstore](../../relational-databases/performance-monitor/sql-server-columnstore-object.md)|**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher).<br /><br /> Stellt Informationen zu Zeilengruppen und Segmenten für Columnstore-Indizes bereit.|  
 |[SQLServer:Cursor-Manager nach Typ](../../relational-databases/performance-monitor/sql-server-cursor-manager-by-type-object.md)|Stellt Informationen zu Cursorn bereit.|  
 |[SQLServer:Cursor-Manager gesamt](../../relational-databases/performance-monitor/sql-server-cursor-manager-total-object.md)|Stellt Informationen zu Cursorn bereit.|  
 |[SQLServer:Datenbankspiegelung](../../relational-databases/performance-monitor/sql-server-database-mirroring-object.md)|Stellt Informationen zur Datenbankspiegelung bereit.|  
 |[SQLServer:Datenbanken](../../relational-databases/performance-monitor/sql-server-databases-object.md)|Stellt Informationen zu einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbank bereit, z.B. zum Umfang des freien Protokollspeichers oder zur Anzahl aktiver Transaktionen in der Datenbank. Es kann mehrere Instanzen dieses Objekts geben.|  
 |[SQL Server:Als veraltet markierte Funktionen](../../relational-databases/performance-monitor/sql-server-deprecated-features-object.md)|Zählt, wie oft veraltete Funktionen verwendet werden.|  
 |[SQLServer:Ausführungsstatistik](../../relational-databases/performance-monitor/sql-server-execstatistics-object.md)|Stellt Informationen zur Ausführungsstatistik bereit.|  
-|[SQL Server:Externe Skripts](../../relational-databases/performance-monitor/sql-server-external-scripts-object.md)|**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher).<br /><br /> Stellt Informationen zur externen Skriptausführung bereit.|  
+|[SQL Server:Externe Skripts](../../relational-databases/performance-monitor/sql-server-external-scripts-object.md)|**Gilt für:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher).<br /><br /> Stellt Informationen zur externen Skriptausführung bereit.|  
 |[SQLServer: FileTable](../../relational-databases/performance-monitor/sql-server-filetable-object.md)|Mit „FileTable“ verknüpfte Statistiken und nicht transaktionsgebundener Zugriff.|  
 |[SQLServer, Allgemeine Statistik](../../relational-databases/performance-monitor/sql-server-general-statistics-object.md)|Stellt Informationen zur allgemeinen serverweiten Aktivität bereit, z. B. die Anzahl von Benutzern, die mit einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]verbunden sind.|  
 |[SQL Server:HADR-Verfügbarkeitsreplikat](../../relational-databases/performance-monitor/sql-server-availability-replica.md)|Stellt Informationen zu [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssHADR](../../includes/sshadr-md.md)] -Verfügbarkeitsreplikaten bereit.|  

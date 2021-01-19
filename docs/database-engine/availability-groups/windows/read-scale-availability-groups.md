@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: ''
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 4ccfc459fb5dbbc2a607fd0eb87853a776820098
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: c8f5f050598129e674a74e8b924c6b2ba274cb34
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642484"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171122"
 ---
 # <a name="use-read-scale-with-always-on-availability-groups"></a>Verwenden von schreibgeschützten Always On-Verfügbarkeitsgruppen
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -30,7 +30,7 @@ Die Clientanwendungen, die Analysen durchführen oder Berichte zu Workloads erst
 
 ## <a name="read-scale-availability-groups-without-cluster"></a>Schreibgeschützte Verfügbarkeitsgruppen ohne Cluster
 
-In [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] und früher war für alle Verfügbarkeitsgruppen ein Cluster erforderlich. Der Cluster hat für Geschäftskontinuität gesorgt: Hochverfügbarkeit und Notfallwiederherstellung (HADR). Darüber hinaus wurden für Lesevorgänge sekundäre Replikate konfiguriert. Wenn hohe Verfügbarkeit nicht das eigentliche Ziel darstellte, bedeuteten die Konfiguration und der Betrieb eines Clusters einen erheblichen Mehraufwand im Betrieb. SQL Server 2017 führt schreibgeschützte Verfügbarkeitsgruppen ohne Cluster ein. 
+In [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] und früher war für alle Verfügbarkeitsgruppen ein Cluster erforderlich. Der Cluster hat für Geschäftskontinuität gesorgt: Hochverfügbarkeit und Notfallwiederherstellung (HADR). Darüber hinaus wurden für Lesevorgänge sekundäre Replikate konfiguriert. Wenn hohe Verfügbarkeit nicht das eigentliche Ziel darstellte, bedeuteten die Konfiguration und der Betrieb eines Clusters einen erheblichen Mehraufwand im Betrieb. SQL Server 2017 führt schreibgeschützte Verfügbarkeitsgruppen ohne Cluster ein. 
 
 Wenn es eine Unternehmensanforderung ist, die Ressourcen unternehmenskritischer Workloads aufrechtzuerhalten, die auf dem primären Replikat ausgeführt werden, können Sie jetzt das schreibgeschützte Routing verwenden oder eine direkte Verbindung zu lesbaren sekundären Replikaten herstellen. Sie müssen sich nicht auf die Integration von Clustertechnologie einlassen. Diese Funktionen sind für SQL Server 2017 unter Windows- und Linux-Plattformen verfügbar.
 

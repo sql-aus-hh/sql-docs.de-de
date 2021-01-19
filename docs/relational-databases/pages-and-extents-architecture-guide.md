@@ -15,12 +15,12 @@ ms.assetid: 83a4aa90-1c10-4de6-956b-7c3cd464c2d2
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 4fdc13dcfa509ed2df3ec39afe5a9aa591aa6e39
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 22e1a4832e3ef02d2b596ecd0dd4af3a08a7ec6e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461941"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171872"
 ---
 # <a name="pages-and-extents-architecture-guide"></a>Handbuch zur Architektur von Seiten und Blöcken
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -92,12 +92,12 @@ Blöcke sind die Grundeinheit, in der Speicherplatz verwaltet wird. Ein Block um
 
 Bis einschließlich [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] ordnet [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Tabellen, die nur wenige Daten enthalten, keine ganzen Blöcke zu. Für eine neue Tabelle oder einen neuen Index werden normalerweise Seiten aus gemischten Blöcken zugewiesen. Wenn eine Tabelle oder ein Index so groß geworden ist, dass sie bzw. er acht Seiten umfasst, werden bei nachfolgenden Zuweisungen einheitliche Blöcke zugewiesen. Wenn Sie einen Index für eine vorhandene Tabelle erstellen, die über genügend Zeilen verfügt, um acht Seiten im Index zu generieren, erfolgen alle Zuweisungen für den Index in Form von einheitlichen Blöcken. 
 
-Ab [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] verwenden die meisten Speicherbelegungen in einer Benutzerdatenbank und in tempdb standardmäßig einheitliche Erweiterungen. Eine Ausnahme bilden die Belegungen, die zu den ersten acht Seiten einer [IAM-Kette](#IAM) gehören. Speicherbelegungen für die Datenbanken „master“, „msdb“ und „model“ weisen weiterhin das frühere Verhalten auf. 
+Ab [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] verwenden die meisten Speicherbelegungen in einer Benutzerdatenbank und in tempdb standardmäßig einheitliche Erweiterungen. Eine Ausnahme bilden die Belegungen, die zu den ersten acht Seiten einer [IAM-Kette](#IAM) gehören. Speicherbelegungen für die Datenbanken „master“, „msdb“ und „model“ weisen weiterhin das frühere Verhalten auf. 
 
 > [!NOTE]
 > Bis einschließlich [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] kann das Ablaufverfolgungsflag 1118 verwendet werden, um die Standardzuordnung so zu ändern, dass immer einheitliche Blöcke verwendet werden. Weitere Informationen zu diesem Ablaufverfolgungsflag finden Sie unter [DBCC TRACEON – Trace Flags](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md).   
 >   
-> Ab [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] wird die vom Ablaufverfolgungsflag 1118 bereitgestellte Funktionalität für tempdb und alle Benutzerdatenbanken automatisch aktiviert. Für Benutzerdatenbanken wird dieses Verhalten durch die `SET MIXED_PAGE_ALLOCATION`-Option von `ALTER DATABASE` gesteuert. Der Standardwert ist auf OFF festgelegt, und das Ablaufverfolgungsflag 1118 hat keine Auswirkungen. Weitere Informationen finden Sie unter [ALTER DATABASE SET-Optionen (Transact-SQL)](../t-sql/statements/alter-database-transact-sql-set-options.md).
+> Ab [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] wird die vom Ablaufverfolgungsflag 1118 bereitgestellte Funktionalität für tempdb und alle Benutzerdatenbanken automatisch aktiviert. Für Benutzerdatenbanken wird dieses Verhalten durch die `SET MIXED_PAGE_ALLOCATION`-Option von `ALTER DATABASE` gesteuert. Der Standardwert ist auf OFF festgelegt, und das Ablaufverfolgungsflag 1118 hat keine Auswirkungen. Weitere Informationen finden Sie unter [ALTER DATABASE SET-Optionen (Transact-SQL)](../t-sql/statements/alter-database-transact-sql-set-options.md).
 
 Ab [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] kann die Systemfunktion `sys.dm_db_database_page_allocations` Informationen zur Seitenzuordnung für eine Datenbank, eine Tabelle, einen Index und eine Partition melden.
 

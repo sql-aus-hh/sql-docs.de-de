@@ -31,12 +31,12 @@ ms.assetid: a28c684a-c4e9-4b24-a7ae-e248808b31e9
 author: pmasl
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: eca1dbef6ff7d519200e46cff7879d7cb0a9b128
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 991a30108d0683d89d8bece48eb0d2de1c1e0d37
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97478251"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171882"
 ---
 # <a name="resolve-index-fragmentation-by-reorganizing-or-rebuilding-indexes"></a>Auflösen der Indexfragmentierung durch Neuorganisieren oder Neuerstellen von Indizes
 
@@ -110,7 +110,7 @@ Nachdem der Grad der Indexfragmentierung bekannt ist, verwenden Sie die folgende
 |**Berechnete Fragmentierung als Prozentwert**|Gilt für Version|Korrigierende Anweisung|
 |-----------------------------------------------|--------------------------|--------------------------|
 |> = 20 %|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] und [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|ALTER INDEX REBUILD|
-|> = 20 %|Seit [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|ALTER INDEX REORGANIZE|
+|> = 20 %|Seit [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|ALTER INDEX REORGANIZE|
 
 ### <a name="to-check-the-fragmentation-of-a-rowstore-index-using-tsql"></a>Überprüfen der Fragmentierung eines Rowstore-Indexes mit [!INCLUDE[tsql](../../includes/tsql-md.md)]
 
@@ -234,7 +234,7 @@ Beim Neuerstellen eines Indexes wird der Index gelöscht und neu erstellt. Je na
 - Für [Columnstore-Indizes](columnstore-indexes-overview.md) wird bei der Neuerstellung die Fragmentierung entfernt, alle Zeilen werden in den Columnstore verschoben, und Speicherplatz wird freigegeben, indem die logisch aus der Tabelle gelöschten Zeilen physisch gelöscht werden. 
   
   > [!TIP]
-  > Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] ist die Neuerstellung des Columnstore-Indexes in der Regel nicht notwendig, weil `REORGANIZE` die Grundlagen der Neuerstellung im Hintergrund als Onlinevorgang ausführt. 
+  > Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ist die Neuerstellung des Columnstore-Indexes in der Regel nicht notwendig, weil `REORGANIZE` die Grundlagen der Neuerstellung im Hintergrund als Onlinevorgang ausführt. 
   
   Syntaxbeispiele finden Sie unter [Beispiele: ColumnStore-Neuerstellung](../../t-sql/statements/alter-index-transact-sql.md#examples-columnstore-indexes).
 
@@ -382,7 +382,7 @@ Das Neuerstellen einer Partition nach dem Laden von Daten stellt sicher, dass al
 
 ## <a name="considerations-specific-to-reorganizing-a-columnstore-index"></a>Überlegungen zur Neuorganisation eines Columnstore-Indexes
 
-Bei der Neuorganisation eines Columnstore-Indizes komprimiert die [!INCLUDE[ssde_md](../../includes/ssde_md.md)] jede CLOSED-Deltazeilengruppe im Columnstore als eine komprimierte Zeilengruppe. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] führt der `REORGANIZE`-Befehl die folgenden Optimierungen für eine zusätzliche Defragmentierung online aus:
+Bei der Neuorganisation eines Columnstore-Indizes komprimiert die [!INCLUDE[ssde_md](../../includes/ssde_md.md)] jede CLOSED-Deltazeilengruppe im Columnstore als eine komprimierte Zeilengruppe. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] führt der `REORGANIZE`-Befehl die folgenden Optimierungen für eine zusätzliche Defragmentierung online aus:
 
 - Es werden Zeilen physisch aus der Zeilengruppe entfernt, wenn mindestens 10 % der Zeilen logisch gelöscht wurden. Die gelöschten Bytes werden auf den physischen Medien freigegeben. Bei einer komprimierten Zeilengruppe mit 1 Million Zeilen, in der beispielsweise 100.000 Zeilen gelöscht wurden, werden von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die gelöschten Zeilen entfernt, und die Zeilengruppe wird mit 900.000 Zeilen neu komprimiert. Durch das Entfernen gelöschter Zeilen wird Speicherplatz eingespart.
 

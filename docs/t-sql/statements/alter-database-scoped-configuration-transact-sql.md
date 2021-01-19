@@ -24,12 +24,12 @@ ms.assetid: 63373c2f-9a0b-431b-b9d2-6fa35641571a
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: = azuresqldb-current || = azuresqldb-mi-current || >= sql-server-2016 || >= sql-server-linux-2017 ||=azure-sqldw-latest
-ms.openlocfilehash: 85c4646af6f5801bd617baef47aecf913374ae95
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 8d314e90bbe869dec9ccdc31c45996c4834fc829
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099592"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170422"
 ---
 # <a name="alter-database-scoped-configuration-transact-sql"></a>ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)
 
@@ -170,7 +170,7 @@ Damit können Sie das Kardinalitätsschätzungsmodell für den Abfrageoptimierer
 
 > [!TIP]
 > Fügen Sie den [Abfragehinweis](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) **QUERYTRACEON** hinzu, um dies auf Abfrageebene zu erreichen.
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 müssen Sie den [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** hinzufügen, statt das Ablaufverfolgungsflag zu verwenden, um dies auf Abfrageebene zu erreichen.
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 müssen Sie den [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** hinzufügen, statt das Ablaufverfolgungsflag zu verwenden, um dies auf Abfrageebene zu erreichen.
 
 PRIMARY
 
@@ -182,7 +182,7 @@ Aktiviert oder deaktiviert die [Parameterermittlung](../../relational-databases/
 
 > [!TIP]
 > Informationen darüber, wie Sie dies auf Abfrageebene erreichen, finden Sie unter dem [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md) **OPTIMIZE FOR UNKNOWN**.
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 ist der [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** auch verfügbar, damit dies auf Abfrageebene erreicht werden kann.
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 ist der [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** auch verfügbar, damit dies auf Abfrageebene erreicht werden kann.
 
 PRIMARY
 
@@ -196,7 +196,7 @@ Aktiviert oder deaktiviert Hotfixes für die Abfrageoptimierung unabhängig vom 
 
 > [!TIP]
 > Fügen Sie den [Abfragehinweis](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) **QUERYTRACEON** hinzu, um dies auf Abfrageebene zu erreichen.
-> Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 müssen Sie den [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) USE HINT hinzufügen, statt das Ablaufverfolgungsflag zu verwenden, um dies auf Abfrageebene zu erreichen.
+> Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 müssen Sie den [Abfragehinweis](../../t-sql/queries/hints-transact-sql-query.md#use_hint) USE HINT hinzufügen, statt das Ablaufverfolgungsflag zu verwenden, um dies auf Abfrageebene zu erreichen.
 
 PRIMARY
 
@@ -466,7 +466,7 @@ Lesbare sekundäre Datenbanken (Always On-Verfügbarkeitsgruppen und georeplizie
 
 ### <a name="dacfx"></a>DacFX
 
-Da `ALTER DATABASE SCOPED CONFIGURATION` ein neues Feature in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) ist, das sich auf das Datenbankschema auswirkt, können Exporte des Schemas (mit oder ohne Daten) nicht in ältere Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] oder [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]) importiert werden. Ein Export in ein [DACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md) oder ein [BACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md#bacpac) aus einer Datenbank von [!INCLUDE[ssSDS](../../includes/sssds-md.md)] oder [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], in der dieses neue Feature verwendet wird, könnte nicht in einen Server der Vorgängerversion importiert werden.
+Da `ALTER DATABASE SCOPED CONFIGURATION` ein neues Feature in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) ist, das sich auf das Datenbankschema auswirkt, können Exporte des Schemas (mit oder ohne Daten) nicht in ältere Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (z. B. [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] oder [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]) importiert werden. Ein Export in ein [DACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md) oder ein [BACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md#bacpac) aus einer Datenbank von [!INCLUDE[ssSDS](../../includes/sssds-md.md)] oder [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], in der dieses neue Feature verwendet wird, könnte nicht in einen Server der Vorgängerversion importiert werden.
 
 ### <a name="elevate_online"></a>ELEVATE_ONLINE
 

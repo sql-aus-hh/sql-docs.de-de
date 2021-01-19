@@ -23,12 +23,12 @@ ms.assetid: 925b42e0-c5ea-4829-8ece-a53c6cddad3b
 author: pmasl
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 8b2e8810783bb3341f10b21c3068881558dfc611
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 02ddc1ad96f45ba67ed613ee7446d8a1c12e1e5b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97403882"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171402"
 ---
 # <a name="thread-and-task-architecture-guide"></a>Handbuch zur Thread- und Taskarchitektur
 [!INCLUDE [SQL Server Azure SQL Database](../includes/applies-to-version/sql-asdb.md)]
@@ -74,7 +74,7 @@ Zusammenfassend kann eine **Anforderung** eine oder mehrere **Tasks** erzeugen, 
 > -  Worker 2 führt kürzere Tasks mit einer Dauer unter einer Millisekunde aus und muss daher vor dem Erreichen des vollständigen Quantums Ergebnisse zurückgeben.     
 >
 > In diesem Szenario und bis zu [!INCLUDE[ssSQL14](../includes/sssql14-md.md)]kann Worker 1 den Scheduler im Grunde durch eine höhere gesamte Quantumzeit monopolisieren.   
-> Ab [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] umfasst die kooperative Planung LDF-Planung (Large Deficit First). Bei der LDF-Planung werden die Quantumverwendungsmuster überwacht, und ein Workerthread monopolisiert keinen Scheduler. In demselben Szenario ist es für Worker 2 zulässig, wiederholte Quantums zu nutzen, bevor Worker 1 mehr Quantum nutzen darf, sodass Worker 1 daran gehindert wird, den Scheduler mit einem unfreundlichen Muster zu monopolisieren.
+> Ab [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] umfasst die kooperative Planung LDF-Planung (Large Deficit First). Bei der LDF-Planung werden die Quantumverwendungsmuster überwacht, und ein Workerthread monopolisiert keinen Scheduler. In demselben Szenario ist es für Worker 2 zulässig, wiederholte Quantums zu nutzen, bevor Worker 1 mehr Quantum nutzen darf, sodass Worker 1 daran gehindert wird, den Scheduler mit einem unfreundlichen Muster zu monopolisieren.
 
 ### <a name="scheduling-parallel-tasks"></a>Planen von parallelen Tasks
 Angenommen, ein [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] ist mit MAXDOP 8 konfiguriert, und die CPU-Affinität ist für 24 CPUs (Scheduler) zwischen den NUMA-Knoten 0 und 1 konfiguriert. Die Scheduler 0 bis 11 gehören zum NUMA-Knoten 0, die Scheduler 12 bis 23 zum NUMA-Knoten 1. Eine Anwendung sendet die folgende Abfrage (Anforderung) an die [!INCLUDE[ssde_md](../includes/ssde_md.md)]:

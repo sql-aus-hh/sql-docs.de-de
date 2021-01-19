@@ -27,12 +27,12 @@ ms.assetid: 7b0d0988-a3d8-4c25-a276-c1bdba80d6d5
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a8165d82fa5db393b3f2f66737910ba4de9d11a8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 6af1077d46fa6378e0853eb570ba560d49e6eaec
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97473881"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171342"
 ---
 # <a name="memory-management-architecture-guide"></a>Handbuch zur Architektur der Speicherverwaltung
 
@@ -97,7 +97,7 @@ In früheren Versionen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)
 Seit [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] sind alle Einzelseitenbelegungen, Mehrseitenbelegungen und CLR-Belegungen in einer **Seitenbelegung beliebiger Größe** konsolidiert. Diese ist in den Speichergrenzwerten enthalten, die durch die Konfigurationsoptionen *Max. Serverarbeitsspeicher (MB)* und *Min. Serverarbeitsspeicher (MB)* gesteuert werden. Diese Änderung ermöglichte eine genauere Dimensionierung für alle Arbeitsspeicheranforderungen, die von der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Arbeitsspeicherverwaltung verarbeitet werden. 
 
 > [!IMPORTANT]
-> Überprüfen Sie Ihre aktuellen Konfigurationen von *Max. Serverarbeitsspeicher (MB)* und *Min. Serverarbeitsspeicher (MB)* nach dem Upgrade auf [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] bis [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)]. Das hat den Grund, dass diese Konfigurationen seit [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] im Vergleich zu früheren Versionen jetzt mehr Arbeitsspeicherbelegungen umfassen. Diese Änderungen betreffen sowohl 32-Bit- als auch 64-Bit-Versionen von [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] und [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] sowie 64-Bit-Versionen von [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] bis [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)].
+> Überprüfen Sie Ihre aktuellen Konfigurationen von *Max. Serverarbeitsspeicher (MB)* und *Min. Serverarbeitsspeicher (MB)* nach dem Upgrade auf [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] bis [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)]. Das hat den Grund, dass diese Konfigurationen seit [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] im Vergleich zu früheren Versionen jetzt mehr Arbeitsspeicherbelegungen umfassen. Diese Änderungen betreffen sowohl 32-Bit- als auch 64-Bit-Versionen von [!INCLUDE[ssSQL11](../includes/sssql11-md.md)] und [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] sowie 64-Bit-Versionen von [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] bis [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)].
 
 In der folgenden Tabelle ist aufgeführt, ob ein bestimmter Typ von Speicherbelegung durch die Konfigurationsoptionen *Max. Serverarbeitsspeicher (MB)* und *Min. Serverarbeitsspeicher (MB)* gesteuert wird:
 
@@ -341,9 +341,9 @@ Heapzuordnungen, die in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] a
 Die Verwendung von Mutexen kann jedoch zu Konflikten führen, wenn viele Threads hochgradig parallel aus demselben Speicherobjekt zuordnen. Daher weist [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] das Konzept von partitionierten Speicherobjekten (PMO) auf, und jede Partition wird durch ein einzelnes CMemThread-Objekt dargestellt. Die Partitionierung eines Speicherobjekts ist statisch definiert und kann nach der Erstellung nicht mehr geändert werden. Da Speicherzuordnungsmuster aufgrund von Aspekten wie Hardware und Speicherauslastung stark variieren, ist es nicht möglich, das perfekte Partitionierungsmuster vorab festzulegen. In den meisten Fällen genügt die Verwendung einer einzelnen Partition, aber in einigen Szenarien kann dies zu Konflikten führen, die nur mit einem stark partitionierten Speicherobjekt verhindert werden können. Es ist nicht wünschenswert, jedes Speicherobjekt zu partitionieren, da eine größere Anzahl von Partitionen möglicherweise andere Ineffizienzen verursachen und die Speicherfragmentierung erhöhen kann.
 
 > [!NOTE]
-> Vor [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] konnte das Ablaufverfolgungsflag 8048 verwendet werden, um zu erzwingen, dass ein knotenbasiertes PMO zu einem CPU-basierten PMO wird. Ab [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] ist dieses Verhalten dynamisch und wird durch die Engine gesteuert.
+> Vor [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] konnte das Ablaufverfolgungsflag 8048 verwendet werden, um zu erzwingen, dass ein knotenbasiertes PMO zu einem CPU-basierten PMO wird. Ab [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] ist dieses Verhalten dynamisch und wird durch die Engine gesteuert.
 
-Ab [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] kann [!INCLUDE[ssde_md](../includes/ssde_md.md)] Konflikte für ein bestimmtes CMemThread-Objekt dynamisch erkennen und das Objekt auf eine pro-Knoten- oder pro-CPU-basierten Implementierung heraufstufen.  Nach der Heraufstufung bleibt das PMO höher gestuft, bis der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Prozess neu gestartet wird. CMemThread-Konflikte können durch das Vorhandensein von hohen CMEMTHREAD-Wartezeiten in der [sys.dm_os_wait_stats](../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md)-DMV und durch Beobachtung der [sys.dm_os_memory_objects](../relational-databases/system-dynamic-management-views/sys-dm-os-memory-objects-transact-sql.md)-DMV-Spalten *contention_factor*, *partition_type*, *exclusive_allocations_count* und *waiting_tasks_count* erkannt werden.
+Ab [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] SP2 und [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] kann [!INCLUDE[ssde_md](../includes/ssde_md.md)] Konflikte für ein bestimmtes CMemThread-Objekt dynamisch erkennen und das Objekt auf eine pro-Knoten- oder pro-CPU-basierten Implementierung heraufstufen.  Nach der Heraufstufung bleibt das PMO höher gestuft, bis der [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Prozess neu gestartet wird. CMemThread-Konflikte können durch das Vorhandensein von hohen CMEMTHREAD-Wartezeiten in der [sys.dm_os_wait_stats](../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md)-DMV und durch Beobachtung der [sys.dm_os_memory_objects](../relational-databases/system-dynamic-management-views/sys-dm-os-memory-objects-transact-sql.md)-DMV-Spalten *contention_factor*, *partition_type*, *exclusive_allocations_count* und *waiting_tasks_count* erkannt werden.
 
 ## <a name="see-also"></a>Weitere Informationen
 [Serverkonfigurationsoptionen für den Serverarbeitsspeicher](../database-engine/configure-windows/server-memory-server-configuration-options.md)   

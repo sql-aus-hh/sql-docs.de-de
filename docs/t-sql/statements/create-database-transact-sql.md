@@ -37,12 +37,12 @@ ms.assetid: 29ddac46-7a0f-4151-bd94-75c1908c89f8
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-current||=azuresqldb-mi-current||=azure-sqldw-latest||>=aps-pdw-2016'
-ms.openlocfilehash: fbca8f9ddae17466aa99ae096efbf9b23d03c24c
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 7898cec5362efc7902623993f568600271c033d5
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98100859"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171612"
 ---
 # <a name="create-database"></a>CREATE DATABASE
 
@@ -371,7 +371,7 @@ SIZE kann nicht angegeben werden, wenn *os_file_name* als UNC-Pfad angegeben ist
 
 *size* Die Anfangsgröße der Datei.
 
-Wenn *size* für die primäre Datei nicht angegeben wird, verwendet [!INCLUDE[ssDE](../../includes/ssde-md.md)] die Größe der primären Datei in der Modelldatenbank. Die Standardgröße von Modellen beträgt 8 MB (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) oder 1 MB (bei früheren Versionen). Wenn eine sekundäre Datendatei oder eine Protokolldatei angegeben wird, *size* für die Datei jedoch nicht angegeben wird, legt [!INCLUDE[ssDE](../../includes/ssde-md.md)] die Größe der Datei auf 8 MB (ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) oder 1 MB (für frühere Versionen) fest. Die für die primäre Datei angegebene Größe muss mindestens der Größe der primären Datei der model-Datenbank entsprechen.
+Wenn *size* für die primäre Datei nicht angegeben wird, verwendet [!INCLUDE[ssDE](../../includes/ssde-md.md)] die Größe der primären Datei in der Modelldatenbank. Die Standardgröße von Modellen beträgt 8 MB (ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) oder 1 MB (bei früheren Versionen). Wenn eine sekundäre Datendatei oder eine Protokolldatei angegeben wird, *size* für die Datei jedoch nicht angegeben wird, legt [!INCLUDE[ssDE](../../includes/ssde-md.md)] die Größe der Datei auf 8 MB (ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) oder 1 MB (für frühere Versionen) fest. Die für die primäre Datei angegebene Größe muss mindestens der Größe der primären Datei der model-Datenbank entsprechen.
 
 Es kann das Suffix Kilobyte (KB), Megabyte (MB), Gigabyte (GB) oder Terabyte (TB) verwendet werden. Die Standardeinheit ist MB. Geben Sie eine ganze Zahl (ohne Dezimalstellen) an. *Size* ist ein ganzzahliger Wert. Verwenden Sie für Werte größer als 2.147.483.647 größere Einheiten.
 
@@ -396,7 +396,7 @@ Wenn FILEGROWTH nicht angegeben ist, lauten die Standardwerte wie folgt:
 
 |Version|Standardwerte|
 |-------------|--------------------|
-|Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|Daten: 64 MB, Protokolldateien: 64 MB|
+|Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|Daten: 64 MB, Protokolldateien: 64 MB|
 |Ab [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]|Daten: 1 MB, Protokolldateien: 10 %|
 |Vor [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]|Daten: 10 %, Protokolldateien: 10 %|
 

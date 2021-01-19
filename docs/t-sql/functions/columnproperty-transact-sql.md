@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 2408c264-6eca-4120-bb71-df043c7c2792
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 287b8ff6085658b863601fcc11a3e8c37cd50faa
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 4bd06800692eb8f27494055dfa391169ced45803
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097272"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171362"
 ---
 # <a name="columnproperty-transact-sql"></a>COLUMNPROPERTY (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -57,7 +57,7 @@ Das *property*-Argument gibt für das *id*-Argument den Informationstyp an, den 
 |**AllowsNull**|Lässt NULL-Werte zu.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = Ungültige Eingabe|  
 |**ColumnId**|Der Wert der Spalten-ID, der **sys.columns.column_id** entspricht.|Column ID<br /><br /> **Hinweis:** Wenn mehrere Spalten abgefragt werden, können Lücken in der Abfolge von Werten für Spalten-IDs auftreten.|  
 |**FullTextTypeColumn**|Der TYPE COLUMN-Wert in der Tabelle, die die Dokumenttypinformationen der *Spalte* enthält.|Die ID der Volltexttypspalte TYPE COLUMN für den Ausdruck des Spaltennamens, der als zweiter Parameter dieser Funktion übergeben wurde.|  
-|**GeneratedAlwaysType**|Wird durch den Spaltenwert systemgeneriert. Entspricht **sys.columns.generated_always_type**|**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher.<br /><br /> 0 = Nicht immer generiert<br /><br /> 1 = Immer am Zeilenanfang generiert<br /><br /> 2 = Immer am Zeilenende generiert|  
+|**GeneratedAlwaysType**|Wird durch den Spaltenwert systemgeneriert. Entspricht **sys.columns.generated_always_type**|**Gilt für**:  [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher.<br /><br /> 0 = Nicht immer generiert<br /><br /> 1 = Immer am Zeilenanfang generiert<br /><br /> 2 = Immer am Zeilenende generiert|  
 |**IsColumnSet**|Spalte ist ein Spaltensatz. Weitere Informationen finden Sie unter [Verwenden von Spaltensätzen](../../relational-databases/tables/use-column-sets.md).|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = Ungültige Eingabe|  
 |**IsComputed**|Die Spalte ist eine berechnete Spalte.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = Ungültige Eingabe|  
 |**IsCursorType**|Der Prozedurparameter ist vom Typ CURSOR.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = Ungültige Eingabe|  

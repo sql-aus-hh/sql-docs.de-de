@@ -17,12 +17,12 @@ ms.assetid: 0c1fca2e-f22b-4fe8-806f-c87806664f00
 author: davidtrigano
 ms.author: datrigan
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017
-ms.openlocfilehash: e978c269a17f42bc75729303a860c61d4868f3fb
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 45b22073dd0ac7e4c87d8fb838e9e55e346b5b5d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468611"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171462"
 ---
 # <a name="sql-server-audit-database-engine"></a>SQL Server Audit (Datenbank-Engine)
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "97468611"
   
  Bei Servern können Sie Überwachungsaktionsgruppen instanzweise aufzeichnen, bei Datenbanken entweder Überwachungsaktionsgruppen oder Überwachungsaktionen jeweils pro Datenbank. Das Überwachungsereignis tritt jedes Mal auf, wenn die überwachbare Aktion erkannt wird.  
   
- Alle Editionen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] unterstützen Überwachungen auf Serverebene. Alle Editionen ab [!INCLUDE[ssSQL15_md](../../../includes/sssql15-md.md)] SP1 unterstützen Überwachungen auf Datenbankebene. Zuvor war die Überwachung auf Datenbankebene auf die Editionen Enterprise, Developer und Evaluation beschränkt. Weitere Informationen finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Funktionen](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
+ Alle Editionen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] unterstützen Überwachungen auf Serverebene. Alle Editionen ab [!INCLUDE[ssSQL15_md](../../../includes/sssql16-md.md)] SP1 unterstützen Überwachungen auf Datenbankebene. Zuvor war die Überwachung auf Datenbankebene auf die Editionen Enterprise, Developer und Evaluation beschränkt. Weitere Informationen finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Funktionen](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
   
 > [!NOTE]  
 >  Dieses Thema gilt für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].  Für [!INCLUDE[ssSDS](../../../includes/sssds-md.md)]finden Sie Informationen unter [Erste Schritte mit SQL-Datenbanküberwachung](/azure/azure-sql/database/auditing-overview).  

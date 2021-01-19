@@ -12,12 +12,12 @@ ms.assetid: b29850b5-5530-498d-8298-c4d4a741cdaf
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3dd7431a208db3f0da1e2ee53522920319b40af0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: b6a0b60d8b690490074187d977d9bd636d88aea3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97407472"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172682"
 ---
 # <a name="columnstore-indexes---data-loading-guidance"></a>Columnstore-Indizes: Leitfaden zum Datenladevorgang
 
@@ -89,7 +89,7 @@ INSERT INTO <columnstore index>
 SELECT <list of columns> FROM <Staging Table>  
 ```  
   
- Dieser Befehl lädt die Daten auf ähnliche Weise wie BCP oder der Masseneinfügungsvorgang in den Columnstore-Index, jedoch in einem einzelnen Batch. Wenn die Anzahl der Zeilen in der Stagingtabelle kleiner als 102.400 ist, werden die Zeilen in eine Delta-Zeilengruppe geladen. Andernfalls werden die Zeilen direkt in eine komprimierte Zeilengruppe geladen. Eine entscheidende Einschränkung bestand darin, dass dieser `INSERT`-Vorgang nur einen einzelnen Thread umfasste. Zum parallelen Laden der Daten könnten Sie mehrere Stagingtabellen erstellen, oder `INSERT`/`SELECT` mit nicht überlappenden Zeilenbereichen aus der Stagingtabelle ausgeben. Diese Einschränkung gilt ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] nicht mehr. Der nachfolgende Befehl lädt die Daten parallel aus einer Stagingtabelle, Sie müssen jedoch `TABLOCK` angeben. Dies erscheint Ihnen möglicherweise im Widerspruch zu den zuvor genannten Informationen zum Massenladen, der Hauptunterschied liegt jedoch darin, dass der parallele Datenladevorgang aus der Stagingtabelle in derselben Transaktion ausgeführt wird.
+ Dieser Befehl lädt die Daten auf ähnliche Weise wie BCP oder der Masseneinfügungsvorgang in den Columnstore-Index, jedoch in einem einzelnen Batch. Wenn die Anzahl der Zeilen in der Stagingtabelle kleiner als 102.400 ist, werden die Zeilen in eine Delta-Zeilengruppe geladen. Andernfalls werden die Zeilen direkt in eine komprimierte Zeilengruppe geladen. Eine entscheidende Einschränkung bestand darin, dass dieser `INSERT`-Vorgang nur einen einzelnen Thread umfasste. Zum parallelen Laden der Daten könnten Sie mehrere Stagingtabellen erstellen, oder `INSERT`/`SELECT` mit nicht überlappenden Zeilenbereichen aus der Stagingtabelle ausgeben. Diese Einschränkung gilt ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] nicht mehr. Der nachfolgende Befehl lädt die Daten parallel aus einer Stagingtabelle, Sie müssen jedoch `TABLOCK` angeben. Dies erscheint Ihnen möglicherweise im Widerspruch zu den zuvor genannten Informationen zum Massenladen, der Hauptunterschied liegt jedoch darin, dass der parallele Datenladevorgang aus der Stagingtabelle in derselben Transaktion ausgeführt wird.
   
 ```sql  
 INSERT INTO <columnstore index> WITH (TABLOCK) 

@@ -16,17 +16,17 @@ helpviewer_keywords:
 ms.assetid: c10eeaa5-3d3c-49b4-a4bd-5dc4fb190142
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 0b8dd6ffa60bdf43b4e6d112ba26de959005f549
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: a036ba8c2b822d5663252b52beeb0ca2e526b969
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670533"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170552"
 ---
 # <a name="deprecated-database-engine-features-in-sql-server-2016"></a>Als veraltet markierte Funktionen der Datenbank-Engine in SQL Server 2016
 [!INCLUDE [SQL Server 2016](../includes/applies-to-version/sqlserver2016.md)]  
 
-In diesem Thema werden die als veraltet markierten Funktionen von [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)] beschrieben, die in [!INCLUDE[sssql15-md](../includes/sssql15-md.md)]noch verfügbar sind. Als veraltet markierte Funktionen sollten in neuen Anwendungen nicht verwendet werden.  
+In diesem Thema werden die als veraltet markierten Funktionen von [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)] beschrieben, die in [!INCLUDE[sssql15-md](../includes/sssql16-md.md)]noch verfügbar sind. Als veraltet markierte Funktionen sollten in neuen Anwendungen nicht verwendet werden.  
   
 Wenn eine Funktion als veraltet markiert ist, bedeutet dies:
 -  Die Funktion ist ausschließlich im Wartungsmodus. Es werden keine weiteren Änderungen vorgenommen, auch solche nicht, die mit der Interoperabilität mit neuen Funktionen zu tun haben.
@@ -150,7 +150,7 @@ WHERE object_name = 'SQLServer:Deprecated Features';
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|Spaltenverweise mit 3 Teilen und 4 Teilen.|Namen mit 2 Teilen sind mit dem Standard kompatibel.|Mehr als zweiteiliger Spaltenname|3|  
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|Eine in Anführungszeichen eingeschlossene Zeichenfolge, die als Spaltenalias für einen Ausdruck in einer SELECT-Liste verwendet wird:<br /><br /> '*Zeichenfolgenalias*' = *Ausdruck*|*Ausdruck* [AS] *Spaltenalias*<br /><br /> *Ausdruck* [AS] [*Spaltenalias*]<br /><br /> *Ausdruck* [AS] "*Spaltenalias*"<br /><br /> *Ausdruck* [AS] '*Spaltenalias*'<br /><br /> *Spaltenalias* = *Ausdruck*|Zeichenfolgenliterale als Spaltenaliase|184|  
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|Nummerierte Prozeduren|Keine. Darf nicht verwendet werden.|ProcNums|160|  
-|[!INCLUDE[tsql](../includes/tsql-md.md)]|Syntax für*Tabellenname.Indexname* in DROP INDEX|Syntax für*Indexname* ON *Tabellenname* in DROP INDEX.|DROP INDEX mit zweiteiligem Namen|163|  
+|[!INCLUDE[tsql](../includes/tsql-md.md)]|Syntax für *Tabellenname.Indexname* in DROP INDEX|Syntax für *Indexname* ON *Tabellenname* in DROP INDEX.|DROP INDEX mit zweiteiligem Namen|163|  
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|Nicht beendete [!INCLUDE[tsql](../includes/tsql-md.md)] -Anweisungen mit einem Semikolon|Beenden Sie [!INCLUDE[tsql](../includes/tsql-md.md)] -Anweisungen mit einem Semikolon ( ; ).|Keine|Keine|  
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|GROUP BY ALL|Verwenden Sie eine benutzerdefinierte einzelfallspezifische Lösung mit UNION oder abgeleiteter Tabelle.|GROUP BY ALL|169|  
 |[!INCLUDE[tsql](../includes/tsql-md.md)]|ROWGUIDCOL als Spaltenname in DML-Anweisungen|Verwenden Sie $rowguid.|ROWGUIDCOL|182|  

@@ -17,18 +17,18 @@ helpviewer_keywords:
 ms.assetid: 7bd89ddd-0403-4930-a5eb-3c78718533d4
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 8e64eb57dbcfecabaa5c6f24881206152df4d8d0
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: f7e96df4eba36bbcb3da18a1423b5162aef557a7
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97639845"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170802"
 ---
 # <a name="configure-read-only-routing-for-an-always-on-availability-group"></a>Konfigurieren des schreibgeschützten Routing für eine Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
   In [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]können Sie eine AlwaysOn-Verfügbarkeitsgruppe mit [!INCLUDE[tsql](../../../includes/tsql-md.md)] oder mit PowerShell für schreibgeschütztes Routing konfigurieren. *Schreibgeschütztes Routing* bezeichnet die Fähigkeit von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] , schreibgeschützte Verbindungsanforderungen an ein verfügbares [lesbares sekundäres AlwaysOn-Replikat](../../../database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups.md) weiterzuleiten (das heißt, an ein Replikat, das unter der sekundären Rolle für schreibgeschützte Arbeitsauslastungen konfiguriert ist). Um schreibgeschütztes Routing zu unterstützen, muss die Verfügbarkeitsgruppe einen [Verfügbarkeitsgruppenlistener](../../../database-engine/availability-groups/windows/listeners-client-connectivity-application-failover.md)besitzen. Schreibgeschützte Clients müssen die eigenen Verbindungsanforderungen an diesen Listener weiterleiten, und in den Verbindungszeichenfolgen des Clients muss die Anwendungsabsicht als "schreibgeschützt" angeben sein. Es muss sich also um *Verbindungsanforderungen für beabsichtigte Lesevorgänge* handeln.  
 
-Schreibgeschütztes Routing ist in [!INCLUDE[sssql15](../../../includes/sssql15-md.md)] und höher verfügbar.
+Schreibgeschütztes Routing ist in [!INCLUDE[sssql15](../../../includes/sssql16-md.md)] und höher verfügbar.
 
 > [!NOTE]  
 >  Informationen zum Konfigurieren eines lesbaren sekundären Replikats finden Sie unter [Konfigurieren des schreibgeschützten Zugriffs auf ein Verfügbarkeitsreplikat &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server.md)besitzen.  
@@ -104,7 +104,7 @@ Schreibgeschütztes Routing ist in [!INCLUDE[sssql15](../../../includes/sssql15-
         >  Sie müssen die URL für das schreibgeschützte Routing festlegen, bevor Sie die schreibgeschützte Routingliste festlegen.  
   
 ###  <a name="configure-load-balancing-across-read-only-replicas"></a><a name="loadbalancing"></a> Konfigurieren von Lastenausgleich über schreibgeschützte Replikate hinweg  
- Ab [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)]können Sie den Lastenausgleich über eine Reihe von schreibgeschützten Replikaten hinweg konfigurieren. Zuvor wurde der Datenverkehr beim schreibgeschützten Routing an das erste verfügbare Replikat in der Routingliste geleitet. Um dieses Feature nutzen zu können, verwenden Sie eine Ebene geschachtelter Klammern um die **READ_ONLY_ROUTING_LIST** -Serverinstanzen der Befehle **CREATE AVAILABILITY GROUP** oder **ALTER AVAILABILITY GROUP** .  
+ Ab [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)]können Sie den Lastenausgleich über eine Reihe von schreibgeschützten Replikaten hinweg konfigurieren. Zuvor wurde der Datenverkehr beim schreibgeschützten Routing an das erste verfügbare Replikat in der Routingliste geleitet. Um dieses Feature nutzen zu können, verwenden Sie eine Ebene geschachtelter Klammern um die **READ_ONLY_ROUTING_LIST** -Serverinstanzen der Befehle **CREATE AVAILABILITY GROUP** oder **ALTER AVAILABILITY GROUP** .  
   
  Die folgende Routingliste führt beispielsweise einen Lastenausgleich für Verbindungsanfragen mit Leseabsicht über zwei schreibgeschützte Replikate, `Server1` und `Server2`, hinweg aus. Die geschachtelten Klammern, die diese Server umgeben, identifizieren den Satz mit Lastenausgleich. Wenn keines der Replikate in diesem Satz verfügbar ist, wird versucht, sequenziell eine Verbindung zu den anderen Replikaten ( `Server3` und `Server4`) in der schreibgeschützten Routingliste herzustellen.  
   

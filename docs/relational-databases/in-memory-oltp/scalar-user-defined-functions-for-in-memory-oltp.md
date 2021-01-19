@@ -12,17 +12,17 @@ ms.assetid: d2546e40-fdfc-414b-8196-76ed1f124bf5
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f5fcb9975c3ccdbc1691d749a91e59e46bbe5980
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 9fd391acc854c4ae337789149955c331ac9543eb
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97485212"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172032"
 ---
 # <a name="scalar-user-defined-functions-for-in-memory-oltp"></a>Benutzerdefinierte Skalarfunktionen für In-Memory-OLTP
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
 
-  In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]können Sie nativ kompilierte benutzerdefinierte Skalarfunktionen erstellen und löschen. Sie können auch die folgenden benutzerdefinierten Funktionen ändern. Durch native Kompilierung wird die Leistung der Auswertung benutzerdefinierter Funktionen in Transact-SQL verbessert.  
+  In [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]können Sie nativ kompilierte benutzerdefinierte Skalarfunktionen erstellen und löschen. Sie können auch die folgenden benutzerdefinierten Funktionen ändern. Durch native Kompilierung wird die Leistung der Auswertung benutzerdefinierter Funktionen in Transact-SQL verbessert.  
   
  Wenn Sie eine nativ kompilierte benutzerdefinierte Skalarfunktion ändern, bleibt die Anwendung verfügbar, während der Vorgang ausgeführt und die neue Version der Funktion kompiliert wird.  
   

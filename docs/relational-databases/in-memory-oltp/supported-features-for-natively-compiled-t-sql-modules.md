@@ -12,12 +12,12 @@ ms.assetid: 05515013-28b5-4ccf-9a54-ae861448945b
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 3624ab326c6712805d934839fe9403cfe14410e8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 42d638afd9fc98fb68eb024c0a712bea5f278a26
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97485132"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170222"
 ---
 # <a name="supported-features-for-natively-compiled-t-sql-modules"></a>Unterstützte Funktionen für nativ kompilierte T-SQL-Module
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -42,20 +42,20 @@ SELECT-Klausel:
 -   Aliase für Spalten und Namen (entweder mithilfe von AS oder = Syntax).  
 
 -   Skalare Unterabfragen
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] werden skalare Unterabfragen für nativ kompilierte T-SQL-Module unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] werden skalare Unterabfragen für nativ kompilierte T-SQL-Module unterstützt.
 
 -   TOP*  
 
 -   SELECT DISTINCT  
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] CTP 1.1 wird der DISTINCT-Operator in nativ kompilierten Modulen unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] CTP 1.1 wird der DISTINCT-Operator in nativ kompilierten Modulen unterstützt.
 
         - DISTINCT-Aggregate werden nicht unterstützt.  
 
 -   UNION und UNION ALL
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] CTP 1.1 werden die Operatoren UNION und UNION ALL in nativ kompilierten Modulen unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] CTP 1.1 werden die Operatoren UNION und UNION ALL in nativ kompilierten Modulen unterstützt.
 
 -   Variablenzuweisungen  
 
@@ -66,12 +66,12 @@ FROM-Klausel:
 -   FROM \<natively compiled inline TVF>  
 
 -   LEFT OUTER JOIN, RIGHT OUTER JOIN, CROSS JOIN und INNER JOIN.
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] werden JOINS für nativ kompilierte T-SQL-Module unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] werden JOINS für nativ kompilierte T-SQL-Module unterstützt.
 
 -   Unterabfragen `[AS] table_alias`. Weitere Informationen finden Sie unter [FROM &#40;Transact-SQL &#41;](../../t-sql/queries/from-transact-sql.md). 
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] werden Unterabfragen für nativ kompilierte T-SQL-Module unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] werden Unterabfragen für nativ kompilierte T-SQL-Module unterstützt.
 
 WHERE-Klausel:  
 
@@ -79,8 +79,8 @@ WHERE-Klausel:
 
 -   AND, BETWEEN  
 -   OR, NOT, IN, EXISTS
-    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)]
-      Ab [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] werden die Operatoren OR, NOT, IN und EXISTS für nativ kompilierte T-SQL-Module unterstützt.
+    - **Gilt für:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)]
+      Ab [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] werden die Operatoren OR, NOT, IN und EXISTS für nativ kompilierte T-SQL-Module unterstützt.
 
 
 [GROUP BY](../../t-sql/queries/select-group-by-transact-sql.md) -Klausel:

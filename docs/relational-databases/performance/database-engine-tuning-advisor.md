@@ -12,12 +12,12 @@ f1_keywords:
 ms.assetid: 50dd0a0b-a407-4aeb-bc8b-b02a793aa30a
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 0fd814ec47548406eef0b8436751a034c97f4717
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: f3b5176bb0b9ac123090f032e0908d57155ff592
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505298"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172182"
 ---
 # <a name="database-engine-tuning-advisor"></a>Datenbankoptimierungsratgeber
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -73,7 +73,7 @@ Der Datenbankoptimierungsratgeber ist für die folgenden Typen von Abfragearbeit
  Die Befehlszeilenversion des Datenbankoptimierungsratgebers. Mit dem Hilfsprogramm **dta** soll es Ihnen ermöglicht werden, die Funktionalität des Datenbankoptimierungsratgebers in Anwendungen und Skripts zu verwenden.  
   
  **Arbeitsauslastung**  
- Eine Transact-SQL-Skriptdatei, Ablaufverfolgungsdatei oder Ablaufverfolgungstabelle, die eine repräsentative Arbeitsauslastung für die zu optimierenden Datenbanken enthält. Ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]können Sie den Plancache als Arbeitsauslastung angeben.  Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie [den Abfragespeicher als Workload angeben](../../relational-databases/performance/tuning-database-using-workload-from-query-store.md). 
+ Eine Transact-SQL-Skriptdatei, Ablaufverfolgungsdatei oder Ablaufverfolgungstabelle, die eine repräsentative Arbeitsauslastung für die zu optimierenden Datenbanken enthält. Ab [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]können Sie den Plancache als Arbeitsauslastung angeben.  Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie [den Abfragespeicher als Workload angeben](../../relational-databases/performance/tuning-database-using-workload-from-query-store.md). 
   
  **XML-Eingabedatei**  
  Eine Datei im XML-Format, mit der der Datenbankoptimierungsratgeber Arbeitsauslastungen optimieren kann. Die XML-Eingabedatei unterstützt erweiterte Optimierungsoptionen, die weder über die GUI noch im Hilfsprogramm **dta** verfügbar sind.  

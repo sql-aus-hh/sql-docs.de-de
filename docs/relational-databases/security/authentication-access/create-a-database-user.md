@@ -25,12 +25,12 @@ ms.assetid: 782798d3-9552-4514-9f58-e87be4b264e4
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c06db04136d3e38ad62fe71313490c0a54670c46
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5088cb94c4c4387cd77835bbe02502764d3c2384
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479431"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171702"
 ---
 # <a name="create-a-database-user"></a>Erstellen eines Datenbankbenutzers
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "97479431"
   
  Falls [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]für Sie neu ist, kann es schwer sein, festzustellen, was für einen Benutzertyp Sie erstellen wollen. Fragen Sie sich zunächst, ob die Person oder Gruppe, die Zugriff auf die Datenbank benötigt, über einen Anmeldenamen verfügt. Anmeldenamen in der Masterdatenbank sind weit verbreitet für die Personen, die [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] verwalten und für Personen, die Zugriff auf viele oder alle Datenbanken auf der Instanz von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]benötigen. Für diese Situation erstellen Sie einen **SQL-Benutzer mit Anmeldename**. Der Datenbankbenutzer ist die Identität der Anmeldung, wenn er mit einer Datenbank verbunden ist. Der Datenbankbenutzer kann den gleichen Namen verwenden wie die Anmeldung, dies ist jedoch nicht erforderlich. In diesem Thema wird davon ausgegangen, dass in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]bereits eine Anmeldung vorhanden ist. Informationen zum Erstellen eines Anmeldenamens finden Sie unter [Erstellen eines Anmeldenamens](../../../relational-databases/security/authentication-access/create-a-login.md).  
   
- Erstellen Sie einen **Windows-Benutzer** oder einen **SQL-Benutzer mit Kennwort**, falls die Person oder Gruppe, die Zugriff auf die Datenbank benötigt, über keinen Anmeldenamen verfügt, und wenn sie nur Zugriff auf eine oder einige wenige Datenbanken benötigen. Auch als eigenständiger Datenbankbenutzer bezeichnet, ist er keinem Anmeldenamen in der Masterdatenbank zugeordnet. Das ist eine hervorragende Wahl, wenn Sie die Möglichkeit haben möchten, Ihre Datenbank einfach zwischen Instanzen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]zu verschieben. Um diese Option in [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)]verwenden zu können, muss ein Administrator zunächst eigenständige Datenbanken für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]aktivieren, und die Datenbanken müssen für die Verwendung dieser Funktion aktiviert sein. Weitere Informationen finden Sie unter [Eigenständige Datenbankbenutzer - machen Sie Ihre Datenbank portabel](../../../relational-databases/security/contained-database-users-making-your-database-portable.md).  
+ Erstellen Sie einen **Windows-Benutzer** oder einen **SQL-Benutzer mit Kennwort**, falls die Person oder Gruppe, die Zugriff auf die Datenbank benötigt, über keinen Anmeldenamen verfügt, und wenn sie nur Zugriff auf eine oder einige wenige Datenbanken benötigen. Auch als eigenständiger Datenbankbenutzer bezeichnet, ist er keinem Anmeldenamen in der Masterdatenbank zugeordnet. Das ist eine hervorragende Wahl, wenn Sie die Möglichkeit haben möchten, Ihre Datenbank einfach zwischen Instanzen von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]zu verschieben. Um diese Option in [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)]verwenden zu können, muss ein Administrator zunächst eigenständige Datenbanken für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]aktivieren, und die Datenbanken müssen für die Verwendung dieser Funktion aktiviert sein. Weitere Informationen finden Sie unter [Eigenständige Datenbankbenutzer - machen Sie Ihre Datenbank portabel](../../../relational-databases/security/contained-database-users-making-your-database-portable.md).  
   
 > **WICHTIG!** Beim Herstellen einer Verbindung als ein eigenständigen Datenbankbenutzer, müssen Sie den Namen der Datenbank als Teil der Verbindungszeichenfolge bereitstellen. Klicken Sie im Dialogfeld [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)]Verbinden mit **auf** Optionen **, und klicken Sie dann auf die Registerkarte** Verbindungseigenschaften **, um die Datenbank in** anzugeben.  
   
