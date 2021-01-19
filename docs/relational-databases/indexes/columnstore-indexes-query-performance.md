@@ -12,12 +12,12 @@ ms.assetid: 83acbcc4-c51e-439e-ac48-6d4048eba189
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: e662c2fe2037725785b7c7caeeff1c52f45c34d1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 1ea031ed8c733a2ced272bf05c952b7f32aa7da4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480141"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172772"
 ---
 # <a name="columnstore-indexes---query-performance"></a>Columnstore-Indizes: Abfrageleistung
 
@@ -32,7 +32,7 @@ ms.locfileid: "97480141"
     
 ### <a name="1-organize-data-to-eliminate-more-rowgroups-from-a-full-table-scan"></a>1. Organisieren Sie Daten, um weitere Zeilengruppen im Rahmen eines vollständigen Tabellenscans zu beseitigen.    
     
--   **Nutzen Sie die Einfügereihenfolge.** Im Allgemeinen werden in einem herkömmlichen Data Warehouse die Daten in zeitlicher Reihenfolge eingefügt. Die Analyse erfolgt in der Zeitdimension. Beispiel: Analyse der Umsätze nach Quartal. Für diese Art der Arbeitsauslastung wird das Löschen der Zeilengruppe automatisch durchgeführt. In [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie die Anzahl der Zeilengruppen ermitteln, die während der Abfrageverarbeitung ausgelassen werden.    
+-   **Nutzen Sie die Einfügereihenfolge.** Im Allgemeinen werden in einem herkömmlichen Data Warehouse die Daten in zeitlicher Reihenfolge eingefügt. Die Analyse erfolgt in der Zeitdimension. Beispiel: Analyse der Umsätze nach Quartal. Für diese Art der Arbeitsauslastung wird das Löschen der Zeilengruppe automatisch durchgeführt. In [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie die Anzahl der Zeilengruppen ermitteln, die während der Abfrageverarbeitung ausgelassen werden.    
     
 -   **Nutzen Sie den gruppierten Rowstore-Index.** Wenn das allgemeine Abfrageprädikat für eine Spalte (z. B. C1) gilt, die nicht mit der Einfügereihenfolge der Zeile verbunden ist, können Sie einen gruppierten Rowstore-Index für die Spalte C1 erstellen und durch das Löschen des gruppierten Rowstore-Indexes einen gruppierten Columnstore-Index erstellen. Wenn Sie bei der Erstellung des gruppierten Columnstore-Indexes explizit `MAXDOP = 1` verwenden, wird der resultierende gruppierte Columnstore-Index nach Spalte C1 sortiert. Bei Angabe von `MAXDOP = 8` können Sie eine Überlappung der Werte über acht Zeilengruppen beobachten. Ein häufiges Szenario für diese Strategie, wenn Sie zu Beginn einen Columnstore-Index mit großer Datenmenge erstellen. Beachten Sie bei einem nicht gruppierten Columnstore-Index (NCCI), dass die grundlegende Rowstore-Tabelle über einen gruppierten Index verfügt. Die Zeilen sind bereits sortiert. In diesem Fall wird der resultierende Columnstore-Index automatisch sortiert. Beachten Sie unbedingt Folgendes: Der Columnstore-Index behält die Reihenfolge der Zeilen nicht inhärent bei. Wenn neue Zeilen eingefügt oder ältere Zeilen aktualisiert werden, müssen Sie den Vorgang ggf. wiederholen, da die Abfrageleistung der Analyse abnehmen kann.    
     
@@ -52,7 +52,7 @@ ms.locfileid: "97480141"
     
  Wenn die Tabelle mehr als eine Million Zeilen aufweist, [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] aber keine ausreichend dimensionierte Arbeitsspeicherzuweisung abrufen kann, um den Index mit MAXDOP zu erstellen, verringert [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]`MAXDOP` automatisch nach Bedarf, um es auf den verfügbaren Arbeitsspeicher zu beschränken.  In bestimmten Fällen muss DOP auf eins verringert werden, um den Index mit eingeschränktem Arbeitsspeicher zu erstellen.    
     
- Ab SQL [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wird die Abfrage immer im Batchmodus ausgeführt. In früheren Versionen wird die Batchausführung nur verwendet, wenn DOP größer als 1 ist.    
+ Ab SQL [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wird die Abfrage immer im Batchmodus ausgeführt. In früheren Versionen wird die Batchausführung nur verwendet, wenn DOP größer als 1 ist.    
     
 ## <a name="columnstore-performance-explained"></a>Erläuterungen zur Columnstore-Leistung    
  Columnstore-Indizes erzielen eine hohe Abfrageleistung durch die Kombination der Hochgeschwindigkeits-In-Memory-Modusbatchverarbeitung mit Techniken, die E/A-Anforderungen erheblich reduzieren. Da bei analytischen Abfragen eine große Anzahl von Zeilen gescannt werden, sind diese in der Regel E/A-gebunden, sodass eine E/A-Reduzierung während der Abfrageausführung maßgeblich für das Design der Columnstore-Indizes ist. Sobald die Daten in den Arbeitsspeicher gelesen wurden, ist es wichtig, dass die Anzahl der In-Memory-Vorgänge reduziert wird.    
@@ -82,7 +82,7 @@ ms.locfileid: "97480141"
     
  **Wann muss ein Columnstore-Index einen vollständigen Tabellenscan durchführen?**    
     
- Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] können Sie einen oder mehrere reguläre nicht gruppierte B-Strukturindizes für einen gruppierten Columnstore-Index genauso wie für einen Rowstore-Heap erstellen. Die nicht gruppierten B-Strukturindizes können eine Abfrage mit einem Gleichheitsprädikat oder einem Prädikat mit einem kleinen Wertebereich beschleunigen. Bei komplexeren Prädikaten kann der Abfrageoptimierer sich für einen vollständigen Tabellenscan entscheiden. Ohne die Fähigkeit, Zeilengruppen zu überspringen, wäre ein vollständiger Tabellenscan sehr zeitaufwändig, insbesondere bei großen Tabellen.    
+ Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] können Sie einen oder mehrere reguläre nicht gruppierte B-Strukturindizes für einen gruppierten Columnstore-Index genauso wie für einen Rowstore-Heap erstellen. Die nicht gruppierten B-Strukturindizes können eine Abfrage mit einem Gleichheitsprädikat oder einem Prädikat mit einem kleinen Wertebereich beschleunigen. Bei komplexeren Prädikaten kann der Abfrageoptimierer sich für einen vollständigen Tabellenscan entscheiden. Ohne die Fähigkeit, Zeilengruppen zu überspringen, wäre ein vollständiger Tabellenscan sehr zeitaufwändig, insbesondere bei großen Tabellen.    
     
  **Wann profitiert eine Analyseabfrage von einer Zeilengruppenlöschung für einen vollständigen Tabellenscan?**    
     
@@ -99,7 +99,7 @@ ms.locfileid: "97480141"
     
  Nicht alle Abfrageausführungsoperatoren können im Batchmodus ausgeführt werden. DML-Vorgänge, wie z. B. Einfügen, Löschen oder Aktualisieren, werden z. B. Zeile für Zeile ausgeführt. Batchmodusoperatoren richten sich an Operatoren, um die Abfrageleistung wie Scan, Join, Aggregate, Sort und so weiter zu beschleunigen. Da der Columnstore-Index in [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] eingeführt wurde, gibt es eine nachhaltige Initiative, um die Operatoren zu erweitern, die im Batchmodus ausgeführt werden können. Die folgende Tabelle führt die Operatoren auf, die im Batchmodus gemäß der Produktversion ausgeführt werden.    
     
-|Batchmodusoperatoren|Einsatz|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und [!INCLUDE[ssSDS](../../includes/sssds-md.md)]<sup>1</sup>|Kommentare|    
+|Batchmodusoperatoren|Einsatz|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und [!INCLUDE[ssSDS](../../includes/sssds-md.md)]<sup>1</sup>|Kommentare|    
 |---------------------------|------------------------|---------------------|---------------------|---------------------------------------|--------------|    
 |DML-Vorgänge (Insert, Delete, Update, Merge)||nein|nein|nein|DML ist kein Batchmodusvorgang, da es nicht parallel ist. Auch wenn die serielle Batchmodusverarbeitung aktiviert wird, kommt es zu keiner maßgeblichen Leistungssteigerung, wenn DML im Batchmodus verarbeitet wird.|    
 |Columnstore Index Scan|SCAN|Nicht verfügbar|ja|ja|Bei Columnstore-Indizes kann das Prädikat mittels Push an den SCAN-Knoten übertragen werden.|    
@@ -116,14 +116,14 @@ ms.locfileid: "97480141"
 |Singlethread-Abfragen mit einem seriellen Abfrageplan||nein|nein|ja||    
 |sort|Order by-Klausel für SCAN mit Columnstore-Index|nein|nein|ja||    
 |Top Sort||nein|nein|ja||    
-|Window Aggregates||Nicht verfügbar|Nicht verfügbar|ja|Neuer Operator in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].|    
+|Window Aggregates||Nicht verfügbar|Nicht verfügbar|ja|Neuer Operator in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].|    
     
-<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], [!INCLUDE[ssSDS](../../includes/sssds-md.md)] Premium-Tarife, Standard-Tarife (S3 und höher), alle vCore-Tarife sowie [!INCLUDE[ssPDW](../../includes/sspdw-md.md)].    
+<sup>1</sup> Gilt für [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], [!INCLUDE[ssSDS](../../includes/sssds-md.md)] Premium-Tarife, Standard-Tarife (S3 und höher), alle vCore-Tarife sowie [!INCLUDE[ssPDW](../../includes/sspdw-md.md)].    
 
 Weitere Informationen finden Sie im [Handbuch zur Architektur der Abfrageverarbeitung](../../relational-databases/query-processing-architecture-guide.md#batch-mode-execution).
     
 ### <a name="aggregate-pushdown"></a>Aggregatweitergabe    
- Ein normaler Ausführungspfad zur Aggregatberechnung, um die qualifizierenden Zeilen aus dem SCAN-Knoten abzurufen und die Werte im Batchmodus zu aggregieren. Dadurch wird eine gute Leistung bereitgestellt. Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] kann der Aggregatvorgang jedoch mittels Push an den SCAN-Knoten weitergegeben werden, um die Leistung der Aggregatberechnung in erheblichem Maße zusätzlich zur Ausführung im Batchmodus zu verbessern, sofern folgende Bedingungen erfüllt sind: 
+ Ein normaler Ausführungspfad zur Aggregatberechnung, um die qualifizierenden Zeilen aus dem SCAN-Knoten abzurufen und die Werte im Batchmodus zu aggregieren. Dadurch wird eine gute Leistung bereitgestellt. Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] kann der Aggregatvorgang jedoch mittels Push an den SCAN-Knoten weitergegeben werden, um die Leistung der Aggregatberechnung in erheblichem Maße zusätzlich zur Ausführung im Batchmodus zu verbessern, sofern folgende Bedingungen erfüllt sind: 
  
 -    Bei den Aggregaten handelt es sich um `MIN`, `MAX`, `SUM`, `COUNT` und `COUNT(*)`. 
 -  Der Aggregatoperator muss sich über dem SCAN-Knoten oder über dem SCAN-Knoten mit `GROUP BY` befinden.
@@ -157,7 +157,7 @@ Bei einem Fakt kann es sich beispielsweise um einen Datensatz für den Verkauf e
     
 Betrachten Sie z.B. eine Dimensionstabelle namens `Products`. Ein typischer Primärschlüssel wäre `ProductCode`, der in der Regel als Zeichenfolgendatentyp dargestellt wird. Für die Abfrageleistung hat es sich bewährt, einen Ersatzschlüssel zu erstellen (in der Regel eine Spalte mit ganzen Zahlen), um aus der Faktentabelle auf die Zeile in der Dimensionstabelle zu verweisen. 
     
-Der Columnstore-Index führt die Analyseabfragen mit Joins/Prädikaten mit Schlüsseln auf numerischer Basis bzw. Ganzzahlbasis sehr effizient aus. Bei vielen Kundenworkloads wurden jedoch zeichenfolgenbasierte Spalten verwendet, die Fakt-/Dimensionstabellen verknüpfen. Dies führte dazu, dass die Abfrageleistung mit Columnstore-Indizes nicht gut war. [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] verbessert die Leistung von Analyseabfragen mit zeichenfolgenbasierten Spalten erheblich, indem die Prädikate mit Zeichenfolgenspalten an den SCAN-Knoten weitergegeben werden.    
+Der Columnstore-Index führt die Analyseabfragen mit Joins/Prädikaten mit Schlüsseln auf numerischer Basis bzw. Ganzzahlbasis sehr effizient aus. Bei vielen Kundenworkloads wurden jedoch zeichenfolgenbasierte Spalten verwendet, die Fakt-/Dimensionstabellen verknüpfen. Dies führte dazu, dass die Abfrageleistung mit Columnstore-Indizes nicht gut war. [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] verbessert die Leistung von Analyseabfragen mit zeichenfolgenbasierten Spalten erheblich, indem die Prädikate mit Zeichenfolgenspalten an den SCAN-Knoten weitergegeben werden.    
     
 Die Weitergabe von Zeichenfolgenprädikaten nutzt zur Verbesserung der Abfrageleistung das primäre bzw. sekundäre Wörterbuch, das für die Spalten erstellt wurde. Nehmen Sie z. B. ein Zeichenfolgenspaltensegment in einer Zeilengruppe, bestehend aus 100 unterschiedlichen Zeichenfolgenwerten. Das bedeutet, dass bei einer Million Zeilen auf jeden einzelnen Zeichenfolgenwert durchschnittlich 10.000 Mal verwiesen wird.    
     

@@ -12,17 +12,17 @@ ms.assetid: e1328615-6b59-4473-8a8d-4f360f73187d
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: e89b5ab77b4b77d5cca83f6b3691027122444fe1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4e62692402f33bfc42957363794bad9a698b18bb
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97465341"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172762"
 ---
 # <a name="get-started-with-columnstore-for-real-time-operational-analytics"></a>Erste Schritte mit Columnstore für die operative Echtzeitanalyse
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
 
-  Mit [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wird die operative Echtzeitanalyse eingeführt, die Möglichkeit, Analyse- und OLTP-Workloads zugleich auf den gleichen Datenbanktabellen auszuführen. Damit können Sie nicht nur Analysen in Echtzeit ausführen, sondern benötigen auch keine ETL-Aufträge und kein Data Warehouse mehr.  
+  Mit [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wird die operative Echtzeitanalyse eingeführt, die Möglichkeit, Analyse- und OLTP-Workloads zugleich auf den gleichen Datenbanktabellen auszuführen. Damit können Sie nicht nur Analysen in Echtzeit ausführen, sondern benötigen auch keine ETL-Aufträge und kein Data Warehouse mehr.  
   
 ## <a name="real-time-operational-analytics-explained"></a>Grundlagen der operativen Echtzeitanalyse  
  Bisher verwendeten Unternehmen separate Systeme für operative (d. h. OLTP) und Analysearbeitsauslastungen. Bei derartigen Systemen verschieben ETL-Aufträge (Extrahieren, Transformieren, Laden) die Daten aus dem Betriebs- in den Analysespeicher. Die Analysedaten sind normalerweise in einem Data Warehouse oder Data Mart gespeichert, die dediziert für die Ausführung von Analyseabfragen verwendet werden. Diese Lösung hat sich zwar als Standard etabliert, sie sieht sich jedoch diesen drei Herausforderungen gegenüber:  

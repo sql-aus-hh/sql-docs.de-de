@@ -2,7 +2,7 @@
 description: Aktivieren von Always Encrypted mit Secure Enclaves für vorhandene verschlüsselte Spalten
 title: Aktivieren von Always Encrypted mit Secure Enclaves für vorhandene verschlüsselte Spalten | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/30/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -11,15 +11,15 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 3c23c10d99ab16e3da138a03eac14b48d2468909
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 03a57949624897b2cd2e0552892803c21a408b52
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477671"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534809"
 ---
 # <a name="enable-always-encrypted-with-secure-enclaves-for-existing-encrypted-columns"></a>Aktivieren von Always Encrypted mit Secure Enclaves für vorhandene verschlüsselte Spalten 
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
 In diesem Artikel wird beschrieben, wie Sie die Funktionalität für Always Encrypted mit Secure Enclaves entsperren und Enclave-Berechnungen für vorhandene verschlüsselte Spalten aktivieren.  
 
@@ -74,5 +74,5 @@ Diese Methode umfasst die erneute Verschlüsselung eines Enclave-fähigen Spalte
 Weitere Informationen zum Rotieren einer Spaltenverschlüsselung mithilfe eines clientseitigen Tools finden Sie unter [Rotieren von Always Encrypted-Schlüsseln mithilfe von SQL Server Management Studio](rotate-always-encrypted-keys-using-ssms.md) und [Rotieren von Always Encrypted-Schlüsseln mithilfe von PowerShell](rotate-always-encrypted-keys-using-powershell.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Abfragen von Spalten mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
+- [Ausführen von Transact-SQL-Anweisungen mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
 - [Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-client-development.md)

@@ -25,12 +25,12 @@ helpviewer_keywords:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 77bd2f1cb2cd3e028bccbc5185f2336812f3f891
-ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
+ms.openlocfilehash: 7800e75ee2b35b491053bbcbc2ef3c05e86e1939
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98005425"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172782"
 ---
 # <a name="statistics"></a>Statistik
 
@@ -114,12 +114,12 @@ ORDER BY s.name;
     * Wenn die Tabellenkardinalität zum Zeitpunkt der Statistikauswertung 500 oder weniger beträgt, wird nach jeweils 500 Änderungen eine Aktualisierung durchgeführt.
     * Wenn die Tabellenkardinalität zum Zeitpunkt der Statistikauswertung über 500 liegt, wird nach jeweils 500 Änderungen + 20 Prozent eine Aktualisierung durchgeführt.
 
-* Ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und bei einem [Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) von unter 130 verwendet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen abnehmenden dynamischen Schwellenwert für das Statistikupdate, der gemäß der Anzahl von Zeilen in der Tabelle angepasst wird. Dieser berechnet sich als Quadratwurzel des Produkts von 1000 und der aktuellen Tabellenkardinalität. Wenn Ihre Tabelle beispielsweise 2 Millionen Zeilen enthält, lautet die Berechnung folgendermaßen: sqrt(1000 * 2000000) = 44721.359. Durch diese Änderung werden Statistiken für große Tabellen häufiger aktualisiert. Weist eine Datenbank jedoch einen Kompatibilitätsgrad unter 130 auf, dann gilt der Schwellenwert [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
+* Ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und bei einem [Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) von unter 130 verwendet [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen abnehmenden dynamischen Schwellenwert für das Statistikupdate, der gemäß der Anzahl von Zeilen in der Tabelle angepasst wird. Dieser berechnet sich als Quadratwurzel des Produkts von 1000 und der aktuellen Tabellenkardinalität. Wenn Ihre Tabelle beispielsweise 2 Millionen Zeilen enthält, lautet die Berechnung folgendermaßen: sqrt(1000 * 2000000) = 44721.359. Durch diese Änderung werden Statistiken für große Tabellen häufiger aktualisiert. Weist eine Datenbank jedoch einen Kompatibilitätsgrad unter 130 auf, dann gilt der Schwellenwert [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
 
 > [!IMPORTANT]
-> In [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] bis [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bzw. in [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher mit [Datenbank-Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 und niedriger müssen Sie das [Ablaufverfolgungsflag 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) aktivieren, damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen sinkenden Schwellenwert für das dynamische Statistikupdate verwendet.
+> In [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] bis [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bzw. in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher mit [Datenbank-Kompatibilitätsgrad](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 und niedriger müssen Sie das [Ablaufverfolgungsflag 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) aktivieren, damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] einen sinkenden Schwellenwert für das dynamische Statistikupdate verwendet.
 
-Gehen Sie folgendermaßen vor, um das Ablaufverfolgungsflag 2371 in Ihrer Umgebung vor [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] zu aktivieren:
+Gehen Sie folgendermaßen vor, um das Ablaufverfolgungsflag 2371 in Ihrer Umgebung vor [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] zu aktivieren:
 
  - Wenn Sie keine Leistungsprobleme aufgrund von veralteten Statistiken festgestellt haben, ist es nicht erforderlich, dieses Ablaufverfolgungsflag zu aktivieren.
  - Auf einem SAP-System sollten Sie das Flag aktivieren.  Zusätzliche Informationen finden Sie in diesem [Blog](/archive/blogs/saponsqlserver/changes-to-automatic-update-statistics-in-sql-server-traceflag-2371).
@@ -297,7 +297,7 @@ Nur [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] kann temporäre St
  Vorgänge wie das Neuerstellen, Defragmentieren oder Neuorganisieren eines Indexes wirken sich nicht auf die Verteilung von Daten aus. Folglich müssen Sie keine Statistiken aktualisieren, nachdem Sie die Vorgänge [ALTER INDEX REBUILD](../../t-sql/statements/alter-index-transact-sql.md#rebuilding-indexes), [DBCC DBREINDEX](../../t-sql/database-console-commands/dbcc-dbreindex-transact-sql.md), [DBCC INDEXDEFRAG](../../t-sql/database-console-commands/dbcc-indexdefrag-transact-sql.md) oder [ALTER INDEX REORGANIZE](../../t-sql/statements/alter-index-transact-sql.md#reorganizing-indexes) ausgeführt haben. Der Abfrageoptimierer aktualisiert Statistiken, wenn mit ALTER INDEX REBUILD oder DBCC DBREINDEX ein Index für eine Tabelle oder Sicht erstellt wird. Diese Statistikaktualisierung tritt jedoch als Nebenprodukt der Indexneuerstellung auf. Der Abfrageoptimierer führt nach einem DBCC INDEXDEFRAG-Vorgang oder ALTER INDEX REORGANIZE-Vorgang keine Statistikaktualisierung durch. 
  
 > [!TIP]
-> Verwenden Sie ab [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 CU4 die PERSIST_SAMPLE_PERCENT-Option von [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md) oder [UPDATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/update-statistics-transact-sql.md), um einen bestimmten Prozentsatz für die Stichprobenentnahme für nachfolgende Statistikaktualisierungen festzulegen und beizubehalten, die einen solchen Prozentzsatz nicht explizit angeben.
+> Verwenden Sie ab [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 CU4 die PERSIST_SAMPLE_PERCENT-Option von [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md) oder [UPDATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/update-statistics-transact-sql.md), um einen bestimmten Prozentsatz für die Stichprobenentnahme für nachfolgende Statistikaktualisierungen festzulegen und beizubehalten, die einen solchen Prozentzsatz nicht explizit angeben.
 
 ### <a name="automatic-index-and-statistics-management"></a>Automatische Verwaltung von Index und Statistiken
 

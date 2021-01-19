@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: e1e55519-97ec-4404-81ef-881da3b42006
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: b18a3131329e0485221a0ae2cdaafd0726a4f31c
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 1b5726aad103012b0ed7619749c1f6f669baa234
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878961"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241833"
 ---
 # <a name="enable-encrypted-connections-to-the-database-engine"></a>Aktivieren von verschlüsselten Verbindungen zur Datenbank-Engine
 
@@ -40,7 +40,7 @@ ms.locfileid: "97878961"
  Der Servercomputer muss über ein Zertifikat verfügen. [Importieren Sie das Zertifikat in Windows](#single-server), um es für den Servercomputer bereitzustellen. Der Clientcomputer muss so eingerichtet werden, dass er die [Stammzertifizierungsstelle des Zertifikats als vertrauenswürdig einstuft](#about).  
   
 > [!IMPORTANT]
-> Seit [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] wird Secure Sockets Layer (SSL) nicht mehr unterstützt. Verwenden Sie stattdessen Transport Layer Security (TLS).
+> Seit [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] wird Secure Sockets Layer (SSL) nicht mehr unterstützt. Verwenden Sie stattdessen Transport Layer Security (TLS).
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
@@ -92,7 +92,7 @@ Damit in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ein TLS-Zerti
 
 - Mit der **Subject**-Eigenschaft des Zertifikats muss angegeben werden, dass der allgemeine Name (Common Name, CN) mit dem Hostnamen oder dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des Servercomputers übereinstimmt. Wenn Sie den Hostnamen verwenden, muss das DNS-Suffix im Zertifikat angegeben werden. Wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf einem Failovercluster ausgeführt wird, muss der allgemeine Name mit dem Hostnamen oder FQDN des virtuellen Servers übereinstimmen, und die Zertifikate müssen auf allen Knoten im Failovercluster bereitgestellt werden.
 
-- [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] und der [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] Native Client (SNAC) unterstützen Platzhalterzertifikate. SNAC wurde als veraltet markiert und durch den [Microsoft OLE DB-Treiber für SQL Server](../../connect/oledb/oledb-driver-for-sql-server.md) und [Microsoft ODBC Driver for SQL Server](../../connect/odbc/microsoft-odbc-driver-for-sql-server.md) ersetzt. Andere Clients unterstützen möglicherweise keine Platzhalterzertifikate. Weitere Informationen finden Sie in der Clientdokumentation und in [KB 258858](https://support.microsoft.com/kb/258858).       
+- [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] und der [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] Native Client (SNAC) unterstützen Platzhalterzertifikate. SNAC wurde als veraltet markiert und durch den [Microsoft OLE DB-Treiber für SQL Server](../../connect/oledb/oledb-driver-for-sql-server.md) und [Microsoft ODBC Driver for SQL Server](../../connect/odbc/microsoft-odbc-driver-for-sql-server.md) ersetzt. Andere Clients unterstützen möglicherweise keine Platzhalterzertifikate.      
   Platzhalterzertifikate können nicht mithilfe des SQL Server-Konfigurations-Managers ausgewählt werden. Sie müssen den Registrierungsschlüssel `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQLServer\SuperSocketNetLib` bearbeiten und den Fingerabdruck des Zertifikats ohne Leerraum zum Wert des **Zertifikats** hinzufügen, um ein Platzhalterzertifikat zu verwenden.  
 
   > [!WARNING]  

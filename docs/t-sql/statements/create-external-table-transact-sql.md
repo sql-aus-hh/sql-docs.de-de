@@ -22,12 +22,12 @@ ms.assetid: 6a6fd8fe-73f5-4639-9908-2279031abdec
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 2595db017ce9572f6ceb7a4c7eca16f9db9e5abc
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: be0e9f5298430dc1abb6ca6b0c2c59c84d601ba2
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095795"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241786"
 ---
 # <a name="create-external-table-transact-sql"></a>CREATE EXTERNAL TABLE (Transact-SQL)
 
@@ -849,8 +849,6 @@ Wenn LOCATION als Ordner angegeben wird, ruft eine PolyBase-Abfrage, die aus der
 In diesem Beispiel gibt eine PolyBase-Abfrage Zeilen aus „mydata.txt“ und „mydata2.txt“ zurück, wenn LOCATION='/webdata/'. „Mydata3.txt“ wird nicht zurückgegeben, da es sich um einen Unterordner eines ausgeblendeten Ordners handelt. Es werden auch keine „_hidden.txt“-Dateien zurückgegeben, da es sich um eine ausgeblendete Datei handelt.
 
 ![Rekursive Daten für externe Tabellen](../../t-sql/statements/media/aps-polybase-folder-traversal.png "Rekursive Daten für externe Tabellen")
-
-Legen Sie das Attribut \<polybase.recursive.traversal> in der Konfigurationsdatei „core-site.xml“ auf FALSE fest, um den Standardordner zu ändern, und nur aus dem Stammordner zu lesen. Diese Datei befindet sich unter `<SqlBinRoot>\PolyBase\Hadoop\Conf with SqlBinRoot the bin root of SQl Server`. Beispiel: `C:\\Program Files\\Microsoft SQL Server\\MSSQL13.XD14\\MSSQL\\Binn`.
 
 DATA_SOURCE = *external_data_source_name*: Gibt den Namen der externen Datenquelle an, die den Speicherort der externen Daten enthält. Dieser Speicherort befindet sich in Azure Data Lake. Verwenden Sie zum Erstellen einer externen Datenquelle [CREATE EXTERNAL DATA SOURCE](../../t-sql/statements/create-external-data-source-transact-sql.md).
 
