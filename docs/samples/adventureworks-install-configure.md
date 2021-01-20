@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1b275826c20944d11fb7e88266a882b3834fbfac
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: ec38d7eeed89d03bab4ebd92446517542e2e51a0
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97490090"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597004"
 ---
 # <a name="adventureworks-sample-databases"></a>AdventureWorks-Beispiel Datenbanken
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -45,10 +45,10 @@ Wenn Sie nicht sicher sind, was Sie benötigen, beginnen Sie mit der OLTP-Versio
 |[AdventureWorks2019. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak)|[AdventureWorksDW2019. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2019.bak)|[AdventureWorksLT2019. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2019.bak)|
 |[AdventureWorks2017. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak)|[AdventureWorksDW2017. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2017.bak)|[AdventureWorksLT2017. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2017.bak)|
 |[AdventureWorks2016. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016.bak)|[AdventureWorksDW2016. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2016.bak)|[AdventureWorksLT2016. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2016.bak)|
-|[AdventureWorks2016_EXT. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016_EXT.bak)|[AdventureWorksDW2016_EXT. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2016_EXT.bak)| – |
+|[AdventureWorks2016_EXT. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016_EXT.bak)|[AdventureWorksDW2016_EXT. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2016_EXT.bak)| Nicht zutreffend |
 |[AdventureWorks2014. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2014.bak)|[AdventureWorksDW2014. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2014.bak)|[AdventureWorksLT2014. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2014.bak)|
 |[AdventureWorks2012. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2012.bak)|[AdventureWorksDW2012. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2012.bak)|[AdventureWorksLT2012. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2012.bak)|
-|[AdventureWorks2008R2. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks2008r2/adventure-works-2008r2-oltp.bak)| [AdventureWorksDW2008R2. bak](https://github.com/microsoft/sql-server-samples/releases/download/adventureworks2008r2/adventure-works-2008r2-dw.bak) | – |
+|[AdventureWorks2008R2. bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks2008r2/adventure-works-2008r2-oltp.bak)| [AdventureWorksDW2008R2. bak](https://github.com/microsoft/sql-server-samples/releases/download/adventureworks2008r2/adventure-works-2008r2-dw.bak) | Nicht zutreffend |
 
 Weitere Dateien finden Sie direkt auf GitHub: 
 
@@ -63,7 +63,7 @@ Sie können die- `.bak` Datei verwenden, um die Beispieldatenbank auf Ihrer SQL 
 
 # <a name="sql-server-management-studio-ssms"></a>[SQL Server Management Studio (SSMS)](#tab/ssms)
 
-Wenn Sie mit der Verwendung von SQL Server Management Studio (SSMS) nicht vertraut sind, finden Sie unter [Connect & Query](../ssms/quickstarts/connect-query-sql-server.md) to Started. 
+Wenn Sie mit der Verwendung von SQL Server Management Studio (SSMS) nicht vertraut sind, finden Sie unter [Connect & Query](../ssms/quickstarts/ssms-connect-query-sql-server.md) to Started. 
 
 Führen Sie die folgenden Schritte aus, um die Datenbank in SQL Server Management Studio wiederherzustellen:
 
@@ -208,5 +208,5 @@ Nachdem Sie die Beispieldatenbank wieder hergestellt haben, verwenden Sie die fo
 
 
 [Tutorials für SQL Server Datenbank-Engine](../relational-databases/database-engine-tutorials.md)   
-[Verbinden und Abfragen mit SQL Server Management Studio (SSMS)](../ssms/quickstarts/connect-query-sql-server.md)   
-[Verbinden und Abfragen mit Azure Data Studio](../ssms/quickstarts/connect-query-sql-server.md)
+[Verbinden und Abfragen mit SQL Server Management Studio (SSMS)](../ssms/quickstarts/ssms-connect-query-sql-server.md)   
+[Verbinden und Abfragen mit Azure Data Studio](../ssms/quickstarts/ssms-connect-query-sql-server.md)

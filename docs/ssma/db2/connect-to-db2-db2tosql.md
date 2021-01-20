@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.assetid: 9d485fd0-ab5d-402a-a59a-e9982a61b7de
 author: nahk-ivanov
 ms.author: alexiva
-ms.openlocfilehash: cef31b2968ea0241b3c999e0dbd781d70974b360
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: c590a76696f2729bf5d1c6c5d4ca5b0242a63df6
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88426972"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596728"
 ---
 # <a name="connect-to-db2-db2tosql"></a>Herstellen einer Verbindung mit DB2 (DB2ToSQL)
 Verwenden Sie das Dialogfeld **mit DB2 verbinden** , um eine Verbindung mit der DB2-Datenbank herzustellen, die Sie migrieren möchten.  
   
-Um auf dieses Dialogfeld zuzugreifen, wählen Sie im Menü **Datei** die Option **mit DB2 verbinden**aus. Wenn Sie bereits eine Verbindung hergestellt haben, stellt der Befehl die **Verbindung mit DB2 wieder**her.  
+Um auf dieses Dialogfeld zuzugreifen, wählen Sie im Menü **Datei** die Option **mit DB2 verbinden** aus. Wenn Sie bereits eine Verbindung hergestellt haben, stellt der Befehl die **Verbindung mit DB2 wieder** her.  
   
-## <a name="options"></a>Tastatur  
+## <a name="options"></a>Optionen  
 **Anbieter**  
 Wählen Sie den Datenzugriffs Anbieter für die Verbindung mit der DB2-Datenbank aus. Verfügbare Anbieter sind der DB2-Client Anbieter und der OLE DB-Anbieter. Der Standardwert ist der DB2-Client Anbieter.  
   
@@ -70,7 +70,6 @@ Wenn Sie den Verbindungs Zeichen folgen Modus verwenden, geben Sie die vollstän
   
 Verbindungs Zeichenfolgen bestehen aus Parameter Name-Wert-Paaren.  
   
--   Informationen OLE DB Verbindungs Zeichenfolgen finden Sie im Artikel [Microsoft OLE DB-Anbieter für DB2](https://go.microsoft.com/fwlink/?LinkId=85640) in der MSDN Library.  
+-   Informationen OLE DB Verbindungs Zeichenfolgen finden Sie im Artikel [Microsoft OLE DB-Anbieter für DB2](../../ado/guide/appendixes/microsoft-ole-db-provider-for-oracle.md) in der MSDN Library.  
   
 Fügen Sie für SSMA-Verbindungs Zeichenfolgen immer den Provider-Parameter ein. Stellen Sie außerdem sicher, dass Sie den Port-Parameter einschließen, wenn Sie eine Verbindung mit DB2 herstellen.  
-  

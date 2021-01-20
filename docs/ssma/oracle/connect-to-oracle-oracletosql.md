@@ -10,20 +10,20 @@ ms.technology: ssma
 ms.topic: conceptual
 ms.assetid: 23a48cb6-ff30-49bb-b4a7-603ebcab336f
 ms.author: alexiva
-ms.openlocfilehash: 497c3df711c2cfacbb2774edf791e4c36837bb87
-ms.sourcegitcommit: e572f1642f588b8c4c75bc9ea6adf4ccd48a353b
+ms.openlocfilehash: 8e13b9ea8bcd264d1668cf0979dc2956bd11bef7
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84779042"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596721"
 ---
 # <a name="connect-to-oracle-oracletosql"></a>Herstellen einer Verbindung mit Oracle (oracleto SQL)
 
 Verwenden Sie das Dialogfeld **Verbindung mit Oracle herstellen** , um eine Verbindung mit der Oracle-Datenbank herzustellen, die Sie migrieren möchten.
 
-Um auf dieses Dialogfeld zuzugreifen, wählen Sie im Menü **Datei** die Option **mit Oracle verbinden**aus. Wenn Sie bereits eine Verbindung hergestellt haben, stellt der Befehl die **Verbindung mit Oracle wieder**her.
+Um auf dieses Dialogfeld zuzugreifen, wählen Sie im Menü **Datei** die Option **mit Oracle verbinden** aus. Wenn Sie bereits eine Verbindung hergestellt haben, stellt der Befehl die **Verbindung mit Oracle wieder** her.
 
-## <a name="options"></a>Tastatur
+## <a name="options"></a>Optionen
 
 **Anbieter**  
 Wählen Sie den Datenzugriffs Anbieter für die Verbindung mit der Oracle-Datenbank aus. Verfügbare Anbieter sind der Oracle-Client Anbieter und der OLE DB-Anbieter. Der Standardwert ist der Oracle-Client Anbieter.
@@ -70,7 +70,7 @@ Wenn Sie den Verbindungs Zeichen folgen Modus verwenden, geben Sie die vollstän
 
 Verbindungs Zeichenfolgen bestehen aus Parameter Name-Wert-Paaren.
 
-- Informationen OLE DB Verbindungs Zeichenfolgen finden Sie im Artikel [Microsoft OLE DB-Anbieter für Oracle](https://go.microsoft.com/fwlink/?LinkId=85640) in der MSDN Library.
+- Informationen OLE DB Verbindungs Zeichenfolgen finden Sie im Artikel [Microsoft OLE DB-Anbieter für Oracle](../../ado/guide/appendixes/microsoft-ole-db-provider-for-oracle.md) in der MSDN Library.
 
 Fügen Sie für SSMA-Verbindungs Zeichenfolgen immer den Provider-Parameter ein. Stellen Sie außerdem sicher, dass Sie den Port-Parameter einschließen, wenn Sie eine Verbindung mit Oracle herstellen.
 
