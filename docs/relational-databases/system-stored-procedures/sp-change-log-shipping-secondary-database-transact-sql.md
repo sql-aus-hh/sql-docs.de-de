@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 3ebcf2f1-980f-4543-a84b-fbaeea54eeac
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: 5fc10c705564c88fe157860d00a61fa5ea682cc0
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 81a5c562ddade5c60458ad491a401dab916c59d4
+ms.sourcegitcommit: fc24f7ecc155d97e789676fffe55e45840fcb088
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88486281"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620294"
 ---
 # <a name="sp_change_log_shipping_secondary_database-transact-sql"></a>sp_change_log_shipping_secondary_database (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -74,9 +74,9 @@ sp_change_log_shipping_secondary_database
   
 `[ @restore_threshold = ] 'restore_threshold'` Die zulässige Anzahl von Minuten zwischen Wiederherstellungs Vorgängen, bevor eine Warnung generiert wird. *restore_threshold* ist vom Datentyp **int** und kann nicht NULL sein.  
   
-`[ @threshold_alert = ] 'threshold_alert'` Die Warnung, die ausgelöst werden soll, wenn der Wiederherstellungs Schwellenwert überschritten wird. *threshold_alert* ist vom Datentyp **int**und hat den Standardwert 14420.  
+`[ @threshold_alert = ] 'threshold_alert'` Die Warnung, die ausgelöst werden soll, wenn der Wiederherstellungs Schwellenwert überschritten wird. *threshold_alert* ist vom Datentyp **int** und hat den Standardwert 14421.  
   
-`[ @threshold_alert_enabled = ] 'threshold_alert_enabled'` Gibt an, ob eine Warnung ausgelöst wird, wenn *restore_threshold*überschritten wird. 1 = aktiviert; 0 = deaktiviert. *threshold_alert_enabled* ist vom **Bit** und kann nicht NULL sein.  
+`[ @threshold_alert_enabled = ] 'threshold_alert_enabled'` Gibt an, ob eine Warnung ausgelöst wird, wenn *restore_threshold* überschritten wird. 1 = aktiviert; 0 = deaktiviert. *threshold_alert_enabled* ist vom **Bit** und kann nicht NULL sein.  
   
 `[ @history_retention_period = ] 'history_retention_period'` Der Zeitraum in Minuten, in dem der Verlauf beibehalten wird. *history_retention_period* ist vom Datentyp **int**. Der Wert 1440 wird verwendet, wenn kein Wert angegeben wird.  
   
