@@ -19,12 +19,12 @@ helpviewer_keywords:
 - scripts [SQL Server], SQL Server Management Studio
 ms.custom: seo-lt-2019
 ms.date: 03/13/2018
-ms.openlocfilehash: 4662b6e9bcea26bc93ab0d5bf07a767797a98d70
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: ee33e30ef69b0c4a464e91576dc33e6d15ca4890
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92035938"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596975"
 ---
 # <a name="use-templates-in-sql-server-management-studio"></a>Verwenden von Vorlagen in SQL Server Management Studio
 
@@ -118,7 +118,7 @@ Sie können im Vorlagenbrowser auch eine neue Vorlage erstellen. In den folgende
 
 Am besten machen Sie sich mit SSMS vertraut, indem Sie einige praktische Aufgaben durchführen. Dieses *Tutorial* und Artikel zu *Vorgehensweisen* unterstützen Sie bei der Verwendung der verschiedenen Features, die in SSMS verfügbar sind.  In diesen Artikeln erfahren Sie, wie Sie die Komponenten von SSMS verwalten und wie Sie die Funktionen finden, die Sie regelmäßig verwenden.
 
-* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/connect-query-sql-server.md)
+* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/ssms-connect-query-sql-server.md)
 * [Skripterstellung](../tutorials/scripting-ssms.md)
 * [SSMS-Konfiguration](../tutorials/ssms-configuration.md)
 * [Zusätzliche Tipps und Tricks für die Verwendung von SSMS](../tutorials/ssms-tricks.md)

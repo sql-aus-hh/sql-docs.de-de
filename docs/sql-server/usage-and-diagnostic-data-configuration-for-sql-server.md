@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.prod: sql
 ms.custom: ''
 ms.technology: configuration
-ms.openlocfilehash: 76ffe524200c2f8df136074bc089b13e7404d6bd
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 6580e33a824807312fb7f2d37d5cab893dbab2a9
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86902016"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596523"
 ---
 # <a name="configure-usage-and-diagnostic-data-collection-for-sql-server-ceip"></a>Konfigurieren der Sammlung von Nutzungs- und Diagnosedaten für SQL Server (CEIP)
 
@@ -50,7 +50,7 @@ Beachten Sie, dass dieser Prozess auf den erforderlichen Mechanismus für die Li
 - Mit der Anwendung „Fehler- und Verwendungsberichterstellung“
 - Mit dem Festlegen von Registrierungsunterschlüsseln auf dem Server
 
-Schauen Sie sich [Kundenfeedback zu SQL Server unter Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-customer-feedback) an, um Informationen zu SQL Server unter Linux zu erhalten.
+Schauen Sie sich [Kundenfeedback zu SQL Server unter Linux](../linux/usage-and-diagnostic-data-configuration-for-sql-server-linux.md) an, um Informationen zu SQL Server unter Linux zu erhalten.
 
 > [!NOTE]
 > Sie können das Senden von Informationen an Microsoft nur in bezahlten Versionen von SQL Server deaktivieren.
@@ -66,7 +66,7 @@ Informationen zur Deaktivierung der Datensammlung finden Sie unter [Aktivieren o
 Nach dem Setup kann die Einstellung für die Nutzungs- und Diagnosedatensammlung für SQL Server-Komponenten und -Instanzen über die Anwendung „Fehler- und Verwendungsberichterstellung“ geändert werden. Diese Anwendung ist mit der Installation von SQL Server erhältlich. Mit diesem Tool kann für jede SQL Server-Instanz eine eigene Einstellung für Verwendungsberichte konfiguriert werden.
 
 > [!NOTE]
-> Die Anwendung „Fehler- und Verwendungsberichterstellung“ ist unter den Konfigurationstools von SQL Server aufgelistet. Mit diesem Tool können Sie Ihre Einstellungen für die Fehlerberichterstattung und die Nutzungs- und Diagnosedatensammlung auf dieselbe Weise wie in SQL Server 2017 verwalten. Die Fehlerberichterstattung ist unabhängig von der Nutzungs- und Diagnosedatensammlung und kann daher getrennt von der Nutzungs- und Diagnosedatensammlung aktiviert oder deaktiviert werden. Bei der Fehlerberichterstattung werden Absturzabbilder erfasst, die an Microsoft gesendet werden, und die möglicherweise vertrauliche Informationen enthalten, wie in den [Datenschutzbestimmungen](https://go.microsoft.com/fwlink/?LinkID=868444) erläutert wird.
+> Die Anwendung „Fehler- und Verwendungsberichterstellung“ ist unter den Konfigurationstools von SQL Server aufgelistet. Mit diesem Tool können Sie Ihre Einstellungen für die Fehlerberichterstattung und die Nutzungs- und Diagnosedatensammlung auf dieselbe Weise wie in SQL Server 2017 verwalten. Die Fehlerberichterstattung ist unabhängig von der Nutzungs- und Diagnosedatensammlung und kann daher getrennt von der Nutzungs- und Diagnosedatensammlung aktiviert oder deaktiviert werden. Bei der Fehlerberichterstattung werden Absturzabbilder erfasst, die an Microsoft gesendet werden, und die möglicherweise vertrauliche Informationen enthalten, wie in den [Datenschutzbestimmungen](./sql-server-privacy.md) erläutert wird.
 
 Um die Fehler- und Verwendungsberichterstellung von SQL Server zu starten, klicken oder tippen Sie auf **Start**, und suchen Sie anschließend im Suchfeld nach „Fehler“. Das SQL-Server-Element „Fehler- und Verwendungsberichterstellung“ wird angezeigt. Nachdem Sie das Tool gestartet haben, können Sie die Nutzungs- und Diagnosedaten und schwerwiegende Fehler verwalten, die für Instanzen und Komponenten gesammelt wurden, die auf diesem Computer installiert sind.
 
@@ -144,7 +144,7 @@ Wie Sie diese Funktion deaktivieren oder aktivieren können, hängt von der Vers
  
 - Windows Server 2016 und Windows 10
 
-    [Konfigurieren von Windows-Diagnosedaten in Ihrem Unternehmen](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization)
+    [Konfigurieren von Windows-Diagnosedaten in Ihrem Unternehmen](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)
 - Windows 2008 R2 und Windows Server 7
 
     [WER Settings (WER-Einstellungen)](/windows/desktop/wer/wer-settings)

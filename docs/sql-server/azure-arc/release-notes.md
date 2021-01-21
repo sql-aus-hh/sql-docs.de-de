@@ -7,12 +7,12 @@ ms.reviewer: mikeray
 ms.date: 12/08/2020
 ms.topic: conceptual
 ms.prod: sql
-ms.openlocfilehash: 4d3890a29905057eb800fac823d27f149adb2ac0
-ms.sourcegitcommit: 866554663ca3191748b6e4eb4d8d82fa58c4e426
+ms.openlocfilehash: 372f4bec9acc4d4e170ddbc1a1fa6d66be1541e7
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559252"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596554"
 ---
 # <a name="release-notes---azure-arc-enabled-sql-server-preview"></a>Versionshinweise – Azure Arc-fähige Version von SQL Server (Vorschauversion)
 
@@ -27,7 +27,7 @@ Mit diesem Release wird ein aktualisierter [Ressourcenanbieter](/azure/azure-res
 
 Wenn Sie über vorhandene Ressourcen vom Typ „SQL Server – Azure Arc“ verfügen, führen Sie die folgenden Schritte aus, um diese Ressourcen zum Microsoft.AzureArcData-Namespace zu migrieren.
 
-1. Starten Sie [Cloud Shell](https://shell.azure.com/). Sollten Sie weitere Informationen hierzu benötigen, [informieren Sie sich über PowerShell in Cloud Shell](https://aka.ms/pscloudshell/docs).
+1. Starten Sie [Cloud Shell](https://shell.azure.com/). Sollten Sie weitere Informationen hierzu benötigen, [informieren Sie sich über PowerShell in Cloud Shell](/azure/cloud-shell/quickstart-powershell).
 
 2. Laden Sie das Skript über den folgenden Befehl in die Shell hoch:
 

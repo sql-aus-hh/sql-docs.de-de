@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-jizho2
-ms.openlocfilehash: f522b856e759ec9821b5cc549ce3f801951b7283
-ms.sourcegitcommit: 4c3949f620d09529658a2172d00bfe37aeb1a387
+ms.openlocfilehash: e966e4f2f43ebe546d6baa0b757f682f3eca205b
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95011833"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596365"
 ---
 # <a name="introduction-to-microsoftdatasqlclient-namespace"></a>Einführung in den Namespace „Microsoft.Data.SqlClient“
 
@@ -43,7 +43,7 @@ In Microsoft.Data.SqlClient 2.1 wird die Unterstützung für Always Encrypted a
 
 ### <a name="azure-active-directory-device-code-flow-authentication"></a>Gerätecodeflow-Authentifizierung bei Azure Active Directory
 Microsoft.Data.SqlClient 2.1 unterstützt die „Gerätecodeflow“-Authentifizierung mit MSAL.NET.
-Referenzdokumentation: [Flow bei Gewährung der OAuth2.0-Geräteautorisierung](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)
+Referenzdokumentation: [Flow bei Gewährung der OAuth2.0-Geräteautorisierung](/azure/active-directory/develop/v2-oauth2-device-code)
 
 Beispiel für Verbindungszeichenfolge:
 
@@ -60,7 +60,7 @@ public class ActiveDirectoryAuthenticationProvider
 ```
 
 ### <a name="azure-active-directory-managed-identity-authentication"></a>Azure Active Directory-Authentifizierung mit einer verwalteten Identität
-Microsoft.Data.SqlClient 2.1 bietet Unterstützung für die Azure Active Directory-Authentifizierung mithilfe [verwalteter Identitäten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Microsoft.Data.SqlClient 2.1 bietet Unterstützung für die Azure Active Directory-Authentifizierung mithilfe [verwalteter Identitäten](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Die folgenden Schlüsselwörter für den Authentifizierungsmodus werden unterstützt:
 - Active Directory mit verwalteter Identität

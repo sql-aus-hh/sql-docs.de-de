@@ -12,12 +12,12 @@ f1_keywords:
 ms.assetid: 08ec3818-f63a-4e89-b52c-750e47f48b85
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 5b2dc1633af5b4f6ff8ff981d11766c67510786d
-ms.sourcegitcommit: e572f1642f588b8c4c75bc9ea6adf4ccd48a353b
+ms.openlocfilehash: 0d9f3036e7d8c580e770ded7bbbec6e5f29b2750
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84778949"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596916"
 ---
 # <a name="formatting-data-points-on-a-chart-report-builder-and-ssrs"></a>Formatieren von Datenpunkten in einem Diagramm (Berichts-Generator und SSRS)
 In einem paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Bericht stellt ein Datenpunkt die kleinste Entität im Diagramm dar. In Nicht-Formdiagrammen werden Datenpunkte entsprechend dem Diagrammtyp dargestellt. Eine Linienreihe besteht beispielsweise aus einem oder mehreren verbundenen Datenpunkten. In Formdiagrammen werden Datenpunkte durch einzelne Slices oder Segmente dargestellt, aus denen sich das gesamte Diagramm zusammensetzt. In einem Kreisdiagramm ist z. B. jedes Teil ein Datenpunkt. Weitere Informationen finden Sie unter [Diagrammtypen &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/chart-types-report-builder-and-ssrs.md).  
@@ -40,7 +40,7 @@ In einem paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md
  In diesem Beispiel wird dem höchsten Wert für `MyField` die Farbe Rot zugewiesen, während alle anderen Datenpunkten in der Farbe Grün angezeigt werden. Wenn Sie mithilfe der **Fill** -Eigenschaft der Reihe eine Farbe für die Reihe angeben, werden im Diagramm die in der Palette angegebenen Farben überschrieben. Weitere Informationen finden Sie unter [Formatieren von Reihenfarben in einem Diagramm &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/formatting-series-colors-on-a-chart-report-builder-and-ssrs.md).  
   
 ## <a name="positioning-data-point-labels-on-a-chart"></a>Positionieren von Datenpunktbezeichnungen in einem Diagramm  
- In allen Diagrammtypen können Sie Datenpunktbezeichnungen anzeigen, indem Sie mit der rechten Maustaste auf das Diagramm klicken und die Option **Datenbezeichnungen anzeigen**auswählen. Die Position der Datenpunktbezeichnungen wird entsprechend dem Diagrammtyp angegeben:  
+ In allen Diagrammtypen können Sie Datenpunktbezeichnungen anzeigen, indem Sie mit der rechten Maustaste auf das Diagramm klicken und die Option **Datenbezeichnungen anzeigen** auswählen. Die Position der Datenpunktbezeichnungen wird entsprechend dem Diagrammtyp angegeben:  
   
 -   In einem Balkendiagramm können Sie die Datenpunktbezeichnung mithilfe des benutzerdefinierten **BarLabelStyle** -Attributs neu positionieren. Es gibt vier mögliche Positionen: außen, links, Mitte und rechts. Wenn Sie die Balkenbezeichnungsart auf Außen festlegen, werden die Bezeichnungen außerhalb des Balkens platziert, sofern sie in den Diagrammbereich passen. Wenn die Bezeichnung nicht außerhalb des Balkens und im Diagrammbereich positioniert werden kann, wird sie im Balken positioniert.  
   
@@ -50,7 +50,7 @@ In einem paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md
   
 -   In gestapelten Diagrammen werden Datenpunktbezeichnungen immer innerhalb der Reihe positioniert, und die **Position** -Eigenschaft für die Reihenbezeichnung wird ignoriert.  
   
--   In allen anderen Diagrammtypen können Sie die Datenpunktbezeichnung mithilfe der **Position** -Eigenschaft für die Reihenbezeichnung neu positionieren. Standardmäßig wird die Position von Datenpunktbezeichnungen automatisch vom Diagramm berechnet, um Bezeichnungskonflikte zu vermeiden. Wenn Sie einen Wert für **Position**festlegen, werden alle Datenpunktbezeichnungen auf dieselbe Weise positioniert, wodurch die Bezeichnungen einander überlappen können. Es empfiehlt sich, diesen Ansatz nur bei einer kleinen Anzahl von Datenpunkten zu verfolgen.  
+-   In allen anderen Diagrammtypen können Sie die Datenpunktbezeichnung mithilfe der **Position** -Eigenschaft für die Reihenbezeichnung neu positionieren. Standardmäßig wird die Position von Datenpunktbezeichnungen automatisch vom Diagramm berechnet, um Bezeichnungskonflikte zu vermeiden. Wenn Sie einen Wert für **Position** festlegen, werden alle Datenpunktbezeichnungen auf dieselbe Weise positioniert, wodurch die Bezeichnungen einander überlappen können. Es empfiehlt sich, diesen Ansatz nur bei einer kleinen Anzahl von Datenpunkten zu verfolgen.  
   
  Weitere Informationen finden Sie unter [Positionieren von Bezeichnungen in einem Diagramm (Berichts-Generator und SSRS)](../../reporting-services/report-design/position-labels-in-a-chart-report-builder-and-ssrs.md).  
   
@@ -75,14 +75,14 @@ In einem paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md
 |#MAX|Maximum aller Y-Werte in der Reihe|All|`=Max(Fields!MyDataField.Value)`|  
 |#FIRST|Der Erste aller Y-Werte in der Reihe|All|`=First(Fields!MyDataField.Value)`|  
   
- Schließen Sie zum Formatieren des Schlüsselworts eine [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Formatzeichenfolge in Klammern ein. Wenn Sie beispielsweise den Wert des Datenpunkts in einer QuickInfo als Zahl mit zwei Dezimalstellen anzeigen möchten, schließen Sie die Formatzeichenfolge „N2“ in geschweifte Klammern ein, z.B. „#VALY{N2}“ für die **ToolTip** -Eigenschaft der Reihe. Weitere Informationen zu [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Formatzeichenfolgen finden Sie auf MSDN unter [Formatierung von Typen](https://go.microsoft.com/fwlink/?LinkId=112024) . Weitere Informationen zum Formatieren von Zahlen in [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] finden Sie unter [Formatieren von Zahlen und Datumsangaben (Berichts-Generator und SSRS)](../../reporting-services/report-design/formatting-numbers-and-dates-report-builder-and-ssrs.md).  
+ Schließen Sie zum Formatieren des Schlüsselworts eine [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Formatzeichenfolge in Klammern ein. Wenn Sie beispielsweise den Wert des Datenpunkts in einer QuickInfo als Zahl mit zwei Dezimalstellen anzeigen möchten, schließen Sie die Formatzeichenfolge „N2“ in geschweifte Klammern ein, z.B. „#VALY{N2}“ für die **ToolTip** -Eigenschaft der Reihe. Weitere Informationen zu [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Formatzeichenfolgen finden Sie auf MSDN unter [Formatierung von Typen](/previous-versions/) . Weitere Informationen zum Formatieren von Zahlen in [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] finden Sie unter [Formatieren von Zahlen und Datumsangaben (Berichts-Generator und SSRS)](../../reporting-services/report-design/formatting-numbers-and-dates-report-builder-and-ssrs.md).  
   
  Weitere Informationen zum Hinzufügen von Schlüsselwörtern zu einem Diagramm finden Sie unter [Anzeigen von QuickInfos für eine Reihe (Berichts-Generator und SSRS)](../../reporting-services/report-design/show-tooltips-on-a-series-report-builder-and-ssrs.md) und [Ändern des Texts eines Legendenelements (Berichts-Generator und SSRS)](../../reporting-services/report-design/chart-legend-change-item-text-report-builder.md).  
   
 ## <a name="increasing-readability-in-a-chart-with-multiple-data-points"></a>Verbessern der Lesbarkeit in einem Diagramm mit mehreren Datenpunkten  
  Wenn mehrere Reihen im Diagramm vorhanden sind, kann dieser Umstand die Lesbarkeit der Datenpunkte des Diagramms beeinträchtigen. Wenn Sie dem Diagramm mehrere Reihen hinzufügen, empfiehlt es sich, ein Verfahren anzuwenden, mit dem die einzelnen Reihen im Diagramm effektiv gelesen und erkannt werden. Weitere Informationen hierzu finden Sie unter [Mehrere Reihen in einem Diagramm &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/multiple-series-on-a-chart-report-builder-and-ssrs.md):  
   
- Zur Vereinfachung empfiehlt es sich, in Formdiagrammen nur ein Datenfeld und ein Kategoriefeld hinzuzufügen. Weitere Informationen finden Sie unter [Formdiagramme (Berichts-Generator und SSRS)](../../reporting-services/report-design/shape-charts-report-builder-and-ssrs.md). Wenn für das Diagramm mehr als ein Datenfeld und Kategoriefeld erforderlich ist, sollten Sie den Diagrammtyp ändern. Sie können mit der rechten Maustaste auf die Reihe klicken und **Diagrammtyp ändern**auswählen.  
+ Zur Vereinfachung empfiehlt es sich, in Formdiagrammen nur ein Datenfeld und ein Kategoriefeld hinzuzufügen. Weitere Informationen finden Sie unter [Formdiagramme (Berichts-Generator und SSRS)](../../reporting-services/report-design/shape-charts-report-builder-and-ssrs.md). Wenn für das Diagramm mehr als ein Datenfeld und Kategoriefeld erforderlich ist, sollten Sie den Diagrammtyp ändern. Sie können mit der rechten Maustaste auf die Reihe klicken und **Diagrammtyp ändern** auswählen.  
   
 ## <a name="inserting-data-point-markers"></a>Einfügen von Datenpunktmarkern  
  Ein Datenpunktmarker ist ein visueller Indikator, mit dem die einzelnen Datenpunkte in einer Reihe gekennzeichnet werden. In einem Punktdiagramm werden mit dem Marker Form und Größe der einzelnen Datenpunkte bestimmt. Die Größe des Markers wird durch den Diagrammtyp bestimmt. Sie können die Größe, die Farbe oder den Stil des Markers ändern. Marker sind für Bereichs- und Formdiagramme sowie für gestapelte Untertypen nicht verfügbar.  
@@ -102,5 +102,4 @@ In einem paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md
  [Tutorial: Hinzufügen eines Kreisdiagramms zu einem Bericht &#40;Berichts-Generator&#41;](../../reporting-services/tutorial-add-a-pie-chart-to-your-report-report-builder.md)   
  [Beispiele für Ausdrücke &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/expression-examples-report-builder-and-ssrs.md)   
  [Ausdrücke &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/expressions-report-builder-and-ssrs.md)  
-  
   

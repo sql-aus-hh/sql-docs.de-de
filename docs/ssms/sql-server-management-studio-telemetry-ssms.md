@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.assetid: c28ffa44-7b8b-4efa-b755-c7a3b1c11ce4
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: c26ab977839927751903eead0533256ab91fde2c
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 1d16b944072ea4c6945b0358f576a73e40b8b117
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88370136"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596948"
 ---
 # <a name="local-audit-for-ssms-usage-and-diagnostic-data-collection"></a>Lokale Überwachung für SSMS-Nutzungs- und -Diagnosedatensammlung
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-SQL Server Management Studio (SSMS) enthält internetfähige Features, die anonyme Featurenutzungs- und Diagnosedaten sammeln und an Microsoft senden können. SSMS erfasst möglicherweise Standardinformationen zu Ihrem Computer und Informationen zur Nutzung und Leistung, die möglicherweise an Microsoft übermittelt und analysiert werden, um die Qualität, Sicherheit und Zuverlässigkeit von SSMS zu optimieren. Wir erfassen nicht Ihren Namen, Ihre Adresse oder andere Kontaktinformationen. Ausführliche Informationen finden Sie in den [Datenschutzbestimmungen von Microsoft](https://privacy.microsoft.com/privacystatement) und den [Ergänzenden Datenschutzbestimmungen zu SQL Server](https://go.microsoft.com/fwlink/?LinkID=868444).
+SQL Server Management Studio (SSMS) enthält internetfähige Features, die anonyme Featurenutzungs- und Diagnosedaten sammeln und an Microsoft senden können. SSMS erfasst möglicherweise Standardinformationen zu Ihrem Computer und Informationen zur Nutzung und Leistung, die möglicherweise an Microsoft übermittelt und analysiert werden, um die Qualität, Sicherheit und Zuverlässigkeit von SSMS zu optimieren. Wir erfassen nicht Ihren Namen, Ihre Adresse oder andere Kontaktinformationen. Ausführliche Informationen finden Sie in den [Datenschutzbestimmungen von Microsoft](https://privacy.microsoft.com/privacystatement) und den [Ergänzenden Datenschutzbestimmungen zu SQL Server](../sql-server/sql-server-privacy.md).
 
 ## <a name="audit-feature-usage-and-diagnostic-data"></a>Überwachen der Verwendung von Features und Diagnosedaten
 
@@ -62,7 +62,7 @@ So aktivieren oder deaktivieren Sie die Sammlung von Nutzungsdaten für SSMS
 
   Eintragstyp `DWORD`: `0` steht für Deaktivieren und `1` für Aktivieren.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Weitere Informationen
 
 - [Konfigurieren der Nutzungs- und Diagnosedatensammlung für SQL Server](../sql-server/usage-and-diagnostic-data-configuration-for-sql-server.md)
-- [Lokale Überwachung für SQL Server-Nutzungs- und -Diagnosedatensammlung](https://msdn.microsoft.com/library/mt743085.aspx)
+- [Lokale Überwachung für SQL Server-Nutzungs- und -Diagnosedatensammlung](../sql-server/usage-and-diagnostic-data-in-local-audit.md)

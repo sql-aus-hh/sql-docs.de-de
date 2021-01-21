@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: ae8a0166-2ccc-45f4-8d28-c150da7b73de
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 603207390785ff684167b3b553b31c3b956842c6
-ms.sourcegitcommit: 5c7634b007f6808c87094174b80376cb20545d5f
+ms.openlocfilehash: 31e92b49186e79c78cbaa2d13859d8dd3abe5c5d
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84880765"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596343"
 ---
 # <a name="custom-code-and-assembly-references-in-expressions-in-report-designer-ssrs"></a>Benutzerdefinierter Code und Assemblyverweise in Ausdrücken in Berichts-Designer (SSRS)
   Sie können in einem Bericht eingebettetem, benutzerdefiniertem Code oder benutzerdefinierten Assemblys, die Sie erstellen und auf dem Computer speichern und auf dem Berichtsserver bereitstellen. Verwenden Sie eingebetteten Code für benutzerdefinierte Konstanten, komplexe Funktionen oder für Funktionen, die mehrfach in demselben Bericht verwendet werden. Verwenden Sie benutzerdefinierte Codeassemblys, um Code an einer einzelnen Stelle zu verwalten und ihn zur Verwendung in mehreren Berichten freizugeben. In benutzerdefiniertem Code können neue benutzerdefinierte Konstanten, Variablen, Funktionen oder Unterroutinen eingeschlossen werden. Sie können schreibgeschützte Verweise in integrierte Auflistungen, wie die Parameter-Auflistung, einbeziehen. An benutzerdefinierte Funktionen können jedoch keine Sätze von Berichtsdatenwerten übergeben werden, insbesondere werden keine benutzerdefinierten Aggregate unterstützt.  
@@ -53,12 +53,12 @@ ms.locfileid: "84880765"
   
  Um eine integrierte Funktion zu verwenden, doppelklicken Sie auf den Funktionsnamen im Bereich Element. Im Bereich Beschreibung wird eine Beschreibung der Funktion angezeigt, und ein Beispiel des Funktionsaufrufs finden Sie im Bereich Beispiel. Wenn Sie im Codebereich den Funktionsnamen und anschließend eine linke Klammer **(** eingeben, zeigt die IntelliSense-Hilfe jede gültige Syntax für diesen Funktionsaufruf an. Zur Berechnung des Höchstwerts für ein Feld mit dem Namen `Quantity` in einer Tabelle fügen Sie dem Codebereich beispielsweise den einfachen Ausdruck `=Max(` hinzu und zeigen mithilfe der Smarttags alle gültigen Syntaxmöglichkeiten für den Funktionsaufruf an. Um dieses Beispiel zu vervollständigen, geben Sie `=Max(Fields!Quantity.Value)`ein.  
   
- Weitere Informationen zu den einzelnen Funktionen finden Sie unter <xref:System.Math>, <xref:System.Convert>und [Member der Visual Basic-Laufzeitbibliothek](https://go.microsoft.com/fwlink/?LinkId=198941) bei MSDN.  
+ Weitere Informationen zu den einzelnen Funktionen finden Sie unter <xref:System.Math>, <xref:System.Convert>und [Member der Visual Basic-Laufzeitbibliothek](/dotnet/visual-basic/language-reference/runtime-library-members) bei MSDN.  
   
 ##  <a name="including-references-to-less-commonly-used-functions"></a><a name="NotCommon"></a> Einschließen von Verweisen auf weniger häufig verwendete Funktionen  
  Um einen Verweis auf andere, weniger häufig verwendete CLR-Namespaces (Common Language Runtime) einzuschließen, verwenden Sie einen vollqualifizierten Verweis, z.B. <xref:System.Text.StringBuilder>. IntelliSense wird für die seltener verwendeten Funktionen im Codebereich des Dialogfelds **Ausdruck** nicht unterstützt.  
   
- Weitere Informationen finden Sie unter [Member der Visual Basic-Laufzeitbibliothek](https://go.microsoft.com/fwlink/?LinkId=198941) bei MSDN.  
+ Weitere Informationen finden Sie unter [Member der Visual Basic-Laufzeitbibliothek](/dotnet/visual-basic/language-reference/runtime-library-members) bei MSDN.  
   
 ##  <a name="including-references-to-external-assemblies"></a><a name="External"></a> Einschließen von Verweisen auf externe Assemblys  
  Sie müssen die Assembly identifizieren, damit der Berichtsprozessor einen Verweis auf eine Klasse in eine externe Assembly einschließt. Geben Sie den vollqualifizierten Namen der Assembly, die dem Bericht hinzugefügt werden soll, auf der Seite **Verweise** des Dialogfelds **Berichtseigenschaften** an. Im Ausdruck müssen Sie den vollqualifizierten Namen für die Klasse in der Assembly verwenden. Klassen in einer externen Assembly werden nicht im Dialogfeld **Ausdruck** angezeigt. Geben Sie für diese Klassen den entsprechenden Namen an. Ein vollqualifizierter Name umfasst den Namespace, den Klassennamen und den Elementnamen.  
@@ -66,7 +66,7 @@ ms.locfileid: "84880765"
 ##  <a name="including-embedded-code"></a><a name="Embedded"></a> Einschließen von eingebettetem Code  
  Auf der Registerkarte **Code** des Dialogfelds Berichtseigenschaften können Sie einem Bericht eingebetteten Code hinzufügen. Der erstellte Codeblock kann mehrere Methoden enthalten. Methoden in eingebettetem Code müssen in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] geschrieben und instanzbasiert sein. Vom Berichtsprozessor werden automatisch Verweise für den System.Convert-Namespace und den System.Math-Namespace hinzugefügt. Fügen Sie zusätzliche Assemblyverweise auf der Seite **Verweise** des Dialogfelds **Berichtseigenschaften** hinzu. Weitere Informationen finden Sie unter [Hinzufügen eines Assemblyverweises zu einem Bericht &#40;SSRS&#41;](../../reporting-services/report-design/add-an-assembly-reference-to-a-report-ssrs.md).  
   
- Die Methoden im eingebetteten Code stehen über ein global definiertes **Code** -Element zur Verfügung. Zum Zugriff auf die Methoden verweisen Sie auf das **Code** -Element und den Methodennamen. Im folgenden Beispiel wird die Methode **ToUSD**aufgerufen, die den Wert des `StandardCost` -Felds in einen Dollarwert konvertiert:  
+ Die Methoden im eingebetteten Code stehen über ein global definiertes **Code** -Element zur Verfügung. Zum Zugriff auf die Methoden verweisen Sie auf das **Code** -Element und den Methodennamen. Im folgenden Beispiel wird die Methode **ToUSD** aufgerufen, die den Wert des `StandardCost` -Felds in einen Dollarwert konvertiert:  
   
 ```  
 =Code.ToUSD(Fields!StandardCost.Value)  
@@ -87,7 +87,7 @@ Public Dim  MyVersion As String = "123.456"
 Public Dim MyDoubleVersion As Double = 123.456  
 ```  
   
- Obwohl benutzerdefinierte Konstanten nicht in der **Konstanten** -Kategorie des Dialogfelds **Ausdruck** angezeigt werden (in der nur integrierte Konstanten angezeigt werden), können Sie Verweise darauf über einen beliebigen Ausdruck hinzufügen (wie in den folgenden Beispielen veranschaulicht). In einem Ausdruck wird eine benutzerdefinierte Konstante als **Variant**behandelt.  
+ Obwohl benutzerdefinierte Konstanten nicht in der **Konstanten** -Kategorie des Dialogfelds **Ausdruck** angezeigt werden (in der nur integrierte Konstanten angezeigt werden), können Sie Verweise darauf über einen beliebigen Ausdruck hinzufügen (wie in den folgenden Beispielen veranschaulicht). In einem Ausdruck wird eine benutzerdefinierte Konstante als **Variant** behandelt.  
   
 ```  
 =Code.MyNote  
@@ -96,7 +96,7 @@ Public Dim MyDoubleVersion As Double = 123.456
 =Code.MyDoubleVersion  
 ```  
   
- In den folgenden Beispielen sind sowohl der Codeverweis als auch die Codeimplementierung der Funktion **FixSpelling**enthalten, mit der der Text `"Bicycle"` für alle Vorkommen des Texts „Bike“ im `SubCategory` -Feld ersetzt wird.  
+ In den folgenden Beispielen sind sowohl der Codeverweis als auch die Codeimplementierung der Funktion **FixSpelling** enthalten, mit der der Text `"Bicycle"` für alle Vorkommen des Texts „Bike“ im `SubCategory` -Feld ersetzt wird.  
   
  `=Code.FixSpelling(Fields!SubCategory.Value)`  
   
@@ -120,7 +120,7 @@ End Function
   
  Die folgende Tabelle enthält Beispiele für Verweise auf die integrierte `Parameters` -Sammlung von benutzerdefiniertem Code:  
   
- **Übergeben einer vollständigen globalen Parameters-Sammlung an benutzerdefinierten Code.** Diese Funktion gibt den Wert eines bestimmten Berichtsparameters *MyParameter*zurück.  
+ **Übergeben einer vollständigen globalen Parameters-Sammlung an benutzerdefinierten Code.** Diese Funktion gibt den Wert eines bestimmten Berichtsparameters *MyParameter* zurück.  
   
  Verweis in Ausdruck `=Code.DisplayAParameterValue(Parameters)`  
   
@@ -196,5 +196,4 @@ End Function
  [Reporting Services-Tutorials (SSRS)](../../reporting-services/reporting-services-tutorials-ssrs.md)   
  [Beispiele für Ausdrücke &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/expression-examples-report-builder-and-ssrs.md)   
  [Berichtsbeispiele (Berichts-Generator und SSRS)](https://go.microsoft.com/fwlink/?LinkId=198283)  
-  
   

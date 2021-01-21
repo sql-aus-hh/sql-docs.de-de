@@ -16,12 +16,12 @@ helpviewer_keywords:
 - SQL Server Management Studio for Analysis Services
 ms.custom: seo-lt-2019
 ms.date: 09/11/2019
-ms.openlocfilehash: 1961d2f831a8db86c782a5e2330d74f4346d6d19
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 13d107ade6810f5b786c8333edc75518b906b6db
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98096091"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597068"
 ---
 # <a name="what-is-sql-server-management-studio-ssms"></a>Was ist SQL Server Management Studio (SSMS)?
 
@@ -101,7 +101,7 @@ Weitere Informationen zu verschiedenen Gebietsschemas bei früheren Versionen fi
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Installieren von nicht englischsprachigen Versionen von SSMS](install-other-languages.md)
-- [Herstellen einer Verbindung mit und Abfragen von einer SQL Server-Instanz](./quickstarts/connect-query-sql-server.md)
+- [Herstellen einer Verbindung mit und Abfragen von einer SQL Server-Instanz](./quickstarts/ssms-connect-query-sql-server.md)
 - [Schreiben von Transact-SQL-Anweisungen](../t-sql/tutorial-writing-transact-sql-statements.md)
 - [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md)
 

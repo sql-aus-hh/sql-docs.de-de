@@ -13,12 +13,12 @@ helpviewer_keywords:
 author: bazizi
 ms.author: v-beaziz
 manager: kenvh
-ms.openlocfilehash: 2a46b952815fa707b03889d3f9aa6480e6e13d32
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: a833e256272a012cfccbbe018cf4ad275f08db80
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506656"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596805"
 ---
 # <a name="using-data-classification"></a>Verwenden der Datenklassifizierung
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../../includes/applies-to-version/sql-asdb-asa.md)]
@@ -26,9 +26,9 @@ ms.locfileid: "96506656"
 [!INCLUDE[Driver_OLEDB_Download](../../../includes/driver_oledb_download.md)]
 
 ## <a name="overview"></a>Übersicht
-Bei der [SQL-Datenermittlung und -klassifizierung](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification) handelt es sich um mehrere erweiterte Dienste für die Ermittlung, Klassifizierung, Bezeichnung und Berichterstellung für vertrauliche Informationen in Ihren Datenbanken. Mit dem Microsoft OLE DB-Treiber für SQL Server (Version [18.5.0](../release-notes-for-oledb-driver-for-sql-server.md#1850)) wird das Abrufen von Klassifizierungsmetadaten unterstützt, sofern die zugrunde liegende Datenquelle diese Funktion unterstützt. Der Zugriff auf diese Informationen erfolgt über die [ISSDataClassification](../ole-db-interfaces/issdataclassification-ole-db.md)-Schnittstelle.
+Bei der [SQL-Datenermittlung und -klassifizierung](../../../relational-databases/security/sql-data-discovery-and-classification.md) handelt es sich um mehrere erweiterte Dienste für die Ermittlung, Klassifizierung, Bezeichnung und Berichterstellung für vertrauliche Informationen in Ihren Datenbanken. Mit dem Microsoft OLE DB-Treiber für SQL Server (Version [18.5.0](../release-notes-for-oledb-driver-for-sql-server.md#1850)) wird das Abrufen von Klassifizierungsmetadaten unterstützt, sofern die zugrunde liegende Datenquelle diese Funktion unterstützt. Der Zugriff auf diese Informationen erfolgt über die [ISSDataClassification](../ole-db-interfaces/issdataclassification-ole-db.md)-Schnittstelle.
 
-Weitere Informationen zum Zuweisen von Spaltenklassifizierungen finden Sie unter [SQL-Datenermittlung und -klassifizierung](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
+Weitere Informationen zum Zuweisen von Spaltenklassifizierungen finden Sie unter [SQL-Datenermittlung und -klassifizierung](../../../relational-databases/security/sql-data-discovery-and-classification.md).
 
 ## <a name="code-samples"></a>Codebeispiele
 
@@ -231,5 +231,4 @@ void PrintSensitivityClassificationInfo(SENSITIVITYCLASSIFICATION* pSensitivityC
 
 ## <a name="see-also"></a>Weitere Informationen:
  [Schnittstellen &#40;OLE DB&#41;](../ole-db-interfaces/oledb-driver-for-sql-server-ole-db-interfaces.md)  
- [ISSDataClassification](../ole-db-interfaces/issdataclassification-ole-db.md)  
-
+ [ISSDataClassification](../ole-db-interfaces/issdataclassification-ole-db.md)

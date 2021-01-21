@@ -9,12 +9,12 @@ ms.author: maghan
 ms.reviewer: sstein, mikeray
 ms.custom: contperf-fy21q2
 ms.date: 12/15/2020
-ms.openlocfilehash: 29c39caf6885ee974c62ed153df982b435c72c95
-ms.sourcegitcommit: 8a8c89b0ff6d6dfb8554b92187aca1bf0f8bcc07
+ms.openlocfilehash: 1c3bf8f69678ecf291594991650c3bb4c21d4652
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97619136"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596755"
 ---
 # <a name="quickstart-connect-and-query-a-sql-server-instance-on-an-azure-virtual-machine-using-sql-server-management-studio-ssms"></a>Schnellstart: Herstellen einer Verbindung mit und Abfragen einer SQL Server-Instanz auf einem virtuellen Azure-Computer mithilfe des SQL Server Management Studio (SSMS)
 
@@ -95,11 +95,11 @@ Die folgende Tabelle enthält eine Liste der Anforderungen für Verbindungen mit
 
 | Anforderung | BESCHREIBUNG |
 |---|---|
-| [Aktivieren des SQL Server-Authentifizierungsmodus](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Die SQL Server-Authentifizierung ist für eine Remoteverbindung mit dem virtuellen Computer erforderlich, sofern Sie nicht Active Directory in einem virtuellen Netzwerk konfiguriert haben. |
-| [Erstellen einer SQL-Anmeldung](/sql/relational-databases/security/authentication-access/create-a-login) | Wenn Sie die SQL-Authentifizierung verwenden, benötigen Sie eine SQL-Anmeldung mit einem Benutzernamen und einem Kennwort, die auch über die erforderlichen Berechtigungen für die Zieldatenbank verfügt. |
+| [Aktivieren des SQL Server-Authentifizierungsmodus](../../database-engine/configure-windows/change-server-authentication-mode.md#use-ssms) | Die SQL Server-Authentifizierung ist für eine Remoteverbindung mit dem virtuellen Computer erforderlich, sofern Sie nicht Active Directory in einem virtuellen Netzwerk konfiguriert haben. |
+| [Erstellen einer SQL-Anmeldung](../../relational-databases/security/authentication-access/create-a-login.md) | Wenn Sie die SQL-Authentifizierung verwenden, benötigen Sie eine SQL-Anmeldung mit einem Benutzernamen und einem Kennwort, die auch über die erforderlichen Berechtigungen für die Zieldatenbank verfügt. |
 | Aktivieren des TCP/IP-Protokolls | SQL Server muss Verbindungen über TCP zulassen. |
-| [Aktivieren von Firewallregeln für den SQL Server-Port](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Die Firewall auf dem virtuellen Computer muss eingehenden Datenverkehr am SQL Server-Port (Standardport: 1433) zulassen. |
-| [Erstellen einer Netzwerksicherheitsgruppen-Regel für TCP-Port 1433](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#create-a-security-rule) | Erlauben Sie eingehenden Datenverkehr an die VM über den SQL Server-Port (Standardport: 1433), wenn Sie eine Verbindung über das Internet herstellen möchten. Bei lokalen Verbindungen und Verbindungen ausschließlich über virtuelle Netzwerke ist dies nicht erforderlich. Dieser Schritt ist nur im Azure-Portal erforderlich. |
+| [Aktivieren von Firewallregeln für den SQL Server-Port](../../database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md) | Die Firewall auf dem virtuellen Computer muss eingehenden Datenverkehr am SQL Server-Port (Standardport: 1433) zulassen. |
+| [Erstellen einer Netzwerksicherheitsgruppen-Regel für TCP-Port 1433](/azure/virtual-network/manage-network-security-group#create-a-security-rule) | Erlauben Sie eingehenden Datenverkehr an die VM über den SQL Server-Port (Standardport: 1433), wenn Sie eine Verbindung über das Internet herstellen möchten. Bei lokalen Verbindungen und Verbindungen ausschließlich über virtuelle Netzwerke ist dies nicht erforderlich. Dieser Schritt ist nur im Azure-Portal erforderlich. |
 
 > [!TIP]
 > Die Schritte in der obigen Tabelle werden für Sie automatisch ausgeführt, wenn Sie die Konnektivität im Portal konfigurieren. Befolgen Sie diese Schritte nur, um Ihre Konfiguration zu bestätigen oder die Konnektivität für SQL Server manuell einzurichten.

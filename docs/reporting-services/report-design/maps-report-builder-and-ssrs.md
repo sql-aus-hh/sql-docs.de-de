@@ -16,12 +16,12 @@ f1_keywords:
 ms.assetid: b5e9ef21-11b7-4ed2-838e-d8eecdb5c5f0
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 9e6dde5a520b845cac47fbfd3c4820d35958c9ba
-ms.sourcegitcommit: ea0bf89617e11afe85ad85309e0ec731ed265583
+ms.openlocfilehash: a88bd03c8dd4b545fdadf3bd809f9ce64191db79
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92907258"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596790"
 ---
 # <a name="maps-report-builder-and-ssrs"></a>Karten (Berichts-Generator und SSRS)
   Um Geschäftsdaten anhand eines geografischen Hintergrunds visuell darzustellen, können Sie dem paginierten [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Bericht eine Karte hinzufügen. Welchen Kartentyp Sie auswählen sollten, hängt davon ab, was für Informationen Sie im Bericht mitteilen möchten. Sie können eine Karte hinzufügen, die nur Orte anzeigt, oder eine Blasendiagrammkarte, bei der die Blasengröße von der Anzahl der Haushalte für einen Bereich abhängt, oder eine Markerkarte, bei der das Markerformat vom gewinnbringendsten Produkt für jeden Laden abhängt, oder eine Linienkarte, die Routen zwischen Läden anzeigt.  
@@ -58,7 +58,7 @@ ms.locfileid: "92907258"
  Um Daten auf einer Karte visuell darzustellen, müssen die analytischen Daten und die räumlichen Daten miteinander in Beziehung stehen. Wenn die räumlichen Daten und die analytischen Daten aus der gleichen Quelle stammen, ist die Beziehung bekannt. Wenn die räumlichen Daten und die analytischen Daten aus unterschiedlichen Quellen kommen, müssen Sie Übereinstimmungsfelder angeben, um sie miteinander in Beziehung zu setzen.  
   
 ### <a name="spatial-data"></a>Räumliche Daten  
- Räumliche Daten bestehen aus Sätzen von Koordinaten. Als räumliche Daten aus einer Datenquelle sind ein einzelner Punkt, mehrere Punkte, eine einzelne Linie, mehrere Linien oder ein Satz von Polygonen möglich. Jeder Satz von Koordinaten definiert ein *Kartenelement* , wie z. B. ein Polygon, das den Umriss eines Landkreises darstellt, eine Linie, die eine Straße darstellt, oder einen Punkt, der die Position einer Stadt darstellt.  
+ Räumliche Daten bestehen aus Sätzen von Koordinaten. Als räumliche Daten aus einer Datenquelle sind ein einzelner Punkt, mehrere Punkte, eine einzelne Linie, mehrere Linien oder ein Satz von Polygonen möglich. Jeder Satz von Koordinaten definiert ein *Kartenelement*, wie z. B. ein Polygon, das den Umriss eines Landkreises darstellt, eine Linie, die eine Straße darstellt, oder einen Punkt, der die Position einer Stadt darstellt.  
   
  Räumliche Daten basieren auf einem der folgenden Koordinatensysteme:  
   
@@ -161,7 +161,7 @@ ms.locfileid: "92907258"
   
  Eine detaillierte Anleitung finden Sie unter [Hinzufügen, Ändern oder Löschen einer Karte oder einer Kartenebene &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/add-change-or-delete-a-map-or-map-layer-report-builder-and-ssrs.md).  
   
- Weitere Informationen zu Kacheln finden Sie im Thema zum [Bing-Kartenkachelsystem](https://go.microsoft.com/fwlink/?linkid=147315)(möglicherweise in englischer Sprache). Weitere Informationen zur Verwendung von Bing-Kartenkacheln im Bericht finden Sie in den [zusätzlichen Nutzungsbedingungen](https://go.microsoft.com/fwlink/?LinkId=151371).  
+ Weitere Informationen zu Kacheln finden Sie im Thema zum [Bing-Kartenkachelsystem](/bingmaps/articles/bing-maps-tile-system)(möglicherweise in englischer Sprache). Weitere Informationen zur Verwendung von Bing-Kartenkacheln im Bericht finden Sie in den [zusätzlichen Nutzungsbedingungen](https://go.microsoft.com/fwlink/?LinkId=151371).  
   
 ##  <a name="understanding-map-layers-and-map-elements"></a><a name="MapLayers"></a> Grundlegendes zu Kartenebenen und Kartenelementen  
  Eine Karte kann mehrere Ebenen enthalten. Es stehen drei Arten von Ebenen zur Verfügung. Auf jeder Ebene wird ein Typ räumlicher Daten angezeigt:  
@@ -252,5 +252,4 @@ ms.locfileid: "92907258"
  [Hinzufügen benutzerdefinierter Orte zu einer Karte &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/add-custom-locations-to-a-map-report-builder-and-ssrs.md)  
   
  [Problembehandlung bei Berichten: Kartenberichte &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/troubleshoot-reports-map-reports-report-builder-and-ssrs.md)  
-  
   

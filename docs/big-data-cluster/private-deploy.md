@@ -9,12 +9,12 @@ ms.date: 08/20/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 4a55d7f6c9c55891f8d1a7bf97d8834c9df4a796
-ms.sourcegitcommit: 5da46e16b2c9710414fe36af9670461fb07555dc
+ms.openlocfilehash: f83c3d1e1a5bf0c9b74d058f144c4d07025c8c05
+ms.sourcegitcommit: fc24f7ecc155d97e789676fffe55e45840fcb088
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89283119"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620269"
 ---
 # <a name="deploy-bdc-in-azure-kubernetes-service-aks-private-cluster"></a>Bereitstellen von BDC in einem privaten Azure Kubernetes Service-Cluster (AKS-Cluster)
 
@@ -36,7 +36,7 @@ In diesem Abschnitt wird beschrieben, wie Sie einen BDC-Cluster in einem private
 
 ## <a name="create-a-private-aks-cluster-with-advanced-networking"></a>Erstellen eines privaten AKS-Clusters mit erweiterten Netzwerkeinstellungen
 
-```console
+```bash
 
 export REGION_NAME=<your Azure region >
 export RESOURCE_GROUP=< your resource group name >
@@ -70,7 +70,7 @@ echo $SUBNET_ID
 
 Um zum nächsten Schritt zu gelangen, müssen Sie einen AKS-Cluster mit Load Balancer Standard bereitstellen, für den die Funktion für private Cluster aktiviert ist. Der von Ihnen auszuführende Befehl sieht wie folgt aus: 
 
-```console
+```bash
 az aks create \
     --resource-group $RESOURCE_GROUP \
     --name $AKS_NAME \
@@ -90,7 +90,7 @@ Nach einer erfolgreichen Bereitstellung können Sie zur Ressourcengruppe `<MC_yo
 
 ## <a name="connect-to-an-aks-cluster"></a>Herstellen einer Verbindung mit einem AKS-Cluster
 
-```console
+```azurecli
 az aks get-credentials -n $AKS_NAME -g $RESOURCE_GROUP
 ```
 
@@ -98,13 +98,13 @@ az aks get-credentials -n $AKS_NAME -g $RESOURCE_GROUP
 
 Nachdem Sie eine Verbindung mit einem AKS-Cluster hergestellt haben, können Sie mit der BDC-Bereitstellung beginnen, und Sie können die Umgebungsvariable vorbereiten und eine Bereitstellung initiieren: 
 
-```console
+```azurecli
 azdata bdc config init --source aks-dev-test --target private-bdc-aks --force
 ```
 
 Generieren und Konfigurieren eines benutzerdefinierten BDC-Bereitstellungsprofils:
 
-```console
+```azurecli
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.docker.imageTag=2019-CU6-ubuntu-16.04"
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.storage.data.className=default"
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.storage.logs.className=default"
@@ -123,13 +123,13 @@ Wenn Sie einen [Big Data-Cluster in SQL Server (SQL-BDC) mit Hochverfügbarkei
 
 Im folgenden Beispiel wird `ServiceType` auf `NodePort` festgelegt:
 
-```console
+```azurecli
 azdata bdc config replace -c private-bdc-aks /bdc.json -j "$.spec.resources.master.spec.endpoints[1].serviceType=NodePort"
 ```
 
 ## <a name="deploy-bdc-in-aks-private-cluster"></a>Bereitstellen von BDC in einem privaten AKS-Cluster
 
-```console
+```azurecli
 export AZDATA_USERNAME=<your bdcadmin username>
 export AZDATA_PASSWORD=< your bdcadmin password>
 

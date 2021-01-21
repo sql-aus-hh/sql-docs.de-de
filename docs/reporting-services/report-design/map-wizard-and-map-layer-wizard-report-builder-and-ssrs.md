@@ -13,12 +13,12 @@ f1_keywords:
 ms.assetid: 48cbe18b-1290-4107-8a1c-ec6acd71f73b
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: b139dc1b0aaa0b2d1477d182cf128d0f93795ca3
-ms.sourcegitcommit: 57f1d15c67113bbadd40861b886d6929aacd3467
+ms.openlocfilehash: b307966577cfd30197963263597aee7a9d06e018
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85048331"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597327"
 ---
 # <a name="map-wizard-and-map-layer-wizard-report-builder-and-ssrs"></a>Karten-Assistent und Kartenebenen-Assistent (Berichts-Generator und SSRS)
  In paginierten [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Berichten automatisieren der Karten-Assistent und der Kartenebenen-Assistent das Erstellen einer Karte, Hinzufügen einer Kartenebene oder Ändern der Kartenebenen auf einer vorhandenen Ebene.  
@@ -37,7 +37,7 @@ ms.locfileid: "85048331"
   
 -   Öffnen Sie den Berichts-Generator, und klicken Sie auf das Assistentensymbol **Karte** in der Mitte der Entwurfsoberfläche.  
   
--   Klicken Sie auf der Registerkarte **Einfügen** auf **Karte**und dann auf **Karten-Assistent**.  
+-   Klicken Sie auf der Registerkarte **Einfügen** auf **Karte** und dann auf **Karten-Assistent**.  
   
  Um den Kartenebenen-Assistenten zu öffnen, führen Sie die folgende Aktion aus:  
   
@@ -184,7 +184,7 @@ ms.locfileid: "85048331"
   
 -   **Hybrid:** Zeigt die Kombination der Ansichten **Straße** und **Luftbild** an.  
   
- Weitere Informationen zu Kacheln finden Sie unter [Bing Maps Tiles System](https://go.microsoft.com/fwlink/?LinkId=147315)(möglicherweise in englischer Sprache). Weitere Informationen zur Verwendung von Bing-Kartenkacheln im Bericht finden Sie in den [zusätzlichen Nutzungsbedingungen](https://go.microsoft.com/fwlink/?LinkId=151371).  
+ Weitere Informationen zu Kacheln finden Sie unter [Bing Maps Tiles System](/bingmaps/articles/bing-maps-tile-system)(möglicherweise in englischer Sprache). Weitere Informationen zur Verwendung von Bing-Kartenkacheln im Bericht finden Sie in den [zusätzlichen Nutzungsbedingungen](https://go.microsoft.com/fwlink/?LinkId=151371).  
   
  Um einen Kachelhintergrund in der Entwurfsansicht anzuzeigen, müssen Sie über Internetzugriff verfügen. Um den Kachelhintergrund in der Vorschau eines Berichts auf einem Berichtsserver anzuzeigen, muss der Berichtsserver so konfiguriert werden, dass er Bing-Kartenkacheln unterstützt. Weitere Informationen finden Sie unter [Problembehandlung bei Berichten: Kartenberichte &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/troubleshoot-reports-map-reports-report-builder-and-ssrs.md) und [Planen eines Kartenberichts](../../reporting-services/report-design/plan-a-map-report-report-builder-and-ssrs.md).  
   
@@ -252,5 +252,4 @@ ms.locfileid: "85048331"
  [Problembehandlung bei Berichten: Kartenberichte &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/troubleshoot-reports-map-reports-report-builder-and-ssrs.md)   
  [Planen eines Kartenberichts (Berichts-Generator und SSRS)](../../reporting-services/report-design/plan-a-map-report-report-builder-and-ssrs.md)   
  [Karten &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/maps-report-builder-and-ssrs.md)  
-  
   

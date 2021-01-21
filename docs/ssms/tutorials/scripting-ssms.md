@@ -19,12 +19,12 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: sstein
 ms.date: 03/13/2018
-ms.openlocfilehash: 9d8d86fbe427b232831fa3713b94f067e0089a4b
-ms.sourcegitcommit: 544706f6725ec6cdca59da3a0ead12b99accb2cc
+ms.openlocfilehash: 2607b029389d0a0d3f4b59e55e031b768baf4aac
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638937"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597249"
 ---
 # <a name="script-objects-in-sql-server-management-studio"></a>Erstellen von Skripts für Objekte in SQL Server Management Studio
 
@@ -59,13 +59,13 @@ Sie können den zugeordneten T-SQL-Code für eine Aufgabe generieren, wenn Sie f
 
 2. Erweitern Sie den Knoten **Datenbanken** .
 
-3. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016** > **Aufgaben** > **Sichern** :
+3. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016** > **Aufgaben** > **Sichern**:
 
     ![So sichern Sie eine Datenbank](media/scripting-ssms/backupdb.png)
 
 4. Konfigurieren Sie die Sicherung auf die gewünschte Weise. In diesem Tutorial werden die Standardeinstellungen beibehalten. Alle Änderungen, die Sie in diesem Fenster vornehmen, werden jedoch auch im Skript übernommen. 
 
-5. Wählen Sie **Skript** > **Skript für Aktion im Fenster „Neue Abfrage“ schreiben** :
+5. Wählen Sie **Skript** > **Skript für Aktion im Fenster „Neue Abfrage“ schreiben**:
 
     ![Erstellen von Skripts für Datenbanksicherungen – Skriptaktion](media/scripting-ssms/scriptdbbackup.PNG)
 6. Sehen Sie sich den T-SQL-Code im Abfragefenster an.
@@ -75,7 +75,7 @@ Sie können den zugeordneten T-SQL-Code für eine Aufgabe generieren, wenn Sie f
 
 ### <a name="script-t-sql-when-you-shrink-the-transaction-log"></a>T-SQL-Skripts beim Verkleinern des Transaktionsprotokolls
 
-1. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016** > **Aufgaben** > **Verkleinern** > **Dateien** :
+1. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016** > **Aufgaben** > **Verkleinern** > **Dateien**:
 
      ![Verkleinern von Dateien](media/scripting-ssms/shrinkfiles.png)
 
@@ -87,15 +87,15 @@ Sie können den zugeordneten T-SQL-Code für eine Aufgabe generieren, wenn Sie f
 
     ![Skript in Zwischenablage schreiben](media/scripting-ssms/scriptactiontoclipboard.png)
 
-4. Öffnen Sie ein **Neues Abfragefenster** , und fügen Sie ein. (Klicken Sie mit der rechten Maustaste auf das Fenster. Wählen Sie dann **Einfügen** aus.)
+4. Öffnen Sie ein **Neues Abfragefenster**, und fügen Sie ein. (Klicken Sie mit der rechten Maustaste auf das Fenster. Wählen Sie dann **Einfügen** aus.)
 
     ![Einfügen des Skripts](media/scripting-ssms/paste.png)
 
-5. Klicken Sie auf **Ausführen** , um die Abfrage auszuführen und das Transaktionsprotokoll zu schließen.
+5. Klicken Sie auf **Ausführen**, um die Abfrage auszuführen und das Transaktionsprotokoll zu schließen.
 
 ## <a name="script-databases"></a>Erstellen von Skripts für Datenbanken
 
-Im folgenden Abschnitt erfahren Sie, wie Sie mit den Optionen **Script As** (Skript erstellen als) und **Skripts generieren** Skripts für eine Datenbank erstellen. Mithilfe der Option **Script Database As** (Skript für Datenbank erstellen als) werden die Datenbank und die zugehörigen Konfigurationsoptionen neu erstellt. Mithilfe der Option **Skripts generieren** können Sie Skripts sowohl für das Schema als auch für die Daten erstellen. In diesem Abschnitt erstellen Sie zwei neue Datenbanken. Sie verwenden die Option **Script As** (Skript erstellen als), um *AdventureWorks2016a* zu erstellen. Sie verwenden die Option **Skripts generieren** , um *AdventureWorks2016b* zu erstellen.
+Im folgenden Abschnitt erfahren Sie, wie Sie mit den Optionen **Script As** (Skript erstellen als) und **Skripts generieren** Skripts für eine Datenbank erstellen. Mithilfe der Option **Script Database As** (Skript für Datenbank erstellen als) werden die Datenbank und die zugehörigen Konfigurationsoptionen neu erstellt. Mithilfe der Option **Skripts generieren** können Sie Skripts sowohl für das Schema als auch für die Daten erstellen. In diesem Abschnitt erstellen Sie zwei neue Datenbanken. Sie verwenden die Option **Script As** (Skript erstellen als), um *AdventureWorks2016a* zu erstellen. Sie verwenden die Option **Skripts generieren**, um *AdventureWorks2016b* zu erstellen.
 
 ### <a name="script-a-database-by-using-the-script-option"></a>Erstellen Sie mithilfe der Option „Skript“ ein Skript für eine Datenbank.
 
@@ -103,7 +103,7 @@ Im folgenden Abschnitt erfahren Sie, wie Sie mit den Optionen **Script As** (Skr
 
 2. Erweitern Sie den Knoten **Datenbanken** .
 
-3. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016** -Datenbank, wählen Sie dann  > **Script Database As** > **Create To** > **Neues Abfrage-Editor-Fenster** (Skript für Datenbank erstellen als > Erstellen in) aus:
+3. Klicken Sie mit der rechten Maustaste auf die Datenbank **AdventureWorks2016**-Datenbank, wählen Sie dann  > **Script Database As** > **Create To** > **Neues Abfrage-Editor-Fenster** (Skript für Datenbank erstellen als > Erstellen in) aus:
 
     ![Skripterstellung für Datenbanken](media/scripting-ssms/scriptdb.png)
 
@@ -125,7 +125,7 @@ Im folgenden Abschnitt erfahren Sie, wie Sie mit den Optionen **Script As** (Skr
 
 2. Erweitern Sie den Knoten **Datenbanken** .
 
-3. Klicken Sie mit der rechten Maustaste auf **AdventureWorks2016** > **Aufgaben** > **Skripts generieren** :
+3. Klicken Sie mit der rechten Maustaste auf **AdventureWorks2016** > **Aufgaben** > **Skripts generieren**:
 
     ![Generieren von Skripts für Datenbanken](media/scripting-ssms/generatescriptsfordb.png)
 
@@ -152,7 +152,7 @@ Im folgenden Abschnitt erfahren Sie, wie Sie mit den Optionen **Script As** (Skr
 
 7. Wählen Sie in der **Zusammenfassung** **Weiter** aus. Wählen Sie dann erneut **Weiter** aus, um das Skript in einem Fenster **Neue Abfrage** zu erstellen.
 
-8. Öffnen Sie über die Tastatur das Dialogfeld **Suche** (STRG+F). Wählen Sie den Pfeil nach unten aus, um die Option **Ersetzen** zu öffnen. Geben Sie in der oberen **Suchen** -Zeile *AdventureWorks2016* ein. Geben Sie in der unteren **Ersetzen** -Zeile *AdventureWorks2016b* ein.
+8. Öffnen Sie über die Tastatur das Dialogfeld **Suche** (STRG+F). Wählen Sie den Pfeil nach unten aus, um die Option **Ersetzen** zu öffnen. Geben Sie in der oberen **Suchen**-Zeile *AdventureWorks2016* ein. Geben Sie in der unteren **Ersetzen**-Zeile *AdventureWorks2016b* ein.
 
 9. Wählen Sie **Alle ersetzen** aus, um alle Instanzen von *AdventureWorks2016* durch *AdventureWorks2016b* zu ersetzen.
 
@@ -176,10 +176,10 @@ In diesem Abschnitt wird beschrieben, wie Sie Skripts für Datenbanktabellen ers
 
     ![Skripttabelle](media/scripting-ssms/scripttable.png)
 
-6. Wählen Sie **Ausführen** aus, um die Abfrage auszuführen. Diese Aktion löscht die *Errorlog* -Tabelle und erstellt sie neu. 
+6. Wählen Sie **Ausführen** aus, um die Abfrage auszuführen. Diese Aktion löscht die *Errorlog*-Tabelle und erstellt sie neu. 
 
     >[!NOTE]
-    > Die *Errorlog* -Tabelle ist in der AdventureWorks2016-Datenbank standardmäßig leer. Daher verlieren Sie durch das Löschen der Tabelle keine Daten. Dieselbe Vorgehensweise führt jedoch bei einer Tabelle mit Daten zu Datenverlust.
+    > Die *Errorlog*-Tabelle ist in der AdventureWorks2016-Datenbank standardmäßig leer. Daher verlieren Sie durch das Löschen der Tabelle keine Daten. Dieselbe Vorgehensweise führt jedoch bei einer Tabelle mit Daten zu Datenverlust.
 
 ## <a name="script-stored-procedures"></a>Erstellen von Skripts für gespeicherte Prozeduren
 
@@ -220,13 +220,13 @@ In diesem Abschnitt wird beschrieben, wie Sie ein Skript für [erweiterte Ereign
     ![Neue erweiterte Ereignissitzung](media/scripting-ssms/newxevent.png)
 
     >[!NOTE]
-    > Sie können die Sitzung starten, indem Sie mit der rechten Maustaste darauf klicken und **Start** (Starten) auswählen. Es handelt sich allerdings hier um eine Kopie der bereits laufenden **system_health** -Sitzung, daher können Sie diesen Schritt überspringen. Sie können die Kopie der erweiterten Ereignissitzung löschen, indem Sie mit der rechten Maustaste darauf klicken, und **Löschen** auswählen.
+    > Sie können die Sitzung starten, indem Sie mit der rechten Maustaste darauf klicken und **Start** (Starten) auswählen. Es handelt sich allerdings hier um eine Kopie der bereits laufenden **system_health**-Sitzung, daher können Sie diesen Schritt überspringen. Sie können die Kopie der erweiterten Ereignissitzung löschen, indem Sie mit der rechten Maustaste darauf klicken, und **Löschen** auswählen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Am besten machen Sie sich mit SSMS vertraut, indem Sie einige praktische Aufgaben durchführen. Dieses *Tutorial* und Artikel zu *Vorgehensweisen* unterstützen Sie bei der Verwendung der verschiedenen Features, die in SSMS verfügbar sind. In diesen Artikeln erfahren Sie, wie Sie die Komponenten von SSMS verwalten und wie Sie die Funktionen finden, die Sie regelmäßig verwenden.
 
-* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/connect-query-sql-server.md)
+* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/ssms-connect-query-sql-server.md)
 * [Verwenden von Vorlagen in SSMS](../template/templates-ssms.md)
 * [SSMS-Konfiguration](ssms-configuration.md)
 * [Zusätzliche Tipps und Tricks für die Verwendung von SSMS](ssms-tricks.md)

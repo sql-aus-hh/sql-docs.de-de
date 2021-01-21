@@ -11,12 +11,12 @@ ms.author: drskwier
 ms.reviewer: maghan
 ms.custom: seo-lt-2019
 ms.date: 12/17/2020
-ms.openlocfilehash: 98211695d60592c8178c4b60e45f2105c3b86db4
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 2e1d3faf6d17417ea1f4a134778ddd9342441231
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98102675"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596864"
 ---
 # <a name="release-notes-for-sql-server-management-studio-ssms"></a>Versionshinweise zu SQL Server Management Studio (SSMS)
 
@@ -46,7 +46,7 @@ SSMS 18.8 ist das neueste Release von SSMS mit allgemeiner Verfügbarkeit (GA).
 |----------|---------|
 | Integration der Azure Data Studio-Installation | Mit der Installation von SSMS wird Azure Data Studio 1.25.1. installiert. |
 | Analysis Services | Die Unterstützung für Power BI Premium Gen2-Arbeitsbereiche wurde hinzugefügt. |
-| Überwachung | Die Unterstützung für EXTERNAL_MONITOR und „operator audit“ (Operatorüberwachung) wurde hinzugefügt.  Weitere Informationen finden Sie in der [Dokumentation zur Konfiguration](https://docs.microsoft.com/azure/azure-sql/managed-instance/auditing-configure). |
+| Überwachung | Die Unterstützung für EXTERNAL_MONITOR und „operator audit“ (Operatorüberwachung) wurde hinzugefügt.  Weitere Informationen finden Sie in der [Dokumentation zur Konfiguration](/azure/azure-sql/managed-instance/auditing-configure). |
 | Integration Services | Der IR-Erstellungs-Assistent wurde dahingehend verbessert, dass z. B. beim Erstellen von SSIS IR die Erstellung von SSISDB optional ist. |
 
 #### <a name="bug-fixes-in-188"></a>Fehlerkorrekturen in Version 18.8
@@ -142,7 +142,7 @@ SSMS 18.7 ist das neueste Release von SSMS mit allgemeiner Verfügbarkeit (GA).
 | Assistent zum Generieren von Skripts | Der Assistent löst einen Fehler aus, wenn Sie versuchen, Datenbankobjekte in SQL Server 2014 und höher aufzulisten. Weitere Informationen finden Sie im [SQL Server-Benutzerfeedback](https://feedback.azure.com/forums/908035-sql-server/suggestions/41885587). | Verwenden Sie SSMS 18.6, um Objekte im Assistenten zum Generieren von Skripts für SQL 2014 und höher auszuwählen. |
 | Integration Services | Beim Im- oder Export von Paketen in Integration Services oder beim Export von Paketen in Azure-SSIS Integration Runtime gehen Skripts für Pakete verloren, die Skriptaufgaben/-komponenten enthalten. | Entfernen Sie den Ordner „C:\Programme (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\MSBuild“. |
 | Integration Services | Bei Remoteverbindungen mit den Integrationsdiensten tritt möglicherweise ein Fehler „The specified service does not exist as an installed service“ (Der angegebene Dienst ist nicht als installierter Dienst vorhanden) in neueren Betriebssystemen auf. | Identifizieren Sie den Registrierungsspeicherort für die Integrationsdienste unter „Computer\HKEY_CLASSES_ROOT\AppID & Computer\HKEY_CLASSES_ROOT\WOW6432Node\AppID“, und benennen Sie innerhalb dieser Strukturen für die bestimmte Version der Integrationsdienste, mit denen wir eine Verbindung herstellen möchten, den Registrierungsschlüssel „LocalService“ in „LocalService_A“ um. |
-| Objekt-Explorer | SSMS-Releases vor 18.7 weisen aufgrund von Änderungen der Engine im Zusammenhang mit [serverlosen SQL-Pools bei Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) einen Breaking Change im Objekt-Explorer auf. | Um den Objekt-Explorer in SSMS weiterhin mit serverlosen SQL-Pools in Azure Synapse Analytics verwenden zu können, müssen Sie SSMS 18.7 oder höher verwenden. |
+| Objekt-Explorer | SSMS-Releases vor 18.7 weisen aufgrund von Änderungen der Engine im Zusammenhang mit [serverlosen SQL-Pools bei Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview) einen Breaking Change im Objekt-Explorer auf. | Um den Objekt-Explorer in SSMS weiterhin mit serverlosen SQL-Pools in Azure Synapse Analytics verwenden zu können, müssen Sie SSMS 18.7 oder höher verwenden. |
 
 ### <a name="187"></a>18,7
 

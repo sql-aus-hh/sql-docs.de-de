@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: b3884576-1f7e-4d40-bb7d-168312333bb3
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 7d19ea6df08431db42e700cabccd7a05167dd89c
-ms.sourcegitcommit: 6be9a0ff0717f412ece7f8ede07ef01f66ea2061
+ms.openlocfilehash: 6ad6853715963c9a29ee4db2e73199fecd50801a
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808570"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597325"
 ---
 # <a name="dataset-fields-collection-report-builder-and-ssrs"></a>Datasetfeldauflistung (Berichts-Generator und SSRS)
   Datasetfelder stellen die Daten aus einer Datenverbindung dar. Ein Feld kann entweder numerische oder nicht numerische Daten darstellen. Dazu zählen z. B. Umsätze, der Gesamtumsatz, Kundennamen, Datenbankbezeichner, URLs, Bilder, räumliche Daten und E-Mail-Adressen. Auf der Entwurfsoberfläche werden Felder als Ausdrücke in Berichtselementen wie z. B. Textfelder, Tabellen und Diagramme angezeigt.  
@@ -54,10 +54,10 @@ ms.locfileid: "85808570"
  Wenn Sie mit einer Berichtsmodelldatenquelle arbeiten, geben Sie die Entitäten und Entitätsfelder als Berichtsdaten an. Im Abfrage-Designer für ein Berichtsmodell können Sie verknüpfte Entitäten interaktiv untersuchen und wählen und die Felder auswählen, die Sie in das Berichtsdataset einschließen möchten. Nachdem Sie die Abfrage entworfen haben, können Sie die Auflistung von Entitätsbezeichnern und Entitätsfeldern im Berichtsdatenbereich sehen. Entitätsbezeichner werden automatisch vom Berichtsmodell generiert und werden in der Regel nicht für den Endbenutzer angezeigt.  
   
 ### <a name="using-extended-field-properties"></a>Verwenden von erweiterten Feldeigenschaften  
- Datenquellen, die mehrdimensionale Abfragen wie [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] unterstützen, unterstützen auch Feldeigenschaften in Feldern. Feldeigenschaften werden im Resultset einer Abfrage angezeigt, sind im Bereicht **Berichtsdaten** jedoch nicht sichtbar. Sie stehen trotzdem zur Verwendung im Bericht zur Verfügung. Wenn Sie auf eine Eigenschaft für ein Feld verweisen möchten, ziehen Sie das Feld in den Bericht und ändern die Standardeigenschaft **Value** in den Feldnamen der gewünschten Eigenschaft. In einem [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] -Cube können Sie zum Beispiel Formate für Werte in den Cubezellen definieren. Der formatierte Wert ist mithilfe der Feldeigenschaft **FormattedValue**verfügbar. Um den Wert direkt zu verwenden, anstatt einen Wert zu verwenden und die Formateigenschaft des Textfelds festzulegen, ziehen Sie das Feld in das Textfeld und ändern den Standardausdruck `=Fields!FieldName.Value` in `=Fields!FieldName.FormattedValue`.  
+ Datenquellen, die mehrdimensionale Abfragen wie [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] unterstützen, unterstützen auch Feldeigenschaften in Feldern. Feldeigenschaften werden im Resultset einer Abfrage angezeigt, sind im Bereicht **Berichtsdaten** jedoch nicht sichtbar. Sie stehen trotzdem zur Verwendung im Bericht zur Verfügung. Wenn Sie auf eine Eigenschaft für ein Feld verweisen möchten, ziehen Sie das Feld in den Bericht und ändern die Standardeigenschaft **Value** in den Feldnamen der gewünschten Eigenschaft. In einem [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] -Cube können Sie zum Beispiel Formate für Werte in den Cubezellen definieren. Der formatierte Wert ist mithilfe der Feldeigenschaft **FormattedValue** verfügbar. Um den Wert direkt zu verwenden, anstatt einen Wert zu verwenden und die Formateigenschaft des Textfelds festzulegen, ziehen Sie das Feld in das Textfeld und ändern den Standardausdruck `=Fields!FieldName.Value` in `=Fields!FieldName.FormattedValue`.  
   
 > [!NOTE]
->  Nicht alle **Field** -Eigenschaften können für alle Datenquellen verwendet werden. Die **Value** - und die **IsMissing** -Eigenschaft werden für alle Datenquellen definiert. Weitere vordefinierte Eigenschaften (zum Beispiel **Key**, **UniqueName**und **ParentUniqueName** für mehrdimensionale Datenquellen) werden nur unterstützt, wenn die Datenquelle diese Eigenschaften bereitstellt. Benutzerdefinierte Eigenschaften werden von einigen Datenanbietern unterstützt. Weitere Informationen finden Sie in den entsprechenden Themen zu erweiterten Feldeigenschaften für den Datenquellentyp unter [Erstellen von Berichten zu eingebetteten und freigegebenen Datasets &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-data/report-embedded-datasets-and-shared-datasets-report-builder-and-ssrs.md). Ein Beispiel einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]-Datenquelle finden Sie unter [Erweiterte Feldeigenschaften für eine Analysis Services-Datenbank (SSRS)](../../reporting-services/report-data/extended-field-properties-for-an-analysis-services-database-ssrs.md).  
+>  Nicht alle **Field** -Eigenschaften können für alle Datenquellen verwendet werden. Die **Value** - und die **IsMissing** -Eigenschaft werden für alle Datenquellen definiert. Weitere vordefinierte Eigenschaften (zum Beispiel **Key**, **UniqueName** und **ParentUniqueName** für mehrdimensionale Datenquellen) werden nur unterstützt, wenn die Datenquelle diese Eigenschaften bereitstellt. Benutzerdefinierte Eigenschaften werden von einigen Datenanbietern unterstützt. Weitere Informationen finden Sie in den entsprechenden Themen zu erweiterten Feldeigenschaften für den Datenquellentyp unter [Erstellen von Berichten zu eingebetteten und freigegebenen Datasets &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-data/report-embedded-datasets-and-shared-datasets-report-builder-and-ssrs.md). Ein Beispiel einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]-Datenquelle finden Sie unter [Erweiterte Feldeigenschaften für eine Analysis Services-Datenbank (SSRS)](../../reporting-services/report-data/extended-field-properties-for-an-analysis-services-database-ssrs.md).  
   
   
 ##  <a name="understanding-default-expressions-for-fields"></a><a name="Defaults"></a> Grundlegendes zu Standardausdrücken für Felder  
@@ -77,9 +77,9 @@ ms.locfileid: "85808570"
   
 -   **Datenquelle** Die Datentypen, die von der Version des Datenquellentyps unterstützt werden, zu der Sie eine Verbindung herstellen.  
   
-     Typische Datentypen für eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenquelle sind zum Beispiel **int**, **datetime**und **varchar**. Mit in [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] eingeführten Datentypen wurde Unterstützung für **date**, **time**, **datetimetz**und **datetime2**hinzugefügt. Weitere Informationen finden Sie unter [Datentypen (Transact-SQL)](https://go.microsoft.com/fwlink/?linkid=98362).  
+     Typische Datentypen für eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenquelle sind zum Beispiel **int**, **datetime** und **varchar**. Mit in [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] eingeführten Datentypen wurde Unterstützung für **date**, **time**, **datetimetz** und **datetime2** hinzugefügt. Weitere Informationen finden Sie unter [Datentypen (Transact-SQL)](/previous-versions/sql/sql-server-2008/ms187752(v=sql.100)).  
   
--   **Datenanbieter oder Datenverarbeitungserweiterung** Die Datentypen, die von der Version des Anbieters der Datenverarbeitungserweiterung unterstützt werden, die Sie beim Herstellen der Verbindung zur Datenquelle auswählen. Datenanbieter, die auf [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] basieren, verwenden von der CLR unterstützte Datentypen. Weitere Informationen zu Datentypen des [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Datenanbieters finden Sie auf der MSDN-Website unter [Datentypzuordnungen (ADO.NET](https://go.microsoft.com/fwlink/?LinkId=112178) ) und [Arbeiten mit Basistypen](https://go.microsoft.com/fwlink/?LinkId=112177) .  
+-   **Datenanbieter oder Datenverarbeitungserweiterung** Die Datentypen, die von der Version des Anbieters der Datenverarbeitungserweiterung unterstützt werden, die Sie beim Herstellen der Verbindung zur Datenquelle auswählen. Datenanbieter, die auf [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] basieren, verwenden von der CLR unterstützte Datentypen. Weitere Informationen zu Datentypen des [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -Datenanbieters finden Sie auf der MSDN-Website unter [Datentypzuordnungen (ADO.NET](/dotnet/framework/data/adonet/data-type-mappings-in-ado-net) ) und [Arbeiten mit Basistypen](/dotnet/standard/base-types/common-type-system) .  
   
      Typische Datentypen, die von [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] unterstützt werden, sind zum Beispiel **Int32** und **String**. Datum und Uhrzeit für Kalender werden von der **DateTime** -Struktur unterstützt. Mit dem [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] 2.0 Service Pack 1 wurde die Unterstützung der **DateTimeOffset** -Struktur für Daten mit einem Zeitzonenoffset eingeführt.  
   
@@ -97,7 +97,7 @@ ms.locfileid: "85808570"
     |**DateTimeTZ**|**DateTimeOffset**|Datum und Uhrzeit mit Zeitzonenoffset|  
     |**DateTime2**|**DateTime**|Datum und Uhrzeit mit Bruchteilen von Millisekunden|  
   
- Weitere Informationen über [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbanktypen finden Sie unter [Datentypen (Datenbank-Engine)](https://go.microsoft.com/fwlink/?linkid=98362) und [Datums- und Uhrzeitdatentypen und zugehörige Funktionen (Transact-SQL)](https://go.microsoft.com/fwlink/?linkid=98360).  
+ Weitere Informationen über [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbanktypen finden Sie unter [Datentypen (Datenbank-Engine)](/previous-versions/sql/sql-server-2008/ms187752(v=sql.100)) und [Datums- und Uhrzeitdatentypen und zugehörige Funktionen (Transact-SQL)](/previous-versions/sql/sql-server-2008/ms186724(v=sql.100)).  
   
  Weitere Informationen zum Einschließen von Verweisen auf ein Datasetfeld aus einem Ausdruck finden Sie unter [Datentypen in Ausdrücken &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/data-types-in-expressions-report-builder-and-ssrs.md).  
   
@@ -107,8 +107,7 @@ ms.locfileid: "85808570"
   
   
 ## <a name="see-also"></a>Weitere Informationen  
- [Dataseteigenschaften (Dialogfeld), Felder &#40;Berichts-Generator&#41;](https://msdn.microsoft.com/library/75c7e54a-3d20-4c9a-88da-ab36dce2ce42)   
+ [Dataseteigenschaften (Dialogfeld), Felder &#40;Berichts-Generator&#41;]()   
  [Berichtsteile und Datasets in Berichts-Generator](../../reporting-services/report-data/report-parts-and-datasets-in-report-builder.md)   
  [Erstellen von Berichten zu eingebetteten und freigegebenen Datasets &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-data/report-embedded-datasets-and-shared-datasets-report-builder-and-ssrs.md)  
-  
   

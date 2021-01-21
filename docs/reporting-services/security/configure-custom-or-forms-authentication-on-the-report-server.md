@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: e8601a8f-e66d-4649-8e4d-a46ca20ec7d0
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 196b326a9854242369efbdc6c697d292a1eb6e94
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: bca083e29d0d03a5a5470f58b4e004d81cd27a36
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88492623"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596628"
 ---
 # <a name="configure-custom-or-forms-authentication-on-the-report-server"></a>Konfiguration der benutzerdefinierten oder Formularauthentifizierung auf dem Berichtsserver
 
@@ -28,7 +28,7 @@ In der Praxis erfordert das Bereitstellen einer benutzerdefinierten Authentifizi
 > [!NOTE]
 >  Zum Erstellen einer benutzerdefinierten Authentifizierungserweiterung sind benutzerdefinierter Code und Kenntnisse der [!INCLUDE[vstecasp](../../includes/vstecasp-md.md)] -Sicherheit erforderlich. Wenn Sie keine benutzerdefinierte Authentifizierungserweiterung erstellen möchten, können Sie [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory-Gruppen und -Konten verwenden, aber Sie sollten den Rahmen einer Berichtsserverbereitstellung deutlich verringern. Weitere Informationen zur benutzerdefinierten Authentifizierung finden Sie unter [Implementing a Security Extension](../../reporting-services/extensions/security-extension/implementing-a-security-extension.md).
 
-Wenn Sie eine Formular- oder benutzerdefinierte Authentifizierungserweiterung in einer SQL Server Reporting Services-Umgebung verwenden möchten, die mit einem SharePoint-Produkt integriert ist, müssen Sie die SharePoint-Website für die Verwendung der von Ihnen gewählten Authentifizierungsmethode konfigurieren. Weitere Informationen über das Konfigurieren der Authentifizierung in SharePoint finden Sie unter [Authentication Samples](https://go.microsoft.com/fwlink/?LinkId=115575) im [!INCLUDE[msCoName](../../includes/msconame-md.md)] Developer Network (MSDN).
+Wenn Sie eine Formular- oder benutzerdefinierte Authentifizierungserweiterung in einer SQL Server Reporting Services-Umgebung verwenden möchten, die mit einem SharePoint-Produkt integriert ist, müssen Sie die SharePoint-Website für die Verwendung der von Ihnen gewählten Authentifizierungsmethode konfigurieren. Weitere Informationen über das Konfigurieren der Authentifizierung in SharePoint finden Sie unter [Authentication Samples](/previous-versions/office/sharepoint-2007-products-and-technologies/cc262069(v=office.12)) im [!INCLUDE[msCoName](../../includes/msconame-md.md)] Developer Network (MSDN).
 
 
 
@@ -57,13 +57,13 @@ Wenn Sie eine Formular- oder benutzerdefinierte Authentifizierungserweiterung in
 
 6.  Öffnen Sie die Datei Web.config für den Berichtsserver. Standardmäßig befindet sich diese Datei unter "Programme\Microsoft SQL Server\MSRS10_50.MSSQLSERVER\ReportServer".
 
-7.  Suchen Sie **authentication mode** , und legen Sie dafür **Forms**fest.
+7.  Suchen Sie **authentication mode** , und legen Sie dafür **Forms** fest.
 
     ```
     <authentication mode = "Forms" />
     ```
 
-8.  Suchen Sie **identity impersonate** , und legen Sie dafür **False**fest.
+8.  Suchen Sie **identity impersonate** , und legen Sie dafür **False** fest.
 
     ```
     <identity impersonate = "false" />  

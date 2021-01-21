@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 1c1e265e-52a2-4de3-96fd-ca4abae01c02
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: cdaaaa55756860e4b62f90cb7e01c88c63ad4b61
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ec946e008990e9cc4f75fc6a6eb0882756d25b8b
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477061"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596560"
 ---
 # <a name="plan-for-report-design-and-report-deployment--reporting-services"></a>Planen von Berichtsentwurf und -bereitstellung | Reporting Services
 [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] bietet eine Reihe von Ansätzen zum Erstellen und Bereitstellen von paginierten Berichten. Erhalten Sie Informationen, wie Sie eine Umgebung für die Berichterstellung und einen Berichtsserver planen, die reibungslos zusammenarbeiten.
@@ -38,11 +38,11 @@ Dieses Thema bietet eine Übersicht über die Unterstützung der Berichtsdefinit
   
 -   [Microsoft SQL Server XML-Schemas](https://go.microsoft.com/fwlink/?LinkId=31850)  
   
--   [Spezifikationen der Berichtsdefinitionssprache](https://go.microsoft.com/fwlink/?linkid=116865)  
+-   [Spezifikationen der Berichtsdefinitionssprache](/openspecs/sql_server_protocols/ms-rdl/53287204-7cd0-4bc9-a5cd-d42a5925dca1)  
   
 -   [Berichtsdefinitionssprache (SSRS)](../reporting-services/reports/report-definition-language-ssrs.md)  
   
- Weitere Informationen zu ReportViewer-Steuerelementen finden Sie unter [ReportViewer-Steuerelemente (Visual Studio)](https://msdn.microsoft.com/library/ms251671.aspx).  
+ Weitere Informationen zu ReportViewer-Steuerelementen finden Sie unter [ReportViewer-Steuerelemente (Visual Studio)](/previous-versions/ms251671(v=vs.140)).  
   
 ##  <a name="report-server-and-rdl-schema-support"></a><a name="bkmk_report_server_rdl_schema_support"></a> Unterstützung von Berichtsservern und RDL-Schemas  
  Eine Berichtsdefinitionsdatei kann wie folgt auf einem [!INCLUDE[ssRSCurrent](../includes/ssrscurrent-md.md)] -Berichtsserver bereitgestellt werden:  
@@ -112,15 +112,14 @@ Wechseln Sie in einer Bereitstellung im SharePoint-Modus zur Dokumentbibliothek,
   
  Weitere Informationen finden Sie unter  
   
--   [Konvertieren von RDLC-Dateien in RDL-Dateien](https://msdn.microsoft.com/library/ms252109.aspx)  
+-   [Konvertieren von RDLC-Dateien in RDL-Dateien](/previous-versions/ms252109(v=vs.140))  
   
--   [ReportViewer-Steuerelemente (Visual Studio)](https://msdn.microsoft.com/library/ms251671.aspx)  
+-   [ReportViewer-Steuerelemente (Visual Studio)](/previous-versions/ms251671(v=vs.140))  
   
--   [Hinzufügen und Konfigurieren der ReportViewer-Steuerelemente](https://msdn.microsoft.com/library/ms252104.aspx)  
+-   [Hinzufügen und Konfigurieren der ReportViewer-Steuerelemente](/previous-versions/ms252104(v=vs.140))  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Berichte, Berichtsteile und Berichtsdefinitionen &#40;Berichts-Generator und SSRS&#41;](../reporting-services/report-design/reports-report-parts-and-report-definitions-report-builder-and-ssrs.md)   
  [Reporting Services-Tools](../reporting-services/tools/reporting-services-tools.md)   
  [Berichtsdefinitionssprache (SSRS)](../reporting-services/reports/report-definition-language-ssrs.md)  
-  
   

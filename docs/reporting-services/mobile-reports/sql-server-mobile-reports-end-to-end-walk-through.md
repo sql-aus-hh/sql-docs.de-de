@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: e198575e-b154-4342-b944-2bf19ec49bfd
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 4013c119093adda0fbb721c376eef502a7b05a38
-ms.sourcegitcommit: ea0bf89617e11afe85ad85309e0ec731ed265583
+ms.openlocfilehash: df09e4168790a4607de19348f50e76a4fbd0f383
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92907248"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596543"
 ---
 # <a name="sql-server-mobile-reports-end-to-end-walk-through"></a>Mobile Berichte mit SQL Server: End-to-End-Vorgehensweise
 Exemplarische Vorgehensweise zum Erstellen mobiler Berichte für sämtliche Bildschirmgrößen mit [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-long.md)] im [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Webportal und ihrer Anzeige in mobilen Power BI-Apps.
@@ -34,12 +34,12 @@ Um folgen zu können, benötigen Sie diese Produkte:
   
 * Zum Erstellen von Datenquellen und KPIs sowie zum Veröffentlichen von Datasets und mobilen Berichten benötigen Sie Zugriff auf einen [Reporting Services-Berichtsserver im einheitlichen Modus](../install-windows/install-reporting-services-native-mode-report-server.md).  
 * Zum Erstellen freigegebener Datasets müssen Sie den [Berichts-Generator installieren](../install-windows/install-report-builder.md).  
-* Zum Erstellen mobiler Berichte [installieren Sie den Publisher für mobile Berichte von SQL Server](https://go.microsoft.com/fwlink/?LinkId=717766).  
+* Zum Erstellen mobiler Berichte [installieren Sie den Publisher für mobile Berichte von SQL Server](../reporting-services-features-and-tasks-ssrs.md).  
 * [AdventureWorks-Beispieldatenbanken](https://github.com/Microsoft/sql-server-samples/releases).  
-*  ODER: Wide World Importers-Beispieldatenbank (WWI), die auf der Seite [Microsoft SQL Server-Beispiele](../../sample/microsoft-sql-server-samples.md) verfügbar ist.
+*  ODER: Wide World Importers-Beispieldatenbank (WWI), die auf der Seite [Microsoft SQL Server-Beispiele](../../samples/sql-samples-where-are.md) verfügbar ist.
 * Führen Sie zum Anzeigen von Ergebnissen die folgenden Schritte aus: 
   *   [Registrieren beim Power BI-Dienst](https://go.microsoft.com/fwlink/?LinkID=513879) und
-  *  [Herunterladen der mobilen Power BI-App](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-apps-for-mobile-devices) auf Ihr Mobilgerät: iOS, Android-Smartphone oder Windows 10-Gerät.  
+  *  [Herunterladen der mobilen Power BI-App](/power-bi/consumer/mobile/mobile-apps-for-mobile-devices) auf Ihr Mobilgerät: iOS, Android-Smartphone oder Windows 10-Gerät.  
 
   
 ## <a name="create-a-shared-data-source"></a>Erstellen einer freigegebenen Datenquelle  
@@ -78,10 +78,10 @@ Verwenden Sie ein vorhandenes [!INCLUDE[PRODUCT_NAME](../../includes/ssrsnoversi
    
 4. Geben Sie in das Feld „Name“ den Namen des Servers, auf dem Sie die Datenquelle gespeichert hat, in diesem Format ein:   
    
-   Name: https:// *localhost* /ReportServer  
+   Name: https://*localhost*/ReportServer  
    Elemente vom Typ: Datenquellen (*.rsds)  
    
-5. Klicken Sie auf **Öffnen** , und navigieren Sie zur Datenquelle, die Sie auf diesem Server erstellt haben.  
+5. Klicken Sie auf **Öffnen**, und navigieren Sie zur Datenquelle, die Sie auf diesem Server erstellt haben.  
    
 6. Wählen Sie die Datenquelle aus, und klicken Sie erneut auf **Öffnen** .    
   
@@ -135,7 +135,7 @@ Sie erstellen KPIs direkt im [!INCLUDE[PRODUCT_NAME](../../includes/ssrsnoversio
     
 ## <a name=""></a><a name="create-mobile-report">Erstellen eines mobilen Berichts in Reporting Services</a>  
    
-Zum Erstellen eines mobilen Reporting Services-Berichts [installieren Sie Publisher für mobile Berichte von SQL Server](https://go.microsoft.com/fwlink/?LinkId=717766)oder starten das Tool im [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Webportal. 
+Zum Erstellen eines mobilen Reporting Services-Berichts [installieren Sie Publisher für mobile Berichte von SQL Server](../reporting-services-features-and-tasks-ssrs.md)oder starten das Tool im [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Webportal. 
 
 Beim ersten Öffnen von [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-short.md)]sehen Sie einen leeren Zeichenbereich, in dem Sie Ihren mobilen Bericht erstellen können. Sie können nach Wunsch zuerst mit den visuellen Elementen oder mit Ihren Daten beginnen. Wenn Sie die visuellen Elemente zuerst erstellen, generiert [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-short.md)] automatisch simulierte Daten, die an den Bericht gebunden sind, und ändert sich dynamisch, sobald Sie Ihre Optionen für die visuellen Elemente ändern. Versuchen Sie es selbst.   
   
@@ -183,9 +183,9 @@ Beim ersten Öffnen von [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-
   
 4. Wählen Sie den Server und dann das Dataset aus, das Sie erstellt haben.  
    
-3. Zurück auf der Registerkarte **Daten** ändern Sie im Bereich **Dateneigenschaften** die Eigenschaften **Größe repräsentiert** , **Farbe repräsentiert** u. a. in Felder in Ihren eigenen Daten. 
+3. Zurück auf der Registerkarte **Daten** ändern Sie im Bereich **Dateneigenschaften** die Eigenschaften **Größe repräsentiert**, **Farbe repräsentiert** u. a. in Felder in Ihren eigenen Daten. 
    
-   *  **Größe repräsentiert** , **Farbe repräsentiert** und **Benutzerdefinierter Mittenwert** müssen Felder mit numerischen Werten sein. 
+   *  **Größe repräsentiert**, **Farbe repräsentiert** und **Benutzerdefinierter Mittenwert** müssen Felder mit numerischen Werten sein. 
    *  **Gruppieren nach** ist eine Kategorie, also ein Textfeld.
    
    ![Screenshot des Abschnitts „Dateneigenschaften“](../../reporting-services/mobile-reports/media/ssrs-mobile-report-data-properties.png)
@@ -303,8 +303,6 @@ Die KPIs und mobilen Berichte werden in denselben Ordnern angezeigt, in denen si
   
 ## <a name="see-also"></a>Weitere Informationen  
  
--  Informationen zu iOS- und Android-Geräten finden Sie unter [Anzeigen lokaler Berichte und KPIs eines Berichtsservers in den mobilen Power BI-Apps](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports).
+-  Informationen zu iOS- und Android-Geräten finden Sie unter [Anzeigen lokaler Berichte und KPIs eines Berichtsservers in den mobilen Power BI-Apps](/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports).
 -  Informationen zu iOS- und Android-Geräten finden Sie unter [Anzeigen von mobilen SSRS-Berichten (Reporting Services) und -KPIs in der mobilen Power BI-App für Windows 10](https://powerbi.microsoft.com/documentation/powerbi-mobile-win10-kpis-mobile-reports/).    
   
-   
-

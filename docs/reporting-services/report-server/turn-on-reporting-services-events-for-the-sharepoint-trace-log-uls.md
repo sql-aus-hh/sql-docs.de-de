@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 81110ef6-4289-405c-a931-e7e9f49e69ba
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: ef8729d35598b59c33a827d77e5e7c5473ead049
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 7ce362356424cb0fdaf991faa27d90f10ef36899
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84547862"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597133"
 ---
 # <a name="turn-on-reporting-services-events-for-the-sharepoint-trace-log-uls"></a>Aktivieren von Reporting Services-Ereignissen für das SharePoint-Ablaufverfolgungsprotokoll (ULS)
 
@@ -57,11 +57,11 @@ ms.locfileid: "84547862"
   
 4.  Suchen Sie **SQL Server Reporting Services** in der Kategorieliste.  
   
-5.  Klicken Sie auf das Pluszeichen (+), um die Unterkategorien unter **SQL Server Reporting Services**zu erweitern.  
+5.  Klicken Sie auf das Pluszeichen (+), um die Unterkategorien unter **SQL Server Reporting Services** zu erweitern.  
   
 6.  Wählen Sie die Unterkategorien aus, die dem Ablaufverfolgungsprotokoll hinzugefügt werden sollen.  
   
-7.  Wählen Sie unten in der Kategorieliste eine Ereignisebene für **Unwichtigstes, im Ablaufverfolgungsprotokoll aufzuzeichnendes Ereignis**aus. Wählen Sie **Keine** aus, um die Ablaufverfolgung zu deaktivieren.  
+7.  Wählen Sie unten in der Kategorieliste eine Ereignisebene für **Unwichtigstes, im Ablaufverfolgungsprotokoll aufzuzeichnendes Ereignis** aus. Wählen Sie **Keine** aus, um die Ablaufverfolgung zu deaktivieren.  
   
 > [!NOTE]  
 >  Die Option **Unwichtigstes, im Ereignisprotokoll aufzuzeichnendes Ereignis** wird von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]nicht unterstützt. Die Option wird ignoriert.  
@@ -73,7 +73,7 @@ ms.locfileid: "84547862"
   
 -   **SOAP-Clientproxy**  
   
--   Wenn Probleme bei der Konfiguration auftreten, fügen Sie **Konfigurationsseiten**hinzu.  
+-   Wenn Probleme bei der Konfiguration auftreten, fügen Sie **Konfigurationsseiten** hinzu.  
   
  Sie können alle aktuellen Farm-Diagnoseprotokolleinstellungen mit dem folgenden PowerShell-Cmdlet überprüfen:  
   
@@ -139,7 +139,7 @@ Get-SPDiagnosticConfig
 |Gemeinsamer Dienst|Beispieleinträge:<br /><br /> MediumUpdating ReportingWebServiceApplication<br /><br /> MediumGranting-Zugriff auf Inhaltsdatenbanken.<br /><br /> MediumProvisioning-Instanzen für ReportingWebServiceApplication<br /><br /> MediumProcessing-Dienstkontoänderung für ReportingWebServiceApplication<br /><br /> MediumSetting-Datenbankberechtigungen.|  
   
 ##  <a name="view-a-log-file-with-powershell"></a><a name="bkmk_powershell"></a> Anzeigen einer Protokolldatei mit PowerShell  
- ![PowerShell-Inhalt](https://docs.microsoft.com/analysis-services/analysis-services/instances/install-windows/media/rs-powershellicon.jpg "PowerShell-Inhalt") Sie können PowerShell verwenden, um sich eine Liste der [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]-bezogenen Ereignisse aus einer ULS-Protokolldatei zurückgeben zu lassen. Geben Sie über die SharePoint 2010-Verwaltungsshell folgenden Befehl ein, um eine gefilterte Liste mit den Zeilen der ULS-Protokolldatei „UESQL11SPOINT-20110606-1530.log“ zurückzugeben, die „**sql server reporting services**“ enthalten:  
+ ![PowerShell-Inhalt](/analysis-services/analysis-services/instances/install-windows/media/rs-powershellicon.jpg "PowerShell-Inhalt") Sie können PowerShell verwenden, um sich eine Liste der [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]-bezogenen Ereignisse aus einer ULS-Protokolldatei zurückgeben zu lassen. Geben Sie über die SharePoint 2010-Verwaltungsshell folgenden Befehl ein, um eine gefilterte Liste mit den Zeilen der ULS-Protokolldatei „UESQL11SPOINT-20110606-1530.log“ zurückzugeben, die „**sql server reporting services**“ enthalten:  
   
 ```  
 Get-content -path "C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\LOGS\UESQL11SPOINT-20110606-1530.log" | select-string "sql server reporting services"  
@@ -147,11 +147,11 @@ Get-content -path "C:\Program Files\Common Files\Microsoft Shared\Web Server Ext
   
  Sie können auch Tools herunterladen, die Ihnen erlauben, ULS-Protokolle zu lesen. Zum Beispiel den auf GitHub verfügbaren [SharePoint-LogViewer](https://github.com/hasankhan/SharePointLogViewer). 
   
- Weitere Informationen zum Anzeigen von Protokolldaten mithilfe von PowerShell finden Sie unter [Anzeigen von Diagnoseprotokollen (SharePoint Server 2010)](https://technet.microsoft.com/library/ff463595.aspx).  
+ Weitere Informationen zum Anzeigen von Protokolldaten mithilfe von PowerShell finden Sie unter [Anzeigen von Diagnoseprotokollen (SharePoint Server 2010)](/SharePoint/administration/view-diagnostic-logs).  
   
 ##  <a name="trace-log-location"></a><a name="bkmk_trace"></a> Speicherort des Ablaufverfolgungsprotokolls  
  Die Protokolldateien der Ablaufverfolgung befinden sich normalerweise im Ordner **C:\Programme\Common files\Microsoft Shared\Web Server Extensions\14\logs** . Sie können jedoch den Pfad auf der Seite **Diagnoseprotokollierung** der SharePoint-Zentraladministration überprüfen und ggf. ändern.  
   
- Weitere Informationen und Anweisungen zur Konfiguration der Diagnoseprotokollierung auf einem SharePoint-Server in der SharePoint 2010-Zentraladministration finden Sie unter [Konfigurieren von Einstellungen für die Diagnoseprotokollierung (Windows SharePoint Services)](https://go.microsoft.com/fwlink/?LinkID=114423).  
+ Weitere Informationen und Anweisungen zur Konfiguration der Diagnoseprotokollierung auf einem SharePoint-Server in der SharePoint 2010-Zentraladministration finden Sie unter [Konfigurieren von Einstellungen für die Diagnoseprotokollierung (Windows SharePoint Services)](/previous-versions/office/sharepoint-2007-products-and-technologies/cc288649(v=office.12)).  
 
 Haben Sie dazu Fragen? [Stellen Sie eine Frage im Reporting Services-Forum](https://go.microsoft.com/fwlink/?LinkId=620231)

@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 51ad69d8-fe92-4662-a7cd-d235692f0c03
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 22f5064c4d861c3f10f88ce4ff1a5727f545fb72
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 60d621e9bb833615aaed5e6f622afb9591916037
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91934957"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597064"
 ---
 # <a name="tutorial-how-to-locate-and-start-reporting-services-tools-ssrs"></a>Tutorial: So suchen und starten Sie Reporting Services-Tools (SSRS)
 
@@ -51,11 +51,11 @@ Verwenden Sie den Konfigurations-Manager im einheitlichen Modus, um folgende Auf
 
     **Oder**
 
-    Klicken Sie auf **Starten**, auf **Programme**, auf [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)], auf **Konfigurationstools**und dann auf **Berichtsserver-Konfigurations-Manager**.
+    Klicken Sie auf **Starten**, auf **Programme**, auf [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)], auf **Konfigurationstools** und dann auf **Berichtsserver-Konfigurations-Manager**.
 
     Das Dialogfeld **Auswahl der Berichtsserver-Installationsinstanz** wird angezeigt, mit dem Sie die Berichtsserverinstanz auswählen können, die Sie konfigurieren möchten.
 
-2. Geben Sie in **Servername**den Namen des Computers an, auf dem die Berichtsserverinstanz installiert ist. Standardmäßig ist der Name des lokalen Computers angegeben, Sie können jedoch auch den Namen einer Remoteinstanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eingeben.
+2. Geben Sie in **Servername** den Namen des Computers an, auf dem die Berichtsserverinstanz installiert ist. Standardmäßig ist der Name des lokalen Computers angegeben, Sie können jedoch auch den Namen einer Remoteinstanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eingeben.
 
     Falls Sie einen Remotecomputer angeben, klicken Sie auf **Suchen** , um eine Verbindung herzustellen. Der Berichtsserver muss zuvor für die Remoteverwaltung konfiguriert werden. Weitere Informationen finden Sie unter [Konfigurieren eines Berichtsservers für die Remoteverwaltung](../../reporting-services/report-server/configure-a-report-server-for-remote-administration.md).
 
@@ -89,7 +89,7 @@ Damit Sie das Webportal öffnen können, müssen Sie über ausreichende Berechti
 
 ## <a name="management-studio"></a><a name="bkmk_managements_studio"></a> Management Studio
 
-Mit [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] können Berichtsserveradministratoren einen Berichtsserver neben weiteren [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Komponentenservern verwalten. Weitere Informationen finden Sie im [Tutorial zu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/tutorials/tutorial-sql-server-management-studio).
+Mit [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] können Berichtsserveradministratoren einen Berichtsserver neben weiteren [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Komponentenservern verwalten. Weitere Informationen finden Sie im [Tutorial zu SQL Server Management Studio](../../ssms/quickstarts/ssms-connect-query-sql-server.md).
 
 ### <a name="to-start-sql-server-management-studio"></a>So starten Sie SQL Server Management Studio
 
@@ -101,9 +101,9 @@ Mit [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] können Berichtsse
 
     Klicken Sie auf **Start**, auf **Alle Programme**, auf [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)]und klicken Sie dann auf **SQL Server Management Studio**. Das Dialogfeld **Mit Server verbinden** wird angezeigt.
 
-2. Wenn das Dialogfeld **Verbindung mit Server herstellen** nicht angezeigt wird, klicken Sie im **Objekt-Explorer**auf **Verbinden** , und wählen Sie dann **Reporting Services**aus.
+2. Wenn das Dialogfeld **Verbindung mit Server herstellen** nicht angezeigt wird, klicken Sie im **Objekt-Explorer** auf **Verbinden** , und wählen Sie dann **Reporting Services** aus.
 
-3. Wählen Sie in der Liste **Servertyp** die Option **Reporting Services**aus. Wenn [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] nicht in der Liste aufgeführt wird, ist es nicht installiert.
+3. Wählen Sie in der Liste **Servertyp** die Option **Reporting Services** aus. Wenn [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] nicht in der Liste aufgeführt wird, ist es nicht installiert.
 
 4. Wählen Sie in der Liste **Servername** eine Berichtsserverinstanz aus. In der Liste werden lokale Instanzen angezeigt. Sie können auch den Namen einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Remoteinstanz eingeben.
 
@@ -115,7 +115,7 @@ Sie können zwischen zwei verschiedenen Tools zum Erstellen paginierter [!INCLUD
 
 Der Berichts-Designer steht in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] – Visual Studio zur Verfügung. Die Entwurfsoberfläche im Berichts-Designer umfasst Fenster mit Registerkarten, Assistenten und Menüs, mit denen der Zugriff auf Berichts- und Modellerstellungsfunktionen möglich ist. Das Berichts-Designer-Tool steht zur Verfügung, wenn Sie ein Berichtsserverprojekt oder eine Vorlage des Berichtsserver-Assistenten in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]auswählen. Weitere Informationen finden Sie unter [Reporting Services in SQL Server Data Tools &#40;SSDT&#41;](../../reporting-services/tools/reporting-services-in-sql-server-data-tools-ssdt.md).
 
-Herunterladen von [SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714).
+Herunterladen von [SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md).
 
 ### <a name="to-start-report-designer"></a>So starten Sie Berichts-Designer
 
@@ -139,7 +139,7 @@ Informationen zum Erstellen Ihrer ersten Berichte finden Sie unter [Erstellen ei
 
 Der [Berichts-Generator in SQL Server](../../reporting-services/report-builder/report-builder-in-sql-server-2016.md) ist eine eigenständige Anwendung zum Erstellen paginierter Berichte außerhalb von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Sie haben die Möglichkeit, alle vorhandenen Berichte anzupassen und zu aktualisieren. Dabei spielt es keine Rolle, ob sie im Berichts-Designer oder in früheren Versionen des [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)]s erstellt wurden. Die Installation kann über das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Webportal oder über das Microsoft Download Center erfolgen.
 
-Wenn Ihr paginierter Bericht vollständig ist, veröffentlichen Sie ihn auf einem Berichtsserver, oder [speichern Sie ihn im Power BI-Dienst](https://docs.microsoft.com/power-bi/paginated-reports-save-to-power-bi-service).
+Wenn Ihr paginierter Bericht vollständig ist, veröffentlichen Sie ihn auf einem Berichtsserver, oder [speichern Sie ihn im Power BI-Dienst](/power-bi/paginated-reports-save-to-power-bi-service).
 [Laden Sie den Berichts-Generator](https://go.microsoft.com/fwlink/?LinkID=219138) aus dem Microsoft Download Center herunter.
 
 ### <a name="to-start-ssrbnoversion"></a>So starten Sie den [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)]
@@ -181,7 +181,7 @@ Die Installation kann über das [!INCLUDE[ssNoVersion](../../includes/ssnoversio
 
 [Laden Sie den Publisher für mobile Berichte von SQL Server](https://go.microsoft.com/fwlink/?LinkID=733527)  
 [Laden Sie den Berichts-Generator](https://go.microsoft.com/fwlink/?LinkID=219138)  
-[Herunterladen von SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714)  
+[Herunterladen von SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md)  
 [Installieren des SharePoint-Modus von Reporting Services](../../reporting-services/install-windows/install-reporting-services-sharepoint-mode.md)  
 [Reporting Services-Berichtsserver](../../reporting-services/report-server-sharepoint/reporting-services-report-server.md)  
 [Query Design Tools (Abfrageentwurfstools)](../../reporting-services/report-data/query-design-tools-ssrs.md)  

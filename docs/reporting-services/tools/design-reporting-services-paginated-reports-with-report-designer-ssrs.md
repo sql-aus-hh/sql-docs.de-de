@@ -11,18 +11,18 @@ helpviewer_keywords:
 ms.assetid: 3a26dccc-6ad6-48f5-a882-f96c6c0dd405
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 8f83c1f169706af4a02d1940049d2a1814bc26ca
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 500ecc4e4b0dae80faa06f8d152b99423bb45251
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86914086"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597171"
 ---
 # <a name="design-reporting-services-paginated-reports-with-report-designer-ssrs"></a>Erstellen von paginierten Berichten von Reporting Services mit dem Berichts-Designer (SSRS)
 
 Mit dem Berichts-Designer können Sie paginierte [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Berichte und -Berichtslösungen mit vollem Funktionsumfang erstellen. Die grafische Benutzeroberfläche des Berichts-Designers ermöglicht Ihnen, Datenquellen, Datasets und Abfragen, Berichtslayoutpositionen für Datenbereiche und Felder sowie interaktive Funktionen. z. B. Parameter und zusammenwirkende Berichtssätze, zu definieren.  
 
-Der Berichts-Designer ist ein Feature von  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], einer Microsoft Visual Studio-Umgebung zum Erstellen von Business Intelligence-Lösungen. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist nicht im Lieferumfang von SQL Server enthalten. Herunterladen von [SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714). 
+Der Berichts-Designer ist ein Feature von  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], einer Microsoft Visual Studio-Umgebung zum Erstellen von Business Intelligence-Lösungen. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist nicht im Lieferumfang von SQL Server enthalten. Herunterladen von [SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md). 
   
 ## <a name="benefits-of-report-projects"></a>Vorteile von Berichtsprojekten  
 Berichtsprojekte dienen als Container für Berichtsdefinitionen und Ressourcen. Verwenden Sie Projekte für folgende Aufgaben:  
@@ -70,7 +70,7 @@ Paginierte Berichte sind Dateien, die in einem Berichtsprojekt gespeichert werde
   
 -   **Fügen Sie ein vorhandenes Element hinzu.** Eine vorhandene Berichtsdefinition (.rdl) wird im Berichts-Designer geöffnet. Beim Öffnen eines Berichts oder Projekts aus einer früheren Version von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] wird das Projekt ggf. automatisch auf die aktuelle Version bzw. der Bericht auf das aktuelle Schema aktualisiert. Weitere Informationen finden Sie unter [Upgrade Reports](../../reporting-services/install-windows/upgrade-reports.md).  
   
--   **Importieren Sie einen [!INCLUDE[msCoName](../../includes/msconame-md.md)]-Zugriffsbericht.** Importieren Sie alle Berichte aus einer Access-Datenbank (.mdb, .accdb) oder einer Projektdatei (.adp). Jeder Bericht in einer Datenbank- oder Projektdatei wird vom Berichts-Designer in Berichtsdefinitionssprache (RDL, Report Definition Language) konvertiert und im Berichtsprojekt gespeichert. Nicht alle Funktionen eines Access-Berichts werden in eine Berichtsdefinitionsdatei (.rdl) übertragen. Weitere Informationen finden Sie unter [Importieren von Berichten aus Microsoft Access (Reporting Services)](https://msdn.microsoft.com/library/4f29d5b8-b77d-4714-a84a-05523df55646) und [Unterstützte Zugriffsberichtsfunktionen (SSRS)](https://msdn.microsoft.com/library/7ffec331-6365-4c13-8e58-b77a48cffb44).  
+-   **Importieren Sie einen [!INCLUDE[msCoName](../../includes/msconame-md.md)]-Zugriffsbericht.** Importieren Sie alle Berichte aus einer Access-Datenbank (.mdb, .accdb) oder einer Projektdatei (.adp). Jeder Bericht in einer Datenbank- oder Projektdatei wird vom Berichts-Designer in Berichtsdefinitionssprache (RDL, Report Definition Language) konvertiert und im Berichtsprojekt gespeichert. Nicht alle Funktionen eines Access-Berichts werden in eine Berichtsdefinitionsdatei (.rdl) übertragen. Weitere Informationen finden Sie unter [Importieren von Berichten aus Microsoft Access (Reporting Services)](../reports/reporting-services-reports-ssrs.md) und [Unterstützte Zugriffsberichtsfunktionen (SSRS)](../reports/reporting-services-reports-ssrs.md).  
   
     > [!NOTE]  
     >  Die Verwendung des Importfunktionen setzt voraus, dass auf dem Computer, auf dem auch der Berichts-Designer installiert ist, Access 2002 oder höher installiert ist. Beim Importieren der Berichte muss die Datenquelle für die Access-Berichte verfügbar sein.  
@@ -117,7 +117,7 @@ Paginierte Berichte sind Dateien, die in einem Berichtsprojekt gespeichert werde
      Falls Sie eine Projektkonfiguration verwenden, die zwar den Bericht erstellt, aber nicht bereitstellt, wird der in der **StartItem** -Eigenschaft angegebene Bericht der aktuellen Konfiguration in einem separaten Vorschaufenster geöffnet.  
   
     > [!NOTE]  
-    >  Um den Debugmodus verwenden zu können, müssen Sie ein Startelement festlegen. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Berichtsprojekt, klicken Sie auf **Eigenschaften**, und wählen Sie unter **StartItem**den Namen des anzuzeigenden Berichts aus.  
+    >  Um den Debugmodus verwenden zu können, müssen Sie ein Startelement festlegen. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Berichtsprojekt, klicken Sie auf **Eigenschaften**, und wählen Sie unter **StartItem** den Namen des anzuzeigenden Berichts aus.  
   
      Wenn Sie einen bestimmten Bericht in der Vorschau anzeigen möchten, der nicht als Startelement für das Projekt festgelegt ist, wählen Sie eine Konfiguration aus, die den Bericht zwar erstellt, jedoch nicht bereitstellt (z.B. die DebugLocal-Konfiguration). Klicken Sie dann mit der rechten Maustaste auf den Bericht, und klicken Sie anschließend auf **Ausführen**. Sie müssen eine Konfiguration auswählen, die den Bericht nicht bereitstellt. Andernfalls wird der Bericht auf dem Berichtsserver veröffentlicht und nicht lokal in einem Vorschaufenster angezeigt.  
   
@@ -145,7 +145,7 @@ Paginierte Berichte sind Dateien, die in einem Berichtsprojekt gespeichert werde
  Beachten Sie, dass Sie Berichte im Berichts-Designer unter Verwendung des Berichtsdefinitionsschemas entwerfen, das von der aktuellen Version von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]unterstützt wird. Wenn Sie Projektbereitstellungseigenschaften für einen bestimmten Berichtsserver oder eine SharePoint-Website festlegen und den Bericht anschließend speichern, speichert der Berichts-Designer die Berichtsdefinition im Buildverzeichnis in dem Schema, das der Version auf dem Zielberichtsserver entspricht. Um Berichte zu erstellen, die auf einem Berichtsserver einer niedrigeren Version veröffentlicht werden können, löscht der Berichts-Designer Berichtselemente, die im Zielschema nicht vorhanden sind. Dies erfolgt automatisch und ohne Aufforderung. In diesem Fall wird die ursprüngliche Berichtsdefinition im Projektordner beibehalten. Die geänderte Berichtsdefinition, die bereitgestellt wird, befindet sich im Buildordner.  
   
 > [!NOTE]  
->  Zum Debuggen von Ausdrücken und Bereitstellungsfehlern müssen Sie die Berichtsdefinition im Buildordner anzeigen. Verwenden Sie nicht **Quelltext anzeigen**. Durch**Quelltext anzeigen** wird die Berichtsdefinitionsquelle aus dem Projektordner angezeigt.  
+>  Zum Debuggen von Ausdrücken und Bereitstellungsfehlern müssen Sie die Berichtsdefinition im Buildordner anzeigen. Verwenden Sie nicht **Quelltext anzeigen**. Durch **Quelltext anzeigen** wird die Berichtsdefinitionsquelle aus dem Projektordner angezeigt.  
   
  Weitere Informationen finden Sie unter [Bereitstellung und Versionsunterstützung in SQL Server Data Tools &#40;SSRS&#41;](../../reporting-services/tools/deployment-and-version-support-in-sql-server-data-tools-ssrs.md)enthalten.  
   
@@ -181,7 +181,7 @@ Paginierte Berichte sind Dateien, die in einem Berichtsprojekt gespeichert werde
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Herunterladen von SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714)  
+[Herunterladen von SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md)  
 [Reporting Services in SQL Server Data Tools](../../reporting-services/tools/reporting-services-in-sql-server-data-tools-ssdt.md)   
 [Abfrageentwurfstools](../../reporting-services/report-data/query-design-tools-ssrs.md)   
 [Bereitstellung und Versionsunterstützung in SQL Server Data Tools](../../reporting-services/tools/deployment-and-version-support-in-sql-server-data-tools-ssrs.md)  

@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a878d8250a3e402cd1043dc289eb1712af45f385
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 9538368cdcc39d3a037c609fc79f65d5d3cb8e45
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771530"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596382"
 ---
 # <a name="sql-server-connection-pooling-adonet"></a>SQL Server-Verbindungspooling (ADO.NET)
 
@@ -73,7 +73,7 @@ Die Verbindungspoolfunktion erfüllt diese Verbindungsanforderungen, indem Verbi
 > [!NOTE]
 > Rufen Sie nicht `Close` oder `Dispose` für eine `Connection`, einen `DataReader` oder ein anderes verwaltetes Objekt in der `Finalize`-Methode der Klasse auf. Geben Sie in einer Finalize-Methode nur nicht verwaltete Ressourcen frei, die der Klasse direkt gehören. Wenn die Klasse keine nicht verwalteten Ressourcen besitzt, definieren Sie in der Klasse keine `Finalize`-Methode. Weitere Informationen finden Sie unter [Garbage Collection](/dotnet/standard/garbage-collection/index).
 
-Weitere Informationen zu den Ereignissen im Zusammenhang mit dem Öffnen und Schließen von Verbindungen finden Sie in der SQL Server-Dokumentation unter [Audit Login (Ereignisklasse)](/sql/relational-databases/event-classes/audit-login-event-class) und [Audit Logout (Ereignisklasse)](/sql/relational-databases/event-classes/audit-logout-event-class).
+Weitere Informationen zu den Ereignissen im Zusammenhang mit dem Öffnen und Schließen von Verbindungen finden Sie in der SQL Server-Dokumentation unter [Audit Login (Ereignisklasse)](../../relational-databases/event-classes/audit-login-event-class.md) und [Audit Logout (Ereignisklasse)](../../relational-databases/event-classes/audit-logout-event-class.md).
 
 ## <a name="remove-connections"></a>Entfernen von Verbindungen
 

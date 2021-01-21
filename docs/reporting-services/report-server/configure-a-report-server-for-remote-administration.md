@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 8c7f145f-3ac2-4203-8cd6-2a4694395d09
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: f41eef01d203a873b3d5beac61ab5feb2995867f
-ms.sourcegitcommit: 783b35f6478006d654491cb52f6edf108acf2482
+ms.openlocfilehash: 7232e6b5d89ae9c73b81df16a03ebcd00859d7ee
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91891400"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597054"
 ---
 # <a name="configure-a-report-server-for-remote-administration"></a>Konfigurieren eines Berichtsservers für die Remoteverwaltung
   In [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]können Sie Berichtsserverinstanzen lokal oder remote konfigurieren. Zum Konfigurieren einer Remote-Berichtsserverinstanz können Sie das Reporting Services-Konfigurationstool verwenden oder benutzerdefinierten Code schreiben, der für den Anbieter der [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Windows-Verwaltungsinstrumentation (Windows Management Instrumentation oder WMI) verwendet wird. Das Reporting Services-Konfigurationstool stellt dem WMI-Anbieter eine grafische Benutzeroberfläche bereit, sodass Sie einen Berichtsserver konfigurieren können, ohne Code schreiben zu müssen. Wenn Sie das Tool starten, können Sie einen Remoteserver angeben, zu dem eine Verbindung hergestellt werden soll.  
@@ -40,7 +40,7 @@ ms.locfileid: "91891400"
   
  Einige Organisationen verfügen über Gruppenrichtlinien, durch die die Remoteserververwaltung für bestimmte Betriebssysteme oder Benutzer verhindert wird. Bevor Sie die Firewalleinstellungen ändern, sollten Sie beim Netzwerkadministrator anfragen, ob Einschränkungen für die Remoteverwaltung vorliegen.  
   
- Weitere Informationen finden Sie unter [Connecting Through Windows Firewall](https://go.microsoft.com/fwlink/?LinkId=63615) in der Dokumentation zur Plattform MSDN.  
+ Weitere Informationen finden Sie unter [Connecting Through Windows Firewall](/windows/win32/wmisdk/connecting-to-wmi-remotely-with-vbscript) in der Dokumentation zur Plattform MSDN.  
   
 ## <a name="tasks"></a>Aufgaben  
  Anhand folgender Tasks kann die Konfiguration des Remoteberichtsservers aktiviert werden:  
@@ -91,7 +91,7 @@ ms.locfileid: "91891400"
   
 1.  Zeigen Sie im Menü Start auf **Verwaltung**, und klicken Sie auf **Komponentendienste**.  
   
-     Unter Windows Vista klicken Sie im Startmenü auf **Alle Programme**, auf **Ausführen**, und geben Sie dann **mmc comexp.msc**ein.  
+     Unter Windows Vista klicken Sie im Startmenü auf **Alle Programme**, auf **Ausführen**, und geben Sie dann **mmc comexp.msc** ein.  
   
 2.  Öffnen Sie den Ordner Komponentendienste.  
   
@@ -99,13 +99,13 @@ ms.locfileid: "91891400"
   
 4.  Wählen Sie Arbeitsplatz aus.  
   
-5.  Wählen Sie im Menü **Aktion** die Option **Eigenschaften**aus.  
+5.  Wählen Sie im Menü **Aktion** die Option **Eigenschaften** aus.  
   
 6.  Klicken Sie auf **COM-Sicherheit**.  
   
-7.  Klicken Sie unter **Start- und Aktivierungsberechtigungen**auf **Limits bearbeiten**.  
+7.  Klicken Sie unter **Start- und Aktivierungsberechtigungen** auf **Limits bearbeiten**.  
   
-8.  Wenn Ihr Name unter **Startberechtigung**nicht angezeigt wird, klicken Sie auf **Hinzufügen**.  
+8.  Wenn Ihr Name unter **Startberechtigung** nicht angezeigt wird, klicken Sie auf **Hinzufügen**.  
   
 9. Geben Sie den Namen Ihres Benutzerkontos ein, und klicken Sie dann auf **OK**.  
   
@@ -117,7 +117,7 @@ ms.locfileid: "91891400"
   
 2.  Öffnen Sie den Ordner Dienste und Anwendungen.  
   
-3.  Klicken Sie mit der rechten Maustaste auf **WMI-Steuerung**, und wählen Sie **Eigenschaften**aus.  
+3.  Klicken Sie mit der rechten Maustaste auf **WMI-Steuerung**, und wählen Sie **Eigenschaften** aus.  
   
 4.  Klicken Sie auf **Sicherheit**.  
   
@@ -137,9 +137,8 @@ ms.locfileid: "91891400"
   
 12. Klicken Sie auf **Hinzufügen**, und geben Sie anschließend das Benutzerkonto ein, das Sie zum Verwalten des Servers verwenden werden.  
   
-13. Aktivieren Sie in der Spalte **Zulassen** die Optionen **Konto aktivieren**, **Remoteaktivierung**und **Sicherheit lesen**, und klicken Sie auf **OK**.  
+13. Aktivieren Sie in der Spalte **Zulassen** die Optionen **Konto aktivieren**, **Remoteaktivierung** und **Sicherheit lesen**, und klicken Sie auf **OK**.  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Berichtsserver-Konfigurations-Manager &#40;einheitlicher Modus&#41;](../../reporting-services/install-windows/reporting-services-configuration-manager-native-mode.md)  
-  
   

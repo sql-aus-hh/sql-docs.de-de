@@ -15,12 +15,12 @@ helpviewer_keywords:
 - GetSensitivityClassification method
 author: bazizi
 ms.author: v-beaziz
-ms.openlocfilehash: 04877e626b57022d0110501b7da6145b2c4997d2
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 94bda63675db2c73acef4c13c00feab90ae7f337
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506650"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596466"
 ---
 # <a name="issdataclassificationgetsensitivityclassification"></a>ISSDataClassification::GetSensitivityClassification
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../../includes/applies-to-version/sql-asdb-asa.md)]
@@ -52,7 +52,7 @@ HRESULT GetSensitivityClassification(
 
   
 ## <a name="remarks"></a>Bemerkungen  
-Der OLE DB-Treiber für SQL Server belegt einen Arbeitsspeicherblock für die SENSITIVITYCLASSIFICATION-Struktur und die Daten, auf die diese Struktur verweist. Wenn der Consumer keinen Zugriff mehr auf die Klassifizierungsdaten benötigt, muss er die Zuordnung dieses Arbeitsspeichers durch einen Aufruf der Methode [IMalloc::Free](https://docs.microsoft.com/windows/win32/api/objidl/nf-objidl-imalloc-free) aufheben.  
+Der OLE DB-Treiber für SQL Server belegt einen Arbeitsspeicherblock für die SENSITIVITYCLASSIFICATION-Struktur und die Daten, auf die diese Struktur verweist. Wenn der Consumer keinen Zugriff mehr auf die Klassifizierungsdaten benötigt, muss er die Zuordnung dieses Arbeitsspeichers durch einen Aufruf der Methode [IMalloc::Free](/windows/win32/api/objidl/nf-objidl-imalloc-free) aufheben.  
   
  Die SENSITIVITYCLASSIFICATION-Struktur wird wie folgt definiert:
   
@@ -153,4 +153,3 @@ typedef struct tagSENSITIVITYPROPERTY
 ## <a name="see-also"></a>Weitere Informationen  
  [ISSDataClassification](../../oledb/ole-db-interfaces/issdataclassification-ole-db.md)  
  [Rowsets](../ole-db-rowsets/rowsets.md)  
-  

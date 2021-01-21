@@ -10,12 +10,12 @@ ms.author: maghan
 ms.reviewer: “”
 ms.custom: seo-lt-2019
 ms.date: 02/09/2017
-ms.openlocfilehash: 4df1c5680f44d7585200e4db199b8e099d8fd355
-ms.sourcegitcommit: 216f377451e53874718ae1645a2611cdb198808a
+ms.openlocfilehash: 7916bf0cf6b80df1bddcf25223c97593129d5dfc
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87246467"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597113"
 ---
 # <a name="keyboard-shortcuts-for-sql-server-unit-test-designer"></a>Tastenkombinationen für den SQL Server-Komponententest-Designer
 
@@ -30,7 +30,6 @@ Die folgenden Tastenkombinationen stehen Ihnen für die Navigation im SQL Server
   
 ## <a name="see-also"></a>Weitere Informationen  
 [Erstellen und Definieren von SQL Server-Komponententests](../ssdt/creating-and-defining-sql-server-unit-tests.md)  
-[Tastenkombinationen für den Transact-SQL-Editor (Visual Studio 2010)](https://go.microsoft.com/fwlink/?LinkId=160735)  
-[Barrierefreiheitsfunktionen von Visual Studio (Visual Studio 2010)](https://msdn.microsoft.com/library/y4b5z3y3(VS.90).aspx)  
-[Barrierefreiheitsfunktionen von Visual Studio (Visual Studio 2012)](https://msdn.microsoft.com/library/y4b5z3y3.aspx)  
-  
+[Tastenkombinationen für den Transact-SQL-Editor (Visual Studio 2010)](/previous-versions/visualstudio/visual-studio-2010/aa833225(v=vs.100))  
+[Barrierefreiheitsfunktionen von Visual Studio (Visual Studio 2010)](/previous-versions/visualstudio/visual-studio-2008/y4b5z3y3(v=vs.90))  
+[Barrierefreiheitsfunktionen von Visual Studio (Visual Studio 2012)](/previous-versions/visualstudio/visual-studio-2015/ide/reference/accessibility-features-of-visual-studio)  

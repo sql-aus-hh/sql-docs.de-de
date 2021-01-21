@@ -11,16 +11,16 @@ helpviewer_keywords:
 ms.assetid: 0903c7b2-ac59-45f1-b7d0-922ecd9d76f8
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 30e7824d1519fb09a7947dde1cfdc2b818ebc144
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 9ed7c7d204fe315280e379206d56f122606d1f03
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86916586"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597301"
 ---
 # <a name="reporting-services-in-sql-server-data-tools-ssdt"></a>Reporting Services in SQL Server-Datentools (SSDT)
 
-  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist eine [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)]-Umgebung zum Erstellen von Business Intelligence-Lösungen. SSDT verfügt über die Erstellungsumgebung des Bericht-Designers, in dem Sie paginierte [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Berichtsdefinitionen, freigegebene Datenquellen, freigegebene Datasets und Berichtsteile öffnen, ändern, vorher ansehen, speichern und bereitstellen können. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist nicht im Lieferumfang von SQL Server enthalten. Herunterladen von [SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714). 
+  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist eine [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)]-Umgebung zum Erstellen von Business Intelligence-Lösungen. SSDT verfügt über die Erstellungsumgebung des Bericht-Designers, in dem Sie paginierte [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] -Berichtsdefinitionen, freigegebene Datenquellen, freigegebene Datasets und Berichtsteile öffnen, ändern, vorher ansehen, speichern und bereitstellen können. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] ist nicht im Lieferumfang von SQL Server enthalten. Herunterladen von [SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md). 
   
  In diesem Thema werden die [!INCLUDE[ssBIDevStudio](../../includes/ssbidevstudio-md.md)] -Lösungen, -Projekte, -Projektvorlagen und -Konfigurationen beschrieben, die für [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]verwendet werden, sowie die Ansichten, Menüs, Symbolleisten und Tastenkombinationen, die Sie im Berichts-Designer verwenden können.  
   
@@ -40,7 +40,7 @@ ms.locfileid: "86916586"
   
 -   **Berichtsserverprojekt-Assistent.** Wenn Sie ein Berichtsserver-Assistenten-Projekt auswählen, wird automatisch ein Berichtsserverprojekt erstellt und der Berichts-Assistent geöffnet. Mithilfe des Assistenten können Sie einen Bericht erstellen. Befolgen Sie hierzu die Anweisungen auf den einzelnen Seiten, um eine Verbindungszeichenfolge für eine Datenquelle zu erstellen, Datenquellen-Anmeldeinformationen festzulegen, eine Abfrage zu entwerfen, einen Tabellen- oder Matrixdatenbereich hinzuzufügen, Berichtsdaten und -gruppen anzugeben, Schriftart und Farbe auszuwählen, den Bericht auf einem Berichtsserver zu veröffentlichen und den Bericht lokal in der Vorschau anzuzeigen. Nachdem Sie mithilfe des Assistenten einen Bericht erstellt haben, können Sie die Berichtsdaten und den Berichts-Designer ändern, und zwar mithilfe des Berichts-Designers im Berichtsserverprojekt.  
   
- ![Neue Projektvorlagen in SSDT](https://docs.microsoft.com/analysis-services/analysis-services/media/ssdt-biprojects.png "Neue Projektvorlagen in SSDT")  
+ ![Neue Projektvorlagen in SSDT](/analysis-services/analysis-services/media/ssdt-biprojects.png "Neue Projektvorlagen in SSDT")  
   
   
 ##  <a name="report-designer-windows-and-panes"></a><a name="bkmk_ReportDesignerWindowsandPanes"></a> Fenster und Bereiche des Berichts-Designers  
@@ -94,7 +94,7 @@ ms.locfileid: "86916586"
   
  Verwenden Sie den Eigenschaftenbereich, um Folgendes durchzuführen:  
   
--   Festlegen von Eigenschaften für das aktuell ausgewählte Element auf der Entwurfsoberfläche. Einige Eigenschaften stellen eine Dropdownliste mit Werten bereit. Sie können den Wert auch direkt in die Zelle eingeben. Einige Eigenschaften enthalten eine Sammlung von Werten, die durch den Wert **(Auflistung)** angegeben wird. Die meisten Eigenschaften können einen Ausdruck akzeptieren. Komplexe Ausdrücke werden durch den Wert **\<Expression>** angegeben. Klicken Sie auf **\<Expression>** , um das Dialogfeld **Ausdruck** zu öffnen. Weitere Informationen finden Sie unter [Expression Dialog Box](https://msdn.microsoft.com/library/e6c74ccb-4594-4d4f-b958-618d710e34eb).  
+-   Festlegen von Eigenschaften für das aktuell ausgewählte Element auf der Entwurfsoberfläche. Einige Eigenschaften stellen eine Dropdownliste mit Werten bereit. Sie können den Wert auch direkt in die Zelle eingeben. Einige Eigenschaften enthalten eine Sammlung von Werten, die durch den Wert **(Auflistung)** angegeben wird. Die meisten Eigenschaften können einen Ausdruck akzeptieren. Komplexe Ausdrücke werden durch den Wert **\<Expression>** angegeben. Klicken Sie auf **\<Expression>** , um das Dialogfeld **Ausdruck** zu öffnen. Weitere Informationen finden Sie unter [Expression Dialog Box](/previous-versions/sql/).  
   
 -   Verwenden Sie die Schaltflächen in der Symbolleiste des Eigenschaftenbereichs, um das Raster von Kategoriesicht in alphabetische Sicht zu ändern. In der Kategoriesicht müssen Sie möglicherweise eine Kategorie erweitern, um alle Eigenschaften darunter zu sehen. Zum Öffnen des Dialogfelds „Eigenschaften“ für ein Element klicken Sie in der Symbolleiste auf die Schaltfläche **Eigenschaftenseiten** , oder klicken Sie mit der rechten Maustaste auf das Element, und klicken Sie anschließend auf **Eigenschaften**.  
   
@@ -136,7 +136,7 @@ ms.locfileid: "86916586"
   
  Wenn Sie einen Bericht in der Vorschau anzeigen, wird vom Berichts-Designer eine Verbindung mit den Berichtsdatenquellen hergestellt und dann werden die Datasetabfragen ausgeführt, die Daten im Cache des lokalen Computers gespeichert, der Bericht verarbeitet, um Daten und Layout zu kombinieren, und der Bericht schließlich gerendert. Sie können den Bericht auf der Registerkarte Vorschau anzeigen oder Projekteigenschaften festlegen, um den Bericht im Debugmodus direkt in einem Browser anzuzeigen.  
   
--   **Anzeigen einer Vorschau für parametrisierte Berichte.** Wenn Sie eine Vorschau eines Berichts anzeigen, wird der Bericht automatisch verarbeitet, wenn alle Berichtsparameter über gültige Standardwerte verfügen. Wenn ein oder mehrere Berichtsparameter über keinen gültigen Standardwert verfügen, müssen Sie für jeden nicht zugewiesenen Parameter einen Wert auswählen und dann in der Symbolleiste des Berichts auf **Bericht anzeigen**klicken.  
+-   **Anzeigen einer Vorschau für parametrisierte Berichte.** Wenn Sie eine Vorschau eines Berichts anzeigen, wird der Bericht automatisch verarbeitet, wenn alle Berichtsparameter über gültige Standardwerte verfügen. Wenn ein oder mehrere Berichtsparameter über keinen gültigen Standardwert verfügen, müssen Sie für jeden nicht zugewiesenen Parameter einen Wert auswählen und dann in der Symbolleiste des Berichts auf **Bericht anzeigen** klicken.  
   
 -   **Verstehen des lokalen Datencaches** Wenn Sie einen Bericht in der Vorschau anzeigen, werden vom Berichtsprozessor alle Datasetabfragen im Bericht mithilfe der aktuellen Parameterstandardwerte ausgeführt, und die Ergebnisse werden als lokale Datencachedatei (.rdl.data) gespeichert. Wenn Sie keine Änderungen an den Datasetabfragen des Berichts oder an den Berichtsparametern vornehmen, können Sie mit dem Entwerfen Ihres Berichts fortfahren, ohne diese Daten erneut abzurufen.  
   
@@ -306,7 +306,7 @@ ms.locfileid: "86916586"
   
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Herunterladen von SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714)
+[Herunterladen von SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md)
 [Projektmappen-Explorer](../../ssms/solution/solution-explorer.md)   
 [Reporting Services-Berichte](../../reporting-services/reports/reporting-services-reports-ssrs.md)   
 [Berichtsdefinitionssprache](../../reporting-services/reports/report-definition-language-ssrs.md)   

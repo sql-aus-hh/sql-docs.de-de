@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: 4de9c3dd-0ee7-49b3-88bb-209465ca9d86
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: b41e35d48f6add25f4ff8c535fb7e96ed7afe67f
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 53e005fcd5c4a11270a5bc2f7c307f521311c548
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935417"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596648"
 ---
 # <a name="configure-windows-authentication-on-the-report-server"></a>Konfigurieren der Windows-Authentifizierung auf dem Berichtsserver
   In der Standardeinstellung werden [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] Anforderungen übergeben, die die Negotiate- oder die NTLM-Authentifizierung angeben. Wenn eine Bereitstellung Clientanwendungen und Browser umfasst, die diese Sicherheitsanbieter nutzen, können Sie die Standardwerte ohne zusätzliche Konfiguration verwenden. Wenn Sie einen anderen Sicherheitsanbieter für die integrierte Sicherheit von Windows nutzen möchten (wenn Sie beispielsweise Kerberos direkt verwenden möchten) oder wenn Sie die Standardwerte verändert haben und die ursprünglichen Einstellungen wiederherstellen möchten, können Sie mithilfe der in diesem Thema enthaltenen Informationen die Authentifizierungseinstellungen auf dem Berichtsserver festlegen.  
@@ -54,7 +54,7 @@ ms.locfileid: "91935417"
   
 2.  Suchen Sie \<**Authentication**>.  
   
-3.  Kopieren Sie die XML-Struktur, die Ihren Anforderungen am besten entspricht. Sie können **RSWindowsNegotiate**, **RSWindowsNTLM**und **RSWindowsKerberos** in beliebiger Reihenfolge angeben. Sie sollten die Authentifizierungspersistenz aktivieren, wenn die Verbindung und nicht jede einzelne Anforderung authentifiziert werden soll. Bei Verwendung der Authentifizierungspersistenz werden alle Anforderungen, für die eine Authentifizierung erforderlich ist, zugelassen, solange die Verbindung besteht.  
+3.  Kopieren Sie die XML-Struktur, die Ihren Anforderungen am besten entspricht. Sie können **RSWindowsNegotiate**, **RSWindowsNTLM** und **RSWindowsKerberos** in beliebiger Reihenfolge angeben. Sie sollten die Authentifizierungspersistenz aktivieren, wenn die Verbindung und nicht jede einzelne Anforderung authentifiziert werden soll. Bei Verwendung der Authentifizierungspersistenz werden alle Anforderungen, für die eine Authentifizierung erforderlich ist, zugelassen, solange die Verbindung besteht.  
   
      Die erste XML-Struktur ist die Standardkonfiguration, wenn das Berichtsserver-Dienstkonto entweder NetworkService oder LocalSystem ist:  
   
@@ -149,7 +149,7 @@ ms.locfileid: "91935417"
   
 -   Eine Möglichkeit zum Konvertieren des Dezimalwerts in das hexadezimale Format besteht darin, den [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows-Rechner zu verwenden. Der Windows-Rechner unterstützt mehrere Modi mit der Option Dez und Hex. Wählen Sie die Option Dez, geben Sie den in der Protokolldatei gefundenen Dezimalwert ein, bzw. fügen Sie ihn ein, und wählen Sie die Option Hex.  
   
--   Lesen Sie dann das Thema [User-Account-Control Attribute](https://go.microsoft.com/fwlink/?LinkId=183366) (UserAccountControl-Attribut), um das Attribut für das Dienstkonto abzuleiten.  
+-   Lesen Sie dann das Thema [User-Account-Control Attribute](/windows/win32/adschema/a-useraccountcontrol) (UserAccountControl-Attribut), um das Attribut für das Dienstkonto abzuleiten.  
   
 ##### <a name="spns-configured-in-active-directory-for-the-reporting-services-service-account"></a>In Active Directory für das Reporting Services-Dienstkonto konfigurierte SPNs.  
  Um die SPNs in der Ablaufverfolgungsprotokolldatei des [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Diensts zu protokollieren, können Sie die Funktion "Erweiterter Schutz" von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] vorübergehend aktivieren.  
@@ -193,7 +193,7 @@ ms.locfileid: "91935417"
 ###### <a name="lan-and-proxy-settings-on-the-client"></a>LAN- und Proxyeinstellungen auf dem Client  
  In Internet Explorer festgelegte LAN- und Proxyeinstellungen können bestimmen, ob NTLM statt Kerberos gewählt wird. Da verschiedene Organisationen jedoch unterschiedliche LAN- und Proxyeinstellungen verwenden, ist es nicht möglich, die einzelnen Einstellungen genau zu bestimmen, die zu Kerberos-Authentifizierungsfehlern beitragen. Beispielsweise kann eine Organisation Proxyeinstellungen durchsetzen, mit denen Intranet-URLs in vollqualifizierte URLs mit Domänennamen umgewandelt werden, die über Internetverbindungen aufgelöst werden. Wenn verschiedene Authentifizierungsanbieter für unterschiedliche URL-Typen verwendet werden, kann es vorkommen, dass unerwartete Verbindungen erfolgreich hergestellt werden.  
   
- Wenn Verbindungsfehler auftreten, die Sie auf Authentifizierungsfehler zurückführen, können Sie verschiedene Kombinationen von LAN- und Proxyeinstellungen ausprobieren, um das Problem zu isolieren. In Internet Explorer befinden sich die LAN- und Proxyeinstellungen im Dialogfeld **LAN-Einstellungen** , das geöffnet wird, wenn Sie im Dialogfeld **Internetoptionen** auf der Registerkarte **Verbindungen** auf **LAN-Einstellungen**klicken.  
+ Wenn Verbindungsfehler auftreten, die Sie auf Authentifizierungsfehler zurückführen, können Sie verschiedene Kombinationen von LAN- und Proxyeinstellungen ausprobieren, um das Problem zu isolieren. In Internet Explorer befinden sich die LAN- und Proxyeinstellungen im Dialogfeld **LAN-Einstellungen** , das geöffnet wird, wenn Sie im Dialogfeld **Internetoptionen** auf der Registerkarte **Verbindungen** auf **LAN-Einstellungen** klicken.  
   
 ## <a name="external-resources"></a>Externe Ressourcen  
   
@@ -206,5 +206,4 @@ ms.locfileid: "91935417"
  [Konfigurieren der Standardauthentifizierung auf dem Berichtsserver](../../reporting-services/security/configure-basic-authentication-on-the-report-server.md)   
  [Konfiguration der benutzerdefinierten oder Formularauthentifizierung auf dem Berichtsserver](../../reporting-services/security/configure-custom-or-forms-authentication-on-the-report-server.md)   
  [Extended Protection for Authentication with Reporting Services (Erweiterter Schutz für die Authentifizierung mit Reporting Services)](../../reporting-services/security/extended-protection-for-authentication-with-reporting-services.md)  
-  
   

@@ -13,18 +13,18 @@ ms.assetid: 9ccb390a-67a9-4593-85ea-2b4c41c4620f
 author: rothja
 ms.author: jroth
 monikerRange: = sql-server-2016
-ms.openlocfilehash: dc92ae7c943729e7c95529b948caca95404dec3a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: f183c3d44525d85c26a6ba36345eb347ba1c38d3
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474531"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594837"
 ---
 # <a name="sql-server-2012-release-notes"></a>Versionsanmerkungen zu SQL Server 2012
 [!INCLUDE [SQL Server Azure SQL Database ](../includes/applies-to-version/sqlserver.md)]
 In diesem Dokument mit Versionshinweisen werden bekannte Probleme beschrieben, mit denen Sie sich vertraut machen sollten, bevor Sie [Microsoft SQL Server 2012](https://go.microsoft.com/fwlink/?LinkId=238647) installieren bzw. mit der Problembehandlung beginnen. Die Anmerkungen zu dieser Version sind nur online und nicht auf den Installationsmedien verfügbar und werden regelmäßig aktualisiert.  
   
-Informationen zu den ersten Schritten sowie zur Installation von SQL Server 2012 erhalten Sie in der SQL Server 2012-Infodatei. Die Infodatei steht auf den Installationsmedien und auf der [Infodatei](https://download.microsoft.com/download/3/B/D/3BD9DD65-D3E3-43C3-BB50-0ED850A82AD5/ENU/Readme.htm) -Downloadseite zur Verfügung. Weitere Informationen finden Sie auch in der [SQL Server-Onlinedokumentation](https://go.microsoft.com/fwlink/?LinkId=190948) und in den [SQL Server-Foren](https://go.microsoft.com/fwlink/?LinkId=213599).  
+Informationen zu den ersten Schritten sowie zur Installation von SQL Server 2012 erhalten Sie in der SQL Server 2012-Infodatei. Die Infodatei steht auf den Installationsmedien und auf der [Infodatei](https://download.microsoft.com/download/3/B/D/3BD9DD65-D3E3-43C3-BB50-0ED850A82AD5/ENU/Readme.htm) -Downloadseite zur Verfügung. Weitere Informationen finden Sie auch in der [SQL Server-Onlinedokumentation](/previous-versions/sql/sql-server-2012/ms130214(v=sql.110)) und in den [SQL Server-Foren](https://go.microsoft.com/fwlink/?LinkId=213599).  
   
 ## <a name="10-before-you-install"></a><a name="Install"></a>1.0 Vor der Installation  
 Vor der Installation von [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)]sollten folgende Informationen beachtet werden.  
@@ -92,7 +92,7 @@ Bei der Installation von SQL Server unter Windows Server 2008 R2 Server Core SP1
   
 -   Microsoft SQL Server 2012 kann nicht parallel mit früheren SQL Server-Versionen auf einem Computer installiert werden, auf dem Windows Server 2008 R2 Server Core SP1 ausgeführt wird.  
   
--   Unter dem Server Core-Betriebssystem werden nicht alle Funktionen von SQL Server 2012 unterstützt. Weitere Informationen zu den unterstützten Funktionen sowie zur Installation von SQL Server 2012 unter Server Core finden Sie unter [Installieren von SQL Server 2012 unter Server Core](https://msdn.microsoft.com/library/hh231669(SQL.110).aspx).  
+-   Unter dem Server Core-Betriebssystem werden nicht alle Funktionen von SQL Server 2012 unterstützt. Weitere Informationen zu den unterstützten Funktionen sowie zur Installation von SQL Server 2012 unter Server Core finden Sie unter [Installieren von SQL Server 2012 unter Server Core](/previous-versions/sql/sql-server-2012/hh231669(v=sql.110)).  
   
 ### <a name="16-semantic-search-requires-you-to-install-an-additional-dependency"></a>1.6 Die semantische Suche erfordert die Installation einer zusätzlichen Abhängigkeit  
 **Problem:** Die statistische semantische Suche verfügt über eine zusätzliche erforderliche Komponente, die Semantic Language Statistics-Datenbank, die vom SQL Server-Setupprogramm nicht installiert wird.  
@@ -162,7 +162,7 @@ Nachfolgend wird das Verhalten der erforderlichen Installationskomponenten beim 
   
         **Aktivieren Sie .NET Framework 3.5 SP1 mit der Imageverwaltung für die Bereitstellung (DISM.exe):**  
   
-        Sie können .NET Framework 3.5 SP1 auch mithilfe der Abbildverwaltung für die Bereitstellung (DISM.exe) aktivieren. Weitere Informationen zur Onlineaktivierung von Windows-Funktionen finden Sie unter [Aktivieren oder Deaktivieren von Windows-Funktionen im Onlinemodus](https://technet.microsoft.com/library/dd744582(WS.10).aspx). Im Folgenden sind die Anweisungen zur Aktivierung von .NET Framework 3.5 SP1 aufgeführt:  
+        Sie können .NET Framework 3.5 SP1 auch mithilfe der Abbildverwaltung für die Bereitstellung (DISM.exe) aktivieren. Weitere Informationen zur Onlineaktivierung von Windows-Funktionen finden Sie unter [Aktivieren oder Deaktivieren von Windows-Funktionen im Onlinemodus](/previous-versions/windows/it-pro/windows-7/dd744582(v=ws.10)). Im Folgenden sind die Anweisungen zur Aktivierung von .NET Framework 3.5 SP1 aufgeführt:  
   
         1.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, um alle im Betriebssystem verfügbaren Funktionen aufzulisten.  
   
@@ -334,7 +334,7 @@ Bei der Arbeit mit tabellarischen Modellen verursacht der AS-Verarbeitungstask P
 ### <a name="42-to-reinstall-data-quality-server-delete-the-dqs-objects-after-uninstalling-data-quality-server"></a>4.2 Zur Neuinstallation der Data Quality Server-Instanz löschen Sie nach der Deinstallation der Data Quality Server-Instanz die DQS-Objekte  
 **Problem:** Beim Deinstallieren des Data Quality-Servers werden die DQS-Objekte (DQS-Datenbanken, DQS-Anmeldungen und eine gespeicherte DQS-Prozedur) nicht aus der SQL Server-Instanz gelöscht.  
   
-**Problemumgehung:** Zur Neuinstallation des Data Quality-Servers auf demselben Computer und in derselben SQL Server-Instanz müssen Sie die DQS-Objekte manuell aus der SQL Server-Instanz löschen. Außerdem müssen Sie die DQS-Datenbankdateien (DQS_MAIN, DQS_PROJECTS und DQS_STAGING_DATA) aus dem Ordner C:\Programme\Microsoft SQL Server\MSSQL11.<SQL_Server_Instance>\MSSQL\DATA auf dem Computer löschen, bevor Sie den Data Quality-Server neu installieren. Andernfalls schlägt die Installation der Data Quality Server-Instanz fehl. Verschieben Sie die Datenbankdateien, statt sie zu löschen, wenn Daten wie Wissensdatenbanken oder Data Quality-Projekte beibehalten werden sollen. Weitere Informationen zum Entfernen von DQS-Objekten nach Abschluss der Deinstallation finden Sie unter [Entfernen von Data Quality Server-Objekten](https://msdn.microsoft.com/library/hh231667.aspx).  
+**Problemumgehung:** Zur Neuinstallation des Data Quality-Servers auf demselben Computer und in derselben SQL Server-Instanz müssen Sie die DQS-Objekte manuell aus der SQL Server-Instanz löschen. Außerdem müssen Sie die DQS-Datenbankdateien (DQS_MAIN, DQS_PROJECTS und DQS_STAGING_DATA) aus dem Ordner C:\Programme\Microsoft SQL Server\MSSQL11.<SQL_Server_Instance>\MSSQL\DATA auf dem Computer löschen, bevor Sie den Data Quality-Server neu installieren. Andernfalls schlägt die Installation der Data Quality Server-Instanz fehl. Verschieben Sie die Datenbankdateien, statt sie zu löschen, wenn Daten wie Wissensdatenbanken oder Data Quality-Projekte beibehalten werden sollen. Weitere Informationen zum Entfernen von DQS-Objekten nach Abschluss der Deinstallation finden Sie unter [Entfernen von Data Quality Server-Objekten](./install/remove-data-quality-server-objects.md).  
   
 ### <a name="43-indication-of-a-terminated-knowledge-discovery-or-interactive-cleansing-activity-is-delayed"></a>4.3 Die Anzeige einer beendeten Wissensermittlung oder interaktiven Bereinigungsaktivität ist zeitverzögert  
 **Problem:** Beendet ein Administrator eine Aktivität im Bildschirm „Aktivitätsüberwachung“, wird das Ende der Aktivität einem interaktiven Benutzer, der die Wissensermittlung, Domänenverwaltung oder interaktive Bereinigungsaktivität ausführt, erst dann angezeigt, wenn er den nächsten Vorgang ausführt.  
@@ -578,10 +578,10 @@ Dies ist eine Einschränkung des CTP3-Builds. Diese Einschränkung wird in zukü
 **Problemumgehung:** Verwenden Sie „multisubnetfailover = true“ in der Verbindungszeichenfolge.  
   
 #### <a name="576-failure-to-create-new-availability-group-listeners-because-of-active-directory-quotas"></a>5.7.6 Fehler beim Erstellen neuer Verfügbarkeitsgruppenlistener aufgrund von Active Directory-Kontingenten  
-**Problem:** Die Erstellung eines neuen Verfügbarkeitsgruppenlisteners schlägt möglicherweise beim Erstellen fehl, da Sie ein Active Directory-Kontingent für das teilnehmende Clusterknoten-Computerkonto erreicht haben. Weitere Informationen finden Sie unter [Problembehandlung für das Clusterdienstkonto bei Änderung von Computerobjekten](https://support.microsoft.com/kb/307532) und [Active Directory-Kontingente](https://technet.microsoft.com/library/cc904295(WS.10).aspx).  
+**Problem:** Die Erstellung eines neuen Verfügbarkeitsgruppenlisteners schlägt möglicherweise beim Erstellen fehl, da Sie ein Active Directory-Kontingent für das teilnehmende Clusterknoten-Computerkonto erreicht haben. Weitere Informationen finden Sie unter [Problembehandlung für das Clusterdienstkonto bei Änderung von Computerobjekten](https://support.microsoft.com/kb/307532) und [Active Directory-Kontingente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc904295(v=ws.10)).  
   
 #### <a name="577-netbios-conflicts-because-availability-group-listener-names-use-an-identical-15-character-prefix"></a>5.7.7 NetBIOS-Konflikte, da Namen von Verfügbarkeitsgruppenlistenern ein identisches 15-Zeichen-Präfix verwenden  
-Wenn Sie zwei WSFC-Cluster verwenden, die vom gleichen Active Directory gesteuert werden, und Sie versuchen, Verfügbarkeitsgruppenlistener in beiden Clustern mit Namen mit mehr als 15 Zeichen und einem identischen 15-Zeichen-Präfix zu erstellen, erhalten Sie eine Fehlermeldung mit dem Hinweis, dass die VNN-Ressource nicht online geschaltet werden konnte. Informationen zu Präfixbenennungsregeln für DNS-Namen finden Sie unter [Zuweisen von Domänennamen](https://technet.microsoft.com/library/cc731265(WS.10).aspx).  
+Wenn Sie zwei WSFC-Cluster verwenden, die vom gleichen Active Directory gesteuert werden, und Sie versuchen, Verfügbarkeitsgruppenlistener in beiden Clustern mit Namen mit mehr als 15 Zeichen und einem identischen 15-Zeichen-Präfix zu erstellen, erhalten Sie eine Fehlermeldung mit dem Hinweis, dass die VNN-Ressource nicht online geschaltet werden konnte. Informationen zu Präfixbenennungsregeln für DNS-Namen finden Sie unter [Zuweisen von Domänennamen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731265(v=ws.10)).  
   
 ![horizontal_bar](media/horizontal-bar.png "horizontal_bar")  
   
@@ -641,4 +641,4 @@ Problem: Beim Versuch, Upgrade Advisor auf einer unterstützten Windows-Version 
   
 **Problemumgehung**: Suchen Sie die Datei **SQLUA.msi** auf den SQL Server 2012-Medien unter `\1028_CHT_LP\x64\redist\Upgrade Advisor` oder `\1028_CHT_LP\x86\redist\Upgrade Advisor`, je nach Architektur des Betriebssystems.  
   
-![horizontal_bar](media/horizontal-bar.png "horizontal_bar")  
+![horizontal_bar](media/horizontal-bar.png "horizontal_bar")

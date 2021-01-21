@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: 87ddb651-a1d0-4a42-8ea9-04dea3f6afa4
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: f37521692b7b30cc8db1e56b81222c3e8bad38de
-ms.sourcegitcommit: 02b22274da4a103760a376c4ddf26c4829018454
+ms.openlocfilehash: 40a05ec1ed6b7ffa05132e0cefbd5157b7d3ce92
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84681339"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596327"
 ---
 # <a name="expression-examples-report-builder-and-ssrs"></a>Beispiele für Ausdrücke (Berichts-Generator und SSRS)
 Ausdrücke werden in paginierten [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] -Berichten häufig zum Steuern des Inhalts und der Darstellung des Berichts verwendet. Ausdrücke werden in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] geschrieben und können integrierte Funktionen, benutzerdefinierten Code, Berichts- und Gruppenvariablen sowie benutzerdefinierte Variablen verwenden. Ausdrücke beginnen immer mit einem Gleichheitszeichen (=). Weitere Informationen zum Ausdrucks-Editor und den Verweistypen, die Sie einfügen können, finden Sie unter [Ausdrucksverwendungen in Berichten (Berichts-Generator und SSRS)](../../reporting-services/report-design/expression-uses-in-reports-report-builder-and-ssrs.md) und [Hinzufügen eines Ausdrucks (Berichts-Generator und SSRS)](../../reporting-services/report-design/add-an-expression-report-builder-and-ssrs.md).  
@@ -70,9 +70,9 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
  Viele Ausdrücke in einem Bericht enthalten Funktionen. Mit diesen Funktionen können Sie Daten formatieren, Code anwenden und auf Berichtsmetadaten zugreifen. Sie können Ausdrücke schreiben, die Funktionen aus der [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)]-Laufzeitbibliothek sowie aus den Namespaces <xref:System.Convert> und <xref:System.Math> verwenden. Sie können Verweise auf Funktionen aus anderen Assemblys oder benutzerdefinierten Code hinzufügen. Sie können auch Klassen aus [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] einschließlich <xref:System.Text.RegularExpressions> verwenden.  
   
 ##  <a name="visual-basic-functions"></a><a name="VisualBasicFunctions"></a> Visual Basic-Funktionen  
- Mit [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] -Funktionen können Sie die Daten bearbeiten, die in Textfeldern angezeigt oder für Parameter, Eigenschaften oder sonstige Bereiche des Berichts verwendet werden. In diesem Abschnitt werden Beispiele zur Veranschaulichung einiger dieser Funktionen bereitgestellt. Weitere Informationen finden Sie unter [Member der Visual Basic-Laufzeitbibliothek](https://go.microsoft.com/fwlink/?LinkId=198941) bei MSDN.  
+ Mit [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] -Funktionen können Sie die Daten bearbeiten, die in Textfeldern angezeigt oder für Parameter, Eigenschaften oder sonstige Bereiche des Berichts verwendet werden. In diesem Abschnitt werden Beispiele zur Veranschaulichung einiger dieser Funktionen bereitgestellt. Weitere Informationen finden Sie unter [Member der Visual Basic-Laufzeitbibliothek](/dotnet/visual-basic/language-reference/runtime-library-members) bei MSDN.  
   
- Der [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] bietet zahlreiche benutzerdefinierte Formatoptionen, z. B. für bestimmte Datumsformate. Weitere Informationen finden Sie unter [Formatierung von Typen](https://go.microsoft.com/fwlink/?LinkId=112024) auf MSDN.  
+ Der [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] bietet zahlreiche benutzerdefinierte Formatoptionen, z. B. für bestimmte Datumsformate. Weitere Informationen finden Sie unter [Formatierung von Typen](/previous-versions/) auf MSDN.  
   
 ### <a name="math-functions"></a>Mathematische Funktionen  
   
@@ -209,7 +209,7 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
   
      Enthält das Textfeld nur ein Datum oder eine Zahl, sollten Sie die Format-Eigenschaft des Textfelds anstelle der **Format** -Funktion im Textfeld verwenden, um eine Formatierung anzuwenden.  
   
--   Mit den Funktionen **Right**, **Len**und **InStr** kann eine Teilzeichenfolge zurückgegeben werden, um z.B. *DOMÄNE*\\*Benutzername* auf den Benutzernamen zu verkürzen. Der folgende Ausdruck gibt den Teil der Zeichenfolge rechts neben einem umgekehrten Schrägstrich (\\) des *User*-Parameters zurück:  
+-   Mit den Funktionen **Right**, **Len** und **InStr** kann eine Teilzeichenfolge zurückgegeben werden, um z.B. *DOMÄNE*\\*Benutzername* auf den Benutzernamen zu verkürzen. Der folgende Ausdruck gibt den Teil der Zeichenfolge rechts neben einem umgekehrten Schrägstrich (\\) des *User*-Parameters zurück:  
   
     ```  
     =Right(Parameters!User.Value, Len(Parameters!User.Value) - InStr(Parameters!User.Value, "\"))  
@@ -276,7 +276,7 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
   
 ###  <a name="decision-functions"></a><a name="DecisionFunctions"></a> Entscheidungsfunktionen  
   
--   Die **Iif** -Funktion gibt einen von zwei Werten zurück, und zwar abhängig davon, ob der Ausdruck mit TRUE ausgewertet wird. Im folgenden Ausdruck wird mit der **Iif** -Funktion der boolesche Wert **TRUE** zurückgegeben, falls der Wert von `LineTotal` 100 überschreitet. Andernfalls wird **False**zurückgegeben:  
+-   Die **Iif** -Funktion gibt einen von zwei Werten zurück, und zwar abhängig davon, ob der Ausdruck mit TRUE ausgewertet wird. Im folgenden Ausdruck wird mit der **Iif** -Funktion der boolesche Wert **TRUE** zurückgegeben, falls der Wert von `LineTotal` 100 überschreitet. Andernfalls wird **False** zurückgegeben:  
   
     ```  
     =IIF(Fields!LineTotal.Value > 100, True, False)  
@@ -499,13 +499,13 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
     =User!UserID  
     ```  
   
--   Verwenden Sie die globale **Parameters** -Auflistung, um auf einen Parameter in einem Abfrageparameter, auf einen Filterausdruck, ein Textfeld oder einen anderen Bereich des Berichts zu verweisen. Bei diesem Beispiel wird von einem Parameter namens *Department*ausgegangen:  
+-   Verwenden Sie die globale **Parameters** -Auflistung, um auf einen Parameter in einem Abfrageparameter, auf einen Filterausdruck, ein Textfeld oder einen anderen Bereich des Berichts zu verweisen. Bei diesem Beispiel wird von einem Parameter namens *Department* ausgegangen:  
   
     ```  
     =Parameters!Department.Value  
     ```  
   
--   Parameter können in einem Bericht erstellt und trotzdem ausgeblendet werden. Wenn der Bericht auf dem Berichtsserver ausgeführt wird, erscheint der Parameter nicht auf der Symbolleiste und der Leser des Berichts kann den Standardwert nicht ändern. Sie können einen ausgeblendeten, auf einen Standardwert festgelegten Parameter als benutzerdefinierte Konstante verwenden. Diesen Wert können Sie in einem beliebigen Ausdruck verwenden, einschließlich eines Feldausdrucks. Der folgende Ausdruck gibt das vom Standardparameterwert für den Parameter mit dem Namen *ParameterField*angegebene Feld an:  
+-   Parameter können in einem Bericht erstellt und trotzdem ausgeblendet werden. Wenn der Bericht auf dem Berichtsserver ausgeführt wird, erscheint der Parameter nicht auf der Symbolleiste und der Leser des Berichts kann den Standardwert nicht ändern. Sie können einen ausgeblendeten, auf einen Standardwert festgelegten Parameter als benutzerdefinierte Konstante verwenden. Diesen Wert können Sie in einem beliebigen Ausdruck verwenden, einschließlich eines Feldausdrucks. Der folgende Ausdruck gibt das vom Standardparameterwert für den Parameter mit dem Namen *ParameterField* angegebene Feld an:  
   
     ```  
     =Fields(Parameters!ParameterField.Value).Value  
@@ -515,12 +515,12 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
  In einem Bericht kann benutzerdefinierter Code verwendet werden. Benutzerdefinierter Code ist entweder in einen Bericht eingebettet oder in einer benutzerdefinierten Assembly gespeichert, die im Bericht verwendet wird. Weitere Informationen zu benutzerdefiniertem Code finden Sie unter [Benutzerdefinierter Code und Assemblyverweise in Ausdrücken in Berichts-Designer (SSRS)](../../reporting-services/report-design/custom-code-and-assembly-references-in-expressions-in-report-designer-ssrs.md).  
   
 ### <a name="using-group-variables-for-custom-aggregation"></a>Verwenden von Gruppenvariablen für benutzerdefinierte Aggregation  
- Sie können den Wert für eine Gruppenvariable initialisieren, die zu einem bestimmten Gruppenbereich lokal ist, und anschließend einen Verweis auf diese Variable in den Ausdrücken einbinden. Eine der Methoden, wie Sie eine Gruppenvariable mit benutzerdefiniertem Code verwenden können, besteht darin, ein benutzerdefiniertes Aggregat zu implementieren. Weitere Informationen finden Sie unter [Gruppevariablen in Reporting Services 2008 für benutzerdefinierte Aggregation verwenden](https://go.microsoft.com/fwlink/?LinkId=128714).  
+ Sie können den Wert für eine Gruppenvariable initialisieren, die zu einem bestimmten Gruppenbereich lokal ist, und anschließend einen Verweis auf diese Variable in den Ausdrücken einbinden. Eine der Methoden, wie Sie eine Gruppenvariable mit benutzerdefiniertem Code verwenden können, besteht darin, ein benutzerdefiniertes Aggregat zu implementieren. Weitere Informationen finden Sie unter [Gruppevariablen in Reporting Services 2008 für benutzerdefinierte Aggregation verwenden](/archive/blogs/robertbruckner/).  
   
  Weitere Informationen zu Variablen finden Sie unter [Verweise auf Berichts- und Gruppenvariablensammlungen &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/built-in-collections-report-and-group-variables-references-report-builder.md).  
   
 ## <a name="suppressing-null-or-zero-values-at-run-time"></a>Unterdrücken von NULL oder 0 zur Laufzeit  
- Einige Werte in einem Ausdruck können zur Berichtsverarbeitungszeit mit NULL oder "nicht definiert" ausgewertet werden. Dies kann zu Laufzeitfehlern und zur Anzeige von **#Error** im Textfeld anstelle des ausgewerteten Ausdrucks führen. Die **IIF** -Funktion ist für dieses Verhalten besonders empfindlich, da im Gegensatz zu einer If-Then-Else-Anweisung jeder Teil der **IIF** -Anweisung (einschließlich Funktionsaufrufe) ausgewertet wird, bevor er an die Routine zur Prüfung auf **TRUE** oder **FALSE**übergeben wird. Die Anweisung `=IIF(Fields!Sales.Value is NOTHING, 0, Fields!Sales.Value)` generiert **#Error** im gerenderten Bericht, wenn `Fields!Sales.Value` NOTHING ist.  
+ Einige Werte in einem Ausdruck können zur Berichtsverarbeitungszeit mit NULL oder "nicht definiert" ausgewertet werden. Dies kann zu Laufzeitfehlern und zur Anzeige von **#Error** im Textfeld anstelle des ausgewerteten Ausdrucks führen. Die **IIF** -Funktion ist für dieses Verhalten besonders empfindlich, da im Gegensatz zu einer If-Then-Else-Anweisung jeder Teil der **IIF** -Anweisung (einschließlich Funktionsaufrufe) ausgewertet wird, bevor er an die Routine zur Prüfung auf **TRUE** oder **FALSE** übergeben wird. Die Anweisung `=IIF(Fields!Sales.Value is NOTHING, 0, Fields!Sales.Value)` generiert **#Error** im gerenderten Bericht, wenn `Fields!Sales.Value` NOTHING ist.  
   
  Wählen Sie eine der folgenden Strategien aus, um diesen Fehler zu vermeiden:  
   
@@ -558,5 +558,4 @@ Um das Schreiben von Ausdrücken zu erlernen, die viele der Funktionen und Opera
  [Ausdrucksverwendungen in Berichten &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/expression-uses-in-reports-report-builder-and-ssrs.md)   
  [Ausdrücke &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/expressions-report-builder-and-ssrs.md)   
  [Häufig verwendete Filter &#40;Berichts-Generator und SSRS&#41;](../../reporting-services/report-design/commonly-used-filters-report-builder-and-ssrs.md)  
-  
   

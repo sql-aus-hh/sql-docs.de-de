@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 30e06a7d-75e9-44e2-bca3-b3b0c4a33f61
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 841644a1429b4c143b7f2b31b5d6ec669bb0ff58
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: c987fdf269db9787392caa5f228f97155cf673a8
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642855"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597156"
 ---
 # <a name="create-a-new-always-on-failover-cluster-instance-setup"></a>Erstellen einer neuen Always On-Failoverclusterinstanz (Setup)
 
@@ -52,7 +52,7 @@ ms.locfileid: "97642855"
   
  [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] : die Installation des Advanced/Enterprise-Failoverclusters besteht aus den folgenden Schritten:  
   
--   Führen Sie für jeden Knoten, bei dem es sich um einen möglichen Besitzer des neu zu erstellenden [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Failoverclusters handelt, die im [Abschnitt "Vorbereitung"](#prepare)aufgeführten Setupschritte zum Vorbereiten des Failoverclusters aus. Nachdem Sie die Schritte zum Vorbereiten des Failoverclusters für einen Knoten ausgeführt haben, erstellt Setup die Datei Configuration.ini, in der alle Einstellungen aufgeführt werden, die Sie angegeben haben. Auf den zusätzlichen vorzubereitenden Knoten können Sie, statt die obigen Schritte auszuführen, die automatisch generierte Datei „Configuration.ini“ vom ersten Knoten in der Setup-Befehlszeile als Eingabe bereitstellen. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md). Mit diesem Schritt werden die Knoten für die Gruppierung vorbereitet. Nach diesem Schritt ist jedoch keine funktionstüchtige [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Instanz vorhanden.  
+-   Führen Sie für jeden Knoten, bei dem es sich um einen möglichen Besitzer des neu zu erstellenden [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Failoverclusters handelt, die im [Abschnitt "Vorbereitung"](#prepare)aufgeführten Setupschritte zum Vorbereiten des Failoverclusters aus. Nachdem Sie die Schritte zum Vorbereiten des Failoverclusters für einen Knoten ausgeführt haben, erstellt Setup die Datei Configuration.ini, in der alle Einstellungen aufgeführt werden, die Sie angegeben haben. Auf den zusätzlichen vorzubereitenden Knoten können Sie, statt die obigen Schritte auszuführen, die automatisch generierte Datei „Configuration.ini“ vom ersten Knoten in der Setup-Befehlszeile als Eingabe bereitstellen. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md). Mit diesem Schritt werden die Knoten für die Gruppierung vorbereitet. Nach diesem Schritt ist jedoch keine funktionstüchtige [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Instanz vorhanden.  
   
 -   Nachdem die Knoten für das Clustering bereit sind, führen Sie Setup auf einem der vorbereiteten Knoten aus. Durch diesen Schritt wird die Failoverclusterinstanz konfiguriert und abgeschlossen. Am Ende dieses Schritts verfügen Sie über eine funktionsfähige [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Failoverclusterinstanz, und alle bisher für diese Instanz vorbereiteten Knoten sind die potenziellen Besitzer der neu erstellten [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Failoverclusterinstanz.  
   
@@ -69,7 +69,7 @@ ms.locfileid: "97642855"
   
  Weitere Informationen zur Remoteinstallation finden Sie unter [Unterstützte Versions- und Editionsupgrades](../../../database-engine/install-windows/supported-version-and-edition-upgrades.md).  
   
- Weitere Informationen zur Installation von [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] in einem Windows Server-Failovercluster finden Sie unter [Verwenden von SQL Server Analysis Services in einem Cluster](https://go.microsoft.com/fwlink/p/?LinkId=396548).  
+ Weitere Informationen zur Installation von [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] in einem Windows Server-Failovercluster finden Sie unter [Verwenden von SQL Server Analysis Services in einem Cluster](/previous-versions/sql/sql-server-2012/dn736073(v=msdn.10)).  
   
 ## <a name="prerequisites"></a>Voraussetzungen  
  Konsultieren Sie vor der Installation die folgenden Themen der [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Onlinedokumentation:  
@@ -103,7 +103,7 @@ ms.locfileid: "97642855"
   
 8.  Lesen Sie auf der Seite mit den Lizenzbedingungen den Lizenzvertrag, und aktivieren Sie dann das Kontrollkästchen, um den Lizenzbestimmungen zuzustimmen. Falls Sie zur Verbesserung von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]beitragen möchten, können Sie auch die Option zur Funktionsverwendung aktivieren und Berichte an [!INCLUDE[msCoName](../../../includes/msconame-md.md)]senden. Klicken Sie auf zum Fortfahren auf **Weiter**. Klicken Sie auf **Abbrechen**, wenn Sie den Setupvorgang beenden möchten.  
   
-9. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können eine beliebige Kombination von Kontrollkästchen aktivieren, das Failoverclustering wird jedoch nur von [!INCLUDE[ssDE](../../../includes/ssde-md.md)], [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im tabellarischen Modus und [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im mehrdimensionalen Modus unterstützt. Andere ausgewählte Komponenten werden als eigenständige Funktion ohne Failoverfunktionen für den aktuellen Knoten ausgeführt, für den das Setup erfolgt. Weitere Informationen zu [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] -Bereitstellungsmodi finden Sie unter [Bestimmen des Servermodus einer Analysis Services-Instanz](https://docs.microsoft.com/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
+9. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können eine beliebige Kombination von Kontrollkästchen aktivieren, das Failoverclustering wird jedoch nur von [!INCLUDE[ssDE](../../../includes/ssde-md.md)], [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im tabellarischen Modus und [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im mehrdimensionalen Modus unterstützt. Andere ausgewählte Komponenten werden als eigenständige Funktion ohne Failoverfunktionen für den aktuellen Knoten ausgeführt, für den das Setup erfolgt. Weitere Informationen zu [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] -Bereitstellungsmodi finden Sie unter [Bestimmen des Servermodus einer Analysis Services-Instanz](/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
   
      Die erforderlichen Komponenten für die ausgewählten Funktionen werden im rechten Bereich angezeigt. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Setup installiert die erforderlichen Komponenten, die nicht bereits während des Installationsschritts installiert werden, der im weiteren Verlauf dieser Prozedur beschrieben wird.  
   
@@ -171,7 +171,7 @@ ms.locfileid: "97642855"
   
 17. Geben Sie auf der Seite „Serverkonfiguration > Dienstkonten“ Anmeldekonten für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Dienste an. Welche Dienste tatsächlich auf dieser Seite konfiguriert werden, ist von den Funktionen abhängig, die Sie für die Installation ausgewählt haben.  
   
-     Sie können allen [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Diensten dasselbe Anmeldekonto zuweisen, oder Sie können jedes Dienstkonto einzeln konfigurieren. Der Starttyp ist für alle clusterabhängigen Dienste, einschließlich Volltextsuche und [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Agent, auf Manuell festgelegt und kann während der Installation nicht geändert werden. [!INCLUDE[msCoName](../../../includes/msconame-md.md)] , die Dienstkonten einzeln zu konfigurieren, um möglichst geringe Rechte für jeden Dienst bereitzustellen. Dabei erhalten [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Dienste die Berechtigungen, die mindestens erforderlich ist, um ihre Tasks auszuführen. Weitere Informationen finden Sie unter [Serverkonfiguration – Dienstkonten](https://msdn.microsoft.com/library/c283702d-ab20-4bfa-9272-f0c53c31cb9f) und [Konfigurieren von Windows-Dienstkonten und -Berechtigungen](../../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md).  
+     Sie können allen [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Diensten dasselbe Anmeldekonto zuweisen, oder Sie können jedes Dienstkonto einzeln konfigurieren. Der Starttyp ist für alle clusterabhängigen Dienste, einschließlich Volltextsuche und [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Agent, auf Manuell festgelegt und kann während der Installation nicht geändert werden. [!INCLUDE[msCoName](../../../includes/msconame-md.md)] , die Dienstkonten einzeln zu konfigurieren, um möglichst geringe Rechte für jeden Dienst bereitzustellen. Dabei erhalten [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Dienste die Berechtigungen, die mindestens erforderlich ist, um ihre Tasks auszuführen. Weitere Informationen finden Sie unter [Serverkonfiguration – Dienstkonten](../../../database-engine/install-windows/install-sql-server.md) und [Konfigurieren von Windows-Dienstkonten und -Berechtigungen](../../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md).  
   
      Um für alle Dienstkonten in dieser Instanz von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]dasselbe Anmeldekonto anzugeben, geben Sie in den Feldern unten auf dieser Seite die entsprechenden Anmeldeinformationen ein.  
   
@@ -226,7 +226,7 @@ ms.locfileid: "97642855"
 30. Um dem gerade erstellten Failovercluster mit einem einzelnen Knoten weitere Knoten hinzuzufügen, führen Sie Setup für jeden zusätzlichen Knoten aus, und befolgen Sie die Schritte für AddNode-Vorgänge. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Knoten in einer Always On-Failoverclusterinstanz &#40;Setup&#41;](../../../sql-server/failover-clusters/install/add-or-remove-nodes-in-a-sql-server-failover-cluster-setup.md).  
   
     > [!NOTE]  
-    >  Wenn Sie mehrere Knoten hinzufügen, können Sie die Installationen mithilfe der Konfigurationsdatei bereitstellen. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md).  
+    >  Wenn Sie mehrere Knoten hinzufügen, können Sie die Installationen mithilfe der Konfigurationsdatei bereitstellen. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md).  
     >   
     >  Die zu installierende Edition von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] muss für alle Knoten in einer [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Failoverclusterinstanz übereinstimmen. Wenn Sie einer vorhandenen [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Failoverclusterinstanz einen neuen Knoten hinzufügen, müssen Sie sicherstellen, dass die Edition mit der Edition der vorhandenen Failoverclusterinstanz übereinstimmt.  
   
@@ -257,7 +257,7 @@ ms.locfileid: "97642855"
   
 9. Lesen Sie auf der Seite mit den Lizenzbedingungen den Lizenzvertrag, und aktivieren Sie dann das Kontrollkästchen, um den Lizenzbestimmungen zuzustimmen. Falls Sie zur Verbesserung von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]beitragen möchten, können Sie auch die Option zur Funktionsverwendung aktivieren und Berichte an [!INCLUDE[msCoName](../../../includes/msconame-md.md)]senden. Klicken Sie auf zum Fortfahren auf **Weiter**. Klicken Sie auf **Abbrechen**, wenn Sie den Setupvorgang beenden möchten.  
   
-10. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können eine beliebige Kombination von Kontrollkästchen aktivieren, das Failoverclustering wird jedoch nur von [!INCLUDE[ssDE](../../../includes/ssde-md.md)], [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im tabellarischen Modus und [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im mehrdimensionalen Modus unterstützt. Andere ausgewählte Komponenten werden als eigenständige Funktion ohne Failoverfunktionen für den aktuellen Knoten ausgeführt, für den das Setup erfolgt. Weitere Informationen zu [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] -Bereitstellungsmodi finden Sie unter [Bestimmen des Servermodus einer Analysis Services-Instanz](https://docs.microsoft.com/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
+10. Wählen Sie auf der Seite Funktionsauswahl die Komponenten für die Installation aus. Nach Auswahl des Funktionsnamens wird im rechten Bereich eine Beschreibung für die einzelnen Komponentengruppen angezeigt. Sie können eine beliebige Kombination von Kontrollkästchen aktivieren, das Failoverclustering wird jedoch nur von [!INCLUDE[ssDE](../../../includes/ssde-md.md)], [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im tabellarischen Modus und [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] im mehrdimensionalen Modus unterstützt. Andere ausgewählte Komponenten werden als eigenständige Funktion ohne Failoverfunktionen für den aktuellen Knoten ausgeführt, für den das Setup erfolgt. Weitere Informationen zu [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] -Bereitstellungsmodi finden Sie unter [Bestimmen des Servermodus einer Analysis Services-Instanz](/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
   
      Die erforderlichen Komponenten für die ausgewählten Funktionen werden im rechten Bereich angezeigt. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Setup installiert die erforderlichen Komponenten, die nicht bereits während des Installationsschritts installiert werden, der im weiteren Verlauf dieser Prozedur beschrieben wird.  
   
@@ -320,7 +320,7 @@ ms.locfileid: "97642855"
   
 23. Starten Sie den Computer neu, falls Sie dazu aufgefordert werden. Wenn Sie den Setupvorgang abgeschlossen haben, sollten Sie unbedingt die vom Installations-Assistenten angezeigte Meldung lesen. Weitere Informationen finden Sie unter [Lesen und Anzeigen der Setupprotokolldateien von SQL Server](../../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md).  
   
-24. Wiederholen Sie die vorherigen Schritte, um die anderen Knoten für die Failoverclusterinstanz vorzubereiten. Sie können die anderen Knoten auch mithilfe der automatisch generierten Konfigurationsdatei vorbereiten. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md).  
+24. Wiederholen Sie die vorherigen Schritte, um die anderen Knoten für die Failoverclusterinstanz vorzubereiten. Sie können die anderen Knoten auch mithilfe der automatisch generierten Konfigurationsdatei vorbereiten. Weitere Informationen finden Sie unter [Installieren von SQL Server 2016 mithilfe einer Konfigurationsdatei](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md).  
   
 ## <a name="complete"></a>Abgeschlossen  
   
@@ -404,6 +404,5 @@ ms.locfileid: "97642855"
  Weitere Informationen zu Speicherorten von Protokolldateien finden Sie unter [Lesen und Anzeigen der Setupprotokolldateien von SQL Server](../../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md).  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [Installieren von SQL Server 2016 von der Eingabeaufforderung](../../../database-engine/install-windows/install-sql-server-2016-from-the-command-prompt.md)  
-  
+ [Installieren von SQL Server 2016 von der Eingabeaufforderung](../../../database-engine/install-windows/install-sql-server-from-the-command-prompt.md)  
   

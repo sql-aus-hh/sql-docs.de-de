@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: maggiesMSFT
 ms.author: maggies
 monikerRange: '>= sql-server-2016'
-ms.openlocfilehash: 35924e9e1f5a72533ef1b30d983b99493858274d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a6c2dc6ae1a8711c3e78403b539a603c0cb36dcf
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484232"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596989"
 ---
 # <a name="install-sql-server-reporting-services"></a>Installieren von SQL Server Reporting Services
 
@@ -137,6 +137,6 @@ Informationen zur Installation von SQL Server 2016 Reporting Services (und Vorg�
 
 Wenn Sie den Berichtsserver installiert haben, beginnen Sie mit dem Erstellen von Berichten, und stellen Sie diese anschließend für ihren Berichtsserver bereit. Informationen zum Starten des Berichts-Generators finden Sie unter [Install Report Builder (Installieren des Berichts-Generators)](../../reporting-services/install-windows/install-report-builder.md).
 
-[Laden Sie SQL Server Data Tools herunter](https://go.microsoft.com/fwlink/?LinkID=616714), um Berichte mithilfe von SQL Server Data Tools zu erstellen.
+[Laden Sie SQL Server Data Tools herunter](../../ssdt/download-sql-server-data-tools-ssdt.md), um Berichte mithilfe von SQL Server Data Tools zu erstellen.
 
 Haben Sie dazu Fragen? [Stellen Sie eine Frage im Reporting Services-Forum](https://go.microsoft.com/fwlink/?LinkId=620231)

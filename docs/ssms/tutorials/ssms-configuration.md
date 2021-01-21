@@ -10,12 +10,12 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: sstein
 ms.date: 03/16/2018
-ms.openlocfilehash: 238df1200d88023abec54fdf3fa2c37df758f0f8
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: 1688998d5a3f6b9033808701c33ff141cf8cc8c3
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038945"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597187"
 ---
 # <a name="sql-server-management-studio-components-and-configuration"></a>SQL Server Management Studio-Komponenten und -Konfiguration
 
@@ -138,7 +138,7 @@ In diesem Abschnitt wird beschrieben, wie Sie einige Standardeinstellungen in SS
 
 Am besten machen Sie sich mit SSMS vertraut, indem Sie einige praktische Aufgaben durchführen. Dieses *Tutorial* und Artikel zu *Vorgehensweisen* unterstützen Sie bei der Verwendung der verschiedenen Features, die in SSMS verfügbar sind.  In diesen Artikeln erfahren Sie, wie Sie die Komponenten von SSMS verwalten und wie Sie die Funktionen finden, die Sie regelmäßig verwenden.
 
-* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/connect-query-sql-server.md)
+* [Herstellen einer Verbindung mit einer Instanz und Abfragen einer Instanz](../quickstarts/ssms-connect-query-sql-server.md)
 * [Skripterstellung](scripting-ssms.md)
 * [Verwenden von Vorlagen in SSMS](../template/templates-ssms.md)
 * [Zusätzliche Tipps und Tricks für die Verwendung von SSMS](ssms-tricks.md)
