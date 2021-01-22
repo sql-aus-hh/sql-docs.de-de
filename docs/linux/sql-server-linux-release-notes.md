@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 ms.assetid: 1314744f-fcaf-46db-800e-2918fa7e1b6c
-ms.openlocfilehash: a585314a26e90b76d18117be2eafe6f78e399dc3
-ms.sourcegitcommit: 2991ad5324601c8618739915aec9b184a8a49c74
+ms.openlocfilehash: 369c52eeb66a3d8ca5042f54d71ea9001d30b194
+ms.sourcegitcommit: af64e2b8d498af26b973e86db5c00f8d72991295
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97322169"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193037"
 ---
 # <a name="release-notes-for-sql-server-2017-on-linux"></a>Versionshinweise für SQL Server 2017 für Linux
 
@@ -46,6 +46,7 @@ In der folgenden Tabelle wird der Releaseverlauf von [!INCLUDE[ssSQL17](../inclu
 
 | Release               | Version       | Veröffentlichungsdatum |
 |-----------------------|---------------|--------------|
+| [CU22-GDR](#CU22)         | 14.0.3370.1  | 2021-01-12 |
 | [CU22](#CU22)         | 14.0.3356.20  | 2020-09-10   |
 | [CU21](#CU21)         | 14.0.3335.7   | 2020-07-01   |
 | [CU20](#CU20)         | 14.0.3294.2   | 2020-04-10   |
@@ -83,6 +84,27 @@ Führen Sie den entsprechenden Updatebefehl für jedes Paket durch, wenn Sie vor
 - [Installieren des Volltextsuchepakets](sql-server-linux-setup-full-text-search.md)
 - [Install SQL Server Integration Services (Installieren von SQL Server Integration Services)](sql-server-linux-setup-ssis.md)
 - [Aktivieren des SQL Server-Agents](sql-server-linux-setup-sql-agent.md)
+
+## <a name="cu22-gdr-january-2021"></a><a id="CU22-GDR"></a> CU22-GDR (Januar 2021)
+
+Dies ist das CU22-GDR-Release (GDR von Cumulative Update 22) von [!INCLUDE[ssSQL17](../includes/sssql17-md.md)]. Die Version von [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)] für dieses Release ist 14.0.3370.1. Informationen zu den Fehlerbehebungen und Verbesserungen in diesem Release finden Sie unter <https://support.microsoft.com/help/4577467>.
+
+### <a name="package-details"></a>Paketdetails
+
+Für manuelle oder offline durchgeführte Paketinstallationen können Sie die RPM- und Debian-Pakete herunterladen, die in der folgenden Tabelle aufgeführt werden:
+
+> [!NOTE]
+> **Ubuntu 18.04** und **RHEL 8** werden jetzt für SQL Server 2017 ab CU20 unterstützt.
+>
+> Die Links zu den Offline-Installationspaketen für Ubuntu zeigen auf Ubuntu 18.04-Pakete, mit Ausnahme des SSIS-Pakets (dieses ist für Ubuntu 18.04 nicht verfügbar). Wenn Sie Pakete für Ubuntu 16.04 benötigen, können Sie diese von diesem Downloadpfad herunterladen: <https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017/pool/main/m/>.
+>
+> Die Links zu den Offline-Installationspaketen für Red Hat zeigen auf RHEL 8-Pakete, mit Ausnahme des SSIS-Pakets (dieses ist für RHEL 8 nicht verfügbar). Wenn Sie Pakete für RHEL 7 benötigen, können Sie diese von diesem Downloadpfad herunterladen: <https://packages.microsoft.com/rhel/7/mssql-server-2017/>.
+
+| Paket | Paketversion | Downloads |
+|-----|-----|-----|
+| Red Hat RPM-Paket | 14.0.3370.1-23-18 | [RPM-Engine-Paket](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-14.0.3370.1-18.x86_64.rpm)</br>[RPM-Hochverfügbarkeitspaket](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-ha-14.0.3370.1-18.x86_64.rpm)</br>[RPM-Paket für Volltextsuche](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-fts-14.0.3370.1-18.x86_64.rpm)</br>[SSIS-Paket](https://packages.microsoft.com/rhel/7/mssql-server-2017/mssql-server-is-14.0.1000.169-1.x86_64.rpm) |
+| SLES RPM-Paket | 14.0.3370.1-18 | [RPM-Engine-Paket (mssql-server)](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-14.0.3370.1-18.x86_64.rpm)</br>[RPM-Hochverfügbarkeitspaket](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-ha-14.0.3370.1-18.x86_64.rpm)</br>[RPM-Paket für Volltextsuche](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-fts-14.0.3370.1-18.x86_64.rpm) | 
+| Debian-Paket für Ubuntu 18.04 | 14.0.3370.1-18 | [Debian-Engine-Paket](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server/mssql-server_14.0.3370.1-18_amd64.deb)</br>[Debian-Hochverfügbarkeitspaket](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server-ha/mssql-server-ha_14.0.3370.1-18_amd64.deb)</br>[Debian-Paket für Volltextsuche](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server-fts/mssql-server-fts_14.0.3370.1-18_amd64.deb)<br/>[SSIS-Paket](https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017/pool/main/m/mssql-server-is/mssql-server-is_14.0.1000.169-1_amd64.deb) |
 
 ## <a name="cu22-september-2020"></a><a id="CU22"></a> CU22 (September 2020)
 
@@ -582,7 +604,7 @@ In den folgenden Abschnitten werden bekannte Probleme mit dem allgemein verfügb
          sudo systemctl restart mssql-server
          ```
 
-- [!INCLUDE[ssSQL14](../includes/sssql14-md.md)]-Datenbanken unter Windows, die In-Memory-OLTP nutzen, können nicht in [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] für Linux wiederhergestellt werden. Führen Sie zunächst ein Upgrade auf [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] oder [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] unter Windows für die Datenbanken durch, und verschieben Sie sie anschließend per Backup/Wiederherstellung oder durch Trennen/Anfügen in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] für Linux, um eine [!INCLUDE[ssSQL14](../includes/sssql14-md.md)]-Datenbank wiederherzustellen, die In-Memory-OLTP nutzt.
+- [!INCLUDE[ssSQL14](../includes/sssql14-md.md)]-Datenbanken unter Windows, die In-Memory-OLTP nutzen, können nicht in [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] für Linux wiederhergestellt werden. Führen Sie zunächst ein Upgrade auf [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] oder [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] unter Windows für die Datenbanken durch, und verschieben Sie sie anschließend per Backup/Wiederherstellung oder durch Trennen/Anfügen in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] für Linux, um eine [!INCLUDE[ssSQL14](../includes/sssql14-md.md)]-Datenbank wiederherzustellen, die In-Memory-OLTP nutzt.
 
 - Unter Linux wird die Benutzerberechtigung **ADMINISTER BULK OPERATIONS** zurzeit nicht unterstützt.
 

@@ -2,7 +2,7 @@
 title: SQL Server, Datenbankreplikat | Microsoft-Dokumentation
 description: Hier lernen Sie das „SQLServer:Datenbankreplikat“-Leistungsobjekt kennen, das Leistungsindikatoren enthält zu den sekundären Datenbanken einer Always On-Verfügbarkeitsgruppe enthält.
 ms.custom: ''
-ms.date: 08/24/2016
+ms.date: 01/13/2021
 ms.prod: sql
 ms.prod_service: database-engine
 ms.reviewer: ''
@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: a5f6bdce-2b13-4924-aaeb-b50b57d624d8
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 176f7b9ba860e6ca7f72e35f6c6a87622948fc70
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 3dff6cb9b3a65ea5f38a97786e10701bc1f31749
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505754"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170302"
 ---
 # <a name="sql-server-database-replica"></a>SQL Server, Datenbankreplikat
 
@@ -42,7 +42,7 @@ ms.locfileid: "96505754"
 |**Verbleibende Wiederholungsbytes**|Die zur Wiederholung verbleibende Protokollmenge in Kilobytes bis zum Abschließen der Wiederherstellungsphase.|Sekundäres Replikat|  
 |**Wiederholte Bytes/s**|Menge an Protokolldatensätzen, die in der letzten Sekunde auf der sekundären Datenbank wiederholt wurden.|Sekundäres Replikat|  
 |**Rückgängig zu machendes Gesamtprotokoll**|Gesamtanzahl an Kilobytes von Protokollen, die rückgängig zu machen sind.|Sekundäres Replikat|  
-|**Transaktionsverzögerung**|Verzögerung beim Warten auf die Bestätigung eines nicht abgeschlossenen Commits für alle aktuellen Transaktionen in Millisekunden. Dividieren Sie den Wert durch *Gespiegelte Schreibtransaktionen/Sekunde*, um die *Durchschnittliche Transaktionsverzögerung* zu erhalten. Weitere Informationen finden Sie unter [SQL Server 2012 AlwaysOn – Teil 12 – Leistungsaspekte und Lesitungsüberwachung II](/archive/blogs/saponsqlserver/sql-server-2012-alwayson-part-12-performance-aspects-and-performance-monitoring-ii).|Primäres Replikat|  
+|**Transaktionsverzögerung**|Hierbei handelt es sich um die Verzögerung insgesamt beim Warten auf die Bestätigung eines nicht abgeschlossenen Commits für alle aktuellen Transaktionen in Millisekunden. Dividieren Sie den Wert durch *Gespiegelte Schreibtransaktionen/Sekunde*, um die *Durchschnittliche Transaktionsverzögerung* zu erhalten. Weitere Informationen finden Sie unter [SQL Server 2012 AlwaysOn – Teil 12 – Leistungsaspekte und Lesitungsüberwachung II](/archive/blogs/saponsqlserver/sql-server-2012-alwayson-part-12-performance-aspects-and-performance-monitoring-ii).|Primäres Replikat|  
   
 ## <a name="see-also"></a>Weitere Informationen
   

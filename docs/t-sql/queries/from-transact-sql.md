@@ -37,12 +37,12 @@ ms.author: vanto
 ms.custom: ''
 ms.date: 06/01/2019
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 70cda7e45f17bb1dbeeaa69178e0538296572ae7
-ms.sourcegitcommit: b652ff2f0f7edbb5bd2f8fdeac56348e4d84f8fc
+ms.openlocfilehash: d1ac3e525ba2e7f3cf459a7ce0ae309d22263aa1
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98112672"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172402"
 ---
 # <a name="from-clause-plus-join-apply-pivot-transact-sql"></a>FROM-Klausel mit JOIN, APPLY, PIVOT (Transact-SQL)
 
@@ -229,8 +229,7 @@ Stellt eine Rowsetsicht eines XML-Dokuments bereit. Weitere Informationen finden
  *column_alias*  
  Ein optionaler Alias, der einen Spaltennamen im Resultset der abgeleiteten Tabelle ersetzen soll. Geben Sie für jede Spalte in der Auswahlliste einen Spaltenalias an, und schließen Sie die gesamte Liste der Spaltenaliasnamen in Klammern ein.  
   
- *table_or_view_name* FOR SYSTEM_TIME \<system_time>
-**Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und später sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+ *table_or_view_name* FOR SYSTEM_TIME \<system_time> Gilt für**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und später sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Gibt an, dass eine bestimmte Version von Daten aus der angegebenen temporalen Tabelle und die verknüpfte Verlaufstabelle mit Systemversionsverwaltung zurückgegeben werden.  
   
 ### <a name="tablesample-clause"></a>TABLESAMPLE-Klausel
@@ -370,19 +369,19 @@ ON (p.ProductID = v.ProductID);
  Gibt an, dass die Eingabetabelle aus mehreren Spalten in *column_list* zu einer einzelnen Spalte namens *pivot_column* eingeschränkt wird. Weitere Informationen zu PIVOT und UNPIVOT finden Sie unter [Verwenden von PIVOT und UNPIVOT](../../t-sql/queries/from-using-pivot-and-unpivot.md).  
   
 AS OF \<date_time>  
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Gibt eine Tabelle mit einem einzelnen Datensatz für jede Zeile zurück, die die Werte enthält, die zum angegebenen Zeitpunkt in der Vergangenheit real (aktuell) waren. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte in der Zeile zurückgegeben werden, die zu dem durch den Parameter *\<date_time>* angegebenen Zeitpunkt gültig waren. Der Wert für eine Zeile ist gültig, wenn der Wert *system_start_time_column_name* kleiner als oder gleich dem Parameterwert *\<date_time>* und der Wert *system_end_time_column_name* größer als der Parameterwert *\<date_time>* ist.   
   
 FROM \<start_date_time> TO \<end_date_time>
-**Gilt für:** : [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)]
+**Gilt für:** : [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher sowie [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)]
 Dieses Argument gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des angegebenen Zeitbereichs aktiv waren, unabhängig davon, ob ihre Aktivität vor dem Parameterwert *\<start_date_time>* für das FROM-Argument begonnen hat oder ihre Aktivität nach dem Parameterwert *\<end_date_time>* für das TO-Argument geendet hat. Intern wird eine Union zwischen der temporalen Tabelle und ihrer Verlaufstabelle ausgeführt, und die Ergebnisse werden so gefiltert, dass die Werte für alle Zeilenversionen zurückgegeben werden, die zu irgendeinem Zeitpunkt innerhalb des angegebenen Zeitbereichs aktiv waren. Zeilen, die genau an dem durch den FROM-Endpunkt definierten unteren Grenzwert aktiv wurden, sind enthalten, und Datensätze, die genau an dem durch den TO-Endpunkt definierten oberen Grenzwert aktiv wurden, sind nicht enthalten.  
   
 BETWEEN \<start_date_time> AND \<end_date_time>  
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Dieses Argument ist identisch mit dem oben beschriebenen Argument **FROM \<start_date_time> TO \<end_date_time>** , mit dem Unterschied, dass es Zeilen enthält, die an dem durch den \<end_date_time>-Endpunkt definierten oberen Grenzwert aktiv wurden.  
   
 CONTAINED IN (\<start_date_time>, \<end_date_time>)  
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Gibt eine Tabelle mit den Werten für alle Datensatzversionen zurück, die innerhalb des von den zwei Datums-/Uhrzeitwerten für das Argument CONTAINED IN definierten Zeitbereichs geöffnet und geschlossen wurden. Zeilen, die genau beim unteren Grenzwert aktiv wurden, oder deren Aktivität genau beim oberen Grenzwert endete, sind enthalten.  
   
 ALL  
@@ -611,7 +610,7 @@ GO
   
 ### <a name="m-using-for-system_time"></a>M. Verwenden von FOR SYSTEM_TIME  
   
-**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Gilt für:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] und höher und [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Im folgenden Beispiel wird das Argument FOR SYSTEM_TIME AS OF date_time_literal_or_variable verwendet, um Tabellenzeilen zurückzugeben, die am 1. Januar 2014 aktuell waren.  
   
 ```sql

@@ -2,7 +2,7 @@
 description: Abfragen von Spalten mithilfe von Always Encrypted mit Azure Data Studio
 title: Abfragen von Spalten mithilfe von Always Encrypted mit Azure Data Studio | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 5/19/2020
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 0a61514ff76bbae9e403683529d017f6fcb1c079
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 93bb5c30eeb9cdc6f10c3b71d0e4f70f3f8c6477
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101869"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534421"
 ---
 # <a name="query-columns-using-always-encrypted-with-azure-data-studio"></a>Abfragen von Spalten mithilfe von Always Encrypted mit Azure Data Studio
 [!INCLUDE [SQL Server Azure SQL Database](../../../includes/applies-to-version/sql-asdb.md)]
@@ -85,6 +85,7 @@ Zusätzlich zu den oben aufgeführten Berechtigungen benötigen Sie zum Entschl�
 Weitere Informationen finden Sie unter [Create and Store Column Master Keys (Always Encrypted)](../../../relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted.md)(Erstellen und Speichern von Spaltenhauptschlüsseln (Always Encrypted)).
 
 ## <a name="enabling-and-disabling-always-encrypted-for-a-database-connection"></a>Aktivieren und Deaktivieren von Always Encrypted für eine Datenbankverbindung   
+
 Wenn Sie in Azure Data Studio eine Verbindung mit einer Datenbank herstellen, können Sie Always Encrypted für die Datenbankverbindung entweder aktivieren oder deaktivieren. Always Encrypted ist standardmäßig deaktiviert. 
 
 Durch Aktivieren von Always Encrypted für eine Datenbankverbindung wird der [Microsoft .NET-Datenanbieter für SQL Server](../../../connect/ado-net/sql/sqlclient-support-always-encrypted.md), der von Azure Data Studio verwendet wird, aufgefordert, die folgenden Aufgaben transparent auszuführen:   
@@ -100,10 +101,11 @@ Sie können Always Encrypted aktivieren oder deaktivieren, wenn Sie eine Verbind
 So aktivieren (oder deaktivieren) Sie Always Encrypted:
 1. Klicken Sie im Dialogfeld **Verbindung** auf **Erweitert...** .
 2. Um Always Encrypted für die Verbindung zu aktivieren, legen Sie das Feld **Always Encrypted** auf **Aktiviert** fest. Wenn Sie Always Encrypted deaktivieren möchten, lassen Sie entweder das Feld **Always Encrypted** leer, oder setzen Sie es auf **Deaktiviert**.
-3. Wenn Sie [!INCLUDE [sssqlv15-md](../../../includes/sssqlv15-md.md)] verwenden und Ihre SQL Server-Instanz mit einer Secure Enclave konfiguriert ist, können Sie ein Enclave-Protokoll und eine Enclave-Nachweis-URL angeben. Achten Sie darauf, die Felder **Nachweisprotokoll** und **Enclave-Nachweis-URL** leer zu lassen, wenn Ihre SQL Server-Instanz keine Secure Enclave verwendet. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md).
-4. Klicken Sie auf **OK**, um **Erweiterte Eigenschaften** zu schließen.
+3. Klicken Sie auf **OK**, um **Erweiterte Eigenschaften** zu schließen.
 
 ![Dieses kurze Video zeigt die Schritte zum Aktivieren von Always Encrypted für die Verbindung.](../../../relational-databases/security/encryption/media/always-encrypted-ads-connect.gif)
+
+Wenn Sie Anweisungen ausführen möchten, die eine serverseitige Secure Enclave nutzen, müssen Sie bei Verwendung von [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) zusätzlich zum Aktivieren von Always Encrypted für die Verbindung ein Protokoll zum Nachweis von Enclaves sowie eine URL zum Nachweis von Enclaves angeben. Ausführliche Informationen finden Sie unter [Abfragen von Spalten mit Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md#prerequisites-for-running-t-sql-statements-using-enclaves-in-azure-data-studio).
 
 > [!TIP]
 > Um für ein vorhandenes Abfragefenster zwischen aktiviertem und deaktiviertem Always Encrypted zu wechseln, klicken Sie auf **Trennen**, klicken Sie dann auf **Verbinden**, und führen Sie die obigen Schritte aus, um die Verbindung mit der Datenbank mit den gewünschten Werten des Felds **Always Encrypted** wiederherzustellen. 

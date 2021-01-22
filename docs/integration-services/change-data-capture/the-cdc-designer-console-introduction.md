@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 45298179-4ac1-4723-8b3c-56f5926be40a
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: e8e1fd0c8e43000573d030a80ce52145bd0c8669
-ms.sourcegitcommit: 49ee3d388ddb52ed9cf78d42cff7797ad6d668f2
+ms.openlocfilehash: ac65acde470d75c616e77d21f6e62ab8d1f5e4e4
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384879"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241850"
 ---
 # <a name="the-cdc-designer-console-introduction"></a>Einführung in die CDC Designer Console
 
@@ -43,9 +43,11 @@ ms.locfileid: "94384879"
   
 ### <a name="source-oracle-database"></a>Oracle-Quelldatenbank
   
--   Oracle-Datenbank 10g Release 2
--   Oracle-Datenbank 11g Release 1 und Release 2
--   Oracle Database 12c klassische Installation (Die mehrinstanzenfähige Installation wird nicht unterstützt).  
+- Oracle-Datenbank 10g Release 2
+- Oracle-Datenbank 11g Release 1 und Release 2
+- Oracle Database 12c in der klassischen Installation (die mehrinstanzenfähige Installation wird nicht unterstützt)  
+- Oracle Database 18c in der klassischen Installation (die mehrinstanzenfähige Installation wird nicht unterstützt)
+- Oracle Database 19c in der klassischen Installation (die mehrinstanzenfähige Installation wird nicht unterstützt)
 
 ### <a name="target-sql-server-database"></a>SQL Server-Zieldatenbank
   
@@ -64,6 +66,6 @@ ms.locfileid: "94384879"
  Doppelklicken Sie auf das CDC Designer Console-Installationskit, und befolgen Sie die Anweisungen im Installations-Assistenten.  
   
 ## <a name="uninstalling-the-cdc-designer-console"></a>Deinstallieren der CDC Designer Console  
- Sie können die CDC Designer Console über die Systemsteuerung unter Programme und Funktionen deinstallieren.  
+ Sie können die CDC-Designer-Konsole über die Systemsteuerung unter Programme und Features deinstallieren.  
   
   

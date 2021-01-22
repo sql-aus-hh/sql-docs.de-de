@@ -2,7 +2,7 @@
 description: Erstellen und Verwenden von Indizes in Spalten mithilfe von Always Encrypted mit Secure Enclaves
 title: Erstellen und Verwenden von Indizes in Spalten mithilfe von Always Encrypted mit Secure Enclaves | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/30/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -11,23 +11,24 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 95b797e271436108c3495f522eff3fd042631285
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4799cd725dce4eb8300717b8c89d601e9915f7d2
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477661"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534829"
 ---
 # <a name="create-and-use-indexes-on-columns-using-always-encrypted-with-secure-enclaves"></a>Erstellen und Verwenden von Indizes in Spalten mithilfe von Always Encrypted mit Secure Enclaves
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
 
-In diesem Artikel wird beschrieben, wie Indizes für Spalten erstellt und verwendet werden, die mit Enclave-fähigen Spaltenverschlüsselungsschlüsseln mit [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) verschlüsselt wurden. 
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
+
+In diesem Artikel wird beschrieben, wie Indizes für Spalten erstellt und verwendet werden, die mit Enclave-fähigen Spaltenverschlüsselungsschlüsseln mit [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) verschlüsselt wurden.
 
 Always Encrypted mit Secure Enclaves unterstützt Folgendes:
 - Gruppierte und nicht gruppierte Indizes für Spalten, die mit deterministischer Verschlüsselung und Enclave-fähigen Schlüsseln verschlüsselt wurden.
   - Indizes dieser Art werden anhand des Chiffretexts sortiert. Bei Indizes dieser Art müssen keine besonderen Aspekte berücksichtigt werden. Sie können sie auf die gleiche Weise verwalten und verwenden wie Indizes für Spalten, die mit deterministischer Verschlüsselung und nicht Enclave-fähigen Schlüsseln (wie bei Always Encrypted) verschlüsselt wurden. 
 - Nicht gruppierte Indizes für Spalten, die mit einer Verschlüsselung nach Zufallsprinzip und Enclave-fähigen Schlüsseln verschlüsselt wurden.
-  - Die Verarbeitung von Abfragen innerhalb einer Enclave ist hilfreich und stellt sicher, dass bei einem Index in einer Spalte, die mithilfe einer Verschlüsselung nach Zufallsprinzip verschlüsselt wurde, keine vertraulichen Daten verloren gehen. Die Schlüsselwerte in der Indexdatenstruktur (B-Struktur) werden anhand ihrer Klartextwerte verschlüsselt und sortiert. Weitere Informationen finden Sie unter [Indizes für Enclave-fähige Spalten mit zufälliger Verschlüsselung](always-encrypted-enclaves.md#indexes-on-enclave-enabled-columns-using-randomized-encryption).
+  - Die Schlüsselwerte in der Indexdatenstruktur (B-Struktur) werden anhand ihrer Klartextwerte verschlüsselt und sortiert. Weitere Informationen finden Sie unter [Erstellen und Verwenden von Indizes für Enclave-fähige Spalten mit zufälliger Verschlüsselung](always-encrypted-enclaves.md#indexes-on-enclave-enabled-columns).
 
 > [!NOTE]
 > In den übrigen Abschnitten dieses Artikels werden nicht gruppierte Indizes für Spalten beschrieben, die mit einer Verschlüsselung nach Zufallsprinzip und Enclave-fähigen Schlüsseln verschlüsselt wurden.
@@ -49,11 +50,11 @@ Damit diese Methode zum Aufrufen von Indizierungsvorgängen funktioniert, muss d
 - Sie muss eine Verbindung zur Datenbank mit Always Encrypted und Enclave-Berechnungen herstellen, die für die Datenbankverbindung aktiviert sind.
 - Die Anwendung muss Zugriff auf den Spaltenhauptschlüssel haben, der den Spaltenverschlüsselungsschlüssel für die indizierte Spalte schützt.
 
-Sobald die SQL Server-Engine die Anwendungsabfrage analysiert und feststellt, dass ein Index in einer verschlüsselten Spalte aktualisiert werden muss, um die Abfrage auszuführen, weist sie den Clienttreiber an, der Enclave den erforderlichen Spaltenverschlüsselungsschlüssel über einen sicheren Kanal bereitzustellen. Dies ist genau derselbe Mechanismus wie der, der zum Bereitstellen des Spaltenverschlüsselungsschlüssels für die Enclave zur Verarbeitung aller anderen Abfragen verwendet wird. Beispiele: direkte Verschlüsselung oder Abfragen, die einen Musterabgleich und Bereichsvergleiche verwenden.
+Sobald die SQL Server-Engine die Anwendungsabfrage analysiert und feststellt, dass ein Index in einer verschlüsselten Spalte aktualisiert werden muss, um die Abfrage auszuführen, weist sie den Clienttreiber an, der Enclave den erforderlichen Spaltenverschlüsselungsschlüssel über einen sicheren Kanal bereitzustellen. Dies ist genau derselbe Mechanismus wie der, der zum Bereitstellen des Spaltenverschlüsselungsschlüssels für die Enclave zur Verarbeitung von anderen Abfragen verwendet wird, die keinen Indizes verwenden. Beispiele: direkte Verschlüsselung oder Abfragen, die einen Musterabgleich und Bereichsvergleiche verwenden.
 
-Diese Methode ist sinnvoll, um sicherzustellen, dass das Vorhandensein von Indizes in verschlüsselten Spalten für Anwendungen, die bereits mit der Datenbank verbunden sind, transparent ist, wobei Always Encrypted- und Enclave-Berechnungen aktiviert sind. Die Anwendungsverbindung kann die Enclave für die Abfrageverarbeitung verwenden. Nachdem Sie einen Index für eine Spalte erstellt haben, stellt der Treiber in Ihrer Anwendung der Enclave transparent Spaltenverschlüsselungscodes für Indizierungsvorgänge zur Verfügung. Beachten Sie, dass das Erstellen von Indizes die Anzahl der Abfragen erhöhen kann, bei denen die Anwendung die Spaltenverschlüsselungsschlüssel an die Enclave senden muss.
+Diese Methode ist sinnvoll, um sicherzustellen, dass das Vorhandensein von Indizes in verschlüsselten Spalten für Anwendungen, die bereits mit der Datenbank verbunden sind, transparent ist, wobei Always Encrypted- und Enclave-Berechnungen aktiviert sind. Die Anwendungsverbindung kann die Enclave für die Abfrageverarbeitung verwenden. Nachdem Sie einen Index für eine Spalte erstellt haben, stellt der Treiber in Ihrer Anwendung der Enclave transparent Spaltenverschlüsselungscodes für Indizierungsvorgänge zur Verfügung. Das Erstellen von Indizes kann die Anzahl der Abfragen erhöhen, bei denen die Anwendung die Spaltenverschlüsselungsschlüssel an die Enclave senden muss.
 
-Wenn Sie diese Methode verwenden möchten, befolgen Sie die allgemeine Anleitung zum Ausführen von Abfragen mithilfe einer Secure Enclave unter [Abfragen von Spalten mit Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md).
+Wenn Sie diese Methode verwenden möchten, befolgen Sie die allgemeine Anleitung zum Ausführen von Anweisungen mithilfe einer Secure Enclave unter [Ausführen von Transact-SQL-Anweisungen mit Secure Enclaves](always-encrypted-enclaves-query-columns.md).
 
 Schritt-für-Schritt-Anweisungen zur Verwendung dieser Methode finden Sie im [Tutorial: Erstellen und Verwenden von Indizes für Enclave-fähige Spalten mit zufälliger Verschlüsselung](../tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption.md).
 
@@ -86,7 +87,7 @@ Diese Methode ist in folgenden Fällen sinnvoll:
 Schritt-für-Schritt-Anweisungen zur Verwendung dieser Methode finden Sie im [Tutorial: Erstellen und Verwenden von Indizes für Enclave-fähige Spalten mit zufälliger Verschlüsselung](../tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption.md). 
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Abfragen von Spalten mit Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
+- [Ausführen von Transact-SQL-Anweisungen mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
 
 ## <a name="see-also"></a>Weitere Informationen  
 - [Tutorial: Erstellen und Verwenden von Indizes für Enclave-fähige Spalten mit zufälliger Verschlüsselung](../tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption.md).

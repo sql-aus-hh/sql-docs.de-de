@@ -2,7 +2,7 @@
 description: Bereitstellen Enclave-fähiger Schlüssel
 title: Bereitstellen Enclave-fähiger Schlüssel | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/01/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.prod_service: database-engine, sql-database
@@ -11,15 +11,16 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 02d4b833b45393c6d830048c3e761cd7abac99e7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e28b6d18b5fe466aa239164b18ebdfe5fef0895c
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477621"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534759"
 ---
 # <a name="provision-enclave-enabled-keys"></a>Bereitstellen Enclave-fähiger Schlüssel
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
 In diesem Artikel wird beschrieben, wie Sie Enclave-fähige Schlüssel bereitstellen, die Berechnungen in serverseitigen Secure Enclaves unterstützen, die für [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) verwendet werden. 
 
@@ -39,12 +40,17 @@ Sie müssen sicherstellen, dass Sie einen Enclave-fähigen Spaltenhauptschlüsse
 In den folgenden Abschnitten finden Sie weitere Informationen zum Bereitstellen Enclave-fähiger Schlüssel mithilfe von SSMS und PowerShell.
 
 ## <a name="provision-enclave-enabled-keys-using-sql-server-management-studio"></a>Bereitstellen von Enclave-fähigen-Schlüsseln mithilfe von SQL Server Management Studio
-In SQL Server Management Studio 18.3 oder höher können Sie Folgendes bereitstellen:
+In SQL Server Management Studio können Sie Folgendes bereitstellen:
 - Einen Enclave-fähigen Spaltenhauptschlüssel über das Dialogfeld **Neuer Spaltenhauptschlüssel**
 - Einen Enclave-fähigen Spaltenverschlüsselungsschlüssel über das Dialogfeld **Neuer Spaltenverschlüsselungsschlüssel**
 
 > [!NOTE]
 > Der [Always Encrypted-Assistent](always-encrypted-wizard.md) unterstützt das Erstellen von Enclave-fähigen Schlüsseln derzeit nicht. Sie können Enclave-fähige Schlüssel jedoch zuerst mithilfe der oben genannten Dialogfelder erstellen und anschließend, wenn Sie den Assistenten ausführen, eine bereits vorhandene Enclave-fähige Spaltenverschlüsselung für Spalten auswählen, die Sie verschlüsseln möchten.
+
+Minimale Anforderungen an die SSMS-Version:
+
+- SSMS 18.3 bei Verwendung von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]
+- SSMS 18.8 bei Verwendung von [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)]
 
 ### <a name="provision-enclave-enabled-column-master-keys-with-the-new-column-master-key-dialog"></a>Bereitstellen Enclave-fähiger Spaltenhauptschlüssel mit dem Dialogfeld „Neuer Spaltenhauptschlüssel“
 Führen Sie die Schritte unter [Bereitstellen von Spaltenhauptschlüsseln mit dem Dialogfeld „Neuer Spaltenhauptschlüssel“](configure-always-encrypted-keys-using-ssms.md#provision-column-master-keys-with-the-new-column-master-key-dialog) aus, um einen Enclave-fähigen Spaltenhauptschlüssel bereitzustellen. Stellen Sie sicher, dass Sie die Option **Enclave-Berechnungen zulassen** aktivieren. Diese Option sehen Sie im folgenden Screenshot:
@@ -52,7 +58,7 @@ Führen Sie die Schritte unter [Bereitstellen von Spaltenhauptschlüsseln mit de
 ![Enclave-Berechnungen zulassen](./media/always-encrypted-enclaves/allow-enclave-computations.png)
 
 > [!NOTE]
-> Das Kontrollkästchen **Enclave-Berechnungen zulassen** wird nur angezeigt, wenn die [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]-Instanz eine ordnungsgemäß initialisierte Secure Enclave enthält. Weitere Informationen finden Sie unter [Konfigurieren des Enclave-Typs für die Always Encrypted](../../../database-engine/configure-windows/configure-column-encryption-enclave-type.md).
+> Das Kontrollkästchen **Enclave-Berechnungen zulassen** wird nur angezeigt, wenn eine Secure Enclave für Ihre Datenbank konfiguriert ist. Wenn Sie [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] verwenden, finden Sie weitere Informationen unter [Konfigurieren von Secure Enclaves in SQL Server](always-encrypted-enclaves-configure-enclave-type.md). Wenn Sie [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] verwenden, finden Sie weitere Informationen unter [Aktivieren von Intel SGX für die Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-enable-sgx).
 
 > [!TIP]
 > Klicken Sie im Objekt-Explorer mit der rechten Maustaste auf den Spaltenhauptschlüssel, und wählen Sie dann **Eigenschaften** aus, um zu überprüfen, ob er Enclave-fähig ist. Wenn der Schlüssel Enclave-fähig ist, wird **Enclave Computations: Allowed** (Enclave-Berechnungen: Zugelassen) im Fenster mit den Eigenschaften des Schlüssels angezeigt. Alternativ können Sie die Ansicht [sys.column_master_keys (Transact-SQL)](../../system-catalog-views/sys-column-master-keys-transact-sql.md) verwenden.
@@ -148,12 +154,13 @@ New-SqlColumnEncryptionKey -Name $cekName -InputObject $database -ColumnMasterKe
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Abfragen von Spalten mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
+- [Ausführen von Transact-SQL-Anweisungen mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
 - [Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-configure-encryption.md)
 - [Aktivieren von Always Encrypted mit Secure Enclaves für vorhandene verschlüsselte Spalten](always-encrypted-enclaves-enable-for-encrypted-columns.md)
 - [Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-client-development.md) 
 
 ## <a name="see-also"></a>Weitere Informationen  
-- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves mithilfe von SSMS](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in SQL Server](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started)
 - [Verwalten von Schlüsseln für Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-manage-keys.md)
 - [CREATE COLUMN MASTER KEY (Transact-SQL)](../../../t-sql/statements/create-column-master-key-transact-sql.md)

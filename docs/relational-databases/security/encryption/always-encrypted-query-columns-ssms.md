@@ -2,7 +2,7 @@
 title: Abfragen von Spalten mithilfe von Always Encrypted mit SQL Server Management Studio | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Spalten in Always Encrypted mithilfe von SQL Server Management Studio abgefragt werden. Abrufen von in verschlüsselten Spalten gespeicherten Chiffretextwerten oder Textwerten
 ms.custom: ''
-ms.date: 10/31/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -13,12 +13,12 @@ ms.assetid: 29816a41-f105-4414-8be1-070675d62e84
 author: jaszymas
 ms.author: jaszymas
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 1406b28cae6d73228d54059cf7463b8eaa578385
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 475cda1238efc6a7c4b630d4458c719dc1b9adbd
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97406034"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534601"
 ---
 # <a name="query-columns-using-always-encrypted-with-sql-server-management-studio"></a>Abfragen von Spalten mithilfe von Always Encrypted mit SQL Server Management Studio
 [!INCLUDE [SQL Server Azure SQL Database](../../../includes/applies-to-version/sql-asdb.md)]
@@ -95,11 +95,12 @@ So aktivieren (oder deaktivieren) Sie Always Encrypted:
 1. Bei Verwendung von SSMS 18 oder höher:
     1. Wählen Sie die Registerkarte **Always Encrypted** aus.
     1. Wählen Sie **Always Encrypted aktivieren (Spaltenverschlüsselung)** aus, um Always Encrypted zu aktivieren. Stellen Sie sicher, dass **Always Encrypted aktivieren (Spaltenverschlüsselung)** nicht ausgewählt ist, wenn Sie Always Encrypted deaktivieren wollen.
-    1. Wenn Sie [!INCLUDE [sssqlv15-md](../../../includes/sssqlv15-md.md)] verwenden und Ihre SQL Server-Instanz mit einer Secure Enclave konfiguriert sind, können Sie eine Enclave-Nachweis-URL angeben. Stellen Sie sicher, dass Sie das Textfeld **Enclave-Nachweis-URL** leer lassen, wenn Ihre SQL Server-Instanz nicht Secure Enclave verwendet. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md).
 1. Bei Verwendung von SSMS 17 oder älter:
     1. Wählen Sie die Registerkarte **Weitere Eigenschaften** aus.
     1. Geben Sie `Column Encryption Setting = Enabled` ein, um Always Encrypted zu aktivieren. Geben Sie zum Deaktivieren von Always Encrypted `Column Encryption Setting = Disabled` an, oder entfernen Sie die Einstellung **Spaltenverschlüsselungseinstellung** von der Registerkarte **Zusätzliche Eigenschaften** (der Standardwert ist **Deaktiviert**).   
  1. Klicken Sie auf **Verbinden**.
+
+Wenn Sie Anweisungen ausführen möchten, die eine serverseitige Secure Enclave nutzen, müssen Sie bei Verwendung von [Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) zusätzlich zum Aktivieren von Always Encrypted für die Verbindung eine URL zum Nachweis von Enclaves angeben. Ausführliche Informationen finden Sie unter [Voraussetzungen für das Ausführen von T-SQL-Anweisungen mithilfe von Enclaves in SSMS](always-encrypted-enclaves-query-columns.md#prerequisites-for-running-t-sql-statements-using-enclaves-in-ssms).
 
 > [!TIP]
 > So schalten Sie zwischen dem Aktivieren und Deaktivieren von Always Encrypted für ein vorhandenes Fenster „Abfrage-Editor“ um:   

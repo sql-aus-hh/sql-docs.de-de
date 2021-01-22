@@ -2,7 +2,7 @@
 description: Direkte Konfiguration der Spaltenverschlüsselung mit Transact-SQL
 title: Direkte Konfiguration der Spaltenverschlüsselung mit Transact-SQL | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/10/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -11,15 +11,16 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: e1e72a9e06c2012390a88243c3ef865ac222564b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ab59eec637bd5afc127227b09445417ffa1fe4eb
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477691"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534849"
 ---
 # <a name="configure-column-encryption-in-place-with-transact-sql"></a>Direkte Konfiguration der Spaltenverschlüsselung mit Transact-SQL
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
 In diesem Artikel wird beschrieben, wie kryptografische Vorgänge direkt in Spalten durchgeführt werden, die Always Encrypted mit Secure Enclaves mit der [ALTER TABLE-Anweisung](../../../odbc/microsoft/alter-table-statement.md)/`ALTER COLUMN`-Anweisung verwenden. Grundlegende Informationen zur direkten Verschlüsselung und zu den allgemeinen Voraussetzungen finden Sie unter [Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-configure-encryption.md).
 
@@ -33,19 +34,20 @@ Mit der `ALTER TABLE`- oder `ALTER COLUMN`-Anweisung können Sie die Zielverschl
 
 Wie jede Abfrage, die eine serverseitige Secure Enclave verwendet, muss eine `ALTER TABLE`/`ALTER COLUMN`-Anweisung, die eine direkte Verschlüsselung auslöst, über eine Verbindung mit aktiviertem Always Encrypted und aktivierten Enclave-Berechnungen gesendet werden. 
 
-Im weiteren Verlauf dieses Artikels wird beschrieben, wie Sie eine direkte Verschlüsselung mithilfe der `ALTER TABLE`/`ALTER COLUMN`-Anweisung aus SQL Server Management Studio auslösen. Alternativ können Sie `ALTER TABLE`/`ALTER COLUMN` aus Ihrer Anwendung ausgeben. 
+Im weiteren Verlauf dieses Artikels wird beschrieben, wie Sie eine direkte Verschlüsselung mithilfe der `ALTER TABLE`/`ALTER COLUMN`-Anweisung aus SQL Server Management Studio auslösen. Alternativ können Sie `ALTER TABLE`/`ALTER COLUMN` aus Azure Data Studio oder Ihrer Anwendung ausgeben. 
 
 > [!NOTE]
-> Derzeit unterstützen andere Tools als SSMS, einschließlich des [Invoke-Sqlcmd](/powershell/module/sqlserver/invoke-sqlcmd)-Cmdlets im SqlServer PowerShell-Modul und [sqlcmd](../../../tools/sqlcmd-utility.md),nicht die Verwendung von `ALTER TABLE`/`ALTER COLUMN` für direkte Kryptografievorgänge.
+> Derzeit wird die Verwendung von `ALTER TABLE`/`ALTER COLUMN` für direkte Kryptografievorgänge vom Cmdlet [Invoke-Sqlcmd](/powershell/module/sqlserver/invoke-sqlcmd) im SqlServer-PowerShell-Modul und von [sqlcmd](../../../tools/sqlcmd-utility.md) nicht unterstützt.
 
 ## <a name="perform-in-place-encryption-with-transact-sql-in-ssms"></a>Durchführen einer direkten Verschlüsselung mit Transact-SQL in SSMS
 ### <a name="pre-requisites"></a>Voraussetzungen
 - Die Voraussetzungen werden unter [Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-configure-encryption.md) beschrieben.
-- SQL Server Management Studio 18.3 oder höher
+- SQL Server Management Studio 18.3 oder höher bei Verwendung von [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]
+- SQL Server Management Studio 18.8 oder höher bei Verwendung von [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)]
 
 ### <a name="steps"></a>Schritte
 1. Öffnen Sie ein Abfragefenster, für das Always Encrypted und Enclave-Berechnungen in der Datenbankverbindung aktiviert sind. Einzelheiten dazu finden Sie unter [Aktivieren und Deaktivieren von Always Encrypted für eine Datenbankverbindung](always-encrypted-query-columns-ssms.md#en-dis) weiter unten.
-2. Geben Sie im Abfragefenster die `ALTER TABLE`/`ALTER COLUMN`-Anweisung aus, und geben Sie in der `ENCRYPTED WITH`-Klausel einen Enclave-fähigen Spaltenverschlüsselungsschlüssel an. Wenn Ihre Spalte eine Zeichenfolgenspalte ist (z. B. `char`, `varchar`, `nchar`, `nvarchar`), müssen Sie möglicherweise auch die Sortierung in eine BIN2-Sortierung ändern. 
+2. Geben Sie im Abfragefenster die Anweisung `ALTER TABLE`/`ALTER COLUMN` aus, um die Zielverschlüsselungskonfiguration für eine Spalte anzugeben, die Sie verschlüsseln, entschlüsseln oder erneut verschlüsseln möchten. Wenn Sie die Spalte verschlüsseln oder erneut verschlüsseln, verwenden Sie die `ENCRYPTED WITH`-Klausel. Wenn Ihre Spalte eine Zeichenfolgenspalte ist (z. B. `char`, `varchar`, `nchar`, `nvarchar`), müssen Sie möglicherweise auch die Sortierung in eine BIN2-Sortierung ändern. 
     
     > [!NOTE]
     > Wenn Ihr Spaltenhauptschlüssel in Azure Key Vault gespeichert ist, werden Sie ggf. dazu aufgefordert, sich bei Azure anzumelden.
@@ -67,7 +69,7 @@ Im weiteren Verlauf dieses Artikels wird beschrieben, wie Sie eine direkte Versc
 #### <a name="encrypting-a-column-in-place"></a>Direktes Verschlüsseln einer Spalte
 Im Beispiel unten wird folgendes vorausgesetzt:
 - `CEK1` ist ein Enclave-fähiger Spaltenverschlüsselungsschlüssel.
-- Die `SSN`-Spalte ist eine Klartextspalte und verwendet gegenwärtig die Standarddatenbanksortierung, z. B. eine Sortierung Latin1, Nicht-BIN2 (beispielsweise `Latin1_General_CI_AI_KS_WS`).
+- Die `SSN`-Spalte ist eine Klartextspalte und verwendet gegenwärtig die Standarddatenbanksortierung, also beispielsweise die Sortierung Latin1, Nicht-BIN2 (z. B. `Latin1_General_CI_AI_KS_WS`).
 
 Die Anweisung verschlüsselt die `SSN`-Spalte mit einer Verschlüsselung nach dem Zufallsprinzip und dem Enclave-fähigen Spalten-Direktverschlüsselungsschlüssel. Außerdem wird die standardmäßige Datenbanksortierung mit der entsprechenden (in der gleichen Codepage) BIN2-Sortierung überschrieben.
 
@@ -125,7 +127,7 @@ Im Beispiel unten wird folgendes vorausgesetzt:
 - Die `SSN`-Spalte wird mit einem Enclave-fähigen Spaltenverschlüsselungsschlüssel verschlüsselt.
 - Die aktuelle Sortierung, die auf Spaltenebene festgelegt wird, ist `Latin1_General_BIN2`.
 
-Die nachfolgende Anweisung verschlüsselt die Spalte (und behält die Sortierung unverändert bei – alternativ können Sie die Sortierung ändern, z. B. in eine Nicht-BIN2-Sortierung in derselben Anweisung).
+Mit der folgenden Anweisung wird die Spalte entschlüsselt, und die Sortierung bleibt unverändert. Alternativ können Sie auch die Sortierung ändern. Ändern Sie beispielsweise die Sortierung in eine Nicht-BIN2-Sortierung in derselben Anweisung.
 
 ```sql
 ALTER TABLE [dbo].[Employees]
@@ -137,11 +139,13 @@ GO
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Abfragen von Spalten mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
+- [Ausführen von Transact-SQL-Anweisungen mit Secure Enclaves](always-encrypted-enclaves-query-columns.md)
 - [Erstellen und Verwenden von Indizes in Spalten mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-create-use-indexes.md)
 - [Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-client-development.md)
 
 ## <a name="see-also"></a>Weitere Informationen  
+- [Behandeln von häufig auftretenden Problemen bei Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-troubleshooting.md)
 - [Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-configure-encryption.md)
 - [Aktivieren von Always Encrypted mit Secure Enclaves für vorhandene verschlüsselte Spalten](always-encrypted-enclaves-enable-for-encrypted-columns.md)
-- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves mithilfe von SSMS](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in SQL Server](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started)

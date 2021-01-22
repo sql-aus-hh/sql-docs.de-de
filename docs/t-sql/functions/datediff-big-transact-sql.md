@@ -1,11 +1,8 @@
 ---
+title: DATEDIFF_BIG (Transact-SQL)
 description: DATEDIFF_BIG (Transact-SQL)
-title: DATEDIFF_BIG (Transact-SQL) | Microsoft-Dokumentation
-ms.custom: ''
-ms.date: 07/18/2019
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
-ms.reviewer: ''
 ms.technology: t-sql
 ms.topic: language-reference
 f1_keywords:
@@ -21,12 +18,15 @@ helpviewer_keywords:
 ms.assetid: 19ac1693-3cfa-400d-bf83-20a9cb46599a
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ea087da6532c43493fd10f647788297d98f35f72
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.reviewer: ''
+ms.custom: ''
+ms.date: 01/12/2021
+ms.openlocfilehash: 8f6078aebab5456b8867aca1b7f6987d8a1eb6fd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98093656"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168176"
 ---
 # <a name="datediff_big-transact-sql"></a>DATEDIFF_BIG (Transact-SQL)
 
@@ -90,13 +90,13 @@ Weitere Informationen finden Sie unter *startdate*.
 Signierter **bigint**-Wert  
   
 ## <a name="return-value"></a>Rückgabewert  
-Gibt den **bigint**-Unterschied zwischen *startdate* und *enddate* zurück, ausgedrückt in dem durch *datepart* festgelegten Grenzwert.
+Hierbei wird der **bigint**-Unterschied zwischen den Werten für *startdate* und *enddate*, ausgedrückt in dem durch *datepart* festgelegten Grenzwert, zurückgegeben.
   
-Bei einem Rückgabewert, der sich außerhalb des gültigen Bereichs für **bigint** (-9,223,372,036,854,775,808 bis 9,223,372,036,854,775,807) befindet, gibt `DATEDIFF_BIG` einen Fehler zurück. Im Gegensatz zur Funktion `DATEDIFF`, die einen **int**-Wert zurückgibt und deshalb bei der Genauigkeit **minute** oder höher zu einem Überlauf führen kann, kann `DATEDIFF_BIG` nur zu einem Überlauf führen, wenn die Genauigkeit **nanosecond** verwendet wird und der Unterschied zwischen *enddate* und *startdate* 292 Jahre, 3 Monate, 10 Tage, 23 Stunden 47 Minuten und 16.8547758 Sekunden überschreitet.
+Bei einem Rückgabewert, der sich außerhalb des gültigen Bereichs für **bigint** (-9,223,372,036,854,775,808 bis 9,223,372,036,854,775,807) befindet, gibt `DATEDIFF_BIG` einen Fehler zurück. In einem anderen Fall hingegen wird ein **int**-Wert zurückgegeben. Aus diesem Grund kann ein **minute**- oder ein höherer Wert zu einem Überlauf führen. In `DATEDIFF_BIG` kann ein Überlauf auftreten, wenn die Genauigkeit **nanosecond** verwendet wird und der Unterschied zwischen *enddate* und *startdate* 292 Jahre, 3 Monate, 10 Tage, 23 Stunden 47 Minuten und 16,8547758 Sekunden überschreitet.
   
-Wenn *startdate* und *enddate* jeweils nur ein Uhrzeitwert zugewiesen ist und *datepart* kein Zeit-*datepart* ist, gibt `DATEDIFF_BIG` 0 (null) zurück.
+Wenn *startdate* und *enddate* jeweils nur ein Uhrzeitwert zugewiesen ist und *datepart* keine Zeit-*datepart*-Funktion ist, gibt `DATEDIFF_BIG` 0 zurück.
   
-Beim Berechnen des Rückgabewerts verwendet `DATEDIFF_BIG` keine Komponente von *startdate* oder *enddate* für den Zeitzonenoffset.
+Beim Berechnen des Rückgabewerts verwendet `DATEDIFF_BIG` eine Komponente von *startdate* oder *enddate* für den Zeitzonenoffset.
   
 Bei einem **smalldatetime**-Wert, der für *startdate* oder *enddate* verwendet wird, legt `DATEDIFF_BIG` die Sekunden und Millisekunden im Rückgabewert immer auf 0 (null) fest, da [smalldatetime](../../t-sql/data-types/smalldatetime-transact-sql.md) nur auf die Minute genaue Werte enthält.
   
@@ -127,7 +127,7 @@ Verwenden Sie `DATEDIFF_BIG` in den Klauseln `SELECT <list>`, `WHERE`, `HAVING`,
   
 Das Festlegen von `SET DATEFIRST` wirkt sich nicht auf `DATEDIFF_BIG` aus. `DATEDIFF_BIG` verwendet immer Sonntag als ersten Wochentag, um sicherzustellen, dass die Funktion deterministisch ist.
 
-`DATEDIFF_BIG` kann bei der Genauigkeit **nanosecond** überlaufen, wenn der Unterschied zwischen *enddate* und *startdate* einen Wert zurückgibt, der sich außerhalb des Bereichs von **bigint** befindet.
+In `DATEDIFF_BIG` kann bei einem **nanosecond**-Wert ein Überlauf auftreten, wenn der Unterschied zwischen *enddate* und *startdate* einen Wert zurückgibt, der sich außerhalb des Bereichs von **bigint** befindet.
   
 ## <a name="examples"></a>Beispiele 
   

@@ -2,7 +2,7 @@
 title: Planen des Nachweises des Host-Überwachungsdiensts
 description: Planen Sie den Nachweis des Host-Überwachungsdiensts für SQL Server Always Encrypted mit Secure Enclaves.
 ms.custom: ''
-ms.date: 10/12/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rpsqrd
 ms.author: ryanpu
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: ed376fd4fe0f3c38d9996157c30722c24b27e8aa
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c4c80a51370de62410367b1225fd85e3ffe7f261
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477641"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534799"
 ---
 # <a name="plan-for-host-guardian-service-attestation"></a>Planen des Nachweises des Host-Überwachungsdiensts
 
@@ -126,9 +126,20 @@ Folgende Anforderungen müssen erfüllt sein:
   - Wenn Sie [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] in einer VM (virtueller Computer) ausführen, müssen der Hypervisor und die physische CPU Funktionen für die geschachtelte Virtualisierung bereitstellen. Informationen zu den Vertrauensstellungen beim Ausführen von VSB-Enclaves auf einem virtuellen Computer finden Sie im Abschnitt [Vertrauenswürdiges Modell](#trust-model).
     - Für Hyper-V 2016 oder höher [aktivieren Sie die Erweiterungen für geschachtelte Virtualisierung für den VM-Prozessor](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization).
     - Wählen Sie in Azure eine VM-Größe aus, die die geschachtelte Virtualisierung unterstützt. Alle VMs der v3-Serie unterstützen die geschachtelte Virtualisierung, z. B. Dv3 und Ev3. Siehe [Erstellen einer schachtelungsfähigen Azure-VM](/azure/virtual-machines/windows/nested-virtualization#create-a-nesting-capable-azure-vm).
-    - Aktivieren Sie bei VMware vSphere 6.7 oder höher die Unterstützung für virtualisierungsbasierte Sicherheit für den virtuellen Computer, wie in der [VMware-Dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-C2E78F3E-9DE2-44DB-9B0A-11440800AADD.html) beschrieben.
+    - Aktivieren Sie bei VMware vSphere 6.7 oder höher wie in der [VMware-Dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-C2E78F3E-9DE2-44DB-9B0A-11440800AADD.html) beschrieben die Unterstützung für virtualisierungsbasierte Sicherheit für den virtuellen Computer.
     - Andere Hypervisoren und öffentliche Clouds unterstützen möglicherweise Funktionen für eine geschachtelte Virtualisierung, die auch die Nutzung von Always Encrypted mit VSB-Enclaves ermöglichen. Informationen zur Kompatibilität und Konfigurationsanweisungen finden Sie in der Dokumentation zu Ihrer Virtualisierungslösung.
 - Wenn Sie einen TPM-Nachweis verwenden möchten, benötigen Sie einen TPM 2.0-Chip (Rev 1.16), der auf dem Server verwendet werden kann. Mit TPM 2.0-Chips (Rev 1.38) funktionieren HGS-Nachweise zurzeit nicht. Außerdem muss das TPM über ein gültiges Endorsement Key-Zertifikat verfügen.
+
+## <a name="roles-and-responsibilities-when-configuring-attestation-with-hgs"></a>Rollen und Verantwortlichkeiten beim Konfigurieren von Nachweisen mit dem HGS
+
+Das Einrichten eines Nachweises mit dem HGS umfasst das Konfigurieren von Komponenten unterschiedlicher Typen: HGS, [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Instanzen und Anwendungen, die den Enclave-Nachweis auslösen. Die Konfiguration von Komponenten der einzelnen Typen wird von Benutzern durchgeführt, die eine der folgenden unterschiedlichen Rollen haben:
+
+- Der HGS-Administrator stellt den Host-Überwachungsdienst bereit, registriert [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, mit dem HGS und gibt die HGS-Nachweis-URL für Administratoren von [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern und Clientanwendungen frei.
+- Der Administrator von [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern installiert Nachweisclientkomponenten, aktiviert die virtualisierungsbasierte Sicherheit (VBS) auf [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern, stellt dem HGS-Administrator die zum Registrieren der [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer mit dem HGS erforderlichen Informationen zur Verfügung, konfiguriert die Nachweis-URL auf [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern und überprüft, ob sich [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer erfolgreich beim HGS beglaubigen können.
+- Der Datenbankadministrator (DBA) konfiguriert Secure Enclaves in [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Instanzen.
+- Der Anwendungsadministrator konfiguriert die Anwendung mit der Nachweis-URL, die er vom HGS-Administrator erhalten hat.
+
+In Produktionsumgebungen, in denen echte vertrauliche Daten verarbeitet werden, ist es wichtig, dass Ihre Organisation beim Konfigurieren des Nachweises die Rollentrennung einhält, wobei jede einzelne Rolle von unterschiedlichen Personen angenommen wird. [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Administratoren und DBAs sollten insbesondere dann nicht die HGS-Server verwalten, wenn das Ziel der Always Encrypted-Bereitstellung in Ihrer Organisation das Verringern der Angriffsfläche ist, indem sichergestellt wird, dass Administratoren von [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern und DBAs nicht auf vertrauliche Daten zugreifen können.
 
 ## <a name="devtest-environment-considerations"></a>Überlegungen zu Entwicklungs-/Testumgebungen
 

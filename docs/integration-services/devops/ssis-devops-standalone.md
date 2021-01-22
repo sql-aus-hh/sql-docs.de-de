@@ -9,12 +9,12 @@ ms.custom: ''
 ms.technology: integration-services
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 52578422cc9f68c728c901cf39bf05425576133b
-ms.sourcegitcommit: 36fe62a3ccf34979bfde3e192cfa778505add465
+ms.openlocfilehash: 65712139819c65c2fe8804cc8e0f6768025b322a
+ms.sourcegitcommit: e3ab17fe9822629eda4df5fb4550df5d495f3134
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94521094"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98207859"
 ---
 # <a name="standalone-sql-server-integration-service-ssis-devops-tools-preview"></a>Eigenständige SSIS-DevOps-Tools (SQL Server Integration Service) (Vorschauversion)
 
@@ -128,6 +128,13 @@ SSISDeploy.exe -source|-s:<source path> -destination|-d:<type>;<path>[;server] [
     ```
 
 ## <a name="release-notes"></a>Anmerkungen zu diesem Release
+
+### <a name="version-012-preview"></a>Version 0.1.2 (Vorschauversion)
+
+Veröffentlichungsdatum: 14. Januar 2021
+
+- Es wurde ein Problem behoben, bei dem „SSISBuild.exe“ ein Projekt mit einer NullReference-Ausnahme nicht erstellen kann, wenn die Metadaten des Paketparameters in der SSIS-Projektdatei und dem SSIS-Paket nicht übereinstimmen.
+- Es wurde ein Problem behoben, bei dem das Paket nicht ausgeführt werden konnte, und die Fehlermeldung „Failed to decrypt protected XML node“ (Fehler beim Entschlüsseln des geschützten XML-Knotens) ausgegeben wurde, obwohl das Paket erfolgreich mit „SSISDeploy.exe“ für SSISDB bereitgestellt werden konnte. Dabei enthält das SSIS-Projekt das Paket, das mit EncryptSensitiveWithUserKey verschlüsselt ist und CM mit sensiblen Daten enthält.
 
 ### <a name="version-011-preview"></a>Version 0.1.1 (Vorschau)
 

@@ -31,12 +31,12 @@ helpviewer_keywords:
 ms.assetid: dd6cc2ba-631f-4adf-89dc-29ef449c6933
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 3265871cc1ddf221b3fb4090936d146f555dd3b5
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 7ae64e777b08cdf4df6f7e8fdd05ff8c3822a06b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92194292"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171522"
 ---
 # <a name="foreach-loop-container"></a>Foreach-Schleifencontainer
 
@@ -461,7 +461,7 @@ Auf der Seite **Allgemein** des Dialogfelds **Foreach-Schleifen-Editor** können
 ####  <a name="enumerator--foreach-azure-blob-enumerator"></a><a name="ForeachAzureBlob"></a> Enumerator = Foreach-Azure-Blob-Enumerator  
  Der **Azure-Blob-Enumerator** ermöglicht einem SSIS-Paket das Aufzählen von Blobdateien am angegebenen Blobspeicherort. Sie können den Namen der aufgezählten Blobdatei in einer Variablen speichern und in Tasks innerhalb des Foreach-Schleifencontainers verwenden.  
   
- Der **Azure-Blob-Enumerator** ist eine Komponente des SQL Server Integration Services (SSIS) Feature Pack für Azure für [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Laden Sie das Feature Pack [hier](https://go.microsoft.com/fwlink/?LinkID=626967)herunter.  
+ Der **Azure-Blob-Enumerator** ist eine Komponente des SQL Server Integration Services (SSIS) Feature Pack für Azure für [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Laden Sie das Feature Pack [hier](https://go.microsoft.com/fwlink/?LinkID=626967)herunter.  
   
  **Azure Storage-Verbindungs-Manager**  
  Wählen Sie einen vorhandenen Azure Storage-Verbindungs-Manager aus, oder erstellen Sie einen neuen, der auf ein Azure Storage-Konto verweist.  
@@ -510,7 +510,7 @@ Gibt den Pfad des Ordners an, in dem Dateien aufgezählt werden sollen.
 **SearchRecursively**  
 Gibt an, ob im angegebenen Ordner rekursiv gesucht werden soll.
 
-***Hinweise zur Konfiguration der Dienstprinzipalberechtigung***
+**_Hinweise zur Konfiguration der Dienstprinzipalberechtigung_* _
 
 Die Berechtigung Data Lake Storage Gen2 wird durch die [RBAC](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) und durch [ACLs](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer) bestimmt.
 Beachten Sie, dass ACLs wie [hier](/azure/storage/blobs/data-lake-storage-access-control#how-do-i-set-acls-correctly-for-a-service-principal) beschrieben mithilfe der Objekt-ID (OID) des Dienstprinzipals für die App-Registrierung konfiguriert werden.
@@ -518,7 +518,7 @@ Dies unterscheidet sich von der Anwendungs-ID (Client-ID), die mit der RBAC-Konf
 Wenn ein Sicherheitsprinzipal durch eine integrierte Rolle oder eine benutzerdefinierte Rolle RBAC-Datenberechtigungen erhält, werden diese Berechtigungen vor der Autorisierung einer Anforderung zunächst ausgewertet.
 Wenn der Anforderungsvorgang von den RBAC-Zuweisungen des Sicherheitsprinzipals autorisiert wurde, wird die Autorisierung sofort aufgelöst, und es werden keine weiteren ACL-Prüfungen durchgeführt.
 Wenn der Sicherheitsprinzipal über keine RBAC-Zuweisung verfügt oder der Vorgang der Anforderung nicht mit der zugewiesenen Berechtigung übereinstimmt, werden alternativ ACL-Prüfungen durchgeführt, um zu bestimmen, ob der Sicherheitsprinzipal für die Durchführung des angeforderten Vorgangs autorisiert ist.
-Damit der Enumerator funktioniert, müssen Sie mindestens die Berechtigung **Execute** (Ausführen) ab dem Stammdateisystem sowie die Berechtigung **Read** (Lesen) für den Zielordner gewähren.
+Damit der Enumerator funktioniert, müssen Sie mindestens die Berechtigung _ *Ausführen** ab dem Stammdateisystem sowie die Berechtigung **Lesen** für den Zielordner gewähren.
 Gewähren Sie alternativ mindestens die Rolle **Storage-Blobdatenleser** mit der RBAC.
 Weitere Informationen finden Sie in [diesem Artikel](/azure/storage/blobs/data-lake-storage-access-control).
 

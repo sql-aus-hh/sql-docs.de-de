@@ -2,7 +2,7 @@
 title: Bereitstellen des Host-Überwachungsdiensts
 description: Bereitstellen des Host-Überwachungsdiensts für Always Encrypted mit Secure Enclaves
 ms.custom: ''
-ms.date: 11/15/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rpsqrd
 ms.author: ryanpu
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 9ce744de4f70e30a10fad36eef6c1f28f4d8e8d4
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 88e79166a8b44139f58192feece211bc3b3d2db3
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477681"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534789"
 ---
 # <a name="deploy-the-host-guardian-service-for-ssnoversion-md"></a>Bereitstellen des Host-Überwachungsdiensts für [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]
 
@@ -24,7 +24,10 @@ ms.locfileid: "97477681"
 In diesem Artikel wird beschrieben, wie Sie den Host-Überwachungsdienst (Host Guardian Service, HGS) als Nachweisdienst für [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] bereitstellen.
 Bevor Sie beginnen, lesen Sie unbedingt den Artikel [Planen des Nachweises des Host-Überwachungsdiensts](./always-encrypted-enclaves-host-guardian-service-plan.md), der eine vollständige Liste der Voraussetzungen und einen Architekturleitfaden enthält.
 
-## <a name="step-1-set-up-the-first-hgs-computer"></a>Schritt 1: Einrichten des ersten HGS-Computers
+> [!NOTE]
+> Der HGS-Administrator ist verantwortlich für die Ausführung aller Schritte, die in diesem Artikel beschrieben werden. Weitere Informationen finden Sie unter [Rollen und Verantwortlichkeiten beim Konfigurieren des Nachweises mit HGS](always-encrypted-enclaves-host-guardian-service-plan.md#roles-and-responsibilities-when-configuring-attestation-with-hgs).
+
+## <a name="step-1-set-up-the-first-hgs-computer"></a>Schritt 1: Einrichten des ersten HGS-Computers
 
 Der Host-Überwachungsdienst (Host Guardian Service, HGS) wird als Clusterdienst auf einem oder mehreren Computern ausgeführt.
 In diesem Schritt richten Sie einen neuen HGS-Cluster auf dem ersten Computer ein.
@@ -210,7 +213,7 @@ Set-HgsServer -TrustHostKey
 
 Alle HGS-Computer in Ihrem Cluster verwenden jetzt den Hostschlüsselmodus, wenn ein [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer versucht, den Nachweis zu erbringen.
 
-## <a name="step-5-configure-the-hgs-https-binding"></a>Schritt 5: Konfigurieren der HGS-HTTPS-Bindung
+## <a name="step-5-configure-the-hgs-https-binding"></a>Schritt 5: Konfigurieren der HGS-HTTPS-Bindung
 
 In einer Standardinstallation macht HGS nur eine HTTP-Bindung (Port 80) verfügbar.
 Sie können eine HTTPS-Bindung (Port 443) konfigurieren, um die gesamte Kommunikation zwischen [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern und HGS zu verschlüsseln.
@@ -233,6 +236,27 @@ Es empfiehlt sich, für alle Produktionsinstanzen von HGS HTTPS-Bindung zu verwe
     ```
 
 3. Wiederholen Sie die Schritte 1 und 2 für jeden HGS-Computer im Cluster. TLS-Zertifikate werden nicht automatisch zwischen HGS-Knoten repliziert. Außerdem kann jeder HGS-Computer über ein eigenes, eindeutiges TLS-Zertifikat verfügen, solange der Antragsteller mit dem HGS-Dienstnamen übereinstimmt.
+
+## <a name="step-6-determine-and-share-the-hgs-attestation-url"></a>Schritt 6: Ermitteln und Freigeben der HGS-Nachweis-URL
+
+Als HGS-Administrator müssen Sie die Nachweis-URL von HGS sowohl für SQL Server-Computeradministratoren als auch für Anwendungsadministratoren in Ihrer Organisation freigeben. Die SQL Server-Computeradministratoren benötigen die Nachweis-URL, um zu überprüfen, ob SQL Server-Computer mit HGS Nachweise durchführen können. Anwendungsadministratoren benötigen die Nachweis-URL, um zu konfigurieren, wie ihre Apps eine Verbindung mit SQL Server herstellen.
+
+Um die Nachweis-URL zu bestimmen, führen Sie das folgende Cmdlet aus.
+
+```powershell
+Get-HGSServer
+```
+Die Ausgabe des Befehls sieht etwa wie folgt aus:
+
+```
+Name                           Value                                                                         
+----                           -----                                                                         
+AttestationOperationMode       HostKey                                                                       
+AttestationUrl                 {http://hgs.bastion.local/Attestation}                                        
+KeyProtectionUrl               {}         
+```
+
+Die Nachweis-URL für Ihren HGS-Computer ist der Wert der AttestationUrl-Eigenschaft.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

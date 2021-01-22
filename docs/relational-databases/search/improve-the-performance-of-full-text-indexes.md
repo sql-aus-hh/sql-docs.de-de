@@ -18,12 +18,12 @@ author: pmasl
 ms.author: pelopes
 ms.reviewer: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 79368864ef41860d725772ee9136bb1e66e82790
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 2ec5532f22f50258334f815d12202eb4645b4b17
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479501"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241847"
 ---
 # <a name="improve-the-performance-of-full-text-indexes"></a>Verbessern der Leistung von Volltextindizes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -42,7 +42,7 @@ Der Hauptgrund für eine eingeschränkte Leistung beim Erstellen von Volltextind
 -   **Datenträger**. Wenn die durchschnittliche Warteschlangenlänge des Datenträgers zweimal so groß wie die Anzahl von Leseköpfen ist, dann besteht ein Engpass auf dem Datenträger. Die erste Problemumgehung ist das Erstellen von Volltextkatalogen, die getrennt von den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbankendateien und -protokollen sind. Platzieren Sie Protokolle, die Datenbankdateien und Volltextkataloge auf getrennten Datenträgern. Installieren Sie schnellere Datenträger, und verwenden Sie RAID, um die Indexleistung zu verbessern.  
   
     > [!NOTE]  
-    >  Ab [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] kann die Volltext-Engine den AWE-Speicher verwenden, weil die Volltext-Engine Teil von sqlservr.exe ist.  
+    > Ab [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] kann die Volltext-Engine den AWE-Speicher verwenden, weil die Volltext-Engine Teil von sqlservr.exe ist. Weitere Informationen finden Sie unter [Architektur der Volltextsuche](../../relational-databases/search/full-text-search.md#architecture).  
 
 ### <a name="full-text-batching-issues"></a>Volltext-Batchverarbeitungs Probleme
  Wenn auf dem System keine Hardwareengpässe vorhanden sind, hängt die Indizierungsleistung der Volltextsuche vor allem von folgenden Faktoren ab:  
@@ -67,7 +67,7 @@ Sie können die Leistung Ihrer Volltextindizes mit den folgenden bewährten Meth
   
 -   Aktualisieren Sie die Statistiken der Basistabelle mithilfe der [UPDATE STATISTICS](../../t-sql/statements/update-statistics-transact-sql.md) -Anweisung. Noch wichtiger ist das Aktualisieren der Statistik für den gruppierten Index bzw. des Volltextschlüssels für eine vollständige Auffüllung. Dies unterstützt eine Mehrbereichsauffüllung beim Erzeugen guter Partitionen in der Tabelle.  
   
--   Bevor Sie eine vollständige Auffüllung auf einem großen Computer mit mehreren CPUs ausführen, sollten Sie die Größe des Pufferpools vorübergehend einschränken, indem Sie den **max server memory** -Wert so festlegen, dass noch genug Speicher für den fdhost.exe-Prozess und die Betriebssystemprozesse verfügbar ist. Weitere Informationen finden Sie unter "Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)" weiter unten in diesem Thema.
+-   Bevor Sie eine vollständige Auffüllung auf einem großen Computer mit mehreren CPUs ausführen, sollten Sie die Größe des Pufferpools vorübergehend einschränken, indem Sie den **max server memory** -Wert so festlegen, dass noch genug Speicher für den fdhost.exe-Prozess und die Betriebssystemprozesse verfügbar ist. Weitere Informationen finden Sie unter [Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)](#estimate) weiter unten in diesem Artikel.
 
 -   Wenn Sie eine inkrementelle Auffüllung basierend auf einer timestamp-Spalte verwenden, erstellen Sie einen zweiten Index in einer **timestamp**-Spalte, wenn Sie die Leistung der inkrementellen Auffüllung verbessern möchten.  
   
@@ -89,24 +89,24 @@ Die variablen Teile des Durchforstungsprotokolldatei-Namens sind die folgenden.
  `SQLFT0000500008.2` ist z.B. die Durchforstungsprotokolldatei für eine Datenbank mit der Datenbank-ID = 5 und der Volltextkatalog-ID = 8. Die 2 am Ende des Dateinamens gibt an, dass zwei Durchforstungsprotokolldateien für dieses Datenbank-Katalog-Paar vorhanden sind.  
 
 ### <a name="check-physical-memory-usage"></a>Überprüfen Sie die Verwendung des physischen Speichers  
- Während einer Volltextauffüllung ist es möglich, dass fdhost.exe oder sqlservr.exe viel Arbeitsspeicher beansprucht oder nicht genügend Arbeitsspeicher vorhanden ist.
--   Wenn das Protokoll der Volltextdurchforstung zeigt, dass fdhost.exe häufig neu gestartet oder dass Fehlercode 8007008 zurückgegeben wird, bedeutet dies, dass für einen der Prozesse kein Speicher mehr verfügbar ist.
--   Wenn fdhost.exe Dumps erzeugt, insbesondere auf großen Multi-CPU-Computern, steht möglicherweise nicht genügend Arbeitsspeicher zur Verfügung.  
+ Während einer Volltextauffüllung ist es möglich, dass `fdhost.exe` oder `sqlservr.exe` viel Arbeitsspeicher beansprucht oder nicht genügend Arbeitsspeicher vorhanden ist.
+-   Wenn das Protokoll der Volltextdurchforstung zeigt, dass `fdhost.exe` häufig neu gestartet oder dass Fehlercode 8007008 zurückgegeben wird, bedeutet dies, dass für einen der Prozesse kein Speicher mehr verfügbar ist.
+-   Wenn `fdhost.exe` Dumps erzeugt, insbesondere auf großen Multi-CPU-Computern, steht möglicherweise nicht genügend Arbeitsspeicher zur Verfügung.  
 -   Informationen zu Arbeitsspeicherpuffern, die von einer Volltextdurchforstung verwendet werden, finden Sie unter [sys.dm_fts_memory_buffers &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-buffers-transact-sql.md).  
   
  Die möglichen Ursachen für geringen Speicherplatz oder Problemen mit nicht genügend Arbeitsspeicher sind folgende:  
   
 -   **Der Arbeitsspeicher reicht nicht aus**. Wenn der physische Speicher, der während einer vollständigen Auffüllung verfügbar ist, 0 ist, kann es sein, dass der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Pufferpool den größten Teil des physischen Speichers des Systems belegt.  
   
-     Der Prozess "sqlservr.exe" versucht, den gesamten verfügbaren Speicher für den Pufferpool bis zum konfigurierten maximalen Serverarbeitsspeicher für sich zu beanspruchen. Wenn die **max server memory** -Zuordnung zu groß ist, können Probleme aufgrund ungenügenden Arbeitsspeichers und Fehler bei der Zuordnung von gemeinsam genutzten Speicherbereich für den Prozess „fdhost.exe“ auftreten.  
+     Der Prozess `sqlservr.exe` versucht, den gesamten verfügbaren Speicher für den Pufferpool bis zum konfigurierten maximalen Serverarbeitsspeicher für sich zu beanspruchen. Wenn die **max server memory** -Zuordnung zu groß ist, können Probleme aufgrund ungenügenden Arbeitsspeichers und Fehler bei der Zuordnung von gemeinsam genutzten Speicherbereich für den Prozess „fdhost.exe“ auftreten.  
   
-     Sie können dieses Problem beheben, indem Sie den Wert **max server memory** des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Pufferpools entsprechend anpassen. Weitere Informationen finden Sie unter "Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)" weiter unten in diesem Thema. Möglicherweise ist es auch hilfreich, die verwendete Batchgröße für die Volltextindizierung zu reduzieren.  
+     Sie können dieses Problem beheben, indem Sie den Wert **max server memory** des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Pufferpools entsprechend anpassen. Weitere Informationen finden Sie unter [Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)](#estimate) weiter unten in diesem Artikel. Möglicherweise ist es auch hilfreich, die verwendete Batchgröße für die Volltextindizierung zu reduzieren.  
 
 -   **Speicherkonflikte**. Während einer Volltextauffüllung können auf Multi-CPU-Computern Konflikte zwischen fdhost.exe oder sqlservr.exe um den Pufferpoolarbeitsspeicher auftreten. Der daraus resultierende Mangel an gemeinsam genutztem Speicherbereich verursacht Batchwiederholungen, Arbeitsspeicherüberlastung und Dumps durch den Prozess "fdhost.exe".  
 
 -   **Auslagerungsprobleme** Eine zu kleine Auslagerungsdatei, z. B. wenn ein System über eine kleine Auslagerungsdatei mit eingeschränkter Vergrößerung verfügt, kann ebenfalls dazu führen, dass fdhost.exe oder sqlservr.exe nicht mehr auf genügend Arbeitsspeicher zugreifen können. Wenn die Crawlprotokolle keine speicherbezogenen Fehler anzeigen, ist die Leistung wahrscheinlich aufgrund zu vieler Auslagerungen beeinträchtigt.  
   
-### <a name="estimate-the-memory-requirements-of-the-filter-daemon-host-process-fdhostexe"></a>Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)  
+### <a name="estimate-the-memory-requirements-of-the-filter-daemon-host-process-fdhostexe"></a><a name="estimate"></a> Schätzen der Arbeitsspeicheranforderungen des Filterdaemon-Hostprozesses (fdhost.exe)  
  Der vom fdhost.exe-Prozess für eine Auffüllung benötigte Arbeitsspeicher hängt hauptsächlich von den verwendeten Volltext-Crawlbereichen, der Größe des Inbound Shared Memory (ISM) und der maximalen Anzahl von ISM-Instanzen ab.  
   
  Der vom Filterdaemonhost verwendete Arbeitsspeicher (in Bytes) kann mit der folgenden Formel ungefähr geschätzt werden:  
@@ -143,19 +143,19 @@ Wichtige Informationen zu den folgenden Formeln finden Sie in den Notizen unter 
   
  #### <a name="example-estimate-the-memory-requirements-of-fdhostexe"></a>Beispiel: Schätzen der Arbeitsspeicheranforderungen von fdhost.exe  
   
- Dieses Beispiel gilt für einen 64-Bit-Computer mit 8 GM RAM und 4 dual-Core-Prozessoren. Die erste Berechnung schätzt den Speicher, der von „fdhost.exe“ benötigt wird: *F*. Die Anzahl der Durchforstungsbereiche beträgt `8`.  
+ Dieses Beispiel gilt für einen 64-Bit-Computer mit 8 GB RAM und 4 Dual-Core-Prozessoren. Die erste Berechnung schätzt den Speicher, der von „fdhost.exe“ benötigt wird: *F*. Die Anzahl der Durchforstungsbereiche beträgt `8`.  
   
- `F = 8*10*8=640`  
+ `F = 8*10*8 = 640`  
   
- Die nächste Berechnung ergibt den optimalen Wert für **max server memory**-*M*. *T*, der gesamte physische Speicher, der auf diesem System verfügbar ist, beträgt `8192` (in MB).  
+ Die nächste Berechnung ergibt den optimalen Wert für **max server memory** -*M*. *T*, der gesamte physische Speicher, der auf diesem System verfügbar ist, beträgt `8192` (in MB).  
   
- `M = 8192-640-500=7052`  
+ `M = 8192-640-500 = 7052`  
   
  #### <a name="example-setting-max-server-memory"></a>Beispiel: Festlegen des maximalen Serverarbeitsspeichers  
   
  In diesem Beispiel werden die Anweisungen [sp_configure](../../relational-databases/system-stored-procedures/sp-configure-transact-sql.md) und [RECONFIGURE](../../t-sql/language-elements/reconfigure-transact-sql.md) von [!INCLUDE[tsql](../../includes/tsql-md.md)] verwendet, um **maximalen Serverarbeitsspeicher** auf den Wert festzulegen, der im vorherigen Beispiel für *M* berechnet wurde, also `7052`:  
   
-```  
+```sql  
 USE master;  
 GO  
 EXEC sp_configure 'max server memory', 7052;  
@@ -173,7 +173,7 @@ Es ist wahrscheinlich, dass die Leistung der vollständigen Auffüllungen nicht 
   
      Um herauszufinden, ob die Wartezeit für Seiten hoch ist, führen Sie die folgende [!INCLUDE[tsql](../../includes/tsql-md.md)]-Anweisung aus:  
   
-    ```  
+    ```sql  
     SELECT TOP 10 * FROM sys.dm_os_wait_stats ORDER BY wait_time_ms DESC;  
     ```  
   
@@ -217,4 +217,4 @@ Sie müssen den Filter für das Containerdokument (hier das Word-Dokument) als F
  [sys.dm_fts_memory_buffers &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-buffers-transact-sql.md)   
  [sys.dm_fts_memory_pools &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-pools-transact-sql.md)   
  [Behandeln von Problemen mit der Volltextindizierung](../../relational-databases/search/troubleshoot-full-text-indexing.md)  
-  
+ [Architektur der Volltextsuche](../../relational-databases/search/full-text-search.md#architecture) 

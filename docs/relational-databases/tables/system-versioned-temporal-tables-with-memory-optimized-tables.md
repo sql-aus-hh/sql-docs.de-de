@@ -12,12 +12,12 @@ ms.assetid: 23274522-e5cf-4095-bed8-bf986d6342e0
 author: markingmyname
 ms.author: maghan
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: b93b419e4678b84684c524011ed4df4feb6fcb14
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 05ed5ec0d34d2a1a612b76c0117d0bf66675ad7a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474571"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171892"
 ---
 # <a name="system-versioned-temporal-tables-with-memory-optimized-tables"></a>Temporale Tabellen mit Systemversionsverwaltung und speicheroptimierten Tabellen
 
@@ -70,7 +70,7 @@ Der Datenleerungstask wird regelmäßig nach einem Zeitplan aktiviert, der basie
 
 Bei der Datenleerung werden alle Datensätze aus dem In-Memory-Puffer gelöscht, die älter als die älteste, aktuell ausgeführte Transaktion sind, um diese Datensätze in die datenträgerbasierte Verlaufstabelle zu verschieben.
 
-Sie können eine Datenleerung erzwingen, indem Sie [sp_xtp_flush_temporal_history](../../relational-databases/system-stored-procedures/temporal-table-sp-xtp-flush-temporal-history.md) aufrufen und das Schema sowie den Tabellennamen angeben: **sys.sp_xtp_flush_temporal_history @schema_name, @object_name** . Mit diesem vom Benutzer ausgeführten Befehl wird derselbe Datenverschiebungsvorgang aufgerufen wie durch das Aufrufen des Datenleerungstasks durch das System gemäß internem Zeitplan.
+Sie können eine Datenleerung erzwingen, indem Sie [sp_xtp_flush_temporal_history](../../relational-databases/system-stored-procedures/temporal-table-sp-xtp-flush-temporal-history.md) aufrufen und das Schema sowie den Tabellennamen angeben: **sys.sp_xtp_flush_temporal_history \@schema_name, \@object_name**. Mit diesem vom Benutzer ausgeführten Befehl wird derselbe Datenverschiebungsvorgang aufgerufen wie durch das Aufrufen des Datenleerungstasks durch das System gemäß internem Zeitplan.
 
 ## <a name="see-also"></a>Weitere Informationen
 

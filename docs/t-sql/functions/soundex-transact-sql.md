@@ -23,12 +23,12 @@ ms.assetid: 8f1ed34e-8467-4512-a211-e0f43dee6584
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 22cd09ddfcd42223f2dd675dcd7ca76e6abcad48
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e89da2e1d0acb2171f9080245d3f16ffcf9d547e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468161"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171352"
 ---
 # <a name="soundex-transact-sql"></a>SOUNDEX (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -53,7 +53,7 @@ SOUNDEX ( character_expression )
  **varchar**  
   
 ## <a name="remarks"></a>Bemerkungen  
- SOUNDEX konvertiert eine alphanumerische Zeichenfolge in einen vierstelligen Code, der davon abhängig ist, wie sich eine Zeichenfolge anhört, wenn diese ausgesprochen wird. Beim ersten Zeichen des Codes handelt es sich um das erste Zeichen von *character_expression*, umgewandelt in Großbuchstaben. Das zweite bis vierte Zeichen des Codes sind Zahlen, die die Buchstaben im Ausdruck darstellen. Die Buchstaben A, E, I, O, U, STD, W und Y werden ignoriert, es sei denn, sie entsprechen dem ersten Buchstaben der Zeichenfolge. Nullen werden ggf. am Ende hinzugefügt, um einen vier Zeichen langen Code zu erzeugen. Weitere Informationen zum SOUNDEX-Code finden Sie unter [The Soundex Indexing System (Das Soundex-Indizierungssystem)](https://www.archives.gov/research/census/soundex.html).  
+ SOUNDEX konvertiert eine alphanumerische Zeichenfolge in einen vierstelligen Code, der davon abhängig ist, wie sich eine Zeichenfolge anhört, wenn diese in englischer Sprache ausgesprochen wird. Beim ersten Zeichen des Codes handelt es sich um das erste Zeichen von *character_expression*, umgewandelt in Großbuchstaben. Das zweite bis vierte Zeichen des Codes sind Zahlen, die die Buchstaben im Ausdruck darstellen. Die Buchstaben A, E, I, O, U, STD, W und Y werden ignoriert, es sei denn, sie entsprechen dem ersten Buchstaben der Zeichenfolge. Nullen werden ggf. am Ende hinzugefügt, um einen vier Zeichen langen Code zu erzeugen. Weitere Informationen zum SOUNDEX-Code finden Sie unter [The Soundex Indexing System (Das Soundex-Indizierungssystem)](https://www.archives.gov/research/census/soundex.html).  
   
  SOUNDEX-Codes aus verschiedenen Zeichenfolgen können verglichen werden, um Ähnlichkeiten zwischen gesprochenen Zeichenfolgen festzustellen. Die DIFFERENCE-Funktion führt eine SOUNDEX-Funktion für zwei Zeichenfolgen aus und gibt eine ganze Zahl zurück, die die Ähnlichkeit der SOUNDEX-Codes für diese Zeichenfolgen darstellt.  
   

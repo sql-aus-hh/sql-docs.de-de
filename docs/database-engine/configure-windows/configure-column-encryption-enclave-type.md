@@ -2,7 +2,7 @@
 title: Konfigurieren des Enclave-Typs für die Always Encrypted-Serverkonfigurationsoption | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie Secure Enclaves für Always Encrypted aktivieren oder deaktivieren. Außerdem erfahren Sie, wie Sie überprüfen, ob eine Enclave ordnungsgemäß initialisiert wurde.
 ms.custom: ''
-ms.date: 09/24/2018
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: security
 ms.reviewer: ''
@@ -11,18 +11,18 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 45f6bdca2602a9a85cf9fc193269b445599c78ad
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 19e7349c3b8bb9ef104f95ef0963b6d7982a3669
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480331"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534749"
 ---
 # <a name="configure-the-enclave-type-for-always-encrypted-server-configuration-option"></a>Konfigurieren des Enclave-Typs für die Always Encrypted-Serverkonfigurationsoption
 
 [!INCLUDE [sqlserver2019-windows-only](../../includes/applies-to-version/sqlserver2019-windows-only.md)]
 
-In diesem Artikel wird beschrieben, wie Sie eine Secure Enclave für Always Encrypted mit Secure Enclaves aktivieren oder deaktivieren. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](../../relational-databases/security/encryption/always-encrypted-enclaves.md).
+In diesem Artikel wird beschrieben, wie Sie eine Secure Enclave für Always Encrypted mit Secure Enclaves aktivieren oder deaktivieren. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](../../relational-databases/security/encryption/always-encrypted-enclaves.md) und [Konfigurieren des Enclave-Typs für die Always Encrypted-Serverkonfigurationsoption](../../relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type.md).
 
 Die Serverkonfigurationsoption **column encryption enclave type** steuert den Typ einer für Always Encrypted verwendeten Secure Enclave. Die Option kann auf einen der folgenden Werte festgelegt werden:  
   

@@ -2,7 +2,7 @@
 description: Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves
 title: Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/10/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -11,17 +11,17 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: de9860fdf161d9ed43a1ae2c63e1210dd2079e42
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 67b74e36ff5b2872e619a4b26fabdd05428e6a16
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477711"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534839"
 ---
 # <a name="configure-column-encryption-in-place-using-always-encrypted-with-secure-enclaves"></a>Konfigurieren einer direkten Spaltenverschlüsselung mithilfe von Always Encrypted mit Secure Enclaves 
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
-[Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) unterstützt direkte kryptografische Vorgänge für Datenbankspalten. Dies geschieht innerhalb einer Secure Enclave in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Durch die direkte Verschlüsselung ist es nicht mehr erforderlich, die Daten für solche Vorgänge aus der Datenbank zu verschieben, wodurch die Kryptografievorgänge schneller und zuverlässiger werden. 
+[Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) unterstützt direkte kryptografische Vorgänge für Datenbankspalten. Dies geschieht innerhalb einer Secure Enclave in der [!INCLUDE[ssde-md](../../../includes/ssde-md.md)]. Durch die direkte Verschlüsselung ist es nicht mehr erforderlich, die Daten für solche Vorgänge aus der Datenbank zu verschieben, wodurch die Kryptografievorgänge schneller und zuverlässiger werden. 
 
 > [!NOTE]
 > Trotz der Leistungsvorteile der direkten Verschlüsselung können kryptografische Vorgänge für große Tabellen eine lange Zeit in Anspruch nehmen und beträchtliche Ressourcen beanspruchen. Dadurch wird möglicherweise die Leistung und Verfügbarkeit Ihrer Anwendungen beeinträchtigt.
@@ -36,7 +36,7 @@ Die unterstützten kryptografischen Vorgänge und die Anforderungen für Spalten
 
 Informationen dazu, wie Sie sicherstellen können, dass Ihre Spaltenverschlüsselungsschlüssel Enclave-fähig sind, finden Sie unter [Verwalten von Schlüsseln für Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-manage-keys.md).
 
-Die direkte Verschlüsselung erfordert auch eine SQL Server-Instanz, die über eine ordnungsgemäß initialisierte Secure Enclave verfügt. Weitere Informationen finden Sie unter [Konfigurieren des Enclave-Typs für die Always Encrypted-Serverkonfigurationsoption](../../../database-engine/configure-windows/configure-column-encryption-enclave-type.md).
+Außerdem müssen Sie sicherstellen, dass Ihre Umgebung die [Voraussetzungen für das Ausführen von Anweisungen mithilfe von Secure Enclaves](always-encrypted-enclaves-query-columns.md#prerequisites-for-running-statements-using-secure-enclaves) erfüllt.
 
 Ein Benutzer oder eine Anwendung, der oder die kryptografische Vorgänge auslöst, muss über Berechtigungen zum Vornehmen von Schemaänderungen für die Tabelle verfügen, die die betroffenen Spalten enthält. Zusätzlich muss der Benutzer oder die Anwendung auch Zugriff auf Spaltenhauptschlüssel haben, die an den Vorgängen beteiligt sind, sowie auf die relevanten Schlüsselmetadaten in der Datenbank.
 
@@ -49,3 +49,6 @@ Sie können die direkte Verschlüsselung nur mithilfe der Anweisung [ALTER TABLE
 - [Direkte Konfiguration der Spaltenverschlüsselung mit Transact-SQL](always-encrypted-enclaves-configure-encryption-tsql.md)
 - [Erstellen und Verwenden von Indizes in Spalten mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-create-use-indexes.md)
 - [Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-client-development.md)
+
+## <a name="see-also"></a>Weitere Informationen  
+- [Behandeln von häufig auftretenden Problemen bei Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-troubleshooting.md)

@@ -2,7 +2,7 @@
 title: Registrieren des Computers beim Host-Überwachungsdienst
 description: Registrieren Sie den SQL Server-Computer beim Host-Überwachungsdienst für Always Encrypted mit Secure Enclaves.
 ms.custom: ''
-ms.date: 11/15/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rpsqrd
 ms.author: ryanpu
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 5d1b2a7209de25b1ce5c988ec9a46b77369dcf70
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 5864ec2b5bda5febc27bbb15606452befe7e293f
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101827"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534779"
 ---
 # <a name="register-computer-with-host-guardian-service"></a>Registrieren des Computers beim Host-Überwachungsdienst
 
@@ -23,10 +23,16 @@ ms.locfileid: "98101827"
 
 In diesem Artikel wird beschrieben, wie Sie [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer für den Nachweis beim Host-Überwachungsdienst (Host Guardian Service, HGS) registrieren.
 
-Bevor Sie beginnen, vergewissern Sie sich, dass Sie mindestens einen HGS-Computer bereitgestellt und den Nachweisdienst eingerichtet haben.
+> [!NOTE]
+> Der Registrierungsprozess einer [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Instanz beim HGS erfordert eine Zusammenarbeit zwischen dem HGS-Administrator und dem [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator. Weitere Informationen finden Sie unter [Bereitstellen des Host-Überwachungsdiensts für SQL Server](always-encrypted-enclaves-host-guardian-service-plan.md#roles-and-responsibilities-when-configuring-attestation-with-hgs).
+
+Bevor Sie beginnen, vergewissern Sie sich, dass Sie mindestens einen HGS-Computer bereitgestellt und den HGS-Nachweisdienst eingerichtet haben.
 Weitere Informationen finden Sie unter [Bereitstellen des Host-Überwachungsdiensts für [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]](./always-encrypted-enclaves-host-guardian-service-deploy.md).
 
-## <a name="step-1-install-the-attestation-client-components"></a>Schritt 1: Installieren der Nachweis-Clientkomponenten
+## <a name="step-1-install-the-attestation-client-components"></a>Schritt 1: Installieren der Nachweis-Clientkomponenten
+
+> [!NOTE]
+> Dieser Schritt sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
 
 Damit ein SQL-Client überprüfen kann, ob er mit einem vertrauenswürdigen [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer kommuniziert, muss sich der [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer erfolgreich beim Host-Überwachungsdienst beglaubigen.
 Der Nachweisprozess wird von einer optionalen Windows-Komponente namens HGS-Client verwaltet.
@@ -43,6 +49,9 @@ Mithilfe der folgenden Schritte können Sie diese Komponente installieren und mi
 3. Führen Sie einen Neustart aus, um die Installation abzuschließen.
 
 ## <a name="step-2-verify-virtualization-based-security-is-running"></a>Schritt 2: Überprüfen, ob die virtualisierungsbasierte Sicherheit ausgeführt wird
+
+> [!NOTE]
+> Dieser Schritt sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
 
 Wenn Sie die Hyper-V-Unterstützung des Host-Überwachungsdiensts installieren, wird die virtualisierungsbasierte Sicherheit (VSB) automatisch konfiguriert und aktiviert.
 Die Enklaven für [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] Always Encrypted werden von der VBS-Umgebung geschützt und innerhalb der VBS-Umgebung ausgeführt.
@@ -85,7 +94,10 @@ Wenden Sie sich an Ihren IT-Helpdesk, um zu erfahren, ob sie Richtlinien zur Ver
 
 ## <a name="step-3-configure-the-attestation-url"></a>Schritt 3: Konfigurieren der Nachweis-URL
 
-Als Nächstes konfigurieren Sie den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer mit der URL für den HGS-Nachweisdienst.
+> [!NOTE]
+> Dieser Schritt sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
+
+Als Nächstes konfigurieren Sie den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer mit der URL für den HGS-Nachweisdienst, die Sie vom HGS-Administrator erhalten haben.
 
 Aktualisieren Sie in einer PowerShell-Konsole mit erhöhten Rechten den folgenden Befehl, und führen Sie ihn aus, um die Nachweis-URL zu konfigurieren.
 
@@ -105,6 +117,14 @@ Das `AttestationMode`-Feld in der Ausgabe des Cmdlets gibt an, welcher Nachweism
 Fahren Sie mit [Schritt 4A](#step-4a-register-a-computer-in-tpm-mode) fort, um den Computer im TPM-Modus zu registrieren, oder mit [Schritt 4B](#step-4b-register-a-computer-in-host-key-mode), um den Computer im Hostschlüsselmodus zu registrieren.
 
 ## <a name="step-4a-register-a-computer-in-tpm-mode"></a>Schritt 4A: Registrieren eines Computers im TPM-Modus
+
+> [!NOTE]
+> Dieser Schritt wird gemeinsam vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator und dem HGS-Administrator durchgeführt. Ausführlichere Informationen finden Sie in den Hinweisen unten.
+
+### <a name="prepare"></a>Vorbereiten
+
+> [!NOTE]
+> Diese Aktion sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
 
 In diesem Schritt erfassen Sie Informationen zum TPM-Status des Computers und registrieren ihn bei HGS.
 
@@ -128,10 +148,13 @@ Wenn Sie beispielsweise drei TPM-Baselines bei HGS registriert haben, ist es aus
 
 ### <a name="configure-a-code-integrity-policy"></a>Konfigurieren einer Codeintegritätsrichtlinie
 
+> [!NOTE]
+> Die unten stehenden Schritte sollten vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
+
 Für HGS ist es erforderlich, dass jeder Computer, der im TPM-Modus beglaubigt wird, eine Windows Defender Application Control-Richtlinie (WDAD) aufweist.
 WDAC-Codeintegritätsrichtlinien beschränken, welche Software auf einem Computer ausgeführt werden kann, indem sie jeden Prozess, der versucht, Code auszuführen, anhand einer Liste vertrauenswürdiger Herausgeber und Dateihashes überprüft.
 Für den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Anwendungsfall werden die Enklaven durch virtualisierungsbasierte Sicherheit geschützt und können nicht vom Hostbetriebssystem aus geändert werden. Daher wirkt sich die Strenge der WDAC-Richtlinie nicht auf die Sicherheit verschlüsselter Abfragen aus.
-Daher wird empfohlen, eine einfache Richtlinie für den Überwachungsmodus auf den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern bereitzustellen, um die Nachweisanforderung zu erfüllen, ohne dem System zusätzliche Einschränkungen aufzuerlegen.
+Daher wird empfohlen, eine Richtlinie für den Überwachungsmodus auf den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computern bereitzustellen, um die Nachweisanforderung zu erfüllen, ohne dem System zusätzliche Einschränkungen aufzuerlegen.
 
 Wenn Sie bereits eine benutzerdefinierte WDAC-Codeintegritätsrichtlinie auf den Computern verwenden, um die Konfiguration des Betriebssystems zu festigen, können Sie mit [Erfassen von TPM-Nachweisinformationen](#collect-tpm-attestation-information) fortfahren.
 
@@ -153,6 +176,9 @@ Wenn Sie bereits eine benutzerdefinierte WDAC-Codeintegritätsrichtlinie auf den
 
 ### <a name="collect-tpm-attestation-information"></a>Erfassen von TPM-Nachweisinformationen
 
+> [!NOTE]
+> Die unten stehenden Schritte sollten vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
+
 Wiederholen Sie die folgenden Schritte für jeden [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, der mit HGS beglaubigt werden soll:
 
 1. Wenn sich der Computer in einem als funktionierend bekannten Zustand befindet, führen Sie die folgenden Befehle in PowerShell aus, um die TPM-Nachweisinformationen zu erfassen:
@@ -170,9 +196,17 @@ Wiederholen Sie die folgenden Schritte für jeden [!INCLUDE [ssnoversion-md](../
     Copy-Item -Path "$env:SystemRoot\System32\CodeIntegrity\SIPolicy.p7b" -Destination "$path\$name-CIpolicy.bin"
     ```
 
-2. Kopieren Sie die drei Nachweisdateien auf den HGS-Server.
+2. Geben Sie die drei Nachweisdateien für den HGS-Administrator frei. 
 
-3. Führen Sie auf dem HGS-Server die folgenden Befehle in einer PowerShell-Konsole mit erhöhten Rechten aus, um den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer zu registrieren:
+### <a name="register-the-sql-server-computer-with-hgs"></a>Registrieren des SQL Server-Computers beim HGS
+
+> [!NOTE]
+> Die unten stehenden Schritte sollten vom HGS-Administrator ausgeführt werden.
+
+Wiederholen Sie die folgenden Schritte für jeden [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, der mit HGS beglaubigt werden soll:
+
+1. Kopieren Sie die Nachweisdateien, die Sie vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator erhalten haben, auf den HGS-Server. 
+2. Führen Sie auf dem HGS-Server die folgenden Befehle in einer PowerShell-Konsole mit erhöhten Rechten aus, um den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer zu registrieren:
 
     ```powershell
     # TIP: REMEMBER TO CHANGE THE FILENAMES
@@ -212,38 +246,61 @@ Get-HgsAttestationTpmPolicy
 
 ## <a name="step-4b-register-a-computer-in-host-key-mode"></a>Schritt 4B: Registrieren eines Computers im Hostschlüsselmodus
 
+> [!NOTE]
+> Dieser Schritt wird gemeinsam vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator und dem HGS-Administrator durchgeführt. Ausführlichere Informationen finden Sie in den Hinweisen unten.
+
 Dieser Schritt führt Sie durch den Prozess zum Generieren eines eindeutigen Schlüssels für den Host und zu seiner Registrierung bei HGS.
 Wenn der HGS-Nachweisdienst für die Verwendung des TPM-Modus konfiguriert ist, befolgen Sie stattdessen die Anweisungen in [Schritt 4A](#step-4a-register-a-computer-in-tpm-mode).
 
+### <a name="generate-a-key-for-a-ssnoversion-md-computer"></a>Generieren eines Schlüssels für einen [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer
+
+> [!NOTE]
+> Dieser Teil sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
+
 Der Hostschlüsselnachweis funktioniert durch die Generierung eines asymmetrischen Schlüsselpaars auf dem [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer und die anschließende Übergabe der öffentlichen Hälfte dieses Schlüssels an den HGS.
-Um das Schlüsselpaar zu generieren, führen Sie den folgenden Befehl in einer PowerShell-Konsole mit erhöhten Rechten aus:
 
-```powershell
-Set-HgsClientHostKey
-Get-HgsClientHostKey -Path "$HOME\Desktop\$env:computername-key.cer"
-```
+Wiederholen Sie die folgenden Schritte für jeden [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, der mit HGS beglaubigt werden soll:
 
-Wenn Sie bereits einen Hostschlüssel erstellt haben und ein neues Schlüsselpaar generieren möchten, verwenden Sie stattdessen den folgenden Befehl:
+1. Um das Schlüsselpaar zu generieren, führen Sie den folgenden Befehl in einer PowerShell-Konsole mit erhöhten Rechten aus:
 
-```powershell
-Remove-HgsClientHostKey
-Set-HgsClientHostKey
-Get-HgsClientHostKey -Path "$HOME\Desktop\$env:computername-key.cer"
-```
+    ```powershell
+    Set-HgsClientHostKey
+    Get-HgsClientHostKey -Path "$HOME\Desktop\$env:computername-key.cer"
+    ```
 
-Nachdem Sie den Hostschlüssel generiert haben, kopieren Sie die Zertifikatdatei auf einen HGS-Server, und führen Sie den folgenden Befehl in einer PowerShell-Konsole mit erhöhten Rechten aus, um den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer zu registrieren:
+    Wenn Sie bereits einen Hostschlüssel erstellt haben und ein neues Schlüsselpaar generieren möchten, verwenden Sie stattdessen den folgenden Befehl:
 
-```powershell
-Add-HgsAttestationHostKey -Name "YourComputerName" -Path "C:\temp\yourcomputername.cer"
-```
+    ```powershell
+    Remove-HgsClientHostKey
+    Set-HgsClientHostKey
+    Get-HgsClientHostKey -Path "$HOME\Desktop\$env:computername-key.cer"
+    ```
 
-Wiederholen Sie Schritt 4B für jeden [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, der mit HGS beglaubigt wird.
+2. Geben Sie die Zertifikatdatei für den HGS-Administrator frei.
 
-## <a name="step-5-confirm-the-host-can-attest-successfully"></a>Schritt 5: Bestätigen, dass der Host erfolgreich beglaubigen kann
+### <a name="register-the-sql-server-computer-with-hgs"></a>Registrieren des SQL Server-Computers beim HGS
+
+> [!NOTE]
+> Die unten stehenden Schritte sollten vom HGS-Administrator ausgeführt werden.
+
+Wiederholen Sie die folgenden Schritte für jeden [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer, der mit HGS beglaubigt werden soll:
+
+1. Kopieren Sie die Zertifikatdatei, die Sie vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator erhalten haben, auf einen HGS-Server.
+2. Führen Sie den folgenden Befehl in einer PowerShell-Konsole mit erhöhten Rechten aus, um den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer zu registrieren:
+
+    ```powershell
+    Add-HgsAttestationHostKey -Name "YourComputerName" -Path "C:\temp\yourcomputername.cer"
+   ```
+
+## <a name="step-5-confirm-the-host-can-attest-successfully"></a>Schritt 5: Bestätigen, dass der Host erfolgreich beglaubigen kann
+
+> [!NOTE]
+> Dieser Schritt sollte vom [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computeradministrator ausgeführt werden.
 
 Nachdem Sie den [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Computer bei HGS registriert haben ([Schritt 4A](#step-4a-register-a-computer-in-tpm-mode) für den TPM-Modus, [Schritt 4B](#step-4b-register-a-computer-in-host-key-mode) für den Hostschlüsselmodus), sollten Sie überprüfen, ob er erfolgreich beglaubigen kann.
 
-Sie können die Konfiguration des HGS-Nachweisclients überprüfen und jederzeit mithilfe von [Get-HgsClientConfiguration](/powershell/module/hgsclient/get-hgsclientconfiguration) einen Beglaubigungsversuch durchführen.
+Sie können die Konfiguration des HGS-Nachweisclients überprüfen und jederzeit mithilfe von [Get-HgsClientConfiguration](/powershell/module/hgsclient/get-hgsclientconfiguration?view=win10-ps&preserve-view=true) einen Beglaubigungsversuch durchführen.
+
 Die Ausgabe des Befehls sieht etwa wie folgt aus:
 
 ```
@@ -270,13 +327,13 @@ Die häufigsten Werte, die für `AttestationStatus` angezeigt werden können, we
 | ----------------- | ----------- |
 | Abgelaufen | Der Host wurde zuvor erfolgreich beglaubigt, das ausgestellte Integritätszertifikat ist jedoch abgelaufen. Stellen Sie sicher, dass die Systemzeit von Host und HGS synchron sind. |
 | `InsecureHostConfiguration` | Der Computer hat mindestens einer der auf dem HGS-Server konfigurierten Nachweisrichtlinien nicht genügt. Weitere Informationen finden Sie unter `AttestationSubStatus`. |
-| NotConfigured | Auf dem Computer wurde keine Nachweis-URL konfiguriert. [Konfigurieren Sie die Nachweis-URL](#step-3-configure-the-attestation-url) |
+| NotConfigured | Auf dem Computer wurde keine Nachweis-URL konfiguriert. [Konfigurieren der Nachweis-URL](#step-3-configure-the-attestation-url) |
 | Erfolgreich | Der Computer hat den Nachweis erbracht und wird für die Ausführung von [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Enklaven als vertrauenswürdig angesehen. |
 | `TransientError` | Der Nachweisversuch ist aufgrund eines vorübergehenden Fehlers fehlgeschlagen. Dieser Fehler bedeutet normalerweise, dass ein Fehler beim Verbindungsaufbau mit dem HGS über das Netzwerk aufgetreten ist. Überprüfen Sie die Netzwerkverbindung, und stellen Sie sicher, dass der Computer den Namen des HGS-Dienstanbieters auflösen und an ihn routen kann. |
 | `TpmError` | Das TPM-Gerät des Computers hat während des Nachweisversuchs einen Fehler gemeldet. Überprüfen Sie die TPM-Protokolle, um weitere Informationen zu erhalten. Das Problem kann möglicherweise durch Löschen des TPMs gelöst werden, achten Sie aber darauf, BitLocker und andere Dienste, die sich auf das TPM stützen, zu löschen, bevor Sie das TPM löschen. |
 | `UnauthorizedHost` | Der Hostschlüssel ist HGS nicht bekannt. Befolgen Sie die Anweisungen in [Schritt 4B](#step-4b-register-a-computer-in-host-key-mode), um den Computer bei HGS zu registrieren. |
 
-Wenn der `AttestationStatus` `InsecureHostConfiguration` anzeigt, wird das Feld `AttestationSubStatus` mit dem Namen einer oder mehrerer Richtlinien aufgefüllt, bei denen ein Fehler aufgetreten ist.
+Wenn der `AttestationStatus``InsecureHostConfiguration` anzeigt, wird das Feld `AttestationSubStatus` mit dem Namen einer oder mehrerer Richtlinien aufgefüllt, bei denen ein Fehler aufgetreten ist.
 In der Tabelle unten werden die gängigsten Werte und die Vorgehensweise zum Beheben der Fehler erläutert.
 
 | AttestationSubStatus | Bedeutung und Vorgehensweise |
@@ -289,3 +346,7 @@ In der Tabelle unten werden die gängigsten Werte und die Vorgehensweise zum Beh
 | Iommu | Auf diesem Computer ist kein IOMMU-Gerät aktiviert. Wenn es sich um einen physischen Computer handelt, aktivieren Sie IOMMU im UEFI-Konfigurationsmenü. Wenn es sich um einen virtuellen Computer handelt und kein IOMMU verfügbar ist, führen Sie `Disable-HgsAttestationPolicy Hgs_IommuEnabled` auf dem HGS-Server aus. |
 | SecureBoot | Secure Boot ist auf diesem Computer nicht aktiviert. Aktivieren Sie Secure Boot im UEFI-Konfigurationsmenü, um diesen Fehler zu beheben. |
 | VirtualSecureMode | Auf diesem Computer wird keine virtualisierungsbasierte Sicherheit ausgeführt. Befolgen Sie die Anweisungen in [Schritt 2: Überprüfen Sie, ob VSB auf dem Computer ausgeführt wird](#step-2-verify-virtualization-based-security-is-running). |
+
+## <a name="next-steps"></a>Nächste Schritte
+
+- [Konfigurieren der Secure Enclave-Instanz in SQL Server](always-encrypted-enclaves-configure-enclave-type.md)

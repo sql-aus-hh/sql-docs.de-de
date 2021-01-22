@@ -2,7 +2,7 @@
 description: Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves
 title: Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 10/15/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -13,37 +13,56 @@ ms.assetid: 9595eb66-284c-4474-828f-8961a05ce989
 author: jaszymas
 ms.author: jaszymas
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 0a358095cbf9c87aa6f767bf9f4dd52f8dfe6b9e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 18a841153ba4b9f99c1b1d083950ca106f4ce765
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477701"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534629"
 ---
 # <a name="develop-applications-using-always-encrypted-with-secure-enclaves"></a>Entwickeln von Anwendungen mithilfe von Always Encrypted mit Secure Enclaves
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
-[Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) ist eine Erweiterung von [Always Encrypted](always-encrypted-database-engine.md), die umfangreichere Funktionen für Anwendungsabfragen in verschlüsselten vertraulichen Datenbankspalten bietet. Dabei kommen Secure Enclave-Technologien zum Einsatz, mit deren Hilfe der Abfrageexecutor in [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] Berechnungen mit verschlüsselten Spalten an eine Secure Enclave im [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Prozess delegieren kann.
+[Always Encrypted mit Secure Enclaves](always-encrypted-enclaves.md) ist eine Erweiterung von [Always Encrypted](always-encrypted-database-engine.md), die umfangreichere Funktionen für Anwendungsabfragen in verschlüsselten vertraulichen Datenbankspalten bietet. Dabei kommen Secure Enclave-Technologien zum Einsatz, mit deren Hilfe der Abfrageexecutor in [!INCLUDE[ssde-md](../../../includes/ssde-md.md)] Berechnungen mit verschlüsselten Spalten an eine Secure Enclave im [!INCLUDE[ssde-md](../../../includes/ssde-md.md)]-Prozess delegieren kann.
 
-## <a name="client-driver-for-always-encrypted-with-secure-enclaves"></a>Clienttreiber für Always Encrypted mit Secure Enclaves
+## <a name="prerequisites"></a>Voraussetzungen
+
+- Die [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]-Instanz oder die Datenbank und der Server in [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] müssen ordnungsgemäß für die Unterstützung von Enclaves und Nachweisen konfiguriert werden. Weitere Informationen finden Sie unter [Einrichten von Secure Enclaves und Nachweisen](configure-always-encrypted-enclaves.md#set-up-the-secure-enclave-and-attestation).
+- Sie benötigen für Ihre Umgebung eine Nachweis-URL vom Dienstadministrator, der für Nachweise zuständig ist.
+
+  - Wenn Sie [!INCLUDE[ssnoversion-md](../../../includes/ssnoversion-md.md)] und den Host-Überwachungsdienst (Host Guardian Service, HGS) verwenden, finden Sie weitere Informationen unter [Ermitteln und Teilen der Nachweis-URL für HGS](../../../relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-deploy.md#step-6-determine-and-share-the-hgs-attestation-url).
+  - Wenn Sie [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] und Microsoft Azure Attestation verwenden, finden Sie weitere Informationen unter [Ermitteln der Nachweis-URL für Ihre Nachweisrichtlinie](/azure-sql/database/always-encrypted-enclaves-configure-attestation#determine-the-attestation-url-for-your-attestation-policy).
+
+- Die Anwendung muss eine Version des SQL-Clienttreibers verwenden, die Secure Enclaves unterstützt. Weitere Informationen finden Sie in den folgenden Abschnitten.
+
+- Sie müssen ein Nachweisprotokoll und eine Nachweis-URL für eine Datenverbindung konfigurieren. Die Details zum Konfigurieren des Nachweisprotokolls und der Nachweis-URL sind vom verwendeten Clienttreiber abhängig.
+
+## <a name="client-drivers-for-always-encrypted-with-secure-enclaves"></a>Clienttreiber für Always Encrypted mit Secure Enclaves
 
 Zum Entwickeln von Anwendungen mit Always Encrypted mit Secure Enclaves benötigen Sie eine Version des SQL-Clienttreibers, die Secure Enclaves unterstützt. Der Clienttreiber spielt die folgende wichtige Rolle:
+
 - Bevor Sie eine Abfrage, für die eine Secure Enclave verwendet wird, zur Ausführung an [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] senden, initiiert der Treiber einen Enclave-Nachweis, um zu prüfen, ob die Secure Enclave vertrauenswürdig ist und ohne Risiko zur Verarbeitung vertraulicher Daten verwendet werden kann. Weitere Informationen zum Nachweis finden Sie unter [Secure Enclave-Nachweis](always-encrypted-enclaves.md#secure-enclave-attestation).
 - Wenn der Nachweis erfolgreich geführt werden kann, richtet der Clienttreiber eine sichere Sitzung mit der Enclave ein, indem er ein gemeinsames Geheimnis aushandelt.
 - Der Treiber verwendet das gemeinsame Geheimnis zur Verschlüsselung der Spaltenverschlüsselungsschlüssel, die von der Enclave zum Verarbeiten der Abfrage benötigt werden, und sendet die Schlüssel an [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)], von wo aus sie zur Entschlüsselung an die Secure Enclave weitergeleitet werden. 
 - Abschließend sendet der Treiber die Abfrage zur Ausführung, wodurch in der Secure Enclave Berechnungen ausgelöst werden.
 
-Wenn Sie die Secure Enclave-Funktionen verwenden möchten, müssen Sie Ihre Anwendung und Ihren Clienttreiber so konfigurieren, dass beim Herstellen einer Verbindung mit der Datenbank Enclave-Berechnungen aktiviert werden. Darüber hinaus müssen Sie einen Nachweisdienstendpunkt (eine Enclave-Nachweis-URL) angeben, die auf einen Nachweisdienst für Ihre Enclave zeigt. Die Details hängen vom verwendeten Treiber sowie vom verwendeten Nachweisdienst/Protokoll ab.
-
 ## <a name="next-steps"></a>Nächste Schritte
 
 Always Encrypted mit Secure Enclaves wird von folgenden Clienttreibern unterstützt:
-- .NET Framework-Datenanbieter für SQL Server in .NET Framework 4.7.2 oder höher. 
-    - Weitere Informationen finden Sie unter [Verwenden von Always Encrypted mit dem .NET Framework-Datenanbieter für SQL Server](../../../relational-databases/security/encryption/develop-using-always-encrypted-with-net-framework-data-provider.md)
-    - Ein Schritt-für-Schritt-Tutorial finden Sie unter [Tutorial: Entwickeln einer .NET Framework-Anwendung mithilfe von Always Encrypted mit Secure Enclaves](../tutorial-always-encrypted-enclaves-develop-net-framework-apps.md)
+
 - Microsoft .NET-Datenanbieter für SQL Server in .NET Framework 4.6 oder höher und .NET Core 2.1 oder höher 
     - Weitere Informationen finden Sie unter [Verwenden von Always Encrypted mit dem Microsoft .NET-Datenanbieter für SQL Server](../../../connect/ado-net/sql/sqlclient-support-always-encrypted.md).
-    - Ein Schritt-für-Schritt-Tutorial finden Sie unter [Tutorial: Entwickeln einer .NET-Anwendung mithilfe von Always Encrypted mit Secure Enclaves](../../../connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps.md)
+    - Ein Schritt-für-Schritt-Tutorial finden Sie unter [Tutorial: Entwickeln einer .NET-Anwendung mithilfe von Always Encrypted mit Secure Enclaves](../../../connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps.md).
+    - Weitere Informationen finden Sie unter [Beispiel zur Veranschaulichung der Verwendung von Always Encrypted mit Secure Enclaves mit einem Azure Key Vault-Anbieter](../../../connect/ado-net/sql/azure-key-vault-enclave-example.md).
 - Microsoft ODBC Driver for SQL Server, Version 17.4 oder höher. 
     - Weitere Informationen finden Sie unter [Using Always Encrypted with the ODBC Driver (Verwenden von Always Encrypted mit dem ODBC-Treiber)](../../../connect/odbc/using-always-encrypted-with-the-odbc-driver.md). 
     - Informationen zum Aktivieren von Enclave-Berechnungen für eine Datenbankverbindung mithilfe von ODBC finden Sie im Abschnitt [Aktivieren von Always Encrypted mit Secure Enclaves](../../../connect/odbc/using-always-encrypted-with-the-odbc-driver.md#enabling-always-encrypted-with-secure-enclaves).
+- Microsoft JDBC-Treiber für SQL Server, Version 8.2 oder höher
+    - Weitere Informationen finden Sie unter [Verwenden von Always Encrypted mit Secure Enclaves mit dem JDBC-Treiber](../../../connect/jdbc/using-always-encrypted-with-secure-enclaves-with-the-jdbc-driver.md).
+- .NET Framework-Datenanbieter für SQL Server in .NET Framework 4.7.2 oder höher. 
+    - Weitere Informationen finden Sie unter [Verwenden von Always Encrypted mit dem .NET Framework-Datenanbieter für SQL Server](../../../relational-databases/security/encryption/develop-using-always-encrypted-with-net-framework-data-provider.md)
+    - Ein Schritt-für-Schritt-Tutorial finden Sie unter [Tutorial: Entwickeln einer .NET Framework-Anwendung mithilfe von Always Encrypted mit Secure Enclaves](../tutorial-always-encrypted-enclaves-develop-net-framework-apps.md)
+
+## <a name="see-also"></a>Weitere Informationen
+
+- [Behandeln von häufig auftretenden Problemen bei Always Encrypted mit Secure Enclaves](always-encrypted-enclaves-troubleshooting.md)

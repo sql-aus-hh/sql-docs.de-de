@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: 7f5b73fc-e699-49ac-a22d-f4adcfae62b1
 author: jaszymas
 ms.author: jaszymas
-ms.openlocfilehash: 4c8a74d33e75ab19b283f3b9d1bfdaf47dc69240
-ms.sourcegitcommit: 4d370399f6f142e25075b3714e5c2ce056b1bfd0
+ms.openlocfilehash: fa78eb8ef2da01514e161c58b05146b1699c93f7
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91869263"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151266"
 ---
 # <a name="sql-server-connector-maintenance--troubleshooting"></a>SQL Server-Connector – Verwaltung und Problembehandlung
 
@@ -139,7 +139,7 @@ Deeplinks zu älteren Versionen des SQL Server-Connectors
 
 ### <a name="rolling-the-ssnoversion-service-principal"></a>Ändern des [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Dienstprinzipals
 
- [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] verwendet in Azure Active Directory erstellte Dienstprinzipale als Anmeldeinformationen zum Zugriff auf den Schlüsseltresor. Der Dienstprinzipal verfügt über eine Client-ID und einen Authentifizierungsschlüssel. Für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Anmeldenamen werden der **VaultName**, die **Client-ID**und der **Authentifizierungsschlüssel**festgelegt. Der **Authentifizierungsschlüssel** ist für einen bestimmten Zeitraum (ein oder zwei Jahre) gültig. Vor Ablauf des Zeitraums muss für den Dienstprinzipal ein neuer Schlüssel in Azure AD generiert werden. Anschließend müssen die Anmeldeinformationen in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]geändert werden. [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] verwaltet einen Cache für die Anmeldeinformationen in der aktuellen Sitzung. Wenn also Anmeldeinformationen geändert werden, sollte [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] neu gestartet werden.  
+ [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] verwendet in Azure Active Directory erstellte Dienstprinzipale als Anmeldeinformationen zum Zugriff auf den Schlüsseltresor. Der Dienstprinzipal verfügt über eine Client-ID und einen Authentifizierungsschlüssel. Für [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Anmeldenamen werden der **VaultName**, die **Client-ID** und der **Authentifizierungsschlüssel** festgelegt. Der **Authentifizierungsschlüssel** ist für einen bestimmten Zeitraum (ein oder zwei Jahre) gültig. Vor Ablauf des Zeitraums muss für den Dienstprinzipal ein neuer Schlüssel in Azure AD generiert werden. Anschließend müssen die Anmeldeinformationen in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]geändert werden. [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] verwaltet einen Cache für die Anmeldeinformationen in der aktuellen Sitzung. Wenn also Anmeldeinformationen geändert werden, sollte [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] neu gestartet werden.  
   
 ### <a name="key-backup-and-recovery"></a>Schlüsselsicherung und -wiederherstellung
 
@@ -210,7 +210,7 @@ Weitere Informationen zu Active Directory finden Sie unter [Beziehung zwischen A
 
 **Anbieterfehlercodes:**  
   
-Fehlercode  |Symbol  |Beschreibung
+Fehlercode  |Symbol  |BESCHREIBUNG
 ---------|---------|---------  
 0 | scp_err_Success | Der Vorgang war erfolgreich.
 1 | scp_err_Failure | Beim Vorgang ist ein Fehler aufgetreten.
@@ -227,6 +227,7 @@ Fehlercode  |Symbol  |Beschreibung
 2051 | scp_err_OutOfMemory | Die SQL-Engine verfügt nicht über ausreichend Arbeitsspeicher, deshalb ist beim Zuweisen von Arbeitsspeicher für den EKM-Anbieter ein Fehler aufgetreten.
 2052 | scp_err_ConvertKeyNameToThumbprint | Fehler beim Konvertieren des Schlüsselnamens in den Fingerabdruck.
 2053 | scp_err_ConvertThumbprintToKeyName|  Fehler beim Konvertieren des Fingerabdrucks in den Schlüsselnamen.
+2058 | scp_err_FailureInRegistry|  Der Vorgang konnte in der Registrierung nicht ausgeführt werden. Das SQL Server-Dienstkonto verfügt nicht über die Berechtigung zum Erstellen des Registrierungsschlüssels.
 3000 | ErrorSuccess | Der AKV-Vorgang war erfolgreich.
 3001 | ErrorUnknown | Unbekannter Fehler beim AKV-Vorgang.
 3002 | ErrorHttpCreateHttpClientOutOfMemory | Aufgrund von unzureichendem Arbeitsspeicher kann kein HttpClient für den AKV-Vorgang erstellt werden.
