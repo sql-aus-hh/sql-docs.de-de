@@ -13,12 +13,12 @@ ms.assetid: b1ae7b78-182a-459e-ab28-f743e43f8293
 author: MladjoA
 ms.author: mlandzic
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: b9d004ce88bba442dc17ff17c3d8a26e75bffd1a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bedf575888445fb0e14684d4e325b60eb8547a79
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97473141"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564459"
 ---
 # <a name="spatial-indexes-overview"></a>Übersicht über räumliche Indizes
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "97473141"
   
  Betrachten Sie beispielsweise die vorstehende Abbildung, die ein Oktagon zeigt, das vollständig in Zelle&nbsp;15 des Rasters der Ebene&nbsp;1 passt. In der Abbildung wurde Zelle&nbsp;15 dem Mosaikprozess unterzogen, wodurch das Oktagon in neun Zellen der Ebene&nbsp;2 zerlegt wurde. In dieser Illustration wird davon ausgegangen, dass der Zellen-pro-Objekt-Grenzwert gleich&nbsp;9 oder höher ist. Wäre der Zellen-pro-Objekt-Grenzwert gleich 8 oder kleiner, dann würde Zelle&nbsp;15 nicht im Mosaikprozess berücksichtigt, und nur diese eine Zelle&nbsp;15 würde für das Objekt gezählt.  
   
- In der Standardeinstellung ist der Zellen-pro-Objekt-Grenzwert mit 16&nbsp;Zellen pro Objekt definiert, was für die meisten räumlichen Indizes einen zufriedenstellenden Kompromiss zwischen Raum und Genauigkeit darstellt. In der [CREATE SPATIAL INDEX](../../t-sql/statements/create-spatial-index-transact-sql.md)[!INCLUDE[tsql](../../includes/tsql-md.md)] -Anweisung kann jedoch eine CELLS_PER_OBJECT **=** _n-_ Klausel angegeben werden, die es Ihnen ermöglicht, einen Zellen-pro-Objekt-Grenzwert zwischen 1 und 8192 (einschließlich) festzulegen.  
+ In der Standardeinstellung ist der Zellen-pro-Objekt-Grenzwert mit 16&nbsp;Zellen pro Objekt definiert, was für die meisten räumlichen Indizes einen zufriedenstellenden Kompromiss zwischen Raum und Genauigkeit darstellt. In der [CREATE SPATIAL INDEX](../../t-sql/statements/create-spatial-index-transact-sql.md)[!INCLUDE[tsql](../../includes/tsql-md.md)]-Anweisung kann jedoch eine CELLS_PER_OBJECT **=** _n_-Klausel angegeben werden, die es Ihnen ermöglicht, einen Zellen-pro-Objekt-Grenzwert zwischen 1 und 8192 (einschließlich) festzulegen.  
   
 > [!NOTE]  
 >  Die **cells_per_object** -Einstellung eines räumlichen Index wird in der [sys.spatial_index_tessellations](../../relational-databases/system-catalog-views/sys-spatial-index-tessellations-transact-sql.md) -Katalogsicht angezeigt.  

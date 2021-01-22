@@ -17,19 +17,19 @@ ms.assetid: cc5bf181-18a0-44d5-8bd7-8060d227c927
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: dcc5d8e3602261c975f5517ea859e19fc7902936
-ms.sourcegitcommit: 629229a7c33a3ed99db63b89127bb016449f7d3d
+ms.openlocfilehash: 8471695cfde49d36ba107264fa23654757d8c2ab
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97952054"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241875"
 ---
 # <a name="partitioned-tables-and-indexes"></a>Partitioned Tables and Indexes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
-  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützt die Tabellen- und Indexpartitionierung. Die Daten partitionierter Tabellen und Indizes werden in Einheiten aufgeteilt, die optional über mehrere Dateigruppen in einer Datenbank verteilt sein können. Die Daten werden horizontal partitioniert, sodass Gruppen von Zeilen einzelnen Partitionen zugeordnet werden. Alle Partitionen eines einzelnen Indexes oder einer Tabelle müssen sich in der gleichen Datenbank befinden. Die Tabelle oder der Index wird als einzelne logische Entität behandelt, wenn Abfragen oder Aktualisierungen für die Daten ausgeführt werden. Vor [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1 waren partitionierte Tabellen und Indizes nicht in jeder Edition von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verfügbar. Eine Liste der Funktionen, die von den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Editionen unterstützt werden, finden Sie unter [Editionen und unterstütze Funktionen für den SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md).  
+  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unterstützt die Tabellen- und Indexpartitionierung. Die Daten partitionierter Tabellen und Indizes werden in Einheiten aufgeteilt, die optional über mehrere Dateigruppen in einer Datenbank verteilt sein können. Die Daten werden horizontal partitioniert, sodass Gruppen von Zeilen einzelnen Partitionen zugeordnet werden. Alle Partitionen eines einzelnen Indexes oder einer Tabelle müssen sich in der gleichen Datenbank befinden. Die Tabelle oder der Index wird als einzelne logische Entität behandelt, wenn Abfragen oder Aktualisierungen für die Daten ausgeführt werden. Vor [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1 waren partitionierte Tabellen und Indizes nicht in jeder Edition von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verfügbar. Eine Liste der Funktionen, die von den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Editionen unterstützt werden, finden Sie unter [Editionen und unterstütze Funktionen für den SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md).  
   
 > [!IMPORTANT]  
-> [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] unterstützt standardmäßig bis zu 15.000 Partitionen. In früheren Versionen als [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] wurde die Anzahl der Partitionen standardmäßig auf 1.000 beschränkt. Auf x86-basierten Systemen ist das Erstellen einer Tabelle oder eines Indexes mit mehr als 1.000 Partitionen möglich, wird aber nicht unterstützt.  
+> [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] unterstützt standardmäßig bis zu 15.000 Partitionen. In früheren Versionen als [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] wurde die Anzahl der Partitionen standardmäßig auf 1.000 beschränkt.  
   
 ## <a name="benefits-of-partitioning"></a>Vorteile der Partitionierung  
  Das Partitionieren großer Tabellen oder Indizes kann die folgenden Vorteile bei der Verwaltung und Leistung haben.  
@@ -69,10 +69,10 @@ Ein Index, der auf dem gleichen Partitionsschema wie die zugehörige Tabelle auf
  3. Sie definieren dieselben Begrenzungswerte für Partitionen.  
 
 #### <a name="partitioning-clustered-indexes"></a>Partitionieren gruppierter Indizes
-Beim Partitionieren eines gruppierten Index muss der Gruppierungsschlüssel die Partitionierungsspalte enthalten. Wenn beim Partitionieren eines nicht eindeutigen gruppierten Index die Partitionierungsspalte nicht explizit im Gruppierungsschlüssel angegeben ist, fügt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Partitionierungsspalte standardmäßig zur Liste der gruppierten Indexschlüssel hinzu. Wenn der gruppierte Index eindeutig ist, müssen Sie explizit angeben, dass der gruppierte Indexschlüssel die Partitionierungsspalte enthält.        
+Beim Partitionieren eines gruppierten Index muss der Gruppierungsschlüssel die Partitionierungsspalte enthalten. Wenn beim Partitionieren eines nicht eindeutigen gruppierten Index die Partitionierungsspalte nicht explizit im Gruppierungsschlüssel angegeben ist, fügt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Partitionierungsspalte standardmäßig zur Liste der gruppierten Indexschlüssel hinzu. Wenn der gruppierte Index eindeutig ist, müssen Sie explizit angeben, dass der gruppierte Indexschlüssel die Partitionierungsspalte enthält. Weitere Informationen zu gruppierten Indizes und zur Indexarchitektur finden Sie unter [Richtlinien für den Entwurf gruppierter Indizes](../../relational-databases/sql-server-index-design-guide.md#Clustered).       
 
 #### <a name="partitioning-nonclustered-indexes"></a>Partitionieren nicht gruppierter Indizes
-Beim Partitionieren eines eindeutigen nicht gruppierten Index muss der Indexschlüssel die Partitionierungsspalte enthalten. Beim Partitionieren eines nicht eindeutigen, nicht gruppierten Index fügt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Partitionierungsspalte standardmäßig als eine Nichtschlüsselspalte (eingeschlossene Spalte) des Indexes hinzu, um sicherzustellen, dass der Index an der Basistabelle ausgerichtet ist. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] fügt die Partitionierungsspalte nicht zum Index hinzu, wenn sie bereits im Index vorhanden ist. 
+Beim Partitionieren eines eindeutigen nicht gruppierten Index muss der Indexschlüssel die Partitionierungsspalte enthalten. Beim Partitionieren eines nicht eindeutigen, nicht gruppierten Index fügt [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Partitionierungsspalte standardmäßig als eine Nichtschlüsselspalte (eingeschlossene Spalte) des Indexes hinzu, um sicherzustellen, dass der Index an der Basistabelle ausgerichtet ist. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] fügt die Partitionierungsspalte nicht zum Index hinzu, wenn sie bereits im Index vorhanden ist. Weitere Informationen zu nicht gruppierten Indizes und zur Indexarchitektur finden Sie unter [Entwurfsrichtlinien für einen nicht gruppierten Index](../../relational-databases/sql-server-index-design-guide.md#Nonclustered).
 
 ### <a name="non-aligned-index"></a>Nicht ausgerichteter Index  
 Ein Index, der unabhängig von der zugehörigen Tabelle partitioniert ist. Das heißt, der Index hat ein anderes Partitionsschema oder wird in einer anderen Dateigruppe als die Basistabelle platziert. Das Entwerfen eines nicht ausgerichteten partitionierten Indexes kann in den folgenden Fällen nützlich sein:  

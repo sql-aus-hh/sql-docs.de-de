@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.assetid: 56105f3f-e500-4669-8c8e-acf434527727
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 6e2e66d27fd8658cc0e060da036cca147817d5cb
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 32daaf012159bd42a6f73330bc8371157e459609
+ms.sourcegitcommit: 1f826eb3f73bd4d94bc9638b9cdd60991a2e2fa0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88422214"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98125616"
 ---
 # <a name="lesson-3-2-add-and-configure-logging"></a>Lektion 3.2: Hinzufügen und Konfigurieren der Protokollierung
 
@@ -29,10 +29,11 @@ In dieser Aufgabe aktivieren Sie die Protokollierung für den Datenfluss im Pake
 ## <a name="add-logging-to-the-package"></a>Hinzufügen der Protokollierung zu einem Paket  
   
 1.  Klicken Sie im Menü **SSIS** auf **Protokollierung**.  
+    In Visual Studio 2019 befindet sich das Menü **SSIS** unter Erweiterungen > SSIS. Stellen Sie sicher, dass die Registerkarte **Datenfluss** ausgewählt ist und nicht **Ablaufsteuerung**.
   
 2.  Achten Sie darauf, dass im Dialogfeld **Configure SSIS Logs** (SSIS-Protokolle konfigurieren) innerhalb des Bereichs **Container** das oberste Objekt ausgewählt ist. Dieses Objekt stellt das Paket aus Lektion 3 dar.
   
-3.  Wählen Sie auf der Registerkarte **Anbieter und Protokolle** im Feld **Anbietertyp** die Option **SSIS-Protokollanbieter für Textdateien**aus, und klicken Sie anschließend auf **Hinzufügen**.  
+3.  Wählen Sie auf der Registerkarte **Anbieter und Protokolle** im Feld **Anbietertyp** die Option **SSIS-Protokollanbieter für Textdateien** aus, und klicken Sie anschließend auf **Hinzufügen**.  
   
     Von Integration Services wird ein neuer Protokollanbieter für Textdateien mit dem Standardnamen **SSIS-Protokollanbieter für Textdateien** dem Paket hinzugefügt. Sie können jetzt den neuen Protokollanbieter konfigurieren.  
   
@@ -59,7 +60,7 @@ In dieser Aufgabe aktivieren Sie die Protokollierung für den Datenfluss im Pake
   
 12. Klicken Sie auf **Basic** (Einfach), um die Informationskategorien auszublenden.  
   
-13. Wählen Sie auf der Registerkarte **Anbieter und Protokolle** in der **Name** -Spalte **Lesson 3 Log File**aus. Nach dem Erstellen eines Protokollanbieters für Ihr Paket können Sie diesen optional deaktivieren, um die Protokollierung zu deaktivieren, ohne dass Sie einen Protokollanbieter löschen und dann neu erstellen müssen.  
+13. Wählen Sie auf der Registerkarte **Anbieter und Protokolle** in der **Name** -Spalte **Lesson 3 Log File** aus. Nach dem Erstellen eines Protokollanbieters für Ihr Paket können Sie diesen optional deaktivieren, um die Protokollierung zu deaktivieren, ohne dass Sie einen Protokollanbieter löschen und dann neu erstellen müssen.  
   
 14. Klicken Sie auf **OK**.  
   
