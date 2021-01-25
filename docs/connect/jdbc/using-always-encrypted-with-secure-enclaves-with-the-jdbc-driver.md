@@ -2,7 +2,7 @@
 description: Verwenden von Always Encrypted mit Secure Enclaves mit dem JDBC-Treiber
 title: Verwenden von Always Encrypted mit Secure Enclaves mit dem JDBC-Treiber | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 03/02/2020
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: connectivity
 ms.reviewer: ''
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 271c0438-8af1-45e5-b96a-4b1cabe32707
 author: reneye
 ms.author: v-reye
-ms.openlocfilehash: 8035e1d5890bf51d80341f740436d586053d4e90
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 4016f3eb5d725673b1e4149d43dc21d20cdc627f
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88487921"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534639"
 ---
 # <a name="using-always-encrypted-with-secure-enclaves-with-the-jdbc-driver"></a>Verwenden von Always Encrypted mit Secure Enclaves mit dem JDBC-Treiber
 [!INCLUDE[Driver_JDBC_Download](../../includes/driver_jdbc_download.md)]
@@ -35,17 +35,25 @@ Secure Enclaves sind eine Erweiterung des bereits vorhandenen [Always Encrypted-
 > Diese Richtliniendateien können unter [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 8 Download](https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) heruntergeladen werden.
 
 ## <a name="setting-up-secure-enclaves"></a>Einrichten von Secure Enclaves
-Folgen Sie diesem [Tutorial](../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md), um die ersten Schritte mit Secure Enclaves auszuführen. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](../../relational-databases/security/encryption/always-encrypted-enclaves.md).
+Arbeiten Sie das [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in SQL Server](../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md) oder das [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started) durch, um mit der Verwendung von Secure Enclaves zu beginnen. Weitere Informationen finden Sie unter [Always Encrypted mit Secure Enclaves](../../relational-databases/security/encryption/always-encrypted-enclaves.md).
 
 ## <a name="connection-string-properties"></a>Verbindungszeichenfolgen-Eigenschaften
-**enclaveAttestationUrl:** die Endpunkt-URL des Nachweisdiensts
 
-**enclaveAttestationProtocol:** das Protokoll des Nachweisdiensts Der einzige derzeit unterstützte Wert ist **HGS** (Host-Überwachungsdienst).
+Um Enclaveberechnungen für eine Datenbankverbindung zu ermöglichen, müssen Sie zusätzlich zur Aktivierung von Always Encrypted die folgenden Schlüsselwörter für die Verbindungszeichenfolge festlegen.
+
+- **enclaveAttestationProtocol**: gibt ein Nachweisprotokoll an. 
+  - Wenn Sie [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] und den Host-Überwachungsdienst (Host Guardian Service, HGS) verwenden, sollte der Wert dieses Schlüsselworts `HGS` lauten.
+  - Wenn Sie [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und Microsoft Azure Attestation verwenden, sollte der Wert dieses Schlüsselworts `AAS` lauten.
+
+- **enclaveAttestationUrl**: gibt eine Nachweis-URL (einen Endpunkt für den Nachweisdienst) an. Sie benötigen für Ihre Umgebung eine Nachweis-URL von dem Dienstadministrator, der für Nachweise zuständig ist.
+  - Wenn Sie [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] und den Host-Überwachungsdienst verwenden, finden Sie weitere Informationen unter [Ermitteln und Freigeben der HGS-Nachweis-URL](../../relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-deploy.md#step-6-determine-and-share-the-hgs-attestation-url).
+  - Wenn Sie [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] und Microsoft Azure Attestation verwenden, finden Sie weitere Informationen unter [Ermitteln der Nachweis-URL für Ihre Nachweisrichtlinie](/azure-sql/database/always-encrypted-enclaves-configure-attestation#determine-the-attestation-url-for-your-attestation-policy).
 
 Benutzer müssen **columnEncryptionSetting** aktivieren und **beide** der oben genannten Verbindungszeichenfolgen-Eigenschaften richtig festlegen, um Always Encrypted mit Secure Enclaves aus dem [!INCLUDE[jdbcNoVersion](../../includes/jdbcnoversion_md.md)] zu aktivieren.
 
 ## <a name="working-with-secure-enclaves"></a>Arbeiten mit Secure Enclaves
-Wenn die Verbindungseigenschaften der Enclaves richtig festgelegt wurden, arbeitet das Feature transparent. Der Treiber stellt automatisch fest, ob für die Abfrage Secure Enclaves erforderlich sind. Enclave-Berechnungen werden beispielsweise bei den folgenden Abfragen ausgelöst. Den Datenbank- und Tabellenaufbau finden Sie unter [Tutorial: Always Encrypted mit Secure Enclaves mithilfe von SSMS](../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md).
+Wenn die Verbindungseigenschaften der Enclaves richtig festgelegt wurden, arbeitet das Feature transparent. Der Treiber stellt automatisch fest, ob für die Abfrage Secure Enclaves erforderlich sind. Enclaveberechnungen werden beispielsweise bei den folgenden Abfragen ausgelöst. Um sich über das Setup von Datenbank und Tabelle zu informieren, lesen Sie das [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in SQL Server](../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md) oder das [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started).
+
 
 Umfangreiche Abfragen lösen Enclave-Berechnungen aus:
 ```java

@@ -8,12 +8,12 @@ ms.technology: report-server-sharepoint
 ms.topic: conceptual
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 8a70d7619f878b7091e7a49e05caf93dd814e3a0
-ms.sourcegitcommit: 66a0672e47415dbd5cfd8d19075102c8c3973e70
+ms.openlocfilehash: b0fa25f3951ab33001f84f7f44bd4617659a81ae
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83767397"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564430"
 ---
 # <a name="add-sql-server-reporting-services-report-viewer-web-part-to-a-sharepoint-page"></a>Hinzufügen des Webparts des Berichts-Viewers für SQL Server Reporting Services zu einer SharePoint-Seite
 
@@ -43,7 +43,7 @@ Zeigen Sie einen Bericht von SQL Server Reporting Services oder Power BI-Bericht
 
     ![Fügen Sie über das Menüband ein Webpart ein.](media/sharepoint-insert-web-part.png)
 
-4. Klicken Sie unter **Kategorien** auf „**SQL Server Reporting Services (Native mode)“ (SQL Server Reporting Services (einheitlicher Modus)). Klicken Sie unter **Parts** auf **Berichts-Viewer**. Wählen Sie anschließend **Hinzufügen**.
+4. Klicken Sie unter **Kategorien** auf **SQL Server Reporting Services (einheitlicher Modus)** . Klicken Sie unter **Parts** auf **Berichts-Viewer**. Wählen Sie anschließend **Hinzufügen**.
 
     ![Fügen Sie das Berichts-Viewer-Webpart hinzu.](media/sharepoint-report-viewer-web-part.png)
 

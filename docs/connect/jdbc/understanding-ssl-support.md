@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 073f3b9e-8edd-4815-88ea-de0655d0325e
 author: David-Engel
 ms.author: v-daenge
-ms.openlocfilehash: aa20ac9d4118e5fec4dbaf225d27c9db8257a88f
-ms.sourcegitcommit: cb620c77fe6bdefb975968837706750c31048d46
+ms.openlocfilehash: 62cf191ec41e71084dbe3ca85230108f9fc712b0
+ms.sourcegitcommit: 0576ce6d7c9c5514306a90e27fa621ef25825186
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86393118"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98575712"
 ---
 # <a name="understanding-encryption-support"></a>Verstehen der Verschlüsselungsunterstützung
 
@@ -79,7 +79,7 @@ Während des TLS-Handshakes sendet der Server sein Zertifikat für öffentliche 
   
 - Der CN (Common Name) im Subjekt oder ein DNS-Name im SAN (Subject Alternate Name, Subjektalternativname) des Zertifikats entspricht genau dem **serverName**-Wert, der in der Verbindungszeichenfolge angegeben ist, oder – falls angegeben – dem Eigenschaftenwert **hostNameInCertificate**.  
   
-- Ein DNS-Name kann Platzhalterzeichen enthalten. Der [!INCLUDE[jdbcNoVersion](../../includes/jdbcnoversion_md.md)] unterstützt jedoch keinen Platzhalterabgleich. Das heißt, „abc.com“ entspricht nicht „\*.com“, während „\*.com“ „\*.com“ entspricht.  
+- Ein DNS-Name kann Platzhalterzeichen enthalten. Vor Version 7.2 unterstützt der [!INCLUDE[jdbcNoVersion](../../includes/jdbcnoversion_md.md)] keinen Platzhalterabgleich. Das heißt, „abc.com“ entspricht nicht „\*.com“, während „\*.com“ „\*.com“ entspricht. Ab Version 7.2 wird der Platzhalterabgleich für Standardzertifikate unterstützt.  
   
 ## <a name="see-also"></a>Weitere Informationen
 

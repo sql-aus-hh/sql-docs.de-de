@@ -10,12 +10,12 @@ ms.author: maghan
 ms.reviewer: “”
 ms.custom: seo-lt-2019
 ms.date: 02/09/2017
-ms.openlocfilehash: 73a11047ecfe6b797cb2c79fd2c48e3c7386882f
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: f7b6eaf18166bd546e8eb3e89ee2176c39dfb49a
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91987746"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564418"
 ---
 # <a name="using-transact-sql-assertions-in-sql-server-unit-tests"></a>Verwenden von Transact-SQL-Assertionen in SQL Server-Komponententests
 
@@ -66,7 +66,7 @@ Ein Beispiel dafür, wie erwartete Ausnahmen und ein negativer SQL Server-Kompon
   
 Sie können Transact\-SQL-Assertionen direkt auf dem Server verwenden, indem Sie die RAISERROR-Anweisung im Transact\-SQL-Skript ausführen. Die Syntax sieht wie folgt aus:  
   
-**RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState)**  
+**RAISERROR (\@ErrorMessage, \@ErrorSeverity, \@ErrorState)**  
   
 Dabei gilt:  
   

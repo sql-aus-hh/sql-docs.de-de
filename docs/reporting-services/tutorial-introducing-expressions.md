@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 2d05ef4c-5f91-48b2-8795-f0a201a0b3cc
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: db1efab37a24e49dcf9eac774809ec788831b037
-ms.sourcegitcommit: 9e2c682929ee64c051dc62f8917d147861f7c635
+ms.openlocfilehash: 938ac8fc2e006bc74aab59955374f1b012b66b68
+ms.sourcegitcommit: fc24f7ecc155d97e789676fffe55e45840fcb088
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043817"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620277"
 ---
 # <a name="tutorial-introducing-expressions"></a>Tutorial: Einführung in Ausdrücke
 In diesem [!INCLUDE[ssRBnoversion_md](../includes/ssrbnoversion.md)] -Tutorial verwenden Sie Ausdrücke mit allgemeinen Funktionen und Operatoren zum Erstellen von leistungsstarken und flexiblen [!INCLUDE[ssRSnoversion_md](../includes/ssrsnoversion-md.md)] paginierten Berichten. 
@@ -139,7 +139,7 @@ In diesem Abschnitt erstellen Sie einen Tabellenbericht, eine Datenquelle und ei
   
 1.  Erweitern Sie im Bereich „Berichtsdaten“ den Ordner **Datasets** .  
   
-2.  Klicken Sie mit der rechten Maustaste auf **DataSet1** und anschließend auf **Dataseteigenschaften**.  
+2.  Klicken Sie mit der rechten Maustaste auf **DataSet1**, und klicken Sie dann auf **Dataseteigenschaften**.  
 
     ![Screenshot: Zugreifen auf die Dataseteigenschaften im Berichts-Generator](../reporting-services/media/report-builder-expression-tutorial-rename-dataset.png)
   
@@ -148,7 +148,7 @@ In diesem Abschnitt erstellen Sie einen Tabellenbericht, eine Datenquelle und ei
 4.  [!INCLUDE[clickOK](../includes/clickok-md.md)]  
   
 ## <a name="3-display-first-initial-and-last-name"></a><a name="Concatenate"></a>3. Anzeigen des Anfangsbuchstabens des Vornamens und des Nachnamens  
-In diesem Abschnitt verwenden Sie die **Left** -Funktion und den Operator zum **Verketten** ( **&** ) in einem Ausdruck, der zu einem Anfangsbuchstaben des Vornamens und dem Nachnamen ausgewertet wird. Sie können den Ausdruck Schritt für Schritt erstellen oder diesen Teil der Prozedur überspringen und den Ausdruck aus dem Tutorial in das Dialogfeld **Ausdruck** kopieren und einfügen.   
+In diesem Abschnitt verwenden Sie die **Left** -Funktion und den Operator zum **Verketten** (**&**) in einem Ausdruck, der zu einem Anfangsbuchstaben des Vornamens und dem Nachnamen ausgewertet wird. Sie können den Ausdruck Schritt für Schritt erstellen oder diesen Teil der Prozedur überspringen und den Ausdruck aus dem Tutorial in das Dialogfeld **Ausdruck** kopieren und einfügen.   
   
 1.  Klicken Sie mit der rechten Maustaste auf die Spalte **StateProvince** , zeigen Sie auf **Spalte einfügen** und klicken Sie auf **Links**.  
   
@@ -199,7 +199,7 @@ In diesem Abschnitt formatieren Sie die Spalte **Last Purchase** , die Datumsang
   
 1.  Klicken Sie auf **Entwurf** , um zur Entwurfsansicht zurückzukehren.  
   
-2.  Klicken Sie auf die Datenzelle in der Spalte **Letzter Kauf** , und klicken Sie auf der Registerkarte **Stamm** im Abschnitt **Zahl** auf **Datum**.  
+2.  Klicken Sie auf die Datenzelle in der Spalte **Letzter Kauf**, und klicken Sie auf der Registerkarte **Stamm** im Abschnitt **Zahl** auf **Datum**.  
 
     ![Screenshot: Festlegen der Spalte „Last Purchase“ auf „Datum“](../reporting-services/media/report-builder-expression-tutorial-date-format.png)
   
@@ -240,7 +240,7 @@ Um bei der Erstellung eines gebänderten Berichts die Farbe beizubehalten, die S
   
     Links von der Spalte **Name** wird eine neue Spalte hinzugefügt.  
   
-2.  Klicken Sie auf den Titel der neuen Spalte, und geben Sie **M/W** (männlich/weiblich) ein.  
+2.  Klicken Sie auf den Titel der neuen Spalte, und geben Sie **M/W**(männlich/weiblich) ein.  
   
 ### <a name="to-add-a-rectangle"></a>So fügen Sie ein Rechteck hinzu  
   
@@ -270,7 +270,7 @@ Um bei der Erstellung eines gebänderten Berichts die Farbe beizubehalten, die S
   
 7.  Geben Sie **="Male",** (einschließlich des Kommas) ein.
 
-8. Klicken Sie in der Liste **Kategorie** auf **Konstanten** , und klicken Sie im Feld **Werte** auf **Kornblumenblau**.
+8. Klicken Sie in der Liste **Kategorie** auf **Konstanten**, und klicken Sie im Feld **Werte** auf **Kornblumenblau**.
 
     ![Screenshot: Verwenden einer Farbe zur Darstellung eines Geschlechts](../reporting-services/media/report-builder-expression-tutorial-color-expression-cornflower-blue.png)
 
@@ -280,7 +280,7 @@ Um bei der Erstellung eines gebänderten Berichts die Farbe beizubehalten, die S
   
 7.  Geben Sie **="Female",** (einschließlich des Kommas) ein. 
 
-8. Klicken Sie in der Liste **Kategorie** auf **Konstanten** , und klicken Sie im Feld **Werte** auf **Tomatenrot**.
+8. Klicken Sie in der Liste **Kategorie** auf **Konstanten**, und klicken Sie im Feld **Werte** auf **Tomatenrot**.
 
 13. Geben Sie dahinter eine schließende Klammer **)** ein. 
   
@@ -319,7 +319,7 @@ In diesem Abschnitt erstellen Sie das CountryRegion-Dataset und verwenden die **
   
 2.  Klicken Sie im Berichtsdatenbereich auf **Neu** und anschließend auf **Dataset**.  
   
-3.  Klicken Sie unter „Dataseteigenschaften“ auf **Ein in den eigenen Bericht eingebettetes Dataset verwenden**.  
+3.  Klicken Sie unter **Dataseteigenschaften** auf **Ein in den eigenen Bericht eingebettetes Dataset verwenden**.  
   
 4.  Wählen Sie in der Liste **Datenquelle** die Option „Datenquelle_für_Ausdrücke“.  
   
@@ -358,7 +358,7 @@ In diesem Abschnitt erstellen Sie das CountryRegion-Dataset und verwenden die **
   
 ### <a name="to-look-up-values-in-the-countryregion-dataset"></a>So schlagen Sie Werte im CountryRegion-Dataset nach  
   
-1.  Klicken Sie auf den Spaltenheader **Country Region ID** und löschen Sie den Text **ID** , sodass nur noch **Country Region** angezeigt wird.  
+1.  Klicken Sie auf den Spaltenheader **Country Region ID** und löschen Sie den Text **ID**, sodass nur noch **Country Region** angezeigt wird.  
   
 2.  Klicken Sie mit der rechten Maustaste in die Datenzelle der Spalte **Country Region** und klicken Sie auf **Ausdruck**.  
   
@@ -366,7 +366,7 @@ In diesem Abschnitt erstellen Sie das CountryRegion-Dataset und verwenden die **
   
     Der verbleibende Ausdruck lautet: `=`  
   
-4.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , klicken Sie anschließend auf **Sonstiges** , und doppelklicken Sie in der Liste **Elemente** auf **Suchen**.  
+4.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , klicken Sie anschließend auf **Sonstiges**, und doppelklicken Sie in der Liste **Elemente** auf **Suchen**.  
   
 6.  Klicken Sie in der Liste **Kategorie** auf **Felder (Ausdrücke)** , und doppelklicken Sie in der Liste **Werte** auf **CountryRegionID**.  
   
@@ -395,7 +395,7 @@ In diesem Abschnitt fügen Sie eine Spalte hinzu und verwenden anschließend die
   
 4.  Klicken Sie mit der rechten Maustaste in die Datenzelle der Spalte **Vor (n) Tagen** und klicken Sie auf **Ausdruck**.  
   
-5.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , und klicken Sie anschließend auf **Datum & Uhrzeit**.  
+5.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen**, und klicken Sie anschließend auf **Datum & Uhrzeit**.  
   
 6.  Doppelklicken Sie in der Liste **Elemente** auf **DateDiff**.  
   
@@ -405,7 +405,7 @@ In diesem Abschnitt fügen Sie eine Spalte hinzu und verwenden anschließend die
   
 11. Geben Sie unmittelbar hinter `Fields!LastPurchase.Value`ein Komma **,** ein. 
   
-13. Klicken Sie in der Liste **Kategorie** erneut auf **Datum/Uhrzeit** , und doppelklicken Sie in der Liste **Elemente** auf **Jetzt**.  
+13. Klicken Sie in der Liste **Kategorie** erneut auf **Datum/Uhrzeit**, und doppelklicken Sie in der Liste **Elemente** auf **Jetzt**.  
   
     > [!WARNING]  
     > In Produktionsberichten dürfen Sie nicht die **Now** -Funktion in Ausdrücken verwenden, die beim Rendern des Berichts mehrmals ausgewertet werden (z.B. in den Detailzeilen eines Berichts). Der Wert von **Now** ändert sich von Zeile zu Zeile, und die verschiedenen Werte wirken sich auf die Auswertungsergebnisse der Ausdrücke aus, was zu inkonsistenten Resultaten führt. Verwenden Sie stattdessen die globale Variable `ExecutionTime` , die von [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] bereitgestellt wird.  
@@ -451,7 +451,7 @@ Das Konfigurieren des Indikators und seiner Zustände erfordert viele Schritte. 
   
 2.  Klicken Sie auf die Ausdrucksschaltfläche **fx** neben dem Textfeld **Wert** .  
   
-3.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , und klicken Sie anschließend auf **Mathematisch**.  
+3.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen**, und klicken Sie anschließend auf **Mathematisch**.  
   
 4.  Doppelklicken Sie in der Liste **Element** auf **Round**.  
   
@@ -459,7 +459,7 @@ Das Konfigurieren des Indikators und seiner Zustände erfordert viele Schritte. 
   
 7.  Geben Sie unmittelbar hinter `Fields!YTDPurchase.Value`ein Minuszeichen  **-** ein. 
   
-9. Erweitern Sie erneut die **Allgemeinen Funktionen** , klicken Sie auf **Aggregat** , und doppelklicken Sie in der Liste **Element** auf **Avg**.  
+9. Erweitern Sie erneut die **Allgemeinen Funktionen** , klicken Sie auf **Aggregat**, und doppelklicken Sie in der Liste **Element** auf **Avg**.  
   
 11. Klicken Sie in der Liste **Kategorie** auf **Felder (Ausdrücke)** , und doppelklicken Sie in der Liste **Werte** auf **YTDPurchase**.  
   
@@ -475,7 +475,7 @@ Das Konfigurieren des Indikators und seiner Zustände erfordert viele Schritte. 
 
     ![Screenshot: Auswählen der Schaltfläche „fx“ neben dem Textfeld „Start“](../reporting-services/media/report-builder-expression-tutorial-indicator-start.png)
   
-18. Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , und klicken Sie anschließend auf **Mathematisch**.  
+18. Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen**, und klicken Sie anschließend auf **Mathematisch**.  
   
 19. Doppelklicken Sie in der Liste **Element** auf **Round**.  
   
@@ -483,7 +483,7 @@ Das Konfigurieren des Indikators und seiner Zustände erfordert viele Schritte. 
   
 22. Geben Sie unmittelbar hinter `Fields!YTDPurchase.Value`ein Minuszeichen  **-** ein. 
   
-24. Erweitern Sie erneut die **Allgemeinen Funktionen** , klicken Sie auf **Aggregat** , und doppelklicken Sie in der Liste **Element** auf **Avg**.  
+24. Erweitern Sie erneut die **Allgemeinen Funktionen** , klicken Sie auf **Aggregat**, und doppelklicken Sie in der Liste **Element** auf **Avg**.  
   
 26. Klicken Sie in der Liste **Kategorie** auf **Felder (Ausdrücke)** , und doppelklicken Sie in der Liste **Werte** auf **YTDPurchase**.  
   
@@ -578,11 +578,11 @@ Erstellen Sie einen Parameter, damit die Leser des Berichts die Farbe bestimmen 
 
     ![Screenshot: Zuweisen einer BackgroundColor-Eigenschaft zu einem Ausdruck im Feld „Eigenschaften“](../reporting-services/media/report-builder-expression-tutorial-banded-color-property.png)
   
-6.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen** , und klicken Sie anschließend auf **Programmfluss**.  
+6.  Erweitern Sie im Dialogfeld **Ausdruck** die Option **Allgemeine Funktionen**, und klicken Sie anschließend auf **Programmfluss**.  
   
 7.  Doppelklicken Sie in der Liste **Element** auf **IIf**.  
   
-8.  Klicken Sie unter **Allgemeine Funktionen** auf **Verschiedenes** , und doppelklicken Sie in der Liste **Element** auf **RowNumber**.  
+8.  Klicken Sie unter **Allgemeine Funktionen** auf **Verschiedenes**, und doppelklicken Sie in der Liste **Element** auf **RowNumber**.  
 
 9. Geben Sie unmittelbar hinter **RowNumber(** **Nothing) MOD 2,** ein.
   
@@ -619,7 +619,7 @@ Hinzufügen eines Titels zu einem Bericht
   
 1.  Klicken Sie auf der Entwurfsoberfläche auf **Zum Hinzufügen eines Titels klicken**.  
   
-2.  Geben Sie **Sales Comparison Summary** (Übersicht über den Umsatzvergleich) ein, und wählen Sie dann den Text aus.  
+2.  Geben Sie **Sales Comparison Summary**(Übersicht über den Umsatzvergleich) ein, und wählen Sie dann den Text aus.  
   
 3.  Legen Sie auf der Registerkarte **Stamm** im Feld **Schriftart** Folgendes fest:
 

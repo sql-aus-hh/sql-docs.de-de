@@ -2,7 +2,7 @@
 description: 'Tutorial: Entwickeln einer .NET-Anwendung mithilfe von Always Encrypted mit Secure Enclaves'
 title: 'Tutorial: Entwickeln einer .NET-Anwendung mithilfe von Always Encrypted mit Secure Enclaves | Microsoft-Dokumentation'
 ms.custom: ''
-ms.date: 07/09/2020
+ms.date: 01/15/2021
 ms.reviewer: v-kaywon
 ms.prod: sql
 ms.prod_service: connectivity
@@ -11,27 +11,30 @@ ms.tgt_pltfrm: ''
 ms.topic: tutorial
 author: karinazhou
 ms.author: v-jizho2
-ms.openlocfilehash: 59c377d5055e8eb3858e1005c50d9c4dfb8334ab
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 177737bd2927583bdfda1c9b36904faf4ed6023d
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771543"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534699"
 ---
 # <a name="tutorial-develop-a-net-application-using-always-encrypted-with-secure-enclaves"></a>Tutorial: Entwickeln einer .NET-Anwendung mithilfe von Always Encrypted mit Secure Enclaves
 
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
 [!INCLUDE [appliesto-netfx-netcore-xxxx-md](../../../includes/appliesto-netfx-netcore-xxxx-md.md)]
 
-In diesem Tutorial erfahren Sie, wie Sie eine einfache Anwendung entwickeln, die Datenbankabfragen ausgibt, die eine serverseitige Secure Enclave für [Always Encrypted mit Secure Enclaves](../../../relational-databases/security/encryption/always-encrypted-enclaves.md) verwendet.
+In diesem Tutorial erfahren Sie, wie Sie eine Anwendung entwickeln, die Datenbankabfragen ausgibt, die eine serverseitige Secure Enclave für [Always Encrypted mit Secure Enclaves](../../../relational-databases/security/encryption/always-encrypted-enclaves.md) verwendet.
 
 > [!NOTE]
 > Always Encrypted mit Secure Enclaves wird nur unter Windows unterstützt.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Dieses Tutorial ist die Fortsetzung von [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves mithilfe von SSMS](../../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md). Schließen Sie es zunächst ab, bevor Sie mit den folgenden Schritten fortfahren.
+Stellen Sie sicher, dass Sie eines der folgenden Tutorials abgeschlossen haben, bevor Sie die Schritte in diesem Tutorial ausführen:
+
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in SQL Server](../../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started)
 
 Darüber hinaus benötigen Sie Visual Studio (Version 2019 wird empfohlen). Den Download finden Sie unter [https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com). In Ihrer Anwendungsentwicklungsumgebung muss .NET Framework 4.6 oder höher oder .NET Core 2.1 oder höher verwendet werden.
 
@@ -45,7 +48,7 @@ Wenn Sie Ihren Spaltenhauptschlüssel im Azure Key Vault speichern, müssen Sie 
 
 2. Erstellen Sie ein neues C\#-Konsolen-App-Projekt (.NET Framework/Core).
 
-3. Stellen Sie sicher, dass das Projekt mindestens auf .NET Framework 4.6 oder .NET Core 2.1 ausgerichtet ist. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, wählen Sie „Eigenschaften“ aus, und legen Sie das Zielframework fest.
+3. Stellen Sie sicher, dass das Projekt mindestens auf .NET Framework 4.6 oder .NET Core 2.1 ausgerichtet ist. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, wählen Sie **Eigenschaften** aus, und legen Sie das Zielframework fest.
 
 4. Installieren Sie das folgende NuGet-Paket, indem Sie zu **Tools** (Hauptmenü) > **NuGet-Paket-Manager** > **Paket-Manager-Konsole** gehen. Führen Sie den folgenden Code in der Paket-Manager-Konsole aus.
 
@@ -60,17 +63,11 @@ Wenn Sie Ihren Spaltenhauptschlüssel im Azure Key Vault speichern, müssen Sie 
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 
-6. Geben Sie `Attestation Protocol` und `Enclave Attestation Url` in der Verbindungszeichenfolge an, die in Ihrer Anwendung zur Kommunikation mit der SQL Server-Instanz verwendet werden soll.
-
-  ```cs
-   Attestation Protocol = HGS; Enclave Attestation Url = http://hgs.bastion.local/Attestation; Column Encryption Setting = Enabled
-   ```
-
 ## <a name="step-2-implement-your-application-logic"></a>Schritt 2: Implementieren Ihrer Anwendungslogik
 
-Ihre Anwendung stellt eine Verbindung mit der Datenbank **ContosoHR** aus dem [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves mithilfe von SSMS](../../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md) her und führt eine Abfrage aus, die das `LIKE`-Prädikat in der Spalte **SSN** sowie einen Bereichsvergleich in der Spalte **Salary** enthält.
+Ihre Anwendung stellt eine Verbindung mit der **ContosoHR**-Datenbank aus dem [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves mithilfe von SSMS](../../../relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md) oder dem [Tutorial: Erste Schritte mit Always Encrypted mit Secure Enclaves in Azure SQL-Datenbank](/azure/azure-sql/database/always-encrypted-enclaves-getting-started) her und führt eine Abfrage aus, die das `LIKE`-Prädikat in der Spalte **SSN** sowie einen Bereichsvergleich in der Spalte **Salary** enthält.
 
-1. Ersetzen Sie den Inhalt der (von Visual Studio generierten) Datei „Program.cs“ durch folgenden Code. Aktualisieren Sie die Datenverbindungszeichenfolge mit Ihrem Servernamen und die Enclave-Nachweis-URL für Ihre Umgebung. Sie können auch die Datenbankauthentifizierungseinstellungen aktualisieren.
+1. Ersetzen Sie den Inhalt der (von Visual Studio generierten) Datei „Program.cs“ durch folgenden Code. 
 
     ```cs
     using System;
@@ -84,21 +81,25 @@ Ihre Anwendung stellt eine Verbindung mit der Datenbank **ContosoHR** aus dem [T
             static void Main(string[] args)
             {
 
+                // Connection string for SQL Server
                 string connectionString = "Data Source = myserver; Initial Catalog = ContosoHR; Column Encryption Setting = Enabled;Attestation Protocol = HGS; Enclave Attestation Url = http://hgs.bastion.local/Attestation; Integrated Security = true";
+
+                // Connection string for Azure SQL Database
+                //string connectionString = "Data Source = myserver.database.windows.net; Initial Catalog = ContosoHR; Column Encryption Setting = Enabled;Attestation Protocol = AAS; Enclave Attestation Url = https://myattestationprovider.uks.attest.azure.net/attest/SgxEnclave; User ID=user; Password=password";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
                     SqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = @"SELECT [SSN], [FirstName], [LastName], [Salary] FROM [dbo].[Employees] WHERE [SSN] LIKE @SSNPattern AND [Salary] > @MinSalary;";
+                    cmd.CommandText = @"SELECT [SSN], [FirstName], [LastName], [Salary] FROM [HR].[Employees] WHERE [SSN] LIKE @SSNPattern AND [Salary] > @MinSalary;";
 
                     SqlParameter paramSSNPattern = cmd.CreateParameter();
 
                     paramSSNPattern.ParameterName = @"@SSNPattern";
                     paramSSNPattern.DbType = DbType.AnsiStringFixedLength;
                     paramSSNPattern.Direction = ParameterDirection.Input;
-                    paramSSNPattern.Value = "%1111";
+                    paramSSNPattern.Value = "%9838";
                     paramSSNPattern.Size = 11;
 
                     cmd.Parameters.Add(paramSSNPattern);
@@ -108,7 +109,7 @@ Ihre Anwendung stellt eine Verbindung mit der Datenbank **ContosoHR** aus dem [T
                     MinSalary.ParameterName = @"@MinSalary";
                     MinSalary.DbType = DbType.Currency;
                     MinSalary.Direction = ParameterDirection.Input;
-                    MinSalary.Value = 900;
+                    MinSalary.Value = 20000;
 
                     cmd.Parameters.Add(MinSalary);
                     cmd.ExecuteNonQuery();
@@ -117,7 +118,6 @@ Ihre Anwendung stellt eine Verbindung mit der Datenbank **ContosoHR** aus dem [T
                     while (reader.Read())
 
                     {
-                        Console.WriteLine(reader);
                         Console.WriteLine(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3]);
                     }
                     Console.ReadKey();
@@ -127,7 +127,14 @@ Ihre Anwendung stellt eine Verbindung mit der Datenbank **ContosoHR** aus dem [T
     }
     ```
 
-2. Erstellen Sie die Anwendung, und führen Sie sie aus.
+2. Aktualisieren Sie die Datenbank-Verbindungszeichenfolge.
+    1. Legen Sie einen gültigen Servernamen und die Authentifizierungseinstellungen für Ihre Datenbank fest.
+    2. Legen Sie das `Attestation Protocol`-Schlüsselwort auf einen der folgenden Werte fest:
+       - `HGS`, wenn Sie [!INCLUDE[ssnoversion-md](../../../includes/ssnoversion-md.md)] und den Host-Überwachungsdienst (Host Guardian Service, HGS) verwenden.
+       - `AAS`, wenn Sie [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] und Microsoft Azure Attestation verwenden.
+    3. Legen Sie `Enclave Attestation URL` auf eine Nachweis-URL für Ihre Umgebung fest.
+
+3. Erstellen Sie die Anwendung, und führen Sie sie aus.
 
 ## <a name="see-also"></a>Weitere Informationen
 
