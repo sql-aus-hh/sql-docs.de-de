@@ -16,17 +16,17 @@ helpviewer_keywords:
 ms.assetid: 236985bf-fc4a-4a57-98f7-a71ef977fd7b
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 8c87703d399f9f8906c4a3c4a7ea0703d092c333
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 8cb8e2b3377c4b90e61e9b65225d3d350bfa9897
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85785892"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783624"
 ---
 # <a name="configure-the-network-packet-size-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Netzwerkpaketgröße
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Netzwerkpaketgröße** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Netzwerkpaketgröße** können Sie die Paketgröße (in Byte) festlegen, die innerhalb des gesamten Netzwerks verwendet wird. Pakete sind die Datenabschnitte fester Größe, die Anforderungen und Ergebnisse zwischen Clients und Servern übertragen. Die Standardpaketgröße beträgt 4.096 Bytes.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Netzwerkpaketgröße** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Netzwerkpaketgröße** können Sie die Paketgröße (in Byte) festlegen, die innerhalb des gesamten Netzwerks verwendet wird. Pakete sind die Datenabschnitte fester Größe, die Anforderungen und Ergebnisse zwischen Clients und Servern übertragen. Die Standardpaketgröße beträgt 4.096 Bytes.  
   
 > [!NOTE]  
 >  Sie sollten die Paketgröße nur dann ändern, wenn Sie sicher sind, dass die Leistung dadurch verbessert werden kann. Für die meisten Anwendungen empfiehlt sich die Standardpaketgröße.  
@@ -83,7 +83,7 @@ ms.locfileid: "85785892"
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Wählen Sie unter **Netzwerk**einen Wert im Feld **Netzwerkpaketgröße** aus.  
+3.  Wählen Sie unter **Netzwerk** einen Wert im Feld **Netzwerkpaketgröße** aus.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

@@ -15,16 +15,16 @@ helpviewer_keywords:
 ms.assetid: 419f655d-3f9a-4e7d-90b9-f0bab47b3178
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 3cf135ca98a61382e12973b93eb30ab06ad6f4dd
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 663861d552b619b199e6279353f5bbdcf6658f24
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642566"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783371"
 ---
 # <a name="perform-a-planned-manual-failover-of-an-always-on-availability-group-sql-server"></a>Ausführen eines geplanten manuellen Failovers einer Always On-Verfügbarkeitsgruppe (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-In diesem Thema wird beschrieben, wie ein manuelles Failover ohne Datenverlust (ein *geplantes manuelles Failover*) in einer AlwaysOn-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]ausgeführt wird. Eine Verfügbarkeitsgruppe führt auf der Ebene eines Verfügbarkeitsreplikats ein Failover aus. Bei einem geplanten manuellen Failover wird – wie bei jedem Failover in einer AlwaysOn-Verfügbarkeitsgruppe – ein sekundäres Replikat in die primäre Rolle überführt. Parallel dazu wird das bisherige primäre Replikat in die sekundäre Rolle überführt.  
+In diesem Thema wird beschrieben, wie ein manuelles Failover ohne Datenverlust (ein *geplantes manuelles Failover*) in einer AlwaysOn-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]ausgeführt wird. Eine Verfügbarkeitsgruppe führt auf der Ebene eines Verfügbarkeitsreplikats ein Failover aus. Bei einem geplanten manuellen Failover wird – wie bei jedem Failover in einer AlwaysOn-Verfügbarkeitsgruppe – ein sekundäres Replikat in die primäre Rolle überführt. Parallel dazu wird das bisherige primäre Replikat in die sekundäre Rolle überführt.  
   
 Ein geplantes manuelles Failover wird nur unterstützt, wenn das primäre Replikat und das sekundäre Zielreplikat im Modus für synchrone Commits ausgeführt werden und aktuell synchronisiert sind. Bei einem geplanten manuellen Failover bleiben sämtliche Daten in den sekundären Datenbanken, die im sekundären Zielreplikat mit der Verfügbarkeitsgruppe verknüpft sind, erhalten. Nachdem das frühere primäre Replikat in die sekundäre Rolle übergegangen ist, werden seine Datenbanken zu sekundären Datenbanken. Anschließend beginnt Ihre Synchronisierung mit den neuen primären Datenbanken. Nach dem Übergang in den Status SYNCHRONIZED kann das neue sekundäre Replikat als Ziel eines künftigen geplanten manuellen Failovers dienen.  
   
@@ -94,7 +94,7 @@ Ein geplantes manuelles Failover wird nur unterstützt, wenn das primäre Replik
 2. Verwenden Sie das Cmdlet **Switch-SqlAvailabilityGroup** . 
   
     > [!NOTE] 
-    >  Um die Syntax eines Cmdlets anzuzeigen, verwenden Sie das **Get-Help** -Cmdlet in der [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] PowerShell-Umgebung. Weitere Informationen finden Sie unter [Get Help for SQL Server PowerShell](../../../powershell/sql-server-powershell.md) (Hilfe zu SQL Server-PowerShell anfordern). 
+    >  Um die Syntax eines Cmdlets anzuzeigen, verwenden Sie das **Get-Help** -Cmdlet in der [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] PowerShell-Umgebung. Weitere Informationen finden Sie unter [Get Help for SQL Server PowerShell](../../../powershell/sql-server-powershell.md) (Hilfe zu SQL Server-PowerShell anfordern). 
   
      Im folgenden Beispiel wird manuell ein Failover der *MyAg*-Verfügbarkeitsgruppe zum sekundären Replikat mit dem angegebenen Pfad ausgeführt: 
   

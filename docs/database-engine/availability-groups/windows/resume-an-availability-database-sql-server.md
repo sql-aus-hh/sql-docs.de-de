@@ -17,16 +17,16 @@ helpviewer_keywords:
 ms.assetid: 20e9147b-e985-4caa-910e-fc4b38dbf9a1
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ae254f35d813811638723988544f841bdd01b92b
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 91bbc8029233fbcdc937d7fc873577cd4f0e2575
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641462"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783197"
 ---
 # <a name="resume-an-availability-database-sql-server"></a>Fortsetzen einer Verfügbarkeitsdatenbank (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  Eine angehaltene Verfügbarkeitsdatenbank können Sie in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]fortsetzen. Beim Fortsetzen einer angehaltenen Datenbank wechselt die Datenbank in den Status SYNCHRONIZING. Beim Fortsetzen der primären Datenbank werden auch ihre sekundären Datenbanken fortgesetzt, die beim Anhalten der primären Datenbank angehalten wurden. Wenn eine sekundäre Datenbank lokal von der Serverinstanz, die das sekundäre Replikat hostet, angehalten wurde, muss diese sekundäre Datenbank lokal fortgesetzt werden. Sobald sich eine bestimmte sekundäre Datenbank und die entsprechende primäre Datenbank im Status SYNCHRONIZING befinden, wird die Datensynchronisierung auf der sekundären Datenbank fortgesetzt.  
+  Eine angehaltene Verfügbarkeitsdatenbank können Sie in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]fortsetzen. Beim Fortsetzen einer angehaltenen Datenbank wechselt die Datenbank in den Status SYNCHRONIZING. Beim Fortsetzen der primären Datenbank werden auch ihre sekundären Datenbanken fortgesetzt, die beim Anhalten der primären Datenbank angehalten wurden. Wenn eine sekundäre Datenbank lokal von der Serverinstanz, die das sekundäre Replikat hostet, angehalten wurde, muss diese sekundäre Datenbank lokal fortgesetzt werden. Sobald sich eine bestimmte sekundäre Datenbank und die entsprechende primäre Datenbank im Status SYNCHRONIZING befinden, wird die Datensynchronisierung auf der sekundären Datenbank fortgesetzt.  
   
 > [!NOTE]  
 >  Das Anhalten und Fortsetzen einer sekundären AlwaysOn-Datenbank wirkt sich nicht direkt auf die Verfügbarkeit der primären Datenbank aus. Das Anhalten einer sekundären Datenbank kann jedoch sich auf Redundanz- und Failoverfunktionen für die primäre Datenbank auswirken, bis die angehaltene sekundäre Datenbank fortgesetzt wird. Dies steht im Gegensatz zur Datenbankspiegelung, bei der der Spiegelungsstatus sowohl in der Spiegeldatenbank als auch in der Prinzipaldatenbank angehalten wird, bis die Spiegelung fortgesetzt wird. Durch Anhalten einer primären AlwaysOn-Datenbank wird die Datenverschiebung auf allen entsprechenden sekundären Datenbanken angehalten, und Redundanz- und Failoverfunktionen für diese Datenbank werden deaktiviert, bis die primäre Datenbank fortgesetzt wird.  

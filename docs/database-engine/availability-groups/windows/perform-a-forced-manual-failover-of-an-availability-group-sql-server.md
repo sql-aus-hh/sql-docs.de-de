@@ -15,16 +15,16 @@ helpviewer_keywords:
 ms.assetid: 222288fe-ffc0-4567-b624-5d91485d70f0
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: fadd4b3978466775a44ace25a12bb9cfac08a8e7
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 9b029efb566fef24aed4748b51bfc15050d495c0
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642577"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783502"
 ---
 # <a name="perform-a-forced-manual-failover-of-an-always-on-availability-group-sql-server"></a>Ausführen eines erzwungenen manuellen Failovers einer Always On-Verfügbarkeitsgruppe (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie ein erzwungenes Failover (mit möglichem Datenverlust) in einer AlwaysOn-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]ausgeführt wird. Ein erzwungenes Failover ist eine Art manuelles Failover, das strikt für die Notfallwiederherstellung bestimmt ist, wenn ein [geplantes manuelles Failover](../../../database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server.md) nicht möglich ist. Wenn Sie ein Failover auf ein nicht synchronisiertes sekundäres Replikat erzwingen, ist Datenverlust möglich. Daher empfehlen wir dringend, dass Sie nur dann ein Failover erzwingen, wenn Sie den Dienst für die Verfügbarkeitsgruppe sofort wiederherstellen müssen und Datenverluste riskieren möchten.  
+  In diesem Thema wird beschrieben, wie ein erzwungenes Failover (mit möglichem Datenverlust) in einer AlwaysOn-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]ausgeführt wird. Ein erzwungenes Failover ist eine Art manuelles Failover, das strikt für die Notfallwiederherstellung bestimmt ist, wenn ein [geplantes manuelles Failover](../../../database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server.md) nicht möglich ist. Wenn Sie ein Failover auf ein nicht synchronisiertes sekundäres Replikat erzwingen, ist Datenverlust möglich. Daher empfehlen wir dringend, dass Sie nur dann ein Failover erzwingen, wenn Sie den Dienst für die Verfügbarkeitsgruppe sofort wiederherstellen müssen und Datenverluste riskieren möchten.  
   
  Nach einem erzwungenen Failover wird das Failoverziel, auf das ein Failover der Verfügbarkeitsgruppe ausgeführt wurde, zum neuen primären Replikat. Die sekundären Datenbanken in den verbleibenden sekundären Replikaten werden angehalten, und deren Ausführung muss manuell fortgesetzt werden. Wenn das frühere primäre Replikat verfügbar wird, geht es in die sekundäre Rolle über, sodass die früheren primären Datenbanken zu sekundären Datenbanken werden und in den Status SUSPENDED übergehen. Bevor Sie die Ausführung einer angegebenen sekundären Datenbank fortsetzen, können Sie möglicherweise verlorene Daten wiederherstellen. Beachten Sie jedoch, dass die Transaktionsprotokollkürzung in einer angegebenen primären Datenbank verzögert wird, solange eine ihrer sekundären Datenbanken angehalten ist.  
   

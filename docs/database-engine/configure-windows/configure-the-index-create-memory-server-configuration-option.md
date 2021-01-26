@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: 3d722d9b-bada-4bf5-a9d7-bfc556bb4915
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: afe6724ebac116e091072ab74ee37142a2ab8230
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 66fa81d56ed0b3ebebd7a95ddea0b12356da5c1d
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697206"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783679"
 ---
 # <a name="configure-the-index-create-memory-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Speicher für Indexerstellung
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Speicher für Indexerstellung** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Speicher für Indexerstellung** wird der maximale Umfang des für Sortiervorgänge beim Erstellen von Indizes zu Beginn zugeordneten Arbeitsspeichers gesteuert. Der Standardwert für diese Option beträgt 0 (Selbstkonfiguration). Wenn später für die Indexerstellung mehr Speicherplatz benötigt wird und noch Speicherplatz verfügbar ist, wird dieser vom Server verwendet, und der für die Option festgelegte Wert wird überschritten. Wenn kein Speicherplatz mehr verfügbar ist, wird die Indexerstellung so lange fortgesetzt, wie der bereits zugeordnete Speicherplatz gestattet.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Speicher für Indexerstellung** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Speicher für Indexerstellung** wird der maximale Umfang des für Sortiervorgänge beim Erstellen von Indizes zu Beginn zugeordneten Arbeitsspeichers gesteuert. Der Standardwert für diese Option beträgt 0 (Selbstkonfiguration). Wenn später für die Indexerstellung mehr Speicherplatz benötigt wird und noch Speicherplatz verfügbar ist, wird dieser vom Server verwendet, und der für die Option festgelegte Wert wird überschritten. Wenn kein Speicherplatz mehr verfügbar ist, wird die Indexerstellung so lange fortgesetzt, wie der bereits zugeordnete Speicherplatz gestattet.  
   
  **In diesem Thema**  
   
@@ -74,7 +74,7 @@ ms.locfileid: "85697206"
   
 2.  Klicken Sie auf den **Speicher** -Knoten.  
   
-3.  Geben Sie unter **Speicher für Indexerstellung**den gewünschten Wert für die Option „Speicher für Indexerstellung“ ein, oder wählen Sie einen Wert aus.  
+3.  Geben Sie unter **Speicher für Indexerstellung** den gewünschten Wert für die Option „Speicher für Indexerstellung“ ein, oder wählen Sie einen Wert aus.  
   
      Sie können mit der Option **Speicher für Indexerstellung** den Umfang an Speicherplatz steuern, der für Sortiervorgänge bei der Indexerstellung verwendet wird. Bei der Option **Speicher für Indexerstellung** handelt es sich um eine selbstkonfigurierende Option, die in den meisten Fällen ohne weitere Anpassung funktionieren sollte. Wenn Sie jedoch Schwierigkeiten beim Erstellen von Indizes feststellen, sollten Sie den Wert dieser Option abweichend vom Ausführungswert erhöhen. Das Sortieren von Abfragen wird über die Option **Min. Arbeitsspeicher pro Abfrage** gesteuert.  
   

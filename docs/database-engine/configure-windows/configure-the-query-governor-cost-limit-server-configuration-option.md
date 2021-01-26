@@ -15,17 +15,17 @@ helpviewer_keywords:
 ms.assetid: e7b8f084-1052-4133-959b-cebf4add790f
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 02b34ab8d3c0a3efd79d7d136bf26401ba92fdf4
-ms.sourcegitcommit: bf8cf755896a8c964774a438f2bd461a2a648c22
+ms.openlocfilehash: 7004a0a7b7322fc939b5df21d40c389dc4a3dc6a
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88216727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783659"
 ---
 # <a name="configure-the-query-governor-cost-limit-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Kostenbeschränkung der Abfragekontrolle
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Kostenbeschränkung der Abfragekontrolle** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Die Option zur Kostenbeschränkung legt eine Obergrenze für die geschätzten zulässigen Kosten für die Ausführung einer bestimmten Abfrage fest. Die Abfragekosten sind eine abstrakte Zahl, die vom Abfrageoptimierer basierend auf geschätzten Ausführungsanforderungen wie CPU-Zeit, Arbeitsspeichernutzung und Datenträger-E/A ermittelt wird. Sie beziehen sich auf eine geschätzte Zeit in Sekunden, die für das Ausführen einer Abfrage bei einer bestimmten Hardwarekonfiguration benötigt wird. Diese abstrakte Zahl entspricht nicht der Zeit, die für die vollständige Ausführung einer Abfrage auf der ausgeführten Instanz erforderlich ist. Sie sollte als relatives Measure behandelt werden. Der Standardwert für diese Option ist 0, mit dem die Abfragekontrolle deaktiviert wird. Durch Festlegen des Werts auf 0 können alle Abfragen ohne zeitliche Begrenzung ausgeführt werden. Wenn Sie einen nicht negativen Wert ungleich Null angeben, lässt die Abfragekontrolle die Ausführung von Abfragen nicht zu, deren geschätzte Kosten über diesem Wert liegen.   
+In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Kostenbeschränkung der Abfragekontrolle** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Die Option zur Kostenbeschränkung legt eine Obergrenze für die geschätzten zulässigen Kosten für die Ausführung einer bestimmten Abfrage fest. Die Abfragekosten sind eine abstrakte Zahl, die vom Abfrageoptimierer basierend auf geschätzten Ausführungsanforderungen wie CPU-Zeit, Arbeitsspeichernutzung und Datenträger-E/A ermittelt wird. Sie beziehen sich auf eine geschätzte Zeit in Sekunden, die für das Ausführen einer Abfrage bei einer bestimmten Hardwarekonfiguration benötigt wird. Diese abstrakte Zahl entspricht nicht der Zeit, die für die vollständige Ausführung einer Abfrage auf der ausgeführten Instanz erforderlich ist. Sie sollte als relatives Measure behandelt werden. Der Standardwert für diese Option ist 0, mit dem die Abfragekontrolle deaktiviert wird. Durch Festlegen des Werts auf 0 können alle Abfragen ohne zeitliche Begrenzung ausgeführt werden. Wenn Sie einen nicht negativen Wert ungleich Null angeben, lässt die Abfragekontrolle die Ausführung von Abfragen nicht zu, deren geschätzte Kosten über diesem Wert liegen.   
   
  **In diesem Thema**  
   

@@ -15,16 +15,16 @@ helpviewer_keywords:
 ms.assetid: 4b7f7f62-43a3-49db-a72e-22d4d7c2ddbb
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 83c2a77b294a70cbc6ace15c8b3a1d85a8b5bcc9
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: bfd907b77633bdecc1af1371c83da4a4d4bff9a9
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97637778"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783491"
 ---
 # <a name="remove-an-availability-group-sql-server"></a>Entfernen einer Verfügbarkeitsgruppe (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Artikel wird beschrieben, wie eine Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)] oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] gelöscht wird. Wenn eine Serverinstanz, auf der eines der Verfügbarkeitsreplikate gehostet wird, offline ist, wenn Sie eine Verfügbarkeitsgruppe löschen, so wird das lokale Verfügbarkeitsreplikat von der Serverinstanz gelöscht, nachdem diese online geschaltet wurde. Beim Löschen einer Verfügbarkeitsgruppe werden sämtliche zugeordneten Verfügbarkeitsgruppenlistener gelöscht.  
+  In diesem Artikel wird beschrieben, wie eine Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)] oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] gelöscht wird. Wenn eine Serverinstanz, auf der eines der Verfügbarkeitsreplikate gehostet wird, offline ist, wenn Sie eine Verfügbarkeitsgruppe löschen, so wird das lokale Verfügbarkeitsreplikat von der Serverinstanz gelöscht, nachdem diese online geschaltet wurde. Beim Löschen einer Verfügbarkeitsgruppe werden sämtliche zugeordneten Verfügbarkeitsgruppenlistener gelöscht.  
   
  Beachten Sie, dass eine Verfügbarkeitsgruppe ggf. aus einem WSFC (Windows Server Failover Clustering)-Knoten gelöscht werden kann, der über die richtigen Sicherheitsanmeldeinformationen für die Verfügbarkeitsgruppe verfügt. Auf diese Weise können Sie eine Verfügbarkeitsgruppe löschen, wenn keine ihrer Verfügbarkeitsreplikate mehr vorhanden ist.  
   

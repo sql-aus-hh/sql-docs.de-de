@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: 881c20e5-1c99-44eb-b393-09fc5ea0f122
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 521d66002a1ad3d2ead2a906dc40a87d22ae220a
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: bd0d0a412d77c31be53a42000642171e06885972
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642106"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783161"
 ---
 # <a name="service-broker-with-always-on-availability-groups-sql-server"></a>Service Broker mit AlwaysOn-Verfügbarkeitsgruppen (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
 
-  Dieses Thema enthält Informationen, wie Sie Service Broker in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] zur Verwendung mit [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]konfigurieren.  
+  Dieses Thema enthält Informationen, wie Sie Service Broker in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] zur Verwendung mit [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]konfigurieren.  
   
   
 ##  <a name="requirements-for-a-service-in-an-availability-group-to-receive-remote-messages"></a><a name="ReceiveRemoteMessages"></a> Anforderungen, damit ein Dienst in einer Verfügbarkeitsgruppe Remotenachrichten empfangen kann  

@@ -16,16 +16,16 @@ helpviewer_keywords:
 ms.assetid: e5bd2489-097a-490e-8ea1-34fe48378ad1
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 9ada906d271130f0160e4bf8ce8f88d88b91b2e0
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4f9f35186d57900628f39a593e3e338ed89a9d89
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644213"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766412"
 ---
 # <a name="join-a-secondary-replica-to-an-always-on-availability-group"></a>Verknüpfen eines sekundären Replikats mit einer Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie ein sekundäres Replikat in [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)]mit [!INCLUDE[tsql](../../../includes/tsql-md.md)], [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]oder PowerShell mit einer Always On-Verfügbarkeitsgruppe verknüpft wird. Nachdem ein sekundäres Replikat einer Always On-Verfügbarkeitsgruppe hinzugefügt wurde, muss das sekundäre Replikat mit der Verfügbarkeitsgruppe verknüpft werden. Der Joinvorgang für das Replikat muss auf der [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Instanz ausgeführt werden, die das sekundäre Replikat hostet.  
+  In diesem Thema wird beschrieben, wie ein sekundäres Replikat in [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)]mit [!INCLUDE[tsql](../../../includes/tsql-md.md)], [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]oder PowerShell mit einer Always On-Verfügbarkeitsgruppe verknüpft wird. Nachdem ein sekundäres Replikat einer Always On-Verfügbarkeitsgruppe hinzugefügt wurde, muss das sekundäre Replikat mit der Verfügbarkeitsgruppe verknüpft werden. Der Joinvorgang für das Replikat muss auf der [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] -Instanz ausgeführt werden, die das sekundäre Replikat hostet.  
 
   
 ##  <a name="prerequisites"></a><a name="Prerequisites"></a> Voraussetzungen  

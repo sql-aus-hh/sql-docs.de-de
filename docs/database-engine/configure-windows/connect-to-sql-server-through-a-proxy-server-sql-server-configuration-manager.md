@@ -19,17 +19,17 @@ helpviewer_keywords:
 ms.assetid: 39714de0-2a1f-4179-9091-5c3fa4612545
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 74187c8e806e6dd1cadb9ea38860b11ec0bcaba0
-ms.sourcegitcommit: f87f2f0f1edc91fe400040d8e3a5810347aa8d70
+ms.openlocfilehash: 325bdae16fdc8309d0f40134ba31041e5b47b547
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96857677"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783261"
 ---
 # <a name="connect-to-sql-server-through-a-proxy-server-sql-server-configuration-manager"></a>Verbindungsaufbau mit SQL Server über einen Proxyserver (SQL Server-Konfigurations-Manager)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie Sie über einen Proxyserver in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe des SQL Server-Konfigurations-Managers eine Verbindung zu SQL Server herstellen. Für die Remoteüberwachung über Remote WinSock (RWS) definieren Sie die lokale Adresstabelle (LAT, Local Address Table) für den Proxyserver so, dass sich die Überwachungsknotenadresse außerhalb des Bereichs der lokalen Adresstabelleneinträge befindet.  
+  In diesem Thema wird beschrieben, wie Sie über einen Proxyserver in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe des SQL Server-Konfigurations-Managers eine Verbindung zu SQL Server herstellen. Für die Remoteüberwachung über Remote WinSock (RWS) definieren Sie die lokale Adresstabelle (LAT, Local Address Table) für den Proxyserver so, dass sich die Überwachungsknotenadresse außerhalb des Bereichs der lokalen Adresstabelleneinträge befindet.  
   
 ##  <a name="using-sql-server-configuration-manager"></a><a name="SSMSProcedure"></a> Verwenden des SQL Server-Konfigurations-Managers  
   

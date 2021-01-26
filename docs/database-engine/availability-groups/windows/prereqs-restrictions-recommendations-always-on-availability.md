@@ -19,12 +19,12 @@ helpviewer_keywords:
 ms.assetid: edbab896-42bb-4d17-8d75-e92ca11f7abb
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ec3a84dc54dcaf373f8fd817c259602c7901410d
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: e1a2fe365ff2cf40e1dd7e08e113a586e7c2b666
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642528"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783517"
 ---
 # <a name="prerequisites-restrictions-and-recommendations-for-always-on-availability-groups"></a>Voraussetzungen, Einschränkungen und Empfehlungen für Always On-Verfügbarkeitsgruppen
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "97642528"
 >  Vor der Bereitstellung von [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)]wird empfohlen, dieses Thema vollständig zu lesen.  
     
 ##  <a name="net-hotfixes-that-support-availability-groups"></a><a name="DotNetHotfixes"></a> .NET-Hotfixes mit Unterstützung für Verfügbarkeitsgruppen  
- Abhängig von den [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]-Komponenten und -Features, die Sie mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)]verwenden, müssen Sie möglicherweise zusätzliche in der folgenden Tabelle angegebene .NET-Hotfixes installieren. Die Hotfixes können in beliebiger Reihenfolge installiert werden.  
+ Abhängig von den [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]-Komponenten und -Features, die Sie mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)]verwenden, müssen Sie möglicherweise zusätzliche in der folgenden Tabelle angegebene .NET-Hotfixes installieren. Die Hotfixes können in beliebiger Reihenfolge installiert werden.  
   
 |Abhängige Funktion|Hotfix|Link|  
 |-----------------------|------------|----------|  

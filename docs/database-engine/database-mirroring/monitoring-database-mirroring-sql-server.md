@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: a7b1b9b0-7c19-4acc-9de3-3a7c5e70694d
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 9b77b54ba48dc2c3820d055227411f61983b1a7c
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: ece89606626172d50ba656a6545237af2ec761fe
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644286"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783406"
 ---
 # <a name="monitoring-database-mirroring-sql-server"></a>Überwachen der Datenbankspiegelung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -250,7 +250,7 @@ ms.locfileid: "97644286"
     -   Hohe Sicherheit mit automatischem Failover (synchron)  
   
 ##  <a name="additional-sources-of-information-about-a-mirrored-database"></a><a name="AdditionalSources"></a> Zusätzliche Informationsquellen zu gespiegelten Datenbanken  
- Zusätzlich zur Verwendung des Datenbankspiegelungs-Monitors und dbmmonitor-basierter gespeicherter Prozeduren zur Überwachung einer gespiegelten Datenbank und zum Einrichten von Warnungen für überwachte Leistungsvariablen bietet [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] Katalogsichten, Leistungsindikatoren und Ereignisbenachrichtigungen für die Datenbankspiegelung.  
+ Zusätzlich zur Verwendung des Datenbankspiegelungs-Monitors und dbmmonitor-basierter gespeicherter Prozeduren zur Überwachung einer gespiegelten Datenbank und zum Einrichten von Warnungen für überwachte Leistungsvariablen bietet [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] Katalogsichten, Leistungsindikatoren und Ereignisbenachrichtigungen für die Datenbankspiegelung.  
   
  **In diesem Abschnitt:**  
   

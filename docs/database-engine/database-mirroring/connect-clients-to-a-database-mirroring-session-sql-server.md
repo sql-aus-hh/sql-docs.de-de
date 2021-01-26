@@ -16,16 +16,16 @@ helpviewer_keywords:
 ms.assetid: 0d5d2742-2614-43de-9ab9-864addb6299b
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 680273a6bab1283be56d130c84b4c156d8fcd280
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: c34c9359534b3ec59aba824dccb649a9168fe725
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644333"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783605"
 ---
 # <a name="connect-clients-to-a-database-mirroring-session-sql-server"></a>Verbinden von Clients mit einer Datenbank-Spiegelungssitzung (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
-  Zum Herstellen einer Verbindung mit einer Datenbank-Spiegelungssitzung kann ein Client entweder [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client oder .NET Framework-Datenanbieter für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]verwenden. Wenn sie für eine [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] -Datenbank konfiguriert sind, unterstützen beide Datenzugriffsanbieter die Datenbankspiegelung. Informationen zu Programmierüberlegungen in Bezug auf das Verwenden einer gespiegelten Datenbank finden Sie unter [Verwenden der Datenbankspiegelung](../../relational-databases/native-client/features/using-database-mirroring.md). Zusätzlich muss die aktuelle Prinzipalserverinstanz verfügbar sein, und der Anmeldename des Clients muss auf der Serverinstanz erstellt worden sein. Weitere Informationen finden Sie unter [Problembehandlung bei verwaisten Benutzern &#40;SQL Server&#41;](../../sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server.md)aus. Sofern eine Zeugenserverinstanz vorhanden ist, werden Clientverbindungen mit einer Datenbank-Spiegelungssitzung ohne Beteiligung dieser Instanz hergestellt.  
+  Zum Herstellen einer Verbindung mit einer Datenbank-Spiegelungssitzung kann ein Client entweder [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client oder .NET Framework-Datenanbieter für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]verwenden. Wenn sie für eine [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] -Datenbank konfiguriert sind, unterstützen beide Datenzugriffsanbieter die Datenbankspiegelung. Informationen zu Programmierüberlegungen in Bezug auf das Verwenden einer gespiegelten Datenbank finden Sie unter [Verwenden der Datenbankspiegelung](../../relational-databases/native-client/features/using-database-mirroring.md). Zusätzlich muss die aktuelle Prinzipalserverinstanz verfügbar sein, und der Anmeldename des Clients muss auf der Serverinstanz erstellt worden sein. Weitere Informationen finden Sie unter [Problembehandlung bei verwaisten Benutzern &#40;SQL Server&#41;](../../sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server.md)aus. Sofern eine Zeugenserverinstanz vorhanden ist, werden Clientverbindungen mit einer Datenbank-Spiegelungssitzung ohne Beteiligung dieser Instanz hergestellt.  
   
   
 ##  <a name="making-the-initial-connection-to-a-database-mirroring-session"></a><a name="InitialConnection"></a> Herstellen der Anfangsverbindung mit einer Datenbank-Spiegelungssitzung  

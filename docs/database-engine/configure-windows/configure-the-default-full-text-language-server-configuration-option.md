@@ -14,17 +14,17 @@ helpviewer_keywords:
 ms.assetid: 0fa8785b-0830-4a52-aff5-fcf8268b72fc
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 51e7b8c99fbf6c6cf7bf70a52b220ae4cd0ea3bc
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 45e05505444d00607cae875b8dfd8bd07bf9190e
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697726"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783240"
 ---
 # <a name="configure-the-default-full-text-language-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Volltext-Standardsprache
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Volltext-Standardsprache** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Volltext-Standardsprache** können Sie einen Standardsprachenwert für Volltextindizes angeben. Für alle Daten, die Volltextindizes aufweisen, wird eine linguistische Analyse ausgeführt, die von der Sprache der Daten abhängt. Der Standardwert für diese Option ist die Sprache des Servers. Bei einer lokalisierten Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird die Option [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] default full-text language **vom** -Setup auf die Sprache des Servers festgelegt, falls eine geeignete Übereinstimmung vorhanden ist. Bei einer nicht lokalisierten Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird Englisch für die Option **Standard-Volltextsprache** verwendet.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Volltext-Standardsprache** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Volltext-Standardsprache** können Sie einen Standardsprachenwert für Volltextindizes angeben. Für alle Daten, die Volltextindizes aufweisen, wird eine linguistische Analyse ausgeführt, die von der Sprache der Daten abhängt. Der Standardwert für diese Option ist die Sprache des Servers. Bei einer lokalisierten Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird die Option [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] default full-text language **vom** -Setup auf die Sprache des Servers festgelegt, falls eine geeignete Übereinstimmung vorhanden ist. Bei einer nicht lokalisierten Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]wird Englisch für die Option **Standard-Volltextsprache** verwendet.  
   
  **In diesem Thema**  
   

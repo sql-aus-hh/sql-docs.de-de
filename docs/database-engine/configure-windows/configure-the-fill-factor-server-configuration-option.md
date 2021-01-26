@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: b920ec34-ba8b-4bb8-af53-a3ffd06bafa6
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: bc99d890e179bd19a9797471f5b940d6ffb7a44f
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 0f65bfbfb0a68a76c9b0471bba42e4182ccff888
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697233"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783692"
 ---
 # <a name="configure-the-fill-factor-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Füllfaktor
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Füllfaktor** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Der Füllfaktor wird zur erweiterten Leistungsoptimierung beim Speichern von Indexdaten bereitgestellt. Wenn ein Index erstellt oder neu erstellt wird, bestimmt der Füllfaktorwert den prozentualen Speicherplatz, der auf jeder Blattebenenseite mit Daten gefüllt werden soll; der übrige freie Speicherplatz wird für zukünftige Erweiterungen reserviert. Weitere Informationen finden Sie unter [Angeben des Füllfaktors für einen Index](../../relational-databases/indexes/specify-fill-factor-for-an-index.md).  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Füllfaktor** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Der Füllfaktor wird zur erweiterten Leistungsoptimierung beim Speichern von Indexdaten bereitgestellt. Wenn ein Index erstellt oder neu erstellt wird, bestimmt der Füllfaktorwert den prozentualen Speicherplatz, der auf jeder Blattebenenseite mit Daten gefüllt werden soll; der übrige freie Speicherplatz wird für zukünftige Erweiterungen reserviert. Weitere Informationen finden Sie unter [Angeben des Füllfaktors für einen Index](../../relational-databases/indexes/specify-fill-factor-for-an-index.md).  
   
  **In diesem Thema**  
   

@@ -15,19 +15,19 @@ helpviewer_keywords:
 ms.assetid: cfed8f86-6bcf-4b90-88eb-9656e22d5dc5
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: fe7a4f5bc7fb043533656041d5f10d5be1880273
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 71dcf7e52b1c58c7df868f502bc8de5da9892c6b
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85659771"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783431"
 ---
 # <a name="configure-the-user-options-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Benutzeroptionen
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Benutzeroptionen** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Die Option **Benutzeroptionen** gibt globale Standardwerte für alle Benutzer an. Es wird eine Liste der Standardoptionen der Abfrageverarbeitung für die Dauer der Sitzung eines Benutzers erstellt. Mit der Option **Benutzeroptionen** können Sie die Standardwerte der SET-Optionen ändern (wenn die Standardeinstellungen des Servers nicht verwendet werden können).  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Benutzeroptionen** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Die Option **Benutzeroptionen** gibt globale Standardwerte für alle Benutzer an. Es wird eine Liste der Standardoptionen der Abfrageverarbeitung für die Dauer der Sitzung eines Benutzers erstellt. Mit der Option **Benutzeroptionen** können Sie die Standardwerte der SET-Optionen ändern (wenn die Standardeinstellungen des Servers nicht verwendet werden können).  
   
- Ein Benutzer kann diese Standardeinstellungen mithilfe der SET-Anweisung überschreiben. Für neue Anmeldungen können Sie **Benutzeroptionen** dynamisch konfigurieren. Nach dem Ändern der Einstellung von **Benutzeroptionen**wird diese von neuen Anmeldesitzungen verwendet. Aktuelle Anmeldesitzungen sind davon nicht betroffen.  
+ Ein Benutzer kann diese Standardeinstellungen mithilfe der SET-Anweisung überschreiben. Für neue Anmeldungen können Sie **Benutzeroptionen** dynamisch konfigurieren. Nach dem Ändern der Einstellung von **Benutzeroptionen** wird diese von neuen Anmeldesitzungen verwendet. Aktuelle Anmeldesitzungen sind davon nicht betroffen.  
   
  **In diesem Thema**  
   
@@ -49,7 +49,7 @@ ms.locfileid: "85659771"
   
 ###  <a name="recommendations"></a><a name="Recommendations"></a> Empfehlungen  
   
--   In der folgenden Tabelle werden die Konfigurationswerte für **Benutzeroptionen**aufgeführt und beschrieben. Nicht alle Konfigurationswerte sind miteinander kompatibel. ANSI_NULL_DFLT_ON und ANSI_NULL_DFLT_OFF können beispielsweise nicht gleichzeitig festgelegt werden.  
+-   In der folgenden Tabelle werden die Konfigurationswerte für **Benutzeroptionen** aufgeführt und beschrieben. Nicht alle Konfigurationswerte sind miteinander kompatibel. ANSI_NULL_DFLT_ON und ANSI_NULL_DFLT_OFF können beispielsweise nicht gleichzeitig festgelegt werden.  
   
     |Wert|Konfiguration|BESCHREIBUNG|  
     |-----------|-------------------|-----------------|  

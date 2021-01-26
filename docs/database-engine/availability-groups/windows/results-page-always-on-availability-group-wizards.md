@@ -15,17 +15,17 @@ f1_keywords:
 ms.assetid: d80b14eb-60db-4351-90ad-6c179d235aa3
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 96c2ccde671737e55e4c301ab1f755a8192ed10f
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 74e0a717873e4097734b842b7d3c371a167c0088
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641459"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783219"
 ---
 # <a name="results-page-always-on-availability-group-wizards"></a>Seite „Ergebnisse“ (AlwaysOn-Verfügbarkeitsgruppen-Assistenten)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Hilfethema werden die Optionen der Seite **Ergebnisse** beschrieben. Dieses Thema gilt für den [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)], [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)]und [!INCLUDE[ssAoFoAgWiz](../../../includes/ssaofoagwiz-md.md)] von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]. Verwenden Sie diese Seite, um die Ergebnisse des Assistenten anzuzeigen.  
+  In diesem Hilfethema werden die Optionen der Seite **Ergebnisse** beschrieben. Dieses Thema gilt für den [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)], [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)]und [!INCLUDE[ssAoFoAgWiz](../../../includes/ssaofoagwiz-md.md)] von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]. Verwenden Sie diese Seite, um die Ergebnisse des Assistenten anzuzeigen.  
   
 ##  <a name="results-page-options"></a><a name="PageOptions"></a> Optionen auf der Seite "Ergebnisse"  
  Das Raster **Zusammenfassung** enthält die folgenden Spalten:  

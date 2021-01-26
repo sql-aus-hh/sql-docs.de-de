@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: 189f2067-c6c4-48bd-9bd9-65f6b2021c12
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 0a8d61714928482cf15f00a74175606ec43ca6e9
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: de30cb4bcf672fdf47ab926a28680baa1d9b1067
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697912"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783283"
 ---
 # <a name="configure-the-cursor-threshold-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Cursorschwellenwert
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Cursorschwellenwert** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Cursorschwellenwert** können Sie die Anzahl der Zeilen im Cursorset angeben, bei der Cursor-Keysets asynchron generiert werden. Wenn Cursor ein Keyset für ein Resultset generieren, schätzt der Abfrageoptimierer die Anzahl der Zeilen, die für dieses Resultset zurückgegeben werden. Wenn der Abfrageoptimierer schätzt, dass die Anzahl der zurückgegebenen Zeilen über diesem Schwellenwert liegt, wird der Cursor asynchron generiert. Dadurch kann der Benutzer Zeilen aus dem Cursor abrufen, während der Cursor weiterhin aufgefüllt wird. Andernfalls wird der Cursor synchron generiert, und die Abfrage wartet, bis alle Zeilen zurückgegeben wurden.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Cursorschwellenwert** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Cursorschwellenwert** können Sie die Anzahl der Zeilen im Cursorset angeben, bei der Cursor-Keysets asynchron generiert werden. Wenn Cursor ein Keyset für ein Resultset generieren, schätzt der Abfrageoptimierer die Anzahl der Zeilen, die für dieses Resultset zurückgegeben werden. Wenn der Abfrageoptimierer schätzt, dass die Anzahl der zurückgegebenen Zeilen über diesem Schwellenwert liegt, wird der Cursor asynchron generiert. Dadurch kann der Benutzer Zeilen aus dem Cursor abrufen, während der Cursor weiterhin aufgefüllt wird. Andernfalls wird der Cursor synchron generiert, und die Abfrage wartet, bis alle Zeilen zurückgegeben wurden.  
   
  **In diesem Thema**  
   
@@ -55,7 +55,7 @@ ms.locfileid: "85697912"
   
 -   Diese Option ist eine erweiterte Option und sollte ausschließlich von einem erfahrenen Datenbankadministrator oder einem zertifizierten [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Experten geändert werden.  
   
--   Wenn Sie den **Cursorschwellenwert** auf -1 festlegen, werden alle Keysets synchron generiert, was für kleine Cursorsets vorteilhaft ist. Wenn Sie **Cursorschwellenwert** auf 0 festlegen, werden alle Cursor-Keysets asynchron generiert. Bei anderen Werten vergleicht der Abfrageoptimierer die Anzahl der erwarteten Zeilen im Cursorset und erstellt das Keyset asynchron, wenn die Anzahl der in **Cursorschwellenwert**festgelegten Zeilen überschritten wird. Sie sollten die Option **Cursorschwellenwert** nicht zu niedrig festlegen, da es besser ist, kleine Resultsets synchron zu erstellen.  
+-   Wenn Sie den **Cursorschwellenwert** auf -1 festlegen, werden alle Keysets synchron generiert, was für kleine Cursorsets vorteilhaft ist. Wenn Sie **Cursorschwellenwert** auf 0 festlegen, werden alle Cursor-Keysets asynchron generiert. Bei anderen Werten vergleicht der Abfrageoptimierer die Anzahl der erwarteten Zeilen im Cursorset und erstellt das Keyset asynchron, wenn die Anzahl der in **Cursorschwellenwert** festgelegten Zeilen überschritten wird. Sie sollten die Option **Cursorschwellenwert** nicht zu niedrig festlegen, da es besser ist, kleine Resultsets synchron zu erstellen.  
   
 ###  <a name="security"></a><a name="Security"></a> Sicherheit  
   
@@ -70,7 +70,7 @@ ms.locfileid: "85697912"
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Geben Sie unter **Verschiedenes**für die Option **Cursorschwellenwert** den gewünschten Wert an.  
+3.  Geben Sie unter **Verschiedenes** für die Option **Cursorschwellenwert** den gewünschten Wert an.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

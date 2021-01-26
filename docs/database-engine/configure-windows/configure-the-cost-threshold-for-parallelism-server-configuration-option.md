@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: dad21bee-fe28-41f6-9d2f-e6ababfaf9db
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: c71e7d74d7ba2844d1891b7cf926c9bbded8e115
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: ea4681fd02065129c4b565d0e9dbb744a321f9ae
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85728665"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783301"
 ---
 # <a name="configure-the-cost-threshold-for-parallelism-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Kostenschwellenwert für Parallelität
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Kostenschwellenwert für Parallelität** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Kostenschwellenwert für Parallelität** geben Sie den Schwellenwert an, bei dem [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] parallele Pläne für Abfragen erstellt und ausführt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] erstellt und führt einen parallelen Plan für eine Abfrage nur dann aus, wenn die geschätzten Kosten für das Ausführen eines seriellen Plans für dieselbe Abfrage höher liegen als der Wert, der in **Kostenschwellenwert für Parallelität**festgelegt wurde. Die Kosten beziehen sich auf die geschätzten Kosten, die für das Ausführen des seriellen Plans bei einer bestimmten Hardwarekonfiguration anfallen, und sie stellen keine Einheit der Zeit dar. Die Option **Kostenschwellenwert für Parallelität** kann auf einen beliebigen Wert zwischen 0 und 32767 festgelegt werden. Der Standardwert ist 5.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Kostenschwellenwert für Parallelität** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Kostenschwellenwert für Parallelität** geben Sie den Schwellenwert an, bei dem [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] parallele Pläne für Abfragen erstellt und ausführt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] erstellt und führt einen parallelen Plan für eine Abfrage nur dann aus, wenn die geschätzten Kosten für das Ausführen eines seriellen Plans für dieselbe Abfrage höher liegen als der Wert, der in **Kostenschwellenwert für Parallelität** festgelegt wurde. Die Kosten beziehen sich auf die geschätzten Kosten, die für das Ausführen des seriellen Plans bei einer bestimmten Hardwarekonfiguration anfallen, und sie stellen keine Einheit der Zeit dar. Die Option **Kostenschwellenwert für Parallelität** kann auf einen beliebigen Wert zwischen 0 und 32767 festgelegt werden. Der Standardwert ist 5.  
   
  **In diesem Thema**  
   
@@ -86,7 +86,7 @@ FROM sys.dm_os_sys_info
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Legen Sie unter **Parallelität**für die Option **Kostenschwellenwert für Parallelität** den gewünschten Wert fest. Geben Sie einen Wert zwischen 0 und 32767 ein bzw. wählen Sie diesen aus.  
+3.  Legen Sie unter **Parallelität** für die Option **Kostenschwellenwert für Parallelität** den gewünschten Wert fest. Geben Sie einen Wert zwischen 0 und 32767 ein bzw. wählen Sie diesen aus.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

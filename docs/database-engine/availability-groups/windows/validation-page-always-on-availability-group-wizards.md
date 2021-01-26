@@ -16,17 +16,17 @@ helpviewer_keywords:
 ms.assetid: c8971556-240c-491a-bc86-9cc72f71a3dd
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 59c65191c2d69d3ebb7b144a6b254f1695fd5b5b
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 38e0471b0f21d97700aa2e9c90d630bcadf9beb3
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783001"
 ---
 # <a name="validation-page-always-on-availability-group-wizards"></a>Seite „Überprüfung“ (Always On-Verfügbarkeitsgruppen-Assistenten)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
     
-  In diesem Hilfethema werden die Optionen der Seite **Überprüfung** beschrieben. Dieses Thema gilt für [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)]und [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)] von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]. Verwenden Sie diese Seite, um zu überprüfen, ob die Umgebung alle auf vorherigen Seiten des Assistenten festgelegte Konfigurationsoptionen unterstützt.  
+  In diesem Hilfethema werden die Optionen der Seite **Überprüfung** beschrieben. Dieses Thema gilt für [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)]und [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)] von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]. Verwenden Sie diese Seite, um zu überprüfen, ob die Umgebung alle auf vorherigen Seiten des Assistenten festgelegte Konfigurationsoptionen unterstützt.  
   
 ##  <a name="validation-page-options"></a><a name="PageOptions"></a> Optionen auf der Seite "Überprüfung"  
  **Ergebnisse der Verfügbarkeitsgruppenüberprüfung.**  

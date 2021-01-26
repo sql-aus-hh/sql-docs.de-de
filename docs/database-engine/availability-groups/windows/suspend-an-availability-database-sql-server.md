@@ -17,16 +17,16 @@ helpviewer_keywords:
 ms.assetid: 86858982-6af1-4e80-9a93-87451f0d7ee9
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: f918daa031b25ba8f1110dc9f2aaeaebef0a9361
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4b8b491d5f5caf743ab94367eaaacfe3de4864ad
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642972"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783713"
 ---
 # <a name="suspend-an-availability-database-sql-server"></a>Anhalten einer Verfügbarkeitsdatenbank (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  Eine Verfügbarkeitsdatenbank können Sie in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]anhalten. Beachten Sie, dass der Befehl zum Anhalten auf der Serverinstanz ausgegeben werden muss, die die anzuhaltende oder fortzusetzende Datenbank hostet.  
+  Eine Verfügbarkeitsdatenbank können Sie in [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]anhalten. Beachten Sie, dass der Befehl zum Anhalten auf der Serverinstanz ausgegeben werden muss, die die anzuhaltende oder fortzusetzende Datenbank hostet.  
   
  Die Auswirkung eines Anhaltebefehls ist davon abhängig, ob Sie eine sekundäre Datenbank oder eine primäre Datenbank anhalten:  
   

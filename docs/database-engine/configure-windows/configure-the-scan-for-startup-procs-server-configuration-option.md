@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: 6bf9d252-e766-458d-9dcd-23d895f032a2
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 0547d5a800533a2414a8dbf666c85a8e9f4bc4c1
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 00426f84d2f8b3c0ca4626ffd8bddc234f27cf4d
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85785647"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783183"
 ---
 # <a name="configure-the-scan-for-startup-procs-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Startprozeduren suchen
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Startprozeduren suchen** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Sie können mithilfe der Option **Startprozeduren suchen** nach der automatischen Ausführung gespeicherter Prozeduren zum Startzeitpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] suchen. Wenn diese Option auf 1 festgelegt ist, sucht [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nach allen automatisch ausgeführten gespeicherten Prozeduren, die auf dem Server definiert sind, und führt diese aus. Der Standardwert für **Startprozeduren suchen** ist „0“ (kein Scannen).  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Startprozeduren suchen** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Sie können mithilfe der Option **Startprozeduren suchen** nach der automatischen Ausführung gespeicherter Prozeduren zum Startzeitpunkt von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] suchen. Wenn diese Option auf 1 festgelegt ist, sucht [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nach allen automatisch ausgeführten gespeicherten Prozeduren, die auf dem Server definiert sind, und führt diese aus. Der Standardwert für **Startprozeduren suchen** ist „0“ (kein Scannen).  
   
  **In diesem Thema**  
   
@@ -47,7 +47,7 @@ ms.locfileid: "85785647"
   
 -   Diese Option ist eine erweiterte Option und sollte ausschließlich von einem erfahrenen Datenbankadministrator oder einem zertifizierten [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Experten geändert werden.  
   
--   Der Wert für diese Option kann mithilfe von **sp_configure**festgelegt werden. Er wird jedoch automatisch festgelegt, wenn Sie die gespeicherte Systemprozedur **sp_procoption**verwenden. Diese Prozedur wird verwendet, um gespeicherte Prozeduren als automatisch ausgeführte Prozeduren zu kennzeichnen oder die Kennzeichnung aufzuheben. Wird **sp_procoption** zum Kennzeichnen der ersten gespeicherten Prozedur als autoproc verwendet, wird für diese Option automatisch der Wert „1“ festgelegt. Wenn **sp_procoption** verwendet wird, um die Kennzeichnung der letzten gespeicherten Prozedur als autoproc aufzuheben, wird der Wert für diese Option automatisch auf „0“ festgelegt. Wenn Sie **sp_procoption** zum Kennzeichnen bzw. zum Aufheben von Kennzeichnungen verwenden und die Kennzeichnungen von autoprocs vor dem Löschen immer aufheben, ist es nicht notwendig, diese Option manuell festzulegen.  
+-   Der Wert für diese Option kann mithilfe von **sp_configure** festgelegt werden. Er wird jedoch automatisch festgelegt, wenn Sie die gespeicherte Systemprozedur **sp_procoption** verwenden. Diese Prozedur wird verwendet, um gespeicherte Prozeduren als automatisch ausgeführte Prozeduren zu kennzeichnen oder die Kennzeichnung aufzuheben. Wird **sp_procoption** zum Kennzeichnen der ersten gespeicherten Prozedur als autoproc verwendet, wird für diese Option automatisch der Wert „1“ festgelegt. Wenn **sp_procoption** verwendet wird, um die Kennzeichnung der letzten gespeicherten Prozedur als autoproc aufzuheben, wird der Wert für diese Option automatisch auf „0“ festgelegt. Wenn Sie **sp_procoption** zum Kennzeichnen bzw. zum Aufheben von Kennzeichnungen verwenden und die Kennzeichnungen von autoprocs vor dem Löschen immer aufheben, ist es nicht notwendig, diese Option manuell festzulegen.  
   
 ###  <a name="security"></a><a name="Security"></a> Sicherheit  
   
@@ -62,7 +62,7 @@ ms.locfileid: "85785647"
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Ändern Sie unter **Sonstiges**die Option **Startprozeduren suchen** in TRUE oder FALSE, indem Sie im Dropdown-Listenfeld den gewünschten Wert auswählen.  
+3.  Ändern Sie unter **Sonstiges** die Option **Startprozeduren suchen** in TRUE oder FALSE, indem Sie im Dropdown-Listenfeld den gewünschten Wert auswählen.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

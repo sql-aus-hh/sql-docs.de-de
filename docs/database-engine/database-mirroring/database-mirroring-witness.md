@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 05606de8-90c3-451a-938d-1ed34211dad7
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: b2fe841ef1b914f275878fa61ad40fe2a016a4a5
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: d3585a187d11ee97e409d196c81ddb00643bb3ac
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644070"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98782967"
 ---
 # <a name="database-mirroring-witness"></a>Database Mirroring Witness
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "97644070"
   
  ![Serverinstanz als Zeuge für zwei Datenbanken](../../database-engine/database-mirroring/media/dbm-witness-in-2-sessions.gif "Serverinstanz als Zeuge für zwei Datenbanken")  
   
- Eine einzelne Serverinstanz kann auch gleichzeitig in bestimmten Sitzungen als Zeuge und in anderen als Partner eingesetzt werden. In der Praxis fungiert eine Serverinstanz jedoch in der Regel entweder als Zeuge oder als Partner. Das ist darauf zurückzuführen, dass als Partner nur leistungsfähige Computer mit entsprechender Hardware zur Unterstützung einer Produktionsdatenbank verwendet werden können, während der Zeuge unter jedem verfügbaren Windows-System ausgeführt werden kann, das Unterstützung für [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]bietet.  
+ Eine einzelne Serverinstanz kann auch gleichzeitig in bestimmten Sitzungen als Zeuge und in anderen als Partner eingesetzt werden. In der Praxis fungiert eine Serverinstanz jedoch in der Regel entweder als Zeuge oder als Partner. Das ist darauf zurückzuführen, dass als Partner nur leistungsfähige Computer mit entsprechender Hardware zur Unterstützung einer Produktionsdatenbank verwendet werden können, während der Zeuge unter jedem verfügbaren Windows-System ausgeführt werden kann, das Unterstützung für [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]bietet.  
   
 ##  <a name="software-and-hardware-recommendations"></a><a name="SwHwRecommendations"></a> Software- und Hardwareempfehlungen  
  Sie sollten den Zeugen unbedingt auf einem von den Partnern separaten Computer platzieren. Datenbank-Spiegelungspartner werden nur von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Standard Edition und von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Enterprise Edition unterstützt. Zeugen hingegen werden auch von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Workgroup und [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Express unterstützt. Außer während eines Upgrades von einer früheren Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]muss in einer Spiegelungssitzung auf allen Serverinstanzen dieselbe Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]ausgeführt werden. Ein [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] -Zeuge wird beispielsweise unterstützt, wenn Sie von einer Spiegelungskonfiguration der Version [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] aktualisieren, er kann jedoch nicht einer vorhandenen oder neuen Spiegelungskonfiguration der Version [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)] oder höher hinzugefügt werden.  

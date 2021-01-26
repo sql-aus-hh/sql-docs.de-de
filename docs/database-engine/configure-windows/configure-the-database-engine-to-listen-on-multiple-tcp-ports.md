@@ -19,16 +19,16 @@ helpviewer_keywords:
 ms.assetid: 8e955033-06ef-403f-b813-3d8241b62f1f
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: dc92b34d57f2406c1b5aa59cce67840af4c21918
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 28c73233d8a7b38ec2d14fa92c40f69d9ae0af05
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697754"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783280"
 ---
 # <a name="configure-the-database-engine-to-listen-on-multiple-tcp-ports"></a>Konfigurieren der Datenbank-Engine zum Überwachen mehrerer TCP-Ports
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie Sie [!INCLUDE[ssDE](../../includes/ssde-md.md)] konfigurieren können, um auf mehreren TCP-Ports in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe des SQL Server-Konfigurations-Managers lauschen zu können. Wenn TCP/IP für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]aktiviert wird, überwacht der [!INCLUDE[ssDE](../../includes/ssde-md.md)] eingehende Verbindungen auf einem Verbindungspunkt, der aus der IP-Adresse und der TCP-Portnummer besteht. Die folgenden Prozeduren erstellen einen Tabular Data Stream-Endpunkt (TDS), damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf einem zusätzlichen TCP-Port lauschen kann.  
+  In diesem Thema wird beschrieben, wie Sie [!INCLUDE[ssDE](../../includes/ssde-md.md)] konfigurieren können, um auf mehreren TCP-Ports in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe des SQL Server-Konfigurations-Managers lauschen zu können. Wenn TCP/IP für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]aktiviert wird, überwacht der [!INCLUDE[ssDE](../../includes/ssde-md.md)] eingehende Verbindungen auf einem Verbindungspunkt, der aus der IP-Adresse und der TCP-Portnummer besteht. Die folgenden Prozeduren erstellen einen Tabular Data Stream-Endpunkt (TDS), damit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf einem zusätzlichen TCP-Port lauschen kann.  
   
  Die folgenden Gründe kommen für das Erstellen eines zweiten TDS-Endpunkts in Betracht:  
   
@@ -84,7 +84,7 @@ ms.locfileid: "85697754"
   
 4.  Klicken Sie mit der rechten Maustaste auf **IPAll**, und klicken Sie dann auf **Eigenschaften**.  
   
-5.  Geben Sie im Feld **TCP-Port** die Ports ein, an denen [!INCLUDE[ssDE](../../includes/ssde-md.md)] lauschen soll; trennen Sie die einzelnen Werte dabei durch Kommas. Geben Sie im Beispiel oben (wenn der Standardport 1433 aufgelistet wird) den Wert **,1500** ein, sodass im Feld **1433,1500**angezeigt wird, und klicken Sie dann auf **OK**.  
+5.  Geben Sie im Feld **TCP-Port** die Ports ein, an denen [!INCLUDE[ssDE](../../includes/ssde-md.md)] lauschen soll; trennen Sie die einzelnen Werte dabei durch Kommas. Geben Sie im Beispiel oben (wenn der Standardport 1433 aufgelistet wird) den Wert **,1500** ein, sodass im Feld **1433,1500** angezeigt wird, und klicken Sie dann auf **OK**.  
   
     > [!NOTE]  
     >  Wenn Sie den Port nicht für alle IP-Adressen aktivieren möchten, konfigurieren Sie den zusätzlichen Port im Eigenschaftenfeld nur für die gewünschte Adresse. Klicken Sie dann im Konsolenbereich mit der rechten Maustaste auf **TCP/IP**, klicken Sie auf **Eigenschaften**, und wählen Sie anschließend die Option **Nein** im Feld **Alle überwachen**.  

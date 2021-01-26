@@ -20,17 +20,17 @@ helpviewer_keywords:
 ms.assetid: e4734b3b-8fbe-4b65-9c48-91b5a3dd18e1
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: a9e1311433aab88efd6e1efbbe4a260c62075a99
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: ac6d7f368a42e8a6c81fadbf151760b5bdfc8b53
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85785825"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783151"
 ---
 # <a name="configure-the-recovery-interval-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Wiederherstellungsintervall
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Wiederherstellungsintervall** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Wiederherstellungsintervall** wird eine Obergrenze für die Zeitdauer festgelegt, wie lange das Wiederherstellen einer Datenbank dauern darf. Das [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] verwendet den für diese Option angegebenen Wert, um annäherungsweise zu ermitteln, wie häufig [automatische Prüfpunkte](../../relational-databases/logs/database-checkpoints-sql-server.md) für die jeweilige Datenbank ausgegeben werden sollen.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Wiederherstellungsintervall** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **Wiederherstellungsintervall** wird eine Obergrenze für die Zeitdauer festgelegt, wie lange das Wiederherstellen einer Datenbank dauern darf. Das [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] verwendet den für diese Option angegebenen Wert, um annäherungsweise zu ermitteln, wie häufig [automatische Prüfpunkte](../../relational-databases/logs/database-checkpoints-sql-server.md) für die jeweilige Datenbank ausgegeben werden sollen.  
   
  Der Standardwert für das Wiederherstellungsintervall ist 0, was es dem [!INCLUDE[ssDE](../../includes/ssde-md.md)] ermöglicht, das Wiederherstellungsintervall automatisch zu konfigurieren. In der Regel geht mit dem standardmäßigen Wiederherstellungsintervall etwa ein automatischer Prüfpunkt pro Minute für aktive Datenbanken einher, was zu Wiederherstellungszeiten von unter einer Minute führt. Höhere Werte geben die ungefähre maximale Wiederherstellungszeit in Minuten an. Wenn Sie beispielsweise das Wiederherstellungsintervall auf 3 festlegen, bedeutet dies eine maximale Wiederherstellungszeit von ungefähr drei Minuten.  
   
@@ -78,7 +78,7 @@ ms.locfileid: "85785825"
   
 2.  Klicken Sie auf den Knoten **Datenbankeinstellungen** .  
   
-3.  Geben Sie unter **Wiederherstellung**im Feld **Wiederherstellungsintervall (Minuten)** einen Wert zwischen 0 und 32767 ein, oder wählen Sie einen Wert aus, um die maximale Zeitdauer in Minuten festzulegen, die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] beim Starten zum Wiederherstellen jeder Datenbank verwenden soll. Die Standardeinstellung ist 0; bei dieser Einstellung wird die Option automatisch von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]konfiguriert. In der Praxis bedeutet dies eine Wiederherstellungszeit von weniger als einer Minute und das Auftreten eines Prüfpunktes in Abständen von ungefähr einer Minute bei aktiven Datenbanken.  
+3.  Geben Sie unter **Wiederherstellung** im Feld **Wiederherstellungsintervall (Minuten)** einen Wert zwischen 0 und 32767 ein, oder wählen Sie einen Wert aus, um die maximale Zeitdauer in Minuten festzulegen, die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] beim Starten zum Wiederherstellen jeder Datenbank verwenden soll. Die Standardeinstellung ist 0; bei dieser Einstellung wird die Option automatisch von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]konfiguriert. In der Praxis bedeutet dies eine Wiederherstellungszeit von weniger als einer Minute und das Auftreten eines Prüfpunktes in Abständen von ungefähr einer Minute bei aktiven Datenbanken.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

@@ -14,24 +14,24 @@ ms.assetid: edeb5c75-fb13-467e-873a-ab3aad88ab72
 author: cawrites
 ms.author: chadam
 manager: erikre
-ms.openlocfilehash: 306a200cadc535ea9da3d5d21dcd74fb15cf278c
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: cf6d3f8e77591e9791fe2e8dc57175f1393716ff
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641517"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783262"
 ---
 # <a name="reporting-services-with-always-on-availability-groups-sql-server"></a>Reporting Services mit Always On-Verfügbarkeitsgruppen (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
 
-  Dieses Thema enthält Informationen über die Konfiguration von [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] zur Verwendung mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] (AG) in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]. Die drei Szenarien zum Verwenden von [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] und [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] sind Datenbanken für Berichtsdatenquellen, Berichtsserver-Datenbanken und Berichtsentwurf. Die unterstützten Funktionen und die erforderliche Konfiguration sind für die drei Szenarien unterschiedlich.  
+  Dieses Thema enthält Informationen über die Konfiguration von [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] zur Verwendung mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] (AG) in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]. Die drei Szenarien zum Verwenden von [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] und [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] sind Datenbanken für Berichtsdatenquellen, Berichtsserver-Datenbanken und Berichtsentwurf. Die unterstützten Funktionen und die erforderliche Konfiguration sind für die drei Szenarien unterschiedlich.  
   
  Ein entscheidender Vorteil bei der Verwendung von [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mit [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] -Datenquellen liegt darin, dass lesbare sekundäre Replikate als Berichtsdatenquelle genutzt werden, während gleichzeitig die sekundären Replikate ein Failover für eine primäre Datenbank bereitstellen.  
   
  Weitere Informationen zu [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] finden Sie unter [Häufig gestellte Fragen zu Always On für SQL Server 2012 (../../../sql-server/index.yml)](../../../sql-server/index.yml).  
 
 ##  <a name="requirements-for-using-reporting-services-and-always-on-availability-groups"></a><a name="bkmk_requirements"></a> Anforderungen für die Verwendung von Reporting Services und Always On-Verfügbarkeitsgruppen  
- [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] und Power BI-Berichtsserver verwenden .NET Framework 4.0 und unterstützen die Verwendung der Verbindungszeichenfolgen-Eigenschaften von [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mit Datenquellen.  
+ [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] und Power BI-Berichtsserver verwenden .NET Framework 4.0 und unterstützen die Verwendung der Verbindungszeichenfolgen-Eigenschaften von [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mit Datenquellen.  
   
  Um [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] mit  [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] 2014 und früher zu verwenden, müssen Sie einen Hotfix für .NET 3.5 SP1 herunterladen und installieren. Der Hotfix fügt Unterstützung für Funktionen des SQL Client für Verfügbarkeitsgruppen und Unterstützung der Verbindungszeichenfolgeneigenschaften **ApplicationIntent** und **MultiSubnetFailover** hinzu. Wenn der Hotfix nicht auf jedem Computer installiert ist, der einen Berichtsserver hostet, dann sehen Benutzer, die versuchen, Berichte in der Vorschau anzuzeigen, eine Fehlermeldung wie die Folgende, und die Fehlermeldung wird in das Ablaufverfolgungsprotokoll des Berichtsservers geschrieben:  
   

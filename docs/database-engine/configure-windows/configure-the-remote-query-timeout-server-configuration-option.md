@@ -14,17 +14,17 @@ helpviewer_keywords:
 ms.assetid: 888c8448-933b-41e3-8aa1-c206bc0cdb78
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 8ab8099b514027c69b32427c27c22ed06614150e
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 4ddf0184fd7a1bd95290fa2a041d2fede09f90bf
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85715582"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783188"
 ---
 # <a name="configure-the-remote-query-timeout-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Timeout für Remoteabfragen
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Timeout für Remoteabfragen** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Timeout für Remoteabfragen** können Sie angeben, wie viel Zeit (in Sekunden) ein Remotevorgang in Anspruch nehmen kann, bevor in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ein Timeout auftritt. Der Standardwert für diese Option beträgt 600, was einer Wartezeit von 10 Minuten entspricht. Dieser Wert gilt für eine von [!INCLUDE[ssDE](../../includes/ssde-md.md)] als Remoteabfrage initiierte ausgehende Verbindung. Der Wert hat keine Auswirkungen auf von [!INCLUDE[ssDE](../../includes/ssde-md.md)]empfangene Abfragen. Wenn Sie das Timeout deaktivieren möchten, setzen Sie den Wert auf 0. Bei einer Abfrage wird dann bis zum Abschluss gewartet.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Timeout für Remoteabfragen** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Timeout für Remoteabfragen** können Sie angeben, wie viel Zeit (in Sekunden) ein Remotevorgang in Anspruch nehmen kann, bevor in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ein Timeout auftritt. Der Standardwert für diese Option beträgt 600, was einer Wartezeit von 10 Minuten entspricht. Dieser Wert gilt für eine von [!INCLUDE[ssDE](../../includes/ssde-md.md)] als Remoteabfrage initiierte ausgehende Verbindung. Der Wert hat keine Auswirkungen auf von [!INCLUDE[ssDE](../../includes/ssde-md.md)]empfangene Abfragen. Wenn Sie das Timeout deaktivieren möchten, setzen Sie den Wert auf 0. Bei einer Abfrage wird dann bis zum Abschluss gewartet.  
   
  Bei heterogenen Abfragen wird durch **Timeout für Remoteabfragen** die Anzahl der Sekunden angegeben (initialisiert im Befehlsobjekt mithilfe der DBPROP_COMMANDTIMEOUT-Rowseteigenschaft), die ein Remoteanbieter auf Resultsets warten sollte, bevor für die Abfrage ein Timeout eintritt. Dieser Wert wird, soweit dies vom Remoteanbieter unterstützt wird, auch zum Festlegen von DBPROP_GENERALTIMEOUT verwendet. Dadurch tritt für alle anderen Vorgänge nach Ablauf der angegebenen Anzahl von Sekunden ein Timeout ein.  
   
@@ -65,7 +65,7 @@ ms.locfileid: "85715582"
   
 2.  Klicken Sie auf den Knoten **Verbindungen** .  
   
-3.  Unter **Remoteserververbindungen**im Feld **Timeout für Remoteabfragen** können Sie einen Wert zwischen 0 und 2.147.483.647 eingeben oder auswählen, um die maximale Anzahl von Sekunden festzulegen, die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] wartet, bevor ein Timeout auftritt.  
+3.  Unter **Remoteserververbindungen** im Feld **Timeout für Remoteabfragen** können Sie einen Wert zwischen 0 und 2.147.483.647 eingeben oder auswählen, um die maximale Anzahl von Sekunden festzulegen, die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] wartet, bevor ein Timeout auftritt.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

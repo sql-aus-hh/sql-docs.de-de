@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: c08c26d8-5a62-487e-a4ee-4c529e4f9287
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 0f4d1e4ed2354b81847b6401fd013f5bb63c0ec7
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: 05bf39e18f7efaf8c4f47ca857824189906977ca
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670608"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783244"
 ---
 # <a name="configure-the-default-language-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Standardsprache
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Standardsprache** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mit [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Verwenden Sie die Option **Standardsprache** , um die Standardsprache für alle neu erstellten Anmeldenamen anzugeben. Geben Sie zum Festlegen der Standardsprache den **langid** -Wert der gewünschten Sprache an. Sie können den **langid** -Wert abrufen, indem Sie die **sys.syslanguages** -Kompatibilitätssicht abfragen.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Standardsprache** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mit [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Verwenden Sie die Option **Standardsprache** , um die Standardsprache für alle neu erstellten Anmeldenamen anzugeben. Geben Sie zum Festlegen der Standardsprache den **langid** -Wert der gewünschten Sprache an. Sie können den **langid** -Wert abrufen, indem Sie die **sys.syslanguages** -Kompatibilitätssicht abfragen.  
   
  **In diesem Thema**  
   
@@ -45,7 +45,7 @@ ms.locfileid: "91670608"
   
 ###  <a name="recommendations"></a><a name="Recommendations"></a> Empfehlungen  
   
--   Die Standardsprache für einen Anmeldenamen kann mit CREATE LOGIN oder ALTER LOGIN überschrieben werden. Die Sprache für den Anmeldenamen der Sitzung ist die Standardsprache für die Sitzung, es sei denn, dieser Wert wird für die jeweilige Sitzung mithilfe der Open Database Connectivity (ODBC)- oder OLE DB-APIs überschrieben. Beachten Sie, dass Sie die Option **Standardsprache** nur auf eine Sprachen-ID festlegen können, die in [sys.syslanguages](../../relational-databases/system-compatibility-views/sys-syslanguages-transact-sql.md) (0-32) definiert ist. Bei Verwendung von eigenständigen Datenbanken kann eine Standardsprache mit CREATE DATABASE oder ALTER DATABASE für eine Datenbank und mit CREATE USER oder ALTER USER für Benutzer eigenständiger Datenbanken festgelegt werden. Beim Festlegen von Standardsprachen in einer enthaltenen Datenbank wird der **langid** -Wert, der Sprachenname oder ein in **sys.syslanguages**aufgelistetes Sprachalias akzeptiert.  
+-   Die Standardsprache für einen Anmeldenamen kann mit CREATE LOGIN oder ALTER LOGIN überschrieben werden. Die Sprache für den Anmeldenamen der Sitzung ist die Standardsprache für die Sitzung, es sei denn, dieser Wert wird für die jeweilige Sitzung mithilfe der Open Database Connectivity (ODBC)- oder OLE DB-APIs überschrieben. Beachten Sie, dass Sie die Option **Standardsprache** nur auf eine Sprachen-ID festlegen können, die in [sys.syslanguages](../../relational-databases/system-compatibility-views/sys-syslanguages-transact-sql.md) (0-32) definiert ist. Bei Verwendung von eigenständigen Datenbanken kann eine Standardsprache mit CREATE DATABASE oder ALTER DATABASE für eine Datenbank und mit CREATE USER oder ALTER USER für Benutzer eigenständiger Datenbanken festgelegt werden. Beim Festlegen von Standardsprachen in einer enthaltenen Datenbank wird der **langid** -Wert, der Sprachenname oder ein in **sys.syslanguages** aufgelistetes Sprachalias akzeptiert.  
   
 ###  <a name="security"></a><a name="Security"></a> Sicherheit  
   

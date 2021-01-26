@@ -15,19 +15,19 @@ f1_keywords:
 ms.assetid: b98e2511-297f-49fd-b0e8-74652a91bc0c
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 7d7b758b1d1ee8fba24a6f4e23568f8fdc6f060c
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 48a70988539ee9a35cd8dbd933ee7c6f6f752609
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642948"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783737"
 ---
 # <a name="summary-page-always-on-availability-group-wizards"></a>Seite „Zusammenfassung“ (Always On-Verfügbarkeitsgruppen-Assistenten)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
 
 <a name="Top"></a>  
   
-  In diesem Hilfethema werden die Optionen der Seite **Zusammenfassung** beschrieben. Dieses Thema gilt für den [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)], [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)] und [!INCLUDE[ssAoFoAgWiz](../../../includes/ssaofoagwiz-md.md)] von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]. Verwenden Sie das Raster auf dieser Seite zum Überprüfen der Auswahl für die neue Verfügbarkeitsgruppe. Klicken Sie zum Vornehmen von Änderungen auf **Zurück** , um zu den relevanten Seiten zurückzukehren. Wenn Sie fertig sind, klicken Sie auf **Weiter** , um zur Seite **Zusammenfassung** zurückzukehren. Wenn Sie mit der Auswahl zufrieden sind, klicken Sie auf **Fertig stellen**.  
+  In diesem Hilfethema werden die Optionen der Seite **Zusammenfassung** beschrieben. Dieses Thema gilt für den [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)], [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)], [!INCLUDE[ssAoAddDbWiz](../../../includes/ssaoadddbwiz-md.md)] und [!INCLUDE[ssAoFoAgWiz](../../../includes/ssaofoagwiz-md.md)] von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]. Verwenden Sie das Raster auf dieser Seite zum Überprüfen der Auswahl für die neue Verfügbarkeitsgruppe. Klicken Sie zum Vornehmen von Änderungen auf **Zurück** , um zu den relevanten Seiten zurückzukehren. Wenn Sie fertig sind, klicken Sie auf **Weiter** , um zur Seite **Zusammenfassung** zurückzukehren. Wenn Sie mit der Auswahl zufrieden sind, klicken Sie auf **Fertig stellen**.  
   
 ##  <a name="summary-page-options"></a><a name="PageOptions"></a> Optionen auf der Seite "Zusammenfassung"  
  **Skript**  

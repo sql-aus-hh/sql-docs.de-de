@@ -14,17 +14,17 @@ helpviewer_keywords:
 ms.assetid: d94e81b6-f2e6-47ef-b497-ec3d827a1646
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 8aa50fbd2eaa934c13704dc218084655c0f0f089
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: fcc9082b2700b4818b8742c59fe12cc38879f0f1
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764041"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783102"
 ---
 # <a name="configure-the-two-digit-year-cutoff-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Umstellungsjahr für Angaben mit zwei Ziffern
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Umstellungsjahr für Angaben mit zwei Ziffern** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Umstellungsjahr für Angaben mit zwei Ziffern** können Sie eine ganze Zahl zwischen 1753 und 9999 angeben, die das Umstellungsjahr für das Interpretieren zweistelliger Jahre als vierstellige Jahre darstellt. Der Standardzeitraum für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ist 1950 bis 2049, wobei 2049 das Umstellungsjahr ist. Dies bedeutet, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eine zweistellige Jahreszahl von 49 als 2049, eine zweistellige Jahreszahl von 50 als 1950 und eine zweistellige Jahreszahl von 99 als 1999 interpretiert. Übernehmen Sie bei der Einstellung den Standardwert, um Abwärtskompatibilität zu gewährleisten.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Umstellungsjahr für Angaben mit zwei Ziffern** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Umstellungsjahr für Angaben mit zwei Ziffern** können Sie eine ganze Zahl zwischen 1753 und 9999 angeben, die das Umstellungsjahr für das Interpretieren zweistelliger Jahre als vierstellige Jahre darstellt. Der Standardzeitraum für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ist 1950 bis 2049, wobei 2049 das Umstellungsjahr ist. Dies bedeutet, dass [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] eine zweistellige Jahreszahl von 49 als 2049, eine zweistellige Jahreszahl von 50 als 1950 und eine zweistellige Jahreszahl von 99 als 1999 interpretiert. Übernehmen Sie bei der Einstellung den Standardwert, um Abwärtskompatibilität zu gewährleisten.  
   
  **In diesem Thema**  
   
@@ -65,7 +65,7 @@ ms.locfileid: "85764041"
   
 2.  Klicken Sie auf den **Sonstige Servereinstellungen** -Knoten.  
   
-3.  Geben Sie unter **Unterstützung zweistelliger Jahresangaben**im Feld **Bei Eingabe einer zweistelligen Jahresangabe** **soll diese interpretiert werden als Jahr zwischen** einen Wert ein, der das Endjahr des Zeitraums angibt, oder wählen Sie einen Wert aus.  
+3.  Geben Sie unter **Unterstützung zweistelliger Jahresangaben** im Feld **Bei Eingabe einer zweistelligen Jahresangabe** **soll diese interpretiert werden als Jahr zwischen** einen Wert ein, der das Endjahr des Zeitraums angibt, oder wählen Sie einen Wert aus.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

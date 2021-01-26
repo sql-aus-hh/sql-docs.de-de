@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: b0cf0f86-7652-4574-a9fb-908e10d03973
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 98c7ad618b3691912b183d19a9a62dea1548071e
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: a30c2cb2955ef82380bde00714098afec153ed95
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85697139"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783689"
 ---
 # <a name="configure-the-locks-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption Sperren
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Sperren** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Sperren** können Sie die maximale Anzahl verfügbarer Sperren festlegen und so die Menge an Arbeitsspeicher begrenzen, die [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] für Sperren verwendet. Die Standardeinstellung ist 0. Dadurch kann [!INCLUDE[ssDE](../../includes/ssde-md.md)] Sperrstrukturen je nach Systemanforderungen dynamisch zuordnen oder die Zuordnung von Sperrstrukturen aufheben.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Sperren** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mithilfe der Option **Sperren** können Sie die maximale Anzahl verfügbarer Sperren festlegen und so die Menge an Arbeitsspeicher begrenzen, die [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] für Sperren verwendet. Die Standardeinstellung ist 0. Dadurch kann [!INCLUDE[ssDE](../../includes/ssde-md.md)] Sperrstrukturen je nach Systemanforderungen dynamisch zuordnen oder die Zuordnung von Sperrstrukturen aufheben.  
   
 > [!IMPORTANT]  
 >  [!INCLUDE[ssNoteDepFutureDontUse](../../includes/ssnotedepfuturedontuse-md.md)]  
@@ -54,9 +54,9 @@ ms.locfileid: "85697139"
   
      Wenn für den Sperrenpool mehr Arbeitsspeicher benötigt wird als im [!INCLUDE[ssDE](../../includes/ssde-md.md)] -Speicherpool verfügbar ist und auf dem Computer weiterer Speicher zur Verfügung steht (wenn also der Schwellenwert **Max. Serverarbeitsspeicher** noch nicht erreicht ist), weist [!INCLUDE[ssDE](../../includes/ssde-md.md)] in der Regel dynamisch Speicher zu, um die Sperrenanforderung zu erfüllen. Wenn durch das Zuweisen dieses Speichers jedoch eine Auslagerung auf Betriebssystemebene ausgelöst würde (wenn beispielsweise eine weitere Anwendung auf dem gleichen Computer als Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ausgeführt wird und diesen Arbeitsspeicher verwendet), wird kein weiterer Speicherplatz für Sperren zugewiesen. Der dynamische Sperrenpool ruft nicht mehr als 60 Prozent des Speichers ab, der dem [!INCLUDE[ssDE](../../includes/ssde-md.md)]zugewiesen ist. Wenn der Sperrenpool 60 Prozent des von einer Instanz von [!INCLUDE[ssDE](../../includes/ssde-md.md)]angeforderten Speichers erreicht hat oder wenn auf dem Computer kein weiterer Speicher verfügbar ist, wird bei weiteren Sperrenanforderungen ein Fehler generiert.  
   
-     Wenn Sperren von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] dynamisch verwendet werden dürfen, entspricht dies der empfohlenen Konfiguration. Sie können **Sperren** jedoch festlegen und die Möglichkeit der dynamischen Zuweisung von Sperrenressourcen durch [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] außer Kraft setzen. Wenn **Sperren** auf einen anderen Wert als 0 festgelegt wird, kann [!INCLUDE[ssDE](../../includes/ssde-md.md)] dem unter **Sperren**angegebenen Wert keine weiteren Sperren zuweisen. Erhöhen Sie diesen Wert, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Meldung anzeigt, dass die Anzahl der verfügbaren Sperren überschritten wurde. Da jede Sperre Arbeitsspeicher verbraucht (96 Bytes pro Sperre), kann es bei Erhöhung dieses Werts erforderlich werden, dem Server mehr Speicher zuzuweisen.  
+     Wenn Sperren von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] dynamisch verwendet werden dürfen, entspricht dies der empfohlenen Konfiguration. Sie können **Sperren** jedoch festlegen und die Möglichkeit der dynamischen Zuweisung von Sperrenressourcen durch [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] außer Kraft setzen. Wenn **Sperren** auf einen anderen Wert als 0 festgelegt wird, kann [!INCLUDE[ssDE](../../includes/ssde-md.md)] dem unter **Sperren** angegebenen Wert keine weiteren Sperren zuweisen. Erhöhen Sie diesen Wert, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] die Meldung anzeigt, dass die Anzahl der verfügbaren Sperren überschritten wurde. Da jede Sperre Arbeitsspeicher verbraucht (96 Bytes pro Sperre), kann es bei Erhöhung dieses Werts erforderlich werden, dem Server mehr Speicher zuzuweisen.  
   
--   Die Option **Sperren** wirkt sich auch darauf aus, wann eine Sperrenausweitung stattfindet. Wenn **Sperren** auf 0 festgelegt ist, findet eine Sperrenausweitung statt, sobald der von den aktuellen Sperrenstrukturen verwendete Speicher 40 Prozent des [!INCLUDE[ssDE](../../includes/ssde-md.md)] -Speicherpools erreicht hat. Wenn **Sperren** nicht auf 0 festgelegt ist, findet eine Sperrenausweitung statt, sobald die Anzahl der Sperren 40 Prozent des für **Sperren**festgelegten Werts erreicht.  
+-   Die Option **Sperren** wirkt sich auch darauf aus, wann eine Sperrenausweitung stattfindet. Wenn **Sperren** auf 0 festgelegt ist, findet eine Sperrenausweitung statt, sobald der von den aktuellen Sperrenstrukturen verwendete Speicher 40 Prozent des [!INCLUDE[ssDE](../../includes/ssde-md.md)] -Speicherpools erreicht hat. Wenn **Sperren** nicht auf 0 festgelegt ist, findet eine Sperrenausweitung statt, sobald die Anzahl der Sperren 40 Prozent des für **Sperren** festgelegten Werts erreicht.  
   
 ###  <a name="security"></a><a name="Security"></a> Sicherheit  
   
@@ -71,7 +71,7 @@ ms.locfileid: "85697139"
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Geben Sie unter **Parallelität**den gewünschten Wert für die Option **Sperren** ein.  
+3.  Geben Sie unter **Parallelität** den gewünschten Wert für die Option **Sperren** ein.  
   
      Mithilfe der Option **Sperren** können Sie die maximale Anzahl verfügbarer Sperren festlegen und so die Menge an Arbeitsspeicher begrenzen, die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] für Sperren verwendet.  
   

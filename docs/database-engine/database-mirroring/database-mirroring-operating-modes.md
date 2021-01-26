@@ -13,12 +13,12 @@ helpviewer_keywords:
 ms.assetid: f8a579c2-55d7-4278-8088-f1da1de5b2e6
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 9e69236003f1c0ee2b13620b481dfddbaf9acd5a
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 1efefbb0b0a99f03d4ffa46e7d02fec05e8a8e60
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644121"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783557"
 ---
 # <a name="database-mirroring-operating-modes"></a>Betriebsmodi der Datenbankspiegelung
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "97644121"
  In diesem Abschnitt werden die Funktionsweise der asynchronen Datenbankspiegelung, die geeignete Verwendung des Modus für hohe Leistung sowie die entsprechende Reaktion auf den Fehlschlag des Prinzipalservers beschrieben.  
   
 > [!NOTE]  
->  Die meisten Editionen von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] unterstützen nur die synchrone Datenbankspiegelung (nur SAFETY FULL). Weitere Informationen zu Editionen, die die Datenbankspiegelung vollständig unterstützen, finden Sie unter „Hohe Verfügbarkeit (Always On)“ in [Von den SQL Server 2016-Editionen unterstützte Funktionen](../../sql-server/editions-and-components-of-sql-server-2016.md).
+>  Die meisten Editionen von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] unterstützen nur die synchrone Datenbankspiegelung (nur SAFETY FULL). Weitere Informationen zu Editionen, die die Datenbankspiegelung vollständig unterstützen, finden Sie unter „Hohe Verfügbarkeit (Always On)“ in [Von den SQL Server 2016-Editionen unterstützte Funktionen](../../sql-server/editions-and-components-of-sql-server-2016.md).
   
  Wenn die Transaktionssicherheit auf OFF festgelegt ist, wird die Datenbank-Spiegelungssitzung asynchron ausgeführt. Im asynchronen Betrieb wird nur ein Betriebsmodus unterstützt, der Modus für hohe Leistung. Dieser Modus verbessert die Leistung auf Kosten der Hochverfügbarkeit. Im Modus für hohe Leistung werden nur der Prinzipalserver und der Spiegelserver verwendet. Probleme auf dem Spiegelserver haben nie Auswirkungen auf den Prinzipalserver. Bei einem Ausfall des Prinzipalservers wird die Spiegeldatenbank als DISCONNECTED gekennzeichnet, steht jedoch als betriebsbereit zur Verfügung.  
   

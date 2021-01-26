@@ -21,17 +21,17 @@ helpviewer_keywords:
 ms.assetid: e391f452-ed8c-4b40-b846-ac3881271b94
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: e80b1913f6ff7c40ff0c3b715e98c9df6b3e20ca
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: 1d39d6fd92c8fc4eab080c8ca9556d399bf7f8b2
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96125487"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766406"
 ---
 # <a name="specify-a-disk-or-tape-backup-destination-sql-server"></a>Angeben eines Datenträgers oder eines Bands als Sicherungsziel (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  In diesem Thema wird beschrieben, wie Sie in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]einen Datenträger oder ein Band als Sicherungsziel angeben.  
+  In diesem Thema wird beschrieben, wie Sie in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]einen Datenträger oder ein Band als Sicherungsziel angeben.  
   
 > [!NOTE]  
 >  Die Unterstützung für Bandsicherungsmedien wird in zukünftigen Versionen von SQL Server entfernt. Nutzen Sie diese Funktionen bei Neuentwicklungen nicht mehr, und planen Sie die Änderung von Anwendungen, die diese Funktion zurzeit verwenden.  
