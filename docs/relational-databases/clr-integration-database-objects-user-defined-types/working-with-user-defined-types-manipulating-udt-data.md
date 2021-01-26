@@ -29,12 +29,12 @@ helpviewer_keywords:
 ms.assetid: 51b1a5f2-7591-4e11-bfe2-d88e0836403f
 author: rothja
 ms.author: jroth
-ms.openlocfilehash: 17913dab743f1aaaa7672ce855aa85ce8434f3c0
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: d23880a7ea6a1e8f4c1beccc5ec82f40303b9b76
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85727753"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783632"
 ---
 # <a name="working-with-user-defined-types---manipulating-udt-data"></a>Arbeiten mit benutzerdefinierten Typen: Bearbeiten von UDT-Daten
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -130,7 +130,7 @@ SELECT @PointValue.ToString() AS PointValue;
  Der Unterschied zwischen der Verwendung von SELECT statt SET für die Variablenzuweisung besteht darin, dass SELECT ermöglicht, mehrere Variable in einer SELECT-Anweisung zuzuweisen, während die SET-Syntax erfordert, dass jede Variable durch eine eigene SET-Anweisung zugewiesen wird.  
   
 ## <a name="comparing-data"></a>Vergleichen von Daten  
- Sie können Vergleichs Operatoren zum Vergleichen von Werten im UDT verwenden, wenn Sie die **isbyteorder** -Eigenschaft beim Definieren der Klasse auf **true** festgelegt haben. Weitere Informationen finden Sie unter [Erstellen eines benutzerdefinierten Typs](../../relational-databases/clr-integration-database-objects-user-defined-types/creating-user-defined-types.md).  
+ Sie können Vergleichs Operatoren zum Vergleichen von Werten im UDT verwenden, wenn Sie die **isbyteorder** -Eigenschaft beim Definieren der Klasse auf **true** festgelegt haben. Weitere Informationen finden Sie unter [Erstellen eines User-Defined Typs](../../relational-databases/clr-integration-database-objects-user-defined-types/creating-user-defined-types.md).  
   
 ```sql  
 SELECT ID, PointValue.ToString() AS Points   
@@ -157,7 +157,7 @@ WHERE PointValue = @ComparePoint;
 ```  
   
 ## <a name="invoking-udt-methods"></a>Aufrufen von UDT-Methoden  
- Sie können auch Methoden aufrufen, die im UDT in [!INCLUDE[tsql](../../includes/tsql-md.md)] definiert sind. Die **Point** -Klasse enthält drei Methoden, **Distance**, **DistanceFrom**und **DistanceFromXY**. Die Code Auflistungen, die diese drei Methoden definieren, finden Sie unter [Programmieren benutzerdefinierter Typen](../../relational-databases/clr-integration-database-objects-user-defined-types/creating-user-defined-types-coding.md).  
+ Sie können auch Methoden aufrufen, die im UDT in [!INCLUDE[tsql](../../includes/tsql-md.md)] definiert sind. Die **Point** -Klasse enthält drei Methoden, **Distance**, **DistanceFrom** und **DistanceFromXY**. Die Code Auflistungen, die diese drei Methoden definieren, finden Sie unter [Programmieren User-Defined Typen](../../relational-databases/clr-integration-database-objects-user-defined-types/creating-user-defined-types-coding.md).  
   
  Die folgende [!INCLUDE[tsql](../../includes/tsql-md.md)] Anweisung ruft die **PointValue. Distance** -Methode auf:  
   
@@ -223,7 +223,7 @@ SET PointValue.Y = 99
 WHERE ID = 3  
 ```  
   
- Wenn der UDT mit Byte Reihenfolge auf **true**festgelegt wurde, [!INCLUDE[tsql](../../includes/tsql-md.md)] kann die UDT-Spalte in einer WHERE-Klausel auswerten.  
+ Wenn der UDT mit Byte Reihenfolge auf **true** festgelegt wurde, [!INCLUDE[tsql](../../includes/tsql-md.md)] kann die UDT-Spalte in einer WHERE-Klausel auswerten.  
   
 ```sql  
 UPDATE dbo.Points  
@@ -232,7 +232,7 @@ WHERE PointValue = '3,4';
 ```  
   
 ### <a name="updating-limitations"></a>Einschränkungen für Updates  
- Mehrere Eigenschaften können mit [!INCLUDE[tsql](../../includes/tsql-md.md)] nicht gleichzeitig aktualisiert werden. Beispielsweise schlägt die folgende UPDATE-Anweisung fehl, und es wird ein Fehler ausgegeben, da Sie denselben Spaltennamen nicht zwei Mal in derselben UPDATE-Anweisung verwenden können.  
+ Mehrere Eigenschaften können mit [!INCLUDE[tsql](../../includes/tsql-md.md)] nicht gleichzeitig aktualisiert werden. Die folgende Update-Anweisung schlägt z. b. mit einem Fehler fehl, da Sie den gleichen Spaltennamen nicht zweimal in einer Update-Anweisung verwenden können.  
   
 ```sql  
 UPDATE dbo.Points  
