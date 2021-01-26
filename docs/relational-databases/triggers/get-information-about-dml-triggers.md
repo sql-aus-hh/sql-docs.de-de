@@ -18,16 +18,16 @@ ms.assetid: 37574aac-181d-4aca-a2cc-8abff64237dc
 author: rothja
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 39a4d0a6136990cdb583a432757503099f61cfb6
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7a5e8f14728e5239ab4e0b1d71c78b713f2c27c2
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97403485"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765583"
 ---
 # <a name="get-information-about-dml-triggers"></a>Abrufen von Informationen zu DML-Triggern
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
-  In diesem Thema wird beschrieben, wie Sie Informationen zu DML-Triggern in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]abrufen. Zu diesen Informationen können die Triggertypen für eine Tabelle, der Name eines Triggers, sein Besitzer und das Erstellungs- oder Änderungsdatum zählen. Wenn der Trigger bei der Erstellung nicht verschlüsselt wurde, erhalten Sie die Definition des Triggers. Die Definition gibt Aufschluss darüber, wie sich ein Trigger auf die Tabelle auswirkt, für die er definiert ist. Zudem können Sie die Objekte feststellen, die von einem bestimmten Trigger verwendet werden. Mithilfe dieser Informationen können Sie die Objekte identifizieren, deren Änderung oder Löschung in der Datenbank sich auf den Trigger auswirkt.  
+  In diesem Thema wird beschrieben, wie Sie Informationen zu DML-Triggern in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]abrufen. Zu diesen Informationen können die Triggertypen für eine Tabelle, der Name eines Triggers, sein Besitzer und das Erstellungs- oder Änderungsdatum zählen. Wenn der Trigger bei der Erstellung nicht verschlüsselt wurde, erhalten Sie die Definition des Triggers. Die Definition gibt Aufschluss darüber, wie sich ein Trigger auf die Tabelle auswirkt, für die er definiert ist. Zudem können Sie die Objekte feststellen, die von einem bestimmten Trigger verwendet werden. Mithilfe dieser Informationen können Sie die Objekte identifizieren, deren Änderung oder Löschung in der Datenbank sich auf den Trigger auswirkt.  
   
  **In diesem Thema**  
   

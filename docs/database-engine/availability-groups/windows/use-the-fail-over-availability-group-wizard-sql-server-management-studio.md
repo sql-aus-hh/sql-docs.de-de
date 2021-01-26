@@ -20,16 +20,16 @@ helpviewer_keywords:
 ms.assetid: 4a602584-63e4-4322-aafc-5d715b82b834
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 9da271a07fbce3e730e1eb5594dc7c1f2114ad24
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 6e0d0975bf9663f630ca7494d173ff852a3f7b4e
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641768"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765553"
 ---
 # <a name="use-the-fail-over-availability-group-wizard-sql-server-management-studio"></a>Verwenden des Assistenten für Failover-Verfügbarkeitsgruppen (SQL Server Management Studio)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie ein geplantes manuelles Failover oder ein erzwungenes manuelles Failover (ein erzwungenes Failover) in einer Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]ausgeführt wird. Eine Verfügbarkeitsgruppe führt auf der Ebene eines Verfügbarkeitsreplikats ein Failover aus. Bei einem Failover zu einem sekundären Replikat im Status SYNCHRONIZED führt der Assistent ein geplantes manuelles Failover (ohne Datenverlust) aus. Bei einem Failover zu einem sekundären Replikat im Status UNSYNCHRONIZED oder NOT SYNCHRONIZING führt der Assistent ein erzwungenes manuelles Failover aus, ein sogenanntes *erzwungenes Failover* (mit möglichem Datenverlust). Bei beiden Formen des manuellen Failovers geht das sekundäre Replikat, mit dem die Verbindung besteht, in die primäre Rolle über. Bei einem geplanten manuellen Failover wird aktuell das frühere primäre Replikat in die sekundäre Rolle überführt. Nach einem erzwungenen Failover geht das frühere primäre Replikat, sobald es online geschaltet wird, in die sekundäre Rolle über.  
+  In diesem Thema wird beschrieben, wie ein geplantes manuelles Failover oder ein erzwungenes manuelles Failover (ein erzwungenes Failover) in einer Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]ausgeführt wird. Eine Verfügbarkeitsgruppe führt auf der Ebene eines Verfügbarkeitsreplikats ein Failover aus. Bei einem Failover zu einem sekundären Replikat im Status SYNCHRONIZED führt der Assistent ein geplantes manuelles Failover (ohne Datenverlust) aus. Bei einem Failover zu einem sekundären Replikat im Status UNSYNCHRONIZED oder NOT SYNCHRONIZING führt der Assistent ein erzwungenes manuelles Failover aus, ein sogenanntes *erzwungenes Failover* (mit möglichem Datenverlust). Bei beiden Formen des manuellen Failovers geht das sekundäre Replikat, mit dem die Verbindung besteht, in die primäre Rolle über. Bei einem geplanten manuellen Failover wird aktuell das frühere primäre Replikat in die sekundäre Rolle überführt. Nach einem erzwungenen Failover geht das frühere primäre Replikat, sobald es online geschaltet wird, in die sekundäre Rolle über.  
 
 ##  <a name="before-you-begin"></a><a name="BeforeYouBegin"></a> Vorbereitungen  
  Bevor Ihrem ersten geplanten manuellen Failovers, gehen Sie zum Abschnitt „Vorbereitungen“ unter [Ausführen eines geplanten manuellen Failovers einer Verfügbarkeitsgruppe &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server.md)ausgeführt wird.  

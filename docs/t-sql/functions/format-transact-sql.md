@@ -18,12 +18,12 @@ ms.assetid: dad6f24c-b8d9-4dbe-a561-9b167b8f20c8
 author: cawrites
 ms.author: chadam
 monikerRange: = azuresqldb-current||>= sql-server-2016||>= sql-server-linux-2017||=azure-sqldw-latest
-ms.openlocfilehash: bfd9a1079dded6f6ffa466e8161aa98eb20c0106
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 9c247a8316e99373add9d34614d3f6ff4af85c07
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98093576"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597356"
 ---
 # <a name="format-transact-sql"></a>FORMAT (Transact-SQL)
 
@@ -49,7 +49,7 @@ FORMAT( value, format [, culture ] )
  *format*  
  **nvarchar** -Formatmuster.  
   
- Das *format* -Argument muss eine gültige .NET Framework-Formatzeichenfolge enthalten, entweder als Standardformatzeichenfolge (z. B. "C" oder "D") oder als ein Muster aus benutzerdefinierten Zeichen für Datumsangaben und numerische Werte (z. B. "MMMM-DD, yyyy (dddd)"). Kombinierte Formatierung wird nicht unterstützt. Ausführliche Erläuterungen zu diesen Formatierungsmustern können Sie der .NET Framework-Dokumentation zur allgemeinen Zeichenfolgenformatierung sowie zu benutzerdefinierten Datums- und Uhrzeitformaten und benutzerdefinierten Zahlenformaten entnehmen. Ein guter Ausgangspunkt ist das Thema zu "[Formatierungstypen](https://go.microsoft.com/fwlink/?LinkId=211776)".  
+ Das *format* -Argument muss eine gültige .NET Framework-Formatzeichenfolge enthalten, entweder als Standardformatzeichenfolge (z. B. "C" oder "D") oder als ein Muster aus benutzerdefinierten Zeichen für Datumsangaben und numerische Werte (z. B. "MMMM-DD, yyyy (dddd)"). Kombinierte Formatierung wird nicht unterstützt. Ausführliche Erläuterungen zu diesen Formatierungsmustern können Sie der .NET Framework-Dokumentation zur allgemeinen Zeichenfolgenformatierung sowie zu benutzerdefinierten Datums- und Uhrzeitformaten und benutzerdefinierten Zahlenformaten entnehmen. Ein guter Ausgangspunkt ist das Thema zu "[Formatierungstypen](/dotnet/standard/base-types/formatting-types)".  
   
  *culture*  
  Optionales **nvarchar** -Argument, das eine Kultur angibt.  
@@ -129,7 +129,7 @@ Sunday, November 22, 2020   22 November 2020       Sonntag, 22. November 2020  2
   
 ### <a name="b-format-with-custom-formatting-strings"></a>B. FORMAT mit benutzerdefinierten Formatierungszeichenfolgen
 
- Im folgenden Beispiel ist das Formatieren von numerischen Werten durch Angeben eines benutzerdefinierten Formats dargestellt. Im Beispiel wird davon ausgegangen, dass das aktuelle Datum der 27. September 2012 ist. Weitere Informationen zu diesen und anderen benutzerdefinierten Formaten finden Sie unter [Benutzerdefinierte Zahlenformatzeichenfolgen](https://msdn.microsoft.com/library/0c899ak8.aspx).  
+ Im folgenden Beispiel ist das Formatieren von numerischen Werten durch Angeben eines benutzerdefinierten Formats dargestellt. Im Beispiel wird davon ausgegangen, dass das aktuelle Datum der 27. September 2012 ist. Weitere Informationen zu diesen und anderen benutzerdefinierten Formaten finden Sie unter [Benutzerdefinierte Zahlenformatzeichenfolgen](/dotnet/standard/base-types/custom-numeric-format-strings).  
   
 ```sql  
 DECLARE @d DATE = GETDATE();  
@@ -148,7 +148,7 @@ Date        Custom Number
   
 ### <a name="c-format-with-numeric-types"></a>C. FORMAT mit numerischen Typen
 
- Im folgenden Beispiel werden fünf Zeilen aus der **Sales.CurrencyRate**-Tabelle in der [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)]-Datenbank zurückgegeben. Die Spalte **EndOfDateRate** wird als **money** -Typ in der Tabelle gespeichert. In diesem Beispiel wird die Spalte unformatiert zurückgegeben und wird dann durch Angeben der Typen für das .NET-Zahlenformat, das allgemeine Format und das Währungsformat formatiert. Weitere Informationen zu diesen und anderen Zahlenformaten finden Sie unter [Benutzerdefinierte Zahlenformatzeichenfolgen](https://msdn.microsoft.com/library/dwhawy9k.aspx).  
+ Im folgenden Beispiel werden fünf Zeilen aus der **Sales.CurrencyRate**-Tabelle in der [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)]-Datenbank zurückgegeben. Die Spalte **EndOfDateRate** wird als **money** -Typ in der Tabelle gespeichert. In diesem Beispiel wird die Spalte unformatiert zurückgegeben und wird dann durch Angeben der Typen für das .NET-Zahlenformat, das allgemeine Format und das Währungsformat formatiert. Weitere Informationen zu diesen und anderen Zahlenformaten finden Sie unter [Benutzerdefinierte Zahlenformatzeichenfolgen](/dotnet/standard/base-types/standard-numeric-format-strings).  
   
 ```sql  
 SELECT TOP(5) CurrencyRateID, EndOfDayRate  

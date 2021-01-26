@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: b5bb52e9-a77e-41e1-93f9-d4c3bc6b2c9a
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: d40281b9c233b55b41cfc8fc18040fb3e6c4d927
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 8b4e04871bf0264c9e9c723365f2a29d95265ffa
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92195971"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594932"
 ---
 # <a name="wmi-event-watcher-task"></a>WMI-Ereignisüberwachung (Task)
 
@@ -45,7 +45,7 @@ ms.locfileid: "92195971"
 -   [WMI-Datenleser (Task)](../../integration-services/control-flow/wmi-data-reader-task.md)  
   
 ## <a name="wql-queries"></a>WQL-Abfragen  
- WQL ist ein Dialekt von SQL mit Erweiterungen zur Unterstützung der WMI-Ereignisbenachrichtigung und sonstigen WMI-spezifischen Funktionen. Weitere Informationen zu WQL finden Sie in der WMI-Dokumentation in der [MSDN Library](https://go.microsoft.com/fwlink/?linkid=62553).  
+ WQL ist ein Dialekt von SQL mit Erweiterungen zur Unterstützung der WMI-Ereignisbenachrichtigung und sonstigen WMI-spezifischen Funktionen. Weitere Informationen zu WQL finden Sie in der WMI-Dokumentation in der [MSDN Library](/documentation/).  
   
 > [!NOTE]  
 >  Die WMI-Klassen variieren in den verschiedenen Windows-Versionen.  
@@ -140,9 +140,9 @@ SELECT * FROM __InstanceCreationEvent WITHIN 10 WHERE TargetInstance ISA "CIM_Di
   
 |Wert|BESCHREIBUNG|  
 |-----------|-----------------|  
-|**Direkteingabe**|Legen Sie die Quelle für eine WQL-Abfrage fest. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource**angezeigt.|  
-|**Dateiverbindung**|Wählen Sie eine Datei aus, in der die WQL-Abfrage enthalten ist. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource**angezeigt.|  
-|**Variable**|Legen Sie die Quelle für eine Variable fest, die die WQL-Abfrage definiert. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource**angezeigt.|  
+|**Direkteingabe**|Legen Sie die Quelle für eine WQL-Abfrage fest. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource** angezeigt.|  
+|**Dateiverbindung**|Wählen Sie eine Datei aus, in der die WQL-Abfrage enthalten ist. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource** angezeigt.|  
+|**Variable**|Legen Sie die Quelle für eine Variable fest, die die WQL-Abfrage definiert. Bei Auswahl dieses Wertes wird die dynamische Option **WQLQuerySource** angezeigt.|  
   
  **ActionAtEvent**  
  Geben Sie an, ob das WMI-Ereignis das Ereignis protokolliert und eine [!INCLUDE[ssIS](../../includes/ssis-md.md)] -Aktion initiiert oder nur das Ereignis protokolliert.  
@@ -178,4 +178,4 @@ SELECT * FROM __InstanceCreationEvent WITHIN 10 WHERE TargetInstance ISA "CIM_Di
  **WQLQuerySource**  
  Wählen Sie eine Variable aus der Liste aus, oder klicken Sie auf \<**New variable...**>, um eine neue Variable zu erstellen.  
   
- **Verwandte Themen:** [Integration Services-Variablen &#40;SSIS&#41;](../../integration-services/integration-services-ssis-variables.md), [Hinzufügen von Variablen](../integration-services-ssis-variables.md)  
+ **Verwandte Themen:** [Integration Services-Variablen &#40;SSIS&#41;](../../integration-services/integration-services-ssis-variables.md), [Hinzufügen von Variablen](../integration-services-ssis-variables.md)

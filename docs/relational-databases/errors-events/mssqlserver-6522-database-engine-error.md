@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 836ad79e049d7c5613755e64ca441f9ed5d73048
-ms.sourcegitcommit: d819173fb91af6f20ca6ee59686c35c71b060fbc
+ms.openlocfilehash: f48534e104139ee7cbd4eb7602fce2a8e51eeb73
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797803"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597144"
 ---
 # <a name="mssqlserver_6522"></a>MSSQLSERVER_6522
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -205,7 +205,7 @@ Angenommen, der MyDateTime-Datentyp belegt 9 Byte im Speicher.
 ## <a name="references"></a>Referenzen
 
 - Weitere Informationen zur Assemblyversion finden Sie in der [Dokumentation zu Visual Studio 2005 (veraltet)](https://www.microsoft.com/download/details.aspx?id=55984).
-- Weitere Informationen zum Aktualisieren einer Assembly finden Sie unter [ALTER ASSEMBLY (Transact-SQL)](/sql/t-sql/statements/alter-assembly-transact-sql).
-- Weitere Informationen zum Löschen einer Assembly finden Sie unter [DROP ASSEMBLY (Transact-SQL)](/sql/t-sql/statements/drop-assembly-transact-sql).
-- Weitere Informationen zum Registrieren einer Assembly in einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbank finden Sie unter [CREATE ASSEMBLY (Transact-SQL)](/sql/t-sql/statements/create-assembly-transact-sql).
-- Weitere Informationen zum Hilfsprogramm „Bcp.exe“ finden Sie unter [https://msdn2.microsoft.com/library/ms162802.aspx](/sql/tools/bcp-utility).
+- Weitere Informationen zum Aktualisieren einer Assembly finden Sie unter [ALTER ASSEMBLY (Transact-SQL)](../../t-sql/statements/alter-assembly-transact-sql.md).
+- Weitere Informationen zum Löschen einer Assembly finden Sie unter [DROP ASSEMBLY (Transact-SQL)](../../t-sql/statements/drop-assembly-transact-sql.md).
+- Weitere Informationen zum Registrieren einer Assembly in einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbank finden Sie unter [CREATE ASSEMBLY (Transact-SQL)](../../t-sql/statements/create-assembly-transact-sql.md).
+- Weitere Informationen zum Hilfsprogramm „Bcp.exe“ finden Sie unter [https://msdn2.microsoft.com/library/ms162802.aspx](../../tools/bcp-utility.md).

@@ -12,16 +12,16 @@ helpviewer_keywords:
 ms.assetid: 8b0a6301-8b79-4415-b608-b40876f30066
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 7223b0d8b283caf6300e2be056d399e45e637350
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 590b7634a1dfb903d522c394f3d52ad9dc8ba1df
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643302"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765610"
 ---
 # <a name="create-an-always-on-availability-group-using-transact-sql-t-sql"></a>Erstellen einer Always On-Verfügbarkeitsgruppe mit Transact-SQL (T-SQL)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie [!INCLUDE[tsql](../../../includes/tsql-md.md)] zum Erstellen und Konfigurieren einer Verfügbarkeitsgruppe für Instanzen von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] mit aktivierter [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] -Funktion verwendet wird. Eine *Verfügbarkeitsgruppe* definiert einen Satz von Benutzerdatenbanken, für die als eine einzelne Einheit ein Failover ausgeführt wird, sowie einen Satz von Failoverpartnern, die als *Verfügbarkeitsreplikate* bezeichnet werden, die Failover unterstützen.  
+  In diesem Thema wird beschrieben, wie [!INCLUDE[tsql](../../../includes/tsql-md.md)] zum Erstellen und Konfigurieren einer Verfügbarkeitsgruppe für Instanzen von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] mit aktivierter [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] -Funktion verwendet wird. Eine *Verfügbarkeitsgruppe* definiert einen Satz von Benutzerdatenbanken, für die als eine einzelne Einheit ein Failover ausgeführt wird, sowie einen Satz von Failoverpartnern, die als *Verfügbarkeitsreplikate* bezeichnet werden, die Failover unterstützen.  
   
 > [!NOTE]  
 >  Eine Einführung zu Verfügbarkeitsgruppen finden Sie unter [Übersicht über Always On-Verfügbarkeitsgruppen &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server.md)erstellt und konfiguriert wird.  

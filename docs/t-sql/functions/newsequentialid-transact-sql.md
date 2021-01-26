@@ -19,12 +19,12 @@ helpviewer_keywords:
 ms.assetid: e06d2cab-f1ff-42f1-8550-6aaec57be36f
 author: julieMSFT
 ms.author: jrasnick
-ms.openlocfilehash: 4fe754848be676d40387d4887a5a7e519da697f7
-ms.sourcegitcommit: cc23d8646041336d119b74bf239a6ac305ff3d31
+ms.openlocfilehash: 7bed17ea5142acb2e9e2168491046b13d5868c44
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91111047"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597307"
 ---
 # <a name="newsequentialid-transact-sql"></a>NEWSEQUENTIALID (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "91111047"
 > [!IMPORTANT]  
 >  Falls Datenschutz eine wichtige Überlegung ist, sollten Sie diese Funktion nicht verwenden. Der Wert der als Nächstes erstellten GUID ist vorhersagbar, daher ist auch der Zugriff auf Daten möglich, die mit dieser GUID verknüpft sind.  
   
- NEWSEQUENTIALID ist ein Wrapper über die Windows-Funktion [UuidCreateSequential](https://go.microsoft.com/fwlink/?LinkId=164027) mit [angewendeter Byte-Mischung](https://blogs.msdn.microsoft.com/dbrowne/2012/07/03/how-to-generate-sequential-guids-for-sql-server-in-net/).
+ NEWSEQUENTIALID ist ein Wrapper über die Windows-Funktion [UuidCreateSequential](/windows/win32/api/rpcdce/nf-rpcdce-uuidcreatesequential) mit [angewendeter Byte-Mischung](/archive/blogs/dbrowne/how-to-generate-sequential-guids-for-sql-server-in-net).
   
 > [!WARNING]  
 >  Die UuidCreateSequential-Funktion verfügt über Hardwareabhängigkeiten. Auf [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] können Cluster von sequenziellen Werten entstehen, wenn Datenbanken (z.B. eigenständige Datenbanken) auf andere Computer verschoben werden. Bei der Verwendung von Always On und auf [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] können Cluster von sequenziellen Werten entstehen, wenn die Datenbank ein Failover auf einen anderen Computer durchführt.  
@@ -77,5 +77,4 @@ CREATE TABLE myTable (ColumnA uniqueidentifier DEFAULT dbo.myfunction(NEWSEQUENT
 ## <a name="see-also"></a>Weitere Informationen  
  [NEWID &#40;Transact-SQL&#41;](../../t-sql/functions/newid-transact-sql.md)   
  [Vergleichsoperatoren &#40;Transact-SQL&#41;](../../t-sql/language-elements/comparison-operators-transact-sql.md)  
-  
   

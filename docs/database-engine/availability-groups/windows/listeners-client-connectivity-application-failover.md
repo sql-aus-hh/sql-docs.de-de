@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 76fb3eca-6b08-4610-8d79-64019dd56c44
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: c0578d5522ca998e7243fd20b77daf8d3705bd85
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 145f061ff1926bc9a93244226dbd36b6ffaf9de8
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878915"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765916"
 ---
 # <a name="connect-to-an-always-on-availability-group-listener"></a>Herstellen einer Verbindung mit einem Always On-Verfügbarkeitsgruppenlistener 
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -121,7 +121,7 @@ Alternativ können Anwendungen beim Migrieren von der Datenbankspiegelung zu [!I
 > [!NOTE]  
 >  Diese Einstellung wird für Verbindungen mit einem Subnetz und mehreren Subnetzen mit den Namen von Verfügbarkeitslistenern und SQL Server-Failoverclusterinstanzen empfohlen.  Wenn Sie diese Option aktivieren, stehen auch für Szenarien mit einem Subnetz weitere Optimierungen zur Verfügung.  
   
- Die **MultiSubnetFailover** -Verbindungsoption funktioniert nur mit dem TCP-Netzwerkprotokoll und wird nur beim Herstellen einer Verbindung mit einem Verfügbarkeitsgruppenlistener und für beliebige virtuelle Netzwerknamen unterstützt, die eine Verbindung mit [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]herstellen.  
+ Die **MultiSubnetFailover** -Verbindungsoption funktioniert nur mit dem TCP-Netzwerkprotokoll und wird nur beim Herstellen einer Verbindung mit einem Verfügbarkeitsgruppenlistener und für beliebige virtuelle Netzwerknamen unterstützt, die eine Verbindung mit [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]herstellen.  
   
  Beispiel für eine Verbindungszeichenfolge des ADO.NET-Anbieters (System.Data.SqlClient) mit aktiviertem Multisubnetzfailover:  
   

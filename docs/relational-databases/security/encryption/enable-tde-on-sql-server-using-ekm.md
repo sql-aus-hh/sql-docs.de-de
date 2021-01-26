@@ -16,16 +16,16 @@ helpviewer_keywords:
 ms.assetid: b892e7a7-95bd-4903-bf54-55ce08e225af
 author: jaszymas
 ms.author: jaszymas
-ms.openlocfilehash: 74c27195e3adbb39714a2df23ef041615262ffc2
-ms.sourcegitcommit: 4d370399f6f142e25075b3714e5c2ce056b1bfd0
+ms.openlocfilehash: e455b8b27537a3f7fedd7ca0c9cad356b9d49df4
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91867856"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98764891"
 ---
 # <a name="enable-tde-on-sql-server-using-ekm"></a>Aktivieren von TDE in SQL Server mithilfe von EKM
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  Dieser Artikel beschreibt, wie Transparent Data Encryption (TDE) in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] aktiviert wird, um einen Datenbankverschlüsselungsschlüssel mit einem asymmetrischen Schlüssel zu schützen, der in einem erweiterbaren Schlüsselverwaltungsmodul mit [!INCLUDE[tsql](../../../includes/tsql-md.md)] gespeichert wird.  
+  Dieser Artikel beschreibt, wie Transparent Data Encryption (TDE) in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] aktiviert wird, um einen Datenbankverschlüsselungsschlüssel mit einem asymmetrischen Schlüssel zu schützen, der in einem erweiterbaren Schlüsselverwaltungsmodul mit [!INCLUDE[tsql](../../../includes/tsql-md.md)] gespeichert wird.  
   
  TDE verschlüsselt die Speicherung einer gesamten Datenbank, indem ein symmetrischer Schlüssel verwendet wird, der als Datenbankverschlüsselungsschlüssel bezeichnet wird. Der Verschlüsselungsschlüssel für die Datenbank kann auch mithilfe eines Zertifikats geschützt werden, das mit dem Datenbankhauptschlüssel der Masterdatenbank geschützt wird. Weitere Informationen über das Schützen des Verschlüsselungsschlüssels für die Datenbank mit dem Datenbank-Hauptschlüssel finden Sie unter [Transparente Datenverschlüsselung &#40;TDE&#41;](../../../relational-databases/security/encryption/transparent-data-encryption.md). Informationen zum Konfigurieren von TDE, wenn [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] auf einem virtuellen Azure-Computer ausgeführt wird, finden Sie unter [Erweiterbare Schlüsselverwaltung mit Azure Key Vault &#40;SQL Server&#41;](../../../relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server.md). Informationen zum Konfigurieren von TDE mithilfe eines Schlüssels im Azure-Schlüsseltresor finden Sie unter [Verwenden von SQL Server-Connector mit SQL-Verschlüsselungsfunktionen](../../../relational-databases/security/encryption/use-sql-server-connector-with-sql-encryption-features.md). 
 

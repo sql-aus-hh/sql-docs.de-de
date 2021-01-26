@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: f1221474d86d95400ca955d64b4a0812cffe1c0d
-ms.sourcegitcommit: f87f2f0f1edc91fe400040d8e3a5810347aa8d70
+ms.openlocfilehash: 018252ff40ebf2ea7bd52b34f03ed25ef124a8d7
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96868902"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596311"
 ---
 # <a name="mssqlserver_15581"></a>MSSQLSERVER_15581
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -51,7 +51,7 @@ go
 alter master key drop encryption by service master key
 ```
 
-Der Hauptschlüssel des Dienste wird verwendet, um das Zertifikat zu verschlüsseln, das von dem Hauptschlüssel der Datenbank verwendet wird. Jeder Versuch, die Datenbank mit TDE-Aktivierung zu verwenden, benötigt Zugriff auf den Hauptschlüssel der Datenbank in der Masterdatenbank. Ein Hauptschlüssel, der nicht vom Hauptschlüssel des Diensts verschlüsselt ist, muss geöffnet werden, indem in jeder Sitzung, für die Zugriff auf den Hauptschlüssel erforderlich ist, die Anweisung [OPEN MASTER KEY (Transact-SQL)](/sql/t-sql/statements/open-master-key-transact-sql) zusammen mit einem Kennwort verwendet wird. Da dieser Befehl nicht für Systemsitzungen ausgeführt werden kann, kann die Wiederherstellung für Datenbanken mit TDE-Aktivierung nicht abgeschlossen werden.
+Der Hauptschlüssel des Dienste wird verwendet, um das Zertifikat zu verschlüsseln, das von dem Hauptschlüssel der Datenbank verwendet wird. Jeder Versuch, die Datenbank mit TDE-Aktivierung zu verwenden, benötigt Zugriff auf den Hauptschlüssel der Datenbank in der Masterdatenbank. Ein Hauptschlüssel, der nicht vom Hauptschlüssel des Diensts verschlüsselt ist, muss geöffnet werden, indem in jeder Sitzung, für die Zugriff auf den Hauptschlüssel erforderlich ist, die Anweisung [OPEN MASTER KEY (Transact-SQL)](../../t-sql/statements/open-master-key-transact-sql.md) zusammen mit einem Kennwort verwendet wird. Da dieser Befehl nicht für Systemsitzungen ausgeführt werden kann, kann die Wiederherstellung für Datenbanken mit TDE-Aktivierung nicht abgeschlossen werden.
 
 ## <a name="user-action"></a>Benutzeraktion
 

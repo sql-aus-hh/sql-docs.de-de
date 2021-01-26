@@ -15,18 +15,18 @@ helpviewer_keywords:
 ms.assetid: 0093b43c-c6b5-4574-9b30-3a0e91e1a1f9
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: c1d9b69cc55ab617eb3a4c5b4ed2ebb27726f35b
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: 03f4a469465339664e56aae784c3b734f85ba9b4
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91669907"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765696"
 ---
 # <a name="configure-a-windows-firewall-for-database-engine-access"></a>Konfigurieren einer Windows-Firewall für Datenbank-Engine-Zugriff
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
 
-  In diesem Thema wird beschrieben, wie eine Windows-Firewall für Datenbank-Engine-Zugriff in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe des SQL Server-Konfigurations-Managers konfiguriert wird. Durch Firewallsysteme kann der nicht autorisierte Zugriff auf Computerressourcen verhindert werden. Um über eine Firewall auf eine Instanz von [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] zugreifen zu können, müssen Sie die Firewall auf dem Computer mit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] entsprechend konfigurieren.  
+  In diesem Thema wird beschrieben, wie eine Windows-Firewall für Datenbank-Engine-Zugriff in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe des SQL Server-Konfigurations-Managers konfiguriert wird. Durch Firewallsysteme kann der nicht autorisierte Zugriff auf Computerressourcen verhindert werden. Um über eine Firewall auf eine Instanz von [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] zugreifen zu können, müssen Sie die Firewall auf dem Computer mit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] entsprechend konfigurieren.  
   
  Weitere Informationen zu den Standardeinstellungen der Windows-Firewall und eine Beschreibung der TCP-Ports, die sich auf das [!INCLUDE[ssDE](../../includes/ssde-md.md)], Analysis Services, Reporting Services und Integration Services auswirken, finden Sie unter [Konfigurieren der Windows-Firewall für den SQL Server-Zugriff](../../sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access.md). Es gibt zahlreiche verschiedene Firewallsysteme auf dem Markt. Informationen zu den für Ihr System relevanten Einstellungen finden Sie in der Firewalldokumentation.  
   
@@ -66,15 +66,15 @@ ms.locfileid: "91669907"
   
 #### <a name="to-open-a-port-in-the-windows-firewall-for-tcp-access"></a>So öffnen Sie einen Port in der Windows-Firewall für den TCP-Zugriff  
   
-1.  Klicken Sie im Menü **Start** auf **Ausführen**, geben Sie **WF.msc**ein, und klicken Sie anschließend auf **OK**.  
+1.  Klicken Sie im Menü **Start** auf **Ausführen**, geben Sie **WF.msc** ein, und klicken Sie anschließend auf **OK**.  
   
-2.  Klicken Sie im linken Bereich von **Windows-Firewall mit erweiterter Sicherheit**mit der rechten Maustaste auf **Eingehende Regeln**, und klicken Sie anschließend im Aktionsbereich auf **Neue Regel** .  
+2.  Klicken Sie im linken Bereich von **Windows-Firewall mit erweiterter Sicherheit** mit der rechten Maustaste auf **Eingehende Regeln**, und klicken Sie anschließend im Aktionsbereich auf **Neue Regel** .  
   
-3.  Wählen Sie im Dialogfeld **Regeltyp** die Option **Port**aus, und klicken Sie anschließend auf **Weiter**.  
+3.  Wählen Sie im Dialogfeld **Regeltyp** die Option **Port** aus, und klicken Sie anschließend auf **Weiter**.  
   
-4.  Wählen Sie im Dialogfeld **Protokoll und Ports** die Option **TCP**aus. Wählen Sie **Bestimmte lokale Ports**aus, und geben Sie anschließend die Portnummer der Instanz von [!INCLUDE[ssDE](../../includes/ssde-md.md)]ein, z.B. **1433** für die Standardinstanz. Klicken Sie auf **Weiter**.  
+4.  Wählen Sie im Dialogfeld **Protokoll und Ports** die Option **TCP** aus. Wählen Sie **Bestimmte lokale Ports** aus, und geben Sie anschließend die Portnummer der Instanz von [!INCLUDE[ssDE](../../includes/ssde-md.md)]ein, z.B. **1433** für die Standardinstanz. Klicken Sie auf **Weiter**.  
   
-5.  Wählen Sie im Dialogfeld **Aktion** die Option **Verbindung zulassen**aus, und klicken Sie anschließend auf **Weiter**.  
+5.  Wählen Sie im Dialogfeld **Aktion** die Option **Verbindung zulassen** aus, und klicken Sie anschließend auf **Weiter**.  
   
 6.  Wählen Sie im Dialogfeld **Profil** beliebige Profile aus, die die Verbindungsumgebung des Computers beschreiben, wenn Sie eine Verbindung zum [!INCLUDE[ssDE](../../includes/ssde-md.md)]herstellen möchten, und klicken Sie dann auf **Weiter**.  
   
@@ -82,15 +82,15 @@ ms.locfileid: "91669907"
   
 #### <a name="to-open-access-to-sql-server-when-using-dynamic-ports"></a>So ermöglichen Sie den Zugriff auf SQL Server bei der Verwendung von dynamischen Ports  
   
-1.  Klicken Sie im Menü **Start** auf **Ausführen**, geben Sie **WF.msc**ein, und klicken Sie anschließend auf **OK**.  
+1.  Klicken Sie im Menü **Start** auf **Ausführen**, geben Sie **WF.msc** ein, und klicken Sie anschließend auf **OK**.  
   
-2.  Klicken Sie im linken Bereich von **Windows-Firewall mit erweiterter Sicherheit**mit der rechten Maustaste auf **Eingehende Regeln**, und klicken Sie anschließend im Aktionsbereich auf **Neue Regel** .  
+2.  Klicken Sie im linken Bereich von **Windows-Firewall mit erweiterter Sicherheit** mit der rechten Maustaste auf **Eingehende Regeln**, und klicken Sie anschließend im Aktionsbereich auf **Neue Regel** .  
   
-3.  Wählen Sie im Dialogfeld **Regeltyp** die Option **Programm**aus, und klicken Sie anschließend auf **Weiter**.  
+3.  Wählen Sie im Dialogfeld **Regeltyp** die Option **Programm** aus, und klicken Sie anschließend auf **Weiter**.  
   
-4.  Wählen Sie im Dialogfeld **Programm** die Option **Dieser Programmpfad**aus. Klicken Sie auf **Durchsuchen**, navigieren Sie zu der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , auf die Sie durch die Firewall hindurch zugreifen möchten, und klicken Sie dann auf **Öffnen**. Standardmäßig befindet sich [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] im Verzeichnis **C:\Programme\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Binn\Sqlservr.exe**. Klicken Sie auf **Weiter**.  
+4.  Wählen Sie im Dialogfeld **Programm** die Option **Dieser Programmpfad** aus. Klicken Sie auf **Durchsuchen**, navigieren Sie zu der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , auf die Sie durch die Firewall hindurch zugreifen möchten, und klicken Sie dann auf **Öffnen**. Standardmäßig befindet sich [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] im Verzeichnis **C:\Programme\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Binn\Sqlservr.exe**. Klicken Sie auf **Weiter**.  
   
-5.  Wählen Sie im Dialogfeld **Aktion** die Option **Verbindung zulassen**aus, und klicken Sie anschließend auf **Weiter**.  
+5.  Wählen Sie im Dialogfeld **Aktion** die Option **Verbindung zulassen** aus, und klicken Sie anschließend auf **Weiter**.  
   
 6.  Wählen Sie im Dialogfeld **Profil** beliebige Profile aus, die die Verbindungsumgebung des Computers beschreiben, wenn Sie eine Verbindung zum [!INCLUDE[ssDE](../../includes/ssde-md.md)]herstellen möchten, und klicken Sie dann auf **Weiter**.  
   

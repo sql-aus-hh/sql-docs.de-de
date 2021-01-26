@@ -16,16 +16,16 @@ ms.assetid: 2bc294f6-2312-4b6b-9478-2fb8a656e645
 author: cawrites
 ms.author: chadam
 manager: erikre
-ms.openlocfilehash: 6e6b362f9e121f10515753d46ee098387348f272
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: c58d2479bfc1c7e33431c4da514154a9c06f2dd5
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98091735"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98764782"
 ---
 # <a name="configure-a-listener-for-an-always-on-availability-group"></a>Konfigurieren eines Listeners für Always On-Verfügbarkeitsgruppen
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird die Erstellung oder Konfiguration eines einzelnen *Verfügbarkeitsgruppenlisteners* für eine Always On-Verfügbarkeitsgruppe beschrieben. Dazu wird [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]verwendet.  
+  In diesem Thema wird die Erstellung oder Konfiguration eines einzelnen *Verfügbarkeitsgruppenlisteners* für eine Always On-Verfügbarkeitsgruppe beschrieben. Dazu wird [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]verwendet.  
   
 > [!IMPORTANT]  
 >  Für die Erstellung des ersten Verfügbarkeitsgruppenlisteners einer Verfügbarkeitsgruppe empfehlen wir dringend die Verwendung von [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)] oder [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] PowerShell. Vermeiden Sie, einen Listener direkt im WSFC-Cluster zu erstellen, sofern dies nicht unbedingt notwendig ist (z. B. bei der Erstellung eines zusätzlichen Listeners).  

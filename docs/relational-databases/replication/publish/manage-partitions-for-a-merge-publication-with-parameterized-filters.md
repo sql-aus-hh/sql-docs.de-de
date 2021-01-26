@@ -15,16 +15,16 @@ helpviewer_keywords:
 ms.assetid: fb5566fe-58c5-48f7-8464-814ea78e6221
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: 4793260717225b731f6675098a8fa187884de206
-ms.sourcegitcommit: f7ac1976d4bfa224332edd9ef2f4377a4d55a2c9
+ms.openlocfilehash: 0b24e2e404dbea75d77cdfc8acdfa50189db2286
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85882183"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765725"
 ---
 # <a name="manage-partitions-for-a-merge-publication-with-parameterized-filters"></a>Verwalten von Partitionen für eine Mergeveröffentlichung mit parametrisierten Filtern
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie Partitionen für eine Mergeveröffentlichung mit parametrisierten Filtern in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder Replikationsverwaltungsobjekten (RMO) verwaltet werden. Mithilfe parametrisierter Zeilenfilter können nicht überlappende Partitionen generiert werden. Diese Partitionen können eingeschränkt werden, sodass nur ein Abonnement eine bestimmte Partition erhält. In solchen Fällen führt eine große Anzahl von Abonnenten zu einer großen Anzahl von Partitionen, was wiederum eine gleiche Anzahl von partitionierten Momentaufnahmen erforderlich macht. Weitere Informationen zu parametrisierten Zeilenfiltern finden Sie unter [Parametrisierte Zeilenfilter](../../../relational-databases/replication/merge/parameterized-filters-parameterized-row-filters.md).  
+  In diesem Thema wird beschrieben, wie Partitionen für eine Mergeveröffentlichung mit parametrisierten Filtern in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder Replikationsverwaltungsobjekten (RMO) verwaltet werden. Mithilfe parametrisierter Zeilenfilter können nicht überlappende Partitionen generiert werden. Diese Partitionen können eingeschränkt werden, sodass nur ein Abonnement eine bestimmte Partition erhält. In solchen Fällen führt eine große Anzahl von Abonnenten zu einer großen Anzahl von Partitionen, was wiederum eine gleiche Anzahl von partitionierten Momentaufnahmen erforderlich macht. Weitere Informationen zu parametrisierten Zeilenfiltern finden Sie unter [Parametrisierte Zeilenfilter](../../../relational-databases/replication/merge/parameterized-filters-parameterized-row-filters.md).  
   
  **In diesem Thema**  
   
@@ -139,7 +139,7 @@ ms.locfileid: "85882183"
   
 2.  Erstellen Sie eine Instanz der <xref:Microsoft.SqlServer.Replication.MergePublication>-Klasse. Legen Sie die <xref:Microsoft.SqlServer.Replication.Publication.Name%2A> -Eigenschaft und die <xref:Microsoft.SqlServer.Replication.Publication.DatabaseName%2A> -Eigenschaft für die Veröffentlichung fest, und legen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.ConnectionContext%2A> -Eigenschaft auf die in Schritt 1 erstellte <xref:Microsoft.SqlServer.Management.Common.ServerConnection> fest.  
   
-3.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.LoadProperties%2A> -Methode auf, um die Eigenschaften des Objekts abzurufen. Wenn diese Methode **false**zurückgibt, sind die Veröffentlichungseigenschaften in Schritt 2 falsch definiert, oder die Veröffentlichung ist nicht vorhanden.  
+3.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.LoadProperties%2A> -Methode auf, um die Eigenschaften des Objekts abzurufen. Wenn diese Methode **false** zurückgibt, sind die Veröffentlichungseigenschaften in Schritt 2 falsch definiert, oder die Veröffentlichung ist nicht vorhanden.  
   
 4.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.MergePublication.EnumMergePartitions%2A> -Methode auf, und übergeben Sie das Ergebnis an ein Array von <xref:Microsoft.SqlServer.Replication.MergePartition> -Objekten.  
   
@@ -151,7 +151,7 @@ ms.locfileid: "85882183"
   
 2.  Erstellen Sie eine Instanz der <xref:Microsoft.SqlServer.Replication.MergePublication>-Klasse. Legen Sie die <xref:Microsoft.SqlServer.Replication.Publication.Name%2A> -Eigenschaft und die <xref:Microsoft.SqlServer.Replication.Publication.DatabaseName%2A> -Eigenschaft für die Veröffentlichung fest, und legen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.ConnectionContext%2A> -Eigenschaft auf die in Schritt 1 erstellte <xref:Microsoft.SqlServer.Management.Common.ServerConnection> fest.  
   
-3.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.LoadProperties%2A> -Methode auf, um die Eigenschaften des Objekts abzurufen. Wenn diese Methode **false**zurückgibt, sind die Veröffentlichungseigenschaften in Schritt 2 falsch definiert, oder die Veröffentlichung ist nicht vorhanden.  
+3.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.ReplicationObject.LoadProperties%2A> -Methode auf, um die Eigenschaften des Objekts abzurufen. Wenn diese Methode **false** zurückgibt, sind die Veröffentlichungseigenschaften in Schritt 2 falsch definiert, oder die Veröffentlichung ist nicht vorhanden.  
   
 4.  Rufen Sie die <xref:Microsoft.SqlServer.Replication.MergePublication.EnumMergePartitions%2A> -Methode auf, und übergeben Sie das Ergebnis an ein Array von <xref:Microsoft.SqlServer.Replication.MergePartition> -Objekten.  
   

@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 68d6b2a9-c36f-465a-9cd2-01d43a667e99
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 81e336ea1a3e0a516acc85d5fd4619163dd5898b
-ms.sourcegitcommit: b3a711a673baebb2ff10d7142b209982b46973ae
+ms.openlocfilehash: 290b7e30d198f18fc1d07049b80a0cea78673724
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364810"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98688901"
 ---
 # <a name="deny-server-permissions-transact-sql"></a>DENY (Serverberechtigungen) (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -101,7 +101,7 @@ In dieser Anweisung impliziert die Verwendung von AS nicht die Fähigkeit, die I
 |Serverberechtigung|Impliziert durch die Serverberechtigung|  
 |-----------------------|----------------------------------|  
 |ADMINISTER BULK OPERATIONS|CONTROL SERVER|  
-|ALTER ANY AVAILABILITY GROUP<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|CONTROL SERVER|  
+|ALTER ANY AVAILABILITY GROUP<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|CONTROL SERVER|  
 |ALTER ANY CONNECTION|CONTROL SERVER|  
 |ALTER ANY CREDENTIAL|CONTROL SERVER|  
 |ALTER ANY DATABASE|CONTROL SERVER|  
@@ -111,24 +111,24 @@ In dieser Anweisung impliziert die Verwendung von AS nicht die Fähigkeit, die I
 |ALTER ANY LINKED SERVER|CONTROL SERVER|  
 |ALTER ANY LOGIN|CONTROL SERVER|  
 |ALTER ANY SERVER AUDIT|CONTROL SERVER|  
-|ALTER ANY SERVER ROLE<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|CONTROL SERVER|  
+|ALTER ANY SERVER ROLE<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|CONTROL SERVER|  
 |ALTER RESOURCES|CONTROL SERVER|  
 |ALTER SERVER STATE|CONTROL SERVER|  
 |ALTER SETTINGS|CONTROL SERVER|  
 |ALTER TRACE|CONTROL SERVER|  
 |AUTHENTICATE SERVER|CONTROL SERVER|  
-|CONNECT ANY DATABASE<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|CONTROL SERVER|  
+|CONNECT ANY DATABASE<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|CONTROL SERVER|  
 |CONNECT SQL|CONTROL SERVER|  
 |CONTROL SERVER|CONTROL SERVER|  
 |CREATE ANY DATABASE|ALTER ANY DATABASE|  
-|CREATE AVAILABILITY GROUP<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|ALTER ANY AVAILABILITY GROUP|  
+|CREATE AVAILABILITY GROUP<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|ALTER ANY AVAILABILITY GROUP|  
 |CREATE DDL EVENT NOTIFICATION|ALTER ANY EVENT NOTIFICATION|  
 |CREATE ENDPOINT|ALTER ANY ENDPOINT|  
-|CREATE SERVER ROLE<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|ALTER ANY SERVER ROLE|  
+|CREATE SERVER ROLE<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|ALTER ANY SERVER ROLE|  
 |CREATE TRACE EVENT NOTIFICATION|ALTER ANY EVENT NOTIFICATION|  
 |EXTERNAL ACCESS ASSEMBLY|CONTROL SERVER|  
-|IMPERSONATE ANY LOGIN<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|CONTROL SERVER|  
-|SELECT ALL USER SECURABLES<br /><br /> **Gilt für** : [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658)).|CONTROL SERVER|  
+|IMPERSONATE ANY LOGIN<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|CONTROL SERVER|  
+|SELECT ALL USER SECURABLES<br /><br /> **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|CONTROL SERVER|  
 |SHUTDOWN|CONTROL SERVER|  
 |UNSAFE ASSEMBLY|CONTROL SERVER|  
 |VIEW ANY DATABASE|VIEW ANY DEFINITION|  
@@ -137,14 +137,14 @@ In dieser Anweisung impliziert die Verwendung von AS nicht die Fähigkeit, die I
   
  Die folgenden drei Serverberechtigungen wurden in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] hinzugefügt.  
   
- **CONNECT ANY DATABASE** -Berechtigung  
- Erteilen Sie die **CONNECT ANY DATABASE** -Berechtigung einem Anmeldenamen, der eine Verbindung mit allen derzeit vorhandenen Datenbanken und allen zukünftig erstellten neuen Datenbanken herstellen muss. Gewährt keine Berechtigung für Datenbanken außer der Berechtigung zum Herstellen der Verbindung. Kombinieren Sie diese Berechtigung mit **SELECT ALL USER SECURABLES** oder **VIEW SERVER STATE** , um einem Überwachungsprozess das Anzeigen aller Daten oder aller Datenbankstatus in der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] zu ermöglichen.  
+ **CONNECT ANY DATABASE**-Berechtigung  
+ Erteilen Sie die **CONNECT ANY DATABASE**-Berechtigung einem Anmeldenamen, der eine Verbindung mit allen derzeit vorhandenen Datenbanken und allen zukünftig erstellten neuen Datenbanken herstellen muss. Gewährt keine Berechtigung für Datenbanken außer der Berechtigung zum Herstellen der Verbindung. Kombinieren Sie diese Berechtigung mit **SELECT ALL USER SECURABLES** oder **VIEW SERVER STATE**, um einem Überwachungsprozess das Anzeigen aller Daten oder aller Datenbankstatus in der Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] zu ermöglichen.  
   
- **IMPERSONATE ANY LOGIN** -Berechtigung  
- Wenn die Berechtigung erteilt wird, kann ein Prozess der mittleren Ebene beim Herstellen der Verbindung mit Datenbanken die Identität des Kontos von Clients annehmen, die eine Verbindung mit ihm herstellen. Wenn die Berechtigung verweigert wird, kann verhindert werden, dass ein Anmeldename mit hohen Privilegien die Identität anderer Anmeldenamen annimmt. Beispielsweise kann verhindert werden, dass ein Anmeldename mit einer **CONTROL SERVER** -Berechtigung die Identität anderer Anmeldenamen annimmt.  
+ **IMPERSONATE ANY LOGIN**-Berechtigung  
+ Wenn die Berechtigung erteilt wird, kann ein Prozess der mittleren Ebene beim Herstellen der Verbindung mit Datenbanken die Identität des Kontos von Clients annehmen, die eine Verbindung mit ihm herstellen. Wenn die Berechtigung verweigert wird, kann verhindert werden, dass ein Anmeldename mit hohen Privilegien die Identität anderer Anmeldenamen annimmt. Beispielsweise kann verhindert werden, dass ein Anmeldename mit einer **CONTROL SERVER**-Berechtigung die Identität anderer Anmeldenamen annimmt.  
   
- **SELECT ALL USER SECURABLES** -Berechtigung  
- Wenn sie erteilt wird, kann ein Anmeldename, z. B. ein Auditor, Daten in allen Datenbanken anzeigen, mit denen der Benutzer eine Verbindung herstellen kann. Wenn sie verweigert wird, wird der Zugriff auf alle Objekte, außer auf die Objekte im **sys** -Schema, verhindert.  
+ **SELECT ALL USER SECURABLES**-Berechtigung  
+ Wenn sie erteilt wird, kann ein Anmeldename, z. B. ein Auditor, Daten in allen Datenbanken anzeigen, mit denen der Benutzer eine Verbindung herstellen kann. Wenn sie verweigert wird, wird der Zugriff auf alle Objekte, außer auf die Objekte im **sys**-Schema, verhindert.  
   
 ## <a name="permissions"></a>Berechtigungen  
  Erfordert die CONTROL SERVER-Berechtigung oder den Besitz des sicherungsfähigen Elements. Falls die AS-Klausel verwendet wird, muss der angegebene Prinzipal der Besitzer des sicherungsfähigen Elements sein, für das Berechtigungen verweigert werden.  
@@ -178,5 +178,4 @@ GO
  [sys.fn_builtin_permissions &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-builtin-permissions-transact-sql.md)   
  [sys.fn_my_permissions &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-my-permissions-transact-sql.md)   
  [HAS_PERMS_BY_NAME &#40;Transact-SQL&#41;](../../t-sql/functions/has-perms-by-name-transact-sql.md)  
-  
   

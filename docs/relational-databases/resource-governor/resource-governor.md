@@ -13,19 +13,19 @@ helpviewer_keywords:
 ms.assetid: 2bc89b66-e801-45ba-b30d-8ed197052212
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 6b5f22541039f781e49615b5e8916d138a5c375b
-ms.sourcegitcommit: bb54e4c9dd8c97365b7a96dfcd557b8b86d06978
+ms.openlocfilehash: fea1ba3712f07548d259867f931188d9e5798802
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97736888"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596416"
 ---
 # <a name="resource-governor"></a>Resource Governor
 [!INCLUDE [SQL Server SQL MI](../../includes/appliesto-ss-xxxx-xxxx-xxx-md.md)]
   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Resource Governor ist ein Feature, mit dem Sie die Arbeitsauslastung und den Systemressourcenverbrauch für [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] verwalten können. Mit Resource Governor können Sie für CPU, physische E/A und Arbeitsspeicher Grenzwerte für die Menge angeben, die für eingehende Anwendungsanforderungen zur Verfügung steht.  
   
 > [!NOTE]
-> Während [Azure SQL-Datenbank Resource Governor](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/) (neben anderen Verfahren) zur Verwaltung von Ressourcen nutzt, wird die Benutzerkonfiguration von benutzerdefinierten Ressourcenpools und Arbeitsauslastungsgruppen in Azure SQL-Datenbank nicht unterstützt. Azure Synapse Analytics hat eine andere Implementierung eines ähnlichen Resource Governor-Verhaltens über das [Feature zur Arbeitsauslastungsklassifizierung](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-classification).
+> Während [Azure SQL-Datenbank Resource Governor](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/) (neben anderen Verfahren) zur Verwaltung von Ressourcen nutzt, wird die Benutzerkonfiguration von benutzerdefinierten Ressourcenpools und Arbeitsauslastungsgruppen in Azure SQL-Datenbank nicht unterstützt. Azure Synapse Analytics hat eine andere Implementierung eines ähnlichen Resource Governor-Verhaltens über das [Feature zur Arbeitsauslastungsklassifizierung](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-classification).
 
 ## <a name="benefits-of-resource-governor"></a>Vorteile der Ressourcenkontrolle  
  Mit der Ressourcenkontrolle können Sie die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Arbeitsauslastungen und -Ressourcen verwalten, indem Sie durch eingehende Anforderungen Grenzen für den Ressourcenverbrauch festlegen. Im Kontext der Ressourcenkontrolle bezeichnet Arbeitsauslastung eine Reihe von ähnlich dimensionierten Abfragen oder Anforderungen, die als einzelne Entität behandelt werden kann und sollte. Dies ist zwar keine Voraussetzung, je einheitlicher das Ressourcenverwendungsmuster einer Arbeitsauslastung jedoch ist, desto größer der Nutzen der Ressourcenkontrolle. Ressourcengrenzen können in Echtzeit mit minimaler Wirkung auf Arbeitsauslastungen, die ausgeführt werden, neu konfiguriert werden.  
@@ -95,5 +95,4 @@ ms.locfileid: "97736888"
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Datenbank-Engine-Instanzen &#40;SQL Server&#41;](../../database-engine/configure-windows/database-engine-instances-sql-server.md)  
-  
   

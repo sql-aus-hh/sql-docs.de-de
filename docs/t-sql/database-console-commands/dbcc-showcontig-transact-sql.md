@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: 1df2123a-1197-4fff-91a3-25e3d8848aaa
 author: pmasl
 ms.author: umajay
-ms.openlocfilehash: baa64e35a39d1f61f2e5b5cda6ce64e2fc72c455
-ms.sourcegitcommit: cc23d8646041336d119b74bf239a6ac305ff3d31
+ms.openlocfilehash: ed1ba4d3fb6114a74dbf972ff0a04f84a463af06
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91114972"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597082"
 ---
 # <a name="dbcc-showcontig-transact-sql"></a>DBCC SHOWCONTIG (Transact-SQL)
 
@@ -40,7 +40,7 @@ Zeigt Fragmentierungsinformationen für die Daten und Indizes der angegebenen Ta
 > [!IMPORTANT]  
 >  [!INCLUDE[ssNoteDepFutureDontUse](../../includes/ssnotedepfuturedontuse-md.md)] Verwenden Sie stattdessen [sys.dm_db_index_physical_stats](../../relational-databases/system-dynamic-management-views/sys-dm-db-index-physical-stats-transact-sql.md).  
   
-**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis zur [aktuellen Version](https://go.microsoft.com/fwlink/p/?LinkId=299658))
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis zur [aktuellen Version](../../sql-server/what-s-new-in-sql-server-2016.md))
   
 ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
   
@@ -100,7 +100,7 @@ In der folgenden Tabelle finden Sie eine Beschreibung der Informationen des Resu
 |**Blockwechsel**|Gibt an, wie oft die DBCC-Anweisung von einem Block zu einem anderen gewechselt hat, während die Anweisung die Seiten der Tabelle oder des Indexes durchlaufen hat.|  
 |**Mittlere pro Block (Durchschnitt)**|Die Anzahl der Seiten pro Block in der Seitenkette.|  
 |**Scandichte [Bester Wert: Tatsächlicher Wert]**|Ein Prozentwert. Es handelt sich um das Verhältnis zwischen **Bester Wert** und **Tatsächlicher Wert**. Dieser Wert ist 100, wenn alle Daten zusammenhängen. Liegt der Wert unter 100, sind sie fragmentiert.<br /><br /> **Bester Wert** ist die ideale Anzahl von Blockwechseln, wenn alle Daten zusammenhängend verknüpft sind. **Tatsächlicher Wert** ist die tatsächliche Anzahl von Blockwechseln.|  
-|**Logische Scanfragmentierung**|Prozentsatz der Seiten, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Eine nicht ordnungsgemäß einsortierte Seite ist eine Seite, für die die nächste physische Seite, die dem Index zugeordnet ist, nicht die Seite ist, auf die der Zeiger für die nächste Seit*e* auf der aktuellen Blattseite zeigt.|  
+|**Logische Scanfragmentierung**|Prozentsatz der Seiten, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Eine nicht ordnungsgemäß einsortierte Seite ist eine Seite, für die die nächste physische Seite, die dem Index zugeordnet ist, nicht die Seite ist, auf die der Zeiger für die nächste Seit *e* auf der aktuellen Blattseite zeigt.|  
 |**Blockscanfragmentierung**|Prozentsatz der Blöcke, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Ein nicht richtig einsortierter Block ist ein Block, für den der Block, der die aktuelle Seite eines Indexes enthält, physisch nicht der nächste Block nach dem Block ist, der die vorherige Seite des Indexes enthält.<br /><br /> Hinweis: Diese Zahl ist bedeutungslos, wenn der Index mehrere Dateien umfasst.|  
 |**Mittlere frei pro Seite (Durchschnitt)**|Die durchschnittliche Anzahl von freien Bytes auf den gescannten Seiten. Je größer die Zahl, desto weniger sind die Seiten belegt. Kleinere Zahlen sind besser, wenn der Index nur über wenige zufällige Einfügungen verfügt. Diese Zahl wird auch von der Zeilengröße beeinflusst. Große Zeilen können einen höheren Wert verursachen.|  
 |**Mittlere Seitendichte (voll)**|Die durchschnittliche Seitendichte in Prozent. Dieser Wert berücksichtigt die Zeilengröße. Daher informiert der Wert genauer über den Füllungsgrad der Seiten. Je höher die Prozentwerte, desto besser.|  
@@ -134,7 +134,7 @@ Wenn TABLERESULTS angegeben ist, gibt DBCC SHOWCONTIG die neun in der ersten Tab
 |**ScanDensity**|Ein Prozentwert. Es handelt sich um das Verhältnis zwischen **BestCount** und **ActualCount**. Dieser Wert ist 100, wenn alle Daten zusammenhängen. Liegt der Wert unter 100, sind sie fragmentiert.|  
 |**BestCount**|Ist die ideale Anzahl von Blockwechseln, wenn alle Daten zusammenhängend verknüpft sind.|  
 |**ActualCount**|Die tatsächliche Anzahl von Blockwechseln.|  
-|**LogicalFragmentation**|Prozentsatz der Seiten, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Eine nicht ordnungsgemäß einsortierte Seite ist eine Seite, für die die nächste physische Seite, die dem Index zugeordnet ist, nicht die Seite ist, auf die der Zeiger für die nächste Seit*e* auf der aktuellen Blattseite zeigt.|  
+|**LogicalFragmentation**|Prozentsatz der Seiten, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Eine nicht ordnungsgemäß einsortierte Seite ist eine Seite, für die die nächste physische Seite, die dem Index zugeordnet ist, nicht die Seite ist, auf die der Zeiger für die nächste Seit *e* auf der aktuellen Blattseite zeigt.|  
 |**ExtentFragmentation**|Prozentsatz der Blöcke, die beim Scannen der Blattseiten eines Indexes nicht richtig einsortiert waren. Diese Zahl ist für Heaps nicht relevant. Ein nicht richtig einsortierter Block ist ein Block, für den der Block, der die aktuelle Seite eines Indexes enthält, physisch nicht der nächste Block nach dem Block ist, der die vorherige Seite des Indexes enthält.<br /><br /> Hinweis: Diese Zahl ist bedeutungslos, wenn der Index mehrere Dateien umfasst.|  
   
 Wenn WITH TABLERESULTS und FAST angegeben sind, ist das Resultset dasselbe wie bei Angabe von WITH TABLERESULTS mit Ausnahme der folgenden Spalten, die NULL-Werte enthalten werden:
@@ -354,5 +354,3 @@ GO
 [OBJECT_ID &#40;Transact-SQL&#41;](../../t-sql/functions/object-id-transact-sql.md)  
 [sys.indexes &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-indexes-transact-sql.md)
   
-  
-

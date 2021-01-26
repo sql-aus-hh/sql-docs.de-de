@@ -21,12 +21,12 @@ helpviewer_keywords:
 ms.assetid: f3059e42-5f6f-4a64-903c-86dca212a4b4
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: bab0801b0193d9f675ef69e566eef375f0930e5b
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: ce637e88679747faf40ec7f262ceaea3c0f01f5f
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98170862"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98688853"
 ---
 # <a name="alter-server-configuration-transact-sql"></a>ALTER SERVER CONFIGURATION (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -184,13 +184,13 @@ Legt den Protokolliergrad für SQL Server-Failoverclustering fest. Diese Option 
 In Ressourcenfailoverszenarios kann die Ressourcen-DLL in SQL Server ein Speicherabbild abrufen, bevor ein Failover durchgeführt wird. Dies gilt sowohl für FCI- als auch für Verfügbarkeitsgruppentechnologien. Wenn die Ressourcen-DDL in SQL Server feststellt, dass es bei einer SQL Server-Ressource zu einem Fehler kam, verwendet die Ressourcen-DLL in SQL Server das Hilfsprogramm Sqldumper.exe, um ein Speicherabbild des SQL Server-Prozesses abzurufen. Sie müssen die folgenden drei Eigenschaften als Voraussetzung festlegen, damit das Hilfsprogramm Sqldumper.exe das Speicherabbild bei einem Ressourcenfailover erfolgreich erstellen kann: SqlDumperDumpTimeOut, SqlDumperDumpPath, SqlDumperDumpFlags.
 
 SQLDUMPEREDUMPFLAGS  
-Bestimmt den Typ der Dumpdateien, die vom SQL Server-Hilfsprogramm SQLDumper generiert werden. Die Standardeinstellung ist 0. Dezimalwerte anstelle von Hexadezimalwerten werden für diese Einstellung verwendet. Verwenden Sie für ein Miniabbild den Wert 288. Für ein Miniabbild mit indirektem Arbeitsspeicher verwenden Sie den Wert 296. Für ein gefiltertes Abbild verwenden Sie den Wert 33024. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](https://go.microsoft.com/fwlink/?LinkId=206173).  
+Bestimmt den Typ der Dumpdateien, die vom SQL Server-Hilfsprogramm SQLDumper generiert werden. Die Standardeinstellung ist 0. Dezimalwerte anstelle von Hexadezimalwerten werden für diese Einstellung verwendet. Verwenden Sie für ein Miniabbild den Wert 288. Für ein Miniabbild mit indirektem Arbeitsspeicher verwenden Sie den Wert 296. Für ein gefiltertes Abbild verwenden Sie den Wert 33024. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](/troubleshoot/sql/tools/use-sqldumper-generate-dump-file).  
   
 SQLDUMPERDUMPPATH = { 'os_file_path' | DEFAULT }  
-Der Speicherort, an dem das Hilfsprogramm SQLDumper die Dumpdateien speichert. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](https://go.microsoft.com/fwlink/?LinkId=206173).  
+Der Speicherort, an dem das Hilfsprogramm SQLDumper die Dumpdateien speichert. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](/troubleshoot/sql/tools/use-sqldumper-generate-dump-file).  
   
 SQLDUMPERDUMPTIMEOUT = { 'dump_time-out' | DEFAULT }  
-Der Timeoutwert in Millisekunden für die Generierung eines Dumps durch das Hilfsprogramm SQLDumper, falls ein SQL Server-Fehler auftritt. Der Standardwert ist 0; das bedeutet, dass das Fertigstellen des Dumps nicht zeitlich begrenzt ist. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](https://go.microsoft.com/fwlink/?LinkId=206173).  
+Der Timeoutwert in Millisekunden für die Generierung eines Dumps durch das Hilfsprogramm SQLDumper, falls ein SQL Server-Fehler auftritt. Der Standardwert ist 0; das bedeutet, dass das Fertigstellen des Dumps nicht zeitlich begrenzt ist. Weitere Informationen finden Sie im [Knowledge Base-Artikel zum SQL Server Dumper-Hilfsprogramm](/troubleshoot/sql/tools/use-sqldumper-generate-dump-file).  
   
  FAILURECONDITIONLEVEL = { 'failure_condition_level' | DEFAULT }  
  Die Bedingungen, unter denen für die SQL Server-Failoverclusterinstanz ein Failover oder Neustart durchgeführt werden soll. Der Standardwert ist 3; das bedeutet, dass für die SQL Server-Ressource bei kritischen Serverfehlern ein Failover oder Neustart durchgeführt wird. Weitere Informationen zum Konfigurieren dieser Eigenschaft finden Sie unter [Configure FailureConditionLevel Property Settings (Konfigurieren von FailureConditionLevel-Eigenschafteneinstellungen)](../../sql-server/failover-clusters/windows/configure-failureconditionlevel-property-settings.md).  
@@ -484,4 +484,3 @@ GO
 [sys.dm_os_memory_nodes &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-os-memory-nodes-transact-sql.md)   
 [sys.dm_os_buffer_pool_extension_configuration &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-os-buffer-pool-extension-configuration-transact-sql.md)   
 [Pufferpoolerweiterung](../../database-engine/configure-windows/buffer-pool-extension.md)  
-  

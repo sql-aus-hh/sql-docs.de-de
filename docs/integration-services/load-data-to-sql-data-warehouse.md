@@ -10,12 +10,12 @@ ms.custom: loading
 ms.date: 08/09/2018
 ms.author: chugu
 author: chugugrace
-ms.openlocfilehash: 7b582e5722b19db3569aaa0f154f5b78864a2838
-ms.sourcegitcommit: 985e2e8e494badeac6d6b652cd35765fd9c12d80
+ms.openlocfilehash: 06c69fb6b40fad1f6440583b693719767d6ad1d2
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328506"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597276"
 ---
 # <a name="load-data-into-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-integration-services-ssis"></a>Laden von Daten in einen dedizierten SQL-Pool in Azure Synapse Analytics mit SQL Server Integration Services (SSIS)
 
@@ -78,7 +78,7 @@ Um mit dem Tutorial mit dieser Option fortzufahren, benötigen Sie Folgendes:
 
 - Das [Microsoft SQL Server Integration Services-Feature Pack für Azure][Microsoft SQL Server 2017 Integration Services Feature Pack for Azure]. Der SQL DW Upload-Task ist eine Komponente des Feature Packs.
 
-- Ein [Azure Blob Storage](https://docs.microsoft.com/azure/storage/)-Konto. Der SQL DW Upload-Task lädt Daten von Azure Blob Storage in Azure Synapse Analytics. Sie können Dateien laden, die sich bereits in Blob Storage befinden, oder Sie können Dateien von Ihrem Computer laden. Wenn Sie Dateien von Ihrem Computer auswählen, lädt der SQL DW Upload-Task diese zunächst für den Stagingprozess in Blob Storage und erst anschließend in Ihren dedizierten SQL-Pool.
+- Ein [Azure Blob Storage](/azure/storage/)-Konto. Der SQL DW Upload-Task lädt Daten von Azure Blob Storage in Azure Synapse Analytics. Sie können Dateien laden, die sich bereits in Blob Storage befinden, oder Sie können Dateien von Ihrem Computer laden. Wenn Sie Dateien von Ihrem Computer auswählen, lädt der SQL DW Upload-Task diese zunächst für den Stagingprozess in Blob Storage und erst anschließend in Ihren dedizierten SQL-Pool.
 
 ### <a name="add-and-configure-the-sql-dw-upload-task"></a>Hinzufügen und Konfigurieren des SQL DW Upload-Tasks
 

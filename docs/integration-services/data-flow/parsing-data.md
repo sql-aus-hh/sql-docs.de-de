@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 8893ea9d-634c-4309-b52c-6337222dcb39
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: eba3e72558433acab3ba1a0edc3cd921b15281bd
-ms.sourcegitcommit: c5078791a07330a87a92abb19b791e950672e198
+ms.openlocfilehash: 905c5988860aef1a2e495bb17d98a48eaf91c5ce
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "88457349"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594828"
 ---
 # <a name="parsing-data"></a>Analysieren von Daten
 
@@ -205,5 +205,4 @@ Die Fast Parse-Eigenschaft muss für jede Spalte der Quelle oder Transformation 
 ## <a name="standard-parse"></a>Standard Parse
 Die Standardanalyse enthält gebietsschemabezogene Analyseroutinen, die alle in Oleaut32.dll und Ole2dsip.dll verfügbaren Datentypkonvertierungen der APIs für die automatische Datentypkonvertierung unterstützen. Die Standardanalyse entspricht den OLE DB-Analyse-APIs.  
   
- Die Standardanalyse stellt die Datentypkonvertierung interner Daten bereit und sollte verwendet werden, wenn das Datenformat nicht von der schnellen Analyse unterstützt wird. Weitere Informationen zur API für die automatische Datentypkonvertierung finden Sie unter "Data Type Conversion APIs" in der [MSDN Library](https://go.microsoft.com/fwlink/?LinkId=79427). 
- 
+ Die Standardanalyse stellt die Datentypkonvertierung interner Daten bereit und sollte verwendet werden, wenn das Datenformat nicht von der schnellen Analyse unterstützt wird. Weitere Informationen zur API für die automatische Datentypkonvertierung finden Sie unter "Data Type Conversion APIs" in der [MSDN Library](/documentation/). 

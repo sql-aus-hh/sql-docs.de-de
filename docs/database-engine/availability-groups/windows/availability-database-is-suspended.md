@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 6baee70f-848c-4e86-b20d-78875c0f82cb
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 5843b82c3be84acf24e04ab9dac4b616bed857a6
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 9336a99169c0656d290898e3474254d9bb423030
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641232"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765805"
 ---
 # <a name="availability-database-is-suspended-for-an-availability-group"></a>Verfügbarkeitsdatenbank angehalten
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,9 +35,6 @@ ms.locfileid: "97641232"
   
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie überprüft den Status der Datenverschiebung für die sekundäre Datenbank (auch bekannt als "sekundäres Datenbankreplikat"). Die Richtlinie befindet sich in einem fehlerhaften Zustand, wenn die Datenverschiebung angehalten wird. Die Richtlinie befindet sich andernfalls in einem ordnungsgemäßen Zustand.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Availability database is suspended](https://go.microsoft.com/fwlink/p/?LinkId=220860) .  
   
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  Die Datensynchronisierung dieser Verfügbarkeitsdatenbank kann aus den folgenden Gründen angehalten worden sein:  

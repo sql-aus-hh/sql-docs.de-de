@@ -9,12 +9,12 @@ ms.technology: security
 ms.topic: how-to
 author: rupp29
 ms.author: arupp
-ms.openlocfilehash: 85be425e0e352961841f5317c7db219153a6c008
-ms.sourcegitcommit: 9122251ab8bbd46ea3c699e741d6842c995195fa
+ms.openlocfilehash: 8d3f89803711e96cb1e37adc9792c54bceb259c4
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847769"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596499"
 ---
 # <a name="sql-server-connector-error-and-information-logging"></a>Fehler- und Informationsprotokollierung des SQL Server-Connectors
 
@@ -24,7 +24,7 @@ In diesem Artikel wird erläutert, wie Sie Registrierungseinträge bearbeiten, u
 
 Der [SQL Server-Connector für Microsoft Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45344) ermöglicht es, dass bei der SQL Server-Verschlüsselung Microsoft Azure Key Vault als Anbieter für eine erweiterbare Schlüsselverwaltung (Extensible Key Management, EKM) verwendet werden kann, um Verschlüsselungsschlüssel zu schützen.
 
-Der [Download](https://www.microsoft.com/download/details.aspx?id=45344) umfasst den SQL Server-Connector sowie Beispielskripts, um es einem Administrator für SQL Server zu ermöglichen, sich darüber zu informieren, wie der SQL Server-Connector konfiguriert wird. Außerdem wird er so in die Lage versetzt, Verschlüsselungsszenarios für SQL Server zu ermöglichen. Weitere Informationen finden Sie unter [Erweiterbare Schlüsselverwaltung mit Azure Key Vault (SQL Server)](https://go.microsoft.com/fwlink/p/?LinkId=521690).
+Der [Download](https://www.microsoft.com/download/details.aspx?id=45344) umfasst den SQL Server-Connector sowie Beispielskripts, um es einem Administrator für SQL Server zu ermöglichen, sich darüber zu informieren, wie der SQL Server-Connector konfiguriert wird. Außerdem wird er so in die Lage versetzt, Verschlüsselungsszenarios für SQL Server zu ermöglichen. Weitere Informationen finden Sie unter [Erweiterbare Schlüsselverwaltung mit Azure Key Vault (SQL Server)](./extensible-key-management-using-azure-key-vault-sql-server.md).
 
 Im [Azure Key Vault-Forum](https://social.msdn.microsoft.com/Forums/AzureKeyVault) können Sie Fragen stellen, Erkenntnisse teilen und an Diskussionen zum SQL Server-Connector teilnehmen.
 

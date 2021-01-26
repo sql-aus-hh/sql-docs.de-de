@@ -12,16 +12,16 @@ helpviewer_keywords:
 ms.assetid: 0b7542fa-235e-413d-81bf-3eff9ee07480
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 414b407cc2adccf20f2f9d7dc0e01bfb171899f7
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: bb048bf64f7fddea90eb4b1e5990b716c6685cb3
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643314"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765392"
 ---
 # <a name="administration-of-an-availability-group"></a>Verwalten einer Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
- Die Verwaltung einer vorhandenen Always On-Verfügbarkeitsgruppe in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] schließt folgende Tasks ein:  
+ Die Verwaltung einer vorhandenen Always On-Verfügbarkeitsgruppe in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] schließt folgende Tasks ein:  
   
 -   Ändern der Eigenschaften eines vorhandenen Verfügbarkeitsreplikats, z. B. Ändern des Clientverbindungszugriffs (zum Konfigurieren lesbarer sekundärer Replikate), des Failovermodus, Verfügbarkeitsmodus oder der Timeouteinstellung für die Sitzung    
 -   Hinzufügen oder Entfernen sekundärer Replikate    

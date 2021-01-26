@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 28261014-342c-442a-bd89-6d04b8d4e8b7
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 276436fb5b7ea41ace997a9c744992d4af177b00
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: b19e7f11a60ac21b191c524c0444414f1c5231e8
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641222"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766039"
 ---
 # <a name="always-on-availability-group-is-not-ready-for-automatic-failover"></a>Die Always On-Verfügbarkeitsgruppe ist nicht für das automatische Failover bereit.
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -36,10 +36,7 @@ ms.locfileid: "97641222"
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie überprüft, ob die Verfügbarkeitsgruppe über mindestens ein sekundäres Replikat verfügt, das bereit für das Failover ist. Die Richtlinie befindet sich in einem fehlerhaften Zustand, und es wird eine Warnung ausgelöst, wenn für das primäre Replikat der automatische Failovermodus aktiviert ist, aber keines der sekundären Replikate in der Verfügbarkeitsgruppe für das Failover bereit ist.  
   
- Die Richtlinie befindet sich in einem ordnungsgemäßen Zustand, wenn mindestens ein sekundäres Replikat bereit für das automatische Failover ist.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Verfügbarkeitsgruppe nicht bereit für automatischen Failover](https://go.microsoft.com/fwlink/p/?LinkId=220851) .  
+ Die Richtlinie befindet sich in einem ordnungsgemäßen Zustand, wenn mindestens ein sekundäres Replikat bereit für das automatische Failover ist.
   
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  Die Verfügbarkeitsgruppe ist nicht für das automatische Failover bereit. Das primäre Replikat wurde für das automatische Failover konfiguriert. Das sekundäre Replikat ist jedoch nicht für das automatische Failover bereit. Das sekundäre Replikat, das für automatisches Failover konfiguriert wurde, ist ggf. nicht verfügbar, oder dessen Datensynchronisierungsstatus lautet derzeit SYNCHRONIZED.  

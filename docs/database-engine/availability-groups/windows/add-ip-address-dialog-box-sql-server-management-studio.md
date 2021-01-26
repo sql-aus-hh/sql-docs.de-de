@@ -12,16 +12,16 @@ f1_keywords:
 ms.assetid: 98c9ad3b-ff3c-4c1d-b344-59a72fca137c
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 6b6f405786daf40e1241af48ee3e442cea998a6f
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 1d77e19fba88132eb141ec05dda0f837ef51b620
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643780"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765463"
 ---
 # <a name="add-ip-address-dialog-box-sql-server-management-studio"></a>Dialogfeld IP-Adresse hinzufügen (SQL Server Management Studio)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem F1-Hilfethema werden die Optionen des Dialogfelds **IP-Adresse hinzufügen** beschrieben. Auf dieses Dialogfeld wird über das Dialogfeld **Neuer Verfügbarkeitsgruppenlistener** und über die Registerkarte **Listener** der Seite **Replikate angeben** des [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)] oder des [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)] von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]zugegriffen.  
+  In diesem F1-Hilfethema werden die Optionen des Dialogfelds **IP-Adresse hinzufügen** beschrieben. Auf dieses Dialogfeld wird über das Dialogfeld **Neuer Verfügbarkeitsgruppenlistener** und über die Registerkarte **Listener** der Seite **Replikate angeben** des [!INCLUDE[ssAoNewAgWiz](../../../includes/ssaonewagwiz-md.md)] oder des [!INCLUDE[ssAoAddRepWiz](../../../includes/ssaoaddrepwiz-md.md)] von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]zugegriffen.  
   
 ## <a name="prerequisites"></a>Voraussetzungen  
  Bevor Sie beginnen, einem Verfügbarkeitsgruppenlistener Subnetze hinzuzufügen, stellen Sie sicher, dass Sie die IP-Adresse für jedes Subnetz und bei einer IPv4-Adresse die Subnetzmaske kennen.  

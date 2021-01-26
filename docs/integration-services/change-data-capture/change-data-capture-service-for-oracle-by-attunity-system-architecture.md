@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 1db6c737-3c60-4066-a0a3-3611e1c83e4e
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: d5fa150f7477449c644c554b68c7703be8e44df1
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: a8d184639991b7e7a0d5e837fabe95535fdc08fa
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88351546"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765675"
 ---
 # <a name="change-data-capture-service-for-oracle-by-attunity-system-architecture"></a>Change Data Capture Service für Oracle von Attunity System Architecture
 
@@ -33,7 +33,7 @@ ms.locfileid: "88351546"
   
 -   Oracle-Datenbank: Hierbei kann es sich um einen beliebigen Computer handeln, auf dem eine unterstützte Version der Oracle-Datenbank ausgeführt wird. Dies gilt auch für Computer, auf denen Windows, Linux oder ein beliebiges anderes Betriebssystem ausgeführt wird, das von der installierten Version der Oracle-Datenbank unterstützt wird. Beachten Sie, dass diese Plattform im Diagramm im Plural angegeben ist, da ein einzelner Oracle CDC Service die Änderungen von mehreren Oracle-Quelldatenbanken aufzeichnen kann.  
   
--   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]: Dies kann ein beliebiger Computer sein, auf dem die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Zieldatenbank (unterstützte SKU von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]) ausgeführt wird. Ein Oracle CDC Service unterstützt ein [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Ziel, auf dem dieser Änderungstabellen und die Dienstkonfiguration speichert. Die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Plattform kann auch eine gruppierte Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] oder eine gespiegelte Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] darstellen (mithilfe der **Always On** -Funktion).  
+-   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]: Dies kann ein beliebiger Computer sein, auf dem die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Zieldatenbank (unterstützte SKU von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]) ausgeführt wird. Ein Oracle CDC Service unterstützt ein [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Ziel, auf dem dieser Änderungstabellen und die Dienstkonfiguration speichert. Die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Plattform kann auch eine gruppierte Instanz von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] oder eine gespiegelte Instanz von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] darstellen (mithilfe der **Always On** -Funktion).  
   
 -   Oracle CDC Designer: Hierbei kann es sich um einen beliebigen unterstützten Windows-Computer handeln, der auf die Oracle-Quelldatenbank und die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Zieldatenbank zugreifen kann.  
   
@@ -45,7 +45,7 @@ ms.locfileid: "88351546"
 ||Oracle Log Reader: Liest Oracle-Transaktionsprotokolle mithilfe des Oracle-Clients.|  
 ||Oracle-Client: Der für die Kommunikation mit Oracle verwendete Oracle Instant Client. Dies ist eine erforderliche Komponente von Oracle, die vor dem Installieren des Oracle CDC Service vorhanden sein muss.|  
 ||[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Change Writer: Schreibt per Commit ausgeführte Änderungen, die an der aufgezeichneten Oracle-Tabelle vorgenommen werden, in die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Änderungstabellen. Diese Komponente behält diesen Aufzeichnungsstatus auch innerhalb der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Zieldatenbank bei.|  
-||[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]ODBC-Client: Der Microsoft Native Client für [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Dies ist eine erforderliche Komponente von Microsoft, die vor dem Installieren des Oracle CDC Service vorhanden sein muss.|  
+||[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]ODBC-Client: Der Microsoft Native Client für [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]. Dies ist eine erforderliche Komponente von Microsoft, die vor dem Installieren des Oracle CDC Service vorhanden sein muss.|  
 |Oracle CDC Service Configuration: Dies ist ein Microsoft Management Console-Snap-In, das den Windows-Dienst erstellt und seine Konfiguration festlegt.|[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Client: Der SQL ADO.NET-Client, der in Version 4 von .NET Framework enthalten ist.|  
 |Oracle-Datenbank: Eine Oracle-Quelldatenbank, aus der Änderungen an ausgewählten Tabellen aufgezeichnet werden.|Log Miner: Eine Oracle-Komponente, über die die Oracle-Transaktionsprotokolle gelesen werden.|  
 ||Transaktionsprotokolle: Das Onlineversionen und archivierten Versionen der Oracle Redo Logs, mit deren Hilfe Oracle sicherstellt, dass die Datenbank ein Rollback für Transaktionen ausführen und Fehler beheben kann (in diesem Fall muss die Oracle-Datenbank im Archivprotokollmodus ausgeführt werden).|  

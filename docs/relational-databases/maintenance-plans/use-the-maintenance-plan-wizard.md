@@ -35,23 +35,23 @@ helpviewer_keywords:
 ms.assetid: db65c726-9892-480c-873b-3af29afcee44
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 7d2ec2dd6935d535bcef0ebb566bf0d0f8f09d6a
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 68c3ff265fbf1bf56fb2d7f0ba42aa6f76dd72b2
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85758980"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766248"
 ---
 # <a name="use-the-maintenance-plan-wizard"></a>Verwenden des Wartungsplanungs-Assistenten
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie Sie einen Einzelserver- oder Multiserver-Wartungsplan mithilfe des Wartungsplanungs-Assistenten in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]erstellen. Der Wartungsplanungs-Assistent erstellt einen Wartungsplan, den der [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Agent regelmäßig ausführen kann. Dies ermöglicht es Ihnen, verschiedene Aufgaben für die Datenbankverwaltung in bestimmten Intervallen auszuführen, z. B. Sicherungen, Datenbankintegritätsprüfungen oder Datenbankstatistikupdates.  
+  In diesem Thema wird beschrieben, wie Sie einen Einzelserver- oder Multiserver-Wartungsplan mithilfe des Wartungsplanungs-Assistenten in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]erstellen. Der Wartungsplanungs-Assistent erstellt einen Wartungsplan, den der [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Agent regelmäßig ausführen kann. Dies ermöglicht es Ihnen, verschiedene Aufgaben für die Datenbankverwaltung in bestimmten Intervallen auszuführen, z. B. Sicherungen, Datenbankintegritätsprüfungen oder Datenbankstatistikupdates.  
     
  
 ##  <a name="limitations-and-restrictions"></a><a name="Restrictions"></a> Einschränkungen  
   
 -   Wenn Sie einen Multiserver-Wartungsplan erstellen möchten, müssen Sie eine Multiserverumgebung mit einem Masterserver und mindestens einem Zielserver konfigurieren. Sie müssen Multiserver-Wartungspläne auf dem Masterserver erstellen und warten. Sie können Pläne auf Zielservern anzeigen.   
 
--   Mitglieder der **db_ssisadmin** -Rolle und der **dc_admin** -Rolle können ihre Berechtigungen möglicherweise auf **sysadmin**erhöhen. Diese Ausweitung von Berechtigungen ist möglich, da diese Rollen [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -Pakete ändern können. Diese Pakete können von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mithilfe des **sysadmin** -Sicherheitskontexts des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agents ausgeführt werden. 
+-   Mitglieder der **db_ssisadmin** -Rolle und der **dc_admin** -Rolle können ihre Berechtigungen möglicherweise auf **sysadmin** erhöhen. Diese Ausweitung von Berechtigungen ist möglich, da diese Rollen [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -Pakete ändern können. Diese Pakete können von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mithilfe des **sysadmin** -Sicherheitskontexts des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agents ausgeführt werden. 
 
 Konfigurieren Sie als Schutz vor dieser Ausweitung von Berechtigungen beim Ausführen von Wartungsplänen, Datensammlungssätzen und anderen [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -Paketen Aufträge des [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agents, die Pakete ausführen, für die Verwendung eines Proxykontos mit eingeschränkten Berechtigungen, oder fügen Sie der **db_ssisadmin** -Rolle und der **dc_admin** -Rolle nur **sysadmin** -Mitglieder hinzu.  
 
@@ -71,7 +71,7 @@ Sie müssen [Agent XPs (Serverkonfigurationsoption)](../../database-engine/confi
   
 2.  Erweitern Sie den Ordner **Verwaltung** .  
   
-3.  Klicken Sie mit der rechten Maustaste auf den Ordner **Wartungspläne** , und wählen Sie **Wartungsplanungs-Assistent**aus.  
+3.  Klicken Sie mit der rechten Maustaste auf den Ordner **Wartungspläne** , und wählen Sie **Wartungsplanungs-Assistent** aus.  
   
 4.  Klicken Sie auf der Seite **SQL Server Wartungsplanungs-Assistent** auf **Weiter**.  
   
@@ -85,9 +85,9 @@ Sie müssen [Agent XPs (Serverkonfigurationsoption)](../../database-engine/confi
   
     4.  Wählen Sie **Getrennte Zeitpläne für jede Aufgabe** oder **Einzelner Zeitplan für den gesamten Plan oder kein Zeitplan** aus, um den Wiederholungszeitplan für den Wartungsplan anzugeben.  
   
-        > **HINWEIS:** Bei Auswahl von **Getrennte Zeitpläne für jede Aufgabe**müssen Sie die Schritte unter **e.** für jede Aufgabe im Wartungsplan ausführen.  
+        > **HINWEIS:** Bei Auswahl von **Getrennte Zeitpläne für jede Aufgabe** müssen Sie die Schritte unter **e.** für jede Aufgabe im Wartungsplan ausführen.  
   
-    5.  Wenn Sie unter **Zeitplan**die Option **Einzelner Zeitplan für den gesamten Plan oder kein Zeitplan**ausgewählt haben, klicken Sie auf **Ändern**.  
+    5.  Wenn Sie unter **Zeitplan** die Option **Einzelner Zeitplan für den gesamten Plan oder kein Zeitplan** ausgewählt haben, klicken Sie auf **Ändern**.  
   
         1.  Geben Sie im Dialogfeld **Neuer Auftragszeitplan** im Feld **Name** den Namen des Auftragszeitplans ein.  
   
@@ -103,33 +103,33 @@ Sie müssen [Agent XPs (Serverkonfigurationsoption)](../../database-engine/confi
   
         3.  Aktivieren oder deaktivieren Sie das Kontrollkästchen **Aktiviert** , um den Zeitplan zu aktivieren oder zu deaktivieren.  
   
-        4.  Wenn Sie **Wiederholt**auswählen:  
+        4.  Wenn Sie **Wiederholt** auswählen:  
   
-            1.  Geben Sie unter **Häufigkeit**in der Liste **Tritt auf** die Häufigkeit des Vorkommens an:  
+            1.  Geben Sie unter **Häufigkeit** in der Liste **Tritt auf** die Häufigkeit des Vorkommens an:  
   
-                -   Wenn Sie im Dialogfeld **Wiederholen alle**die Option **Täglich** auswählen, geben Sie ein, wie oft der Auftragszeitplan wiederholt wird (in Tagen).  
+                -   Wenn Sie im Dialogfeld **Wiederholen alle** die Option **Täglich** auswählen, geben Sie ein, wie oft der Auftragszeitplan wiederholt wird (in Tagen).  
   
-                -   Wenn Sie im Dialogfeld **Wiederholen alle**die Option **Wöchentlich** auswählen, geben Sie ein, wie oft der Auftragszeitplan wiederholt wird (in Wochen). Wählen Sie die Tage der Woche aus, an denen der Auftragszeitplan ausgeführt wird.  
+                -   Wenn Sie im Dialogfeld **Wiederholen alle** die Option **Wöchentlich** auswählen, geben Sie ein, wie oft der Auftragszeitplan wiederholt wird (in Wochen). Wählen Sie die Tage der Woche aus, an denen der Auftragszeitplan ausgeführt wird.  
   
-                -   Wenn Sie **Monatlich**auswählen, wählen Sie **Tag** oder **Am**aus.  
+                -   Wenn Sie **Monatlich** auswählen, wählen Sie **Tag** oder **Am** aus.  
   
-                    -   Wenn Sie **Tag**auswählen, geben Sie das Datum ein, an dem der Auftragszeitplan ausgeführt wird, und wie oft der Auftragszeitplan wiederholt werden soll (in Monaten). Wenn Sie beispielsweise möchten, dass der Auftragszeitplan jeden zweiten Monat am 15. ausgeführt wird, wählen Sie **Tag** aus, und geben Sie in das erste Feld „15“ und in das zweite Feld „2“ ein. Beachten Sie, dass die größte im zweiten Feld zulässige Zahl „99“ ist.  
+                    -   Wenn Sie **Tag** auswählen, geben Sie das Datum ein, an dem der Auftragszeitplan ausgeführt wird, und wie oft der Auftragszeitplan wiederholt werden soll (in Monaten). Wenn Sie beispielsweise möchten, dass der Auftragszeitplan jeden zweiten Monat am 15. ausgeführt wird, wählen Sie **Tag** aus, und geben Sie in das erste Feld „15“ und in das zweite Feld „2“ ein. Beachten Sie, dass die größte im zweiten Feld zulässige Zahl „99“ ist.  
   
-                    -   Wenn Sie **Am**auswählen, geben Sie den spezifischen Tag der Woche im Monat an, an dem der Auftragszeitplan ausgeführt wird, und wie oft der Auftragszeitplan wiederholt werden soll (in Monaten). Wenn Sie beispielsweise möchten, dass der Auftragszeitplan jeden zweiten Monat am letzten Wochentag ausgeführt werden soll, wählen Sie **Tag** und in der ersten Liste **Letzter** und in der zweiten Liste **Wochentag** aus, und geben Sie in das letzte Feld „2“ ein. Sie können auch **ersten**, **zweiten**, **dritten**oder **vierten**sowie bestimmte Wochentage z. B. Sonntag oder Mittwoch) aus den ersten beiden Listen auswählen. Beachten Sie, dass die größte im letzten Feld zulässige Zahl „99“ ist.  
+                    -   Wenn Sie **Am** auswählen, geben Sie den spezifischen Tag der Woche im Monat an, an dem der Auftragszeitplan ausgeführt wird, und wie oft der Auftragszeitplan wiederholt werden soll (in Monaten). Wenn Sie beispielsweise möchten, dass der Auftragszeitplan jeden zweiten Monat am letzten Wochentag ausgeführt werden soll, wählen Sie **Tag** und in der ersten Liste **Letzter** und in der zweiten Liste **Wochentag** aus, und geben Sie in das letzte Feld „2“ ein. Sie können auch **ersten**, **zweiten**, **dritten** oder **vierten** sowie bestimmte Wochentage z. B. Sonntag oder Mittwoch) aus den ersten beiden Listen auswählen. Beachten Sie, dass die größte im letzten Feld zulässige Zahl „99“ ist.  
   
-            2.  Geben Sie unter **Häufigkeit pro Tag**an, wie oft der Auftragszeitplan an dem Tag wiederholt werden soll, an dem der Auftragszeitplan ausgeführt wird:  
+            2.  Geben Sie unter **Häufigkeit pro Tag** an, wie oft der Auftragszeitplan an dem Tag wiederholt werden soll, an dem der Auftragszeitplan ausgeführt wird:  
   
-                -   Wenn Sie **Einmalig um**auswählen, geben Sie im Feld **Einmalig um** die spezifische Tageszeit ein, zu der der Auftragszeitplan ausgeführt werden soll. Geben Sie die Stunde, Minute und Sekunde des Tages sowie AM oder PM ein.  
+                -   Wenn Sie **Einmalig um** auswählen, geben Sie im Feld **Einmalig um** die spezifische Tageszeit ein, zu der der Auftragszeitplan ausgeführt werden soll. Geben Sie die Stunde, Minute und Sekunde des Tages sowie AM oder PM ein.  
   
-                -   Wenn Sie **Alle**auswählen, geben Sie an, wie oft der Auftragszeitplan an dem unter **Häufigkeit**ausgewählten Tag ausgeführt werden soll. Wenn Sie z.B. möchten, dass der Auftragszeitplan am Tag seiner Ausführung alle 2 Stunden wiederholt wird, wählen Sie **Alle** aus, geben in das erste Feld „2“ ein und wählen dann in der Liste **Stunde(n)** aus. Aus dieser Liste können Sie auch **Minute(n)** und **Sekunde(n)** auswählen. Beachten Sie, dass die größte im ersten Feld zulässige Zahl „100“ ist.  
+                -   Wenn Sie **Alle** auswählen, geben Sie an, wie oft der Auftragszeitplan an dem unter **Häufigkeit** ausgewählten Tag ausgeführt werden soll. Wenn Sie z.B. möchten, dass der Auftragszeitplan am Tag seiner Ausführung alle 2 Stunden wiederholt wird, wählen Sie **Alle** aus, geben in das erste Feld „2“ ein und wählen dann in der Liste **Stunde(n)** aus. Aus dieser Liste können Sie auch **Minute(n)** und **Sekunde(n)** auswählen. Beachten Sie, dass die größte im ersten Feld zulässige Zahl „100“ ist.  
   
                      Geben Sie im Feld **Start** die Zeit ein, zu der die Ausführung des Auftragszeitplans beginnen soll. Geben Sie im Feld **Ende** die Zeit ein, zu der die Ausführung des Auftragszeitplans enden soll. Geben Sie die Stunde, Minute und Sekunde des Tages sowie AM oder PM ein.  
   
-            3.  Geben Sie unter **Dauer**in **Startdatum**das Datum ein, an dem die Ausführung des Auftragszeitplans beginnen soll. Wählen Sie **Enddatum** oder **Kein Enddatum** aus, um anzugeben, wann die Ausführung des Auftragszeitplans beendet werden soll. Wenn Sie **Enddatum**auswählen, geben Sie das Datum ein, an dem die Ausführung des Auftragszeitplans beendet werden soll.  
+            3.  Geben Sie unter **Dauer** in **Startdatum** das Datum ein, an dem die Ausführung des Auftragszeitplans beginnen soll. Wählen Sie **Enddatum** oder **Kein Enddatum** aus, um anzugeben, wann die Ausführung des Auftragszeitplans beendet werden soll. Wenn Sie **Enddatum** auswählen, geben Sie das Datum ein, an dem die Ausführung des Auftragszeitplans beendet werden soll.  
   
-        5.  Wenn Sie **Einmal**auswählen, geben Sie unter **Einmalig**in das Feld **Datum** das Datum ein, an dem der Auftragszeitplan ausgeführt werden soll. Geben Sie im Feld **Uhrzeit** die Zeit ein, zu der der Auftragszeitplan ausgeführt werden soll. Geben Sie die Stunde, Minute und Sekunde des Tages sowie AM oder PM ein.  
+        5.  Wenn Sie **Einmal** auswählen, geben Sie unter **Einmalig** in das Feld **Datum** das Datum ein, an dem der Auftragszeitplan ausgeführt werden soll. Geben Sie im Feld **Uhrzeit** die Zeit ein, zu der der Auftragszeitplan ausgeführt werden soll. Geben Sie die Stunde, Minute und Sekunde des Tages sowie AM oder PM ein.  
   
-        6.  Überprüfen Sie unter **Zusammenfassung**im Feld **Beschreibung**, ob alle Auftragszeitplaneinstellungen richtig sind.  
+        6.  Überprüfen Sie unter **Zusammenfassung** im Feld **Beschreibung**, ob alle Auftragszeitplaneinstellungen richtig sind.  
   
         7.  Klicken Sie auf **OK**.  
   
@@ -153,7 +153,7 @@ Sie müssen [Agent XPs (Serverkonfigurationsoption)](../../database-engine/confi
   
 Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
- Liste**Datenbanken**  
+ Liste **Datenbanken**  
  Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind.  
   
  -  **Alle Datenbanken**  
@@ -172,7 +172,7 @@ Generiert einen Wartungsplan, der diesen Task für alle [!INCLUDE[msCoName](../.
   
   - Generiert einen Wartungsplan, der diesen Task nur für die ausgewählten Datenbanken ausführt. Wenn diese Option ausgewählt wird, muss mindestens eine Datenbank in der Liste ausgewählt werden.  
   
-Kontrollkästchen**Indizes einschließen**  
+Kontrollkästchen **Indizes einschließen**  
  - Überprüft die Integrität aller Indexseiten und der Tabellendatenseiten.  
   
 **Nur physisch**  
@@ -189,13 +189,13 @@ Kontrollkästchen**Indizes einschließen**
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Liste**Datenbanken**  
+     Liste **Datenbanken**  
      Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind. Weitere Informationen zu den verfügbaren Optionen in dieser Liste finden Sie weiter oben in Schritt 9.  
   
-     Feld**Datenbank verkleinern, wenn sie folgende Größe überschreitet**  
+     Feld **Datenbank verkleinern, wenn sie folgende Größe überschreitet**  
      Gibt die Größe in Megabytes an, die zur Ausführung des Tasks führt.  
   
-     Feld**Menge des freien Speicherplatzes nach dem Verkleinern**  
+     Feld **Menge des freien Speicherplatzes nach dem Verkleinern**  
      Beendet das Verkleinern, wenn der freie Speicherplatz in der Datenbankdatei diesen Wert (in Prozent) erreicht.  
   
      **Freigegebenen Speicherplatz in Datenbankdateien belassen**  
@@ -210,57 +210,57 @@ Kontrollkästchen**Indizes einschließen**
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Liste**Datenbanken**  
+     Liste **Datenbanken**  
      Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind. Weitere Informationen zu den verfügbaren Optionen in dieser Liste finden Sie weiter oben in Schritt 9.  
   
-     Liste**Objekt**  
+     Liste **Objekt**  
      Begrenzt die Liste **Auswahl** auf die Anzeige von Tabellen und/oder Sichten. Diese Liste ist nur verfügbar, wenn in der obigen Liste **Datenbanken** eine einzelne Datenbank ausgewählt wurde.  
   
-     Liste**Auswahl**  
+     Liste **Auswahl**  
      Gibt die Tabellen oder Indizes an, auf die sich dieser Task auswirkt. Nicht verfügbar, wenn im Objektfeld der Eintrag **Tabellen und Sichten** ausgewählt ist.  
   
-     Kontrollkästchen**Große Objekte komprimieren**  
+     Kontrollkästchen **Große Objekte komprimieren**  
      Hebt die Speicherplatzzuordnung für Tabellen und Sichten nach Möglichkeit auf. Diese Option verwendet `ALTER INDEX ... LOB_COMPACTION = ON`.  
   
 2.  Wählen Sie auf der Seite **Task „Index neu erstellen“ definieren** die Datenbanken aus, in denen mehrere Indizes neu erstellt werden sollen. Für diesen Task wird die `ALTER INDEX ... REBUILD PARTITION`-Anweisung verwendet. Weitere Informationen finden Sie unter [ALTER INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/alter-index-transact-sql.md).) Klicken Sie anschließend auf **Weiter**.  
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Liste**Datenbanken**  
+     Liste **Datenbanken**  
      Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind. Weitere Informationen zu den verfügbaren Optionen in dieser Liste finden Sie weiter oben in Schritt 9.  
   
-     Liste**Objekt**  
+     Liste **Objekt**  
      Begrenzt die Liste **Auswahl** auf die Anzeige von Tabellen und/oder Sichten. Diese Liste ist nur verfügbar, wenn in der obigen Liste **Datenbanken** eine einzelne Datenbank ausgewählt wurde.  
   
-     Liste**Auswahl**  
+     Liste **Auswahl**  
      Gibt die Tabellen oder Indizes an, auf die sich dieser Task auswirkt. Nicht verfügbar, wenn im Objektfeld der Eintrag **Tabellen und Sichten** ausgewählt ist.  
   
-     Bereich**Optionen für freien Speicherplatz**  
+     Bereich **Optionen für freien Speicherplatz**  
      Enthält Optionen, mit denen ein Füllfaktor auf Indizes und Tabellen angewendet werden kann.  
   
      **Freier Standardspeicherplatz pro Seite**  
      Organisiert die Seiten mit der standardmäßigen freien Speicherplatzmenge neu. Dadurch werden die Indizes für die Tabellen in der Datenbank gelöscht, und sie werden mit dem Füllfaktor, der beim Erstellen der Indizes angegeben wurde, neu erstellt. Dies ist die Standardoption.  
   
-     Feld**Freien Speicherplatz pro Seite ändern in**  
+     Feld **Freien Speicherplatz pro Seite ändern in**  
      Löscht die Indizes für die Tabellen in der Datenbank und erstellt sie mit einem neuen, automatisch berechneten Füllfaktor neu. Auf diese Weise wird der angegebene freie Speicherplatz auf den Indexseiten reserviert. Ein höherer Prozentsatz bedeutet, dass mehr freier Speicherplatz auf den Indexseiten reserviert wird und der Index entsprechend wachsen kann. Die gültigen Werte sind 0 bis 100. Verwendet die `FILLFACTOR` -Option.  
   
-     Bereich**Erweiterte Optionen**  
+     Bereich **Erweiterte Optionen**  
      Enthält zusätzliche Optionen zum Sortieren von Indizes und Neuindizieren.  
   
-     Kontrollkästchen**Ergebnisse in 'tempdb' sortieren**  
+     Kontrollkästchen **Ergebnisse in 'tempdb' sortieren**  
      Legt mithilfe der `SORT_IN_TEMPDB` -Option fest, wo die während der Indexerstellung generierten Zwischenergebnisse der Sortierung temporär gespeichert werden. Wenn ein Sortiervorgang nicht erforderlich ist oder im Arbeitsspeicher ausgeführt werden kann, wird die `SORT_IN_TEMPDB` -Option ignoriert.  
   
-     Kontrollkästchen**Index mit Leerstellen auffüllen**  
+     Kontrollkästchen **Index mit Leerstellen auffüllen**  
      Verwendet die `PAD_INDEX` -Option.  
   
-     Kontrollkästchen**Index online während Neuindizierung**  
+     Kontrollkästchen **Index online während Neuindizierung**  
      Verwendet die `ONLINE` -Option, die es Benutzern ermöglicht, während Indexvorgängen auf die zugrunde liegenden Tabellen- oder gruppierten Indexdaten und alle zugehörigen nicht gruppierten Indizes zuzugreifen. Bei Auswahl dieser Option werden zusätzliche Optionen zum Neuerstellen von Indizes aktiviert, die keine Onlineneuerstellungen zulassen: **Indizes nicht neu erstellen** und **Indizes offline neu erstellen**.  
   
      Die Auswahl dieser Option aktiviert auch „Mit niedriger Priorität“, das die `WAIT_AT_LOW_PRIORITY` -Option verwendet. Der Onlineneuerstellungsvorgang für den Index wartet auf Sperren mit niedriger Priorität ( `MAX_DURATION` Minuten) und ermöglicht die weitere Ausführung anderer Vorgänge, während der Onlineerstellungsvorgang für den Index wartet.  
   
-    > **HINWEIS:** Onlineindexvorgänge sind nicht in jeder Edition von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]verfügbar. Weitere Informationen finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Funktionen](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
+    > **HINWEIS:** Onlineindexvorgänge sind nicht in jeder Edition von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]verfügbar. Weitere Informationen finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Funktionen](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
   
-     Kontrollkästchen**MAXDOP**  
+     Kontrollkästchen **MAXDOP**  
      Überschreibt die Konfigurationsoption "Max. Grad an Parallelität" von sp_configure für DBCC CHECKDB. Weitere Informationen finden Sie unter [DBCC CHECKDB &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-checkdb-transact-sql.md).  
   
 #### <a name="define-the-update-statistics-task"></a>Definieren des Tasks "Statistiken aktualisieren"  
@@ -269,13 +269,13 @@ Kontrollkästchen**Indizes einschließen**
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Liste**Datenbanken**  
+     Liste **Datenbanken**  
      Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind. Weitere Informationen zu den verfügbaren Optionen in dieser Liste finden Sie weiter oben in Schritt 9.  
   
-     Liste**Objekt**  
+     Liste **Objekt**  
      Begrenzt die Liste **Auswahl** auf die Anzeige von Tabellen und/oder Sichten. Diese Liste ist nur verfügbar, wenn in der obigen Liste **Datenbanken** eine einzelne Datenbank ausgewählt wurde.  
   
-     Liste**Auswahl**  
+     Liste **Auswahl**  
      Gibt die Tabellen oder Indizes an, auf die sich dieser Task auswirkt. Nicht verfügbar, wenn im Objektfeld der Eintrag **Tabellen und Sichten** ausgewählt ist.  
   
      **Alle vorhandenen Statistiken**  
@@ -319,7 +319,7 @@ Kontrollkästchen**Indizes einschließen**
   
 #### <a name="define-the-execute-agent-job-task"></a>Definieren des Tasks zum Ausführen von Agentaufträgen  
   
-1.  Wählen Sie auf der Seite **Task 'Agentauftrag ausführen' definieren** unter **Verfügbare Aufträge des SQL Server-Agents**die auszuführenden Aufträge aus. Diese Option ist nicht verfügbar, wenn Sie keine SQL-Agentaufträge besitzen. Für diesen Task wird die `EXEC sp_start_job`-Anweisung verwendet. Weitere Informationen finden Sie unter [sp_start_job &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-start-job-transact-sql.md). Klicken Sie zum Abschluss auf **Weiter**.  
+1.  Wählen Sie auf der Seite **Task 'Agentauftrag ausführen' definieren** unter **Verfügbare Aufträge des SQL Server-Agents** die auszuführenden Aufträge aus. Diese Option ist nicht verfügbar, wenn Sie keine SQL-Agentaufträge besitzen. Für diesen Task wird die `EXEC sp_start_job`-Anweisung verwendet. Weitere Informationen finden Sie unter [sp_start_job &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-start-job-transact-sql.md). Klicken Sie zum Abschluss auf **Weiter**.  
   
 #### <a name="define-backup-tasks"></a>Definieren von Sicherungstasks  
   
@@ -327,20 +327,20 @@ Kontrollkästchen**Indizes einschließen**
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Liste**Sicherungstyp**  
+     Liste **Sicherungstyp**  
      Zeigt den Typ der Sicherung an, die ausgeführt werden soll. Dieses Feld ist schreibgeschützt.  
   
-     Liste**Datenbanken**  
+     Liste **Datenbanken**  
      Gibt die Datenbanken an, die von dieser Aufgabe betroffen sind. Weitere Informationen zu den verfügbaren Optionen in dieser Liste finden Sie weiter oben in Schritt 9.  
   
      **Sicherungskomponente**  
-     Wählen Sie **Datenbank** aus, um die gesamte Datenbank zu sichern. Wählen Sie **Datei und Dateigruppen** aus, um nur einen Teil der Datenbank zu sichern. Bei Auswahl dieser Option müssen Sie die Datei bzw. Dateigruppe angeben. Wenn im Feld **Datenbanken** mehrere Datenbanken ausgewählt wurden, geben Sie für die **Sicherungskomponenten** nur **Datenbanken**an. Erstellen Sie einen Task für jede Datenbank, um Datei- oder Dateigruppensicherungen auszuführen. Diese Optionen sind nur verfügbar, wenn in der obigen Liste **Datenbanken** eine einzelne Datenbank ausgewählt wurde.  
+     Wählen Sie **Datenbank** aus, um die gesamte Datenbank zu sichern. Wählen Sie **Datei und Dateigruppen** aus, um nur einen Teil der Datenbank zu sichern. Bei Auswahl dieser Option müssen Sie die Datei bzw. Dateigruppe angeben. Wenn im Feld **Datenbanken** mehrere Datenbanken ausgewählt wurden, geben Sie für die **Sicherungskomponenten** nur **Datenbanken** an. Erstellen Sie einen Task für jede Datenbank, um Datei- oder Dateigruppensicherungen auszuführen. Diese Optionen sind nur verfügbar, wenn in der obigen Liste **Datenbanken** eine einzelne Datenbank ausgewählt wurde.  
   
-     Kontrollkästchen**Sicherungssatz läuft ab**  
+     Kontrollkästchen **Sicherungssatz läuft ab**  
      Gibt an, wann der Sicherungssatz für diese Sicherung überschrieben werden kann. Wählen Sie **Nach** aus, und geben Sie die Anzahl von Tagen ein, nach der der Satz ablaufen soll, oder wählen Sie **Am** aus, und geben Sie ein Ablaufdatum ein. Diese Option ist deaktiviert, wenn **URL** als Sicherungsziel ausgewählt ist.  
   
      **Sichern auf**  
-     Gibt das Medium an, auf dem die Datenbank gesichert wird. Wählen Sie **Datenträger**, **Band**oder **URL**aus. Es stehen nur Bandmedien zur Verfügung, die an den Computer mit der Datenbank angeschlossen sind.  
+     Gibt das Medium an, auf dem die Datenbank gesichert wird. Wählen Sie **Datenträger**, **Band** oder **URL** aus. Es stehen nur Bandmedien zur Verfügung, die an den Computer mit der Datenbank angeschlossen sind.  
   
      **Datenbanken in einer oder in mehreren Dateien sichern**  
      Klicken Sie auf **Hinzufügen** , um das Dialogfeld **Sicherungsziel auswählen** zu öffnen. Diese Option ist deaktiviert, wenn Sie URL als Sicherungsziel ausgewählt haben.  
@@ -349,27 +349,27 @@ Kontrollkästchen**Indizes einschließen**
   
      Klicken Sie auf **Inhalt** , um den Dateiheader zu lesen und den aktuellen Sicherungsinhalt der Datei anzuzeigen.  
   
-     Dialogfeld**Sicherungsziel auswählen**  
+     Dialogfeld **Sicherungsziel auswählen**  
      Wählen Sie die Datei, das Bandlaufwerk oder das Sicherungsmedium für das Sicherungsziel aus. Diese Option ist deaktiviert, wenn Sie URL als Sicherungsziel ausgewählt haben.  
   
-     Liste**Wenn Sicherungsdateien vorhanden sind**  
+     Liste **Wenn Sicherungsdateien vorhanden sind**  
      Gibt an, wie vorhandene Sicherungen zu behandeln sind. Wählen Sie **Anfügen** aus, wenn neue Sicherungen in der Datei bzw. auf dem Band nach den vorhandenen Sicherungen eingefügt werden sollen. Wählen Sie **Überschreiben** aus, wenn der alte Inhalt einer Datei oder eines Bands mit der neuen Sicherung überschrieben werden soll.  
   
      **Für jede Datenbank eine Sicherungsdatei erstellen**  
      Erstellt eine Sicherungsdatei an dem im Feld für den Ordner angegebenen Speicherort. Für jede ausgewählte Datenbank wird eine Datei erstellt. Diese Option ist deaktiviert, wenn Sie URL als Sicherungsziel ausgewählt haben.  
   
-     Kontrollkästchen**Unterverzeichnis für jede Datenbank erstellen**  
+     Kontrollkästchen **Unterverzeichnis für jede Datenbank erstellen**  
      Erstellt im angegebenen Datenträgerverzeichnis ein Unterverzeichnis, das die Datenbanksicherung für jede im Rahmen des Wartungsplans gesicherte Datenbank enthält.  
   
     > **WICHTIG!** Das Unterverzeichnis erbt Berechtigungen vom übergeordneten Verzeichnis. Schränken Sie die Berechtigungen ein, um einen nicht autorisierten Zugriff zu verhindern.  
   
-     Feld**Ordner**  
+     Feld **Ordner**  
      Gibt den Ordner an, in dem die automatisch erstellten Datenbankdateien gespeichert werden sollen. Diese Option ist deaktiviert, wenn Sie URL als Sicherungsziel ausgewählt haben.  
   
      **SQL-Anmeldeinformationen**  
      Wählen Sie SQL-Anmeldeinformationen aus, die zur Authentifizierung bei Azure Storage verwendet werden sollen. Wenn Sie über keine vorhandenen geeigneten SQL-Anmeldeinformationen verfügen, klicken Sie auf die Schaltfläche **Erstellen** , um neue SQL-Anmeldeinformationen zu erstellen.  
   
-    > **WICHTIG!** Das Dialogfeld, das beim Klicken auf **Erstellen** geöffnet wird, erfordert ein Verwaltungszertifikat oder das Veröffentlichungsprofil für das Abonnement. Wenn Sie keinen Zugriff auf das Verwaltungszertifikat oder Veröffentlichungsprofil haben, können Sie SQL-Anmeldeinformationen erstellen, indem Sie den Namen des Speicherkontos und die Informationen zum Zugriffsschlüssel mithilfe von Transact-SQL oder SQL Server Management Studio angeben. Der Beispielcode im Thema [Erstellen von Anmeldeinformationen](../../relational-databases/backup-restore/sql-server-backup-to-url.md#credential) veranschaulicht das Erstellen von Anmeldeinformationen mithilfe von Transact-SQL. Alternativ können Sie auf der Datenbank-Engine-Instanz in SQL Server Management Studio mit der rechten Maustaste auf **Sicherheit**klicken und **Neu**sowie **Anmeldeinformationen**auswählen. Geben Sie im Feld **Identität** den Namen des Speicherkontos und im Feld **Kennwort** den Zugriffsschlüssel an.  
+    > **WICHTIG!** Das Dialogfeld, das beim Klicken auf **Erstellen** geöffnet wird, erfordert ein Verwaltungszertifikat oder das Veröffentlichungsprofil für das Abonnement. Wenn Sie keinen Zugriff auf das Verwaltungszertifikat oder Veröffentlichungsprofil haben, können Sie SQL-Anmeldeinformationen erstellen, indem Sie den Namen des Speicherkontos und die Informationen zum Zugriffsschlüssel mithilfe von Transact-SQL oder SQL Server Management Studio angeben. Der Beispielcode im Thema [Erstellen von Anmeldeinformationen](../../relational-databases/backup-restore/sql-server-backup-to-url.md#credential) veranschaulicht das Erstellen von Anmeldeinformationen mithilfe von Transact-SQL. Alternativ können Sie auf der Datenbank-Engine-Instanz in SQL Server Management Studio mit der rechten Maustaste auf **Sicherheit** klicken und **Neu** sowie **Anmeldeinformationen** auswählen. Geben Sie im Feld **Identität** den Namen des Speicherkontos und im Feld **Kennwort** den Zugriffsschlüssel an.  
   
      **Azure-Speichercontainer**  
      Geben Sie den Namen des Azure-Speichercontainers an.  
@@ -377,16 +377,16 @@ Kontrollkästchen**Indizes einschließen**
      **URL-Präfix:**  
      Wird automatisch entsprechend den Speicherkontoinformationen, die in den SQL-Anmeldeinformationen gespeichert sind, und dem Namen des Azure-Speichercontainers generiert. Es wird empfohlen, die Informationen in diesem Feld nur zu bearbeiten, wenn Sie eine Domäne mit einem anderen Format als **\<storage account>.blob.core.windows.net** verwenden.  
   
-     Feld**Sicherungsdateierweiterung**  
+     Feld **Sicherungsdateierweiterung**  
      Gibt die Dateierweiterung an, die für Sicherungsdateien verwendet wird. Der Standardwert lautet BAK.  
   
-     Kontrollkästchen**Sicherungsintegrität überprüfen**  
+     Kontrollkästchen **Sicherungsintegrität überprüfen**  
      Überprüft, ob der Sicherungssatz vollständig ist und alle Volumes lesbar sind.  
   
-     Kontrollkästchen**Prüfsumme bilden**  
+     Kontrollkästchen **Prüfsumme bilden**  
      Prüft jede Seite auf Prüfsumme und zerrissene Seiten (wenn aktiviert und verfügbar) und generiert eine Prüfsumme für die gesamte Sicherung.  
   
-     Kontrollkästchen**Bei Fehler fortsetzen**  
+     Kontrollkästchen **Bei Fehler fortsetzen**  
      BACKUP wird auch dann fortgesetzt, wenn Fehler auftreten, z. B. ungültige Prüfsummen oder zerrissene Seiten.  
   
      **Verschlüsseln der Sicherung**  
@@ -406,15 +406,15 @@ Kontrollkästchen**Indizes einschließen**
   
      Es werden nur Schlüssel aus der erweiterbaren Schlüsselverwaltung (Extensible Key Management, EKM) unterstützt.  
   
-     Kontrollkästchen**Blockgröße** , Liste  
+     Kontrollkästchen **Blockgröße** , Liste  
   
      Legt die physische Blockgröße in Bytes fest. Diese Option hat i. d. R. dann Auswirkungen auf die Leistung, wenn auf Bandmedien, RAID-Arrays oder SAN geschrieben wird.  
   
-     Kontrollkästchen**Maximale Übertragungsgröße** , Liste  
+     Kontrollkästchen **Maximale Übertragungsgröße** , Liste  
   
      Gibt die größte zu verwendende Übertragungseinheit zwischen SQL Server und dem Sicherungsmedium in Byte an.  
   
-     Liste**Sicherungskomprimierung festlegen**  
+     Liste **Sicherungskomprimierung festlegen**  
      Wählen Sie in [!INCLUDE[ssEnterpriseEd10](../../includes/ssenterpriseed10-md.md)] (oder höher) einen der folgenden Werte für die [Sicherungskomprimierung](../../relational-databases/backup-restore/backup-compression-sql-server.md) aus:  
   
     |||  
@@ -431,7 +431,7 @@ Kontrollkästchen**Indizes einschließen**
   
 1.  Geben Sie auf der Seite **Task 'Wartungscleanup' definieren** die Dateitypen an, die im Rahmen des Wartungsplans gelöscht werden sollen (einschließlich Textberichte, die durch Wartungspläne erstellt wurden, sowie Datenbanksicherungsdateien). Für diesen Task wird die `EXEC xp_delete_file`-Anweisung verwendet. Klicken Sie abschließend auf **Weiter**.  
   
-    > **WICHTIG!** Dateien in den Unterordnern des angegebenen Verzeichnisses werden von diesem Task nicht automatisch gelöscht. Mit dieser Sicherheitsmaßnahme wird die Möglichkeit eines bösartigen Angriffs, bei dem der Task Wartungscleanup zum Löschen von Dateien verwendet wird, reduziert. Wenn Sie Dateien in Unterordnern auf oberster Ebene löschen möchten, müssen Sie **Unterordner auf oberster Ebene einschließen**auswählen.  
+    > **WICHTIG!** Dateien in den Unterordnern des angegebenen Verzeichnisses werden von diesem Task nicht automatisch gelöscht. Mit dieser Sicherheitsmaßnahme wird die Möglichkeit eines bösartigen Angriffs, bei dem der Task Wartungscleanup zum Löschen von Dateien verwendet wird, reduziert. Wenn Sie Dateien in Unterordnern auf oberster Ebene löschen möchten, müssen Sie **Unterordner auf oberster Ebene einschließen** auswählen.  
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
@@ -453,20 +453,20 @@ Kontrollkästchen**Indizes einschließen**
      **Ordner durchsuchen und Dateien anhand einer Erweiterung löschen**  
      Löscht alle Dateien mit der angegebenen Erweiterung im angegebenen Ordner. Mithilfe dieser Option können Sie mehrere Dateien gleichzeitig löschen, z. B. alle Sicherungsdateien mit der Erweiterung BAK im ausgewählten Ordner Tuesday.  
   
-     Feld**Ordner**  
+     Feld **Ordner**  
      Pfad und Name des Ordners, in dem die zu löschenden Dateien enthalten sind.  
   
-     Feld**Dateierweiterung**  
+     Feld **Dateierweiterung**  
      Geben Sie die Dateierweiterung der zu löschenden Dateien an. Um mehrere Dateien gleichzeitig zu löschen, z. B. alle Sicherungsdateien mit der Erweiterung .bak im Ordner Tuesday, geben Sie .bak an.  
   
-     Kontrollkästchen**Unterordner auf oberster Ebene einschließen**  
-     Löscht Dateien mit der für **Dateierweiterung** angegebenen Erweiterung aus den Unterordnern der obersten Ebene unter dem in **Ordner**angegebenen Ordner.  
+     Kontrollkästchen **Unterordner auf oberster Ebene einschließen**  
+     Löscht Dateien mit der für **Dateierweiterung** angegebenen Erweiterung aus den Unterordnern der obersten Ebene unter dem in **Ordner** angegebenen Ordner.  
   
-     Kontrollkästchen**Dateien anhand ihres Alters zur Tasklaufzeit löschen**  
+     Kontrollkästchen **Dateien anhand ihres Alters zur Tasklaufzeit löschen**  
      Geben Sie das Mindestalter der zu löschenden Dateien an, indem Sie im Feld **Dateien löschen, die älter sind als** eine Zahl und eine Zeiteinheit festlegen.  
   
      **Dateien löschen, die älter sind als**  
-     Geben Sie das Mindestalter der zu löschenden Dateien an, indem Sie eine Zahl und eine Zeiteinheit (**Stunde**, **Tag**, **Woche**, **Monat**oder **Jahr**) angeben. Dateien, die älter sind als der angegebene Zeitrahmen, werden gelöscht.  
+     Geben Sie das Mindestalter der zu löschenden Dateien an, indem Sie eine Zahl und eine Zeiteinheit (**Stunde**, **Tag**, **Woche**, **Monat** oder **Jahr**) angeben. Dateien, die älter sind als der angegebene Zeitrahmen, werden gelöscht.  
   
 #### <a name="select-report-options"></a>Berichtsoptionen auswählen  
   
@@ -474,13 +474,13 @@ Kontrollkästchen**Indizes einschließen**
   
      Die folgenden Optionen sind auf dieser Seite verfügbar.  
   
-     Kontrollkästchen**Bericht in eine Textdatei schreiben**  
+     Kontrollkästchen **Bericht in eine Textdatei schreiben**  
      Speichert den Bericht in einer Datei.  
   
-     Feld**Speicherort des Ordners**  
+     Feld **Speicherort des Ordners**  
      Geben Sie den Speicherort der Berichtsdatei an.  
   
-     Kontrollkästchen**Bericht als E-Mail senden**  
+     Kontrollkästchen **Bericht als E-Mail senden**  
      Sendet eine E-Mail, wenn ein Task fehlschlägt. Zur Verwendung dieses Tasks muss Datenbank-E-Mail aktiviert und korrekt mit MSDB als Mailhost-Datenbank und einem [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Agentoperator mit einer gültigen E-Mail-Adresse konfiguriert sein.  
   
      **Agentoperator**  
@@ -504,13 +504,13 @@ Kontrollkästchen**Indizes einschließen**
      Gibt den Typ und den Namen jeder Aktion an.  
   
      **Status**  
-     Gibt an, ob für die Aktion des Assistenten insgesamt der Wert **Erfolg** oder der Wert **Fehler**zurückgegeben wurde.  
+     Gibt an, ob für die Aktion des Assistenten insgesamt der Wert **Erfolg** oder der Wert **Fehler** zurückgegeben wurde.  
   
      **Meldung**  
      Stellt alle vom Prozess zurückgegebenen Fehler- oder Warnmeldungen bereit.  
   
      **Report**  
-     Erstellt einen Bericht mit den Ergebnissen des Assistenten zum Erstellen von Partitionen. Die Optionen sind **Bericht anzeigen**, **Bericht in Datei speichern**, **Bericht in Zwischenablage kopieren**und **Bericht als E-Mail senden**.  
+     Erstellt einen Bericht mit den Ergebnissen des Assistenten zum Erstellen von Partitionen. Die Optionen sind **Bericht anzeigen**, **Bericht in Datei speichern**, **Bericht in Zwischenablage kopieren** und **Bericht als E-Mail senden**.  
   
      **Bericht anzeigen**  
      Öffnet das Dialogfeld **Bericht anzeigen** , das einen Textbericht zum Fortschritt des Assistenten zum Erstellen von Partitionen enthält.  

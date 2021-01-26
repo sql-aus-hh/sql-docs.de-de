@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: 20e6e803-d6d5-48d5-b626-d1e0a73d174c
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 93fed90647a3a6e86e3f2cfa2fe2016727b481e2
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 405ed385004aa0ad23d93ef4dbbf2dbd3c2c5726
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094743"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689173"
 ---
 # <a name="alter-database-transact-sql-set-hadr"></a>ALTER DATABASE (Transact-SQL) SET HADR 
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -69,7 +69,7 @@ ALTER DATABASE database_name
   
 -   Die Datenbank muss der Verfügbarkeitsgruppe auf dem primären Replikat bereits hinzugefügt worden sein.  
   
--   Das primäre Replikat muss aktiv sein. Informationen zur Problembehandlung für ein inaktives primäres Replikat finden Sie unter [Problembehandlung für die Always On-Verfügbarkeitsgruppenkonfiguration (SQL Server)](https://go.microsoft.com/fwlink/?LinkId=225834).  
+-   Das primäre Replikat muss aktiv sein. Informationen zur Problembehandlung für ein inaktives primäres Replikat finden Sie unter [Problembehandlung für die Always On-Verfügbarkeitsgruppenkonfiguration (SQL Server)](/previous-versions/sql/sql-server-2012/ff878308(v=sql.110)).  
   
 -   Das primäre Replikat muss online sein, und das sekundäre Replikat muss mit dem primären Replikat verbunden sein.  
   
@@ -148,5 +148,4 @@ ALTER DATABASE AccountsDb1 SET HADR AVAILABILITY GROUP = AccountsAG;
  [ALTER AVAILABILITY GROUP &#40;Transact-SQL&#41;](../../t-sql/statements/alter-availability-group-transact-sql.md)   
  [CREATE AVAILABILITY GROUP &#40;Transact-SQL&#41;](../../t-sql/statements/create-availability-group-transact-sql.md)   
  [Übersicht über Always On-Verfügbarkeitsgruppen &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server.md) [Problembehandlung für die Always On-Verfügbarkeitsgruppenkonfiguration &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/troubleshoot-always-on-availability-groups-configuration-sql-server.md) 
-  
   

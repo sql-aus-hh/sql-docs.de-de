@@ -53,24 +53,24 @@ ms.assetid: a0df1ac2-6699-4ac0-8f79-f362f23496f1
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 6510f4310126667ac8d48382c6ff3a856b37da00
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0fbc4c09e7d00c8836f7c3efd17dbfe660cd669a
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97402274"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597122"
 ---
 # <a name="odbc-scalar-functions-transact-sql"></a>ODBC-Skalarfunktionen (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-  Sie können [ODBC-Skalarfunktionen](https://go.microsoft.com/fwlink/?LinkID=88579) in [!INCLUDE[tsql](../../includes/tsql-md.md)]-Anweisungen verwenden. Diese Anweisungen werden von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] interpretiert. Sie können in gespeicherten Prozeduren und benutzerdefinierten Funktionen verwendet werden. Hierzu zählen Zeichenfolgen-, Uhrzeit-, Datums-, Intervall- und Systemfunktionen sowie numerische Funktionen.  
+  Sie können [ODBC-Skalarfunktionen](../../odbc/reference/appendixes/appendix-e-scalar-functions.md) in [!INCLUDE[tsql](../../includes/tsql-md.md)]-Anweisungen verwenden. Diese Anweisungen werden von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] interpretiert. Sie können in gespeicherten Prozeduren und benutzerdefinierten Funktionen verwendet werden. Hierzu zählen Zeichenfolgen-, Uhrzeit-, Datums-, Intervall- und Systemfunktionen sowie numerische Funktionen.  
   
 ## <a name="usage"></a>Verwendung  
  ```syntaxsql
  SELECT {fn <function_name> [ (<argument>,....n) ] }
  ```
   
-## <a name="functions"></a>Funktionen  
+## <a name="functions"></a>Functions  
  In den folgenden Tabellen werden ODBC-Skalarfunktionen aufgelistet, die nicht in [!INCLUDE[tsql](../../includes/tsql-md.md)] dupliziert werden.  
   
 ### <a name="string-functions"></a>Zeichenfolgenfunktionen  
@@ -251,4 +251,4 @@ SELECT {fn WEEK( @date_exp )};
 ```  
   
 ## <a name="see-also"></a>Weitere Informationen  
- [Integrierte Funktionen &#40;Transact-SQL&#41;](~/t-sql/functions/functions.md)  
+ [Integrierte Funktionen &#40;Transact-SQL&#41;](~/t-sql/functions/functions.md)

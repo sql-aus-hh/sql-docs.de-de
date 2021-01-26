@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: ebb2c9f4-2097-4688-b4fb-8f0571047317
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: e5ef8c8a912854c48489cb5860bb3813bdc6fd10
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4b250e48ae43c2a8ed65febec86ca9c4571dce68
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643171"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766074"
 ---
 # <a name="availability-replica-does-not-have-a-healthy-role-for-an-always-on-availability-group"></a>Verfügbarkeitsreplikat hat keine fehlerfreie Rolle für eine Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,9 +35,6 @@ ms.locfileid: "97643171"
   
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie überprüft den Status der Verfügbarkeitsreplikatrolle. Die Richtlinie befindet sich in einem fehlerhaften Zustand, wenn die Rolle des Verfügbarkeitsreplikats weder primär noch sekundär ist. Die Richtlinie befindet sich andernfalls in einem ordnungsgemäßen Zustand.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Verfügbarkeitsreplikat hat keine fehlerfreie Rolle](https://go.microsoft.com/fwlink/p/?LinkId=220856) .  
   
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  Die Rolle dieses Verfügbarkeitsreplikats ist fehlerhaft. Das Replikat hat nicht entweder die primäre oder sekundäre Rolle inne.  

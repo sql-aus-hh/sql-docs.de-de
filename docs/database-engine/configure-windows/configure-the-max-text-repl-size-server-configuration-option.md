@@ -13,17 +13,17 @@ helpviewer_keywords:
 ms.assetid: 3056cf64-621d-4996-9162-3913f6bc6d5b
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 8248e04f0e69519e4d1d78d39831f40775a8a38c
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 29287fab7f3f0922ad4f44d76bd621b5285c003a
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86917951"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765567"
 ---
 # <a name="configure-the-max-text-repl-size-server-configuration-option"></a>Konfigurieren der Serverkonfigurationsoption max text repl size
  [!INCLUDE[sql-asdbmi](../../includes/applies-to-version/sql-asdbmi.md)]
 
-  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Max. Textgröße für Replikation** in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **max text repl size** können Sie die maximale Größe (in Byte) von Daten des Typs **text**, **ntext**, **varchar(max)** , **nvarchar(max)** , **varbinary(max)** , **xml**und **image** angeben, die einer replizierten oder aufgezeichneten Spalte in einer einzelnen INSERT-, UPDATE-, WRITETEXT- oder UPDATETEXT-Anweisung hinzugefügt werden können. Der Standardwert ist 65536 Byte. Der Wert -1 gibt an, dass mit Ausnahme der durch den Datentyp auferlegten Größenbegrenzung keine Begrenzung der Größe gilt.  
+  In diesem Thema wird beschrieben, wie die Serverkonfigurationsoption **Max. Textgröße für Replikation** in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]konfiguriert wird. Mit der Option **max text repl size** können Sie die maximale Größe (in Byte) von Daten des Typs **text**, **ntext**, **varchar(max)** , **nvarchar(max)** , **varbinary(max)** , **xml** und **image** angeben, die einer replizierten oder aufgezeichneten Spalte in einer einzelnen INSERT-, UPDATE-, WRITETEXT- oder UPDATETEXT-Anweisung hinzugefügt werden können. Der Standardwert ist 65536 Byte. Der Wert -1 gibt an, dass mit Ausnahme der durch den Datentyp auferlegten Größenbegrenzung keine Begrenzung der Größe gilt.  
   
  **In diesem Thema**  
   
@@ -60,7 +60,7 @@ ms.locfileid: "86917951"
   
 2.  Klicken Sie auf den **Erweitert** -Knoten.  
   
-3.  Geben Sie unter **Verschiedenes**für die Option **Max. Textgröße für Replikation** den gewünschten Wert an.  
+3.  Geben Sie unter **Verschiedenes** für die Option **Max. Textgröße für Replikation** den gewünschten Wert an.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
   

@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 9f2feb3c-ea9b-4992-8202-2aeed4f9a6dd
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 5a23a2b4e5af84f74010d00c0d9e24c23d02146c
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 3a87c7b4dc37a7b1a70b31b9d7b9191a3570db98
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644196"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98764755"
 ---
 # <a name="prepare-a-secondary-database-for-an-always-on-availability-group"></a>Vorbereiten einer sekundären Datenbank auf eine Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -180,7 +180,7 @@ In diesem Thema wird erläutert, wie eine Datenbank in [!INCLUDE[ssnoversion](..
         > [!IMPORTANT]  
         >  Wenn die Pfadnamen der primären und sekundären Datenbank unterschiedlich sind, können Sie keine Datei hinzufügen. Der Grund hierfür besteht darin, dass die Serverinstanz des sekundären Replikats beim Empfangen des Protokolls für das Hinzufügen einer Datei versucht, die neue Datei unter demselben Pfad abzulegen, der von der primären Datenbank verwendet wird.  
   
-         Der folgende Befehl stellt z. B. eine Sicherung einer primären Datenbank wieder her, die sich im Datenverzeichnis der Standardinstanz von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)](C:\Programme\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA) befindet. Bei der Datenbankwiederherstellung muss die Datenbank in das Datenverzeichnis einer Remoteinstanz von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] (*Always On1*) verschoben werden, die das sekundäre Replikat auf einem anderen Clusterknoten hostet. Dort werden die Daten und-Protokolldateien im Verzeichnis *C:\Programme\Microsoft SQL Server\MSSQL13.Always On1\MSSQL\DATA* wiederhergestellt. Der Wiederherstellungsvorgang verwendet WITH NORECOVERY, um die sekundäre Datenbank in der wiederhergestellten Datenbank zu belassen.  
+         Der folgende Befehl stellt z. B. eine Sicherung einer primären Datenbank wieder her, die sich im Datenverzeichnis der Standardinstanz von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)](C:\Programme\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA) befindet. Bei der Datenbankwiederherstellung muss die Datenbank in das Datenverzeichnis einer Remoteinstanz von [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)] (*Always On1*) verschoben werden, die das sekundäre Replikat auf einem anderen Clusterknoten hostet. Dort werden die Daten und-Protokolldateien im Verzeichnis *C:\Programme\Microsoft SQL Server\MSSQL13.Always On1\MSSQL\DATA* wiederhergestellt. Der Wiederherstellungsvorgang verwendet WITH NORECOVERY, um die sekundäre Datenbank in der wiederhergestellten Datenbank zu belassen.  
   
         ```  
         RESTORE DATABASE MyDB1  

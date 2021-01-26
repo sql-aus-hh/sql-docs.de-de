@@ -14,16 +14,16 @@ helpviewer_keywords:
 ms.assetid: 2a54eef8-9e8e-4e04-909c-6970112d55cc
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: f6af03aebbc04ce45f2dad51025bdce32a1443b5
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: a2f40156f8a7677de1c80fcc5094ee42b5527682
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97641215"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766058"
 ---
 # <a name="add-a-database-to-an-always-on-availability-group"></a>Hinzufügen einer Datenbank zu einer Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
-  In diesem Thema wird beschrieben, wie einer Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]eine Datenbank hinzugefügt wird.  
+  In diesem Thema wird beschrieben, wie einer Always On-Verfügbarkeitsgruppe mit [!INCLUDE[ssManStudioFull](../../../includes/ssmanstudiofull-md.md)], [!INCLUDE[tsql](../../../includes/tsql-md.md)]oder PowerShell in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)]eine Datenbank hinzugefügt wird.  
   
 
   

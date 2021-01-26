@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 10817e5e-75fa-42dd-baa2-359bea3ad051
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 39cbbe7a884d5e8fe45d0877b7a581016e1e95c2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 1e41945d69a499908d11d8ebc8cbda7688d544a8
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97640546"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766090"
 ---
 # <a name="secondary-database-is-not-joined"></a>Sekundäre Datenbank ist nicht verknüpft
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,10 +35,7 @@ ms.locfileid: "97640546"
   
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie überprüft den Joinstatus der sekundären Datenbank (auch bekannt als "sekundäres Datenbankreplikat"). Die Richtlinie befindet sich in einem fehlerhaften Zustand, wenn das Datenbankreplikat nicht verknüpft wird. Die Richtlinie befindet sich andernfalls in einem ordnungsgemäßen Zustand.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Sekundäre Datenbank ist nicht verknüpft](https://go.microsoft.com/fwlink/p/?LinkId=220862) .  
-  
+
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  Diese sekundäre Datenbank ist nicht mit der Verfügbarkeitsgruppe verknüpft. Die Konfiguration dieser sekundären Datenbank ist unvollständig.  
   

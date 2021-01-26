@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 48f2fbb7-8964-484a-8311-5126cf594bfb
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 090e89467a7916295abdc31305cbe993872ade60
-ms.sourcegitcommit: c5078791a07330a87a92abb19b791e950672e198
+ms.openlocfilehash: 5dbdccf96c35c7c7f66badb49d6566ac6009d6c0
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "88425242"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596375"
 ---
 # <a name="restart-packages-by-using-checkpoints"></a>Neustarten von Paketen mit Prüfpunkten
 
@@ -47,7 +47,7 @@ ms.locfileid: "88425242"
 > [!NOTE]  
 >  Das Verwenden von Prüfpunkten und Transaktionen im gleichen Paket könnte unerwartete Ergebnisse verursachen. Wenn beispielsweise ein Paket einen Fehler verursacht und von einem Prüfpunkt neu startet, wiederholt das Paket möglicherweise eine Transaktion, die bereits erfolgreich ausgeführt wurde.  
   
- Für For- und Foreach-Schleifencontainer werden keine Prüfpunktdaten gespeichert. Beim Neustart eines Pakets werden sowohl For- und Foreach-Schleifencontainer als auch deren untergeordnete Container erneut ausgeführt. Wenn ein untergeordneter Container einer Schleife erfolgreich ausgeführt wurde, wird er nicht in der Prüfpunktdatei aufgezeichnet, sondern erneut ausgeführt. Weitere Informationen und eine Umgehungslösung finden Sie unter [SSIS-Prüfpunkte werden bei Elementen von For- und Foreach-Schleifencontainern nicht berücksichtigt](https://go.microsoft.com/fwlink/?LinkId=241633).  
+ Für For- und Foreach-Schleifencontainer werden keine Prüfpunktdaten gespeichert. Beim Neustart eines Pakets werden sowohl For- und Foreach-Schleifencontainer als auch deren untergeordnete Container erneut ausgeführt. Wenn ein untergeordneter Container einer Schleife erfolgreich ausgeführt wurde, wird er nicht in der Prüfpunktdatei aufgezeichnet, sondern erneut ausgeführt. Weitere Informationen und eine Umgehungslösung finden Sie unter [SSIS-Prüfpunkte werden bei Elementen von For- und Foreach-Schleifencontainern nicht berücksichtigt](/troubleshoot/sql/integration-services/ssis-checkpoints-not-honored-for-loop).  
   
  Beim Neustarten des Pakets werden die Paketkonfigurationen nicht erneut geladen; stattdessen verwendet das Paket die Konfigurationsinformationen der Prüfpunktdatei. Auf diese Weise wird sichergestellt, dass das Paket beim erneuten Ausführen wie beim ursprünglichen (fehlerhaften) Ausführen dieselben Konfigurationen verwendet.  
   
@@ -119,4 +119,4 @@ ms.locfileid: "88425242"
   
 -   Technischer Artikel [Automatischer Neustart von SSIS-Paketen nach Failover oder Fehler](https://go.microsoft.com/fwlink/?LinkId=200407)auf social.technet.microsoft.com.  
   
--   Support-Artikel [SSIS-Prüfpunkte werden bei Elementen von For- und Foreach-Schleifencontainern nicht berücksichtigt](https://go.microsoft.com/fwlink/?LinkId=241633)auf support.microsoft.com.  
+-   Support-Artikel [SSIS-Prüfpunkte werden bei Elementen von For- und Foreach-Schleifencontainern nicht berücksichtigt](/troubleshoot/sql/integration-services/ssis-checkpoints-not-honored-for-loop)auf support.microsoft.com.

@@ -18,12 +18,12 @@ ms.assetid: 655e709b-346b-469c-bddc-a5a0238d07e0
 author: rothja
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 7007db1b4be0abc75e8a20cf5874b6157b63b399
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 247b3deec1e5f5d14fafc1d29475a5087c57e40b
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97426408"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596818"
 ---
 # <a name="tutorial-getting-started-with-the-database-engine"></a>Tutorial: Erste Schritte mit der Datenbank-Engine
 [!INCLUDE [SQL Server Azure SQL Database](../includes/applies-to-version/sql-asdb.md)]
@@ -41,7 +41,7 @@ In dieser Lektion erfahren Sie, wie Sie eine Verbindung mit [!INCLUDE[ssDE](../i
 [Lektion 2: Herstellen einer Verbindung von einem anderen Computer](../relational-databases/lesson-2-connecting-from-another-computer.md)  
 In dieser Lektion erfahren Sie, wie Sie von einem zweiten Computer eine Verbindung mit [!INCLUDE[ssDE](../includes/ssde-md.md)] herstellen, einschließlich Aktivieren von Protokollen sowie Konfigurieren von Ports und Firewalleinstellungen.  
   
-## <a name="requirements"></a>Anforderungen  
+## <a name="requirements"></a>Requirements (Anforderungen)  
 Für dieses Lernprogramm sind keine Vorkenntnisse erforderlich.  
   
 Auf Ihrem System müssen zum Verwenden dieses Lernprogramms folgende Anwendungen installiert sein:  
@@ -49,6 +49,5 @@ Auf Ihrem System müssen zum Verwenden dieses Lernprogramms folgende Anwendungen
 -   [!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)]. Informationen zur Installation von [!INCLUDE[ssManStudio](../includes/ssmanstudio-md.md)] finden Sie unter [Herunterladen von SQL Server Management Studio 17.1](../ssms/download-sql-server-management-studio-ssms.md).  
   
 ## <a name="see-also"></a>Weitere Informationen  
-[Tutorial: SQL Server Management Studio](../ssms/quickstarts/connect-query-sql-server.md)  
-  
+[Tutorial: SQL Server Management Studio](../ssms/quickstarts/ssms-connect-query-sql-server.md)  
   

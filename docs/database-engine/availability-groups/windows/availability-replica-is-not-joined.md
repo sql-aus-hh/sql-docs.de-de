@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 9c0d10b1-9e12-430c-83b9-ca2bd0a3afc4
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: bda9848e0a3a85ea2d04f7450c683da49b52ce16
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: ad7d5c627055b6dfb4ccf5c9de0824a5f28277ad
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643193"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766000"
 ---
 # <a name="availability-replica-is-not-joined-to-an-always-on-availability-group"></a>Verfügbarkeitsreplikat ist nicht mit einer Always On-Verfügbarkeitsgruppe verknüpft
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,9 +35,6 @@ ms.locfileid: "97643193"
   
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie überprüft den Verknüpfungsstatus des Verfügbarkeitsreplikats. Die Richtlinie befindet sich in einem fehlerhaften Zustand, wenn der Verfügbarkeitsgruppe das Verfügbarkeitsreplikat hinzugefügt, aber nicht ordnungsgemäß damit verknüpft wird. Die Richtlinie befindet sich andernfalls in einem ordnungsgemäßen Zustand.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Das Verfügbarkeitsreplikat ist nicht verknüpft](https://go.microsoft.com/fwlink/p/?LinkId=220859) .  
   
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  Das sekundäre Replikat ist nicht mit der Verfügbarkeitsgruppe verknüpft. Damit ein Verfügbarkeitsreplikat erfolgreich mit der Verfügbarkeitsgruppe verknüpft wird, muss der Verknüpfungsstatus "Verknüpfte eigenständige Instanz" (1) oder "Verknüpfter Failovercluster" (2) lauten.  

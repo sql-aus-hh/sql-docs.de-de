@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 6a854486d1867e84bcd9b13cb148d3026a41d51f
-ms.sourcegitcommit: d819173fb91af6f20ca6ee59686c35c71b060fbc
+ms.openlocfilehash: c6611fcc392d37545f50e12fa8007923d8bc5846
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797769"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596356"
 ---
 # <a name="mssqlserver_17890"></a>MSSQLSERVER_17890
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -154,7 +154,7 @@ Stellen Sie vor dem Zuweisen der Benutzerberechtigung „Sperren von Seiten im S
 
 - Berücksichtigen Sie vor dem Konfigurieren der Optionen „Max. Serverarbeitsspeicher“ und „Min. Serverarbeitsspeicher“ für mehrere [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Instanzen die Speicheranforderungen des Nicht-Pufferpools der einzelnen Instanzen von SQL Server. Konfigurieren Sie diese Optionen dann für jede Instanz von SQL Server.
 
-Idealerweise erfassen Sie diese Baselineinformationen zu Spitzenlastzeiten. Auf diese Weise können Sie die Speicheranforderungen für verschiedene Anwendungen und Komponenten zur Unterstützung der Spitzenlast bestimmen. Die Arbeitsspeicheranforderungen variieren abhängig von den Aktivitäten und Anwendungen, die auf einem System ausgeführt werden. Sie können die Informationen abrufen, die in der dynamischen Verwaltungssicht „sys.dm_os_process_memory“ bereitgestellt werden, um zu ermitteln, ob es innerhalb des Systems zu einer hohen Speicherauslastung kommt. Weitere Informationen finden Sie unter [sys.dm_os_process_memory (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-process-memory-transact-sql).
+Idealerweise erfassen Sie diese Baselineinformationen zu Spitzenlastzeiten. Auf diese Weise können Sie die Speicheranforderungen für verschiedene Anwendungen und Komponenten zur Unterstützung der Spitzenlast bestimmen. Die Arbeitsspeicheranforderungen variieren abhängig von den Aktivitäten und Anwendungen, die auf einem System ausgeführt werden. Sie können die Informationen abrufen, die in der dynamischen Verwaltungssicht „sys.dm_os_process_memory“ bereitgestellt werden, um zu ermitteln, ob es innerhalb des Systems zu einer hohen Speicherauslastung kommt. Weitere Informationen finden Sie unter [sys.dm_os_process_memory (Transact-SQL)](../system-dynamic-management-views/sys-dm-os-process-memory-transact-sql.md).
 
 ## <a name="improvements-added-in-windows-server-2008-and-r2-version"></a>In Windows Server 2008 und R2 hinzugefügte Verbesserungen
 

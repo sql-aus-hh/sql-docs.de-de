@@ -14,17 +14,17 @@ helpviewer_keywords:
 ms.assetid: 09eb6ebc-3051-4fff-86a5-93524507b1fc
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 8001dbf4a5799d275bced4f565ee00a7a70d6c61
-ms.sourcegitcommit: 44eebb659f9b226c08aea6c31a909b22ad4fec60
+ms.openlocfilehash: eeea0a9d3010cc29c5a3f687a41e22a14d7ea30e
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860596"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765620"
 ---
 # <a name="add-an-encrypted-database-to-an-always-on-availability-group"></a>Hinzufügen einer verschlüsselten Datenbank zu einer Always On-Verfügbarkeitsgruppe
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
 
-  Dieses Thema enthält Informationen zur Verwendung aktuell verschlüsselter oder vor kurzem entschlüsselter Datenbanken mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] in [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)].  
+  Dieses Thema enthält Informationen zur Verwendung aktuell verschlüsselter oder vor kurzem entschlüsselter Datenbanken mit [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)] in [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)].  
   
  
 ##  <a name="limitations-and-restrictions"></a><a name="Restrictions"></a> Einschränkungen  

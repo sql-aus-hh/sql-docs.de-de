@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: aea808be-6f0f-40c2-9aa2-a2a435ec6443
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: c48d324ef9437bb349922604f0149f2a468d8952
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: f4641417055b4a237dbed4459f165dc66f7febc8
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642118"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765881"
 ---
 # <a name="some-availability-replicas-are-disconnected"></a>Einige Verfügbarkeitsreplikate sind getrennt
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,10 +35,7 @@ ms.locfileid: "97642118"
   
 ## <a name="description"></a>BESCHREIBUNG  
  Diese Richtlinie führt ein Rollup des Verbindungsstatus aller Verfügbarkeitsreplikate durch und überprüft, ob Verfügbarkeitsreplikate den Status DISCONNECTED aufweisen. Die Richtlinie befindet sich in einem fehlerhaften Zustand, wenn der Verbindungsstatus von einem der Verfügbarkeitsreplikate DISCONNECTED lautet. Die Richtlinie befindet sich andernfalls in einem ordnungsgemäßen Zustand.  
-  
-> [!NOTE]  
->  Für diese Version von [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)]finden Sie Informationen zu möglichen Ursachen und Lösungen im TechNet Wiki unter [Einige Verfügbarkeitsreplikate sind getrennt](https://go.microsoft.com/fwlink/p/?LinkId=220855) .  
-  
+ 
 ## <a name="possible-causes"></a>Mögliche Ursachen  
  In dieser Verfügbarkeitsgruppe ist mindestens ein sekundäres Replikat nicht mit dem primären Replikat verbunden. Der Verbindungsstatus lautet DISCONNECTED.  
   

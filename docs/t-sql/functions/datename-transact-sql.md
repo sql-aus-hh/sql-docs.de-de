@@ -26,12 +26,12 @@ ms.assetid: 11855b56-c554-495d-aad4-ba446990153b
 author: cawrites
 ms.author: chadam
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 021c8e18b0767fcd844a92f598b4fbcb434740a4
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: f9279883c9f032574e32056b2360a5947ffba022
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097266"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766207"
 ---
 # <a name="datename-transact-sql"></a>DATENAME (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -135,7 +135,7 @@ Verwenden Sie `DATENAME` in den folgenden Klauseln:
 + SELECT \<list>
 + WHERE
   
-In [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] wandelt DATENAME Zeichenfolgenliterale implizit in den **datetime2**-Typ um. `DATENAME` unterstützt das Format YDM also nicht, wenn das Datum als Zeichenfolge übergeben wird. Sie müssen die Zeichenfolge explizit in den Typ **datetime** oder **smalldatetime** umwandeln, um das YDM-Format zu verwenden.
+In [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] wandelt DATENAME Zeichenfolgenliterale implizit in den **datetime2**-Typ um. `DATENAME` unterstützt das Format YDM also nicht, wenn das Datum als Zeichenfolge übergeben wird. Sie müssen die Zeichenfolge explizit in den Typ **datetime** oder **smalldatetime** umwandeln, um das YDM-Format zu verwenden.
   
 ## <a name="examples"></a>Beispiele  
 Im folgenden Beispiel werden die Datumsteile für das angegebene Datum zurückgegeben. Ersetzen Sie einen *datepart*-Wert in der Tabelle durch das `datepart`-Argument in der SELECT-Anweisung:

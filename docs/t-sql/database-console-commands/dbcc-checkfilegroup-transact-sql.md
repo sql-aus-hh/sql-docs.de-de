@@ -26,12 +26,12 @@ helpviewer_keywords:
 ms.assetid: 8c70bf34-7570-4eb6-877a-e35064a1380a
 author: pmasl
 ms.author: umajay
-ms.openlocfilehash: 4b7a386f058a442a984ba45b3be58bba5e9bb2e1
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 885a40a622f70649e004226fdfb9f317bad6bbdf
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96128619"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597087"
 ---
 # <a name="dbcc-checkfilegroup-transact-sql"></a>DBCC CHECKFILEGROUP (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -94,7 +94,7 @@ DBCC CHECKFILEGROUP
 >  Bei Angabe von PHYSICAL_ONLY überspringt DBCC CHECKFILEGROUP alle Überprüfungen der FILESTREAM-Daten.  
   
  MAXDOP  
- **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] 2014 SP2 bis [aktuelle Version](https://go.microsoft.com/fwlink/p/?LinkId=299658).  
+ **Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] 2014 SP2 bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md).  
   
  Überschreibt die Konfigurationsoption **Max. Grad an Parallelität** von **sp_configure** für die Anweisung. Der MAXDOP kann den mit „sp_configure“ konfigurierten Wert überschreiten. Wenn MAXDOP den mit Resource Governor konfigurierten Wert überschreitet, verwendet die Datenbank-Engine den in „ALTER WORKLOAD GROUP (Transact-SQL)“ beschriebenen MAXDOP-Wert von Resource Governor. Alle semantischen Regeln, die mit der Konfigurationsoption Max. Grad an Parallelität verwendet werden können, stehen beim Verwenden des MAXDOP-Abfragehinweises zur Verfügung. Weitere Informationen finden Sie unter [Konfigurieren der Serverkonfigurationsoption Max. Grad an Parallelität](../../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md).  
   
@@ -235,5 +235,4 @@ WITH ESTIMATEONLY;
 [DBCC CHECKDB &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-checkdb-transact-sql.md)  
 [DBCC CHECKALLOC &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-checkalloc-transact-sql.md)  
 [DBCC CHECKTABLE &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-checktable-transact-sql.md)
-  
   
