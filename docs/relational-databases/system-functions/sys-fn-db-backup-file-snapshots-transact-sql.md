@@ -13,17 +13,17 @@ dev_langs:
 ms.assetid: 45010ff2-219f-4086-9ea4-016a6c17cddd
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 4976e0ae436fe1c9c59742b6580ae083b3e3c5c4
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: da0df555ee8eed32bc42faf035c29d0dc867dfb3
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094937"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765717"
 ---
 # <a name="sysfn_db_backup_file_snapshots-transact-sql"></a>sys.fn_db_backup_file_snapshots (Transact-SQL)
 [!INCLUDE [sqlserver2016](../../includes/applies-to-version/sqlserver2016.md)]
 
-  Gibt die den Datenbankdateien zugeordneten Azure-Momentaufnahmen zurück. Wenn die angegebene Datenbank nicht gefunden wird oder die Datenbankdateien nicht im Microsoft Azure BLOB Storage-Dienst gespeichert werden, werden keine Zeilen zurückgegeben. Verwenden Sie diese Systemfunktion zusammen mit der gespeicherten System Prozedur **sys.sp_delete_backup_file_snapshot** , um verwaiste Sicherungs Momentaufnahmen zu identifizieren und zu löschen. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
+  Gibt die den Datenbankdateien zugeordneten Azure-Momentaufnahmen zurück. Wenn die angegebene Datenbank nicht gefunden wird oder die Datenbankdateien nicht im Microsoft Azure BLOB Storage Dienst gespeichert werden, werden keine Zeilen zurückgegeben. Verwenden Sie diese Systemfunktion zusammen mit der gespeicherten System Prozedur **sys.sp_delete_backup_file_snapshot** , um verwaiste Sicherungs Momentaufnahmen zu identifizieren und zu löschen. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
   
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   

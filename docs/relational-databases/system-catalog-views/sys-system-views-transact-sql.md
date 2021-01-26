@@ -20,17 +20,17 @@ helpviewer_keywords:
 ms.assetid: a526c410-e7b5-4075-8103-e1f3c6837c3c
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 44a4c687d934e9bd633650be73aabe6a06e5eaf4
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: c3ac54a56c76cd19d231e5f89d7188b14c49d774
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094446"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766080"
 ---
 # <a name="syssystem_views-transact-sql"></a>sys.system_views (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Enthält eine Zeile für jede Systemsicht, die mit [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] ausgeliefert wird. Alle System Sichten sind in den Schemas namens **sys** oder **INFORMATION_SCHEMA** enthalten.  
+  Enthält eine Zeile für jede Systemsicht, die mit [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] ausgeliefert wird. Alle System Sichten sind in den Schemas namens **sys** oder **INFORMATION_SCHEMA** enthalten.  
   
 |Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
