@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 41ade0ca-5f11-469d-bd4d-c8302ccd93b3
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 62a4904a608ccfd5ed02cbf21c3342619ea32e8f
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+ms.openlocfilehash: 07dcf9bfc42705f2ad49e3ce476ffcd8ad70f052
+ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810164"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98813281"
 ---
 # <a name="sp_cursor-transact-sql"></a>sp_cursor (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "91810164"
   
 ||  
 |-|  
-|**Gilt für**: SQL Server ( [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis [aktuelle Version](../../sql-server/what-s-new-in-sql-server-2016.md)).|  
+|**Gilt für**: SQL Server ( [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis [aktuelle Version](/troubleshoot/sql/general/determine-version-edition-update-level)).|  
   
  ![Symbol für Themenlink](../../database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
@@ -54,7 +54,7 @@ sp_cursor  cursor, optype, rownum, table
 |Wert|Name|Beschreibung|  
 |-----------|----------|-----------------|  
 |0X0001|UPDATE|Wird zum Update mindestens einer Zeile im Fetchpuffer verwendet.  Die in *rowNum* angegebenen Zeilen werden erneut aufgerufen und aktualisiert.|  
-|0x0002|Delete|Wird zum Löschen mindestens einer Zeile im Fetchpuffer verwendet. Die in *rowNum* angegebenen Zeilen werden erneut aufgerufen und gelöscht.|  
+|0x0002|DELETE|Wird zum Löschen mindestens einer Zeile im Fetchpuffer verwendet. Die in *rowNum* angegebenen Zeilen werden erneut aufgerufen und gelöscht.|  
 |0X0004|INSERT|Fügt Daten ein, ohne eine SQL **Insert** -Anweisung zu entwickeln.|  
 |0X0008|REFRESH|Wird verwendet, um den Puffer mithilfe zugrunde liegender Tabellen aufzufüllen, und kann zum Update der Zeile verwendet werden, wenn ein Update- oder Löschvorgang aufgrund der Steuerung durch vollständige Parallelität fehlerhaft ist, oder nachdem ein UPDATE-Vorgang ausgeführt wurde.|  
 |0X10|LOCK|Bewirkt, dass eine SQL Server U-Sperre auf der Seite mit der angegebenen Zeile abgerufen wird. Diese Sperre ist mit S-Sperren kompatibel, jedoch nicht mit X-Sperren oder anderen U-Sperren. Kann verwendet werden, um eine kurzfristige Sperre zu implementieren.|  
@@ -99,7 +99,7 @@ sp_cursor  cursor, optype, rownum, table
 ## <a name="return-code-values"></a>Rückgabecodewerte  
  Bei Verwendung eines RPC gibt ein positionierter DELETE-oder Update-Vorgang mit der Puffer Nummer 0 eine done-Meldung mit einer Zeilen *Anzahl* von 0 (Fehler) oder 1 (Erfolg) für jede Zeile im Fetchpuffer zurück.  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
 ## <a name="optype-parameter"></a>optype-Parameter  
  Mit Ausnahme der Kombinationen von SetPosition mit Update, DELETE, Refresh oder Lock. oder absolut mit Update oder DELETE schließen sich die *optype* -Werte gegenseitig aus.  

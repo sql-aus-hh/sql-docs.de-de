@@ -19,17 +19,17 @@ helpviewer_keywords:
 ms.assetid: c2d2ae49-0808-46d8-8444-db69a69d0ec3
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 1f17681ffbb922b25cffc6b21ecf2f6317d400db
-ms.sourcegitcommit: 968969b62bc158b9843aba5034c9d913519bc4a7
+ms.openlocfilehash: f0a05127f4f6ddcd70fbb00cc5ae3bd2d22fe152
+ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91753792"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98813310"
 ---
 # <a name="sp_addumpdevice-transact-sql"></a>sp_addumpdevice (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
   
-**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis zur [aktuellen Version](../../sql-server/what-s-new-in-sql-server-2016.md)).  
+**Gilt für**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] bis zur [aktuellen Version](/troubleshoot/sql/general/determine-version-edition-update-level)).  
 
 Fügt einer Instanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ein Sicherungsmedium hinzu.  
   
@@ -50,18 +50,18 @@ sp_addumpdevice [ @devtype = ] 'device_type'
 ## <a name="arguments"></a>Argumente  
 `[ @devtype = ] 'device_type'` Ist der Typ des Sicherungs Mediums. *device_type* ist vom Datentyp **varchar (20)** und hat keinen Standardwert. die folgenden Werte sind möglich:  
   
-|Wert|BESCHREIBUNG|  
+|Wert|Beschreibung|  
 |-----------|-----------------|  
 |**Diskette**|Festplattendatei als Sicherungsmedium.|  
 |**Bänder**|Alle von [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows unterstützten Bandmedien.<br /><br /> Hinweis: Die Unterstützung für Bandsicherungsgeräte wird in zukünftigen Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]entfernt. Nutzen Sie diese Funktionen bei Neuentwicklungen nicht mehr, und planen Sie die Änderung von Anwendungen, die diese Funktion zurzeit verwenden.|  
   
-`[ @logicalname = ] 'logical_name'` Der logische Name des Sicherungs Mediums, das in den Backup-und RESTORE-Anweisungen verwendet wird. *logical_name* ist vom **Datentyp vom Datentyp sysname**und hat keinen Standardwert und darf nicht NULL sein.  
+`[ @logicalname = ] 'logical_name'` Der logische Name des Sicherungs Mediums, das in den Backup-und RESTORE-Anweisungen verwendet wird. *logical_name* ist vom **Datentyp vom Datentyp sysname** und hat keinen Standardwert und darf nicht NULL sein.  
   
 `[ @physicalname = ] 'physical_name'` Der physische Name des Sicherungs Mediums. Physische Namen müssen den Regeln für Dateinamen des Betriebssystems oder den UNC-Konventionen für Netzwerkgeräte entsprechen und einen vollständigen Pfad angeben. *physical_name* ist vom Datentyp **nvarchar (260)** und hat keinen Standardwert und darf nicht NULL sein.  
   
  Beim Erstellen eines Sicherungsmediums auf einem Remotenetzwerk-Speicherort sollten Sie sicherstellen, dass das Benutzerkonto, unter dem [!INCLUDE[ssDE](../../includes/ssde-md.md)] gestartet wurde, über entsprechende Schreibberechtigungen auf dem Remotecomputer verfügt.  
   
- Wenn Sie ein Bandgerät hinzufügen, muss dieser Parameter der physische Name sein, der von Windows dem lokalen Bandgerät zugewiesen wird. Beispiel: ** \\ \\ .\TAPE0** für das erste Bandgerät auf dem Computer. Das Bandmedium muss an den Server angefügt werden; eine Remoteverwendung ist nicht möglich. Schließen Sie Namen, die andere als alphanumerische Zeichen enthalten, in Anführungszeichen ein.  
+ Wenn Sie ein Bandgerät hinzufügen, muss dieser Parameter der physische Name sein, der von Windows dem lokalen Bandgerät zugewiesen wird. Beispiel: **\\ \\ .\TAPE0** für das erste Bandgerät auf dem Computer. Das Bandmedium muss an den Server angefügt werden; eine Remoteverwendung ist nicht möglich. Schließen Sie Namen, die andere als alphanumerische Zeichen enthalten, in Anführungszeichen ein.  
   
 > [!NOTE]  
 >  Diese Prozedur gibt den angegebenen physischen Namen in den Katalog ein. Die Prozedur nimmt jedoch keine Erstellung des Mediums und keinen Zugriff auf das Medium vor.  

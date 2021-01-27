@@ -1,8 +1,8 @@
 ---
 description: sys.dm_os_wait_stats (Transact-SQL)
-title: sys.dm_os_wait_stats (Transact-SQL) | Microsoft-Dokumentation
+title: sys.dm_os_wait_stats (Transact-SQL)
 ms.custom: ''
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database, sql-data-warehouse, pdw
 ms.reviewer: ''
@@ -17,16 +17,15 @@ dev_langs:
 - TSQL
 helpviewer_keywords:
 - sys.dm_os_wait_stats dynamic management view
-ms.assetid: 568d89ed-2c96-4795-8a0c-2f3e375081da
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 1dccbed2d872b2cd2973e644f9f02149f88b11d4
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: da16b2c28c55952e609b98637802c940ff5a6a54
+ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172752"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98813069"
 ---
 # <a name="sysdm_os_wait_stats-transact-sql"></a>sys.dm_os_wait_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -51,7 +50,7 @@ In [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] ist die- `VIEW S
 Bei den Dienst Zielen "Basic", "S0" und "S1" in SQL-Datenbank ist für Datenbanken in Pools für elastische Datenbanken `Server admin` oder ein `Azure Active Directory admin` Konto erforderlich. Für alle anderen SQL-Datenbank-Dienst Ziele `VIEW DATABASE STATE` ist die Berechtigung in der Datenbank erforderlich.   
 
 ##  <a name="types-of-waits"></a><a name="WaitTypes"></a> Warte Typen  
- **Ressourcen warte** Vorgänge treten auf, wenn ein Arbeits Thread den Zugriff auf eine Ressource anfordert, die nicht verfügbar ist, weil die Ressource von einem anderen Arbeits Thread verwendet wird oder noch nicht verfügbar ist. Beispiele für Ressourcenwartevorgänge sind Sperren, Latches, Netzwerk- und Datenträger-E/A-Wartevorgänge. Sperren und Latchwartevorgänge sind Vorgänge, die auf Synchronisierungsobjekte warten.  
+ **Ressourcen warte** Vorgänge treten auf, wenn ein Arbeits Thread den Zugriff auf eine Ressource anfordert, die nicht verfügbar ist, weil die Ressource von einem anderen Arbeits Thread verwendet wird oder noch nicht verfügbar ist. Beispiele für Ressourcen warte Vorgänge sind sperren, Latches, Netzwerk-und Datenträger-e/a-warte Vorgänge. Sperren und Latchwartevorgänge sind Vorgänge, die auf Synchronisierungsobjekte warten.  
   
 **Warteschlangen** -warte Vorgänge treten auf, wenn sich ein Worker im Leerlauf befindet und auf die Zuweisung von Arbeit wartet. Warteschlangen-Wartevorgänge treten am häufigsten bei Hintergrundtasks des Systems auf, wie z. B. der Deadlocküberwachung und dem Cleanup gelöschter Datensätze. Diese Tasks warten, dass Arbeitsanforderungen in einer Arbeitswarteschlange platziert werden. Warteschlangen-Wartevorgänge können in regelmäßigen Abständen selbst dann aktiviert werden, wenn keine neuen Pakete in die Warteschlange übertragen wurden.  
   
@@ -87,7 +86,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
   
  In der folgenden Tabelle werden die Wartetypen für Tasks in einer Liste aufgeführt.  
 
-|Typ |Beschreibung| 
+|type |Beschreibung| 
 |-------------------------- |--------------------------| 
 |ABR |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| | 
 |AM_INDBUILD_ALLOCATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -297,7 +296,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_AR_UNLOAD_COMPLETED |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_ARCONTROLLER_NOTIFICATIONS_SUBSCRIBER_LIST |Der Verleger für ein Verfügbarkeitsreplikatereignis (z. B. eine Statusänderung oder eine Konfigurationsänderung) wartet auf exklusiven Lese-/Schreibzugriff für die Liste der Ereignisabonnenten. Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_BACKUP_BULK_LOCK |Die Always on primäre Datenbank hat eine Sicherungs Anforderung von einer sekundären Datenbank empfangen und wartet darauf, dass der Hintergrund Thread die Verarbeitung der Anforderung zum Abrufen oder Freigeben der bulkop-Sperre abgeschlossen hat. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_BACKUP_QUEUE |Der Sicherungs Hintergrund Thread der Always on primären Datenbank wartet auf eine neue Arbeits Anforderung von der sekundären Datenbank. (in der Regel tritt dies auf, wenn die primäre Datenbank das BulkOp-Protokoll enthält und darauf wartet, dass die sekundäre Datenbank angibt, dass die primäre Datenbank die Sperre aufheben kann). <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
+|HADR_BACKUP_QUEUE |Der Sicherungs Hintergrund Thread der Always on primären Datenbank wartet auf eine neue Arbeits Anforderung von der sekundären Datenbank. (In der Regel tritt dies auf, wenn die primäre Datenbank das bulkop-Protokoll speichert und darauf wartet, dass die sekundäre Datenbank angibt, dass die primäre Datenbank die Sperre freigeben kann.) <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_CLUSAPI_CALL |Ein [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Thread wartet darauf, vom nicht präemptiven Modus (geplant durch [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ) in den präemptiven Modus (geplant durch das Betriebssystem) zu wechseln, um Windows Server-Failoverclustering-APIs aufzurufen. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_COMPRESSED_CACHE_SYNC |Warten auf Zugriff auf den Cache mit komprimierten Protokollblöcken, die verwendet werden, um eine redundante Komprimierung der Protokollblöcke zu verhindern, die an mehrere sekundäre Datenbanken gesendet werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_CONNECTIVITY_INFO |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -333,7 +332,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |HADR_PARTNER_SYNC |Parallelitätssteuerungs-Wartevorgang für der Partnerliste. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_READ_ALL_NETWORKS |Wartet auf Lese- oder Schreibzugriff für die List mit WSFC-Netzwerken. Nur zur internen Verwendung. Hinweis: die Engine speichert eine Liste mit wsfc-Netzwerken, die in dynamischen Verwaltungs Sichten (z. b. sys.dm_hadr_cluster_networks) verwendet werden, oder um Always on Transact-SQL-Anweisungen zu validieren, die auf wsfc-Netzwerkinformationen verweisen. Diese Liste wird nach dem Start der Engine, den wsfc-bezogenen Benachrichtigungen und dem internen Always on Neustart aktualisiert (z. b. Verlust und Wiederherstellung des wsfc-Quorums). Tasks werden normalerweise blockiert, wenn ein Update in dieser Liste ausgeführt wird. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_RECOVERY_WAIT_FOR_CONNECTION |Warten, bis die sekundäre Datenbank vor dem Ausführen der Wiederherstellung eine Verbindung mit der primären Datenbank herstellt. Dies ist ein erwarteter Wartevorgang, der länger dauern kann, wenn die Verbindung zur primären Datenbank nur langsam aufgebaut wird. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
-|HADR_RECOVERY_WAIT_FOR_UNDO |Die Datenbankwiederherstellung wartet, bis die sekundäre Datenbank die Wiederherstellungs- und Initialisierungsphase beendet hat, um diese mit der primären Datenbank auf den allgemeinen Protokollpunkt zurückzubringen. Dies ist ein erwarteter Wartevorgang nach Failovers. Der Undo-Status kann mit dem Windows-Systemmonitor (perfmon.exe) und den dynamischen Verwaltungssichten nachverfolgt werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
+|HADR_RECOVERY_WAIT_FOR_UNDO |Die Datenbankwiederherstellung wartet, bis die sekundäre Datenbank die Wiederherstellungs- und Initialisierungsphase beendet hat, um diese mit der primären Datenbank auf den allgemeinen Protokollpunkt zurückzubringen. Dies ist ein erwarteter warte Vorgang nach einem Failover. Der Rückgängig-Status kann über den Windows-System Monitor (perfmon.exe) und dynamische Verwaltungs Sichten nachverfolgt werden. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_REPLICAINFO_SYNC |Warten, bis die Parallelitätssteuerung den aktuellen Replikatstatus aktualisiert. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
 |HADR_SEEDING_CANCELLATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |HADR_SEEDING_FILE_LIST |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
@@ -494,11 +493,11 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |PAGEIOLATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
 |PAGEIOLATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
 |PAGELATCH_DT |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Löschmodus.| 
-|PAGELATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus:| 
+|PAGELATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus: </br> Ein gängiges Szenario, das zu diesem Latch führt, ist der Puffer Latchkonflikt der letzten Seite. Um dieses Problem zu verstehen und zu beheben, verwenden Sie die [PAGELATCH_EX Konflikt mit der letzten Seite auflösen](/troubleshoot/sql/performance/resolve-pagelatch-ex-contention) , und [diagnostizieren und beheben Sie die Latchkonflikte der letzten Seiten Einfügung auf SQL Server](../diagnose-resolve-latch-contention.md#last-pagetrailing-page-insert-contention). Ein anderes Szenario sind [Latchkonflikte bei kleinen Tabellen mit einem nicht gruppierten Index und zufälligen Einfügungen (Warteschlangen Tabelle)](../diagnose-resolve-latch-contention.md#latch-contention-on-small-tables-with-a-non-clustered-index-and-random-inserts-queue-table).| 
 |PAGELATCH_KP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Beibehaltungsmodus.| 
 |PAGELATCH_NL |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
 |PAGELATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus.| 
-|PAGELATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus.| 
+|PAGELATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus. Dieser Wartetyp kann häufig beobachtet werden, wenn eine System Seite (Puffer) wie PFS, GAM, SGAM in einem Latchzustand ist. Informationen zur Problembehandlung für ein häufiges Szenario finden Sie unter [reduzieren von Zuweisungs Konflikten in SQL Server tempdb-Datenbank](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention).| 
 |PARALLEL_BACKUP_QUEUE |Tritt beim Serialisieren der Ausgabe auf, die von RESTORE HEADERONLY, RESTORE FILELISTONLY oder RESTORE LABELONLY erstellt wurde.| 
 |PARALLEL_REDO_DRAIN_WORKER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PARALLEL_REDO_FLOW_CONTROL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
@@ -1026,7 +1025,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
   
  Eine Sperr Kompatibilitäts Matrix finden Sie unter [sys.dm_tran_locks &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql.md).  
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
     
  [SQL Server dynamischen Verwaltungs Sichten im Zusammenhang mit dem Betriebs System &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql.md)   
  [sys.dm_exec_session_wait_stats &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-session-wait-stats-transact-sql.md)   
