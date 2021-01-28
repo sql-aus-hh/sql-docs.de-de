@@ -16,18 +16,18 @@ ms.author: maghan
 ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: 9bdbf68766e6c271f17254afc4262de341deaeb3
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: da735323071b83aaee96c5699ef3f727fb7744f7
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92037596"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765933"
 ---
 # <a name="create-a-new-registered-server-sql-server-management-studio"></a>Erstellen eines neu registrierten Servers (SQL Server Management Studio)
 
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-In diesem Thema wird beschrieben, wie Sie die Verbindungsinformationen für Server speichern, auf die Sie häufig zugreifen, indem Sie den Server in der Komponente Registrierte Server von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]registrieren. Ein Server kann vor dem Herstellen einer Verbindung oder bei der Verbindungsherstellung über den Objekt-Explorer registriert werden. Es gibt eine spezielle Menüoption zum Registrieren der Serverinstanzen auf dem lokalen Computer.  
+In diesem Thema wird beschrieben, wie Sie die Verbindungsinformationen für Server speichern, auf die Sie häufig zugreifen, indem Sie den Server in der Komponente Registrierte Server von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]registrieren. Ein Server kann vor dem Herstellen einer Verbindung oder bei der Verbindungsherstellung über den Objekt-Explorer registriert werden. Es gibt eine spezielle Menüoption zum Registrieren der Serverinstanzen auf dem lokalen Computer.  
   
  Es gibt zwei Arten von registrierten Servern:  
   
@@ -53,7 +53,7 @@ In diesem Thema wird beschrieben, wie Sie die Verbindungsinformationen für Serv
 1.  Wenn die Option Registrierte Server in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]nicht angezeigt wird, klicken Sie im Menü **Ansicht** auf **Registrierte Server**.  
   
      **Servertyp**  
-     Wenn Sie einen Server über Registrierte Server registrieren, ist das Feld **Servertyp** schreibgeschützt, wobei der Feldeintrag mit dem im Bereich Registrierte Server angezeigten Servertyp übereinstimmt. Wenn Sie einen anderen Servertyp registrieren möchten, klicken Sie, bevor Sie mit dem Registrieren eines neuen Servers beginnen, auf der Symbolleiste **Registrierte Server**auf **Datenbank-Engine**, **Analysis-Server**, **Reporting Services** oder **Integration Services** .  
+     Wenn Sie einen Server über Registrierte Server registrieren, ist das Feld **Servertyp** schreibgeschützt, wobei der Feldeintrag mit dem im Bereich Registrierte Server angezeigten Servertyp übereinstimmt. Wenn Sie einen anderen Servertyp registrieren möchten, klicken Sie, bevor Sie mit dem Registrieren eines neuen Servers beginnen, auf der Symbolleiste **Registrierte Server** auf **Datenbank-Engine**, **Analysis-Server**, **Reporting Services** oder **Integration Services** .  
   
      **Servername**  
      Wählen Sie die zu registrierende Serverinstanz in folgendem Format aus: *\<servername>* [\\ *\<instancename>* ].  
@@ -71,7 +71,7 @@ In diesem Thema wird beschrieben, wie Sie die Verbindungsinformationen für Serv
     >  [!INCLUDE[ssNoteWinAuthentication](../../includes/ssnotewinauthentication-md.md)] Weitere Informationen finden Sie unter [Auswählen eines Authentifizierungsmodus](../../relational-databases/security/choose-an-authentication-mode.md).  
   
      **Benutzername**  
-     Zeigt den aktuellen Benutzernamen an, zu dem die Verbindung hergestellt wird. Diese schreibgeschützte Option ist nur verfügbar, wenn Sie zum Herstellen der Verbindung die Windows-Authentifizierung ausgewählt haben. Um **Benutzername**zu ändern, melden Sie sich bei dem Computer als ein anderer Benutzer an.  
+     Zeigt den aktuellen Benutzernamen an, zu dem die Verbindung hergestellt wird. Diese schreibgeschützte Option ist nur verfügbar, wenn Sie zum Herstellen der Verbindung die Windows-Authentifizierung ausgewählt haben. Um **Benutzername** zu ändern, melden Sie sich bei dem Computer als ein anderer Benutzer an.  
   
      **Anmeldung**  
      Geben Sie den Anmeldenamen für die Verbindung ein. Diese Option ist nur verfügbar, wenn Sie zum Verbinden die Authentifizierung von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ausgewählt haben.  
@@ -92,7 +92,7 @@ In diesem Thema wird beschrieben, wie Sie die Verbindungsinformationen für Serv
      Geben Sie eine optionale Beschreibung des Servers ein.  
   
      **Test**  
-     Klicken Sie hier, um die Verbindung mit dem unter **Servername**ausgewählten Server zu testen.  
+     Klicken Sie hier, um die Verbindung mit dem unter **Servername** ausgewählten Server zu testen.  
   
      **Speichern**  
      Klicken Sie hier, um die Einstellungen des registrierten Servers zu speichern.  

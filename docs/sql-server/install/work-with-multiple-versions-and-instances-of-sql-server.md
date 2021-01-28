@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 93acefa8-bb41-4ccc-b763-7801f51134e0
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: eea074af5270046bae6bb153cfb6fe79053335a4
-ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
+ms.openlocfilehash: ce7c337ccd2899afedbc28781c1ed822f04b8202
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97975498"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765667"
 ---
 # <a name="work-with-multiple-versions-and-instances-of-sql-server"></a>Arbeiten mit mehreren Versionen und Instanzen von SQL Server
 
@@ -108,7 +108,7 @@ Weitere Informationen finden Sie unter [Verwenden von SQL Server in Windows 8 un
 
   
 > [!CAUTION]  
-> [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] SysPrep bietet keine Unterstützung für die parallele Installation von vorbereiteten [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] -Instanzen und früheren [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Versionen auf demselben Computer. Beispielsweise können Sie keine Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] parallel zu einer Instanz von vorbereiteten Instanz von [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]vorbereiten. Sie können jedoch mehrere vorbereitete Instanzen der gleichen Hauptversion von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] parallel auf dem gleichen Computer installieren. Weitere Informationen finden Sie unter [Considerations for Installing SQL Server Using SysPrep](../../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md).  
+> [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] SysPrep bietet keine Unterstützung für die parallele Installation von vorbereiteten [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] -Instanzen und früheren [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Versionen auf demselben Computer. Sie können jedoch mehrere vorbereitete Instanzen der gleichen Hauptversion von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] parallel auf dem gleichen Computer installieren. Weitere Informationen finden Sie unter [Considerations for Installing SQL Server Using SysPrep](../../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md).  
 >
 > SQL Server 2016 und höhere Versionen können nicht parallel mit früheren Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf einem Computer installiert werden, auf dem Windows Server 2008 R2 Server Core SP1 ausgeführt wird. Weitere Informationen zu Server Core-Installationen finden Sie unter [Installieren von SQL Server 2016 unter Server Core](../../database-engine/install-windows/install-sql-server-on-server-core.md).  
   

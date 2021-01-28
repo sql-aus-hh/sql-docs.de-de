@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: 944fc1a9b5769c797ed9fa372e45c17931814983
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 41ee66ff1a5dc6abd746a1344d03e3cabacf9cd2
+ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85681547"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98813084"
 ---
 # <a name="distributed-replay-security"></a>Distributed Replay-Sicherheit
 
@@ -54,7 +54,7 @@ Bevor Sie das Distributed Replay-Feature von [!INCLUDE[msCoName](../../includes/
   
     -   Klicken Sie auf **Start**, geben Sie **services.msc** in das Feld **Suchen** ein, und drücken Sie dann die EINGABETASTE.  
   
-    -   Klicken Sie auf **Start**, dann auf **Ausführen**, geben Sie **services.msc**ein, und drücken Sie dann die EINGABETASTE.  
+    -   Klicken Sie auf **Start**, dann auf **Ausführen**, geben Sie **services.msc** ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie im Dialogfeld **Services** mit der rechten Maustaste auf den Dienst, den Sie konfigurieren möchten, und klicken Sie dann auf **Properties**.  
   
@@ -83,9 +83,9 @@ Bevor Sie das Distributed Replay-Feature von [!INCLUDE[msCoName](../../includes/
   
     3.  Drücken Sie die EINGABETASTE.  
   
-2.  **Konfigurieren Sie computerweite DCOM-Berechtigungen:** Gewähren Sie jedem in der folgenden Tabelle aufgeführten Konto die entsprechenden computerweiten DCOM-Berechtigungen. Weitere Informationen zum Festlegen von computerweiten Berechtigungen finden Sie in [Prüfliste: Verwalten von DCOM-Anwendungen](https://go.microsoft.com/fwlink/?LinkId=185842).  
+2.  **Konfigurieren Sie computerweite DCOM-Berechtigungen:** Gewähren Sie jedem in der folgenden Tabelle aufgeführten Konto die entsprechenden computerweiten DCOM-Berechtigungen. Weitere Informationen zum Festlegen von computerweiten Berechtigungen finden Sie in [Prüfliste: Verwalten von DCOM-Anwendungen](/windows/win32/com/setting-machine-wide-security-using-dcomcnfg).  
   
-3.  **Konfigurieren Sie anwendungsspezifische DCOM-Berechtigungen:** Gewähren Sie jedem in der folgenden Tabelle aufgeführten Konto die entsprechenden anwendungsspezifischen DCOM-Berechtigungen. Der DCOM-Anwendungsname für den Controllerdienst ist **DReplayController**. Weitere Informationen zum Festlegen von anwendungsspezifischen Berechtigungen finden Sie in [Prüfliste: Verwalten von DCOM-Anwendungen](https://go.microsoft.com/fwlink/?LinkId=185842).  
+3.  **Konfigurieren Sie anwendungsspezifische DCOM-Berechtigungen:** Gewähren Sie jedem in der folgenden Tabelle aufgeführten Konto die entsprechenden anwendungsspezifischen DCOM-Berechtigungen. Der DCOM-Anwendungsname für den Controllerdienst ist **DReplayController**. Weitere Informationen zum Festlegen von anwendungsspezifischen Berechtigungen finden Sie in [Prüfliste: Verwalten von DCOM-Anwendungen](/windows/win32/com/setting-processwide-security-using-dcomcnfg).  
   
  In der folgenden Tabelle wird beschrieben, welche DCOM-Berechtigungen für das interaktive Benutzerkonto für das Verwaltungstool und die Clientdienstkonten erforderlich sind:  
   
@@ -136,5 +136,4 @@ Bevor Sie das Distributed Replay-Feature von [!INCLUDE[msCoName](../../includes/
 ## <a name="see-also"></a>Weitere Informationen  
  [SQL Server Distributed Replay](../../tools/distributed-replay/sql-server-distributed-replay.md)   
  [Installieren von Distributed Replay – Übersicht](../../tools/distributed-replay/install-distributed-replay-overview.md)  
-  
   

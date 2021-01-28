@@ -19,12 +19,12 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
 monikerRange: = azuresqldb-mi-current || >= sql-server-2016
-ms.openlocfilehash: d0ec97acbbae3f0e5947348ba35308bd3cfc86ff
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 420a7a630aa713739419e910786914b4fde033f0
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97424917"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765856"
 ---
 # <a name="assign-alerts-to-an-operator"></a>Assign Alerts to an Operator
 
@@ -33,7 +33,7 @@ ms.locfileid: "97424917"
 > [!IMPORTANT]  
 > In [Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance) werden derzeit die meisten, aber nicht alle, SQL Server-Agent-Features unterstützt. Details dazu finden Sie unter [T-SQL-Unterschiede zwischen Azure SQL Managed Instance und SQL Server](/azure/sql-database/sql-database-managed-instance-transact-sql-information#sql-server-agent).
 
-In diesem Artikel wird beschrieben, wie Warnungen des [!INCLUDE[msCoName](../../includes/msconame_md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Agents Operatoren zugewiesen werden, damit diese in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)] Benachrichtigungen über Aufträge empfangen können.  
+In diesem Artikel wird beschrieben, wie Warnungen des [!INCLUDE[msCoName](../../includes/msconame_md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Agents Operatoren zugewiesen werden, damit diese in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)] Benachrichtigungen über Aufträge empfangen können.  
   
 ## <a name="before-you-begin"></a><a name="BeforeYouBegin"></a>Vorbereitungen  
   

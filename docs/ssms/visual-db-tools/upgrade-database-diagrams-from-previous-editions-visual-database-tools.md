@@ -19,16 +19,16 @@ ms.assetid: c5434211-697a-423f-ad71-d78178b69a78
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.openlocfilehash: f6f303bdee6d19af39600317c2147728c89e2b3d
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 70ef9218bf9ed2827fdc166f9e9540e7bafbce8f
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88417696"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765903"
 ---
 # <a name="upgrade-database-diagrams-from-previous-editions-visual-database-tools"></a>Aktualisieren von Datenbankdiagrammen aus älteren Versionen (Visual Database Tools)
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
-Datenbankdiagramme, die für frühere Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbanken erstellt wurden, werden automatisch aktualisiert, wenn die Erstellung von Datenbankdiagrammen in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]eingerichtet ist. Weitere Informationen zum Einrichten der Diagrammerstellung finden Sie unter [Einrichten des Datenbankdiagramm-Designers](../../ssms/visual-db-tools/set-up-database-diagram-designer-visual-database-tools.md).  
+Datenbankdiagramme, die für frühere Versionen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Datenbanken erstellt wurden, werden automatisch aktualisiert, wenn die Erstellung von Datenbankdiagrammen in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]eingerichtet ist. Weitere Informationen zum Einrichten der Diagrammerstellung finden Sie unter [Einrichten des Datenbankdiagramm-Designers](../../ssms/visual-db-tools/set-up-database-diagram-designer-visual-database-tools.md).  
   
 ### <a name="to-upgrade-legacy-database-diagrams"></a>So aktualisieren Sie Datenbankdiagramme aus früheren Versionen  
   

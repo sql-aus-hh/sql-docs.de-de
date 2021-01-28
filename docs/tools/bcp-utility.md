@@ -29,12 +29,12 @@ ms.reviewer: v-daenge
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017'
-ms.openlocfilehash: 018508727950aa370fb7b3879541d04ff8384ced
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: 2be72374a13dbedb444b2661cf0e53a0d555d98c
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98169552"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98688970"
 ---
 # <a name="bcp-utility"></a>Hilfsprogramms bcp
 
@@ -71,7 +71,7 @@ Die neue BCP unterstützt die Azure AD-Authentifizierung, einschließlich der Mu
 
 Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 
-Für diese Komponente sind sowohl [Windows Installer 4.5](https://www.microsoft.com/download/details.aspx?id=8483) als auch [Microsoft ODBC Driver for SQL Server 17](https://aka.ms/downloadmsodbcsql) erforderlich.
+Für diese Komponente sind sowohl [Windows Installer 4.5](https://www.microsoft.com/download/details.aspx?id=8483) als auch [Microsoft ODBC Driver for SQL Server 17](../connect/odbc/download-odbc-driver-for-sql-server.md) erforderlich.
 
 Führen Sie zum Überprüfen der BCP-Version den Befehl `bcp /v` aus, und vergewissern Sie sich, dass Version 15.0.2000.5 oder höher verwendet wird.
 
@@ -261,7 +261,7 @@ Gibt an, dass der oder die Identitätswerte in der importierten Datendatei für 
 
    Durch die interaktive Azure AD-Authentifizierung für Azure SQL-Datenbank und Azure Synapse Analytics können Sie eine interaktive Methode verwenden, die die mehrstufige Authentifizierung unterstützt. Weitere Informationen finden Sie unter [Interaktive Active Directory-Authentifizierung](../ssdt/azure-active-directory.md#active-directory-interactive-authentication).
 
-   Die interaktive Azure AD-Authentifizierung erfordert die **bcp**-[Version 15.0.1000.34](#download-the-latest-version-of-bcp-utility) oder höher sowie die [ODBC-Version 17.2 oder höher](https://aka.ms/downloadmsodbcsql).  
+   Die interaktive Azure AD-Authentifizierung erfordert die **bcp**-[Version 15.0.1000.34](#download-the-latest-version-of-bcp-utility) oder höher sowie die [ODBC-Version 17.2 oder höher](../connect/odbc/download-odbc-driver-for-sql-server.md).  
 
    Geben Sie zum Aktivieren der interaktiven Authentifizierung die Option „-G“ nur mit dem Benutzernamen (-U) und ohne ein Kennwort an.
 

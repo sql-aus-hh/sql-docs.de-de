@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 8151915dc6c16c6225fec9ab90cb5a88e86b992f
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 3fb13f3cc163bb157f418d3bda99e0173d81b842
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771442"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596009"
 ---
 # <a name="connection-events"></a>Verbindungsereignisse
 
@@ -34,7 +34,7 @@ Der Microsoft SqlClient-Datenanbieter für SQL Server verfügt über **Connectio
 
 ## <a name="work-with-the-infomessage-event"></a>Arbeiten mit dem InfoMessage-Ereignis
 
-Mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis des <xref:Microsoft.Data.SqlClient.SqlConnection>-Objekts können Warnungen und Informationsmeldungen aus einer SQL Server-Datenquelle abgerufen werden. Wenn von einer Datenquelle Fehler mit einem Schweregrad zwischen 11 und 16 zurückgegeben werden, wird eine Ausnahme ausgelöst. Mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis können jedoch Meldungen aus der Datenquelle abgerufen werden, die keinem Fehler zugewiesen sind. Bei Microsoft SQL Server werden alle Meldungen mit einem Schweregrad von 10 oder weniger als Informationsmeldungen betrachtet und mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis aufgezeichnet. Weitere Informationen finden Sie im Artikel [Schweregrade von Datenbank-Engine-Fehlern](/sql/relational-databases/errors-events/database-engine-error-severities).
+Mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis des <xref:Microsoft.Data.SqlClient.SqlConnection>-Objekts können Warnungen und Informationsmeldungen aus einer SQL Server-Datenquelle abgerufen werden. Wenn von einer Datenquelle Fehler mit einem Schweregrad zwischen 11 und 16 zurückgegeben werden, wird eine Ausnahme ausgelöst. Mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis können jedoch Meldungen aus der Datenquelle abgerufen werden, die keinem Fehler zugewiesen sind. Bei Microsoft SQL Server werden alle Meldungen mit einem Schweregrad von 10 oder weniger als Informationsmeldungen betrachtet und mit dem <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis aufgezeichnet. Weitere Informationen finden Sie im Artikel [Schweregrade von Datenbank-Engine-Fehlern](../../relational-databases/errors-events/database-engine-error-severities.md).
 
 Das <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>-Ereignis empfängt ein <xref:Microsoft.Data.SqlClient.SqlInfoMessageEventArgs>-Objekt, das in der **Errors**-Eigenschaft eine Sammlung der Meldungen aus einer Datenquelle enthält. Die **Error**-Objekte in dieser Sammlung können auf Fehlernummer und Meldungstext sowie Quelle des Fehlers abgefragt werden. Der Microsoft SqlClient-Datenanbieter für SQL Server enthält auch Details zur Datenbank, gespeicherten Prozedur und Nummer der Zeile, aus der die Meldung stammt.
 

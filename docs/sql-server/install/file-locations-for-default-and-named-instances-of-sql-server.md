@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: 463c570e-9f75-4653-b3b8-4d61753b0013
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: e109b68dbf9b2e2b1d119f2f676896f5fe682aaf
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: b542b33ee1dc4bf849131f90be0316c32b386879
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172702"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765875"
 ---
 # <a name="file-locations-for-default-and-named-instances-of-sql-server"></a>Dateispeicherorte für Standard- und benannte Instanzen von SQL Server
 [!INCLUDE [SQL Server Windows Only - ASDBMI ](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
@@ -59,14 +59,14 @@ ms.locfileid: "98172702"
   
  Beispiele für Standardinstanz-IDs in dieser Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] lauten wie folgt:  
   
--   MSSQL\{nn}.MSSQLSERVER für eine Standardinstanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)].  
+-   MSSQL\{nn}.MSSQLSERVER für eine Standardinstanz von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)].  
   
 -   MSAS\{nn}.MSSQLSERVER für eine Standardinstanz von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Analysis Services  
   
--   MSSQL\{nn}.MyInstance für eine benannte Instanz von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mit dem Namen "MyInstance".  
+-   MSSQL\{nn}.MyInstance für eine benannte Instanz von [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] mit dem Namen "MyInstance".  
   
 
- Die Verzeichnisstruktur für eine mit dem Namen "MyInstance" benannte [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] -Instanz, die [!INCLUDE[ssDE](../../includes/ssde-md.md)] und [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]umfasst und in den Standardverzeichnissen installiert ist, lautet wie folgt:  
+ Die Verzeichnisstruktur für eine mit dem Namen "MyInstance" benannte [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] -Instanz, die [!INCLUDE[ssDE](../../includes/ssde-md.md)] und [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]umfasst und in den Standardverzeichnissen installiert ist, lautet wie folgt:  
   
 -   C:\Programme\Microsoft SQL Server\MSSQL\{nn}.MyInstance\  
   

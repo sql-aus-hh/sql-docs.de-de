@@ -13,12 +13,12 @@ ms.assetid: 9ccb390a-67a9-4593-85ea-2b4c41c4620f
 author: rothja
 ms.author: jroth
 monikerRange: = sql-server-2016
-ms.openlocfilehash: f183c3d44525d85c26a6ba36345eb347ba1c38d3
-ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
+ms.openlocfilehash: fff3b6de7e2e83c535997194ca2622d9cd9e9595
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98594837"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766177"
 ---
 # <a name="sql-server-2012-release-notes"></a>Versionsanmerkungen zu SQL Server 2012
 [!INCLUDE [SQL Server Azure SQL Database ](../includes/applies-to-version/sqlserver.md)]
@@ -27,7 +27,7 @@ In diesem Dokument mit Versionshinweisen werden bekannte Probleme beschrieben, m
 Informationen zu den ersten Schritten sowie zur Installation von SQL Server 2012 erhalten Sie in der SQL Server 2012-Infodatei. Die Infodatei steht auf den Installationsmedien und auf der [Infodatei](https://download.microsoft.com/download/3/B/D/3BD9DD65-D3E3-43C3-BB50-0ED850A82AD5/ENU/Readme.htm) -Downloadseite zur Verfügung. Weitere Informationen finden Sie auch in der [SQL Server-Onlinedokumentation](/previous-versions/sql/sql-server-2012/ms130214(v=sql.110)) und in den [SQL Server-Foren](https://go.microsoft.com/fwlink/?LinkId=213599).  
   
 ## <a name="10-before-you-install"></a><a name="Install"></a>1.0 Vor der Installation  
-Vor der Installation von [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)]sollten folgende Informationen beachtet werden.  
+Vor der Installation von [!INCLUDE[ssnoversion](../includes/ssnoversion-md.md)]sollten folgende Informationen beachtet werden.  
   
 ### <a name="11-rules-documentation-for-sql-server-2012-setup"></a>1.1 Regeldokumentation für SQL Server 2012-Setup  
 **Problem:** SQL Server-Setup überprüft die Computerkonfiguration, bevor der Setupvorgang abgeschlossen wird. Die verschiedenen Regeln, die währen des SQL Server-Setupvorgangs ausgeführt werden, werden in einem Bericht der Systemkonfigurationsprüfung erfasst. Die Dokumentation zu diesen Setupregeln steht nicht länger in der MSDN Library zur Verfügung.  

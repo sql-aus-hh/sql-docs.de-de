@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 14442892bc59fc733c6a67153832b95c3f368b95
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 12dfcb26484b468bed9f9262403806ea88829385
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771456"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595775"
 ---
 # <a name="configuring-parameters"></a>Konfigurieren von Parametern
 
@@ -27,7 +27,7 @@ ms.locfileid: "97771456"
 
 Befehlsobjekte verwenden Parameter, um Werte an SQL-Anweisungen oder gespeicherte Prozeduren zu übergeben, und ermöglichen so Typüberprüfungen und Validierungen. Im Unterschied zu Befehlstext wird die Parametereingabe als Literalwert und nicht als ausführbarer Code behandelt. Dies hilft beim Schutz vor SQL Injection-Angriffen, bei denen ein Angreifer einen SQL-Befehl, der die Sicherheit auf dem Server gefährdet, in eine SQL-Anweisung einschleust.
 
-Parametrisierte Befehle können außerdem die Leistung bei der Abfrageausführung verbessern, da sie den Datenbankserver dabei unterstützen, den eingehenden Befehl mit dem richtigen zwischengespeicherten Abfrageplan abzugleichen. Weitere Informationen finden Sie unter [Zwischenspeichern und Wiederverwenden von Ausführungsplänen](/sql/relational-databases/query-processing-architecture-guide#execution-plan-caching-and-reuse) und [Parameter und Wiederverwendung von Ausführungsplänen](/sql/relational-databases/query-processing-architecture-guide#PlanReuse). Parametrisierte Befehle sind aber nicht nur aus Sicherheits- und Leistungsgründen vorteilhaft, sondern sie stellen auch eine bequeme Methode zum Organisieren von Werten dar, die an eine Datenquelle übergeben werden.
+Parametrisierte Befehle können außerdem die Leistung bei der Abfrageausführung verbessern, da sie den Datenbankserver dabei unterstützen, den eingehenden Befehl mit dem richtigen zwischengespeicherten Abfrageplan abzugleichen. Weitere Informationen finden Sie unter [Zwischenspeichern und Wiederverwenden von Ausführungsplänen](../../relational-databases/query-processing-architecture-guide.md#execution-plan-caching-and-reuse) und [Parameter und Wiederverwendung von Ausführungsplänen](../../relational-databases/query-processing-architecture-guide.md#PlanReuse). Parametrisierte Befehle sind aber nicht nur aus Sicherheits- und Leistungsgründen vorteilhaft, sondern sie stellen auch eine bequeme Methode zum Organisieren von Werten dar, die an eine Datenquelle übergeben werden.
 
 Ein <xref:System.Data.Common.DbParameter> -Objekt kann mithilfe des zugehörigen Konstruktors erstellt werden, oder es wird durch Aufrufen der <xref:System.Data.Common.DbCommand.DbParameterCollection%2A> -Methode der `Add` -Auflistung zur <xref:System.Data.Common.DbParameterCollection> hinzugefügt. Die `Add` -Methode verwendet als Eingabe je nach Datenanbieter Konstruktorargumente oder ein vorhandenes Parameterobjekt.
 
@@ -103,7 +103,7 @@ Weitere Informationen finden Sie unter [Generieren von Befehlen mit CommandBuild
 Gespeicherte Prozeduren bieten zahlreiche Vorteile in datengesteuerten Anwendungen. Mit gespeicherten Prozeduren können Datenbankoperationen in einem einzelnen Befehl zusammengefasst, für die beste Leistung optimiert und mit zusätzlicher Sicherheit ausgestattet werden. Während eine gespeicherte Prozedur problemlos aufgerufen werden kann, indem der Name der gespeicherten Prozedur gefolgt von Parameterargumenten als SQL-Anweisung übergeben wird, ermöglicht die Verwendung der <xref:System.Data.Common.DbCommand.Parameters%2A>-Auflistung des ADO.NET-Objekts <xref:System.Data.Common.DbCommand> eine genauere Definition der Parameter der gespeicherten Prozedur sowie den Zugriff auf Ausgabeparameter und Rückgabewerte.
 
 > [!NOTE]
-> Parametrisierte Anweisungen werden auf dem Server mit `sp_executesql,` ausgeführt, sodass die Wiederverwendung von Abfrageplänen möglich ist. Lokale Cursor oder Variablen im `sp_executesql` -Batch sind für den Batch, der `sp_executesql`aufruft, nicht sichtbar. Änderungen am Datenbankkontext sind nur bis zum Ende der `sp_executesql` -Anweisung gültig. Weitere Informationen finden Sie unter [sp_executesql (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql).
+> Parametrisierte Anweisungen werden auf dem Server mit `sp_executesql,` ausgeführt, sodass die Wiederverwendung von Abfrageplänen möglich ist. Lokale Cursor oder Variablen im `sp_executesql` -Batch sind für den Batch, der `sp_executesql`aufruft, nicht sichtbar. Änderungen am Datenbankkontext sind nur bis zum Ende der `sp_executesql` -Anweisung gültig. Weitere Informationen finden Sie unter [sp_executesql (Transact-SQL)](../../relational-databases/system-stored-procedures/sp-executesql-transact-sql.md).
 
 Wenn Sie Parameter mit einem <xref:Microsoft.Data.SqlClient.SqlCommand> verwenden, um eine gespeicherte SQL Server-Prozedur auszuführen, müssen die der <xref:Microsoft.Data.SqlClient.SqlCommand.Parameters%2A> -Auflistung hinzugefügten Parameternamen mit den Namen der Parametermarkierungen in der gespeicherten Prozedur übereinstimmen. Der Microsoft SqlClient-Datenanbieter für SQL Server unterstützt keine Fragezeichenplatzhalter (?) für die Übergabe von Parametern an eine SQL-Anweisung oder gespeicherte Prozedur. Er behandelt die Parameter in der gespeicherten Prozedur als benannte Parameter und sucht nach den entsprechenden Parametermarkierungen. Nehmen wir z. B. an, die gespeicherte Prozedur `CustOrderHist` ist mit einem Parameter mit dem Namen `@CustomerID`definiert. Wenn Ihr Code die gespeicherte Prozedur ausführt, muss er ebenfalls einen Parameter mit dem Namen `@CustomerID`verwenden.
 

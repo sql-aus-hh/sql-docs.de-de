@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: c5275a9f-c95b-46d7-bc62-633879a8a291
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 9b263aa61d02c20f55933744449151fa7676bad1
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 022751a3ec4b47a8e7a3a5f5295306265f659512
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84544512"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594985"
 ---
 # <a name="process-large-reports"></a>Verarbeiten von großen Berichten
   Die Verarbeitung umfangreicher Berichte stellt eine Herausforderung dar und erfordert bestimmte Konfigurationseinstellungen, damit die Berichte ordnungsgemäß ausgeführt werden können. Sie sollten nur dann bedarfsgesteuert ausgeführt werden, wenn sie die Paginierung unterstützen.  
@@ -32,7 +32,7 @@ ms.locfileid: "84544512"
   
  Bei Berichten, die flüchtige Daten enthalten, kann die Berichtsgröße von Bericht zu Bericht erheblich variieren. In diesem Fall sollten Sie die Datenquelle überwachen, um zu bestimmen, welche Auswirkungen die Flüchtigkeit der Daten auf Ihren Bericht hat und ob Sie sich an die in diesem Abschnitt beschriebenen Schritte halten müssen.  
   
- Weitere Informationen und Tipps für die Diagnose von Timeoutfehlern und Fehlern aufgrund von unzureichendem Speicher finden Sie im Artikel [Gewusst wie: Diagnose von Problemen bei der Ausführung von Berichten im Berichtsserver](https://go.microsoft.com/fwlink/?LinkId=85634) unter blogs.msdn.microsoft.com.  
+ Weitere Informationen und Tipps für die Diagnose von Timeoutfehlern und Fehlern aufgrund von unzureichendem Speicher finden Sie im Artikel [Gewusst wie: Diagnose von Problemen bei der Ausführung von Berichten im Berichtsserver](/archive/blogs/lukaszp/) unter blogs.msdn.microsoft.com.  
   
 ## <a name="configuration-recommendations"></a>Konfigurationsempfehlungen  
  Für das Ausführen und Rendern von Berichten sowie für den Zugriff auf Berichte gelten die folgenden Empfehlungen:  
@@ -72,4 +72,4 @@ ms.locfileid: "84544512"
  [Festlegen von Berichtsverarbeitungseigenschaften](../../reporting-services/report-server/set-report-processing-properties.md)   
  [Angeben der Anmeldeinformationen und Verbindungsinformationen für Berichtsdatenquellen](../../reporting-services/report-data/specify-credential-and-connection-information-for-report-data-sources.md)   
  [Verwalten von Berichtsserverinhalten &#40;einheitlicher SSRS-Modus&#41;](../../reporting-services/report-server/report-server-content-management-ssrs-native-mode.md)   
- [Vorabladen des Caches (SSRS)](../../reporting-services/report-server/preload-the-cache-report-manager.md)  
+ [Vorabladen des Caches (SSRS)](../../reporting-services/report-server/preload-the-cache-report-manager.md)

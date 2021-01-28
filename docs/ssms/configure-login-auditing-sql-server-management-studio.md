@@ -15,16 +15,16 @@ helpviewer_keywords:
 ms.assetid: 16961116-57ac-4eef-8037-791b26ade548
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 26a61a26350cb566a4526893c877eb5825afc6f1
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: cda64ccc66869683decf6779b3dcbfa5a407114e
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88417946"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765896"
 ---
 # <a name="configure-login-auditing-sql-server-management-studio"></a>Konfigurieren der Anmeldungsüberwachung (SQL Server Management Studio)
 [!INCLUDE[sqlserver](../includes/applies-to-version/sqlserver.md)]
-In diesem Thema wird beschrieben, wie die Anmeldeüberwachung in [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)] konfiguriert wird, um die [!INCLUDE[ssDEnoversion](../includes/ssdenoversion_md.md)]-Anmeldeaktivität zu überwachen. Die Anmeldungsüberwachung kann so konfiguriert werden, dass die folgenden Ereignisse im Fehlerprotokoll aufgezeichnet werden.  
+In diesem Thema wird beschrieben, wie die Anmeldeüberwachung in [!INCLUDE[ssnoversion](../includes/ssnoversion-md.md)] konfiguriert wird, um die [!INCLUDE[ssDEnoversion](../includes/ssdenoversion_md.md)]-Anmeldeaktivität zu überwachen. Die Anmeldungsüberwachung kann so konfiguriert werden, dass die folgenden Ereignisse im Fehlerprotokoll aufgezeichnet werden.  
   
 -   Fehlgeschlagene Anmeldungen  
   
