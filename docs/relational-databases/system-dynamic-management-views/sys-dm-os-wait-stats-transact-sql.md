@@ -2,7 +2,7 @@
 description: sys.dm_os_wait_stats (Transact-SQL)
 title: sys.dm_os_wait_stats (Transact-SQL)
 ms.custom: ''
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database, sql-data-warehouse, pdw
 ms.reviewer: ''
@@ -20,12 +20,12 @@ helpviewer_keywords:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: da16b2c28c55952e609b98637802c940ff5a6a54
-ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
+ms.openlocfilehash: 15f49e670fad327da52fe340a1f9b7601d22ef80
+ms.sourcegitcommit: 76c5e10704e3624b538b653cf0352e606b6346d3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98813069"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98924744"
 ---
 # <a name="sysdm_os_wait_stats-transact-sql"></a>sys.dm_os_wait_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -35,7 +35,7 @@ Gibt Informationen zu allen Wartevorgängen in den Threads zurück, die ausgefü
 > [!NOTE] 
 > Um dies von **[!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] oder** aus aufzurufen, verwenden Sie den Namen **sys.dm_pdw_nodes_os_wait_stats**.  
   
-|Spaltenname|Datentyp|Beschreibung|  
+|Spaltenname|Datentyp|BESCHREIBUNG|  
 |-----------------|---------------|-----------------|  
 |wait_type|**nvarchar(60)**|Der Name des Wartetyps. Weitere Informationen finden Sie unter [Wartetypen](#WaitTypes) weiter unten in diesem Thema.|  
 |waiting_tasks_count|**bigint**|Anzahl von Wartevorgängen für diesen Wartetyp. Dieser Leistungsindikator wird beim Starten eines Wartevorgangs inkrementiert.|  
@@ -86,7 +86,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
   
  In der folgenden Tabelle werden die Wartetypen für Tasks in einer Liste aufgeführt.  
 
-|type |Beschreibung| 
+|type |BESCHREIBUNG| 
 |-------------------------- |--------------------------| 
 |ABR |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| | 
 |AM_INDBUILD_ALLOCATION |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL12](../../includes/sssql11-md.md)] und höher.| 
@@ -487,17 +487,17 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
 |OLEDB |Tritt auf, wenn [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] den SNAC-OLE DB Anbieter (SQLNCLI) oder den Microsoft OLE DB-Treiber für SQL Server (msoledbsql) aufruft. Dieser Wartetyp wird nicht für die Synchronisierung verwendet. Er zeigt vielmehr die Dauer von Aufrufen des OLE DB-Anbieters an.| 
 |ONDEMAND_TASK_QUEUE |Tritt auf, während ein Hintergrundtask auf Systemtaskanforderungen mit hoher Priorität wartet. Lange Wartezeiten zeigen an, dass keine Anforderungen mit hoher Priorität zu verarbeiten waren, und sollten kein Problem darstellen.| 
 |PAGEIOLATCH_DT |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Löschmodus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
-|PAGEIOLATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus: Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
+|PAGEIOLATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus-ein Modus, der verwendet wird, wenn der Puffer auf den Datenträger geschrieben wird. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
 |PAGEIOLATCH_KP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Beibehaltungsmodus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
 |PAGEIOLATCH_NL |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
-|PAGEIOLATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
+|PAGEIOLATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus-ein Modus, der verwendet wird, wenn der Puffer von der Festplatte gelesen wird. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
 |PAGEIOLATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer in einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus. Lange Wartezeiten können Probleme mit dem Datenträgersubsystem anzeigen.| 
-|PAGELATCH_DT |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Löschmodus.| 
-|PAGELATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus: </br> Ein gängiges Szenario, das zu diesem Latch führt, ist der Puffer Latchkonflikt der letzten Seite. Um dieses Problem zu verstehen und zu beheben, verwenden Sie die [PAGELATCH_EX Konflikt mit der letzten Seite auflösen](/troubleshoot/sql/performance/resolve-pagelatch-ex-contention) , und [diagnostizieren und beheben Sie die Latchkonflikte der letzten Seiten Einfügung auf SQL Server](../diagnose-resolve-latch-contention.md#last-pagetrailing-page-insert-contention). Ein anderes Szenario sind [Latchkonflikte bei kleinen Tabellen mit einem nicht gruppierten Index und zufälligen Einfügungen (Warteschlangen Tabelle)](../diagnose-resolve-latch-contention.md#latch-contention-on-small-tables-with-a-non-clustered-index-and-random-inserts-queue-table).| 
-|PAGELATCH_KP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Beibehaltungsmodus.| 
+|PAGELATCH_DT |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Löschmodus. Der zerstörungsmodus muss vor dem Löschen des Inhalts einer Seite abgerufen werden. Weitere Informationen finden Sie unter [latchmodi](../diagnose-resolve-latch-contention.md#sql-server-latch-modes-and-compatibility) .| 
+|PAGELATCH_EX |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im exklusiven Modus-Sie blockiert das Schreiben oder Lesen von anderen Threads in die Seite (Buffer). </br></br> Ein gängiges Szenario, das zu diesem Latch führt, ist der Puffer Latchkonflikt der letzten Seite. Um dieses Problem zu verstehen und zu beheben, verwenden Sie die [PAGELATCH_EX Konflikt mit der letzten Seite auflösen](/troubleshoot/sql/performance/resolve-pagelatch-ex-contention) , und [diagnostizieren und beheben Sie die Latchkonflikte der letzten Seiten Einfügung auf SQL Server](../diagnose-resolve-latch-contention.md#last-pagetrailing-page-insert-contention). Ein anderes Szenario sind [Latchkonflikte bei kleinen Tabellen mit einem nicht gruppierten Index und zufälligen Einfügungen (Warteschlangen Tabelle)](../diagnose-resolve-latch-contention.md#latch-contention-on-small-tables-with-a-non-clustered-index-and-random-inserts-queue-table).| 
+|PAGELATCH_KP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung befindet sich im Modus "beibehalten", wodurch verhindert wird, dass die Seite von einem anderen Thread zerstört wird. Weitere Informationen finden Sie unter [latchmodi](../diagnose-resolve-latch-contention.md#sql-server-latch-modes-and-compatibility) .| 
 |PAGELATCH_NL |Nur für Informationszwecke identifiziert. Wird nicht unterstützt. Zukünftige Kompatibilität wird nicht sichergestellt.| 
-|PAGELATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus.| 
-|PAGELATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus. Dieser Wartetyp kann häufig beobachtet werden, wenn eine System Seite (Puffer) wie PFS, GAM, SGAM in einem Latchzustand ist. Informationen zur Problembehandlung für ein häufiges Szenario finden Sie unter [reduzieren von Zuweisungs Konflikten in SQL Server tempdb-Datenbank](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention).| 
+|PAGELATCH_SH |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im freigegebenen Modus, sodass mehrere Threads einen Puffer (Seite) lesen, aber nicht ändern können. Weitere Informationen finden Sie unter [latchmodi](../diagnose-resolve-latch-contention.md#sql-server-latch-modes-and-compatibility) .| 
+|PAGELATCH_UP |Tritt auf, wenn ein Task auf einen Latch für einen Puffer außerhalb einer E/A-Anforderung wartet. Die Latchanforderung erfolgt im Updatemodus. Dieser Wartetyp kann häufig beobachtet werden, wenn eine System Seite (Puffer) wie PFS, GAM, SGAM in einem Latchzustand ist. Weitere Informationen finden Sie unter [latchmodi](../diagnose-resolve-latch-contention.md#sql-server-latch-modes-and-compatibility) . </br></br> Informationen zur Problembehandlung für ein häufiges Szenario mit diesem Latch finden Sie unter [reduzieren von Zuweisungs Konflikten in SQL Server tempdb-Datenbank](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention).| 
 |PARALLEL_BACKUP_QUEUE |Tritt beim Serialisieren der Ausgabe auf, die von RESTORE HEADERONLY, RESTORE FILELISTONLY oder RESTORE LABELONLY erstellt wurde.| 
 |PARALLEL_REDO_DRAIN_WORKER |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
 |PARALLEL_REDO_FLOW_CONTROL |Nur zur internen Verwendung. <br /><br /> **Gilt für**:  [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] und höher.| 
@@ -1025,7 +1025,7 @@ Dieser Befehl setzt alle Leistungsindikatoren auf 0 zurück.
   
  Eine Sperr Kompatibilitäts Matrix finden Sie unter [sys.dm_tran_locks &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql.md).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
     
  [SQL Server dynamischen Verwaltungs Sichten im Zusammenhang mit dem Betriebs System &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql.md)   
  [sys.dm_exec_session_wait_stats &#40;Transact-SQL-&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-session-wait-stats-transact-sql.md)   
