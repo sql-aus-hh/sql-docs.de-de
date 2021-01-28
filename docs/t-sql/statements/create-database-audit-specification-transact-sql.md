@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: 0544da48-0ca3-4a01-ba4c-940e23dc315b
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 9ac1ddf48ec23f72fcfd500988c9eb05ce0b94ab
-ms.sourcegitcommit: ac9feb0b10847b369b77f3c03f8200c86ee4f4e0
+ms.openlocfilehash: 8d1f8288a0e09c3382c9c31420fb1da6083292f8
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90688095"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783482"
 ---
 # <a name="create-database-audit-specification-transact-sql"></a>CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -91,7 +91,7 @@ CREATE DATABASE AUDIT SPECIFICATION audit_specification_name
 ## <a name="permissions"></a>Berechtigungen  
  Benutzer mit der `ALTER ANY DATABASE AUDIT`-Berechtigung können Datenbanküberwachungsspezifikationen erstellen und sie an eine beliebige Überwachung binden.  
   
- Nachdem eine Datenbanküberwachungsspezifikation erstellt wurde, kann sie von Prinzipalen mit den folgenden Berechtigungen eingesehen werden:`CONTROL SERVER` oder `ALTER ANY DATABASE AUDIT`. Außerdem kann sie über das `sysadmin`-Konto eingesehen werden.  
+ Nach Erstellung einer Datenbanküberwachungsspezifikation kann diese von Benutzern mit der `CONTROL SERVER`-Berechtigung oder dem `sysadmin`-Konto angezeigt werden.  
   
 ## <a name="examples"></a>Beispiele
 

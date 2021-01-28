@@ -27,12 +27,12 @@ ms.assetid: 15f8affd-8f39-4021-b092-0379fc6983da
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-current||=azuresqldb-mi-current||=azure-sqldw-latest||>=aps-pdw-2016'
-ms.openlocfilehash: 9086c0e4dcda0a98daad3e372e719bde7fc628d7
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: a5b5a4174a8faae5c57ed6844e96f52b8f271311
+ms.sourcegitcommit: 2bdf1f1ee88f4fe3e872227d025e965e95d1b2b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099508"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98711996"
 ---
 # <a name="alter-database-transact-sql"></a>ALTER DATABASE (Transact-SQL)
 
@@ -482,7 +482,7 @@ Gibt die maximale Größe der Datenbank an. Die maximale Größe muss dem gülti
 |1024 GB|–|√|√|√|√ (S)|
 |Von 1024 GB bis 4096 GB in Inkrementen von 256 GB*|–|–|–|–|√|
 
-\* P11 und P15 ermöglichen, dass die Größe von MAXSIZE bis zu 4 TB beträgt, wobei 1024 GB die Standardgröße darstellt. P11 und P15 können bis zu 4 TB des enthaltenen Speichers ohne Aufpreis verwenden. Im Premium-Tarif ist MAXSIZE mit einer Größe von mehr als 1 TB derzeit in den folgenden Regionen verfügbar: USA, Osten 2; USA, Westen; US Gov Virginia; Europa, Westen; Deutschland, Mitte; Asien, Südosten; Japan, Osten; Australien, Osten; Kanada, Mitte und Kanada, Osten. Zusätzliche Informationen bezüglich der Ressourcenbeschränkungen für das DTU-Modell finden Sie unter [DTU-Ressourcenlimits](/azure/sql-database/sql-database-dtu-resource-limits).
+\* P11 und P15 ermöglichen, dass die Größe von MAXSIZE bis zu 4 TB beträgt, wobei 1024 GB die Standardgröße darstellt. P11 und P15 können bis zu 4 TB des enthaltenen Speichers ohne Aufpreis verwenden. Im Premium-Tarif ist MAXSIZE mit einer Größe von mehr als 1 TB derzeit in den folgenden Regionen verfügbar: USA, Osten 2; USA, Westen; US Gov Virginia; Europa, Westen; Deutschland, Mitte; Asien, Südosten; Japan, Osten; Australien, Osten; Kanada, Mitte und Kanada, Osten. Weitere Informationen bezüglich der Ressourceneinschränkungen für das DTU-Modell finden Sie unter [DTU-Ressourceneinschränkungen](/azure/sql-database/sql-database-dtu-resource-limits).
 
 Der MAXSIZE-Wert für das DTU-Modell muss – wenn angegeben – ein gültiger Wert sein, der in der Tabelle oben für die festgelegte Dienstebene angezeigt wird.
 
@@ -578,7 +578,7 @@ Der MAXSIZE-Wert für das DTU-Modell muss – wenn angegeben – ein gültiger W
 |:----- | -------: | -------: | -------: | -------: | -------: |
 |Maximale Datengröße (GB)|1280|1536|2048|4096|4096|
 
-Wenn kein `MAXSIZE`-Wert bei Verwendung des vCore-Modells festgelegt ist, beträgt die Standardgröße 32 GB. Zusätzliche Informationen bezüglich der Ressourcenbeschränkungen für das V-Kern-Modell finden Sie unter [V-Kern-Ressourcenlimits](/azure/sql-database/sql-database-dtu-resource-limits).
+Wenn kein `MAXSIZE`-Wert bei Verwendung des vCore-Modells festgelegt ist, beträgt die Standardgröße 32 GB. Weitere Informationen bezüglich der Ressourceneinschränkungen für das V-Kern-Modell finden Sie unter [V-Kern-Ressourceneinschränkungen](/azure/sql-database/sql-database-dtu-resource-limits).
 
 Die folgenden Regeln gelten für das MAXSIZE-Argument und das EDITION-Argument:
 
@@ -868,15 +868,33 @@ Legt fest, dass die zurzeit verwendete Datenbank geändert werden soll.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Verwenden Sie [DROP DATABASE](../../t-sql/statements/drop-database-transact-sql.md), um eine Datenbank zu entfernen.
-Verwenden Sie [DBCC SHRINKDATABASE](../../t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md), um die Größe einer Datenbank zu reduzieren.
+- Verwenden Sie [DROP DATABASE](../../t-sql/statements/drop-database-transact-sql.md), um eine Datenbank zu entfernen.
 
-Die `ALTER DATABASE`-Anweisung muss im Autocommitmodus (dem Standardmodus für die Transaktionsverwaltung) ausgeführt werden und ist in einer expliziten oder impliziten Transaktion nicht zugelassen.
+- Verwenden Sie [DBCC SHRINKDATABASE](../../t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md), um die Größe einer Datenbank zu reduzieren.
 
-Durch das Löschen des Plancaches wird eine Neukompilierung aller nachfolgenden Ausführungspläne verursacht, und möglicherweise entsteht plötzlich eine temporäre Verringerung der Abfrageleistung. Für jeden geleerten Cachespeicher im Plancache enthält das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Fehlerprotokoll folgende Meldung zur Information: „[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] hat für den "%2!s!"-Cachespeicher (Bestandteil des Plancache) %1!s! Leerungen des Cachespeichers gefunden, die von Datenbankwartungs- oder Neukonfigurierungsvorgängen ausgelöst wurden.“. Diese Meldung wird alle fünf Minuten protokolliert, solange der Cache innerhalb dieses Zeitintervalls geleert wird.
+- Die `ALTER DATABASE`-Anweisung muss im Autocommitmodus (dem Standardmodus für die Transaktionsverwaltung) ausgeführt werden und ist in einer expliziten oder impliziten Transaktion nicht zugelassen.
 
+- Sie können den Plancache für die verwaltete Instanz bereinigen, indem Sie eine der folgenden Optionen festlegen.
+    - COLLATE
+    - MODIFY FILEGROUP DEFAULT
+    - MODIFY FILEGROUP READ_ONLY
+    - MODIFY FILEGROUP READ_WRITE
+    - MODIFY NAME
+
+    Durch das Löschen des Plancaches wird eine Neukompilierung aller nachfolgenden Ausführungspläne verursacht, und möglicherweise entsteht plötzlich eine temporäre Verringerung der Abfrageleistung. Für jeden geleerten Cachespeicher im Plancache enthält das [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Fehlerprotokoll folgende Meldung zur Information: „[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] hat für den "%2!s!"-Cachespeicher (Bestandteil des Plancache) %1!s! Leerungen des Cachespeichers gefunden, die von Datenbankwartungs- oder Neukonfigurierungsvorgängen ausgelöst wurden.“. Diese Meldung wird alle fünf Minuten protokolliert, solange der Cache innerhalb dieses Zeitintervalls geleert wird.
 Der Plancache wird auch dann geleert, wenn mehrere Abfragen auf eine Datenbank angewendet werden, die Standardoptionen aufweist. Anschließend wird die Datenbank gelöscht.
 
+- Einige `ALTER DATABASE`-Anweisungen erfordern eine exklusive Sperre der Datenbank. Aus diesem Grund können sie fehlschlagen, wenn ein anderer aktiver Prozess die Datenbank sperrt. In diesem Fall wird der Fehler `Msg 5061, Level 16, State 1, Line 38` mit der Meldung `ALTER DATABASE failed because a lock could not be placed on database '<database name>'. Try again later` ausgelöst. Hierbei handelt es sich in der Regel um einen vorübergehenden Fehler. Versuchen Sie noch mal, die ALTER DATABASE-Anweisung auszuführen, wenn alle Sperren der Datenbank aufgehoben wurden. Die Systemsicht `sys.dm_tran_locks` enthält Informationen zu aktiven Sperren. Verwenden Sie die folgende Abfrage, um zu überprüfen, ob gemeinsame oder exklusive Sperren für eine Datenbank vorliegen.
+  
+    ```sql
+    SELECT
+        resource_type, resource_database_id, request_mode, request_type, request_status, request_session_id 
+    FROM 
+        sys.dm_tran_locks
+    WHERE
+        resource_database_id = DB_ID('testdb')
+    ```
+  
 ## <a name="viewing-database-information"></a>Anzeigen von Datenbankinformationen
 
 Sie können Katalogsichten, Systemfunktionen und gespeicherte Systemprozeduren verwenden, um Informationen zu Datenbanken, Dateien und Dateigruppen zurückzugeben.

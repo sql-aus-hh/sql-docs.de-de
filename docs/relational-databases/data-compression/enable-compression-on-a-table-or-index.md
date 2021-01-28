@@ -1,8 +1,8 @@
 ---
-title: Aktivieren der Komprimierung für eine Tabelle oder einen Index | Microsoft-Dokumentation
+title: Aktivieren der Komprimierung für eine Tabelle oder einen Index
 description: Erfahren Sie, wie Sie die Komprimierung einer Tabelle oder eines Indexes in SQL Server mithilfe von SQL Server Management Studio oder Transact-SQL aktivieren.
 ms.custom: ''
-ms.date: 03/14/2017
+ms.date: 01/22/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.prod_service: database-engine, sql-database, sql-data-warehouse, pdw
@@ -20,24 +20,23 @@ f1_keywords:
 helpviewer_keywords:
 - data compression wizard
 - compression [SQL Server], enable
-ms.assetid: b7442cff-e616-475a-9c5a-5a765089e5f2
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>= aps-pdw-2016 || = azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016'
-ms.openlocfilehash: 080d50b76d71d7a0c13104f20303fe040d214a33
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 59d15d0f056a757fea1545025832990254a7e4ae
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97485502"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766354"
 ---
 # <a name="enable-compression-on-a-table-or-index"></a>Aktivieren der Komprimierung für eine Tabelle oder einen Index
 
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-  In diesem Thema wird beschrieben, wie die Komprimierung für eine Tabelle oder einen Index in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mit [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)]aktiviert wird.  
+  In diesem Artikel wird beschrieben, wie Sie die [Datenkomprimierung](../../relational-databases/data-compression/data-compression.md) für eine Tabelle oder einen Index in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] mithilfe von [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] oder [!INCLUDE[tsql](../../includes/tsql-md.md)] aktivieren.  
   
- **In diesem Thema**  
+ **Inhalt dieses Artikels:**  
   
 -   **Vorbereitungen:**  
   
@@ -57,7 +56,7 @@ ms.locfileid: "97485502"
   
 -   Für Systemtabellen ist die Komprimierung nicht verfügbar.  
   
--   Wenn die Tabelle ein Heap ist, erfolgt der Neuerstellungsvorgang für den ONLINE-Modus mit einem einzelnen Thread. Verwenden Sie den OFFLINE-Modus für einen Multithreaded-Neuerstellungsvorgang von Heaps. Weitere Informationen zur Datenkomprimierung finden Sie unter [Datenkomprimierung](../../relational-databases/data-compression/data-compression.md).  
+-   Wenn die Tabelle ein Heap ist, erfolgt der Neuerstellungsvorgang für den ONLINE-Modus mit einem einzelnen Thread. Verwenden Sie den OFFLINE-Modus für einen Multithreaded-Neuerstellungsvorgang von Heaps. Neuerstellungsvorgänge sind OFFLINE, es sei denn, Sie legen die ONLINE-Option fest. Ausführliche Informationen zur Durchführung einer ONLINE-Neuerstellung finden Sie unter [Ausführen von Onlineindexvorgängen](../indexes/perform-index-operations-online.md).
   
 -   Sie können die Komprimierungseinstellung einer einzelnen Partition nicht ändern, wenn die Tabelle nicht ausgerichtete Indizes aufweist.  
   
@@ -78,7 +77,7 @@ ms.locfileid: "97485502"
   
 4.  Klicken Sie auf der Seite **Willkommen** des Datenkomprimierungs-Assistenten auf **Weiter**.  
   
-5.  Wählen Sie auf der Seite **Komprimierungstyp auswählen** für Komprimierungstyp aus, der auf alle Partitionen der Tabelle oder des Index angewendet werden soll, die Sie komprimieren möchten. Klicken Sie abschließend auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Komprimierungstyp auswählen** für Komprimierungstyp aus, der auf alle Partitionen der Tabelle oder des Index angewendet werden soll, die Sie komprimieren möchten. Wählen Sie anschließend **Weiter** aus.  
   
      Die folgenden Optionen sind auf der Seite **Komprimierungstyp auswählen** verfügbar:  
   
@@ -111,7 +110,7 @@ ms.locfileid: "97485502"
      Wenn Sie **Skript erstellen** auswählen, sind die folgenden Optionen unter **Skriptoptionen** verfügbar:  
   
      **Skript in Datei schreiben**  
-     Generiert das Skript als SQL-Datei. Geben Sie in das Dialogfeld **Dateiname** einen Dateinamen und einen Speicherort ein, oder klicken Sie auf **Durchsuchen** , um das Dialogfeld **Speicherort der Skriptdatei** zu öffnen. Wählen Sie in **Speichern unter** **Unicode-Text** oder **ANSI-Text** aus.  
+     Generiert das Skript als SQL-Datei. Geben Sie in das Dialogfeld **Dateiname** einen Dateinamen und einen Speicherort ein, oder klicken Sie auf **Durchsuchen**, um das Dialogfeld **Speicherort der Skriptdatei** zu öffnen. Wählen Sie in **Speichern unter** **Unicode-Text** oder **ANSI-Text** aus.  
   
      **Skript in Zwischenablage schreiben**  
      Speichert das Skript in der Zwischenablage.  
@@ -129,9 +128,9 @@ ms.locfileid: "97485502"
   
         -   **Starten, wenn sich die CPUs im Leerlauf befinden**  
   
-        -   **Wiederholt**. Aktivieren Sie diese Option, wenn die neue partitionierte Tabellen regelmäßig mit neuen Informationen aktualisiert wird.  
+        -   **Wiederholt**. Aktivieren Sie diese Option, wenn Ihre neu partitionierte Tabelle regelmäßig mit neuen Informationen aktualisiert wird.  
   
-        -   **Einmalige Ausführung**. Dies ist die Standardauswahl.  
+        -   **Einmalige Ausführung**. Hierbei handelt es sich um die Standardoption.  
   
     3.  Aktivieren oder deaktivieren Sie das Kontrollkästchen **Aktiviert** , um den Zeitplan zu aktivieren oder zu deaktivieren.  
   
@@ -165,7 +164,7 @@ ms.locfileid: "97485502"
   
     7.  Klicken Sie auf **OK**.  
   
-     Nach Fertigstellen dieser Seite klicken Sie auf **Weiter**.  
+     Klicken Sie auf **Weiter**, nachdem Sie diese Seite ausgefüllt haben.  
   
 7.  Erweitern Sie auf der Seite **Zusammenfassung der Überprüfung** unter **Überprüfen Sie Ihre Auswahl** alle verfügbaren Optionen, um zu überprüfen, ob alle Komprimierungseinstellungen richtig sind. Klicken Sie auf **Fertig stellen**, wenn alle Einstellungen richtig sind.  
   
@@ -200,7 +199,7 @@ ms.locfileid: "97485502"
      **Bericht als E-Mail senden**  
      Kopiert die Ergebnisse aus dem Statusbericht des Assistenten in eine E-Mail.  
   
-     Nach Abschluss dieser Schritte klicken Sie auf **Schließen**.  
+     Klicken Sie auf **Schließen**, wenn Sie fertig sind.  
   
 ##  <a name="using-transact-sql"></a><a name="TsqlProcedure"></a> Verwenden von Transact-SQL  
 
@@ -214,7 +213,7 @@ Führen Sie in SQL Server `sp_estimate_data_compression_savings` aus, und aktivi
   
 2.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
   
-3.  Kopieren Sie das folgende Beispiel, fügen Sie es in das Abfragefenster ein, und klicken Sie auf **Ausführen**. Im Beispiel wird zuerst die gespeicherte Prozedur `sp_estimate_data_compression_savings` ausgeführt, um die geschätzte Größe des Objekts zurückzugeben, wenn die ROW-Komprimierungseinstellung verwendet würde. Im Beispiel wird dann die ROW-Komprimierung für alle Partitionen der angegebenen Tabelle aktiviert.  
+3.  Kopieren Sie das folgende Beispiel in das Abfragefenster, und klicken Sie dann auf **Ausführen**. Im Beispiel wird zuerst die gespeicherte Prozedur `sp_estimate_data_compression_savings` ausgeführt, um die geschätzte Größe des Objekts zurückzugeben, wenn die ROW-Komprimierungseinstellung verwendet würde. Im Beispiel wird dann die ROW-Komprimierung für alle Partitionen der angegebenen Tabelle aktiviert.  
   
     ```sql  
     USE AdventureWorks2012;  
@@ -232,7 +231,7 @@ Führen Sie in SQL Server `sp_estimate_data_compression_savings` aus, und aktivi
   
 2.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
   
-3.  Kopieren Sie das folgende Beispiel, fügen Sie es in das Abfragefenster ein, und klicken Sie auf **Ausführen**. Im Beispiel wird zuerst die `sys.indexes` -Katalogsicht abgefragt, um den Namen und `index_id` für jeden Index der Tabelle `Production.TransactionHistory` zurückzugeben. Dann wird die gespeicherte Prozedur `sp_estimate_data_compression_savings` ausgeführt, um die geschätzte Größe der angegebenen Index-ID zurückzugeben, wenn die PAGE-Komprimierungseinstellung verwendet würde. Schließlich wird im Beispiel Index-ID 2 (`IX_TransactionHistory_ProductID`) neu erstellt, wobei die PAGE-Komprimierung angegeben wird.  
+3.  Kopieren Sie das folgende Beispiel in das Abfragefenster, und klicken Sie dann auf **Ausführen**. Im Beispiel wird zuerst die `sys.indexes` -Katalogsicht abgefragt, um den Namen und `index_id` für jeden Index der Tabelle `Production.TransactionHistory` zurückzugeben. Dann wird die gespeicherte Prozedur `sp_estimate_data_compression_savings` ausgeführt, um die geschätzte Größe der angegebenen Index-ID zurückzugeben, wenn die PAGE-Komprimierungseinstellung verwendet würde. Schließlich wird im Beispiel Index-ID 2 (`IX_TransactionHistory_ProductID`) neu erstellt, wobei die PAGE-Komprimierung angegeben wird.  
   
     ```sql  
     USE AdventureWorks2012;   
@@ -254,7 +253,7 @@ Führen Sie in SQL Server `sp_estimate_data_compression_savings` aus, und aktivi
     
 ### <a name="on-azure-sql-database"></a>In Azure SQL-Datenbank
 
-Die Azure SQL-Datenbank bietet keine Unterstützung für `sp_estimate_data_compression`. Die folgenden Skripts ermöglichen die Komprimierung, ohne die Komprimierungsmenge zu schätzen. 
+Azure SQL-Datenbank unterstützt die gespeicherte Prozedur `sp_estimate_data_compression_savings` nicht. Die folgenden Skripts ermöglichen die Komprimierung, ohne die Komprimierungsmenge zu schätzen. 
 
 #### <a name="to-enable-compression-on-a-table"></a>So aktivieren Sie die Komprimierung für eine Tabelle  
   
@@ -262,7 +261,7 @@ Die Azure SQL-Datenbank bietet keine Unterstützung für `sp_estimate_data_compr
   
 2.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
   
-3.  Kopieren Sie das folgende Beispiel, fügen Sie es in das Abfragefenster ein, und klicken Sie auf **Ausführen**. Im Beispiel wird die ROW-Komprimierung für alle Partitionen der angegebenen Tabelle ermöglicht.  
+3.  Kopieren Sie das folgende Beispiel in das Abfragefenster, und klicken Sie dann auf **Ausführen**. Im Beispiel wird die ROW-Komprimierung für alle Partitionen der angegebenen Tabelle ermöglicht.  
   
     ```sql  
     USE AdventureWorks2012;  
@@ -279,7 +278,7 @@ Die Azure SQL-Datenbank bietet keine Unterstützung für `sp_estimate_data_compr
   
 2.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
   
-3.  Kopieren Sie das folgende Beispiel, fügen Sie es in das Abfragefenster ein, und klicken Sie auf **Ausführen**. Im Beispiel wird zuerst die `sys.indexes` -Katalogsicht abgefragt, um den Namen und `index_id` für jeden Index der Tabelle `Production.TransactionHistory` zurückzugeben. Schließlich wird im Beispiel Index-ID 2 (`IX_TransactionHistory_ProductID`) neu erstellt, wobei die PAGE-Komprimierung angegeben wird.  
+3.  Kopieren Sie das folgende Beispiel in das Abfragefenster, und klicken Sie dann auf **Ausführen**. Im Beispiel wird zuerst die `sys.indexes` -Katalogsicht abgefragt, um den Namen und `index_id` für jeden Index der Tabelle `Production.TransactionHistory` zurückzugeben. Schließlich wird im Beispiel Index-ID 2 (`IX_TransactionHistory_ProductID`) neu erstellt, wobei die PAGE-Komprimierung angegeben wird.  
   
     ```sql  
     USE AdventureWorks2012;   

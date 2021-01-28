@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: db77fa77-fedb-40ac-83e6-06343063e518
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: ddd4bb610c9ed7d9a5da70c9633c31a86cc5b034
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 66dd3b3b036bdbebcbd19dd52a65d2bf4ac45d1e
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96131287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783544"
 ---
 # <a name="create-server-audit-specification-transact-sql"></a>CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -66,7 +66,7 @@ FOR SERVER AUDIT audit_name
 ## <a name="permissions"></a>Berechtigungen  
  Benutzer mit der Berechtigung ALTER ANY SERVER AUDIT können Serverüberwachungsspezifikationen erstellen und diese an eine beliebige Überwachung binden.  
   
- Sobald eine Serverüberwachungsspezifikation erstellt wurde, kann sie von Prinzipalen mit den folgenden Berechtigungen eingesehen werden: CONTROL SERVER oder ALTER ANY SERVER AUDIT. Außerdem kann sie von Prinzipalen eingesehen werden, die über das sysadmin-Konto oder expliziten Zugriff auf die Überwachung verfügen.  
+ Nach Erstellung einer Serverüberwachungsspezifikation kann diese von Benutzern mit der CONTROL SERVER-Berechtigung, Systemadministratorkonten oder Prinzipalen mit explizitem Zugriff auf die Überwachung angezeigt werden.  
   
 ## <a name="examples"></a>Beispiele  
  Im folgenden Beispiel wird eine Serverüberwachungsspezifikation namens `HIPAA_Audit_Specification` erstellt, die fehlgeschlagene Anmeldungen für eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Überwachung namens `HIPAA_Audit`überwacht.  

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 ms.assetid: 92503f59-96dc-4f6a-b1b0-d135c43e935e
-ms.openlocfilehash: d3663fb72891f31cdd710fefebaef906c5b14762
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: cb266632fccaceb4639c7fdf0cfbf5368aad2c80
+ms.sourcegitcommit: 2bdf1f1ee88f4fe3e872227d025e965e95d1b2b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471671"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98711976"
 ---
 # <a name="quickstart-install-sql-server-and-create-a-database-on-red-hat"></a>Schnellstart: Installieren von SQL Server und Erstellen einer Datenbank unter Red Hat
 
@@ -30,7 +30,7 @@ In diesem Schnellstart installieren Sie SQL Server 2017 oder SQL Server 2019 unt
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-In diesem Schnellstart installieren Sie SQL Server 2019 unter Red Hat Enterprise Linux 8 (RHEL) oder höher. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
+In diesem Schnellstart installieren Sie SQL Server 2019 unter Red Hat Enterprise Linux 7/8 (RHEL) oder höher. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
 
 ::: moniker-end
 
@@ -77,18 +77,33 @@ Weitere Systemanforderungen finden Sie unter [Systemanforderungen für SQL Serve
 > ```
 > Weitere Informationen zum Installieren von python2 und Konfigurieren von python2 als Standardinterpreter finden Sie in folgendem Blog: https://www.redhat.com/en/blog/installing-microsoft-sql-server-red-hat-enterprise-linux-8-beta.
 >
-> Wenn Sie RHEL 7 verwenden, ändern Sie den Pfad unten in `/rhel/7` anstelle von `/rhel/8`.
 
 Um SQL Server unter RHEL zu konfigurieren, führen Sie in einem Terminal die folgenden Befehle aus, um das Paket **mssql-server** zu installieren:
 
 1. Laden Sie die Konfigurationsdatei für das Microsoft SQL Server 2017 Red Hat-Repository herunter:
 
+   Befehl für RHEL 7:
+   
+   ```bash
+   sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
+   ```
+   
+   Befehl für RHEL 8:
+   
    ```bash
    sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2017.repo
    ```
 
    > [!TIP]
    > Wenn Sie SQL Server 2019 installieren möchten, müssen Sie stattdessen das Repository SQL Server 2019 registrieren. Verwenden Sie für Installationen von SQL Server 2019 den folgenden Befehl:
+   >
+   > Befehl für RHEL 7:
+   >
+   > ```bash
+   > sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2019.repo
+   > ```
+   >
+   > Befehl für RHEL 8:
    >
    > ```bash
    > sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
@@ -144,14 +159,22 @@ Ab jetzt wird SQL Server auf Ihrem RHEL-Computer ausgeführt und ist einsatzbere
 > # Configure python2 as the default interpreter using this command: 
 > sudo alternatives --config python
 > ``` 
+> 
 > Weitere Informationen zu diesen Schritten finden Sie im folgenden Blogpost, in dem das Installieren von python2 und das anschließende Konfigurieren als Standardinterpreter behandelt werden: https://www.redhat.com/en/blog/installing-microsoft-sql-server-red-hat-enterprise-linux-8-beta.
 > 
-> Wenn Sie RHEL 7 verwenden, ändern Sie den Pfad unten in `/rhel/7` anstelle von `/rhel/8`.
 
 Um SQL Server unter RHEL zu konfigurieren, führen Sie in einem Terminal die folgenden Befehle aus, um das Paket **mssql-server** zu installieren:
 
 1. Laden Sie die Konfigurationsdatei für das Microsoft SQL Server 2019 Red Hat-Repository herunter:
-
+   
+   Befehl für RHEL 7:
+   
+   ```bash
+   sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2019.repo
+   ```
+   
+   Befehl für RHEL 8:
+   
    ```bash
    sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
    ```
@@ -194,6 +217,14 @@ Um eine Datenbank zu erstellen, müssen Sie eine Verbindung mit einem Tool herst
 
 1. Laden Sie die Konfigurationsdatei für das Microsoft Red Hat-Repository herunter.
 
+   Befehl für RHEL 7:
+   
+   ```bash
+   sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
+   ```
+   
+   Befehl für RHEL 8:
+   
    ```bash
    sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo
    ```

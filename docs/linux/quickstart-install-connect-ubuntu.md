@@ -9,12 +9,12 @@ ms.prod: sql
 ms.custom: seo-lt-2019
 ms.technology: linux
 ms.assetid: 31c8c92e-12fe-4728-9b95-4bc028250d85
-ms.openlocfilehash: fd314ea1723786e514b6eb8320b373216de70aa8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 109de9dabe9a0fb4d169d7be64448c51d9ec7384
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471661"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689120"
 ---
 # <a name="quickstart-install-sql-server-and-create-a-database-on-ubuntu"></a>Schnellstart: Installieren von SQL Server und Erstellen einer Datenbank unter Ubuntu
 [!INCLUDE [SQL Server - Linux](../includes/applies-to-version/sql-linux.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "97471661"
 <!--SQL Server 2017 on Linux-->
 ::: moniker range="= sql-server-linux-2017 || = sql-server-2017"
 
-In dieser Schnellstartanleitung installieren Sie SQL Server 2017 unter Ubuntu 18.04. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
+In diesem Schnellstart installieren Sie SQL Server 2017 unter Ubuntu 16.04/18.04. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
 
 > [!TIP]
 > Für dieses Tutorial sind Benutzereingaben und eine Internetverbindung erforderlich. Wenn Sie am unbeaufsichtigten oder am Offline-Installationsverfahren interessiert sind, finden Sie weitere Informationen im [Leitfaden für die Installation von SQL Server für Linux](sql-server-linux-setup.md). Eine Liste mit unterstützten Plattformen finden Sie in unseren [Versionshinweisen](sql-server-linux-release-notes.md).
@@ -33,7 +33,7 @@ In dieser Schnellstartanleitung installieren Sie SQL Server 2017 unter Ubuntu 
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-In diesem Schnellstart installieren Sie SQL Server 2019 unter Ubuntu 18.04. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
+In diesem Schnellstart installieren Sie SQL Server 2019 unter Ubuntu 16.04/18.04. Danach stellen Sie eine Verbindung mit **sqlcmd** her, um Ihre erste Datenbank zu erstellen und Abfragen auszuführen.
 
 > [!TIP]
 > Für dieses Tutorial sind Benutzereingaben und eine Internetverbindung erforderlich. Wenn Sie am unbeaufsichtigten oder am Offline-Installationsverfahren interessiert sind, finden Sie weitere Informationen im [Leitfaden für die Installation von SQL Server für Linux](sql-server-linux-setup.md). Eine Liste mit unterstützten Plattformen finden Sie in unseren [Versionshinweisen](sql-server-linux-release-notes-2019.md).
@@ -92,13 +92,29 @@ Um SQL Server unter Ubuntu zu konfigurieren, führen Sie in einem Terminal die f
    ```
 
 2. Registrieren Sie das Microsoft SQL Server Ubuntu-Repository:
-
+   
+   Für Ubuntu 16.04:
+   
+   ```bash
+   sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)"
+   ```
+   
+   Für Ubuntu 18.04:
+   
    ```bash
    sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2017.list)"
    ```
 
    > [!TIP]
    > Wenn Sie SQL Server 2019 installieren möchten, müssen Sie stattdessen das Repository SQL Server 2019 registrieren. Verwenden Sie für Installationen von SQL Server 2019 den folgenden Befehl:
+   >
+   > Für Ubuntu 16.04:
+   >
+   > ```bash
+   > sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2019.list)"
+   > ```
+   >
+   > Für Ubuntu 18.04:
    >
    > ```bash
    > sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list)"
@@ -152,7 +168,15 @@ Um SQL Server unter Ubuntu zu konfigurieren, führen Sie in einem Terminal die f
    ```
 
 2. Registrieren Sie das Microsoft SQL Server Ubuntu-Repository für SQL Server 2019:
-
+   
+   Für Ubuntu 16.04:
+   
+   ```bash
+   sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2019.list)"
+   ```
+   
+   Für Ubuntu 18.04:
+   
    ```bash
    sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list)"
    ```
@@ -198,7 +222,15 @@ Führen Sie zum Installieren von **mssql-tools** unter Ubuntu die folgenden Schr
    ```
 
 1. Registrieren Sie das Microsoft Ubuntu-Repository.
+   
+   Für Ubuntu 16.04:
+   
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+   ```
 
+   Für Ubuntu 18.04:
+   
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
    ```
@@ -212,10 +244,11 @@ Führen Sie zum Installieren von **mssql-tools** unter Ubuntu die folgenden Schr
 
    > [!Note] 
    > Führen Sie die folgenden Befehle aus, um **mssql-tools** auf die neueste Version zu aktualisieren:
-   >    ```bash
-   >   sudo apt-get update 
-   >   sudo apt-get install mssql-tools 
-   >   ```
+   >
+   > ```bash
+   > sudo apt-get update 
+   > sudo apt-get install mssql-tools 
+   > ```
 
 1. **Optional**: Fügen Sie in einer Bash-Shell `/opt/mssql-tools/bin/` zu Ihrer **PATH**-Umgebungsvariablen hinzu.
 

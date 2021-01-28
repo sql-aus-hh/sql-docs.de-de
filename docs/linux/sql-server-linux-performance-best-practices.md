@@ -4,16 +4,16 @@ description: Dieser Artikel enthält bewährte Methoden für die Leistung sowie 
 author: tejasaks
 ms.author: tejasaks
 ms.reviewer: vanto
-ms.date: 12/11/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
-ms.openlocfilehash: 89b8a7c087fb87ed911be640126ec81021b045a7
-ms.sourcegitcommit: 2991ad5324601c8618739915aec9b184a8a49c74
+ms.openlocfilehash: 9a73013e7d49523f8aba418a2961336998190fc5
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97323505"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689111"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines-for-sql-server-on-linux"></a>Bewährte Methoden für die Leistung und Konfigurationsrichtlinien für SQL Server für Linux
 
@@ -33,7 +33,7 @@ Verwenden Sie die folgenden Konfigurationseinstellungen für das Linux-Betriebss
 
 Das Speichersubsystem, in dem die Daten, Transaktionsprotokolle und weitere dazugehörige Dateien (z. B. Prüfpunktdateien für In-Memory-OLTP) gehostet sind, sollte in der Lage sein, sowohl durchschnittliche Workloads als auch Spitzenworkloads ordnungsgemäß zu verwalten. Normalerweise unterstützen Speicheranbieter in lokalen Umgebungen angemessene RAID-Konfigurationen für Hardware mit Striping für mehrere Datenträger, um für angemessene Werte für IOPS, Durchsatz und Redundanz zu sorgen. Dies kann für verschiedene Speicheranbieter und verschiedene Speicherangebote mit unterschiedlichen Architekturen jedoch variieren.
 
-Für auf Azure-VMs bereitgestellte SQL Server für Linux-Instanzen sollten Sie die Verwendung von Software-RAID in Erwägung ziehen, um sicherzustellen, dass die entsprechenden Anforderungen an IOPS und Durchsatz erfüllt werden. Sehen Sie sich zu ähnlichen Speicheraspekten den folgenden Artikel an, wenn Sie SQL Server auf Azure-VMs konfigurieren: [Speicherkonfiguration für SQL Server-VMs](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/storage-configuration)
+Für auf Azure-VMs bereitgestellte SQL Server für Linux-Instanzen sollten Sie die Verwendung von Software-RAID in Erwägung ziehen, um sicherzustellen, dass die entsprechenden Anforderungen an IOPS und Durchsatz erfüllt werden. Sehen Sie sich zu ähnlichen Speicheraspekten den folgenden Artikel an, wenn Sie SQL Server auf Azure-VMs konfigurieren: [Speicherkonfiguration für SQL Server-VMs](/azure/azure-sql/virtual-machines/windows/storage-configuration)
 
 Unten sehen Sie ein Beispiel dafür, wie Software-RAID unter Linux auf Azure-VMs erstellt werden kann. Unten finden Sie ein Beispiel, Sie sollten jedoch eine angemessene Anzahl an Datenträgern für die erforderlichen Werte für Durchsatz und IOPS für Volumes basierend auf den Anforderungen an Daten, Transaktionsprotokolle und tempdb-EA verwenden. In diesem Beispiel wurden acht Datenträger an die Azure-VM angefügt: vier, um die Datendateien zu hosten, zwei für die Transaktionsprotokolle und zwei für die tempdb-Workload.
 
@@ -48,6 +48,31 @@ mdadm --create --verbose /dev/md1 --level=raid10 --chunk=64K --raid-devices=2 /d
 # For tempdb volume, using 2 devices in RAID 0 configuration with 64KB stripes
 mdadm --create --verbose /dev/md2 --level=raid0 --chunk=64K --raid-devices=2 /dev/sdi /dev/sdj
 ```
+
+#### <a name="disk-partitioning-and-configuration-recommendations"></a>Empfehlungen zur Partitionierung und Konfiguration von Datenträgern
+
+Für SQL Server wird die Verwendung von RAID-Konfigurationen empfohlen. Die bereitgestellte Stripe-Dateisystemeinheit (sunit) und die Stripe-Breite sollte mit der RAID-Geometrie übereinstimmen. Hier wird ein Beispiel für ein Protokollvolume veranschaulicht, das auf einem XFS-Dateisystem basiert. 
+
+```bash
+# Creating a log volume, using 6 devices, in RAID 10 configuration with 64KB stripes
+mdadm --create --verbose /dev/md3 --level=raid10 --chunk=64K --raid-devices=6 /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf
+
+mkfs.xfs /dev/sda1 -f -L log 
+meta-data=/dev/sda1              isize=512    agcount=32, agsize=18287648 blks 
+         =                       sectsz=4096  attr=2, projid32bit=1 
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0 
+         =                       reflink=1 
+data     =                       bsize=4096   blocks=585204384, imaxpct=5 
+         =                       sunit=16     swidth=48 blks 
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1 
+log      =internal log           bsize=4096   blocks=285744, version=2 
+         =                       sectsz=4096  sunit=1 blks, lazy-count=1 
+realtime =none                   extsz=4096   blocks=0, rtextents=0 
+```
+
+Das Protokollarray ist eine RAID-10-Instanz mit 6 Datenträgern und einem Bereichsstreifen mit einem Stripe mit einer Größe von 64 KB. Offensichtlich gilt also Folgendes:
+   1. Die Angabe „sunit = 16 blks“ (16 × 4096 blk size = 64k) entspricht der Stripe-Größe. 
+   2. „swidth = 48 blks“ (swidth/sunit = 3) entspricht der Anzahl der Datenträger im Array, mit Ausnahme der Paritätsdatenträger. 
 
 #### <a name="file-system-configuration-recommendation"></a>Empfehlungen für die Dateisystemkonfiguration
 
@@ -195,7 +220,8 @@ In der folgenden Tabelle finden Sie Empfehlungen für die Datenträgereinstellun
 
 **Beschreibung:**
 
-- **vm.swappiness:** Dieser Parameter steuert die relative Gewichtung für den Austausch von Runtimearbeitsspeicher durch Begrenzung des Kernels. So können Arbeitsspeicherseiten des SQL Server-Prozesses ausgetauscht werden.
+- **vm.swappiness:** Dieser Parameter steuert die relative Gewichtung des Wechsels des Runtimeprozessarbeitsspeichers im Vergleich zum Dateisystemcache. Der Standardwert für diesen Parameter ist „60“, was angibt, dass das Auswechseln der Runtimeprozess-Arbeitsspeicherseiten im Verhältnis von 60:140 zum Entfernen der Dateisystemcache-Seiten steht. Das Festlegen des Werts „1“ stellt eine starke Präferenz zum Beibehalten des Runtimeprozessarbeitsspeichers im physischen Speicher auf Kosten des Dateisystemcaches dar. Da SQL Server den Pufferpool als Datenseitencache verwendet und es stark bevorzugt, für eine zuverlässige Wiederherstellung durch einen Hardware umgehenden Dateisystemcache zu schreiben, kann sich eine aggressive Swappiness-Konfiguration für leistungsstarke und dedizierte SQL Server-Instanzen als vorteilhaft erweisen.
+Weitere Informationen finden Sie in der [Dokumentation zu /proc/sys/vm/ - #swappiness](https://www.kernel.org/doc/html/latest/admin-guide/sysctl/vm.html#swappiness).
 
 - **vm.dirty_\** _: Schreibzugriffe auf SQL Server-Dateien werden nicht zwischengespeichert, um die Anforderungen an Datenintegrität zu erfüllen. Diese Parameter ermöglichen eine effiziente asynchrone Schreibleistung und senken die E/A-Speicherauswirkung von Cacheschreibvorgängen unter Linux, indem ermöglicht wird, dass der Umfang für das Zwischenspeichern eine ausreichende Größe aufweist und Leervorgänge gedrosselt werden.
 
@@ -245,6 +271,114 @@ tuned-adm profile mssql
 ```
 
 Die Verwendung des **_Tuned_ *_-Profils **mssql** konfiguriert die Option _* transparent_hugepage**.
+
+#### <a name="network-setting-recommendations"></a>Empfehlungen für Netzwerkeinstellungen
+
+Ebenso wie es Speicher- und CPU-Empfehlungen gibt, gibt es auch netzwerkspezifische Empfehlungen, die zur Referenz im Folgenden aufgeführt werden. Nicht alle im Folgenden erwähnten Einstellungen sind für verschiedene Netzwerkkarten (NICs) verfügbar. Wenden Sie sich für weitere Informationen über die einzelnen Optionen an die jeweiligen Netzwerkkartenanbieter. Testen und konfigurieren Sie diese in Entwicklungsumgebungen, bevor Sie sie in Produktionsumgebungen anwenden. Die im Folgenden erwähnten Optionen werden anhand von Beispielen erläutert. Die verwendeten Befehle sind für die Netzwerkkartenart und den -hersteller spezifisch. 
+
+1. Konfigurieren der Netzwerkport-Puffergröße: Im folgenden Beispiel hat die Netzwerkkarte den Namen „eth0“. Dabei handelt es sich um eine Intel-basierte Netzwerkkarte. Für Intel-basierte Netzwerkkarten wird eine Puffergröße von 4 KB (4.096 Bytes) empfohlen. Überprüfen Sie die vorab festgelegten Höchstwerte, und konfigurieren Sie diese mithilfe der unten gezeigten Beispielbefehle:
+
+ ```bash
+         #To check the pre-set maximums please run the command, example NIC name used here is:"eth0"
+         ethtool -g eth0
+         #command to set both the rx(recieve) and tx (transmit) buffer size to 4 KB. 
+         ethtool -G eth0 rx 4096 tx 4096
+         #command to check the value is properly configured is:
+         ethtool -g eth0
+  ```
+
+2. Aktivieren von Großrahmen: Stellen Sie sicher, dass alle Netzwerkswitchrouter und alle anderen wichtigen Bestandteile des Netzwerkpaketpfads zwischen den Clients und der SQL Server-Instanz Großrahmen unterstützen, bevor Sie Großrahmen aktivieren. Nur dann kann die Leistung durch die Aktivierung von Großrahmen verbessert werden. Stellen Sie nach Aktivierung von Großrahmen eine Verbindung mit SQL Server her, und ändern Sie die Netzwerkpaketgröße wie unten gezeigt mit `sp_configure` in „8.060“:
+
+```bash
+         #command to set jumbo frame to 9014 for a Intel NIC named eth0 is
+         ifconfig eth0 mtu 9014
+         #verify the setting using the command:
+         ip addr | grep 9014
+```
+
+```sql
+         sp_configure 'network packet size' , '8060'
+         go
+         reconfigure with override
+         go
+```
+
+3. Standardmäßig wird empfohlen, den Port für die adaptive RX/TX-IRQ-Zusammenführung zu konfigurieren, was bedeutet, dass die Interruptbereitstellung angepasst wird, um bei niedriger Paketrate die Latenz und bei hoher Paketrate den Durchsatz zu verbessern. Beachten Sie, dass diese Einstellung möglicherweise nicht für alle verschiedenen Netzwerkinfrastrukturen verfügbar ist. Überprüfen Sie also, ob dies von der vorhandenen Netzwerkinfrastruktur unterstützt wird. Das folgende Beispiel handelt von der Netzwerkkarte namens „eth0“, bei der es sich um eine auf Intel basierende Netzwerkkarte handelt:
+
+```bash
+         #command to set the port for adaptive RX/TX IRQ coalescing
+         echtool -C eth0 adaptive-rx on
+         echtool -C eth0 adaptive-tx on
+         #confirm the setting using the command:
+         ethtool -c eth0
+```
+
+> [!NOTE]
+> Für ein vorhersagbares Verhalten bei Hochleistungsumgebungen (z. B. Umgebungen für Benchmarking) können Sie die adaptive RX/TX-Zusammenführung deaktivieren und dann spezifisch die RX/TX-Interruptzusammenführung festlegen. Die folgenden Beispielbefehle deaktivieren die RX/TX-IRQ-Zusammenführung und legen dann die Werte spezifisch fest:
+
+```bash
+         #commands to disable adaptive RX/TX IRQ coalescing
+         echtool -C eth0 adaptive-rx off
+         echtool -C eth0 adaptive-tx off
+         #confirm the setting using the command:
+         ethtool -c eth0
+         #Let us set the rx-usecs parameter which specify how many microseconds after at least 1 packet is received before generating an interrupt, and the [irq] parameters are the corresponding delays in updating the #status when the interrupt is disabled. For Intel bases NICs below are good values to start with:
+         ethtool -C eth0 rx-usecs 100 tx-frames-irq 512
+         #confirm the setting using the command:
+         ethtool -c eth0
+```
+
+4. Außerdem werden die Aktivierung von RSS (Receive-Side Scaling, Empfangsseitige Skalierung) und die Standardkombination der RX- und TX-Seiten von RSS-Warteschlangen empfohlen. Es gab spezifische Szenarios bei der Zusammenarbeit mit dem Microsoft-Support, in denen die Deaktivierung von RSS auch zu Leistungsverbesserungen führte. Testen Sie diese Einstellung in Testumgebungen, bevor Sie sie in Produktionsumgebungen anwenden. Der unten gezeigte Beispielbefehl ist für Intel-Netzwerkkarten konzipiert.
+
+```bash
+         #command to get pre-set maximums
+         ethtool -l eth0 
+         #note the pre-set "Combined" maximum value. let's consider for this example, it is 8.
+         #command to combine the queues with the value reported in the pre-set "Combined" maximum value:
+         ethtool -L eth0 combined 8
+         #you can verify the setting using the command below
+         ethtool -l eth0
+```
+
+5. Arbeiten mit der IRQ-Affinität von NIC-Ports: Damit Sie die gewünschte Leistung durch Optimierung der IRQ-Affinität erreichen können, müssen Sie einige wichtige Parameter wie die Linux-Verarbeitung der Servertopologie, den NIC-Treiberstapel, die Standardeinstellungen und die irqbalance-Einstellung berücksichtigen. Für die Optimierung der Einstellungen der IRQ-Affinität von NIC-Ports ist Wissen über die Servertopologie, die Deaktivierung von „irqbalance“ und die Verwendung von NIC-herstellerspezifischen Einstellungen erforderlich. Im Folgenden finden Sie ein Beispiel für die spezifische Netzwerkinfrastruktur von Mellanox, anhand der die Konfiguration erläutert wird. Beachten Sie, dass die Befehle je nach Umgebung abweichen. Wenden Sie sich für weitere Informationen an den jeweiligen NIC-Hersteller:
+
+```bash
+         #disable irqbalance or get a snapshot of the IRQ settings and force the daemon to exit
+         systemctl disable irqbalance.service
+         #or
+         irqbalance --oneshot
+
+         #download the Mellanox mlnx_tuning_scripts tarball, https://www.mellanox.com/sites/default/files/downloads/tools/mlnx_tuning_scripts.tar.gz and extract it
+         tar -xvf mlnx_tuning_scripts.tar.gz
+         # be sure, common_irq_affinity.sh is executable. if not, 
+         # chmod +x common_irq_affinity.sh       
+
+         #display IRQ affinity for Mellanox NIC port; e.g eth0
+         ./show_irq_affinity.sh eth0
+
+         #optimize for best throughput performance
+         ./mlnx_tune -p HIGH_THROUGHPUT
+
+         #set hardware affinity to the NUMA node hosting physically the NIC and its port
+         ./set_irq_affinity_bynode.sh `\cat /sys/class/net/eth0/device/numa_node` eth0
+
+         #verify IRQ affinity
+         ./show_irq_affinity.sh eth0
+
+         #add IRQ coalescing optimizations
+         ethtool -C eth0 adaptive-rx off
+         ethtool -C eth0 adaptive-tx off
+         ethtool -C eth0  rx-usecs 750 tx-frames-irq 2048
+
+         #verify the settings
+         ethtool -c eth0
+```
+
+6. Nachdem Sie die obigen Änderungen vorgenommen haben, überprüfen Sie mithilfe des folgenden Befehls die Geschwindigkeit der Netzwerkkarte, um sicherzustellen, dass die erwartete Leistung erzielt wird:
+
+```bash
+         ethtool eth0 | grep -i Speed
+```
 
 #### <a name="additional-advanced-kernelos-configuration"></a>Zusätzliche erweiterte Kernel-/Betriebssystemkonfiguration
 

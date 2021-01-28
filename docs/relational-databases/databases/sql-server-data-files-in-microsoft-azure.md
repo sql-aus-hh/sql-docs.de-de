@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 38ffd9c2-18a5-43d2-b674-e425addec4e4
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 85d9e42b9c0ac537d6f33bd884b898374119972d
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 22413b2fff8a3b243e4723ecc66862980f8d8abf
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099327"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766251"
 ---
 # <a name="sql-server-data-files-in-microsoft-azure"></a>SQL Server-Datendateien in Microsoft Azure
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "98099327"
 Die SQL Server-Datendateien in Microsoft Azure ermöglichen die native Unterstützung von SQL Server-Datenbankdateien, die als Blobs gespeichert sind. Mit der Funktion können Sie eine Datenbank in SQL Server erstellen, die lokal oder auf einem virtuellen Computer in Microsoft Azure ausgeführt wird. Dabei wird ein dedizierter Speicherort für Ihre Daten in Microsoft Azure Blob Storage bereitgestellt. Dies vereinfacht auch das Verschieben von Datenbanken zwischen Computern. Sie können Datenbanken von einem Computer trennen und einem anderen Computer anfügen. Darüber hinaus bietet sie einen alternativen Speicherort für Datenbank-Sicherungsdateien, da Wiederherstellungen im oder aus dem Microsoft Azure Storage ermöglicht werden. Mit erweiterten Funktionen für das Virtualisieren und Verschieben von Daten sowie für Sicherheit und Verfügbarkeit unterstützt sie verschiedene Hybridlösungen und bietet zusätzlich kostengünstige, einfache Verwaltungsfunktionen für hohe Verfügbarkeit und flexible Skalierung.
  
 > [!IMPORTANT]  
->  Das Speichern von Systemdatenbanken in Azure BLOB-Speicher wird nicht empfohlen und nicht unterstützt. 
+>  Das Speichern von Systemdatenbanken in Azure Blob Storage wird nicht empfohlen und nicht unterstützt. 
 
  In diesem Thema werden zentrale Konzepte und Überlegungen zur Speicherung von SQL Server-Datendateien im Microsoft Azure Storage Service eingeführt.  
   

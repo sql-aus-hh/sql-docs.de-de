@@ -2,7 +2,7 @@
 description: DBCC TRACEON – Ablaufverfolgungsflags
 title: Ablaufverfolgungsflags (Transact-SQL) | Microsoft-Dokumentation
 ms.custom: ''
-ms.date: 03/27/2020
+ms.date: 01/19/2021
 ms.prod: sql
 ms.prod_service: sql-database
 ms.reviewer: ''
@@ -21,12 +21,12 @@ helpviewer_keywords:
 ms.assetid: b971b540-1ac2-435b-b191-24399eb88265
 author: pmasl
 ms.author: pelopes
-ms.openlocfilehash: 0332cd817851ff1152d6dc476bd757d971e41bc2
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: 2cc8cbcc737c1f77c11aee6826ab39bd8b1ec4f1
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98170212"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597244"
 ---
 # <a name="dbcc-traceon---trace-flags-transact-sql"></a>DBCC TRACEON – Ablaufverfolgungsflags
 
@@ -193,6 +193,7 @@ In der folgenden Tabelle werden die in [!INCLUDE[ssNoVersion](../../includes/ssn
 |**9929**|Verringert speicherinterne Prüfpunktdateien mit je 1 MB. Weitere Informationen finden Sie im folgenden [Microsoft Support-Artikel](https://support.microsoft.com/kb/3147012).<br /><br />**Bereich:** nur global|  
 |**9939**|Aktiviert parallele Pläne und parallele Scanvorgänge von speicheroptimierten Tabellen und Tabellenvariablen in DML-Vorgängen, die auf speicheroptimierte Tabellen oder Tabellenvariablen verweisen, solange sie in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] nicht das Ziel des DML-Vorgangs sind. Weitere Informationen finden Sie im folgenden [Microsoft Support-Artikel](https://support.microsoft.com/kb/4013877).<br /><br />**Hinweis:** Das Ablaufverfolgungsflag 9939 ist nicht erforderlich, wenn das Ablaufverfolgungsflag 4199 auch explizit aktiviert ist.<br /><br />**Bereich:** global oder Sitzung oder Abfrage (QUERYTRACEON)|   
 |**9944**|Dieses Flag aktiviert eine standardmäßig nicht aktivierte Problembehebung für lange Wiederherstellungszeiten bei Datenbanken, wenn eine Datenbank über eine große Anzahl von arbeitsspeicheroptimierten Tabellen oder arbeitsspeicheroptimierten Tabellentypen verfügt und Blockierungen mit dem Wartetyp PREMPTIVE_OS_FINDFILE oder PREEMPTIVE_OS_CREATEDIRECTORY auftreten. Weitere Informationen finden Sie in diesem [Microsoft-Support-Artikel](https://support.microsoft.com/kb/4090789) und in diesem [Microsoft-Support-Artikel](https://support.microsoft.com/kb/4052338).<br /><br />**Bereich:** nur global|  
+|**10054**|Dieses Flag deaktiviert die Abfrageoptimiererregel von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], die die Korrelation von Unterabfragen in OR-Prädikaten in äußere Verknüpfungen aufhebt.<br /><br />**Hinweis:** Dieses Ablaufverfolgungsflag ist in [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] und höheren Builds verfügbar.<br /><br />**Hinweis:** Stellen Sie sicher, dass Sie diese Option ausgiebig testen, bevor Sie sie in einer Produktionsumgebung bereitstellen.<br /><br />**Bereich:** global oder Sitzung oder Abfrage (QUERYTRACEON)| 
 |**10204**|Deaktiviert die Zusammenführung/Neukomprimierung während der Neuorganisation des Columnstore-Index. Wenn in [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ein Columnstore-Index neu organisiert wird, werden alle kleinen komprimierten Zeilengruppen automatisch in größeren komprimierten Zeilengruppen zusammengeführt, und alle Zeilengruppen mit einer große Anzahl von gelöschten Zeilen werden neu komprimiert.<br /><br />**Hinweis:** Das Ablaufverfolgungsflag 10204 wird nicht auf Columnstore-Indizes angewendet, die in speicheroptimierten Tabellen erstellt werden.<br /><br />**Bereich:** global oder Sitzung|   
 |**10207**|Durch dieses Flag können beim Überprüfen eines gruppierten Columnstore-Index (Clustered Columnstore Index, CCI) beschädigte Segmente oder Metadaten übersprungen werden, was das Abrufen von Daten aus einem beschädigten CCI ermöglicht. Weitere Informationen finden Sie im folgenden [Microsoft Support-Artikel](https://support.microsoft.com/kb/3067257).<br /><br />**Bereich:** global oder Sitzung| 
 |**10316**|Aktiviert die Erstellung von zusätzlichen Indizes in [internen speicheroptimierten temporalen Staging-Tabellen](../../relational-databases/tables/system-versioned-temporal-tables-with-memory-optimized-tables.md) neben dem Standardindex. Wenn bestimmte Abfragemuster Spalten enthalten, die nicht vom Standardindex abgedeckt werden, sollten Sie zusätzliche hinzufügen.<br /><br />**Hinweis:** Systemversionierte temporale Tabellen für speicheroptimierte Tabellen sind dafür vorgesehen, dass sie hohen Transaktionsdurchsatz bereitstellen. Denken Sie daran, dass das Erstellen zusätzlicher Indizes einen Mehraufwand für DML-Vorgänge hervorrufen kann, die Zeilen in der aktuellen Tabelle aktualisieren oder löschen. Mit den zusätzlichen Indizes sollten Sie versuchen, das richtige Gleichgewicht zwischen der Leistung von temporalen Abfragen und DML-Aufwand zu finden.<br /><br />**Bereich:** global oder Sitzung|

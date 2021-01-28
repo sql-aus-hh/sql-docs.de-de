@@ -1,6 +1,6 @@
 ---
 title: SQL Server-Sicherung über URLs | Microsoft-Dokumentation
-description: Erfahren Sie mehr über die Konzepte, Anforderungen und Komponenten, die notwendig sind, damit SQL Server Microsoft Azure Blob Storage als Sicherungsziel verwenden kann.
+description: In diesem Artikel erfahren Sie mehr über die Konzepte, Anforderungen und Komponenten, die notwendig sind, damit SQL Server Microsoft Azure Blob Storage als Sicherungsziel verwenden kann.
 ms.custom: ''
 ms.date: 03/25/2019
 ms.prod: sql
@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.assetid: 11be89e9-ff2a-4a94-ab5d-27d8edf9167d
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 5d548262cf26f763c14b4f8ac693491ba3d58a85
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: 75f74fcfca0e039b6f11bc36fd6cf694dfb756b3
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96125447"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765576"
 ---
 # <a name="sql-server-backup-to-url"></a>SQL Server-Sicherung über URLs
 
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
 
-In diesem Thema werden die Konzepte, die Anforderungen und die Komponenten eingeführt, die notwendig sind, um den Microsoft Azure BLOB-Speicherdienst als Sicherungsziel zu verwenden. Die Sicherungs- und Wiederherstellungsfunktion sind gleich oder ähnlich wie beim Verwenden von DISK oder TAPE, mit wenigen Unterschieden. Diese Unterschiede sowie einige Codebeispiele werden in diesem Thema erörtert.  
+In diesem Artikel werden die Konzepte, die Anforderungen und die Komponenten eingeführt, die notwendig sind, um den Microsoft Azure Blob Storage-Dienst als Sicherungsziel zu verwenden. Die Sicherungs- und Wiederherstellungsfunktion sind gleich oder ähnlich wie beim Verwenden von DISK oder TAPE, mit wenigen Unterschieden. Diese Unterschiede sowie einige Codebeispiele werden in diesem Thema erörtert.  
   
 ## <a name="overview"></a>Übersicht
 
-Es ist wichtig, die jeweiligen Komponenten und Interaktionen zwischen den einzelnen Komponenten zu verstehen, um Daten mit dem Microsoft Azure BLOB-Speicherdienst zu sichern oder wiederherzustellen.  
+Es ist wichtig, die jeweiligen Komponenten und Interaktionen zwischen den einzelnen Komponenten zu verstehen, um Daten mit dem Microsoft Azure Blob Storage-Dienst zu sichern oder wiederherzustellen.  
   
- Der erste Schritt in diesem Verfahren besteht im Erstellen eines Azure-Speicherkontos innerhalb Ihres Azure-Abonnements. Dieses Speicherkonto ist ein Administratorkonto, das über vollständige Administratorrechte für alle mit dem Speicherkonto erstellten Container und Objekte verfügt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] kann entweder den Namen und Zugriffsschlüsselwert zur Authentifizierung beim Windows Azure-Konto sowie zum Schreiben und Lesen von Blobs im Microsoft Azure Blob Storage-Dienst oder ein Shared Access Signature-Token verwenden, das für bestimmte Container generiert wurde und Lese- und Schreibrechte erteilt. Weitere Informationen zu Azure-Speicherkonten finden Sie unter [About Azure Storage Accounts (Informationen zu Azure-Speicherkonten)](/azure/storage/common/storage-account-create), und weitere Informationen zu Shared Access Signatures finden Sie unter [Shared Access Signatures, Teil 1: Grundlagen zum SAS-Modell](/azure/storage/common/storage-sas-overview). Diese Authentifizierungsinformationen werden in den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldeinformationen gespeichert und bei Sicherungs- und Wiederherstellungsvorgängen verwendet.  
+ Der erste Schritt in diesem Verfahren besteht im Erstellen eines Azure-Speicherkontos innerhalb Ihres Azure-Abonnements. Dieses Speicherkonto ist ein Administratorkonto, das über vollständige Administratorrechte für alle mit dem Speicherkonto erstellten Container und Objekte verfügt. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] kann entweder den Azure Storage-Kontonamen und den zugehörigen Zugriffsschlüsselwert für die Authentifizierung und das Schreiben und Lesen von Blobs in Microsoft Azure Blob Storage oder ein Shared Access Signature-Token verwenden, das für bestimmte Container generiert wird und Lese- und Schreibberechtigungen erteilt. Weitere Informationen zu Azure-Speicherkonten finden Sie unter [About Azure Storage Accounts (Informationen zu Azure-Speicherkonten)](/azure/storage/common/storage-account-create), und weitere Informationen zu Shared Access Signatures finden Sie unter [Shared Access Signatures, Teil 1: Grundlagen zum SAS-Modell](/azure/storage/common/storage-sas-overview). Diese Authentifizierungsinformationen werden in den [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldeinformationen gespeichert und bei Sicherungs- und Wiederherstellungsvorgängen verwendet.  
   
 ###  <a name="backup-to-block-blob-vs-page-blob"></a><a name="blockbloborpageblob"></a> Sicherung: Blockblobs vs. Seitenblobs
 
-Es gibt zwei Arten von BLOBs, die im Microsoft Azure BLOB-Speicherdienst gespeichert werden können: Block-BLOBs und Seiten-BLOBs. Bei SQL Server 2016 und höher wird das Blockblob bevorzugt.
+Es gibt zwei Arten von Blobs, die im Microsoft Azure Blob Storage-Dienst gespeichert werden können: Block- und Seitenblobs. Bei SQL Server 2016 und höher wird das Blockblob bevorzugt.
 
 Wenn der Speicherschlüssel in den Anmeldeinformationen verwendet wird, wird das Seitenblob verwendet.Wenn die SAS verwendet wird, wird das Blockblob verwendet.
 
@@ -63,17 +63,17 @@ Wenn die SQL Server-Instanz unter Linux gehostet wird, einschließlich:
 
 Das einzige unterstützte URL-Sicherungsmuster besteht für Blockblobs, wobei die Shared Access Signature verwendet wird.
 
-###  <a name="microsoft-azure-blob-storage-service"></a><a name="Blob"></a> Microsoft Azure BLOB-Speicherdienst  
+###  <a name="microsoft-azure-blob-storage-service"></a><a name="Blob"></a> Microsoft Azure Blob Storage-Dienst  
 
-**Speicherkonto:** Das Speicherkonto ist der Ausgangspunkt für alle Speicherdienste. Um auf den Microsoft Azure Blob Storage-Dienst zuzugreifen, erstellen Sie zunächst ein Azure-Speicherkonto. Weitere Informationen finden Sie unter [Erstellen eines Speicherkontos](/azure/storage/common/storage-account-create).  
+**Speicherkonto:** Das Speicherkonto ist der Ausgangspunkt für alle Speicherdienste. Sie müssen zunächst ein Azure Storage-Konto erstellen, um auf den Azure Blob Storage-Dienst zuzugreifen. Weitere Informationen finden Sie unter [Erstellen eines Speicherkontos](/azure/storage/common/storage-account-create).  
   
-**Container:** In einem Container können mehrere BLOBs gruppiert und eine unbegrenzte Anzahl von BLOBs gespeichert werden. Damit eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Sicherung in den Microsoft Azure BLOB-Speicherdienst geschrieben werden kann, muss mindestens der Stammcontainer erstellt werden. Sie können ein Shared Access Signature-Token für einen Container generieren und den Zugriff nur auf Objekte in einem bestimmten Container gewähren.  
+**Container:** In einem Container können mehrere BLOBs gruppiert und eine unbegrenzte Anzahl von BLOBs gespeichert werden. Sie müssen zumindest den Stammcontainer erstellen, damit Sie eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Sicherung in den Azure Blob Storage-Dienst schreiben können. Sie können ein Shared Access Signature-Token für einen Container generieren und den Zugriff nur auf Objekte in einem bestimmten Container gewähren.  
   
-**BLOB:** Eine Datei eines beliebigen Typs und beliebiger Größe. Es gibt zwei Arten von BLOBs, die im Microsoft Azure BLOB-Speicherdienst gespeichert werden können: Block-BLOBs und Seiten-BLOBs. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Je nach der verwendeten Transact-SQL-Syntax können bei der Sicherung beide BLOB-Typen verwendet werden. Blobs sind über das folgende URL-Format adressierbar: https://\<storage account>.blob.core.windows.net/\<container>/\<blob>. Weitere Informationen zum Microsoft Azure BLOB-Speicherdienst finden Sie unter [Verwenden des Speicherdiensts von .NET](https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/). Weitere Informationen zu Seiten- und Block-BLOBs finden Sie unter [Grundlegendes zu Block- und Seiten-BLOBs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).  
+**BLOB:** Eine Datei eines beliebigen Typs und beliebiger Größe. Es gibt zwei Arten von Blobs, die im Microsoft Azure Blob Storage-Dienst gespeichert werden können: Block- und Seitenblobs. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Je nach der verwendeten Transact-SQL-Syntax können bei der Sicherung beide BLOB-Typen verwendet werden. Blobs sind über das folgende URL-Format adressierbar: https://\<storage account>.blob.core.windows.net/\<container>/\<blob>. Weitere Informationen über den Azure Blob Storage-Dienst finden Sie unter [Verwenden von Blob Storage mit .NET](https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/). Weitere Informationen zu Seiten- und Block-BLOBs finden Sie unter [Grundlegendes zu Block- und Seiten-BLOBs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).  
   
 ![Azure Blob Storage](../../relational-databases/backup-restore/media/backuptocloud-blobarchitecture.gif "Azure Blob Storage")  
   
-**Azure-Momentaufnahme:** Eine Momentaufnahme eines Azure-BLOBs zu einem bestimmten Zeitpunkt. Weitere Informationen finden Sie unter [Erstellen einer Momentaufnahme eines BLOBs](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob). [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Die Sicherung unterstützt jetzt Azure Momentaufnahmesicherungen von Datenbankdateien im Microsoft Azure BLOB-Speicherdienst. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
+**Azure-Momentaufnahme:** Eine Momentaufnahme eines Azure-BLOBs zu einem bestimmten Zeitpunkt. Weitere Informationen finden Sie unter [Erstellen einer Momentaufnahme eines BLOBs](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob). Die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Sicherung unterstützt nun Azure-Momentaufnahmesicherungen von Datenbankdateien, die im Microsoft Azure Blob Storage-Dienst gespeichert werden. Weitere Informationen finden Sie unter [Dateimomentaufnahme-Sicherungen für Datenbankdateien in Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
   
 ###  <a name="ssnoversion-components"></a><a name="sqlserver"></a> [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Komponenten  
 
@@ -81,7 +81,7 @@ Das einzige unterstützte URL-Sicherungsmuster besteht für Blockblobs, wobei di
   
  Beispiel für eine URL: http[s]://KONTONAME.blob.core.windows.net/\<CONTAINER>/\<FILENAME.bak>. HTTPS ist zwar nicht erforderlich, aber empfehlenswert.  
   
-**Anmeldeinformationen:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen sind ein Objekt zum Speichern von Authentifizierungsinformationen, die für die Verbindung mit einer Ressource außerhalb von SQL Server erforderlich sind. Hier werden Anmeldeinformationen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Sicherungs- und Wiederherstellungsvorgängen verwendet, um sich beim Microsoft Azure BLOB-Speicherdienst sowie den zugehörigen Container- und BLOB-Objekten zu authentifizieren. Als Anmeldeinformationen werden entweder der Name und die **Zugriffsschlüsselwerte** des Speicherkontos oder die Container-URL und das zugehörige Shared Access Signature-Token gespeichert. Sobald die Anmeldeinformationen erstellt wurden, bestimmt die Syntax der BACKUP/RESTORE-Anweisungen den Typ des BLOBs und die erforderlichen Anmeldeinformationen.  
+**Anmeldeinformationen:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen sind ein Objekt zum Speichern von Authentifizierungsinformationen, die für die Verbindung mit einer Ressource außerhalb von SQL Server erforderlich sind. Dabei verwenden die Sicherungs- und Wiederherstellungsprozesse von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Anmeldeinformationen für die Authentifizierung beim Azure Blob Storage-Dienst und den Containern und Blobs. Als Anmeldeinformationen werden entweder der Name und die **Zugriffsschlüsselwerte** des Speicherkontos oder die Container-URL und das zugehörige Shared Access Signature-Token gespeichert. Sobald die Anmeldeinformationen erstellt wurden, bestimmt die Syntax der BACKUP/RESTORE-Anweisungen den Typ des BLOBs und die erforderlichen Anmeldeinformationen.  
   
 Ein Beispiel zum Erstellen einer Shared Access Signature finden Sie in den Beispielen zum [Erstellen einer Shared Access Signature](../../relational-databases/backup-restore/sql-server-backup-to-url.md#SAS) weiter unten in diesem Thema. Informationen zum Erstellen von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldeinformationen finden Sie in den Beispielen unter [Erstellen von Anmeldeinformationen](../../relational-databases/backup-restore/sql-server-backup-to-url.md#credential) weiter unten in diesem Thema.  
   
@@ -91,9 +91,9 @@ Informationen mit weiteren Beispielen zur Verwendung von Anmeldeinformationen fi
   
 ##  <a name="security"></a><a name="security"></a> Sicherheit  
 
-Die folgenden Sicherheitsüberlegungen und -anforderungen beziehen sich auf die Sicherung oder Wiederherstellung unter Verwendung der Microsoft Azure BLOB-Speicherdienste.  
+Die folgenden Sicherheitsüberlegungen und -anforderungen beziehen sich auf die Sicherung oder Wiederherstellung mithilfe des Microsoft Azure Blob Storage-Diensts.  
   
-- Beim Erstellen eines Containers für den Microsoft Azure BLOB-Speicherdienst sollten Sie den Zugriff auf **Privat** festlegen. Dadurch wird der Zugriff auf Benutzer oder Konten beschränkt, die über die erforderlichen Anmeldeinformationen zur Authentifizierung beim Azure-Konto verfügen.  
+- Es wird empfohlen, dass Sie den Zugriff auf **Privat** festlegen, wenn Sie einen Container für den Azure Blob Storage-Dienst erstellen. Dadurch wird der Zugriff auf Benutzer oder Konten beschränkt, die über die erforderlichen Anmeldeinformationen zur Authentifizierung beim Azure-Konto verfügen.  
   
     > [!IMPORTANT]  
     >  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] erfordert, dass entweder der Name und Zugriffsschlüssel zur Authentifizierung beim Azure-Konto oder eine Shared Access Signature und das Zugriffstoken in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen gespeichert werden. Mithilfe dieser Informationen wird im Fall von Sicherungs- und Wiederherstellungsvorgängen die Authentifizierung beim Azure-Konto ausgeführt.  
@@ -127,7 +127,7 @@ Die folgenden Sicherheitsüberlegungen und -anforderungen beziehen sich auf die 
    - Dem [proxycfg.exe](/windows/win32/winhttp/proxycfg-exe--a-proxy-configuration-tool)-Hilfsprogramm unter Windows XP oder Windows Server 2003 und früher. 
    - Dem [netsh.exe](/windows/win32/winsock/netsh-exe)-Hilfsprogramm unter Windows Vista und Windows Server 2008 oder höher. 
 
-- [Unveränderlicher Speicher für Blobspeicher in Azure](/azure/storage/blobs/storage-blob-immutable-storage) wird nicht unterstützt. Legen Sie die Richtlinie **Unveränderlicher Speicher** auf FALSE fest. 
+- [Unveränderlicher Speicher für Azure Blob Storage](/azure/storage/blobs/storage-blob-immutable-storage) wird nicht unterstützt. Legen Sie die Richtlinie **Unveränderlicher Speicher** auf FALSE fest. 
   
 ## <a name="supported-arguments--statements"></a>Unterstützte Argumente und Anweisungen
 
@@ -157,7 +157,7 @@ Die folgenden Sicherheitsüberlegungen und -anforderungen beziehen sich auf die 
 |TO (URL)|J|Bei URL wird das Angeben bzw. Erstellen eines logischen Namens im Gegensatz zu DISK und TAPE nicht unterstützt.|Dieses Argument wird verwendet, um den URL-Pfad der Sicherungsdatei anzugeben.|  
 |MIRROR TO|J|||  
 |**WITH-OPTIONEN:**||||  
-|CREDENTIAL|J||WITH CREDENTIAL wird nur unterstützt, wenn die Option BACKUP TO URL zur Sicherung in den Microsoft Azure BLOB-Speicherdienst verwendet wird und die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldeinformationen mithilfe des Speicherkontoschlüssels als geheimem Schlüssel definiert werden.|  
+|CREDENTIAL|J||WITH CREDENTIAL wird nur unterstützt, wenn die Option BACKUP TO URL für die Sicherung im Azure Blob Storage-Dienst verwendet wird und die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen mithilfe des Speicherkontoschlüssels als geheimer Schlüssel definiert werden.|  
 |FILE_SNAPSHOT|J|||  
 |ENCRYPTION|J||Wird das Argument **WITH ENCRYPTION** angegeben, gewährleistet die [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Dateimomentaufnahme-Sicherung, dass die gesamte Datenbank vor dem Erstellen der Sicherung mit TDE verschlüsselt wurde, und verschlüsselt die Dateimomentaufnahme-Sicherungsdatei selbst in diesem Fall mit dem für TDE in der Datenbank angegebenen Algorithmus. Die Sicherung schlägt fehl, wenn nicht alle Daten in der gesamten Datenbank verschlüsselt sind (z. B. wenn der Verschlüsselungsvorgang noch nicht abgeschlossen ist).|  
 |DIFFERENTIAL|J|||  
@@ -192,7 +192,7 @@ Die folgenden Sicherheitsüberlegungen und -anforderungen beziehen sich auf die 
 |PROTOKOLL|J|||  
 |FROM (URL)|J||Das FROM URL-Argument wird verwendet, um den URL-Pfad der Sicherungsdatei anzugeben.|  
 |**WITH Options:**||||  
-|CREDENTIAL|J||WITH CREDENTIAL wird nur unterstützt, wenn Daten mit der RESTORE FROM URL-Option vom Microsoft Azure BLOB-Speicherdienst wiederhergestellt werden.|  
+|CREDENTIAL|J||WITH CREDENTIAL wird nur unterstützt, wenn die Option RESTORE FROM URL für die Wiederherstellung mit dem Azure Blob Storage-Dienst verwendet wird.|  
 |PARTIAL|J|||  
 |RECOVERY &#124; NORECOVERY &#124; STANDBY|J|||  
 |LOADHISTORY|J|||  
@@ -261,7 +261,7 @@ Wenn Sie eine **URL** als Ziel auswählen, sind bestimmte Optionen auf der Seite
 >  Sie müssen Transact-SQL, Powershell oder C# anstelle des Sicherungstasks im Wartungsplanungs-Assistenten verwenden, um einen Sicherungssatz im Stripesetformat, eine [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Dateimomentaufnahme-Sicherung oder SQL-Anmeldeinformationen unter Verwendung eines Shared Access-Tokens zu erstellen.  
   
 ##  <a name="restore-with-ssms"></a><a name="RestoreSSMS"></a> Wiederherstellen mit SSMS 
-Die Aufgabe „Datenbank wiederherstellen“ enthält als Medium eine **URL** , von der aus wiederhergestellt wird.  Die folgenden Schritte beschreiben die Verwendung des Wiederherstellungstasks für die Wiederherstellung aus dem Microsoft Azure BLOB-Speicherdienst: 
+Die Aufgabe „Datenbank wiederherstellen“ enthält als Medium eine **URL** , von der aus wiederhergestellt wird.  In den folgenden Schritten wird die Verwendung der Wiederherstellungsaufgabe zum Durchführen einer Wiederherstellung mit dem Azure Blob Storage-Dienst beschrieben: 
   
 1. Klicken Sie mit der rechten Maustaste auf **Datenbanken** , und wählen Sie **Datenbank wiederherstellen** aus. 
   
@@ -296,7 +296,7 @@ Dieser Abschnitt enthält die folgenden Beispiele.
 - [Wiederherstellen eines bestimmten Zeitpunkts mithilfe von STOPAT](#PITR)  
   
 > [!NOTE]  
-> Ein Tutorial zur Verwendung von SQL Server 2016 mit dem Microsoft Azure-BLOB-Speicherdienst finden Sie unter [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md)  
+> Ein Tutorial zur Verwendung von SQL Server 2016 mit dem Microsoft Azure Blob Storage-Dienst finden Sie unter [Tutorial: Verwenden des Azure Blob Storage-Diensts mit SQL Server 2016-Datenbanken](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
   
 ### <a name="create-a-shared-access-signature"></a><a name="SAS"></a> Erstellen einer Shared Access Signature
 
@@ -358,7 +358,7 @@ Nachdem Sie das Skript erfolgreich ausgeführt haben, kopieren Sie den Befehl `C
 
 ###  <a name="create-a-credential"></a><a name="credential"></a> Erstellen von Anmeldeinformationen
 
-In den folgenden Beispielen werden [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldeinformationen für die Authentifizierung bei einem Microsoft Azure BLOB-Speicherdienst erstellt. Führen Sie einen der folgenden Schritte aus:
+In den folgenden Beispielen werden [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Anmeldeinformationen für die Authentifizierung beim Azure Blob Storage-Dienst erstellt. Führen Sie einen der folgenden Schritte aus:
   
 1. **Verwenden von Shared Access Signature**  
 
@@ -387,7 +387,7 @@ In den folgenden Beispielen werden [!INCLUDE[ssNoVersion](../../includes/ssnover
   
 ### <a name="perform-a-full-database-backup"></a><a name="complete"></a> Ausführen einer vollständigen Datenbanksicherung  
 
-In den folgenden Beispielen wird eine vollständige Sicherung der AdventureWorks2016-Datenbank in den Microsoft Azure BLOB-Speicherdienst ausgeführt. Führen Sie eines der folgenden Verfahren aus:
+In den folgenden Beispielen wird eine vollständige Datenbanksicherung der Datenbank „AdventureWorks2016“ im Microsoft Azure Blob Storage-Dienst durchgeführt. Führen Sie eines der folgenden Verfahren aus:
   
 1. **Zur URL unter Verwendung von Shared Access Signature**  
   
@@ -434,4 +434,4 @@ Im folgenden Beispiel wird der Zustand der AdventureWorks2016-Beispieldatenbank 
 
 - [SQL Server-Sicherung über URLs – bewährte Methoden und Problembehandlung](../../relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting.md)
 - [Sichern und Wiederherstellen von Systemdatenbanken &#40;SQL Server&#41;](../../relational-databases/backup-restore/back-up-and-restore-of-system-databases-sql-server.md)
-- [Tutorial: Verwenden des Microsoft Azure BLOB-Speicherdiensts mit SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md)
+- [Tutorial: Verwenden des Azure Blob Storage-Diensts mit SQL Server 2016-Datenbanken](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).

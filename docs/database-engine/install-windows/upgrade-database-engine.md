@@ -15,24 +15,24 @@ ms.assetid: 3c036813-36cf-4415-a0c9-248d0a433859
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: dd6c78880419b2330e109d4e1f1416c99f84963d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c855e1a72e1cbd0f6012e4af19701fbaf6c71e68
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460703"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98765523"
 ---
 # <a name="upgrade-database-engine"></a>Aktualisieren der Datenbank-Engine
 
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
   
-  Die Artikel in diesem Abschnitt unterstützen Sie dabei, ein Upgrade der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbank-Engine von einer früheren Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] durchzuführen.  
+  Die Artikel in diesem Abschnitt unterstützen Sie dabei, ein Upgrade der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Datenbank-Engine von einer früheren Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] auf [!INCLUDE[sssql19-md](../../includes/sssql19-md.md)] durchzuführen.  
   
 1.  [Auswählen einer Upgrademethode für die Datenbank-Engine:](../../database-engine/install-windows/choose-a-database-engine-upgrade-method.md) Bevor Sie ein Upgrade durchführen, sollten Sie die verschiedenen Upgrademethoden kennen. Dieser Artikel beschreibt die Upgrademethoden und die jeweils zugehörigen Schritte.  
   
 2.  [Planen und Testen des Upgradeplans für die Datenbank-Engine:](../../database-engine/install-windows/plan-and-test-the-database-engine-upgrade-plan.md) Nachdem Sie sich einen Überblick über die Upgrademethoden verschafft haben, können Sie eine geeignete Upgrademethode für Ihre Umgebung entwickeln und vor dem Upgrade der vorhandenen Umgebung testen. Dieser Artikel beschreibt das Entwickeln und Testen eines Upgradeplans.  
   
-3.  [Abschließen des Datenbank-Engine-Upgrades:](../../database-engine/install-windows/complete-the-database-engine-upgrade.md) Nachdem die Datenbank-Engine auf [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] aktualisiert und die Datenbanken online gestellt wurden, sind noch weitere Schritte erforderlich. Beispielsweise müssen Sie eine neue Sicherung anfertigen, die Datenbankfunktionen so aktualisieren, dass neue Features unterstützt werden, und die Volltextkataloge neu auffüllen. Diese Schritte werden in diesem Artikel erläutert.  
+3.  [Abschließen des Datenbank-Engine-Upgrades:](../../database-engine/install-windows/complete-the-database-engine-upgrade.md) Nachdem das Upgrade für die Datenbank-Engine durchgeführt und die Datenbanken online gestellt wurden, sind noch weitere Schritte erforderlich. Beispielsweise müssen Sie eine neue Sicherung anfertigen, die Datenbankfunktionen so aktualisieren, dass neue Features unterstützt werden, und die Volltextkataloge neu auffüllen. Diese Schritte werden in diesem Artikel erläutert.  
   
 4.  Durchführen eines Upgrades für den [Datenbank-Kompatibilitätsgrad](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#compatibility-levels-and-database-engine-upgrades) (**gilt für:**  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] und [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]): Wenn Ihre Datenbanken online sind und mit der neuen Version von [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oder [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] verwendet werden, müssen Sie möglicherweise für den Funktionsmodus der Datenbanken ein Upgrade durchführen, um neue Features zu aktivieren. Dazu ändern Sie den Datenbank-Kompatibilitätsgrad. Dieser Vorgang kann manuell oder mithilfe des Abfrageoptimierungs-Assistenten durchgeführt werden. 
 

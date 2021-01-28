@@ -22,12 +22,12 @@ ms.assetid: da983c0a-06c5-4cf8-a6a4-7f9d66f34f2c
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 295e21500b51bed644807c2cbbab03515fb7e7d9
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: eb6024d0ad3ef6f34d170201c0fbacc3447dab26
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484002"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783589"
 ---
 # <a name="top-transact-sql"></a>TOP (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -80,7 +80,7 @@ Schränken Sie die Anzahl der zurückgegebenen Zeilen mithilfe von TOP (oder OFF
 -   Im Rahmen einer SELECT-Anweisung kann der Wert von *expression* in der TOP- oder der FETCH-Klausel vom Abfrageoptimierer während der Abfrageoptimierung berücksichtigt werden. Da SET ROWCOUNT außerhalb einer Anweisung verwendet wird, die eine Abfrage ausführt, kann ihr Wert nicht in einem Abfrageplan berücksichtigt werden.  
   
 ## <a name="compatibility-support"></a>Kompatibilitätsunterstützung  
-Aus Gründen der Abwärtskompatibilität sind die Klammern in SELECT-Anweisungen optional. Es empfiehlt sich, in SELECT-Anweisungen immer Klammern für TOP zu verwenden. Damit erzielen Sie Konsistenz mit der erforderlichen Verwendung in INSERT-, UPDATE-, MERGE- und DELETE-Anweisungen. 
+Aus Gründen der Abwärtskompatibilität sind die Klammern in SELECT-Anweisungen optional, wenn es sich bei dem Ausdruck um eine ganzzahlige Konstante handelt. Es empfiehlt sich, in SELECT-Anweisungen immer Klammern für TOP zu verwenden. Damit erzielen Sie Konsistenz mit der erforderlichen Verwendung in INSERT-, UPDATE-, MERGE- und DELETE-Anweisungen. 
   
 ## <a name="interoperability"></a>Interoperabilität  
 Der TOP-Ausdruck wirkt sich nicht auf Anweisungen aus, die möglicherweise wegen eines Triggers ausgeführt werden. Die Tabellen **inserted** und **deleted** in den Triggern geben nur die Zeilen zurück, die tatsächlich von den INSERT-, UPDATE- MERGE- oder DELETE-Anweisungen betroffen sind. Beispiel: Ein INSERT TRIGGER, der aufgrund einer INSERT-Anweisung mit einer TOP-Klausel ausgelöst wird.  

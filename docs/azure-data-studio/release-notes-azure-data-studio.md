@@ -8,17 +8,25 @@ author: yualan
 ms.author: alayu
 ms.reviewer: maghan
 ms.custom: seodec18
-ms.date: 12/9/2020
-ms.openlocfilehash: 796499f38c9af2d7b2f6af8f860bb945d14bdac2
-ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
+ms.date: 1/22/2020
+ms.openlocfilehash: b0455de16e6808f4d2e67113976ae754830881ee
+ms.sourcegitcommit: 2bdf1f1ee88f4fe3e872227d025e965e95d1b2b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98596508"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98711946"
 ---
 # <a name="release-notes-for-azure-data-studio"></a>Versionshinweise für Azure Data Studio
 
 **[Neuestes Release herunterladen und installieren](./download-azure-data-studio.md)**
+
+## <a name="december-2020-hotfix"></a>Dezember 2020 (Hotfix)
+
+22. Januar 2020 &nbsp; / &nbsp; Version: 1.25.2
+
+| Change | Details |
+| ------ | ------- |
+| Behebung des Fehlers [#13899](https://github.com/microsoft/azuredatastudio/issues/13899)| Scrollen zu den entsprechenden Querverweislinks in Notebooks |
 
 ## <a name="december-2020"></a>Dezember 2020
 

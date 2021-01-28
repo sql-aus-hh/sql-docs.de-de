@@ -23,12 +23,12 @@ ms.assetid: 11f8017e-5bc3-4bab-8060-c16282cfbac1
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 9d7e51afb97a5ff698ef9a504375783b93ef9640
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: d8e1c8af9fbd147c7a20ae773dc1797026240293
+ms.sourcegitcommit: 0576ce6d7c9c5514306a90e27fa621ef25825186
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98170662"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98575731"
 ---
 # <a name="sql-server-index-architecture-and-design-guide"></a>Leitfaden zur Architektur und zum Design von SQL Server-Indizes
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -69,7 +69,7 @@ Weitere Informationen zu Volltextindizes finden Sie unter [Auffüllen von Vollte
  <sup>1</sup> Rowstore stellte die herkömmliche Vorgehensweise beim Speichern von Daten aus relationalen Tabellen dar. In [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] bezieht Rowstore sich auf die Tabelle, deren zugrunde liegendes Datenspeicherformat ein Heap, eine B-Struktur (d.h. ein [gruppierter Index](#Clustered)) oder eine speicheroptimierte Tabelle ist.
 
 ### <a name="index-design-tasks"></a>Aufgaben beim Indexentwurf  
- Die folgenden Aufgaben fassen die empfohlene Strategie beim Entwerfen von Indizes zusammen:  
+ Die folgenden Aufgaben stellen die empfohlene Strategie zum Entwerfen von Indizes dar:  
   
 1.  Verstehen der Merkmale der Datenbank selbst. 
     * Ob es sich also beispielsweise um eine OLTP-Datenbank (Online Transaction Processing) mit häufigen Datenänderungen handelt, die einen hohen Durchsatz aufrechterhalten muss. Ab [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] sind speicheroptimierte Tabellen und Indizes besonders geeignet für dieses Szenario, da sie ohne Latches auskommen. Weitere Informationen finden Sie unter [Indizes für speicheroptimierte Tabellen](../relational-databases/in-memory-oltp/indexes-for-memory-optimized-tables.md) oder unter [Richtlinien zum Entwerfen von nicht gruppierten Indizes für speicheroptimierte Tabellen](#inmem_nonclustered_index) und [Richtlinien zum Entwerfen von Hashindizes für speicheroptimierte Tabellen](#hash_index) in diesem Handbuch.

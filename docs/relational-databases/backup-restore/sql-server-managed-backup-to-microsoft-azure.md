@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: afa01165-39e0-4efe-ac0e-664edb8599fd
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ce723dfbf0171d3c1885c1574bf681fbb2c8e714
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: fa041d70aa80d44194859c92ad58f518cfa14c45
+ms.sourcegitcommit: 2f3f5920e0b7a84135c6553db6388faf8e0abe67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172562"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783361"
 ---
 # <a name="sql-server-managed-backup-to-microsoft-azure"></a>SQL Server Managed Backup für Microsoft Azure
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -121,7 +121,7 @@ ms.locfileid: "98172562"
   
 -   [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] -Agent unterstützt nur vollständige Datenbanksicherungen und Protokollsicherungen. Die Dateisicherungsautomatisierung wird nicht unterstützt.  
   
--   Microsoft Azure Blob Storage ist die einzige unterstützte Option zum Speichern von Sicherungen. Sicherungen auf Datenträger oder Band werden nicht unterstützt.  
+-   Der Microsoft Azure Blob Storage-Dienst ist die einzige unterstützte Sicherungsspeicheroption. Sicherungen auf Datenträger oder Band werden nicht unterstützt.  
   
 -   [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] verwendet die Funktion „Sichern in Blockblob“. Die maximale Größe eines Blockblobs beträgt 200 GB. Die maximale Größe einer einzelnen Sicherung kann durch Verbinden jedoch bis zu 12 TB betragen. Wenn Ihre Sicherungsanforderungen diese Größen überschreiten, ziehen Sie eine Komprimierung in Betracht, und testen Sie die Sicherungsdateigröße vor dem Einrichten von [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)]. Sie können diese testen, indem Sie eine Sicherung entweder auf einem lokalen Datenträger oder manuell mithilfe der Transact-SQL-Anweisung **BACKUP TO URL** in einen Microsoft Azure-Speicher durchführen. Weitere Informationen finden Sie unter [SQL Server Backup to URL](../../relational-databases/backup-restore/sql-server-backup-to-url.md).  
   

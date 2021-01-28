@@ -40,12 +40,12 @@ ms.assetid: bb394abe-cae6-4905-b5c6-8daaded77742
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 12bb0423ad450ef94df8767ba8aae10a5c47cade
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a7903d3a208bd08c9ba22d251a0e4124e81725ea
+ms.sourcegitcommit: 2bdf1f1ee88f4fe3e872227d025e965e95d1b2b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439081"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98711986"
 ---
 # <a name="select---order-by-clause-transact-sql"></a>SELECT - ORDER BY-Klausel (Transact-SQL)
 
@@ -146,7 +146,7 @@ ORDER BY SchemaName + ''; -- wrong
  Verwenden Sie in einer SELECT TOP (*N*)-Anweisung immer eine ORDER BY-Klausel. Dies ist die einzige Möglichkeit, zuverlässig anzugeben, welche Zeilen von TOP betroffen sind. Weitere Informationen finden Sie unter [TOP &#40;Transact-SQL&#41;](../../t-sql/queries/top-transact-sql.md).  
   
 ## <a name="interoperability"></a>Interoperabilität  
- Wenn sie mit einer SELECT...INTO-Anweisung zum Einfügen von Zeilen aus einer anderen Quelle verwendet wird, garantiert die ORDER BY-Klausel nicht, dass die Zeilen in der angegebenen Reihenfolge eingefügt werden.  
+ Wenn sie mit einer SELECT...INTO oder INSERT...SELECT-Anweisung zum Einfügen von Zeilen aus einer anderen Quelle verwendet wird, garantiert die ORDER BY-Klausel nicht, dass die Zeilen in der angegebenen Reihenfolge eingefügt werden.  
   
  Die Verwendung von OFFSET und FETCH in einer Sicht hat keinen Einfluss auf die Updateability-Eigenschaft derselben.  
   
