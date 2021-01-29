@@ -98,7 +98,7 @@ Verwenden Sie von **bis** die folgenden Richtlinien beim Konfigurieren des Serve
   
 #### <a name="to-configure-the-max-degree-of-parallelism-option"></a>So konfigurieren Sie die Option Max. Grad an Parallelität  
   
-1.  Stellen Sie eine Verbindung mit dem [!INCLUDE[ssDE](../../includes/ssde-md.md)]her.  
+1.  Stellen Sie eine Verbindung mit dem [!INCLUDE[ssDE](../../includes/ssde-md.md)] her.  
   
 2.  Klicken Sie in der Standardleiste auf **Neue Abfrage**.  
   
