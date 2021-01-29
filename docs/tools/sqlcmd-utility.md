@@ -28,12 +28,12 @@ ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017'
-ms.openlocfilehash: 0c822321323eb5f74fda34df2d540b7c5c79c382
-ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
+ms.openlocfilehash: b499c7236391c7286c4a267c433ad991a963dab5
+ms.sourcegitcommit: 713e5a709e45711e18dae1e5ffc190c7918d52e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98151311"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98688920"
 ---
 # <a name="sqlcmd-utility"></a>SQLCMD-Hilfsprogramm
 
@@ -70,7 +70,7 @@ Die neue BCP unterstützt die Azure AD-Authentifizierung, einschließlich der Mu
 
 **Systemanforderungen:** Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Server 2008 – 2019
 
-Für diese Komponente sind sowohl [Windows Installer 4.5](https://www.microsoft.com/download/details.aspx?id=8483) als auch [Microsoft ODBC Driver 17 for SQL Server](https://aka.ms/downloadmsodbcsql) erforderlich.
+Für diese Komponente sind sowohl [Windows Installer 4.5](https://www.microsoft.com/download/details.aspx?id=8483) als auch [Microsoft ODBC Driver 17 for SQL Server](../connect/odbc/download-odbc-driver-for-sql-server.md) erforderlich.
  
 Führen Sie zum Überprüfen der SQLCMD-Version den Befehl `sqlcmd -?` aus, und vergewissern Sie sich, dass Version 15.0.2000.5 oder höher verwendet wird.
 
@@ -180,7 +180,7 @@ Diese Option wird vom Client beim Herstellen einer Verbindung mit SQL-Datenbank 
 
 > [!IMPORTANT]
 > Die `-G`-Option gilt nur für Azure SQL-Datenbank und Azure Data Warehouse.
-> Die interaktive AAD-Authentifizierung wird unter Linux oder macOS derzeit nicht unterstützt. Die integrierte AAD-Authentifizierung erfordert [Microsoft ODBC-Treiber 17 für SQL Server](https://aka.ms/downloadmsodbcsql) Version 17.6.1 oder höher und eine ordnungsgemäß konfigurierte Kerberos-Umgebung.
+> Die interaktive AAD-Authentifizierung wird unter Linux oder macOS derzeit nicht unterstützt. Die integrierte AAD-Authentifizierung erfordert [Microsoft ODBC-Treiber 17 für SQL Server](../connect/odbc/download-odbc-driver-for-sql-server.md) Version 17.6.1 oder höher und eine ordnungsgemäß konfigurierte Kerberos-Umgebung.
 
 - **Azure Active Directory-Benutzername und -Kennwort:** 
 
@@ -218,7 +218,7 @@ Diese Option wird vom Client beim Herstellen einer Verbindung mit SQL-Datenbank 
 
     Durch die interaktive Azure AD-Authentifizierung für Azure SQL-Datenbank und Azure Synapse Analytics können Sie eine interaktive Methode verwenden, die die mehrstufige Authentifizierung unterstützt. Weitere Informationen finden Sie unter [Interaktive Active Directory-Authentifizierung](../ssdt/azure-active-directory.md#active-directory-interactive-authentication). 
 
-   Für die interaktive Azure AD-Authentifizierung sind **sqlcmd** in [Version 15.0.1000.34](#download-the-latest-version-of-sqlcmd-utility) oder höher und [ODBC in Version 17.2 oder höher](https://aka.ms/downloadmsodbcsql) erforderlich.  
+   Für die interaktive Azure AD-Authentifizierung sind **sqlcmd** in [Version 15.0.1000.34](#download-the-latest-version-of-sqlcmd-utility) oder höher und [ODBC in Version 17.2 oder höher](../connect/odbc/download-odbc-driver-for-sql-server.md) erforderlich.  
 
    Geben Sie zum Aktivieren der interaktiven Authentifizierung die Option „-G“ nur mit dem Benutzernamen (-U) und ohne ein Kennwort an.
 
@@ -417,7 +417,7 @@ Es wird empfohlen, ein sicheres Kennwort zu verwenden.
  Wenn **-b** zusammen mit dieser Option angegeben wird, wird **sqlcmd** beim Auftreten eines Fehlers beendet. Der Schalter **-b** wird weiter unten in diesem Artikel beschrieben.  
   
  **-t** _Abfragetimeout_  
- Gibt an, wie viele Sekunden verstreichen, bevor für einen Befehl (oder eine SQL-Anweisung) ein Timeout eintritt. Durch diese Option wird die **sqlcmd** -Skriptvariable SQLCMDSTATTIMEOUT festgelegt. Wenn für *Abfragetimeout* kein Wert angegeben ist, tritt für den Befehl kein Timeout ein. Der Wert für *query**time_out* muss eine Zahl zwischen 1 und 65534 sein. Wenn der angegebene Wert kein numerischer Wert ist oder außerhalb dieses Bereichs liegt, generiert **sqlcmd** eine Fehlermeldung.  
+ Gibt an, wie viele Sekunden verstreichen, bevor für einen Befehl (oder eine SQL-Anweisung) ein Timeout eintritt. Durch diese Option wird die **sqlcmd** -Skriptvariable SQLCMDSTATTIMEOUT festgelegt. Wenn für *Abfragetimeout* kein Wert angegeben ist, tritt für den Befehl kein Timeout ein. Der Wert für *query* *time_out* muss eine Zahl zwischen 1 und 65534 sein. Wenn der angegebene Wert kein numerischer Wert ist oder außerhalb dieses Bereichs liegt, generiert **sqlcmd** eine Fehlermeldung.  
   
 > [!NOTE]  
 >  Der tatsächliche Timeoutwert kann einige Sekunden von dem für *Timeout* angegebenen Wert abweichen.  
@@ -929,7 +929,7 @@ Maximieren Sie mit folgenden Methoden die Richtigkeit:
 
 - Verwenden Sie **-V16**, um [Nachrichten des Schweregrads 16](../relational-databases/errors-events/database-engine-error-severities.md#levels-of-severity) zu protokollieren.  Nachrichten des Schweregrads 16 verweisen auf allgemeine Fehler, die der Benutzer korrigieren kann.
 
-- Überprüfen Sie nach dem Beenden des Prozesses den Exitcode und die DOS ERRORLEVEL-Variable.  **sqlcmd** gibt normalerweise 0 (null) zurück. Andernfalls wird der ERRORLEVEL-Wert wie von **-V** konfiguriert festgelegt.  Mit anderen Worten: Erwarten Sie nicht, dass ERRORLEVEL mit der Fehlernummer übereinstimmt, die von SQL Server gemeldet wird. Die Fehlernummer ist ein SQL Server-spezifischer Wert, der der Systemfunktion [ **@@ERROR** ](../t-sql/functions/error-transact-sql.md) entspricht.  ERRORLEVEL ist ein SQLCMD-spezifischer Wert, der angibt, warum SQLCMD beendet wurde, und wird durch Angabe des Befehlszeilenarguments **-b** beeinflusst.
+- Überprüfen Sie nach dem Beenden des Prozesses den Exitcode und die DOS ERRORLEVEL-Variable.  **sqlcmd** gibt normalerweise 0 (null) zurück. Andernfalls wird der ERRORLEVEL-Wert wie von **-V** konfiguriert festgelegt.  Mit anderen Worten: Erwarten Sie nicht, dass ERRORLEVEL mit der Fehlernummer übereinstimmt, die von SQL Server gemeldet wird. Die Fehlernummer ist ein SQL Server-spezifischer Wert, der der Systemfunktion [ **@@ERROR**](../t-sql/functions/error-transact-sql.md) entspricht.  ERRORLEVEL ist ein SQLCMD-spezifischer Wert, der angibt, warum SQLCMD beendet wurde, und wird durch Angabe des Befehlszeilenarguments **-b** beeinflusst.
 
 Die Verwendung von **-V16** in Kombination mit der Überprüfung von Exitcode und DOS ERRORLEVEL kann dazu beitragen, Fehler in automatisierten Umgebungen zu erfassen, insbesondere Quality Gates vor einem Produktionsrelease.
 

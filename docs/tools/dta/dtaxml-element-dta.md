@@ -9,18 +9,17 @@ dev_langs:
 - XML
 helpviewer_keywords:
 - DTAXML element
-ms.assetid: 3d9942ed-8a27-40db-a7c9-808984d914a2
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: 9dd7f40c3cfbac8739caacc10eb821fcd8b8845b
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 8d82b1d9198946d9ef7c14e80d443d151a7154d3
+ms.sourcegitcommit: 00be343d0f53fe095a01ea2b9c1ace93cdcae724
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85785996"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98812862"
 ---
 # <a name="dtaxml-element-dta"></a>DTAXML-Element (DTA)
 
@@ -62,7 +61,7 @@ Das Stammelement einer XML-Eingabe- oder -Ausgabedatei des Datenbankoptimierungs
 |**Untergeordnete Elemente**|[DTAInput-Element &#40;DTA&#41;](../../tools/dta/dtainput-element-dta.md)<br /><br /> **DTAOutput**-Element (weitere Informationen finden Sie im Thema zum [XML-Schema für den Datenbankoptimierungsratgeber](https://schemas.microsoft.com/sqlserver/))|  
   
 ## <a name="remarks"></a>Bemerkungen  
- Weitere Informationen zu XML-Namespaces finden Sie unter [Namespaces in an XML Document](https://go.microsoft.com/fwlink/?LinkId=7341) (in Englisch) in der [!INCLUDE[msCoName](../../includes/msconame-md.md)] MSDN Library.  
+ Weitere Informationen zu XML-Namespaces finden Sie unter [Namespaces in an XML Document](/dotnet/standard/data/xml/managing-namespaces-in-an-xml-document) (in Englisch). 
   
 ## <a name="example"></a>Beispiel  
  Beispiele für typische **DTAXML**-Elemente finden Sie unter [Beispiele für XML-Eingabedateien &#40;DTA&#41;](../../tools/dta/xml-input-file-samples-dta.md).  
@@ -70,5 +69,4 @@ Das Stammelement einer XML-Eingabe- oder -Ausgabedatei des Datenbankoptimierungs
 ## <a name="see-also"></a>Weitere Informationen  
  [XML-Eingabedateireferenz &#40;Datenbankoptimierungsratgeber&#41;](../../tools/dta/xml-input-file-reference-database-engine-tuning-advisor.md)   
  [Starten und Verwenden des Datenbankoptimierungsratgebers](../../relational-databases/performance/start-and-use-the-database-engine-tuning-advisor.md)  
-  
   

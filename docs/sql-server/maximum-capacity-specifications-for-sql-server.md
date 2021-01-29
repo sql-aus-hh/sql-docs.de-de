@@ -21,12 +21,12 @@ helpviewer_keywords:
 ms.assetid: 13e95046-0e76-4604-b561-d1a74dd824d7
 ms.author: mikeray
 author: MikeRayMSFT
-ms.openlocfilehash: 126ac3c36d7e72205c4e0268fcd4b1cedf993169
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: b4f0e4ed75e992095cff1f9ae315e3036ba7ef90
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172382"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766226"
 ---
 # <a name="maximum-capacity-specifications-for-sql-server"></a>Spezifikationen der maximalen Kapazität für SQL Server
 
@@ -122,7 +122,7 @@ Die maximale Größe und Anzahl verschiedener, im [!INCLUDE[ssNoVersion](../incl
 |Protokolldateien pro Datenbank|1|
 |Volumes pro Computer|3|
 
-<sup>*</sup> Die maximale Anzahl verwalteter [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Instanzen, die vom [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Hilfsprogramm unterstützt werden, ist von der Hardwarekonfiguration des Servers abhängig. Informationen zu ersten Schritten finden Sie unter [Funktionen und Tasks im SQL Server-Hilfsprogramm](../relational-databases/manage/sql-server-utility-features-and-tasks.md). [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Ein Steuerungspunkt für das Hilfsprogramm ist nicht in jeder Edition von [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)]verfügbar. Eine Liste der Funktionen, die von den [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Editionen unterstützt werden, finden Sie unter [Von den SQL Server 2016-Editionen unterstützte Funktionen](./editions-and-components-of-sql-server-2016.md).
+<sup>*</sup> Die maximale Anzahl verwalteter [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Instanzen, die vom [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Hilfsprogramm unterstützt werden, ist von der Hardwarekonfiguration des Servers abhängig. Informationen zu ersten Schritten finden Sie unter [Funktionen und Tasks im SQL Server-Hilfsprogramm](../relational-databases/manage/sql-server-utility-features-and-tasks.md). [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Ein Steuerungspunkt für das Hilfsprogramm ist nicht in jeder Edition von [!INCLUDE[ssnoversion](../includes/ssnoversion-md.md)]verfügbar. Eine Liste der von den Editionen von [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] unterstützten Features finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2019](./editions-and-components-of-sql-server-version-15.md), [Editionen und unterstützte Funktionen von SQL Server 2017](./editions-and-components-of-sql-server-2017.md) oder [Editionen und unterstützte Funktionen von SQL Server 2016](./editions-and-components-of-sql-server-2016.md).
 
 ## <a name="ssnoversion-data-tier-application-objects"></a>[!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]-Datenschichtanwendungsobjekte
 

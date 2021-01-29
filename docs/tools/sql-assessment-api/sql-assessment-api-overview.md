@@ -8,13 +8,13 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
 ms.custom: ''
-ms.date: 11/04/2019
-ms.openlocfilehash: a778fd92a44a229ae6806cef31a10b728f241865
-ms.sourcegitcommit: e8f6c51d4702c0046aec1394109bc0503ca182f0
+ms.date: 1/25/2021
+ms.openlocfilehash: 39c48fc84047deea9c2bf49751c9bc3a491023b7
+ms.sourcegitcommit: 108bc8e576a116b261c1cc8e4f55d0e0713d402c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987671"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98766394"
 ---
 # <a name="sql-assessment-api"></a>SQL-Bewertungs-API
 
@@ -22,7 +22,13 @@ Die API für die SQL-Bewertung bietet einen Mechanismus, um die Konfiguration Ih
 
 Die API für die SQL-Bewertung ist nützlich, wenn Sie sicherstellen möchten, dass Ihre SQL Server-Konfiguration den empfohlenen Best Practices entspricht. Nach einer anfänglichen Bewertung kann die Konfigurationsstabilität durch regelmäßig durchgeführte Bewertungen nachverfolgt werden.
 
-Die API kann verwendet werden, um Azure SQL Managed Instance und SQL Server-Versionen ab Version 2012 zu bewerten. SQL unter Linux wird ebenfalls unterstützt.
+Die API kann verwendet werden, um folgende Systeme zu bewerten:
+ 
+* Die verwaltete Azure SQL-Datenbank-Instanz und SQL Server Version 2012 und höher
+
+* SQL auf Linux-basierten Systemen
+
+Die API wird auch von der SQL Server-Bewertungserweiterung für Azure Data Studio (ADS) verwendet.
 
 ## <a name="rules"></a>Regeln
 
@@ -30,9 +36,25 @@ Regeln, die gelegentlich auch als Überprüfungen bezeichnet werden, werden in J
 
 Der von Microsoft bereitgestellte Regelsatz ist auf GitHub verfügbar. Weitere Informationen finden Sie im [Repository mit Beispielen](https://aka.ms/sql-assessment-api).
 
-## <a name="sql-assessment-cmdlets-and-smo-extension"></a>Cmdlets für SQL-Bewertung und SMO-Erweiterung
+## <a name="sql-assessment-cmdlets-and-associated-extensions"></a>Cmdlets für SQL-Bewertung und zugehörige Erweiterungen
 
-Die API für die SQL-Bewertung ist Bestandteil von [SQL Server Management Objects (SMO)](../../relational-databases/server-management-objects-smo/installing-smo.md) (Version von Juli 2019 und höher) und dem [SQL Server PowerShell-Modul](../../powershell/download-sql-server-ps-module.md) (Version von Juli 2019 und höher).
+Die API der SQL-Bewertung ist Teil von:
+
+* [Azure Data Studio (ADS)](../../azure-data-studio/what-is-azure-data-studio.md)
+
+    Releaseversion von Juni 2020 und später
+
+* [SQL Server Management Objects (SMO)](../../relational-databases/server-management-objects-smo/installing-smo.md)
+
+    Releaseversion von Juli 2019 und später
+
+* [Dem SQL Server PowerShell-Modul](../../powershell/download-sql-server-ps-module.md)
+
+    Releaseversion von Juli 2019 und später
+
+Bevor Sie mit der Verwendung der API der SQL-Bewertung beginnen, führen Sie folgende Schritte aus:
+
+* [Installieren von ADS](https://techcommunity.microsoft.com/t5/sql-server/released-sql-server-assessment-extension-for-azure-data-studio/ba-p/1470603)
 
 * [Installieren von SMO](../../relational-databases/server-management-objects-smo/installing-smo.md)
 
@@ -46,11 +68,11 @@ Das SqlServer-Modul enthält zwei neue Cmdlets für die Arbeit mit der API für 
 
 Das SMO-Framework wird um die API-Erweiterung für die SQL-Bewertung ergänzt, die folgende Methoden bereitstellt:
 
-* **GetAssessmentItems** : Gibt verfügbare Überprüfungen für ein bestimmtes SQL-Objekt zurück (IEnumerable<…>).
+* **GetAssessmentItems**: Gibt verfügbare Überprüfungen für ein bestimmtes SQL-Objekt zurück (IEnumerable<…>)
 
-* **GetAssessmentResults** : Führt eine synchrone Auswertung der Bewertung durch und gibt Fehler zurück, sofern vorhanden (IEnumerable<…>).
+* **GetAssessmentResults**: Führt eine synchrone Auswertung der Bewertung durch und gibt Fehler zurück, sofern vorhanden (IEnumerable<…>)
 
-* **GetAssessmentResultsList** : Führt eine asynchrone Auswertung der Bewertung durch und gibt Fehler zurück, sofern vorhanden (Task<…>).
+* **GetAssessmentResultsList**: Führt eine asynchrone Auswertung der Bewertung durch und gibt Fehler zurück, sofern vorhanden (Task<…>)
 
 ## <a name="get-started-using-sql-assessment-cmdlets"></a>Erste Schritte mit den Cmdlets für die SQL-Bewertung
 
